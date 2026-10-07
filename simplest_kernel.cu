@@ -2,6 +2,9 @@
 #include <iostream>
 #include <vector>
 
+// 【学习补充】阅读 GEMM 前的索引练习：16 个一维线程铺成 4×4 输出。
+// x=tid/4 是行号，y=tid%4 是列号；row 参数在地址公式中实际充当行跨度。
+// 这个例子硬编码了 4，不能只改 SIZE 就当成任意尺寸版本。
 __global__ void kernel(uint *A, uint *B, int row) {
   auto x = threadIdx.x / 4;
   auto y = threadIdx.x % 4;
@@ -15,22 +18,26 @@ int main(int argc, char **argv) {
 
   uint SIZE = 4;
 
+  // 主机内存与设备内存分别分配，指针不能混用。
   Xs = (uint *)malloc(SIZE * SIZE * sizeof(uint));
   Ys = (uint *)malloc(SIZE * SIZE * sizeof(uint));
 
   cudaMalloc((void **)&Xs_d, SIZE * SIZE * sizeof(uint));
   cudaMalloc((void **)&Ys_d, SIZE * SIZE * sizeof(uint));
 
+  // 一个 block、16 个线程；不是 4×4 的二维 threadIdx。
   dim3 grid_size(1, 1, 1);
   dim3 block_size(4 * 4);
 
   kernel<<<grid_size, block_size>>>(Xs_d, Ys_d, 4);
 
+  // 结果拷回 CPU 后，再由 CPU 打印。
   cudaMemcpy(Xs, Xs_d, SIZE * SIZE * sizeof(uint), cudaMemcpyDeviceToHost);
   cudaMemcpy(Ys, Ys_d, SIZE * SIZE * sizeof(uint), cudaMemcpyDeviceToHost);
 
   cudaDeviceSynchronize();
 
+  // 预期每个位置打印 [行号|列号]；先手算 tid=0、3、4、15 对应的位置。
   for (int row = 0; row < SIZE; ++row) {
     for (int col = 0; col < SIZE; ++col) {
       std::cout << "[" << Xs[row * SIZE + col] << "|" << Ys[row * SIZE + col]

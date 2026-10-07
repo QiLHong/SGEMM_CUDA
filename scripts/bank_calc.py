@@ -1,3 +1,7 @@
+# 【学习补充】共享内存 bank 映射的纸面计算辅助脚本，不是 GPU 性能分析器。
+# 对以 float 为单位的线性索引，模 32 得到本例的 bank 编号。
+# 行跨度从 32 变成 33 会改变行起点的 bank，从而改变具体访问模式的冲突情况。
+# 不能只统计 bank 编号就忽略“同地址广播”等硬件行为。
 banks_naive = lambda r, c: (r * 32 + c) % 32
 banks_one_extra = lambda r, c: (r * 33 + c) % 32
 
@@ -26,6 +30,8 @@ def printBankConflicts(bank_fun):
         )
 
 
+# 【上游限制】函数定义只有一个参数，下面原调用却传入两个，直接运行会触发 TypeError。
+# 中文学习分支保留这个调用，不把代码修复混入翻译；详见 docs/zh/03-原版限制与验证.md。
 print("---NAIVE---")
 printBankConflicts(banks_naive, 32)
 

@@ -2,9 +2,10 @@
 
 set -euo pipefail
 
-# This scripts runs the ./sgemm binary for all exiting kernels, and logs
-# the outputs to text files in benchmark_results/. Then it calls
-# the plotting script
+# 运行 sgemm，并把输出保存到 benchmark_results/，最后调用绘图脚本。
+# 【学习补充】原注释称“全部已有 kernel”，但实际循环只包含 0–10，不含 11/12。
+# 请从仓库根目录运行；绘图脚本会改写 README.md 结果表及 benchmark_results.png。
+# 为保留上游历史表，建议在单独实验分支运行，而不是直接覆盖中文学习分支。
 
 mkdir -p benchmark_results
 

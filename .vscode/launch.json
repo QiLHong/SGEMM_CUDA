@@ -1,7 +1,9 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // 使用 IntelliSense 查看可配置属性。
+    // 鼠标悬停可查看已有属性的解释。
+    // 参考文档：https://go.microsoft.com/fwlink/?linkid=830387
+    // 学习补充：此配置启动 CMake 选定的目标，并传入 kernel 编号 10。
+    // 需要 CUDA 调试器；Debug 运行结果不应用作正式性能数字。
     "version": "0.2.0",
     "configurations": [
         {

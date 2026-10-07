@@ -3,7 +3,9 @@
 #include <cuda_runtime.h>
 
 /*
- * A stand-alone script to invoke & benchmark standard cuBLAS SGEMM performance
+ * 原作者说明：独立调用并测试标准 cuBLAS SGEMM。
+ * 【学习补充】当前文件是 2×3 乘 3×4 的打印演示，没有计时循环。
+ * 正式比较吞吐率请使用 sgemm 0，而不要把这个演示当作 GFLOPS benchmark。
  */
 
 int main(int argc, char *argv[]) {
@@ -11,15 +13,15 @@ int main(int argc, char *argv[]) {
   int k = 3;
   int n = 4;
   int print = 1;
-  cudaError_t cudaStat;  // cudaMalloc status
-  cublasStatus_t stat;   // cuBLAS functions status
-  cublasHandle_t handle; // cuBLAS context
+  cudaError_t cudaStat;  // cudaMalloc 状态变量（保留原实现）。
+  cublasStatus_t stat;   // cuBLAS 函数返回状态。
+  cublasHandle_t handle; // cuBLAS 上下文句柄。
 
   int i, j;
 
   float *a, *b, *c;
 
-  // malloc for a,b,c...
+  // 为 CPU 侧 A/B/C 分配内存。
   a = (float *)malloc(m * k * sizeof(float));
   b = (float *)malloc(k * n * sizeof(float));
   c = (float *)malloc(m * n * sizeof(float));
@@ -39,15 +41,15 @@ int main(int argc, char *argv[]) {
     c[j] = (float)ind++;
   }
 
-  // DEVICE
+  // GPU 侧指针。
   float *d_a, *d_b, *d_c;
 
-  // cudaMalloc for d_a, d_b, d_c...
+  // 为设备端 A/B/C 分配空间。
   cudaMalloc((void **)&d_a, m * k * sizeof(float));
   cudaMalloc((void **)&d_b, k * n * sizeof(float));
   cudaMalloc((void **)&d_c, m * n * sizeof(float));
 
-  stat = cublasCreate(&handle); // initialize CUBLAS context
+  stat = cublasCreate(&handle); // 初始化 cuBLAS 上下文。
 
   cudaMemcpy(d_a, a, m * k * sizeof(float), cudaMemcpyHostToDevice);
   cudaMemcpy(d_b, b, k * n * sizeof(float), cudaMemcpyHostToDevice);
@@ -61,6 +63,8 @@ int main(int argc, char *argv[]) {
     printf("A = (mxk: %d x %d)\n", m, k);
     for (i = 0; i < m; i++) {
       for (j = 0; j < k; j++) {
+        // 【学习补充】原打印索引是 i*m+j；对行主序 [m,k] 应检查 i*k+j。
+        // 本分支只注释，不修此上游演示问题；不要从这段打印反推正确布局。
         printf("%4.1f ", a[i * m + j]);
       }
       printf("\n");
@@ -81,6 +85,8 @@ int main(int argc, char *argv[]) {
     }
   }
 
+  // cuBLAS 按列主序解释数据：交换 A/B 和 M/N，利用 (AB)^T=B^T*A^T。
+  // 这里不实际分配转置矩阵，底层仍然使用相同的内存。
   stat = cublasSgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N, n, m, k, &alpha, d_b, n,
                      d_a, k, &beta, d_c, n);
 
@@ -99,7 +105,7 @@ int main(int argc, char *argv[]) {
   cudaFree(d_a);
   cudaFree(d_b);
   cudaFree(d_c);
-  cublasDestroy(handle); // destroy CUBLAS context
+  cublasDestroy(handle); // 销毁 cuBLAS 上下文。
   free(a);
   free(b);
   free(c);

@@ -9,6 +9,11 @@
 
 #define CEIL_DIV(M, N) (((M) + (N)-1) / (N))
 
+// 【学习补充】Kernel 5：每线程计算 TM×TN 的二维寄存器小块。
+// 每个 dotIdx 读取 TM 个 A 和 TN 个 B，组合出 TM*TN 次乘加。
+// 复用更高，但 threadResults 越大，寄存器压力也越高；不是 tile 越大越好。
+// __launch_bounds__ 向编译器提供线程数/驻留目标信息，不等于保证实际 occupancy。
+// 本版本仍要求尺寸、分块与搬运步长匹配；没有通用边界处理。
 template <const int BM, const int BN, const int BK, const int TM, const int TN>
 __global__ void __launch_bounds__((BM * BN) / (TM * TN), 1)
     sgemm2DBlocktiling(int M, int N, int K, float alpha, const float *A,
@@ -17,47 +22,44 @@ __global__ void __launch_bounds__((BM * BN) / (TM * TN), 1)
   const uint cCol = blockIdx.x;
 
   const uint totalResultsBlocktile = BM * BN;
-  // A thread is responsible for calculating TM*TN elements in the blocktile
+  // 一个线程负责输出块中的 TM*TN 个元素。
   const uint numThreadsBlocktile = totalResultsBlocktile / (TM * TN);
 
-  // ResultsPerBlock / ResultsPerThread == ThreadsPerBlock
+  // 每块输出数 / 每线程输出数 = 每块线程数。
   assert(numThreadsBlocktile == blockDim.x);
 
-  // BN/TN are the number of threads to span a column
+  // BN/TN 是沿 N 方向铺满输出块所需的线程小块数。
+  // 【注释辨析】原文称 span a column；以下取余实际对应横向的列小块编号。
   const int threadCol = threadIdx.x % (BN / TN);
   const int threadRow = threadIdx.x / (BN / TN);
 
-  // allocate space for the current blocktile in smem
+  // 当前 A/B 子块占用的共享内存。
   __shared__ float As[BM * BK];
   __shared__ float Bs[BK * BN];
 
-  // Move blocktile to beginning of A's row and B's column
+  // 移到 A 行块、B 列块和 C 输出块的起点。
   A += cRow * BM * K;
   B += cCol * BN;
   C += cRow * BM * N + cCol * BN;
 
-  // calculating the indices that this thread will load into SMEM
+  // 搬运任务与计算任务分开映射：这些坐标用于合作填充 As/Bs。
   const uint innerRowA = threadIdx.x / BK;
   const uint innerColA = threadIdx.x % BK;
-  // calculates the number of rows of As that are being loaded in a single step
-  // by a single block
+  // 全块线程每轮可覆盖 As 的多少行；循环让每线程搬运多个元素。
   const uint strideA = numThreadsBlocktile / BK;
   const uint innerRowB = threadIdx.x / BN;
   const uint innerColB = threadIdx.x % BN;
-  // for both As and Bs we want each load to span the full column-width, for
-  // better GMEM coalescing (as opposed to spanning full row-width and iterating
-  // across columns)
+  // 对 As/Bs，先让线程覆盖连续列，再按行步长推进，以改善全局合并访问。
   const uint strideB = numThreadsBlocktile / BN;
 
-  // allocate thread-local cache for results in registerfile
+  // 线程私有结果与 A/B 寄存器缓存。
   float threadResults[TM * TN] = {0.0};
-  // register caches for As and Bs
   float regM[TM] = {0.0};
   float regN[TN] = {0.0};
 
-  // outer-most loop over block tiles
+  // 最外层遍历 K 方向的子块。
   for (uint bkIdx = 0; bkIdx < K; bkIdx += BK) {
-    // populate the SMEM caches
+    // 多轮合作加载，使较少的计算线程仍能填满整个共享缓存。
     for (uint loadOffset = 0; loadOffset < BM; loadOffset += strideA) {
       As[(innerRowA + loadOffset) * BK + innerColA] =
           A[(innerRowA + loadOffset) * K + innerColA];
@@ -68,13 +70,13 @@ __global__ void __launch_bounds__((BM * BN) / (TM * TN), 1)
     }
     __syncthreads();
 
-    // advance blocktile
-    A += BK;     // move BK columns to right
-    B += BK * N; // move BK rows down
+    // 推进到下一段 K。
+    A += BK;     // A 向右移动 BK 列。
+    B += BK * N; // B 向下移动 BK 行。
 
-    // calculate per-thread results
+    // 每个 dotIdx 做一次 TM×TN 外积，累加到线程的二维结果块。
     for (uint dotIdx = 0; dotIdx < BK; ++dotIdx) {
-      // block into registers
+      // 共享内存 → 线程私有寄存器缓存。
       for (uint i = 0; i < TM; ++i) {
         regM[i] = As[(threadRow * TM + i) * BK + dotIdx];
       }
@@ -91,7 +93,7 @@ __global__ void __launch_bounds__((BM * BN) / (TM * TN), 1)
     __syncthreads();
   }
 
-  // write out the results
+  // 寄存器结果映射回 C；这里 N 是完整 C 的行跨度，不是 BN。
   for (uint resIdxM = 0; resIdxM < TM; ++resIdxM) {
     for (uint resIdxN = 0; resIdxN < TN; ++resIdxN) {
       C[(threadRow * TM + resIdxM) * N + threadCol * TN + resIdxN] =

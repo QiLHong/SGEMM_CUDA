@@ -9,6 +9,11 @@
 
 #define CEIL_DIV(M, N) (((M) + (N)-1) / (N))
 
+// 【学习补充】Kernel 7：改变 Bs 的共享内存布局，尝试减少 bank 冲突。
+// 对 FP32 地址，可先用“字节地址/4 再模 32”推导 bank（本教程目标架构）。
+// 同一 warp 访问同 bank 的不同字可能冲突；读取同一字的广播不能等同于冲突。
+// 本版本的 8、16 是布局常量，匹配 runner 的 TN=8、BN=128；不是通用模板。
+// 降低 bank 冲突不保证更快：这里重排时还增加了标量写入和地址计算。
 template <const int BM, const int BN, const int BK, const int TM, const int TN>
 __global__ void sgemmResolveBankConflicts(int M, int N, int K, float alpha,
                                           float *A, float *B, float beta,
@@ -16,35 +21,33 @@ __global__ void sgemmResolveBankConflicts(int M, int N, int K, float alpha,
   const uint cRow = blockIdx.y;
   const uint cCol = blockIdx.x;
 
-  // BN/TN are the number of threads to span a column
+  // BN/TN 是 N 方向线程小块数；原注释称 span a column，按下式理解。
   const int threadCol = threadIdx.x % (BN / TN);
   const int threadRow = threadIdx.x / (BN / TN);
 
-  // allocate space for the current blocktile in smem
+  // As 转置存储；Bs 的元素数不变，但物理排列与 Kernel 6 不同。
   __shared__ float As[BM * BK];
   __shared__ float Bs[BK * BN];
 
-  // Move blocktile to beginning of A's row and B's column
+  // 移到当前 block 的 A/B/C 子块起点。
   A += cRow * BM * K;
   B += cCol * BN;
   C += cRow * BM * N + cCol * BN;
 
-  // calculating the indices that this thread will load into SMEM
-  // we'll load 128bit / 32bit = 4 elements per thread at each step
+  // 合作搬运坐标；每步每线程从全局内存读取四个 FP32 元素。
   const uint innerRowA = threadIdx.x / (BK / 4);
   const uint innerColA = threadIdx.x % (BK / 4);
   const uint innerRowB = threadIdx.x / (BN / 4);
   const uint innerColB = threadIdx.x % (BN / 4);
 
-  // allocate thread-local cache for results in registerfile
+  // 线程私有的结果和 A/B 寄存器缓存。
   float threadResults[TM * TN] = {0.0};
   float regM[TM] = {0.0};
   float regN[TN] = {0.0};
 
-  // outer-most loop over block tiles
+  // 沿 K 维遍历子块；与此前优化 kernel 一样，未实现通用尾块屏蔽。
   for (uint bkIdx = 0; bkIdx < K; bkIdx += BK) {
-    // populate the SMEM caches
-    // transpose A while loading it
+    // A 在加载到共享内存时转置。
     float4 tmp =
         reinterpret_cast<float4 *>(&A[innerRowA * K + innerColA * 4])[0];
     As[(innerColA * 4 + 0) * BM + innerRowA] = tmp.x;
@@ -52,7 +55,9 @@ __global__ void sgemmResolveBankConflicts(int M, int N, int K, float alpha,
     As[(innerColA * 4 + 2) * BM + innerRowA] = tmp.z;
     As[(innerColA * 4 + 3) * BM + innerRowA] = tmp.w;
 
-    // "linearize" Bs while storing it
+    // 原文称把 Bs “线性化”：把连续 8 列分成两个 float4，
+    // 改存为 [k*8 + 组内列, 8列组编号]，最内层有 16 个组。
+    // 写入与下面 regN 的读取必须采用同一映射，不能只改其中一侧。
     tmp = reinterpret_cast<float4 *>(&B[innerRowB * N + innerColB * 4])[0];
     Bs[((innerColB % 2) * 4 + innerRowB * 8 + 0) * 16 + innerColB / 2] = tmp.x;
     Bs[((innerColB % 2) * 4 + innerRowB * 8 + 1) * 16 + innerColB / 2] = tmp.y;
@@ -60,13 +65,12 @@ __global__ void sgemmResolveBankConflicts(int M, int N, int K, float alpha,
     Bs[((innerColB % 2) * 4 + innerRowB * 8 + 3) * 16 + innerColB / 2] = tmp.w;
     __syncthreads();
 
-    // advance blocktile
-    A += BK;     // move BK columns to right
-    B += BK * N; // move BK rows down
+    // 推进到下一段 K。
+    A += BK;     // A 向右 BK 列。
+    B += BK * N; // B 向下 BK 行。
 
-    // calculate per-thread results
+    // 读取共享缓存到寄存器，再执行 TM×TN 外积。
     for (uint dotIdx = 0; dotIdx < BK; ++dotIdx) {
-      // block into registers
       for (uint i = 0; i < TM; ++i) {
         regM[i] = As[dotIdx * BM + threadRow * TM + i];
       }
@@ -83,18 +87,18 @@ __global__ void sgemmResolveBankConflicts(int M, int N, int K, float alpha,
     __syncthreads();
   }
 
-  // write out the results
+  // 沿 C 的列方向每次写回四个结果。
   for (uint resIdxM = 0; resIdxM < TM; resIdxM += 1) {
     for (uint resIdxN = 0; resIdxN < TN; resIdxN += 4) {
-      // load C vector into registers
+      // 读取旧 C 的向量。
       float4 tmp = reinterpret_cast<float4 *>(
           &C[(threadRow * TM + resIdxM) * N + threadCol * TN + resIdxN])[0];
-      // perform GEMM update in reg
+      // 在寄存器中进行 GEMM 的 alpha/beta 更新。
       tmp.x = alpha * threadResults[resIdxM * TN + resIdxN] + beta * tmp.x;
       tmp.y = alpha * threadResults[resIdxM * TN + resIdxN + 1] + beta * tmp.y;
       tmp.z = alpha * threadResults[resIdxM * TN + resIdxN + 2] + beta * tmp.z;
       tmp.w = alpha * threadResults[resIdxM * TN + resIdxN + 3] + beta * tmp.w;
-      // write back
+      // 写回。
       reinterpret_cast<float4 *>(
           &C[(threadRow * TM + resIdxM) * N + threadCol * TN + resIdxN])[0] =
           tmp;

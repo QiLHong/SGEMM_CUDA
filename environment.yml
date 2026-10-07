@@ -1,3 +1,6 @@
+# 上游的辅助 Python/绘图环境；它不是完整锁定的 CUDA 编译工具链。
+# CUDA Toolkit/nvcc、C++ 编译器、Ninja/Make 及 ncu 需要另外检查。
+# 本分支仅补充说明，不升级或锁定依赖，也不改已有 liteq3080 环境。
 name: SGEMM_CUDA
 channels:
   - conda-forge

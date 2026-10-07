@@ -5,6 +5,12 @@
 #include <fstream>
 #include <iomanip>
 
+// 【学习补充】本文件是“主机调用”和“GPU kernel”之间的桥梁。
+// 阅读顺序：末尾 run_kernel 的编号分发 → 对应 runSgemm... → 目标 kernel。
+// 此处的模板参数决定分块形状；只读 kernel 而不读 launch 配置，会漏掉重要前提。
+// 为兼容现有脚本，函数名、错误字符串、性能输出和参数声明均保持上游形式。
+
+// 返回微秒量级的主机时间；不要因函数名含 sec 就直接按秒使用。
 float get_sec() {
   struct timeval time;
   gettimeofday(&time, NULL);
@@ -21,6 +27,7 @@ void cudaCheck(cudaError_t error, const char *file, int line) {
   }
 };
 
+// 打印运行设备资源；资源上限用于理解配置，不等于实际达到的 occupancy。
 void CudaDeviceInfo() {
   int deviceId;
 
@@ -52,8 +59,8 @@ void CudaDeviceInfo() {
 };
 
 void randomize_matrix(float *mat, int N) {
-  // NOTICE: Use gettimeofday instead of srand((unsigned)time(NULL)); the time
-  // precision is too low and the same random number is generated.
+  // 原作者提醒：time(NULL) 精度过低，连续调用可能生成相同随机序列。
+  // 改用 gettimeofday 的微秒字段作种子；注意这也意味着每次运行输入未固定。
   struct timeval time {};
   gettimeofday(&time, nullptr);
   srand(time.tv_usec);
@@ -87,11 +94,11 @@ void copy_matrix(const float *src, float *dest, int N) {
 void print_matrix(const float *A, int M, int N, std::ofstream &fs) {
   int i;
   fs << std::setprecision(2)
-     << std::fixed; // Set floating-point precision and fixed notation
+     << std::fixed; // 设置两位小数和定点打印格式。
   fs << "[";
   for (i = 0; i < M * N; i++) {
     if ((i + 1) % N == 0)
-      fs << std::setw(5) << A[i]; // Set field width and write the value
+      fs << std::setw(5) << A[i]; // 设置字段宽度并写入数值。
     else
       fs << std::setw(5) << A[i] << ", ";
     if ((i + 1) % N == 0) {
@@ -102,6 +109,8 @@ void print_matrix(const float *A, int M, int N, std::ofstream &fs) {
   fs << "]\n";
 }
 
+// 逐元素对照 cuBLAS：拒绝 NaN 差值以及绝对误差超过 0.01 的结果。
+// 【学习补充】这是上游的固定校验策略，不是逐位相等或通用相对误差指标。
 bool verify_matrix(float *matRef, float *matOut, int N) {
   double diff = 0.0;
   int i;
@@ -123,9 +132,9 @@ int div_ceil(int numerator, int denominator) {
 
 void runCublasFP32(cublasHandle_t handle, int M, int N, int K, float alpha,
                    float *A, float *B, float beta, float *C) {
-  // cuBLAS uses column-major order. So we change the order of our row-major A &
-  // B, since (B^T*A^T)^T = (A*B)
-  // This runs cuBLAS in full fp32 mode
+  // cuBLAS 按列主序解释数组。行主序 A/B 的同一内存可解释成其转置，
+  // 因为 (B^T*A^T)^T=A*B，所以交换操作数并传入 N/M，无需实际转置拷贝。
+  // 这里选择 CUBLAS_COMPUTE_32F，是主 benchmark 的 FP32 基线。
   cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, M, K, &alpha, B, CUDA_R_32F,
                N, A, CUDA_R_32F, K, &beta, C, CUDA_R_32F, N, CUBLAS_COMPUTE_32F,
                CUBLAS_GEMM_DEFAULT_TENSOR_OP);
@@ -133,8 +142,9 @@ void runCublasFP32(cublasHandle_t handle, int M, int N, int K, float alpha,
 
 void runCublasBF16(cublasHandle_t handle, int M, int N, int K, float alpha,
                    float *A, float *B, float beta, float *C) {
-  // This runs cuBLAS with mixed precision (performing the mul with operands
-  // downcast to bf16), which is ~4x faster
+  // 混合精度路径：允许将 FP32 输入转换为 BF16 进行乘法。
+  // 原作者注释给出约 4 倍加速，这是其观察值，不保证在每个尺寸/GPU 上成立。
+  // 该函数不是 run_kernel 中编号 0 的路径，不能混用数值契约比较。
   cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, M, K, &alpha, B, CUDA_R_32F,
                N, A, CUDA_R_32F, K, &beta, C, CUDA_R_32F, N,
                CUBLAS_COMPUTE_32F_FAST_16BF, CUBLAS_GEMM_DEFAULT_TENSOR_OP);
@@ -142,8 +152,9 @@ void runCublasBF16(cublasHandle_t handle, int M, int N, int K, float alpha,
 
 void runCublasTF32(cublasHandle_t handle, int M, int N, int K, float alpha,
                    float *A, float *B, float beta, float *C) {
-  // This runs cuBLAS with mixed precision (performing the mul with operands
-  // downcast to bf16), which is ~4x faster
+  // 原注释复制了上一函数的 BF16/~4x 说明。
+  // 【注释辨析】实际枚举为 FAST_TF32，表示允许 TF32 快速计算，而不是 BF16。
+  // 保留代码；不要把这条混合精度路径与普通 FP32 kernel 当作同精度结果。
   cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, M, K, &alpha, B, CUDA_R_32F,
                N, A, CUDA_R_32F, K, &beta, C, CUDA_R_32F, N,
                CUBLAS_COMPUTE_32F_FAST_TF32, CUBLAS_GEMM_DEFAULT_TENSOR_OP);
@@ -151,6 +162,7 @@ void runCublasTF32(cublasHandle_t handle, int M, int N, int K, float alpha,
 
 void run_sgemm_naive(int M, int N, int K, float alpha, float *A, float *B,
                      float beta, float *C) {
+  // Kernel 1：二维 block，threadIdx.x 对应输出行；与 Kernel 2 的映射作对照。
   dim3 gridDim(CEIL_DIV(M, 32), CEIL_DIV(N, 32));
   dim3 blockDim(32, 32);
   sgemm_naive<<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
@@ -158,6 +170,7 @@ void run_sgemm_naive(int M, int N, int K, float alpha, float *A, float *B,
 
 void run_sgemm_coalesce(int M, int N, int K, float alpha, float *A, float *B,
                         float beta, float *C) {
+  // Kernel 2：同样 1024 个线程，但改用一维编号，再按除法/取余铺成输出块。
   dim3 gridDim(CEIL_DIV(M, 32), CEIL_DIV(N, 32));
   dim3 blockDim(32 * 32);
   sgemm_global_mem_coalesce<32>
@@ -168,9 +181,9 @@ void run_sgemm_shared_mem_block(int M, int N, int K, float alpha, float *A,
                                 float *B, float beta, float *C) {
   dim3 gridDim(CEIL_DIV(M, 32), CEIL_DIV(N, 32));
   dim3 blockDim(32 * 32);
-  // L1 cache becomes useless, since we access GMEM only via SMEM, so we carve
-  // out all of L1 to SMEM. This doesn't currently make a difference, since
-  // occupancy is limited by reg and thread count, but it's good to do anyway.
+  // 原作者认为：此访问模式先经 shared memory 缓存，因此更偏好把片上容量给 SMEM。
+  // 其测试中 occupancy 受寄存器/线程数限制，调整 carveout 暂未带来差异。
+  // 【学习补充】这是针对本实现的偏好，不应推广成“使用 SMEM 后 L1 总是无用”。
   cudaFuncSetAttribute(sgemm_shared_mem_block<32>,
                        cudaFuncAttributePreferredSharedMemoryCarveout,
                        cudaSharedmemCarveoutMaxShared);
@@ -184,6 +197,7 @@ void runSgemm1DBlocktiling(int M, int N, int K, float alpha, float *A, float *B,
   const uint BN = 64;
   const uint BK = 8;
   const uint TM = 8;
+  // 从 Kernel 4 起，grid.x 对应输出列块，grid.y 对应行块。
   dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
   dim3 blockDim((BM * BN) / TM);
   sgemm1DBlocktiling<BM, BN, BK, TM>
@@ -203,8 +217,8 @@ void runSgemm2DBlocktiling(int M, int N, int K, float alpha, float *A, float *B,
     sgemm2DBlocktiling<BM, BN, BK, TM, TN>
         <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
   } else {
-    // this is a hacky solution to the underlying problem
-    // of not having proper bounds checking in the kernel
+    // 原作者的临时小块方案：kernel 缺少完整边界检查。
+    // 选 64 并不自动支持任意小尺寸；仍须检查整除和搬运覆盖。
     const uint BM = 64;
     const uint BN = 64;
     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
@@ -227,8 +241,8 @@ void runSgemmVectorize(int M, int N, int K, float alpha, float *A, float *B,
     sgemmVectorize<BM, BN, BK, TM, TN>
         <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
   } else {
-    // this is a hacky solution to the underlying problem
-    // of not having proper bounds checking in the kernel
+    // 原作者临时缩小分块以应对缺少边界检查的问题；不是通用 fallback。
+    // 【学习补充】还必须核对每线程一个 float4 是否能覆盖完整 As/Bs。
     const uint BM = 64;
     const uint BN = 64;
     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
@@ -251,8 +265,8 @@ void runSgemmResolveBankConflicts(int M, int N, int K, float alpha, float *A,
     sgemmResolveBankConflicts<BM, BN, BK, TM, TN>
         <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
   } else {
-    // this is a hacky solution to the underlying problem
-    // of not having proper bounds checking in the kernel
+    // 原作者的临时小块方案；kernel 内布局含 8/16 常量，不能仅缩小 BM/BN 就保证正确。
+    // 本分支保留原逻辑，学习时应把此处与 7 号 kernel 的索引共同检查。
     const uint BM = 64;
     const uint BN = 64;
     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
@@ -275,8 +289,7 @@ void runSgemmResolveBankExtraCol(int M, int N, int K, float alpha, float *A,
     sgemmResolveBankExtraCol<BM, BN, BK, TM, TN>
         <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
   } else {
-    // this is a hacky solution to the underlying problem
-    // of not having proper bounds checking in the kernel
+    // 原作者的临时方案；缺少完善边界检查，仍须满足子块与加载覆盖前提。
     const uint BM = 64;
     const uint BN = 64;
     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
@@ -288,13 +301,13 @@ void runSgemmResolveBankExtraCol(int M, int N, int K, float alpha, float *A,
 
 void runSgemmAutotuned(int M, int N, int K, float alpha, float *A, float *B,
                        float beta, float *C) {
-  // A100
+  // 原作者为 A100 保留的配置（当前未启用）。
   // const uint K9_BK = 16;
   // const uint K9_TM = 4;
   // const uint K9_TN = 4;
   // const uint K9_BM = 64;
   // const uint K9_BN = 64;
-  // A6000
+  // 当前启用的 A6000 配置；不代表已为 RTX 3080 单独调优。
   const uint K9_BK = 16;
   const uint K9_TM = 8;
   const uint K9_TN = 8;
@@ -302,6 +315,9 @@ void runSgemmAutotuned(int M, int N, int K, float alpha, float *A, float *B,
   const uint K9_BN = 128;
   dim3 blockDim(K9_NUM_THREADS);
 
+  // 下面依次约束：一次搬运的行覆盖、线程输出区域整除以及 float4 搬运覆盖。
+  // 错误字符串中的 quantization 指分块离散化/取整问题，不是低精度权重量化。
+  // 原错误消息中的 As/Bs、参数编号等文字可能陈旧，以断言表达式为准。
   static_assert(
       (K9_NUM_THREADS * 4) % K9_BK == 0,
       "NUM_THREADS*4 must be multiple of K9_BK to avoid quantization issues "
@@ -330,7 +346,7 @@ void runSgemmAutotuned(int M, int N, int K, float alpha, float *A, float *B,
 
 void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
                         float beta, float *C) {
-  // Settings for A100
+  // A100 配置（保留为注释）。
   // const uint K10_NUM_THREADS = 128;
   // const uint K10_BN = 128;
   // const uint K10_BM = 64;
@@ -340,7 +356,7 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
   // const uint K10_WNITER = 1;
   // const uint K10_TN = 4;
   // const uint K10_TM = 4;
-  // Settings for A6000
+  // A6000 配置。
   const uint K10_NUM_THREADS = 128;
   const uint K10_BN = 128;
   const uint K10_BM = 128;
@@ -354,18 +370,19 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
 
   constexpr uint NUM_WARPS = K10_NUM_THREADS / 32;
 
-  // warptile in threadblocktile
+  // warp tile 必须恰好铺满 block tile；这里 4 个 warp 覆盖 2×2 个区域。
   static_assert((K10_BN % K10_WN == 0) and (K10_BM % K10_WM == 0));
   static_assert((K10_BN / K10_WN) * (K10_BM / K10_WM) == NUM_WARPS);
 
-  // threads in warpsubtile
+  // warp 子块中的线程覆盖关系。
   static_assert((K10_WM * K10_WN) % (WARPSIZE * K10_TM * K10_TN * K10_WNITER) ==
                 0);
   constexpr uint K10_WMITER =
       (K10_WM * K10_WN) / (32 * K10_TM * K10_TN * K10_WNITER);
-  // warpsubtile in warptile
+  // 子块必须整除 warp tile；当前参数推导 WMITER=1。
   static_assert((K10_WM % K10_WMITER == 0) and (K10_WN % K10_WNITER == 0));
 
+  // 搬运与向量化的整除约束；原字符串中的 K9/256 文案未更名。
   static_assert((K10_NUM_THREADS * 4) % K10_BK == 0,
                 "NUM_THREADS*4 must be multiple of K9_BK to avoid quantization "
                 "issues during GMEM->SMEM tiling (loading only parts of the "
@@ -391,7 +408,7 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
 
 void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
                              float *B, float beta, float *C) {
-  // Settings for A100
+  // A100 配置（未启用）。
   // const uint K11_NUM_THREADS = 256;
   // const uint K11_BN = 128;
   // const uint K11_BM = 64;
@@ -401,7 +418,9 @@ void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
   // const uint K11_WNITER = 2;
   // const uint K11_TN = 4;
   // const uint K11_TM = 4;
-  // Settings for A6000
+  // A6000 配置。
+  // 【学习补充】BN=256，但主程序从 N=128 开始；kernel 没有完整 N 边界屏蔽。
+  // 这是应独立检查的上游尺寸前提，不要把分配了大缓冲区当成数学边界正确。
   const uint K11_NUM_THREADS = 256;
   const uint K11_BN = 256;
   const uint K11_BM = 128;
@@ -415,18 +434,19 @@ void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
 
   constexpr uint NUM_WARPS = K11_NUM_THREADS / 32;
 
-  // warptile in threadblocktile
+  // warp tile 在 block tile 内的完整覆盖。
   static_assert((K11_BN % K11_WN == 0) and (K11_BM % K11_WM == 0));
   static_assert((K11_BN / K11_WN) * (K11_BM / K11_WM) == NUM_WARPS);
 
-  // threads in warpsubtile
+  // warp 子块的线程覆盖关系。
   static_assert((K11_WM * K11_WN) % (WARPSIZE * K11_TM * K11_TN * K11_WNITER) ==
                 0);
   constexpr uint K11_WMITER =
       (K11_WM * K11_WN) / (32 * K11_TM * K11_TN * K11_WNITER);
-  // warpsubtile in warptile
+  // warp 子块必须整除 warp tile。
   static_assert((K11_WM % K11_WMITER == 0) and (K11_WN % K11_WNITER == 0));
 
+  // Kernel 11 用半个 block 合作加载，所以搬运约束中的线程数也除以 2。
   static_assert((K11_NUM_THREADS / 2 * 4) % K11_BK == 0,
                 "NUM_THREADS*4 must be multiple of BK to avoid quantization "
                 "issues during GMEM->SMEM tiling (loading only parts of the "
@@ -452,7 +472,7 @@ void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
 
 void runSgemmDoubleBuffering2(int M, int N, int K, float alpha, float *A,
                               float *B, float beta, float *C) {
-  // Settings for A6000
+  // A6000 配置；中文分支不重调这些参数。
   const uint K12_NUM_THREADS = 128;
   const uint K12_BN = 128;
   const uint K12_BM = 128;
@@ -466,18 +486,19 @@ void runSgemmDoubleBuffering2(int M, int N, int K, float alpha, float *A,
 
   constexpr uint NUM_WARPS = K12_NUM_THREADS / 32;
 
-  // warptile in threadblocktile
+  // warp tile 恰好铺满 block tile。
   static_assert((K12_BN % K12_WN == 0) and (K12_BM % K12_WM == 0));
   static_assert((K12_BN / K12_WN) * (K12_BM / K12_WM) == NUM_WARPS);
 
-  // threads in warpsubtile
+  // 线程、warp 子块、warp tile 三层覆盖关系。
   static_assert((K12_WM * K12_WN) % (WARPSIZE * K12_TM * K12_TN * K12_WNITER) ==
                 0);
   constexpr uint K12_WMITER =
       (K12_WM * K12_WN) / (32 * K12_TM * K12_TN * K12_WNITER);
-  // warpsubtile in warptile
+  // 子块必须整除整个 warp tile。
   static_assert((K12_WM % K12_WMITER == 0) and (K12_WN % K12_WNITER == 0));
 
+  // 全 block 向量搬运的覆盖条件；这些编译期断言不替代运行时矩阵边界检查。
   static_assert((K12_NUM_THREADS * 4) % K12_BK == 0,
                 "NUM_THREADS*4 must be multiple of K9_BK to avoid quantization "
                 "issues during GMEM->SMEM tiling (loading only parts of the "
@@ -501,6 +522,7 @@ void runSgemmDoubleBuffering2(int M, int N, int K, float alpha, float *A,
       <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
 }
 
+// kernel 编号的唯一分发表。0 为 FP32 cuBLAS，不是上面 BF16/TF32 快速函数。
 void run_kernel(int kernel_num, int M, int N, int K, float alpha, float *A,
                 float *B, float beta, float *C, cublasHandle_t handle) {
   switch (kernel_num) {

@@ -3,14 +3,14 @@ cmake-build-debug/
 cmake-build-release/
 .idea/
 
-# VSCode, but include settings.json
+# 忽略 VS Code 本地文件，但保留 launch.json 和 settings.json。
 .vscode/*
 !.vscode/launch.json
 !.vscode/settings.json
 
-# binaries
+# 二进制文件。
 cuBLAS_sgemm
 simplest
 
-# benchmark results
+# 本机生成的 benchmark 结果。
 benchmark_results/

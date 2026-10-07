@@ -2,7 +2,11 @@
 
 set -u 
 
-# Define the range of values for each parameter
+# 【学习补充】外部调优器：枚举参数 → 修改 runner.cu → make → 运行 10 号。
+# 会清空结果并改源码；只在独立实验分支/副本运行，不能与其他 GPU 测试并行。
+# 原脚本没有 set -e/pipefail；必须另外核对编译结果、退出码和数值校验。
+
+# 每个参数的候选值。
 BK_VALUES=(8 16 32 64)
 BM_VALUES=(64 128 256)
 BN_VALUES=(64 128 256)
@@ -19,10 +23,10 @@ cd "../build"
 RUNNER="../src/runner.cu"
 OUTPUT="../benchmark_results/kernel_10_autotune_results.txt"
 
-# Clear the output file
+# 清空输出文件；原脚本不会替你创建它的父目录。
 echo "" > $OUTPUT
 
-# Set GPU to use
+# 固定选设备 0，会覆盖外部 DEVICE。
 export DEVICE="0"
 WARPSIZE=32
 
@@ -30,7 +34,7 @@ WARPSIZE=32
 TOTAL_CONFIGS="$(( ${#BK_VALUES[@]} * ${#BM_VALUES[@]} * ${#BN_VALUES[@]} * ${#WM_VALUES[@]} * ${#WN_VALUES[@]} * ${#WNITER_VALUES[@]} * ${#TM_VALUES[@]} * ${#TN_VALUES[@]} * ${#NUM_THREADS_VALUES[@]} ))"
 CONFIG_NUM=0
 
-# Loop through all combinations of parameters
+# 遍历所有组合；先过滤无法满足 warp/block/向量加载约束的配置。
 for BK in "${BK_VALUES[@]}"; do
 for BM in "${BM_VALUES[@]}"; do
 for BN in "${BN_VALUES[@]}"; do
@@ -42,7 +46,7 @@ for TN in "${TN_VALUES[@]}"; do
 for NUM_THREADS in "${NUM_THREADS_VALUES[@]}"; do
 echo ""
 CONFIG_NUM=$(( CONFIG_NUM + 1 ))
-# skip configurations that don't fullfil preconditions
+# 跳过不满足前提的配置；这些条件须与 runner 的 static_assert 一起理解。
 NUM_WARPS=$(( NUM_THREADS / 32 ))
 if ! (( BN % WN == 0 && BM % WM == 0 )); then
   echo "Error: BN % WN must be 0 and BM % WM must be 0."
@@ -86,7 +90,7 @@ if ! (( (BN * BK) % (4 * NUM_THREADS) == 0 )); then
   continue
 fi
 
-# Update the parameters in the source code
+# 原地更新参数；修改前应保存源码基线，不能把注释翻译分支当临时搜索工作区。
 sed -i "s/const uint K10_NUM_THREADS = .*/const uint K10_NUM_THREADS = $NUM_THREADS;/" $RUNNER
 sed -i "s/const uint K10_BN = .*/const uint K10_BN = $BN;/" $RUNNER
 sed -i "s/const uint K10_BM = .*/const uint K10_BM = $BM;/" $RUNNER
@@ -97,12 +101,12 @@ sed -i "s/const uint K10_WNITER = .*/const uint K10_WNITER = $WN_ITER;/" $RUNNER
 sed -i "s/const uint K10_TM = .*/const uint K10_TM = $TM;/" $RUNNER
 sed -i "s/const uint K10_TN = .*/const uint K10_TN = $TN;/" $RUNNER
 
-# Rebuild the program
+# 在 Makefile 生成的 build/ 中重编译。
 make
 
 echo "($CONFIG_NUM/$TOTAL_CONFIGS): BK=$BK BM=$BM BN=$BN WM=$WM WN=$WN WN_ITER=$WN_ITER TM=$TM TN=$TN NUM_THREADS=$NUM_THREADS" |& tee -a $OUTPUT
-# Run the benchmark and get the result
-# Kill the program after 4 seconds if it doesn't finish
+# 执行 benchmark 并记录结果。
+# 【注释辨析】原注释写 4 秒，实际 timeout 参数是 8 秒；本分支不改命令。
 timeout -v 8 ./sgemm 10 | tee -a $OUTPUT
 done
 done
