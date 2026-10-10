@@ -1,0 +1,5 @@
+metric,as_pad_0,as_pad_4,change
+shared_load_bank_conflicts,0,0,unchanged
+shared_store_bank_conflicts,50331648,16777216,-66.67_percent
+shared_load_wavefronts,335548069,335548113,unchanged_within_replay_noise
+shared_store_wavefronts,83886080,50331648,-40.00_percent

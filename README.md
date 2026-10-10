@@ -2,7 +2,7 @@
 
 用 CUDA 逐步优化矩阵乘法。各个 kernel 的原作者讲解见 [Simon Boehm 的 CUDA-MMM 文章](https://siboehm.com/articles/22/CUDA-MMM)。
 
-本分支 `zh-cn-learning` 基于 `5a7dcc513d951ba764d51bc9d587b3163f3a894d`，翻译仓库文档和注释，并加入面向初学者的解释。**不改变 kernel 算法、线程配置、矩阵尺寸、数值校验门槛和运行输出格式。** 原作者英文 README 完整保留在 [README.en.md](README.en.md)，原版继续保留在 `master`。
+本分支 `zh-cn-learning` 基于 `5a7dcc513d951ba764d51bc9d587b3163f3a894d`，翻译仓库文档和注释，并加入面向初学者的解释。初始翻译阶段不改变 kernel 算法、线程配置、矩阵尺寸、数值校验门槛和运行输出格式；2026-10-10 又单独加入了有实测依据的 RTX 3080 Kernel 10 shared-memory padding 与安全调参入口，详见 [调优记录](docs/zh/04-RTX3080-K10调优.md)。原作者英文 README 完整保留在 [README.en.md](README.en.md)，原版继续保留在 `master`。
 
 原项目：[siboehm/SGEMM_CUDA](https://github.com/siboehm/SGEMM_CUDA)。原作者：Simon Boehm。中文内容属于 AI 辅助翻译与学习补充，并非原作者审校版，也不是原博客的完整译文。`【学习补充】` 表示新增解释，`【注释辨析】` 表示原注释与实际表达式之间需要注意的区别；没有把这些问题偷偷改成另一套实现。
 
@@ -31,6 +31,10 @@
 <!-- benchmark_results -->
 
 当前源码还包含 12 号异步复制双缓冲版本，但上游这张结果表没有它的数据。编号表示实现版本，不表示性能排名；不要据此要求每个后续版本都更快。
+
+### RTX 3080 本机调优结果（2026-10-10）
+
+在本机 RTX 3080、CUDA 12.4、4096³ FP32 上，加入 Kernel 10 的 A-tile shared-memory padding 后，完整六尺寸验证中的结果为 **19155.7 GFLOPS**，同轮 cuBLAS 为 **21659.0 GFLOPS（88.44%）**。另一轮独立长测为 87.60%，因此报告采用 **87.6%–88.4%** 的范围，不选择单次最高值。六个 stock 尺寸均通过 cuBLAS 正确性检查；完整方法、24 组 tile 搜索和 Nsight 指标见 [RTX 3080 Kernel 10 调优记录](docs/zh/04-RTX3080-K10调优.md)。
 
 ## 环境与构建
 
@@ -86,6 +90,7 @@ make profile KERNEL=2 PREFIX=learning_
 2. [01：矩阵索引与线程映射](docs/zh/01-矩阵索引与线程映射.md)：`[M,K] × [K,N]`、行主序、thread / block / warp、Kernel 1 与 2。
 3. [02：分块与流水线](docs/zh/02-分块与流水线.md)：shared memory、寄存器复用、float4、bank、warp tiling、双缓冲。
 4. [03：原版限制与验证](docs/zh/03-原版限制与验证.md)：哪些前提不能忽略、哪些工具会修改源码、如何检查注释变更没有改逻辑。
+5. [04：RTX 3080 Kernel 10 调优](docs/zh/04-RTX3080-K10调优.md)：24 组 tile 搜索、shared-memory padding、Nsight 证据与最终结果。
 
 源码中的 1–12 号 kernel、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 

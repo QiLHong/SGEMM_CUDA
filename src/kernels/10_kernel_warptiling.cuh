@@ -15,11 +15,13 @@ const int WARPSIZE = 32; // 内建 warpSize 不是 constexpr，这里供编译�
 // 搬运由整个 block 合作，计算则由各 warp 负责自己的输出区域。
 namespace wt {
 // 全局内存 → 共享内存：A 子块转置成 [BK,BM]，B 子块保留 [BK,BN]。
-template <const int BM, const int BN, const int BK, const int rowStrideA,
-          const int rowStrideB>
-__device__ void loadFromGmem(int N, int K, const float *A, const float *B,
-                             float *As, float *Bs, int innerRowA, int innerColA,
-                             int innerRowB, int innerColB) {
+template <const int BM, const int BN, const int BK, const int AS_STRIDE,
+          const int rowStrideA, const int rowStrideB>
+__device__ void loadFromGmem(int N, int K, const float *__restrict__ A,
+                             const float *__restrict__ B,
+                             float *__restrict__ As, float *__restrict__ Bs,
+                             int innerRowA, int innerColA, int innerRowB,
+                             int innerColB) {
   for (uint offset = 0; offset + rowStrideA <= BM; offset += rowStrideA) {
     const float4 tmp = reinterpret_cast<const float4 *>(
         &A[(innerRowA + offset) * K + innerColA * 4])[0];
@@ -28,10 +30,10 @@ __device__ void loadFromGmem(int N, int K, const float *A, const float *B,
     // asm("ld.global.nc.v4.f32 {%0, %1, %2, %3}, [%4];"
     //     : "=f"(tmp.x), "=f"(tmp.y), "=f"(tmp.z), "=f"(tmp.w)
     //     : "l"(&A[(innerRowA + offset) * K + innerColA * 4]));
-    As[(innerColA * 4 + 0) * BM + innerRowA + offset] = tmp.x;
-    As[(innerColA * 4 + 1) * BM + innerRowA + offset] = tmp.y;
-    As[(innerColA * 4 + 2) * BM + innerRowA + offset] = tmp.z;
-    As[(innerColA * 4 + 3) * BM + innerRowA + offset] = tmp.w;
+    As[(innerColA * 4 + 0) * AS_STRIDE + innerRowA + offset] = tmp.x;
+    As[(innerColA * 4 + 1) * AS_STRIDE + innerRowA + offset] = tmp.y;
+    As[(innerColA * 4 + 2) * AS_STRIDE + innerRowA + offset] = tmp.z;
+    As[(innerColA * 4 + 3) * AS_STRIDE + innerRowA + offset] = tmp.w;
   }
 
   for (uint offset = 0; offset + rowStrideB <= BK; offset += rowStrideB) {
@@ -50,19 +52,21 @@ __device__ void loadFromGmem(int N, int K, const float *A, const float *B,
 }
 
 // 共享内存 → 寄存器 → 外积累加；索引同时包含 warp、warp 子块与线程的位置。
-template <const int BM, const int BN, const int BK, const int WM, const int WN,
-          const int WMITER, const int WNITER, const int WSUBM, const int WSUBN,
-          const int TM, const int TN>
+template <const int BM, const int BN, const int BK, const int AS_STRIDE,
+          const int WM, const int WN, const int WMITER, const int WNITER,
+          const int WSUBM, const int WSUBN, const int TM, const int TN>
 __device__ void
-processFromSmem(float *regM, float *regN, float *threadResults, const float *As,
-                const float *Bs, const uint warpRow, const uint warpCol,
+processFromSmem(float *__restrict__ regM, float *__restrict__ regN,
+                float *__restrict__ threadResults,
+                const float *__restrict__ As, const float *__restrict__ Bs,
+                const uint warpRow, const uint warpCol,
                 const uint threadRowInWarp, const uint threadColInWarp) {
   for (uint dotIdx = 0; dotIdx < BK; ++dotIdx) {
     // 为本线程在整个 warp tile 中负责的所有子块填充寄存器。
     for (uint wSubRowIdx = 0; wSubRowIdx < WMITER; ++wSubRowIdx) {
       for (uint i = 0; i < TM; ++i) {
         regM[wSubRowIdx * TM + i] =
-            As[(dotIdx * BM) + warpRow * WM + wSubRowIdx * WSUBM +
+            As[(dotIdx * AS_STRIDE) + warpRow * WM + wSubRowIdx * WSUBM +
                threadRowInWarp * TM + i];
       }
     }
@@ -109,10 +113,13 @@ processFromSmem(float *regM, float *regN, float *threadResults, const float *As,
  * 本实现假定分块、向量对齐和尺寸整除条件成立；约束还要查看 runner。
  */
 template <const int BM, const int BN, const int BK, const int WM, const int WN,
-          const int WNITER, const int TM, const int TN, const int NUM_THREADS>
+          const int WNITER, const int TM, const int TN, const int NUM_THREADS,
+          const int AS_PAD = 0>
 __global__ void __launch_bounds__(NUM_THREADS)
-    sgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
-                    float beta, float *C) {
+    sgemmWarptiling(int M, int N, int K, float alpha,
+                    const float *__restrict__ A,
+                    const float *__restrict__ B, float beta,
+                    float *__restrict__ C) {
   const uint cRow = blockIdx.y;
   const uint cCol = blockIdx.x;
 
@@ -132,7 +139,11 @@ __global__ void __launch_bounds__(NUM_THREADS)
   const uint threadRowInWarp = threadIdxInWarp / (WSUBN / TN); // 原例 i/4。
 
   // 全 block 共用的 A/B 子块缓存。
-  __shared__ float As[BM * BK];
+  // RTX 3080 上 AS_PAD=4 可将 A 转置写入的 shared-store bank conflict
+  // 减少约 2/3，同时不引入 shared-load conflict；0 保留原始布局。
+  static_assert(AS_PAD >= 0);
+  constexpr uint AS_STRIDE = BM + AS_PAD;
+  __shared__ float As[AS_STRIDE * BK];
   __shared__ float Bs[BK * BN];
 
   // A/B 定位到 block 起点。
@@ -157,12 +168,13 @@ __global__ void __launch_bounds__(NUM_THREADS)
 
   // 每段 K：合作加载 → 屏障 → 计算 → 屏障，仍是单份共享缓存。
   for (uint bkIdx = 0; bkIdx < K; bkIdx += BK) {
-    wt::loadFromGmem<BM, BN, BK, rowStrideA, rowStrideB>(
+    wt::loadFromGmem<BM, BN, BK, AS_STRIDE, rowStrideA, rowStrideB>(
         N, K, A, B, As, Bs, innerRowA, innerColA, innerRowB, innerColB);
     __syncthreads();
-    wt::processFromSmem<BM, BN, BK, WM, WN, WMITER, WNITER, WSUBM, WSUBN, TM,
-                        TN>(regM, regN, threadResults, As, Bs, warpRow, warpCol,
-                            threadRowInWarp, threadColInWarp);
+    wt::processFromSmem<BM, BN, BK, AS_STRIDE, WM, WN, WMITER, WNITER, WSUBM,
+                        WSUBN, TM, TN>(regM, regN, threadResults, As, Bs,
+                                      warpRow, warpCol, threadRowInWarp,
+                                      threadColInWarp);
     A += BK;     // A 向右 BK 列。
     B += BK * N; // B 向下 BK 行。
     __syncthreads();

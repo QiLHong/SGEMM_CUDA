@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
@@ -57,6 +58,17 @@ int main(int argc, char **argv) {
   // 原作者备注：cuBLAS 在 8192 尺寸达到 FLOPs 上限；当前实际只测到 4096。
   // 所有尺寸都保持上游值；特别注意较晚 kernel 的分块约束，不应盲加任意尺寸。
   std::vector<int> SIZE = {128, 256, 512, 1024, 2048, 4096};
+  // 调优搜索可以只跑一个尺寸；未设置时仍保持上游六尺寸口径。
+  if (const char *benchSize = getenv("SGEMM_BENCH_SIZE")) {
+    const int requestedSize = atoi(benchSize);
+    if (std::find(SIZE.begin(), SIZE.end(), requestedSize) == SIZE.end()) {
+      std::cerr << "SGEMM_BENCH_SIZE must be one of: 128, 256, 512, 1024, "
+                   "2048, 4096."
+                << std::endl;
+      exit(EXIT_FAILURE);
+    }
+    SIZE = {requestedSize};
+  }
 
   long m, n, k, max_size;
   max_size = SIZE[SIZE.size() - 1];
@@ -95,6 +107,24 @@ int main(int argc, char **argv) {
                        cudaMemcpyHostToDevice));
 
   int repeat_times = 50;
+  // 搜索阶段可减少重复次数；候选胜出后应清除此变量并用默认 50 次复测。
+  if (const char *benchRepeat = getenv("SGEMM_REPEAT")) {
+    repeat_times = atoi(benchRepeat);
+    if (repeat_times <= 0) {
+      std::cerr << "SGEMM_REPEAT must be a positive integer." << std::endl;
+      exit(EXIT_FAILURE);
+    }
+  }
+  int warmup_times = 0;
+  // 单尺寸调优需要显式预热 cuBLAS 和候选 kernel，避免把库初始化/JIT
+  // 计入第一轮；默认 0 继续保持原 benchmark 的历史输出口径。
+  if (const char *benchWarmup = getenv("SGEMM_WARMUP")) {
+    warmup_times = atoi(benchWarmup);
+    if (warmup_times < 0) {
+      std::cerr << "SGEMM_WARMUP must be a non-negative integer." << std::endl;
+      exit(EXIT_FAILURE);
+    }
+  }
   for (int size : SIZE) {
     m = n = k = size;
 
@@ -133,6 +163,14 @@ int main(int argc, char **argv) {
         }
         exit(EXIT_FAILURE);
       }
+    }
+
+    for (int j = 0; j < warmup_times; j++) {
+      run_kernel(kernel_num, m, n, k, alpha, dA, dB, beta, dC, handle);
+    }
+    if (warmup_times > 0) {
+      cudaCheck(cudaDeviceSynchronize());
+      cudaCheck(cudaGetLastError());
     }
 
     cudaEventRecord(beg);

@@ -356,16 +356,48 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
   // const uint K10_WNITER = 1;
   // const uint K10_TN = 4;
   // const uint K10_TM = 4;
-  // A6000 配置。
-  const uint K10_NUM_THREADS = 128;
-  const uint K10_BN = 128;
-  const uint K10_BM = 128;
-  const uint K10_BK = 16;
-  const uint K10_WN = 64;
-  const uint K10_WM = 64;
-  const uint K10_WNITER = 4;
-  const uint K10_TN = 4;
-  const uint K10_TM = 8;
+  // block/warp tile 沿用 A6000 配置；RTX 3080 实测额外使用 AS_PAD=4。
+  // SGEMM_K10_* 编译期定义让调优器覆盖参数，不再需要 sed 原地改写本文件。
+#ifndef SGEMM_K10_NUM_THREADS
+#define SGEMM_K10_NUM_THREADS 128
+#endif
+#ifndef SGEMM_K10_BN
+#define SGEMM_K10_BN 128
+#endif
+#ifndef SGEMM_K10_BM
+#define SGEMM_K10_BM 128
+#endif
+#ifndef SGEMM_K10_BK
+#define SGEMM_K10_BK 16
+#endif
+#ifndef SGEMM_K10_WN
+#define SGEMM_K10_WN 64
+#endif
+#ifndef SGEMM_K10_WM
+#define SGEMM_K10_WM 64
+#endif
+#ifndef SGEMM_K10_WNITER
+#define SGEMM_K10_WNITER 4
+#endif
+#ifndef SGEMM_K10_TN
+#define SGEMM_K10_TN 4
+#endif
+#ifndef SGEMM_K10_TM
+#define SGEMM_K10_TM 8
+#endif
+#ifndef SGEMM_K10_AS_PAD
+#define SGEMM_K10_AS_PAD 4
+#endif
+  constexpr uint K10_NUM_THREADS = SGEMM_K10_NUM_THREADS;
+  constexpr uint K10_BN = SGEMM_K10_BN;
+  constexpr uint K10_BM = SGEMM_K10_BM;
+  constexpr uint K10_BK = SGEMM_K10_BK;
+  constexpr uint K10_WN = SGEMM_K10_WN;
+  constexpr uint K10_WM = SGEMM_K10_WM;
+  constexpr uint K10_WNITER = SGEMM_K10_WNITER;
+  constexpr uint K10_TN = SGEMM_K10_TN;
+  constexpr uint K10_TM = SGEMM_K10_TM;
+  constexpr uint K10_AS_PAD = SGEMM_K10_AS_PAD;
   dim3 blockDim(K10_NUM_THREADS);
 
   constexpr uint NUM_WARPS = K10_NUM_THREADS / 32;
@@ -402,7 +434,7 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
 
   dim3 gridDim(CEIL_DIV(N, K10_BN), CEIL_DIV(M, K10_BM));
   sgemmWarptiling<K10_BM, K10_BN, K10_BK, K10_WM, K10_WN, K10_WNITER, K10_TM,
-                  K10_TN, K10_NUM_THREADS>
+                  K10_TN, K10_NUM_THREADS, K10_AS_PAD>
       <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
 }
 

@@ -31,6 +31,18 @@ add_executable(sgemm sgemm.cu ${SRC})
 set_target_properties(sgemm PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
 target_link_libraries(sgemm ${CUDA_LIBRARIES} ${CUDA_CUBLAS_LIBRARIES})
 
+# Kernel 10 调优参数。仅把显式传给 CMake 的值转成交给 nvcc 的编译期定义；
+# 默认构建不设置这些 cache 变量，因此使用 runner.cu 中记录的 RTX 3080 默认值。
+set(SGEMM_K10_TUNABLES
+    NUM_THREADS BN BM BK WN WM WNITER TN TM AS_PAD)
+foreach(K10_TUNABLE IN LISTS SGEMM_K10_TUNABLES)
+  if(DEFINED SGEMM_K10_${K10_TUNABLE})
+    target_compile_definitions(
+      sgemm PRIVATE
+      SGEMM_K10_${K10_TUNABLE}=${SGEMM_K10_${K10_TUNABLE}})
+  endif()
+endforeach()
+
 # 独立 cuBLAS 演示。
 # 【学习补充】上游下面重复设置的是 sgemm，不是 cuBLAS_sgemm；本分支不改构建逻辑。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )
