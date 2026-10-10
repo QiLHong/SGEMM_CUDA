@@ -118,6 +118,7 @@ make profile KERNEL=2 PREFIX=learning_
 5. [04：RTX 3080 Kernel 10 调优](docs/zh/04-RTX3080-K10调优.md)：24 组 tile 搜索、shared-memory padding、Nsight 证据与最终结果。
 6. [05：RTX 3080 FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)：严格 FP32/TF32 分流、公平计时、K10/K11/K12 Nsight 对照与剩余性能差距。
 7. [05：K10 Grid Swizzle 调优](docs/zh/05-K10-Grid-Swizzle调优.md)：独立 K15、五种组宽、缓存收益为何没有转化为吞吐。
+8. [06：RTX 3080 K10 优化故事](docs/zh/06-RTX3080-K10优化故事.md)：从基线校准、有效改动和失败实验，收敛到下一步的寄存器预取与 SASS 调度。
 
 源码中的 1–12 号 kernel 和独立实验 K15、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 
