@@ -3,6 +3,7 @@
 // 所有 GPU kernel 的统一入口头文件。学习顺序按编号 1→10，而非下面的排列。
 // 保留上游 include 顺序：11/12 使用的 WARPSIZE 定义来自 10 号头文件。
 #include "kernels/10_kernel_warptiling.cuh"
+#include "kernels/15_kernel_grouped_swizzle.cuh"
 #include "kernels/11_kernel_double_buffering.cuh"
 #include "kernels/12_kernel_double_buffering.cuh"
 #include "kernels/1_naive.cuh"

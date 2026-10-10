@@ -43,6 +43,12 @@ foreach(K10_TUNABLE IN LISTS SGEMM_K10_TUNABLES)
   endif()
 endforeach()
 
+# K15 复用 K10 的全部计算参数，只允许独立改变 grouped-grid 的 M 方向组宽。
+if(DEFINED SGEMM_K15_GROUP_M)
+  target_compile_definitions(
+    sgemm PRIVATE SGEMM_K15_GROUP_M=${SGEMM_K15_GROUP_M})
+endif()
+
 # 独立 cuBLAS 演示。
 # 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )

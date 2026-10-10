@@ -95,6 +95,89 @@ processFromSmem(float *__restrict__ regM, float *__restrict__ regN,
   }
 }
 
+// K10/K15 共用的数学主体。调用方只决定输出 tile 的 (cRow,cCol) 映射；
+// shared-memory 布局、寄存器累加和浮点运算顺序均由这里唯一维护。
+template <const int BM, const int BN, const int BK, const int WM, const int WN,
+          const int WNITER, const int TM, const int TN, const int NUM_THREADS,
+          const int AS_STRIDE>
+__device__ __forceinline__ void
+runWarptilingCore(int M, int N, int K, float alpha,
+                  const float *__restrict__ A,
+                  const float *__restrict__ B, float beta,
+                  float *__restrict__ C, const uint cRow, const uint cCol,
+                  float *__restrict__ As, float *__restrict__ Bs) {
+  // 当前 warp 在 block 输出块中的位置。
+  const uint warpIdx = threadIdx.x / WARPSIZE;
+  const uint warpCol = warpIdx % (BN / WN);
+  const uint warpRow = warpIdx / (BN / WN);
+
+  constexpr uint WMITER = (WM * WN) / (WARPSIZE * TM * TN * WNITER);
+  constexpr uint WSUBM = WM / WMITER;
+  constexpr uint WSUBN = WN / WNITER;
+  static_assert(NUM_THREADS > 0 && NUM_THREADS % WARPSIZE == 0);
+  static_assert(BK > 0 && BK % 4 == 0);
+  static_assert(BN > 0 && BN % 4 == 0);
+  static_assert(TN > 0 && TN % 4 == 0);
+  static_assert(AS_STRIDE >= BM);
+  static_assert(WSUBM >= TM && WSUBM % TM == 0);
+  static_assert(WSUBN >= TN && WSUBN % TN == 0);
+
+  const uint threadIdxInWarp = threadIdx.x % WARPSIZE;
+  const uint threadColInWarp = threadIdxInWarp % (WSUBN / TN);
+  const uint threadRowInWarp = threadIdxInWarp / (WSUBN / TN);
+
+  A += cRow * BM * K;
+  B += cCol * BN;
+  C += (cRow * BM + warpRow * WM) * N + cCol * BN + warpCol * WN;
+
+  const uint innerRowA = threadIdx.x / (BK / 4);
+  const uint innerColA = threadIdx.x % (BK / 4);
+  constexpr uint rowStrideA = (NUM_THREADS * 4) / BK;
+  const uint innerRowB = threadIdx.x / (BN / 4);
+  const uint innerColB = threadIdx.x % (BN / 4);
+  constexpr uint rowStrideB = NUM_THREADS / (BN / 4);
+
+  float threadResults[WMITER * TM * WNITER * TN] = {0.0};
+  float regM[WMITER * TM] = {0.0};
+  float regN[WNITER * TN] = {0.0};
+
+  for (uint bkIdx = 0; bkIdx < K; bkIdx += BK) {
+    loadFromGmem<BM, BN, BK, AS_STRIDE, rowStrideA, rowStrideB>(
+        N, K, A, B, As, Bs, innerRowA, innerColA, innerRowB, innerColB);
+    __syncthreads();
+    processFromSmem<BM, BN, BK, AS_STRIDE, WM, WN, WMITER, WNITER, WSUBM,
+                    WSUBN, TM, TN>(regM, regN, threadResults, As, Bs, warpRow,
+                                   warpCol, threadRowInWarp,
+                                   threadColInWarp);
+    A += BK;
+    B += BK * N;
+    __syncthreads();
+  }
+
+  for (uint wSubRowIdx = 0; wSubRowIdx < WMITER; ++wSubRowIdx) {
+    for (uint wSubColIdx = 0; wSubColIdx < WNITER; ++wSubColIdx) {
+      float *C_interim =
+          C + (wSubRowIdx * WSUBM) * N + wSubColIdx * WSUBN;
+      for (uint resIdxM = 0; resIdxM < TM; resIdxM += 1) {
+        for (uint resIdxN = 0; resIdxN < TN; resIdxN += 4) {
+          float4 tmp = reinterpret_cast<float4 *>(
+              &C_interim[(threadRowInWarp * TM + resIdxM) * N +
+                         threadColInWarp * TN + resIdxN])[0];
+          const int i = (wSubRowIdx * TM + resIdxM) * (WNITER * TN) +
+                        wSubColIdx * TN + resIdxN;
+          tmp.x = alpha * threadResults[i + 0] + beta * tmp.x;
+          tmp.y = alpha * threadResults[i + 1] + beta * tmp.y;
+          tmp.z = alpha * threadResults[i + 2] + beta * tmp.z;
+          tmp.w = alpha * threadResults[i + 3] + beta * tmp.w;
+          reinterpret_cast<float4 *>(
+              &C_interim[(threadRowInWarp * TM + resIdxM) * N +
+                         threadColInWarp * TN + resIdxN])[0] = tmp;
+        }
+      }
+    }
+  }
+}
+
 } // wt 命名空间结束。
 
 /*
@@ -133,94 +216,11 @@ __global__ void __launch_bounds__(NUM_THREADS)
                     float *__restrict__ C) {
   const uint cRow = blockIdx.y;
   const uint cCol = blockIdx.x;
-
-  // 当前 warp 在 block 输出块中的位置。
-  const uint warpIdx = threadIdx.x / WARPSIZE; // 线程所属的 warp 编号。
-  const uint warpCol = warpIdx % (BN / WN);
-  const uint warpRow = warpIdx / (BN / WN);
-
-  // 由覆盖元素数推导 M 方向子块数，再算每个子块的 M/N 尺寸。
-  constexpr uint WMITER = (WM * WN) / (WARPSIZE * TM * TN * WNITER);
-  constexpr uint WSUBM = WM / WMITER; // 原例：64/2=32；实际值取决于模板参数。
-  constexpr uint WSUBN = WN / WNITER; // 原例：32/2=16；不是固定常量。
-  static_assert(NUM_THREADS > 0 && NUM_THREADS % WARPSIZE == 0);
-  static_assert(BK > 0 && BK % 4 == 0);
-  static_assert(BN > 0 && BN % 4 == 0);
-  static_assert(TN > 0 && TN % 4 == 0);
-  static_assert(WSUBM >= TM && WSUBM % TM == 0);
-  static_assert(WSUBN >= TN && WSUBN % TN == 0);
-
-  // lane 编号映射到 warp 子块中的线程小块坐标。
-  const uint threadIdxInWarp = threadIdx.x % WARPSIZE;         // 范围 [0,31]。
-  const uint threadColInWarp = threadIdxInWarp % (WSUBN / TN); // 原例 i%(16/4)。
-  const uint threadRowInWarp = threadIdxInWarp / (WSUBN / TN); // 原例 i/4。
-
-  // 全 block 共用的 A/B 子块缓存。
-  // RTX 3080 上 AS_PAD=4 可将 A 转置写入的 shared-store bank conflict
-  // 减少约 2/3，同时不引入 shared-load conflict；0 保留原始布局。
   static_assert(AS_PAD >= 0);
   constexpr uint AS_STRIDE = BM + AS_PAD;
   __shared__ float As[AS_STRIDE * BK];
   __shared__ float Bs[BK * BN];
-
-  // A/B 定位到 block 起点。
-  A += cRow * BM * K;
-  B += cCol * BN;
-  // C 则直接定位到当前 warp 的输出起点；写回时不应再重复添加 warp 偏移。
-  C += (cRow * BM + warpRow * WM) * N + cCol * BN + warpCol * WN;
-
-  // 合作搬运使用全 block 的线程编号，每步每线程加载四个 FP32 元素。
-  const uint innerRowA = threadIdx.x / (BK / 4);
-  const uint innerColA = threadIdx.x % (BK / 4);
-  constexpr uint rowStrideA = (NUM_THREADS * 4) / BK;
-  const uint innerRowB = threadIdx.x / (BN / 4);
-  const uint innerColB = threadIdx.x % (BN / 4);
-  constexpr uint rowStrideB = NUM_THREADS / (BN / 4);
-
-  // 本线程跨 warp 子块的所有结果。
-  float threadResults[WMITER * TM * WNITER * TN] = {0.0};
-  // 在 warp tile 范围内缓存本线程需要的 A/B 值。
-  float regM[WMITER * TM] = {0.0};
-  float regN[WNITER * TN] = {0.0};
-
-  // 每段 K：合作加载 → 屏障 → 计算 → 屏障，仍是单份共享缓存。
-  for (uint bkIdx = 0; bkIdx < K; bkIdx += BK) {
-    wt::loadFromGmem<BM, BN, BK, AS_STRIDE, rowStrideA, rowStrideB>(
-        N, K, A, B, As, Bs, innerRowA, innerColA, innerRowB, innerColB);
-    __syncthreads();
-    wt::processFromSmem<BM, BN, BK, AS_STRIDE, WM, WN, WMITER, WNITER, WSUBM,
-                        WSUBN, TM, TN>(regM, regN, threadResults, As, Bs,
-                                      warpRow, warpCol, threadRowInWarp,
-                                      threadColInWarp);
-    A += BK;     // A 向右 BK 列。
-    B += BK * N; // B 向下 BK 行。
-    __syncthreads();
-  }
-
-  // 遍历 warp 子块，将寄存器结果写回 C。
-  for (uint wSubRowIdx = 0; wSubRowIdx < WMITER; ++wSubRowIdx) {
-    for (uint wSubColIdx = 0; wSubColIdx < WNITER; ++wSubColIdx) {
-      // 相对于 warp 起点，移动到当前子块。
-      float *C_interim = C + (wSubRowIdx * WSUBM) * N + wSubColIdx * WSUBN;
-      for (uint resIdxM = 0; resIdxM < TM; resIdxM += 1) {
-        for (uint resIdxN = 0; resIdxN < TN; resIdxN += 4) {
-          // 读取旧 C 的连续四列。
-          float4 tmp = reinterpret_cast<float4 *>(
-              &C_interim[(threadRowInWarp * TM + resIdxM) * N +
-                         threadColInWarp * TN + resIdxN])[0];
-          // 对应 threadResults 中的展平索引。
-          const int i = (wSubRowIdx * TM + resIdxM) * (WNITER * TN) +
-                        wSubColIdx * TN + resIdxN;
-          tmp.x = alpha * threadResults[i + 0] + beta * tmp.x;
-          tmp.y = alpha * threadResults[i + 1] + beta * tmp.y;
-          tmp.z = alpha * threadResults[i + 2] + beta * tmp.z;
-          tmp.w = alpha * threadResults[i + 3] + beta * tmp.w;
-          // 写回。
-          reinterpret_cast<float4 *>(
-              &C_interim[(threadRowInWarp * TM + resIdxM) * N +
-                         threadColInWarp * TN + resIdxN])[0] = tmp;
-        }
-      }
-    }
-  }
+  wt::runWarptilingCore<BM, BN, BK, WM, WN, WNITER, TM, TN, NUM_THREADS,
+                        AS_STRIDE>(M, N, K, alpha, A, B, beta, C, cRow, cCol,
+                                   As, Bs);
 }

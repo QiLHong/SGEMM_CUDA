@@ -1,0 +1,5 @@
+mode,group_m,profile_duration_ms,compute_sm_pct,fma_pipe_pct,issue_slots_busy_pct,no_eligible_pct,eligible_warps_per_scheduler,achieved_occupancy_pct,l2_hit_pct,dram_read_mb,dram_write_mb,dram_pct,l2_cache_throughput_pct,shared_store_bank_conflicts,local_load_sectors,local_store_sectors,registers_per_thread,static_shared_bytes,static_sass_instructions,executed_instructions
+k10,1,7.996192,74.73,69.534766,79.20,20.76,1.36,16.60,76.692516,962.479360,66.480384,17.40,29.59,16777216,0,0,184,16640,2768,2336014336
+g1,1,7.980704,74.79,69.524334,79.26,20.88,1.36,16.54,76.568358,955.693568,66.483712,17.32,30.16,16777216,0,0,184,16640,2792,2335055872
+g2,2,7.984256,74.53,69.344164,78.80,21.11,1.35,16.50,84.651852,991.408768,66.498048,17.92,29.84,16777216,0,0,186,16640,2816,2336219136
+g16,16,8.064160,74.02,68.871141,77.62,22.42,1.31,16.24,86.615731,563.124224,66.936960,10.57,30.38,16777216,0,0,186,16640,2816,2336219136

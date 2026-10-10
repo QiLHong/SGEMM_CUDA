@@ -49,6 +49,8 @@ const char *kernel_mode_name(int kernel) {
     return "cuBLAS strict FP32 (PEDANTIC)";
   case 14:
     return "cuBLAS explicit TF32 Tensor Core";
+  case 15:
+    return "K15 K10 + grouped grid swizzle";
   default:
     return "custom CUDA kernel";
   }
@@ -57,17 +59,17 @@ const char *kernel_mode_name(int kernel) {
 
 int main(int argc, char **argv) {
   if (argc != 2) {
-    std::cerr << "Please select a kernel (0-14; 13=strict FP32 cuBLAS, "
-                 "14=TF32 cuBLAS)"
+    std::cerr << "Please select a kernel (0-15; 13=strict FP32 cuBLAS, "
+                 "14=TF32 cuBLAS, 15=grouped-grid K10)"
               << std::endl;
     exit(EXIT_FAILURE);
   }
 
   // 从命令行读取编号：0 为历史 cuBLAS，1–12 为教学实现，13/14
-  // 分别为严格 FP32 与显式 TF32 对照。
+  // 分别为严格 FP32 与显式 TF32 对照，15 为独立 grouped-grid 实验。
   int kernel_num = std::stoi(argv[1]);
-  if (kernel_num < 0 || kernel_num > 14) {
-    std::cerr << "Please enter a valid kernel number (0-14)" << std::endl;
+  if (kernel_num < 0 || kernel_num > 15) {
+    std::cerr << "Please enter a valid kernel number (0-15)" << std::endl;
     exit(EXIT_FAILURE);
   }
 
@@ -198,7 +200,8 @@ int main(int argc, char **argv) {
     std::cout << "dimensions(m=n=k) " << m << ", alpha: " << alpha
               << ", beta: " << beta << std::endl;
     const size_t matrixBytes = sizeof(float) * m * n;
-    const bool isCustomKernel = kernel_num >= 1 && kernel_num <= 12;
+    const bool isCustomKernel =
+        (kernel_num >= 1 && kernel_num <= 12) || kernel_num == 15;
     const bool compareCublasMode =
         resetCEachRepeat && (kernel_num == 0 || kernel_num == 14);
 

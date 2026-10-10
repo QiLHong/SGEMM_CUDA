@@ -42,6 +42,11 @@
 0 没有使用 Tensor Core；显式 TF32 对照虽达到 29771.3 GFLOPS，但大量元素超过原
 0.01 误差阈值，单独报告且不计入上述比例。
 
+独立的 Kernel 15 实验只给 K10 增加 Grouped Grid Swizzle。`GROUP_M=1/2/4/8/16`
+均通过完整正确性检查，但三轮平均相对 K10 为 -0.12% 到 -1.19%，没有可采用的性能
+提升。G16 虽显著改善 L2 命中和 DRAM 流量，issue/FMA 指标与最终吞吐反而下降；见
+[Grid Swizzle 调优实验](docs/zh/05-K10-Grid-Swizzle调优.md)。K15 不替换默认 K10。
+
 ## 环境与构建
 
 上游列出的依赖为 CUDA Toolkit 12、Python（以及 Seaborn）、CMake 和 Ninja，辅助 Python 环境见 [environment.yml](environment.yml)。
@@ -78,8 +83,9 @@ DEVICE=0 ./build/sgemm 2
 
 如果已有 `build/` 是 Ninja 生成的，不要在同一目录混用生成器。可以另选构建目录；使用原 `make profile` 或 autotuner 前，则需检查它们固定依赖的 `build/` 和 `make`。Debug 会使用 `-G`，不适合拿来比较吞吐率。当前 CMake 仍使用上游 `find_package(CUDA)`，这里没有顺带升级构建系统；新版本 CMake 的兼容问题应独立处理。
 
-在构建目录内，运行格式是 `DEVICE=<设备编号> ./sgemm <kernel编号>`。1–12 是自写
-kernel；0 保留历史 cuBLAS 参数，13 是 pedantic FP32 cuBLAS，14 是显式 TF32 对照。
+在构建目录内，运行格式是 `DEVICE=<设备编号> ./sgemm <kernel编号>`。1–12 是原有
+自写 kernel，15 是独立的 K10 grouped-grid 实验；0 保留历史 cuBLAS 参数，13 是
+pedantic FP32 cuBLAS，14 是显式 TF32 对照。
 公平实验还应设置固定 seed 和逐次复位 C：
 
 ```bash
@@ -111,8 +117,9 @@ make profile KERNEL=2 PREFIX=learning_
 4. [03：原版限制与验证](docs/zh/03-原版限制与验证.md)：哪些前提不能忽略、哪些工具会修改源码、如何检查注释变更没有改逻辑。
 5. [04：RTX 3080 Kernel 10 调优](docs/zh/04-RTX3080-K10调优.md)：24 组 tile 搜索、shared-memory padding、Nsight 证据与最终结果。
 6. [05：RTX 3080 FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)：严格 FP32/TF32 分流、公平计时、K10/K11/K12 Nsight 对照与剩余性能差距。
+7. [05：K10 Grid Swizzle 调优](docs/zh/05-K10-Grid-Swizzle调优.md)：独立 K15、五种组宽、缓存收益为何没有转化为吞吐。
 
-源码中的 1–12 号 kernel、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
+源码中的 1–12 号 kernel 和独立实验 K15、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 
 ## 运行前先注意
 
