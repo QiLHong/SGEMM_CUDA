@@ -1,7 +1,7 @@
 size,cublas_fp32_gflops,k10_tuned_gflops,k10_percent_of_cublas,correctness,notes
-128,2.1,163.1,,PASS,cuBLAS includes first-call initialization; ratio intentionally omitted
-256,2642.6,766.6,29.01,PASS,
-512,10020.8,3387.1,33.80,PASS,
-1024,14673.6,11498.8,78.36,PASS,
-2048,20759.8,17434.2,83.98,PASS,
-4096,21659.0,19155.7,88.44,PASS,complete six-size validation run
+128,2.1,164.7,,PASS,cuBLAS includes first-call initialization; ratio intentionally omitted
+256,2402.3,771.6,32.12,PASS,
+512,10020.8,3399.9,33.93,PASS,
+1024,14626.8,12742.5,87.12,PASS,
+2048,20770.6,19256.3,92.71,PASS,
+4096,21659.9,19560.0,90.31,PASS,clean default build; complete six-size validation run

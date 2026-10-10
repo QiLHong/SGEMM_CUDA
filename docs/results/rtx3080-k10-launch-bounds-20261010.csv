@@ -1,0 +1,6 @@
+min_blocks,run1_gflops,run2_gflops,run3_gflops,mean_gflops,registers_per_thread,stack_bytes,notes
+unset,19092.6,19030.0,19052.2,19058.3,168,0,one-argument launch_bounds
+1,19462.3,19468.9,19475.4,19468.9,184,0,
+2,19477.8,19419.3,19442.7,19446.6,184,0,selected; guarantees at least two resident blocks per SM
+3,17401.0,,,17401.0,167,0,rejected
+4,734.8,,,734.8,128,816,rejected; register spilling

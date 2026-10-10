@@ -32,9 +32,9 @@ set_target_properties(sgemm PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABIL
 target_link_libraries(sgemm ${CUDA_LIBRARIES} ${CUDA_CUBLAS_LIBRARIES})
 
 # Kernel 10 调优参数。仅把显式传给 CMake 的值转成交给 nvcc 的编译期定义；
-# 默认构建不设置这些 cache 变量，因此使用 runner.cu 中记录的 RTX 3080 默认值。
+# 默认构建不设置这些 cache 变量，因此使用 runner/header 中记录的 RTX 3080 默认值。
 set(SGEMM_K10_TUNABLES
-    NUM_THREADS BN BM BK WN WM WNITER TN TM AS_PAD)
+    NUM_THREADS BN BM BK WN WM WNITER TN TM AS_PAD MIN_BLOCKS)
 foreach(K10_TUNABLE IN LISTS SGEMM_K10_TUNABLES)
   if(DEFINED SGEMM_K10_${K10_TUNABLE})
     target_compile_definitions(

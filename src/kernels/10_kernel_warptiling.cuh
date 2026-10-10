@@ -112,10 +112,20 @@ processFromSmem(float *__restrict__ regM, float *__restrict__ regN,
  * “warp 子块”是输出区域的分组，不是改变硬件 warp 的 32 线程大小。
  * 本实现假定分块、向量对齐和尺寸整除条件成立；约束还要查看 runner。
  */
+#ifndef SGEMM_K10_MIN_BLOCKS
+// SM86 实测：至少保留两个 block/SM 时，ptxas 可使用更多寄存器且不 spill。
+// 设为 0 可恢复单参数 launch_bounds，便于在其他 GPU 上重新调优。
+#define SGEMM_K10_MIN_BLOCKS 2
+#endif
+
 template <const int BM, const int BN, const int BK, const int WM, const int WN,
           const int WNITER, const int TM, const int TN, const int NUM_THREADS,
           const int AS_PAD = 0>
+#if SGEMM_K10_MIN_BLOCKS > 0
+__global__ void __launch_bounds__(NUM_THREADS, SGEMM_K10_MIN_BLOCKS)
+#else
 __global__ void __launch_bounds__(NUM_THREADS)
+#endif
     sgemmWarptiling(int M, int N, int K, float alpha,
                     const float *__restrict__ A,
                     const float *__restrict__ B, float beta,

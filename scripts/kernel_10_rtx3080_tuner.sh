@@ -17,6 +17,7 @@ SEARCH_REPEAT="${SEARCH_REPEAT:-15}"
 FINAL_REPEAT="${FINAL_REPEAT:-50}"
 WARMUP="${WARMUP:-10}"
 AS_PAD="${AS_PAD:-4}"
+MIN_BLOCKS="${MIN_BLOCKS:-2}"
 RUN_TAG="${RUN_TAG:-$(date +%Y%m%d-%H%M%S)}"
 CSV="${OUTPUT_DIR}/kernel_10_rtx3080_${RUN_TAG}.csv"
 LOG="${OUTPUT_DIR}/kernel_10_rtx3080_${RUN_TAG}.log"
@@ -28,11 +29,13 @@ configure_candidate() {
   local wniter="$6" tm="$7" tn="$8" threads="$9"
   cmake -S "${ROOT_DIR}" -B "${BUILD_DIR}" -G "Unix Makefiles" \
     -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_CUDA_FLAGS_RELEASE="-O3 -DNDEBUG" \
     -DSGEMM_K10_BM="${bm}" -DSGEMM_K10_BN="${bn}" \
     -DSGEMM_K10_BK="${bk}" -DSGEMM_K10_WM="${wm}" \
     -DSGEMM_K10_WN="${wn}" -DSGEMM_K10_WNITER="${wniter}" \
     -DSGEMM_K10_TM="${tm}" -DSGEMM_K10_TN="${tn}" \
-    -DSGEMM_K10_NUM_THREADS="${threads}" -DSGEMM_K10_AS_PAD="${AS_PAD}"
+    -DSGEMM_K10_NUM_THREADS="${threads}" -DSGEMM_K10_AS_PAD="${AS_PAD}" \
+    -DSGEMM_K10_MIN_BLOCKS="${MIN_BLOCKS}"
   cmake --build "${BUILD_DIR}" --target sgemm --parallel 2
 }
 
@@ -74,7 +77,7 @@ block_256x128_bk8 256 128 8 64 64 4 8 4 256
 block_256x128_bk16 256 128 16 64 64 4 8 4 256
 EOF
 
-printf 'id,gflops,bm,bn,bk,wm,wn,wniter,tm,tn,threads,as_pad,status\n' >"${CSV}"
+printf 'id,gflops,bm,bn,bk,wm,wn,wniter,tm,tn,threads,as_pad,min_blocks,status\n' >"${CSV}"
 : >"${LOG}"
 
 configure_candidate 128 128 16 64 64 4 8 4 128 >>"${LOG}" 2>&1
@@ -85,36 +88,36 @@ printf 'cuBLAS warmed baseline: %s GFLOPS\n' "${CUBLAS_GFLOPS}" | tee -a "${LOG}
 
 for candidate in "${CANDIDATES[@]}"; do
   read -r id bm bn bk wm wn wniter tm tn threads <<<"${candidate}"
-  printf '\n[%s] BM=%s BN=%s BK=%s WM=%s WN=%s WNITER=%s TM=%s TN=%s threads=%s AS_PAD=%s\n' \
+  printf '\n[%s] BM=%s BN=%s BK=%s WM=%s WN=%s WNITER=%s TM=%s TN=%s threads=%s AS_PAD=%s MIN_BLOCKS=%s\n' \
     "${id}" "${bm}" "${bn}" "${bk}" "${wm}" "${wn}" "${wniter}" \
-    "${tm}" "${tn}" "${threads}" "${AS_PAD}" | tee -a "${LOG}"
+    "${tm}" "${tn}" "${threads}" "${AS_PAD}" "${MIN_BLOCKS}" | tee -a "${LOG}"
 
   if ! configure_candidate "${bm}" "${bn}" "${bk}" "${wm}" "${wn}" \
       "${wniter}" "${tm}" "${tn}" "${threads}" >>"${LOG}" 2>&1; then
-    printf '%s,,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,build_failed\n' \
+    printf '%s,,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,build_failed\n' \
       "${id}" "${bm}" "${bn}" "${bk}" "${wm}" "${wn}" "${wniter}" \
-      "${tm}" "${tn}" "${threads}" "${AS_PAD}" >>"${CSV}"
+      "${tm}" "${tn}" "${threads}" "${AS_PAD}" "${MIN_BLOCKS}" >>"${CSV}"
     continue
   fi
 
   if ! RUN_OUTPUT="$(measure_kernel 10 "${SEARCH_REPEAT}" 2>&1)"; then
     printf '%s\n' "${RUN_OUTPUT}" | tee -a "${LOG}"
-    printf '%s,,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,run_failed\n' \
+    printf '%s,,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,run_failed\n' \
       "${id}" "${bm}" "${bn}" "${bk}" "${wm}" "${wn}" "${wniter}" \
-      "${tm}" "${tn}" "${threads}" "${AS_PAD}" >>"${CSV}"
+      "${tm}" "${tn}" "${threads}" "${AS_PAD}" "${MIN_BLOCKS}" >>"${CSV}"
     continue
   fi
 
   printf '%s\n' "${RUN_OUTPUT}" | tee -a "${LOG}"
   GFLOPS="$(printf '%s\n' "${RUN_OUTPUT}" | extract_gflops)"
-  printf '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,ok\n' \
+  printf '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,ok\n' \
     "${id}" "${GFLOPS}" "${bm}" "${bn}" "${bk}" "${wm}" "${wn}" \
-    "${wniter}" "${tm}" "${tn}" "${threads}" "${AS_PAD}" >>"${CSV}"
+    "${wniter}" "${tm}" "${tn}" "${threads}" "${AS_PAD}" "${MIN_BLOCKS}" >>"${CSV}"
 done
 
-BEST="$(awk -F, 'NR > 1 && $13 == "ok" {print}' "${CSV}" | sort -t, -k2,2nr | head -n1)"
+BEST="$(awk -F, 'NR > 1 && $14 == "ok" {print}' "${CSV}" | sort -t, -k2,2nr | head -n1)"
 IFS=, read -r BEST_ID _ BEST_BM BEST_BN BEST_BK BEST_WM BEST_WN \
-  BEST_WNITER BEST_TM BEST_TN BEST_THREADS _ _ <<<"${BEST}"
+  BEST_WNITER BEST_TM BEST_TN BEST_THREADS _ _ _ <<<"${BEST}"
 
 configure_candidate "${BEST_BM}" "${BEST_BN}" "${BEST_BK}" "${BEST_WM}" \
   "${BEST_WN}" "${BEST_WNITER}" "${BEST_TM}" "${BEST_TN}" \

@@ -34,7 +34,7 @@
 
 ### RTX 3080 本机调优结果（2026-10-10）
 
-在本机 RTX 3080、CUDA 12.4、4096³ FP32 上，加入 Kernel 10 的 A-tile shared-memory padding 后，完整六尺寸验证中的结果为 **19155.7 GFLOPS**，同轮 cuBLAS 为 **21659.0 GFLOPS（88.44%）**。另一轮独立长测为 87.60%，因此报告采用 **87.6%–88.4%** 的范围，不选择单次最高值。六个 stock 尺寸均通过 cuBLAS 正确性检查；完整方法、24 组 tile 搜索和 Nsight 指标见 [RTX 3080 Kernel 10 调优记录](docs/zh/04-RTX3080-K10调优.md)。
+在本机 RTX 3080、CUDA 12.4、4096³ FP32 上，Kernel 10 是现有自写 kernel 中最快的一个。A-tile shared-memory padding、安全的 `__restrict__` 和 `__launch_bounds__(128, 2)` 联合调优后，干净默认构建的完整六尺寸验证为 **19560.0 GFLOPS**，同轮 cuBLAS 为 **21659.9 GFLOPS（90.31%）**；独立长测的跨轮范围为 **89.4%–90.3%**。六个 stock 尺寸均通过 cuBLAS 正确性检查；完整方法、24 组 tile 搜索和资源分析见 [RTX 3080 Kernel 10 调优记录](docs/zh/04-RTX3080-K10调优.md)。
 
 ## 环境与构建
 
@@ -80,7 +80,7 @@ mkdir -p benchmark_results
 make profile KERNEL=2 PREFIX=learning_
 ```
 
-性能分析器可能重放 kernel，分析耗时不要当作正常运行延迟。中文分支没有执行 GPU 编译、benchmark 或性能分析，**不包含新的 RTX 3080 性能保证**。
+性能分析器可能重放 kernel，分析耗时不要当作正常运行延迟。本分支的 RTX 3080 benchmark 与 Nsight 指标已单独记录在调优报告中；这些数字只代表报告所列机器、工具链、尺寸和测量口径，不是其他 GPU 的性能保证。
 
 ## 中文学习入口
 
