@@ -113,8 +113,9 @@ processFromSmem(float *__restrict__ regM, float *__restrict__ regN,
  * 本实现假定分块、向量对齐和尺寸整除条件成立；约束还要查看 runner。
  */
 #ifndef SGEMM_K10_MIN_BLOCKS
-// SM86 实测：至少保留两个 block/SM 时，ptxas 可使用更多寄存器且不 spill。
-// 设为 0 可恢复单参数 launch_bounds，便于在其他 GPU 上重新调优。
+// SM86 实测：把两个 block/SM 作为编译器资源目标时，ptxas 可使用更多寄存器
+// 且不 spill。第二参数不是“运行时始终驻留两个 block”的保证；实际驻留还受
+// 寄存器、shared memory、线程数和调度状态共同限制。0 恢复单参数版本。
 #define SGEMM_K10_MIN_BLOCKS 2
 #endif
 
@@ -142,6 +143,12 @@ __global__ void __launch_bounds__(NUM_THREADS)
   constexpr uint WMITER = (WM * WN) / (WARPSIZE * TM * TN * WNITER);
   constexpr uint WSUBM = WM / WMITER; // 原例：64/2=32；实际值取决于模板参数。
   constexpr uint WSUBN = WN / WNITER; // 原例：32/2=16；不是固定常量。
+  static_assert(NUM_THREADS > 0 && NUM_THREADS % WARPSIZE == 0);
+  static_assert(BK > 0 && BK % 4 == 0);
+  static_assert(BN > 0 && BN % 4 == 0);
+  static_assert(TN > 0 && TN % 4 == 0);
+  static_assert(WSUBM >= TM && WSUBM % TM == 0);
+  static_assert(WSUBN >= TN && WSUBN % TN == 0);
 
   // lane 编号映射到 warp 子块中的线程小块坐标。
   const uint threadIdxInWarp = threadIdx.x % WARPSIZE;         // 范围 [0,31]。

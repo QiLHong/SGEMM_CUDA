@@ -44,12 +44,12 @@ foreach(K10_TUNABLE IN LISTS SGEMM_K10_TUNABLES)
 endforeach()
 
 # 独立 cuBLAS 演示。
-# 【学习补充】上游下面重复设置的是 sgemm，不是 cuBLAS_sgemm；本分支不改构建逻辑。
+# 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )
-set_target_properties(sgemm PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
+set_target_properties(cuBLAS_sgemm PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
 target_link_libraries(cuBLAS_sgemm ${CUDA_LIBRARIES} ${CUDA_CUBLAS_LIBRARIES})
 
-# 最简单的线程索引演示；同样保留上游 target 属性设置。
+# 最简单的线程索引演示；架构属性应设置给它自身。
 add_executable(simplest_kernel simplest_kernel.cu)
-set_target_properties(sgemm PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
+set_target_properties(simplest_kernel PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
 target_link_libraries(simplest_kernel ${CUDA_LIBRARIES})

@@ -30,10 +30,9 @@ def printBankConflicts(bank_fun):
         )
 
 
-# 【上游限制】函数定义只有一个参数，下面原调用却传入两个，直接运行会触发 TypeError。
-# 中文学习分支保留这个调用，不把代码修复混入翻译；详见 docs/zh/03-原版限制与验证.md。
+# 后续实验提交修复了上游多传一个参数的 TypeError；纯翻译验证仍固定在 aadcd8e。
 print("---NAIVE---")
-printBankConflicts(banks_naive, 32)
+printBankConflicts(banks_naive)
 
 print("\n---EXTRA COL---")
-printBankConflicts(banks_one_extra, 33)
+printBankConflicts(banks_one_extra)

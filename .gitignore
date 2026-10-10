@@ -1,5 +1,6 @@
 build/
 build-tune/
+build-audit*/
 cmake-build-debug/
 cmake-build-release/
 .idea/

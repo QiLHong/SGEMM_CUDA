@@ -2,7 +2,7 @@
 
 用 CUDA 逐步优化矩阵乘法。各个 kernel 的原作者讲解见 [Simon Boehm 的 CUDA-MMM 文章](https://siboehm.com/articles/22/CUDA-MMM)。
 
-本分支 `zh-cn-learning` 基于 `5a7dcc513d951ba764d51bc9d587b3163f3a894d`，翻译仓库文档和注释，并加入面向初学者的解释。初始翻译阶段不改变 kernel 算法、线程配置、矩阵尺寸、数值校验门槛和运行输出格式；2026-10-10 又单独加入了有实测依据的 RTX 3080 Kernel 10 shared-memory padding 与安全调参入口，详见 [调优记录](docs/zh/04-RTX3080-K10调优.md)。原作者英文 README 完整保留在 [README.en.md](README.en.md)，原版继续保留在 `master`。
+本分支 `zh-cn-learning` 基于 `5a7dcc513d951ba764d51bc9d587b3163f3a894d`。纯翻译阶段固定为提交 `aadcd8e`；后续 RTX 3080 调优、benchmark 修复和实验工具修复属于独立的真实代码改动，不再冒充“只有注释变化”。2026-10-10 的两轮记录分别见 [初次调优](docs/zh/04-RTX3080-K10调优.md)和 [FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)。原作者英文 README 完整保留在 [README.en.md](README.en.md)，原版继续保留在 `master`。
 
 原项目：[siboehm/SGEMM_CUDA](https://github.com/siboehm/SGEMM_CUDA)。原作者：Simon Boehm。中文内容属于 AI 辅助翻译与学习补充，并非原作者审校版，也不是原博客的完整译文。`【学习补充】` 表示新增解释，`【注释辨析】` 表示原注释与实际表达式之间需要注意的区别；没有把这些问题偷偷改成另一套实现。
 
@@ -35,6 +35,12 @@
 ### RTX 3080 本机调优结果（2026-10-10）
 
 在本机 RTX 3080、CUDA 12.4、4096³ FP32 上，Kernel 10 是现有自写 kernel 中最快的一个。A-tile shared-memory padding、安全的 `__restrict__` 和 `__launch_bounds__(128, 2)` 联合调优后，干净默认构建的完整六尺寸验证为 **19560.0 GFLOPS**，同轮 cuBLAS 为 **21659.9 GFLOPS（90.31%）**；独立长测的跨轮范围为 **89.4%–90.3%**。六个 stock 尺寸均通过 cuBLAS 正确性检查；完整方法、24 组 tile 搜索和资源分析见 [RTX 3080 Kernel 10 调优记录](docs/zh/04-RTX3080-K10调优.md)。
+
+后续审计没有覆盖上述历史数据，而是新增“固定 seed、每次恢复 C、复位 copy 不计时、
+三轮轮换顺序”的公平口径。严格 FP32 cuBLAS 平均 **21704.9 GFLOPS**，K10 平均
+**19696.5 GFLOPS（90.75%）**。Nsight 确认两者均走普通 FP32 SIMT/FMA，现有 kernel
+0 没有使用 Tensor Core；显式 TF32 对照虽达到 29771.3 GFLOPS，但大量元素超过原
+0.01 误差阈值，单独报告且不计入上述比例。
 
 ## 环境与构建
 
@@ -72,7 +78,20 @@ DEVICE=0 ./build/sgemm 2
 
 如果已有 `build/` 是 Ninja 生成的，不要在同一目录混用生成器。可以另选构建目录；使用原 `make profile` 或 autotuner 前，则需检查它们固定依赖的 `build/` 和 `make`。Debug 会使用 `-G`，不适合拿来比较吞吐率。当前 CMake 仍使用上游 `find_package(CUDA)`，这里没有顺带升级构建系统；新版本 CMake 的兼容问题应独立处理。
 
-在构建目录内，运行格式仍是 `DEVICE=<设备编号> ./sgemm <kernel编号>`。`DEVICE` 是这个程序读取的变量。通过 [NVIDIA Nsight Compute](https://developer.nvidia.com/nsight-compute) 分析性能的上游入口为：
+在构建目录内，运行格式是 `DEVICE=<设备编号> ./sgemm <kernel编号>`。1–12 是自写
+kernel；0 保留历史 cuBLAS 参数，13 是 pedantic FP32 cuBLAS，14 是显式 TF32 对照。
+公平实验还应设置固定 seed 和逐次复位 C：
+
+```bash
+DEVICE=0 SGEMM_BENCH_SIZE=4096 SGEMM_WARMUP=10 SGEMM_REPEAT=50 \
+SGEMM_SEED=20261010 SGEMM_RESET_C_EACH_REPEAT=1 SGEMM_BETA=3 \
+./build/sgemm 10
+
+# 自动轮换比较 0/13/10/14，并保存带时间戳的新 CSV。
+BUILD_DIR="$PWD/build" DEVICE=0 ./scripts/rtx3080_fp32_audit.sh
+```
+
+`DEVICE` 是这个程序读取的变量。通过 [NVIDIA Nsight Compute](https://developer.nvidia.com/nsight-compute) 分析性能的上游入口为：
 
 ```bash
 # 从仓库根目录运行；需事先安装 ncu 并具备性能计数器权限。
@@ -91,6 +110,7 @@ make profile KERNEL=2 PREFIX=learning_
 3. [02：分块与流水线](docs/zh/02-分块与流水线.md)：shared memory、寄存器复用、float4、bank、warp tiling、双缓冲。
 4. [03：原版限制与验证](docs/zh/03-原版限制与验证.md)：哪些前提不能忽略、哪些工具会修改源码、如何检查注释变更没有改逻辑。
 5. [04：RTX 3080 Kernel 10 调优](docs/zh/04-RTX3080-K10调优.md)：24 组 tile 搜索、shared-memory padding、Nsight 证据与最终结果。
+6. [05：RTX 3080 FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)：严格 FP32/TF32 分流、公平计时、K10/K11/K12 Nsight 对照与剩余性能差距。
 
 源码中的 1–12 号 kernel、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 

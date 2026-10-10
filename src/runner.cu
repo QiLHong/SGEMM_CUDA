@@ -11,7 +11,7 @@
 // 为兼容现有脚本，函数名、错误字符串、性能输出和参数声明均保持上游形式。
 
 // 返回微秒量级的主机时间；不要因函数名含 sec 就直接按秒使用。
-float get_sec() {
+float get_current_sec() {
   struct timeval time;
   gettimeofday(&time, NULL);
   return (1e6 * time.tv_sec + time.tv_usec);
@@ -26,6 +26,28 @@ void cudaCheck(cudaError_t error, const char *file, int line) {
     exit(EXIT_FAILURE);
   }
 };
+
+namespace {
+void cublasCheck(cublasStatus_t status, const char *operation) {
+  if (status != CUBLAS_STATUS_SUCCESS) {
+    fprintf(stderr, "[cuBLAS ERROR] %s failed with status %d\n", operation,
+            static_cast<int>(status));
+    exit(EXIT_FAILURE);
+  }
+}
+
+void runCublasGemm(cublasHandle_t handle, cublasMath_t mathMode,
+                   cublasComputeType_t computeType, cublasGemmAlgo_t algorithm,
+                   int M, int N, int K, float alpha, float *A, float *B,
+                   float beta, float *C) {
+  cublasCheck(cublasSetMathMode(handle, mathMode), "cublasSetMathMode");
+  cublasCheck(
+      cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, M, K, &alpha, B,
+                   CUDA_R_32F, N, A, CUDA_R_32F, K, &beta, C, CUDA_R_32F, N,
+                   computeType, algorithm),
+      "cublasGemmEx");
+}
+} // namespace
 
 // 打印运行设备资源；资源上限用于理解配置，不等于实际达到的 occupancy。
 void CudaDeviceInfo() {
@@ -61,9 +83,21 @@ void CudaDeviceInfo() {
 void randomize_matrix(float *mat, int N) {
   // 原作者提醒：time(NULL) 精度过低，连续调用可能生成相同随机序列。
   // 改用 gettimeofday 的微秒字段作种子；注意这也意味着每次运行输入未固定。
-  struct timeval time {};
-  gettimeofday(&time, nullptr);
-  srand(time.tv_usec);
+  if (const char *seedText = getenv("SGEMM_SEED")) {
+    // 固定 seed 时，每次调用仍使用不同但可复现的序列，避免 A/B/C 完全相同。
+    static unsigned callIndex = 0;
+    char *end = nullptr;
+    const unsigned long seed = strtoul(seedText, &end, 10);
+    if (end == seedText || *end != '\0') {
+      fprintf(stderr, "SGEMM_SEED must be an unsigned integer.\n");
+      exit(EXIT_FAILURE);
+    }
+    srand(static_cast<unsigned>(seed) + 0x9e3779b9U * callIndex++);
+  } else {
+    struct timeval time {};
+    gettimeofday(&time, nullptr);
+    srand(time.tv_usec);
+  }
   for (int i = 0; i < N; i++) {
     float tmp = (float)(rand() % 5) + 0.01 * (rand() % 5);
     tmp = (rand() % 2 == 0) ? tmp : tmp * (-1.);
@@ -135,9 +169,16 @@ void runCublasFP32(cublasHandle_t handle, int M, int N, int K, float alpha,
   // cuBLAS 按列主序解释数组。行主序 A/B 的同一内存可解释成其转置，
   // 因为 (B^T*A^T)^T=A*B，所以交换操作数并传入 N/M，无需实际转置拷贝。
   // 这里选择 CUBLAS_COMPUTE_32F，是主 benchmark 的 FP32 基线。
-  cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, M, K, &alpha, B, CUDA_R_32F,
-               N, A, CUDA_R_32F, K, &beta, C, CUDA_R_32F, N, CUBLAS_COMPUTE_32F,
-               CUBLAS_GEMM_DEFAULT_TENSOR_OP);
+  runCublasGemm(handle, CUBLAS_DEFAULT_MATH, CUBLAS_COMPUTE_32F,
+                CUBLAS_GEMM_DEFAULT_TENSOR_OP, M, N, K, alpha, A, B, beta, C);
+}
+
+void runCublasStrictFP32(cublasHandle_t handle, int M, int N, int K,
+                         float alpha, float *A, float *B, float beta,
+                         float *C) {
+  // 严格对照：禁止降精度路径，乘法与累加均遵守 FP32 pedantic 语义。
+  runCublasGemm(handle, CUBLAS_PEDANTIC_MATH, CUBLAS_COMPUTE_32F_PEDANTIC,
+                CUBLAS_GEMM_DEFAULT, M, N, K, alpha, A, B, beta, C);
 }
 
 void runCublasBF16(cublasHandle_t handle, int M, int N, int K, float alpha,
@@ -145,9 +186,8 @@ void runCublasBF16(cublasHandle_t handle, int M, int N, int K, float alpha,
   // 混合精度路径：允许将 FP32 输入转换为 BF16 进行乘法。
   // 原作者注释给出约 4 倍加速，这是其观察值，不保证在每个尺寸/GPU 上成立。
   // 该函数不是 run_kernel 中编号 0 的路径，不能混用数值契约比较。
-  cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, M, K, &alpha, B, CUDA_R_32F,
-               N, A, CUDA_R_32F, K, &beta, C, CUDA_R_32F, N,
-               CUBLAS_COMPUTE_32F_FAST_16BF, CUBLAS_GEMM_DEFAULT_TENSOR_OP);
+  runCublasGemm(handle, CUBLAS_DEFAULT_MATH, CUBLAS_COMPUTE_32F_FAST_16BF,
+                CUBLAS_GEMM_DEFAULT_TENSOR_OP, M, N, K, alpha, A, B, beta, C);
 }
 
 void runCublasTF32(cublasHandle_t handle, int M, int N, int K, float alpha,
@@ -155,9 +195,9 @@ void runCublasTF32(cublasHandle_t handle, int M, int N, int K, float alpha,
   // 原注释复制了上一函数的 BF16/~4x 说明。
   // 【注释辨析】实际枚举为 FAST_TF32，表示允许 TF32 快速计算，而不是 BF16。
   // 保留代码；不要把这条混合精度路径与普通 FP32 kernel 当作同精度结果。
-  cublasGemmEx(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, M, K, &alpha, B, CUDA_R_32F,
-               N, A, CUDA_R_32F, K, &beta, C, CUDA_R_32F, N,
-               CUBLAS_COMPUTE_32F_FAST_TF32, CUBLAS_GEMM_DEFAULT_TENSOR_OP);
+  runCublasGemm(handle, CUBLAS_TF32_TENSOR_OP_MATH,
+                CUBLAS_COMPUTE_32F_FAST_TF32,
+                CUBLAS_GEMM_DEFAULT_TENSOR_OP, M, N, K, alpha, A, B, beta, C);
 }
 
 void run_sgemm_naive(int M, int N, int K, float alpha, float *A, float *B,
@@ -398,6 +438,12 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
   constexpr uint K10_TN = SGEMM_K10_TN;
   constexpr uint K10_TM = SGEMM_K10_TM;
   constexpr uint K10_AS_PAD = SGEMM_K10_AS_PAD;
+  if (M <= 0 || N <= 0 || K <= 0 || M % K10_BM != 0 ||
+      N % K10_BN != 0 || K % K10_BK != 0 || N % 4 != 0 || K % 4 != 0) {
+    throw std::invalid_argument(
+        "Kernel 10 requires positive dimensions divisible by BM/BN/BK and "
+        "float4-aligned N/K");
+  }
   dim3 blockDim(K10_NUM_THREADS);
 
   constexpr uint NUM_WARPS = K10_NUM_THREADS / 32;
@@ -428,9 +474,9 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
   static_assert(K10_BM % (16 * K10_TM) == 0,
                 "BM must be a multiple of 16*TM to avoid quantization effects");
   static_assert((K10_BM * K10_BK) % (4 * K10_NUM_THREADS) == 0,
-                "BM*BK must be a multiple of 4*256 to vectorize loads");
+                "BM*BK must be a multiple of 4*NUM_THREADS");
   static_assert((K10_BN * K10_BK) % (4 * K10_NUM_THREADS) == 0,
-                "BN*BK must be a multiple of 4*256 to vectorize loads");
+                "BN*BK must be a multiple of 4*NUM_THREADS");
 
   dim3 gridDim(CEIL_DIV(N, K10_BN), CEIL_DIV(M, K10_BM));
   sgemmWarptiling<K10_BM, K10_BN, K10_BK, K10_WM, K10_WN, K10_WNITER, K10_TM,
@@ -554,7 +600,7 @@ void runSgemmDoubleBuffering2(int M, int N, int K, float alpha, float *A,
       <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
 }
 
-// kernel 编号的唯一分发表。0 为 FP32 cuBLAS，不是上面 BF16/TF32 快速函数。
+// kernel 编号的唯一分发表。0 保留历史 cuBLAS 口径；13/14 是显式精度对照。
 void run_kernel(int kernel_num, int M, int N, int K, float alpha, float *A,
                 float *B, float beta, float *C, cublasHandle_t handle) {
   switch (kernel_num) {
@@ -596,6 +642,12 @@ void run_kernel(int kernel_num, int M, int N, int K, float alpha, float *A,
     break;
   case 12:
     runSgemmDoubleBuffering2(M, N, K, alpha, A, B, beta, C);
+    break;
+  case 13:
+    runCublasStrictFP32(handle, M, N, K, alpha, A, B, beta, C);
+    break;
+  case 14:
+    runCublasTF32(handle, M, N, K, alpha, A, B, beta, C);
     break;
   default:
     throw std::invalid_argument("Unknown kernel number");

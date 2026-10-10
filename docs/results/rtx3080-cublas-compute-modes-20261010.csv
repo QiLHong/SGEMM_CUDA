@@ -1,0 +1,5 @@
+mode,kernel,compute_type,math_mode,algorithm,nvidia_tf32_override,mean_gflops,min_gflops,max_gflops,max_abs_vs_strict,elements_over_0_01,ncu_kernel,ncu_fma_active_percent,ncu_tensor_active_percent,ncu_dram_read_bytes,ncu_l2_hit_percent
+legacy,0,CUBLAS_COMPUTE_32F,CUBLAS_DEFAULT_MATH,CUBLAS_GEMM_DEFAULT_TENSOR_OP,unset,21696.8,21649.6,21783.5,0,0,cutlass_80_simt_sgemm_256x128_8x4_nn_align1,78.59,0,514210000,87.77
+strict,13,CUBLAS_COMPUTE_32F_PEDANTIC,CUBLAS_PEDANTIC_MATH,CUBLAS_GEMM_DEFAULT,unset,21704.9,21617.4,21784.9,0,0,cutlass_80_simt_sgemm_256x128_8x4_nn_align1,78.57,0,514020000,87.81
+tf32,14,CUBLAS_COMPUTE_32F_FAST_TF32,CUBLAS_TF32_TENSOR_OP_MATH,CUBLAS_GEMM_DEFAULT_TENSOR_OP,unset,29771.3,29577.7,29969.6,0.373077,14850391,cutlass_80_tensorop_s1688gemm_128x256_16x3_nn_align4,3.36,48.71,,88.14
+tf32_override_off,14,CUBLAS_COMPUTE_32F_FAST_TF32,CUBLAS_TF32_TENSOR_OP_MATH,CUBLAS_GEMM_DEFAULT_TENSOR_OP,0,21768.0,21768.0,21768.0,0,0,simt_fallback,,,,

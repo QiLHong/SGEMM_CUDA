@@ -1,0 +1,5 @@
+variant,profile_duration_ms,stable_gflops_mean,registers_per_thread,static_shared_bytes,local_load_requests,local_store_requests,theoretical_occupancy_percent,achieved_occupancy_percent,compute_throughput_percent,fma_active_percent,issue_slots_busy_percent,memory_throughput_percent,dram_throughput_percent,dram_read_bytes,shared_bank_conflicts,no_eligible_percent,stall_dispatch_per_issued,stall_barrier_per_issued,stall_wait_per_issued,stall_long_scoreboard_per_issued,executed_instructions
+k10_minblocks0,8.26,19307.6,168,16640,0,0,25.00,24.01,72.76,71.50,77.43,54.49,,963720000,16777216,22.53,0.45,0.21,0.16,0.21,2351730688
+k10_minblocks2,8.00,19696.5,184,16640,0,0,16.67,16.58,74.65,73.64,79.14,56.26,17.41,963720000,16777216,20.92,0.32,0.14,0.11,0.10,2336014336
+k11_double_buffer,9.98,16977.1,170,49152,0,0,16.67,16.66,62.00,58.69,65.92,36.40,10.27,691940000,25165824,34.05,0.13,0.52,0.17,0.27,2420301824
+k12_async_double_buffer,10.61,15702.7,210,32784,0,0,16.67,16.13,59.71,55.41,62.82,58.38,19.37,1450000000,217246109,37.19,0.28,0.09,0.20,0.09,2479225578

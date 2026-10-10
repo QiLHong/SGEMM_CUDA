@@ -20,8 +20,6 @@ void copy_matrix(const float *src, float *dest, int N);
 void print_matrix(const float *A, int M, int N, std::ofstream &fs);
 bool verify_matrix(float *mat1, float *mat2, int N);
 
-// 【学习补充】原声明名为 get_current_sec，runner.cu 定义名为 get_sec。
-// 主 benchmark 使用 CUDA Event；此处仅标注上游名称差异，不改接口。
 float get_current_sec();                        // 获取当前时刻。
 float cpu_elapsed_time(float &beg, float &end); // 计算 CPU 时间差。
 

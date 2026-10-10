@@ -10,6 +10,7 @@ import subprocess
 import sys
 
 BASE = "5a7dcc513d951ba764d51bc9d587b3163f3a894d"
+TRANSLATION = "aadcd8e"
 # 字符串必须整体匹配，不能把 URL 或字符串中的 // 当成注释。
 CPP_TOKEN = re.compile(
     r'(?P<raw>(?:u8|u|U|L)?R"(?P<delimiter>[^ ()\\\t\r\n]{0,16})\([\s\S]*?\)(?P=delimiter)")'
@@ -100,6 +101,9 @@ def self_test() -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base', default=BASE, help='要比较的原版 commit，默认固定上游基线')
+    parser.add_argument(
+        '--translation', default=TRANSLATION,
+        help='纯翻译 commit；默认 aadcd8e，后续算法/实验提交不参与翻译判定')
     parser.add_argument('--self-test', action='store_true', help='只测试检查器，不读取仓库')
     args = parser.parse_args()
     if args.self_test:
@@ -110,6 +114,9 @@ def main() -> int:
     checked = 0
     try:
         base = git(root, 'rev-parse', '--verify', args.base + '^{commit}').decode().strip()
+        translation = git(
+            root, 'rev-parse', '--verify', args.translation + '^{commit}'
+        ).decode().strip()
         entries = git(root, 'ls-tree', '-r', '-z', base).split(b'\0')
         for entry in entries:
             if not entry:
@@ -122,26 +129,36 @@ def main() -> int:
                 continue
             before = git(root, 'cat-file', 'blob', blob)
             target = 'README.en.md' if path == 'README.md' else path
-            current = root / target
-            if not current.is_file() or current.is_symlink():
-                failures.append(target + ': missing file or unexpected symlink')
+            translated_entry = git(
+                root, 'ls-tree', '-z', translation, '--', target
+            ).rstrip(b'\0')
+            if not translated_entry:
+                failures.append(target + ': missing from translation commit')
                 continue
-            after = current.read_bytes()
+            translated_metadata, translated_name = translated_entry.split(b'\t', 1)
+            translated_mode, translated_kind, translated_blob = (
+                translated_metadata.decode().split()
+            )
+            if translated_name.decode('utf-8') != target or translated_kind != 'blob':
+                failures.append(target + ': unexpected translation entry')
+                continue
+            after = git(root, 'cat-file', 'blob', translated_blob)
             equal = before == after if path == 'README.md' else fingerprint(path, before) == fingerprint(path, after)
             if not equal:
                 failures.append(target + ': non-comment content differs')
-            # Git index 中的模式可跨 Windows/Unix 检查；未跟踪新增英文备份不检查模式。
-            if path != 'README.md':
-                indexed = git(root, 'ls-files', '--stage', '--', path).decode().split()
-                if not indexed or indexed[0] != mode:
-                    failures.append(path + ': tracked file mode differs')
+            # README 在翻译提交中另存为 README.en.md；其余文件模式也必须保持。
+            if path != 'README.md' and translated_mode != mode:
+                failures.append(path + ': tracked file mode differs')
             checked += 1
     except (OSError, RuntimeError, ValueError, SyntaxError, subprocess.TimeoutExpired) as error:
         print('CHECK BLOCKED:', error, file=sys.stderr)
         return 2
     for failure in failures:
         print('FAIL:', failure)
-    print(f'Base: {base}\nOriginal files checked: {checked}\nFailures: {len(failures)}')
+    print(
+        f'Base: {base}\nTranslation: {translation}\n'
+        f'Original files checked: {checked}\nFailures: {len(failures)}'
+    )
     print('此检查不执行 CUDA、benchmark 或调优脚本；不是编译/GPU 正确性证明。')
     return 1 if failures else 0
 

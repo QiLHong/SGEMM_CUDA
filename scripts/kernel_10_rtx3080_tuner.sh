@@ -17,10 +17,20 @@ SEARCH_REPEAT="${SEARCH_REPEAT:-15}"
 FINAL_REPEAT="${FINAL_REPEAT:-50}"
 WARMUP="${WARMUP:-10}"
 AS_PAD="${AS_PAD:-4}"
-MIN_BLOCKS="${MIN_BLOCKS:-2}"
+MIN_BLOCKS="${MIN_BLOCKS:-}"
+SEED="${SEED:-20261010}"
 RUN_TAG="${RUN_TAG:-$(date +%Y%m%d-%H%M%S)}"
 CSV="${OUTPUT_DIR}/kernel_10_rtx3080_${RUN_TAG}.csv"
 LOG="${OUTPUT_DIR}/kernel_10_rtx3080_${RUN_TAG}.log"
+
+if [[ -z "${MIN_BLOCKS}" || ! "${MIN_BLOCKS}" =~ ^[0-9]+$ ]]; then
+  printf 'Set MIN_BLOCKS explicitly (for example 0, 1, or 2). Launch bounds are tile-specific.\n' >&2
+  exit 2
+fi
+if [[ -e "${CSV}" || -e "${LOG}" ]]; then
+  printf 'Refusing to overwrite an existing benchmark: %s or %s\n' "${CSV}" "${LOG}" >&2
+  exit 2
+fi
 
 mkdir -p "${BUILD_DIR}" "${OUTPUT_DIR}"
 
@@ -42,7 +52,9 @@ configure_candidate() {
 measure_kernel() {
   local kernel="$1" repeats="$2"
   DEVICE="${DEVICE}" SGEMM_BENCH_SIZE=4096 SGEMM_WARMUP="${WARMUP}" \
-    SGEMM_REPEAT="${repeats}" "${BUILD_DIR}/sgemm" "${kernel}"
+    SGEMM_REPEAT="${repeats}" SGEMM_SEED="${SEED}" \
+    SGEMM_RESET_C_EACH_REPEAT=1 SGEMM_BETA=3 \
+    "${BUILD_DIR}/sgemm" "${kernel}"
 }
 
 extract_gflops() {

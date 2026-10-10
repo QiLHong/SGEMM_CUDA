@@ -1,0 +1,10 @@
+tile,min_blocks,threads,registers_per_thread,static_shared_bytes,stack_bytes,local_bytes,theoretical_occupancy_percent,gflops,correctness,sass_group
+baseline,0,128,168,16640,0,0,25.00,19307.6,PASS,baseline-mb0
+baseline,1,128,184,16640,0,0,16.67,19812.3,PASS,baseline-mb1-mb2-identical
+baseline,2,128,184,16640,0,0,16.67,19726.2,PASS,baseline-mb1-mb2-identical
+sub8x4n2,0,128,182,16640,0,0,16.67,16855.3,PASS,sub8x4n2-mb0
+sub8x4n2,1,128,192,16640,0,0,16.67,19603.7,PASS,sub8x4n2-mb1-mb2-identical
+sub8x4n2,2,128,192,16640,0,0,16.67,19579.2,PASS,sub8x4n2-mb1-mb2-identical
+threads256,0,256,108,16640,0,0,33.33,18061.1,PASS,threads256-mb0
+threads256,1,256,118,16640,0,0,33.33,18026.8,PASS,threads256-mb1-mb2-identical
+threads256,2,256,118,16640,0,0,33.33,18103.6,PASS,threads256-mb1-mb2-identical
