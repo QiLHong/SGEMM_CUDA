@@ -658,6 +658,41 @@ void runSgemmWarptilingLayout(int M, int N, int K, float alpha, float *A,
   }
 }
 
+#ifndef SGEMM_K19_VARIANT
+#define SGEMM_K19_VARIANT 1
+#endif
+
+void runSgemmWarptilingFragmentPrefetch(int M, int N, int K, float alpha,
+                                        float *A, float *B, float beta,
+                                        float *C) {
+  constexpr uint VARIANT = SGEMM_K19_VARIANT;
+  constexpr uint BM = SGEMM_K10_BM;
+  constexpr uint BN = SGEMM_K10_BN;
+  constexpr uint BK = SGEMM_K10_BK;
+  constexpr uint WM = SGEMM_K10_WM;
+  constexpr uint WN = SGEMM_K10_WN;
+  constexpr uint NUM_THREADS = SGEMM_K10_NUM_THREADS;
+  constexpr uint AS_PAD = SGEMM_K10_AS_PAD;
+  static_assert(VARIANT >= 1 && VARIANT <= 3,
+                "SGEMM_K19_VARIANT must be in [1,3]");
+  static_assert(BM == 128 && BN == 128 && BK == 16);
+  static_assert(WM == 64 && WN == 64 && NUM_THREADS == 128 && AS_PAD == 4);
+  static_assert(SGEMM_K10_MIN_BLOCKS == 2,
+                "K19 audit freezes launch_bounds(128,2)");
+  if (M <= 0 || N <= 0 || K <= 0 || M % BM != 0 || N % BN != 0 ||
+      K % BK != 0 || N % 4 != 0 || K % 4 != 0) {
+    throw std::invalid_argument(
+        "Kernel 19 requires positive dimensions divisible by 128/128/16 "
+        "and float4-aligned N/K");
+  }
+
+  dim3 gridDim(N / BN, M / BM);
+  dim3 blockDim(NUM_THREADS);
+  sgemmWarptilingFragmentPrefetch<VARIANT, BM, BN, BK, WM, WN, 4, 8, 4,
+                                  NUM_THREADS, AS_PAD>
+      <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+}
+
 void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
                              float *B, float beta, float *C) {
   // A100 配置（未启用）。
@@ -834,6 +869,9 @@ void run_kernel(int kernel_num, int M, int N, int K, float alpha, float *A,
     break;
   case 18:
     runSgemmWarptilingLayout(M, N, K, alpha, A, B, beta, C);
+    break;
+  case 19:
+    runSgemmWarptilingFragmentPrefetch(M, N, K, alpha, A, B, beta, C);
     break;
   default:
     throw std::invalid_argument("Unknown kernel number");

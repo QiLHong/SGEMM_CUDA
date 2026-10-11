@@ -1,0 +1,5 @@
+mode,registers_per_thread,static_shared_bytes,stack_frame_bytes,spill_store_bytes,spill_load_bytes
+k10,184,16640,0,0,0
+v1,196,16640,0,0,0
+v2,187,16640,0,0,0
+v3,196,16640,0,0,0

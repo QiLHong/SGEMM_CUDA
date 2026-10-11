@@ -234,6 +234,10 @@ load-scheduling / accumulator-order 实验，且不改变 ownership。若这也�
 的稳定收益，应停止在这个教学微内核上继续堆复杂度，转向系统比较 cuBLAS/CUTLASS
 微内核的 instruction mix 与 pipeline，而不是再搜索 lane 公式。
 
+后续 K19 已完成这项验证：三种 B fragment register prefetch 均回退 6.30%–7.36%。
+SASS 证明 K10 的 LDS 本来就被 ptxas 穿插进 FFMA 序列，额外寄存器组没有减少 LDS，
+反而降低 issue/FMA 利用率。见 [K19 Fragment Register Prefetch](09-K10-Fragment寄存器预取调优.md)。
+
 ## 11. 复现命令与数据
 
 ```bash

@@ -62,6 +62,13 @@ K10 仅 +0.012%，属于噪声；`TM=4,TN=8` 与连续 16-column fragment 分别
 GFLOPS（K10 为 90.95%）。这排除了“简单换一个 warp fragment layout”这一主瓶颈
 假设；详见 [Warp Fragment Layout 受控实验](docs/zh/08-K10-Warp-Fragment-Layout调优.md)。
 
+随后 K19 只改变 shared→register 的 B fragment 调度。三种轻量预取均通过六尺寸、
+`beta=0/1/3` 验证且无 spill，但相对 K10 稳定回退 6.30%–7.36%。K10/V1/V2/V3
+三轮均值分别为 19,688.4/18,265.9/18,447.6/18,239.2 GFLOPS；显式预取没有减少
+96 条 LDS 或 shared wavefront，反而使 issue slots 从 79.27% 降到 69.54%–71.51%。
+V1 与显式两步展开的 V3 甚至生成完全相同的 SASS，说明 ptxas 已经主动调度 K10 的
+fragment load。详见 [Fragment Register Prefetch 受控实验](docs/zh/09-K10-Fragment寄存器预取调优.md)。
+
 ## 环境与构建
 
 上游列出的依赖为 CUDA Toolkit 12、Python（以及 Seaborn）、CMake 和 Ninja，辅助 Python 环境见 [environment.yml](environment.yml)。
@@ -100,7 +107,8 @@ DEVICE=0 ./build/sgemm 2
 
 在构建目录内，运行格式是 `DEVICE=<设备编号> ./sgemm <kernel编号>`。1–12 是原有
 自写 kernel，15 是独立的 K10 grouped-grid 实验，16 是 A shared XOR 实验，17 是
-B-only `cp.async` 实验，18 是编译期选择 V0–V5 的 warp fragment layout 实验；0
+B-only `cp.async` 实验，18 是编译期选择 V0–V5 的 warp fragment layout 实验，19
+是编译期选择 V1–V3 的 B fragment register prefetch 实验；0
 保留历史 cuBLAS 参数，13 是 pedantic FP32 cuBLAS，14 是显式 TF32 对照。
 公平实验还应设置固定 seed 和逐次复位 C：
 
@@ -134,11 +142,12 @@ make profile KERNEL=2 PREFIX=learning_
 5. [04：RTX 3080 Kernel 10 调优](docs/zh/04-RTX3080-K10调优.md)：24 组 tile 搜索、shared-memory padding、Nsight 证据与最终结果。
 6. [05：RTX 3080 FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)：严格 FP32/TF32 分流、公平计时、K10/K11/K12 Nsight 对照与剩余性能差距。
 7. [05：K10 Grid Swizzle 调优](docs/zh/05-K10-Grid-Swizzle调优.md)：独立 K15、五种组宽、缓存收益为何没有转化为吞吐。
-8. [06：RTX 3080 K10 优化故事](docs/zh/06-RTX3080-K10优化故事.md)：从基线校准、有效改动和失败实验，收敛到下一步的寄存器预取与 SASS 调度。
+8. [06：RTX 3080 K10 优化故事](docs/zh/06-RTX3080-K10优化故事.md)：从基线校准、有效改动到 K15–K19 失败实验，逐步收敛剩余瓶颈。
 9. [07：K10 Shared 布局与 B 异步流水](docs/zh/07-K10-Shared布局与B异步流水.md)：K16 XOR 和 K17 B-only `cp.async` 的正确性、性能、SASS 与 Nsight 证据。
 10. [08：K10 Warp Fragment Layout](docs/zh/08-K10-Warp-Fragment-Layout调优.md)：32-lane 输出映射、K18 六个版本、三轮性能、Nsight 与 SASS 反例。
+11. [09：K10 Fragment Register Prefetch](docs/zh/09-K10-Fragment寄存器预取调优.md)：K10 的 LDS→FFMA 距离、K19 三个版本及显式预取为何降低 issue/FMA 利用率。
 
-源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
+源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 
 ## 运行前先注意
 

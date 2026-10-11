@@ -65,6 +65,12 @@ if(DEFINED SGEMM_K18_VARIANT)
     sgemm PRIVATE SGEMM_K18_VARIANT=${SGEMM_K18_VARIANT})
 endif()
 
+# K19 在同一个冻结的 K10 shape 上选择 B-fragment register prefetch 版本。
+if(DEFINED SGEMM_K19_VARIANT)
+  target_compile_definitions(
+    sgemm PRIVATE SGEMM_K19_VARIANT=${SGEMM_K19_VARIANT})
+endif()
+
 # 独立 cuBLAS 演示。
 # 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )
