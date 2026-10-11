@@ -47,6 +47,14 @@
 提升。G16 虽显著改善 L2 命中和 DRAM 流量，issue/FMA 指标与最终吞吐反而下降；见
 [Grid Swizzle 调优实验](docs/zh/05-K10-Grid-Swizzle调优.md)。K15 不替换默认 K10。
 
+2026-10-11 又完成两个受控实验。K16 的 9 组 A shared-memory XOR swizzle 全部通过
+正确性，但现有 `AS_PAD=4` 的 shared-load conflicts 本来就是 0，XOR 反而制造
+134.22 M 冲突，最好配置仍比 K10 慢 18.35%。K17 只对 B 使用双 shared buffer 和
+`cp.async`；恢复编译器完全展开后为 18,221.9 GFLOPS，仍比同轮 K10 的
+19,642.7 GFLOPS 慢 7.23%。最终同轮 strict FP32 cuBLAS 为 21,667.1 GFLOPS，K10
+达到 90.66%，所以默认实现不变。完整证据见
+[Shared XOR 与 B-only 异步流水实验](docs/zh/07-K10-Shared布局与B异步流水.md)。
+
 ## 环境与构建
 
 上游列出的依赖为 CUDA Toolkit 12、Python（以及 Seaborn）、CMake 和 Ninja，辅助 Python 环境见 [environment.yml](environment.yml)。
@@ -84,8 +92,9 @@ DEVICE=0 ./build/sgemm 2
 如果已有 `build/` 是 Ninja 生成的，不要在同一目录混用生成器。可以另选构建目录；使用原 `make profile` 或 autotuner 前，则需检查它们固定依赖的 `build/` 和 `make`。Debug 会使用 `-G`，不适合拿来比较吞吐率。当前 CMake 仍使用上游 `find_package(CUDA)`，这里没有顺带升级构建系统；新版本 CMake 的兼容问题应独立处理。
 
 在构建目录内，运行格式是 `DEVICE=<设备编号> ./sgemm <kernel编号>`。1–12 是原有
-自写 kernel，15 是独立的 K10 grouped-grid 实验；0 保留历史 cuBLAS 参数，13 是
-pedantic FP32 cuBLAS，14 是显式 TF32 对照。
+自写 kernel，15 是独立的 K10 grouped-grid 实验，16 是 A shared XOR 实验，17 是
+B-only `cp.async` 实验；0 保留历史 cuBLAS 参数，13 是 pedantic FP32 cuBLAS，14 是
+显式 TF32 对照。
 公平实验还应设置固定 seed 和逐次复位 C：
 
 ```bash
@@ -119,8 +128,9 @@ make profile KERNEL=2 PREFIX=learning_
 6. [05：RTX 3080 FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)：严格 FP32/TF32 分流、公平计时、K10/K11/K12 Nsight 对照与剩余性能差距。
 7. [05：K10 Grid Swizzle 调优](docs/zh/05-K10-Grid-Swizzle调优.md)：独立 K15、五种组宽、缓存收益为何没有转化为吞吐。
 8. [06：RTX 3080 K10 优化故事](docs/zh/06-RTX3080-K10优化故事.md)：从基线校准、有效改动和失败实验，收敛到下一步的寄存器预取与 SASS 调度。
+9. [07：K10 Shared 布局与 B 异步流水](docs/zh/07-K10-Shared布局与B异步流水.md)：K16 XOR 和 K17 B-only `cp.async` 的正确性、性能、SASS 与 Nsight 证据。
 
-源码中的 1–12 号 kernel 和独立实验 K15、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
+源码中的 1–12 号 kernel 和独立实验 K15/K16/K17、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 
 ## 运行前先注意
 

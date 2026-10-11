@@ -1,0 +1,13 @@
+round,position,mode,kernel,gflops,kernel_time_ms,correctness,temp_before_c,temp_after_c,sm_clock_before_mhz,sm_clock_after_mhz,mem_clock_before_mhz,mem_clock_after_mhz,beta,c_policy,seed
+1,1,strict,13,21805.8,6.3030,reference,30,38,0,1950,405,9501,3,reset-each-repeat,20261011
+1,2,k10,10,19664.7,6.9890,PASS,37,38,1950,1950,9501,9501,3,reset-each-repeat,20261011
+1,3,k16,16,16185.2,8.4920,PASS,37,39,1950,1950,9501,9501,3,reset-each-repeat,20261011
+1,4,k17,17,18268.4,7.5230,PASS,38,39,1950,1950,9501,9501,3,reset-each-repeat,20261011
+2,1,k10,10,19654.3,6.9930,PASS,39,40,1950,1935,9501,9501,3,reset-each-repeat,20261011
+2,2,k16,16,16068.4,8.5530,PASS,39,41,1935,1935,9501,9501,3,reset-each-repeat,20261011
+2,3,k17,17,18193.2,7.5540,PASS,40,42,1935,1935,9501,9501,3,reset-each-repeat,20261011
+2,4,strict,13,21654.4,6.3470,reference,41,42,1935,1935,9501,9501,3,reset-each-repeat,20261011
+3,1,k16,16,16071.1,8.5520,PASS,42,43,1935,1935,9501,9501,3,reset-each-repeat,20261011
+3,2,k17,17,18204.0,7.5500,PASS,42,43,1935,1935,9501,9501,3,reset-each-repeat,20261011
+3,3,strict,13,21541.2,6.3800,reference,42,43,1935,1935,9501,9501,3,reset-each-repeat,20261011
+3,4,k10,10,19609.1,7.0090,PASS,42,44,1935,1935,9501,9501,3,reset-each-repeat,20261011

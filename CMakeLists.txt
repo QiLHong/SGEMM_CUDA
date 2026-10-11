@@ -49,6 +49,15 @@ if(DEFINED SGEMM_K15_GROUP_M)
     sgemm PRIVATE SGEMM_K15_GROUP_M=${SGEMM_K15_GROUP_M})
 endif()
 
+# K16 只搜索限定的 A shared-memory XOR 布局参数。
+foreach(K16_TUNABLE IN ITEMS XOR_MASK XOR_SHIFT)
+  if(DEFINED SGEMM_K16_${K16_TUNABLE})
+    target_compile_definitions(
+      sgemm PRIVATE
+      SGEMM_K16_${K16_TUNABLE}=${SGEMM_K16_${K16_TUNABLE}})
+  endif()
+endforeach()
+
 # 独立 cuBLAS 演示。
 # 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )

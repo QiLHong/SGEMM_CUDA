@@ -529,6 +529,88 @@ void runSgemmWarptilingGrouped(int M, int N, int K, float alpha, float *A,
       <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
 }
 
+void runSgemmWarptilingASwizzle(int M, int N, int K, float alpha, float *A,
+                                float *B, float beta, float *C) {
+  constexpr uint NUM_THREADS = SGEMM_K10_NUM_THREADS;
+  constexpr uint BN = SGEMM_K10_BN;
+  constexpr uint BM = SGEMM_K10_BM;
+  constexpr uint BK = SGEMM_K10_BK;
+  constexpr uint WN = SGEMM_K10_WN;
+  constexpr uint WM = SGEMM_K10_WM;
+  constexpr uint WNITER = SGEMM_K10_WNITER;
+  constexpr uint TN = SGEMM_K10_TN;
+  constexpr uint TM = SGEMM_K10_TM;
+  constexpr uint AS_PAD = SGEMM_K10_AS_PAD;
+  constexpr uint XOR_MASK = SGEMM_K16_XOR_MASK;
+  constexpr uint XOR_SHIFT = SGEMM_K16_XOR_SHIFT;
+
+  if (M <= 0 || N <= 0 || K <= 0 || M % BM != 0 || N % BN != 0 ||
+      K % BK != 0 || N % 4 != 0 || K % 4 != 0) {
+    throw std::invalid_argument(
+        "Kernel 16 requires positive dimensions divisible by BM/BN/BK and "
+        "float4-aligned N/K");
+  }
+  static_assert(NUM_THREADS % WARPSIZE == 0);
+  static_assert((BN % WN == 0) and (BM % WM == 0));
+  static_assert((BN / WN) * (BM / WM) == NUM_THREADS / WARPSIZE);
+  static_assert((WM * WN) % (WARPSIZE * TM * TN * WNITER) == 0);
+  constexpr uint WMITER =
+      (WM * WN) / (WARPSIZE * TM * TN * WNITER);
+  static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+  static_assert((NUM_THREADS * 4) % BK == 0);
+  static_assert((NUM_THREADS * 4) % BN == 0);
+  static_assert(BN % (16 * TN) == 0);
+  static_assert(BM % (16 * TM) == 0);
+  static_assert((BM * BK) % (4 * NUM_THREADS) == 0);
+  static_assert((BN * BK) % (4 * NUM_THREADS) == 0);
+
+  dim3 gridDim(N / BN, M / BM);
+  dim3 blockDim(NUM_THREADS);
+  sgemmWarptilingASwizzle<BM, BN, BK, WM, WN, WNITER, TM, TN, NUM_THREADS,
+                          AS_PAD, XOR_MASK, XOR_SHIFT>
+      <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+}
+
+void runSgemmWarptilingBAsync(int M, int N, int K, float alpha, float *A,
+                              float *B, float beta, float *C) {
+  constexpr uint NUM_THREADS = SGEMM_K10_NUM_THREADS;
+  constexpr uint BN = SGEMM_K10_BN;
+  constexpr uint BM = SGEMM_K10_BM;
+  constexpr uint BK = SGEMM_K10_BK;
+  constexpr uint WN = SGEMM_K10_WN;
+  constexpr uint WM = SGEMM_K10_WM;
+  constexpr uint WNITER = SGEMM_K10_WNITER;
+  constexpr uint TN = SGEMM_K10_TN;
+  constexpr uint TM = SGEMM_K10_TM;
+  constexpr uint AS_PAD = SGEMM_K10_AS_PAD;
+
+  if (M <= 0 || N <= 0 || K <= 0 || M % BM != 0 || N % BN != 0 ||
+      K % BK != 0 || N % 4 != 0 || K % 4 != 0) {
+    throw std::invalid_argument(
+        "Kernel 17 requires positive dimensions divisible by BM/BN/BK and "
+        "float4-aligned N/K");
+  }
+  static_assert(NUM_THREADS % WARPSIZE == 0);
+  static_assert((BN % WN == 0) and (BM % WM == 0));
+  static_assert((BN / WN) * (BM / WM) == NUM_THREADS / WARPSIZE);
+  static_assert((WM * WN) % (WARPSIZE * TM * TN * WNITER) == 0);
+  constexpr uint WMITER =
+      (WM * WN) / (WARPSIZE * TM * TN * WNITER);
+  static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+  static_assert((NUM_THREADS * 4) % BK == 0);
+  static_assert((NUM_THREADS * 4) % BN == 0);
+  static_assert(BN % (16 * TN) == 0);
+  static_assert(BM % (16 * TM) == 0);
+  static_assert((BM * BK) % (4 * NUM_THREADS) == 0);
+  static_assert((BN * BK) % (4 * NUM_THREADS) == 0);
+
+  dim3 gridDim(N / BN, M / BM);
+  dim3 blockDim(NUM_THREADS);
+  sgemmWarptilingBAsync<BM, BN, BK, WM, WN, WNITER, TM, TN, NUM_THREADS,
+                        AS_PAD>
+      <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+}
+
 void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
                              float *B, float beta, float *C) {
   // A100 配置（未启用）。
@@ -696,6 +778,12 @@ void run_kernel(int kernel_num, int M, int N, int K, float alpha, float *A,
     break;
   case 15:
     runSgemmWarptilingGrouped(M, N, K, alpha, A, B, beta, C);
+    break;
+  case 16:
+    runSgemmWarptilingASwizzle(M, N, K, alpha, A, B, beta, C);
+    break;
+  case 17:
+    runSgemmWarptilingBAsync(M, N, K, alpha, A, B, beta, C);
     break;
   default:
     throw std::invalid_argument("Unknown kernel number");
