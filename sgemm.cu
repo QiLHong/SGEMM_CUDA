@@ -55,6 +55,8 @@ const char *kernel_mode_name(int kernel) {
     return "K16 K10 + A shared-memory XOR swizzle";
   case 17:
     return "K17 K10 + B-only cp.async pipeline";
+  case 18:
+    return "K18 K10 + warp fragment layout experiment";
   default:
     return "custom CUDA kernel";
   }
@@ -63,18 +65,18 @@ const char *kernel_mode_name(int kernel) {
 
 int main(int argc, char **argv) {
   if (argc != 2) {
-    std::cerr << "Please select a kernel (0-17; 13=strict FP32 cuBLAS, "
+    std::cerr << "Please select a kernel (0-18; 13=strict FP32 cuBLAS, "
                  "14=TF32 cuBLAS, 15=grouped-grid K10, 16=A-smem swizzle, "
-                 "17=B-only cp.async)"
+                 "17=B-only cp.async, 18=warp fragment layout)"
               << std::endl;
     exit(EXIT_FAILURE);
   }
 
   // 从命令行读取编号：0 为历史 cuBLAS，1–12 为教学实现，13/14
-  // 分别为严格 FP32 与显式 TF32 对照，15/16/17 为独立受控实验。
+  // 分别为严格 FP32 与显式 TF32 对照，15–18 为独立受控实验。
   int kernel_num = std::stoi(argv[1]);
-  if (kernel_num < 0 || kernel_num > 17) {
-    std::cerr << "Please enter a valid kernel number (0-17)" << std::endl;
+  if (kernel_num < 0 || kernel_num > 18) {
+    std::cerr << "Please enter a valid kernel number (0-18)" << std::endl;
     exit(EXIT_FAILURE);
   }
 
@@ -207,7 +209,7 @@ int main(int argc, char **argv) {
     const size_t matrixBytes = sizeof(float) * m * n;
     const bool isCustomKernel =
         (kernel_num >= 1 && kernel_num <= 12) || kernel_num == 15 ||
-        kernel_num == 16 || kernel_num == 17;
+        kernel_num == 16 || kernel_num == 17 || kernel_num == 18;
     const bool compareCublasMode =
         resetCEachRepeat && (kernel_num == 0 || kernel_num == 14);
 

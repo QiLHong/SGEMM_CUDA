@@ -58,6 +58,13 @@ foreach(K16_TUNABLE IN ITEMS XOR_MASK XOR_SHIFT)
   endif()
 endforeach()
 
+# K18 每次只编译一个手工设计的 warp fragment layout（0..5）。其余 K10
+# 参数在 runner/header 中被 static_assert 固定，避免实验越界到 tile/load/pipeline。
+if(DEFINED SGEMM_K18_VARIANT)
+  target_compile_definitions(
+    sgemm PRIVATE SGEMM_K18_VARIANT=${SGEMM_K18_VARIANT})
+endif()
+
 # 独立 cuBLAS 演示。
 # 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )

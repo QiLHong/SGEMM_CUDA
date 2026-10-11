@@ -4,6 +4,7 @@ build-audit*/
 build-swizzle-*/
 build-xor-*/
 build-k17/
+build-layout-*/
 cmake-build-debug/
 cmake-build-release/
 .idea/
@@ -19,3 +20,4 @@ simplest
 
 # 本机生成的 benchmark 结果。
 benchmark_results/
+__pycache__/

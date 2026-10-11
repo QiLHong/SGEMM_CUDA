@@ -236,6 +236,11 @@ prefetch，很容易超过 200 registers 或增加更多同步生命周期。因
 增加 24 个 float registers，容易越过 200-register 门槛。可先尝试 B-only fragment
 的 16-register 上限，或把 WN 子块拆成更小的预取批次。
 
+后续 K18 已先验证“不改 pipeline、只改 warp fragment ownership”这一更小假设。
+5 个手工变体均未稳定快于 K10，简单 lane 重排或加宽 N fragment 不是答案。下一步
+进一步收敛为保持现有 ownership，直接分析 LDS→FFMA 依赖距离与 load/accumulator
+调度；见 [K18 Warp Fragment Layout 实验](08-K10-Warp-Fragment-Layout调优.md)。
+
 ## 10. 复现命令与数据
 
 ```bash

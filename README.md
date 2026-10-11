@@ -55,6 +55,13 @@
 达到 90.66%，所以默认实现不变。完整证据见
 [Shared XOR 与 B-only 异步流水实验](docs/zh/07-K10-Shared布局与B异步流水.md)。
 
+同日完成的 K18 进一步只改变 warp 内 lane/fragment 所有权，global/shared/pipeline/tile
+全部冻结。5 个手工变体没有一个稳定快于 K10：最接近的 XOR lane permutation 相对
+K10 仅 +0.012%，属于噪声；`TM=4,TN=8` 与连续 16-column fragment 分别回退 5.78%
+和 9.12%。三轮同测 K10 为 19,648.9 GFLOPS，strict FP32 cuBLAS 为 21,603.8
+GFLOPS（K10 为 90.95%）。这排除了“简单换一个 warp fragment layout”这一主瓶颈
+假设；详见 [Warp Fragment Layout 受控实验](docs/zh/08-K10-Warp-Fragment-Layout调优.md)。
+
 ## 环境与构建
 
 上游列出的依赖为 CUDA Toolkit 12、Python（以及 Seaborn）、CMake 和 Ninja，辅助 Python 环境见 [environment.yml](environment.yml)。
@@ -93,8 +100,8 @@ DEVICE=0 ./build/sgemm 2
 
 在构建目录内，运行格式是 `DEVICE=<设备编号> ./sgemm <kernel编号>`。1–12 是原有
 自写 kernel，15 是独立的 K10 grouped-grid 实验，16 是 A shared XOR 实验，17 是
-B-only `cp.async` 实验；0 保留历史 cuBLAS 参数，13 是 pedantic FP32 cuBLAS，14 是
-显式 TF32 对照。
+B-only `cp.async` 实验，18 是编译期选择 V0–V5 的 warp fragment layout 实验；0
+保留历史 cuBLAS 参数，13 是 pedantic FP32 cuBLAS，14 是显式 TF32 对照。
 公平实验还应设置固定 seed 和逐次复位 C：
 
 ```bash
@@ -129,8 +136,9 @@ make profile KERNEL=2 PREFIX=learning_
 7. [05：K10 Grid Swizzle 调优](docs/zh/05-K10-Grid-Swizzle调优.md)：独立 K15、五种组宽、缓存收益为何没有转化为吞吐。
 8. [06：RTX 3080 K10 优化故事](docs/zh/06-RTX3080-K10优化故事.md)：从基线校准、有效改动和失败实验，收敛到下一步的寄存器预取与 SASS 调度。
 9. [07：K10 Shared 布局与 B 异步流水](docs/zh/07-K10-Shared布局与B异步流水.md)：K16 XOR 和 K17 B-only `cp.async` 的正确性、性能、SASS 与 Nsight 证据。
+10. [08：K10 Warp Fragment Layout](docs/zh/08-K10-Warp-Fragment-Layout调优.md)：32-lane 输出映射、K18 六个版本、三轮性能、Nsight 与 SASS 反例。
 
-源码中的 1–12 号 kernel 和独立实验 K15/K16/K17、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
+源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 
 ## 运行前先注意
 
