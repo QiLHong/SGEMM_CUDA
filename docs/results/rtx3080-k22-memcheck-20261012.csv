@@ -1,0 +1,7 @@
+variant,size,result
+1,128,PASS
+1,256,PASS
+2,128,PASS
+2,256,PASS
+3,128,PASS
+3,256,PASS

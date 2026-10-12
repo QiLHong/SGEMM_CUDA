@@ -117,7 +117,8 @@ DEVICE=0 ./build/sgemm 2
 自写 kernel，15 是独立的 K10 grouped-grid 实验，16 是 A shared XOR 实验，17 是
 B-only `cp.async` 实验，18 是编译期选择 V0–V5 的 warp fragment layout 实验，19
 是编译期选择 V1–V3 的 B fragment register prefetch 实验，20 是 256-thread、
-256×128 CTA 的 K20 SIMT 实验（含 one-pass 与 64-accumulator phased 版本）；0
+256×128 CTA 的 K20 SIMT 实验（含 one-pass 与 64-accumulator phased 版本），21 是
+CUTLASS-style iterator 与双阶段 pipeline skeleton 实验；0
 保留历史 cuBLAS 参数，13 是 pedantic FP32 cuBLAS，14 是显式 TF32 对照。
 公平实验还应设置固定 seed 和逐次复位 C：
 
@@ -158,8 +159,10 @@ make profile KERNEL=2 PREFIX=learning_
 12. [10：K10 微内核与 cuBLAS 差距](docs/zh/10-K10-微内核与cuBLAS差距分析.md)：完整 register fragment 映射、accumulator 链、register lifetime，以及 strict cuBLAS 的 CTA/SASS/Nsight 对照。
 13. [11：K10 SASS 微结构指标](docs/zh/11-K10-SASS微结构指标报告.md)：静态依赖距离、动态 scheduler counter、register lifetime 与统计边界。
 14. [12：K20 256-thread SIMT 微内核](docs/zh/12-K20-256线程SIMT微内核.md)：256×128 CTA 的两种 one-pass warp 映射、64-accumulator 分阶段映射、资源交换与 RTX 3080 复现实验。
+15. [13：K21 CUTLASS-style SIMT 微内核骨架](docs/zh/13-K21-CUTLASS风格SIMT微内核骨架.md)：隔离 iterator 寻址，并用 256×128、48 KiB 双阶段异步骨架解释 cuBLAS 的 BK=8×4-stage 资源模型。
+16. [14：K22 128-thread 多阶段流水](docs/zh/14-K22-128线程多阶段流水实验.md)：冻结 K10 ownership，比较 BK=8 同步、两阶段和四阶段，说明 pipeline 为何必要但不充分。
 
-源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19/K20、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
+源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19/K20/K21/K22、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 
 ## 运行前先注意
 

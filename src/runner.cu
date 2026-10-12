@@ -759,6 +759,70 @@ void runSgemmSimt256x128(int M, int N, int K, float alpha, float *A,
   }
 }
 
+#ifndef SGEMM_K21_VARIANT
+#define SGEMM_K21_VARIANT 1
+#endif
+
+void runSgemmCutlassStyleSkeleton(int M, int N, int K, float alpha, float *A,
+                                  float *B, float beta, float *C) {
+  constexpr uint VARIANT = SGEMM_K21_VARIANT;
+  static_assert(VARIANT == 1 || VARIANT == 2,
+                "SGEMM_K21_VARIANT must be 1 or 2");
+  if (M <= 0 || N <= 0 || K <= 0 || M % 128 != 0 || N % 128 != 0 ||
+      K % 16 != 0 || N % 4 != 0 || K % 4 != 0) {
+    throw std::invalid_argument(
+        "Kernel 21 requires M/N divisible by 128, K by 16, and float4 "
+        "aligned N/K");
+  }
+
+  if constexpr (VARIANT == 1) {
+    const dim3 gridDim(N / 128, M / 128);
+    const dim3 blockDim(128);
+    sgemmK21Iterator<<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+  } else {
+    const dim3 gridDim(N / 128, CEIL_DIV(M, 256));
+    const dim3 blockDim(256);
+    if (M % 256 == 0) {
+      sgemmK21Pipeline<false><<<gridDim, blockDim>>>(M, N, K, alpha, A, B,
+                                                     beta, C);
+    } else {
+      sgemmK21Pipeline<true><<<gridDim, blockDim>>>(M, N, K, alpha, A, B,
+                                                    beta, C);
+    }
+  }
+}
+
+#ifndef SGEMM_K22_VARIANT
+#define SGEMM_K22_VARIANT 1
+#endif
+
+void runSgemmMultistagePipeline(int M, int N, int K, float alpha, float *A,
+                                float *B, float beta, float *C) {
+  constexpr uint VARIANT = SGEMM_K22_VARIANT;
+  constexpr uint BM = 128, BN = 128, BK = 8, NUM_THREADS = 128;
+  static_assert(VARIANT >= 1 && VARIANT <= 3,
+                "SGEMM_K22_VARIANT must be in [1,3]");
+  if (M <= 0 || N <= 0 || K <= 0 || M % BM != 0 || N % BN != 0 ||
+      K % BK != 0 || K / BK < 4 || N % 4 != 0) {
+    throw std::invalid_argument(
+        "Kernel 22 requires M/N divisible by 128, K divisible by 8 with at "
+        "least four BK tiles, and float4-aligned N");
+  }
+
+  const dim3 gridDim(N / BN, M / BM);
+  const dim3 blockDim(NUM_THREADS);
+  if constexpr (VARIANT == 1) {
+    sgemmK22SyncPingPong<<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta,
+                                                C);
+  } else if constexpr (VARIANT == 2) {
+    sgemmK22AsyncPipeline<2><<<gridDim, blockDim>>>(M, N, K, alpha, A, B,
+                                                    beta, C);
+  } else {
+    sgemmK22AsyncPipeline<4><<<gridDim, blockDim>>>(M, N, K, alpha, A, B,
+                                                    beta, C);
+  }
+}
+
 void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
                              float *B, float beta, float *C) {
   // A100 配置（未启用）。
@@ -941,6 +1005,12 @@ void run_kernel(int kernel_num, int M, int N, int K, float alpha, float *A,
     break;
   case 20:
     runSgemmSimt256x128(M, N, K, alpha, A, B, beta, C);
+    break;
+  case 21:
+    runSgemmCutlassStyleSkeleton(M, N, K, alpha, A, B, beta, C);
+    break;
+  case 22:
+    runSgemmMultistagePipeline(M, N, K, alpha, A, B, beta, C);
     break;
   default:
     throw std::invalid_argument("Unknown kernel number");

@@ -1,0 +1,6 @@
+mode,threads,bk,stages,copy,registers_per_thread,ptxas_shared_bytes,ncu_shared_kb,occupancy_pct,spill_stores_bytes,spill_loads_bytes
+k10,128,16,1,synchronous,184,16640,17.664,16.572578,0,0
+v1,128,8,2,synchronous,179,16640,17.664,16.246959,0,0
+v2,128,8,2,cp.async,161,16640,17.664,24.426924,0,0
+v3,128,8,4,cp.async,161,33280,34.304,16.572511,0,0
+strict,256,8,4,internal,202,unknown,50.176,16.658655,0,0

@@ -1,0 +1,5 @@
+mode,threads_per_block,cta_tile,registers_per_thread,ptxas_shared_bytes,ncu_launch_shared_kb,spill_load_bytes,spill_store_bytes
+k10,128,128x128,184,16640,17.664,0,0
+k21_v1_iterator,128,128x128,190,16640,17.664,0,0
+k21_v2_pipeline,256,256x128,255,49152,50.176,0,0
+strict_cublas,256,256x128,202,not_available,50.176,0,0

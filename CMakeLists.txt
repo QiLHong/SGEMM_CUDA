@@ -77,6 +77,18 @@ if(DEFINED SGEMM_K20_VARIANT)
     sgemm PRIVATE SGEMM_K20_VARIANT=${SGEMM_K20_VARIANT})
 endif()
 
+# K21 V1 隔离 iterator 寻址；V2 才启用 256-thread 双阶段异步流水。
+if(DEFINED SGEMM_K21_VARIANT)
+  target_compile_definitions(
+    sgemm PRIVATE SGEMM_K21_VARIANT=${SGEMM_K21_VARIANT})
+endif()
+
+# K22 冻结 K10 的 128-thread ownership，只比较 BK=8 同步、2-stage 与 4-stage。
+if(DEFINED SGEMM_K22_VARIANT)
+  target_compile_definitions(
+    sgemm PRIVATE SGEMM_K22_VARIANT=${SGEMM_K22_VARIANT})
+endif()
+
 # 独立 cuBLAS 演示。
 # 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )
