@@ -693,6 +693,72 @@ void runSgemmWarptilingFragmentPrefetch(int M, int N, int K, float alpha,
       <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
 }
 
+#ifndef SGEMM_K20_VARIANT
+#define SGEMM_K20_VARIANT 1
+#endif
+
+void runSgemmSimt256x128(int M, int N, int K, float alpha, float *A,
+                         float *B, float beta, float *C) {
+  constexpr uint VARIANT = SGEMM_K20_VARIANT;
+  constexpr uint BM = 256;
+  constexpr uint BN = 128;
+  constexpr uint BK = 16;
+  constexpr uint TM = 8;
+  constexpr uint TN = 4;
+  constexpr uint NUM_THREADS = 256;
+  constexpr uint AS_PAD = 4;
+  constexpr uint M_ALIGNMENT = VARIANT == 2 ? 128 : 64;
+  static_assert(VARIANT >= 1 && VARIANT <= 3,
+                "SGEMM_K20_VARIANT must be in [1,3]");
+
+  // 4096 等完整 CTA 使用无边界判断的快速实例；M=128 单独使用尾块实例。
+  // 边界粒度等于该变体的 M 方向计算阶段，确保 warp tile 不会部分跨界。
+  if (M <= 0 || N <= 0 || K <= 0 || M % M_ALIGNMENT != 0 || N % BN != 0 ||
+      K % BK != 0 || N % 4 != 0 || K % 4 != 0) {
+    throw std::invalid_argument(
+        "Kernel 20 requires M aligned to its warp phase (64 or 128), N "
+        "divisible by 128, K by 16, and float4-aligned N/K");
+  }
+
+  const dim3 gridDim(N / BN, CEIL_DIV(M, BM));
+  const dim3 blockDim(NUM_THREADS);
+  const bool edgeM = M % BM != 0;
+  if constexpr (VARIANT == 1) {
+    // 4x2 warp grid: each warp owns 64x64, WMITER=1, WNITER=4.
+    if (edgeM) {
+      sgemmSimt256x128<true, 1, BM, BN, BK, 64, 64, 4, TM, TN,
+                       NUM_THREADS, AS_PAD>
+          <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+    } else {
+      sgemmSimt256x128<false, 1, BM, BN, BK, 64, 64, 4, TM, TN,
+                       NUM_THREADS, AS_PAD>
+          <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+    }
+  } else if constexpr (VARIANT == 2) {
+    // 2x4 warp grid: each warp owns 128x32, WMITER=2, WNITER=2.
+    if (edgeM) {
+      sgemmSimt256x128<true, 1, BM, BN, BK, 128, 32, 2, TM, TN,
+                       NUM_THREADS, AS_PAD>
+          <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+    } else {
+      sgemmSimt256x128<false, 1, BM, BN, BK, 128, 32, 2, TM, TN,
+                       NUM_THREADS, AS_PAD>
+          <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+    }
+  } else {
+    // 2x4 warp grid；每个 128x32 所有权区分两次计算，每阶段只驻留 64 个结果。
+    if (edgeM) {
+      sgemmSimt256x128<true, 2, BM, BN, BK, 64, 32, 2, TM, TN,
+                       NUM_THREADS, AS_PAD>
+          <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+    } else {
+      sgemmSimt256x128<false, 2, BM, BN, BK, 64, 32, 2, TM, TN,
+                       NUM_THREADS, AS_PAD>
+          <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+    }
+  }
+}
+
 void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
                              float *B, float beta, float *C) {
   // A100 配置（未启用）。
@@ -872,6 +938,9 @@ void run_kernel(int kernel_num, int M, int N, int K, float alpha, float *A,
     break;
   case 19:
     runSgemmWarptilingFragmentPrefetch(M, N, K, alpha, A, B, beta, C);
+    break;
+  case 20:
+    runSgemmSimt256x128(M, N, K, alpha, A, B, beta, C);
     break;
   default:
     throw std::invalid_argument("Unknown kernel number");

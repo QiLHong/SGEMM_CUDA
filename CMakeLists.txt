@@ -71,6 +71,12 @@ if(DEFINED SGEMM_K19_VARIANT)
     sgemm PRIVATE SGEMM_K19_VARIANT=${SGEMM_K19_VARIANT})
 endif()
 
+# K20 在同一 256x128 CTA 上比较两种 one-pass warp 分区和一个分阶段版本。
+if(DEFINED SGEMM_K20_VARIANT)
+  target_compile_definitions(
+    sgemm PRIVATE SGEMM_K20_VARIANT=${SGEMM_K20_VARIANT})
+endif()
+
 # 独立 cuBLAS 演示。
 # 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )

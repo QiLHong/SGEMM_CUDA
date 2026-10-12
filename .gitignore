@@ -6,6 +6,7 @@ build-xor-*/
 build-k17/
 build-layout-*/
 build-prefetch-*/
+build-simt256-*/
 cmake-build-debug/
 cmake-build-release/
 .idea/

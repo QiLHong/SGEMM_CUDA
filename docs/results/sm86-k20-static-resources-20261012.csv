@@ -1,0 +1,8 @@
+mode,path,accumulators_per_thread,registers_per_thread,static_shared_bytes,stack_frame_bytes,spill_store_bytes,spill_load_bytes,resource_eligible_blocks_per_sm,resource_eligible_warps_per_sm
+k10,fast,128,184,16640,0,0,0,2,8
+k20_v1,fast,128,184,24832,0,0,0,1,8
+k20_v1,m_edge,128,168,24832,0,0,0,1,8
+k20_v2,fast,128,184,24832,0,0,0,1,8
+k20_v2,m_edge,128,168,24832,0,0,0,1,8
+k20_v3,fast,64,126,24832,0,0,0,2,16
+k20_v3,m_edge,64,112,24832,0,0,0,2,16

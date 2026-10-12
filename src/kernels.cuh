@@ -8,6 +8,7 @@
 #include "kernels/17_kernel_b_async_pipeline.cuh"
 #include "kernels/18_kernel_warp_fragment_layout.cuh"
 #include "kernels/19_kernel_fragment_register_prefetch.cuh"
+#include "kernels/20_kernel_simt_256x128.cuh"
 #include "kernels/11_kernel_double_buffering.cuh"
 #include "kernels/12_kernel_double_buffering.cuh"
 #include "kernels/1_naive.cuh"
