@@ -69,6 +69,14 @@ GFLOPS（K10 为 90.95%）。这排除了“简单换一个 warp fragment layout
 V1 与显式两步展开的 V3 甚至生成完全相同的 SASS，说明 ptxas 已经主动调度 K10 的
 fragment load。详见 [Fragment Register Prefetch 受控实验](docs/zh/09-K10-Fragment寄存器预取调优.md)。
 
+2026-10-12 的微内核审计进一步直接对照了 K10 与 strict FP32 cuBLAS。cuBLAS 实际
+选择 `cutlass_80_simt_sgemm_256x128_8x4_nn_align1`：256 threads、202 registers/thread、
+50.176 KB shared memory；K10 为 128 threads、184 registers、17.664 KB。两者 occupancy
+都约 16.6%，但 cuBLAS issue slots 为 87.34%（K10 79.01%），shared-load wavefront
+少 39.83%，SASS 还包含集成的 `LDGSTS/DEPBAR`。这把约 9% 差距定位到 CTA 资源组织、
+iterator/pipeline 与 fragment 调度的整体协同，而不是单个 accumulator 链或地址指令；
+详见 [K10 微内核与 cuBLAS 差距分析](docs/zh/10-K10-微内核与cuBLAS差距分析.md)。
+
 ## 环境与构建
 
 上游列出的依赖为 CUDA Toolkit 12、Python（以及 Seaborn）、CMake 和 Ninja，辅助 Python 环境见 [environment.yml](environment.yml)。
@@ -146,6 +154,8 @@ make profile KERNEL=2 PREFIX=learning_
 9. [07：K10 Shared 布局与 B 异步流水](docs/zh/07-K10-Shared布局与B异步流水.md)：K16 XOR 和 K17 B-only `cp.async` 的正确性、性能、SASS 与 Nsight 证据。
 10. [08：K10 Warp Fragment Layout](docs/zh/08-K10-Warp-Fragment-Layout调优.md)：32-lane 输出映射、K18 六个版本、三轮性能、Nsight 与 SASS 反例。
 11. [09：K10 Fragment Register Prefetch](docs/zh/09-K10-Fragment寄存器预取调优.md)：K10 的 LDS→FFMA 距离、K19 三个版本及显式预取为何降低 issue/FMA 利用率。
+12. [10：K10 微内核与 cuBLAS 差距](docs/zh/10-K10-微内核与cuBLAS差距分析.md)：完整 register fragment 映射、accumulator 链、register lifetime，以及 strict cuBLAS 的 CTA/SASS/Nsight 对照。
+13. [11：K10 SASS 微结构指标](docs/zh/11-K10-SASS微结构指标报告.md)：静态依赖距离、动态 scheduler counter、register lifetime 与统计边界。
 
 源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 

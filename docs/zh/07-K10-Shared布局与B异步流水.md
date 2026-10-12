@@ -25,6 +25,11 @@
 因此，本轮没有用一次偶然峰值把 K16/K17 宣布为优化成功，也没有把它们替换成默认
 K10。实验代码作为独立 kernel 保留，用于复现失败原因。
 
+> 2026-10-12 边界修正：这里排除的是 **B-only cp.async graft**，不是所有
+> global→shared pipeline。后续直接 profile 到的 strict cuBLAS SIMT 内核使用
+> `LDGSTS/LDGDEPBAR/DEPBAR`，但同时采用更大的 CTA、50.176 KB shared 和 202
+> registers/thread；其收益来自整体协同，不能与 K17 的单因素嫁接等同。
+
 ## 2. 实验边界与公平口径
 
 所有正式性能比较固定为：
@@ -220,9 +225,9 @@ prefetch，很容易超过 200 registers 或增加更多同步生命周期。因
 > 剩余差距主要来自 cuBLAS 更成熟的微内核指令调度、寄存器/shared 数据供给和延迟
 > 隐藏，而不是一个尚未打开的带宽或 bank-conflict 开关。
 
-## 9. 下一阶段最值得投入什么
+## 9. 后续 K18/K19 与微内核审计
 
-优先级最高的是 **shared→register 的细粒度调度**，而不是第三套 global→shared
+当时优先级最高的是 **shared→register 的细粒度调度**，而不是第三套 global→shared
 双缓冲：
 
 1. 从 K10 SASS 中量化每组 LDS 到消费 FFMA 的依赖距离；
@@ -237,9 +242,15 @@ prefetch，很容易超过 200 registers 或增加更多同步生命周期。因
 的 16-register 上限，或把 WN 子块拆成更小的预取批次。
 
 后续 K18 已先验证“不改 pipeline、只改 warp fragment ownership”这一更小假设。
-5 个手工变体均未稳定快于 K10，简单 lane 重排或加宽 N fragment 不是答案。下一步
-进一步收敛为保持现有 ownership，直接分析 LDS→FFMA 依赖距离与 load/accumulator
+5 个手工变体均未稳定快于 K10，简单 lane 重排或加宽 N fragment 不是答案。当时进一步
+收敛为保持现有 ownership，直接分析 LDS→FFMA 依赖距离与 load/accumulator
 调度；见 [K18 Warp Fragment Layout 实验](08-K10-Warp-Fragment-Layout调优.md)。
+
+K19 随后完成了上述 B fragment 预取验证，三个版本均回退 6%–7%。2026-10-12 的
+微内核审计又直接对照 strict cuBLAS：K10 已有 128 条独立 accumulator 链和 ptxas
+自动 LDS/FFMA 调度；cuBLAS 的优势主要来自更大的 CTA 资源包络、较少 shared-load
+wavefront 和集成流水。完整结论见
+[K10 微内核与 cuBLAS 差距分析](10-K10-微内核与cuBLAS差距分析.md)。
 
 ## 10. 复现命令与数据
 

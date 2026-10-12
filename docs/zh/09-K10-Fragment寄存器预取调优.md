@@ -145,7 +145,7 @@ V2 总指令更少也没有变快，再次说明关键是依赖与发射时机�
    原因”。编译器已经做跨组 LDS 调度，简单显式化反而破坏 issue efficiency。
 2. **Fragment prefetch 是否有效？** 对这台 RTX 3080、这个 K10 shape 无效。三个版本
    均稳定下降 6.30%–7.36%，不应合入默认 K10。
-3. **下一步方向：** 优先 A——对照 control code 和 SASS 调度，研究 accumulator
+3. **当时的下一步方向：** 优先 A——对照 control code 和 SASS 调度，研究 accumulator
    依赖链/指令顺序，但不要直接内联大量手写 SASS；B 只做针对性的地址 lifetime
    实验，因为 V2 已证明少几个 IMAD 不足以提速；C 应升级为 CUTLASS 风格
    iterator/layout/pipeline 的整体对照研究，而不是在冻结的 K10 上继续叠一个局部技巧。
@@ -177,3 +177,7 @@ RUN_TAG=my-ncu DEVICE=0 ./scripts/profile_kernel_19_ncu.sh
 
 所有脚本通过 `RUN_TAG` 拒绝覆盖同名结果；K10 继续作为默认最佳实现，K19 只保留为
 可复现的失败实验。
+
+后续的 [K10 微内核与 cuBLAS 差距分析](10-K10-微内核与cuBLAS差距分析.md) 已进一步
+证明：K10 有 128 条逻辑 accumulator 链，中位间隔 127 条独立 FFMA；strict cuBLAS
+则通过更大的 CTA 资源包络和集成 `LDGSTS/DEPBAR` 流水获得更高 ready-warp/issue。
