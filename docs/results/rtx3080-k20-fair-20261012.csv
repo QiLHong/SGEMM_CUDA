@@ -1,0 +1,16 @@
+round,position,mode,kernel,variant,gflops,kernel_time_ms,correctness,temp_before_c,temp_after_c,sm_clock_before_mhz,sm_clock_after_mhz,mem_clock_before_mhz,mem_clock_after_mhz,beta,c_policy,seed
+1,1,strict,13,na,21805.3,6.3030,reference,32,39,0,1950,405,9501,3,reset-each-repeat,20261012
+1,2,k10,10,na,19648.1,6.9950,PASS,38,40,1950,1950,9501,9501,3,reset-each-repeat,20261012
+1,3,v1,20,1,16868.5,8.1480,PASS,39,41,1950,1935,9501,9501,3,reset-each-repeat,20261012
+1,4,v2,20,2,17212.4,7.9850,PASS,40,42,1935,1935,9501,9501,3,reset-each-repeat,20261012
+1,5,v3,20,3,16309.8,8.4270,PASS,41,42,1935,1935,9501,9501,3,reset-each-repeat,20261012
+2,1,k10,10,na,19630.2,7.0010,PASS,41,43,1935,1935,9501,9501,3,reset-each-repeat,20261012
+2,2,v1,20,1,16885.0,8.1400,PASS,42,43,1935,1935,9501,9501,3,reset-each-repeat,20261012
+2,3,v2,20,2,16984.3,8.0920,PASS,42,43,1935,1935,9501,9501,3,reset-each-repeat,20261012
+2,4,v3,20,3,16285.3,8.4390,PASS,43,44,1935,1935,9501,9501,3,reset-each-repeat,20261012
+2,5,strict,13,na,21527.6,6.3840,reference,43,44,1935,1935,9501,9501,3,reset-each-repeat,20261012
+3,1,v1,20,1,16839.3,8.1620,PASS,44,44,1935,1935,9501,9501,3,reset-each-repeat,20261012
+3,2,v2,20,2,17083.7,8.0450,PASS,44,45,1905,1935,9501,9501,3,reset-each-repeat,20261012
+3,3,v3,20,3,16263.3,8.4510,PASS,44,45,1935,1935,9501,9501,3,reset-each-repeat,20261012
+3,4,strict,13,na,21480.8,6.3980,reference,45,45,1935,1935,9501,9501,3,reset-each-repeat,20261012
+3,5,k10,10,na,19575.9,7.0210,PASS,45,45,1935,1935,9501,9501,3,reset-each-repeat,20261012

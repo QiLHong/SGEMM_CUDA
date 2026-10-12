@@ -9,16 +9,19 @@ METRICS="gpu__time_duration.sum,launch__registers_per_thread,launch__shared_mem_
 mkdir -p "${OUTPUT_DIR}"
 
 for mode in ${MODES:-strict k10 v1 v2 v3}; do
-  if [[ "${mode}" == strict ]]; then variant=1; kernel=13; regex='cutlass_80_simt_sgemm'
+  if [[ "${mode}" == strict ]]; then variant=1; kernel=13; regex=''
   elif [[ "${mode}" == k10 ]]; then variant=1; kernel=10; regex='sgemmWarptiling'
   else variant="${mode#v}"; kernel=20; regex='sgemmSimt256x128'
   fi
   report="${OUTPUT_DIR}/ncu_k20_${mode}_${RUN_TAG}"
   [[ ! -e "${report}.ncu-rep" ]] || { printf 'Refusing to overwrite %s.ncu-rep\n' "${report}" >&2; exit 1; }
+  ncu_args=(--target-processes all --launch-count 1 --metrics "${METRICS}" -o "${report}")
+  if [[ -n "${regex}" ]]; then
+    ncu_args+=(--kernel-name "regex:${regex}")
+  fi
   env -u NVIDIA_TF32_OVERRIDE DEVICE="${DEVICE:-0}" SGEMM_BENCH_SIZE=4096 \
     SGEMM_WARMUP=0 SGEMM_REPEAT=1 SGEMM_SEED="${SEED:-20261012}" \
     SGEMM_RESET_C_EACH_REPEAT=1 SGEMM_BETA=3 \
-    ncu --target-processes all --kernel-name "regex:${regex}" --launch-count 1 \
-      --metrics "${METRICS}" -o "${report}" \
+    ncu "${ncu_args[@]}" \
       "${ROOT_DIR}/build-simt256-v${variant}/sgemm" "${kernel}"
 done
