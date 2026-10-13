@@ -89,7 +89,8 @@ if(DEFINED SGEMM_K22_VARIANT)
     sgemm PRIVATE SGEMM_K22_VARIANT=${SGEMM_K22_VARIANT})
 endif()
 
-# K23 V1 reuses K21 V1; V2/V3 only change one shared layout + matching iterator.
+# K23 V1 reuses K21 V1; V2/V3 change one shared layout, while V4 combines both
+# as a separately recorded addendum without rewriting the V1-V3 history.
 if(DEFINED SGEMM_K23_VARIANT)
   target_compile_definitions(
     sgemm PRIVATE SGEMM_K23_VARIANT=${SGEMM_K23_VARIANT})

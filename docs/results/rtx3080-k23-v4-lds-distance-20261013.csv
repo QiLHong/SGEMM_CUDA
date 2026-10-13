@@ -1,0 +1,6 @@
+mode,lds128,consumed_by_ffma,min_distance,median_distance,mean_distance,max_distance
+k10,96,96,4,66.0,59.72,114
+v1,96,96,3,60.0,58.27,135
+v2,96,96,3,60.0,58.27,135
+v3,96,96,3,60.0,57.60,135
+v4,96,96,3,60.0,57.60,135

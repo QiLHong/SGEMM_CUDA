@@ -10,7 +10,7 @@ mkdir -p "${OUTPUT_DIR}"
 mode="${1:-}"
 case "${mode}" in
   build)
-    for variant in 1 2 3; do
+    for variant in ${VARIANTS:-1 2 3 4}; do
       build="${ROOT_DIR}/build-k23-v${variant}"
       cmake -S "${ROOT_DIR}" -B "${build}" -DCMAKE_BUILD_TYPE=Release \
         -DSGEMM_K23_VARIANT="${variant}" -DCMAKE_CUDA_FLAGS='--ptxas-options=-v'
@@ -21,7 +21,9 @@ case "${mode}" in
     csv="${OUTPUT_DIR}/kernel_23_correctness_${RUN_TAG}.csv"
     [[ ! -e "${csv}" ]] || { printf 'Refusing to overwrite %s\n' "${csv}" >&2; exit 1; }
     printf 'variant,beta,size,result\n' >"${csv}"
-    for variant in 2 3; do
+    pass_count=0
+    expected=0
+    for variant in ${VARIANTS:-2 3 4}; do
       for beta in 0 1 3; do
         output="$(env -u NVIDIA_TF32_OVERRIDE DEVICE="${DEVICE:-0}" \
           SGEMM_WARMUP=1 SGEMM_REPEAT=1 SGEMM_SEED="${SEED}" \
@@ -31,18 +33,23 @@ case "${mode}" in
           /dimensions\(m=n=k\)/ {gsub(/,/, "", $2); size=$2}
           /Correctness vs strict FP32 cuBLAS:/ {print v "," b "," size "," $NF}
         ' <<<"${output}" >>"${csv}"
+        passed="$(grep -c 'Correctness vs strict FP32 cuBLAS: PASS' <<<"${output}")"
+        pass_count=$((pass_count + passed))
+        expected=$((expected + 6))
         printf 'V%s beta=%s: %s\n' "${variant}" "${beta}" \
-          "$(grep -c 'Correctness vs strict FP32 cuBLAS: PASS' <<<"${output}")"
+          "${passed}"
       done
     done
-    [[ "$(awk -F, 'NR>1 && $4=="PASS" {n++} END {print n+0}' "${csv}")" == 36 ]]
-    printf 'Correctness 36/36 PASS: %s\n' "${csv}"
+    [[ "${pass_count}" == "${expected}" ]]
+    printf 'Correctness %s/%s PASS: %s\n' "${pass_count}" "${expected}" "${csv}"
     ;;
   memcheck)
     csv="${OUTPUT_DIR}/kernel_23_memcheck_${RUN_TAG}.csv"
     [[ ! -e "${csv}" ]] || { printf 'Refusing to overwrite %s\n' "${csv}" >&2; exit 1; }
     printf 'variant,size,result,log\n' >"${csv}"
-    for variant in 2 3; do
+    pass_count=0
+    expected=0
+    for variant in ${VARIANTS:-2 3 4}; do
       for size in 128 256; do
         log="${OUTPUT_DIR}/kernel_23_memcheck_v${variant}_${size}_${RUN_TAG}.log"
         if env -u NVIDIA_TF32_OVERRIDE DEVICE="${DEVICE:-0}" \
@@ -55,16 +62,18 @@ case "${mode}" in
           result=FAIL
         fi
         printf '%s,%s,%s,%s\n' "${variant}" "${size}" "${result}" "${log#${ROOT_DIR}/}" >>"${csv}"
+        expected=$((expected + 1))
+        [[ "${result}" != PASS ]] || pass_count=$((pass_count + 1))
       done
     done
-    [[ "$(awk -F, 'NR>1 && $3!="PASS" {n++} END {print n+0}' "${csv}")" == 0 ]]
-    printf 'Memcheck 4/4 PASS: %s\n' "${csv}"
+    [[ "${pass_count}" == "${expected}" ]]
+    printf 'Memcheck %s/%s PASS: %s\n' "${pass_count}" "${expected}" "${csv}"
     ;;
   fair)
     csv="${OUTPUT_DIR}/kernel_23_fair_${RUN_TAG}.csv"
     [[ ! -e "${csv}" ]] || { printf 'Refusing to overwrite %s\n' "${csv}" >&2; exit 1; }
     printf '%s\n' 'round,position,mode,kernel,variant,gflops,kernel_time_ms,correctness,temp_before_c,temp_after_c,sm_clock_before_mhz,sm_clock_after_mhz,mem_clock_before_mhz,mem_clock_after_mhz,beta,c_policy,seed' >"${csv}"
-    modes=(strict k10 v1 v2 v3)
+    read -r -a modes <<<"${MODES:-strict k10 v1 v2 v3 v4}"
     snapshot() {
       nvidia-smi --query-gpu=temperature.gpu,clocks.current.sm,clocks.current.memory \
         --format=csv,noheader,nounits | head -n 1 | tr -d ' '

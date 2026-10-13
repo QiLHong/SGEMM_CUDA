@@ -3,7 +3,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 printf '%s\n' 'mode,static_instructions,FFMA,LDS,LDGSTS,IMAD,IADD3,LEA,MOV,LDG,STG,sass_sha256'
-for mode in k10 v1 v2 v3; do
+for mode in ${MODES:-k10 v1 v2 v3 v4}; do
   variant="${mode#v}"; [[ "${mode}" != k10 ]] || variant=1
   binary="${ROOT_DIR}/build-k23-v${variant}/sgemm"
   if [[ "${mode}" == k10 ]]; then marker='_Z15sgemmWarptilingI'

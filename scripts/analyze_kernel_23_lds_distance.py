@@ -15,6 +15,7 @@ MODES = {
     "v1": (1, "_Z16sgemmK21Iterator"),
     "v2": (2, "_Z30sgemmK23SharedFragmentIteratorILi2EE"),
     "v3": (3, "_Z30sgemmK23SharedFragmentIteratorILi3EE"),
+    "v4": (4, "_Z30sgemmK23SharedFragmentIteratorILi4EE"),
 }
 
 

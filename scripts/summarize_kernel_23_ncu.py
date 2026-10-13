@@ -39,12 +39,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--results", type=Path, default=Path("benchmark_results"))
     parser.add_argument("--tag", required=True)
+    parser.add_argument("--modes", default="strict k10 v1 v2 v3 v4")
     args = parser.parse_args()
     writer = csv.DictWriter(sys.stdout, fieldnames=["mode", *FIELDS.values(),
                                                      "dram_read_unit"],
                             lineterminator="\n")
     writer.writeheader()
-    for mode in ("strict", "k10", "v1", "v2", "v3"):
+    modes = tuple(args.modes.split())
+    for mode in modes:
         report = args.results / f"ncu_k23_{mode}_{args.tag}.ncu-rep"
         raw = subprocess.run(["ncu", "--import", str(report), "--csv", "--page", "raw"],
                              check=True, text=True, capture_output=True).stdout

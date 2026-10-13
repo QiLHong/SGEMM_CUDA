@@ -830,8 +830,8 @@ void runSgemmMultistagePipeline(int M, int N, int K, float alpha, float *A,
 void runSgemmSharedFragmentIterator(int M, int N, int K, float alpha,
                                     float *A, float *B, float beta, float *C) {
   constexpr uint VARIANT = SGEMM_K23_VARIANT;
-  static_assert(VARIANT >= 1 && VARIANT <= 3,
-                "SGEMM_K23_VARIANT must be in [1,3]");
+  static_assert(VARIANT >= 1 && VARIANT <= 4,
+                "SGEMM_K23_VARIANT must be in [1,4]");
   if (M <= 0 || N <= 0 || K <= 0 || M % 128 != 0 || N % 128 != 0 ||
       K % 16 != 0 || N % 4 != 0 || K % 4 != 0) {
     throw std::invalid_argument(
@@ -845,8 +845,11 @@ void runSgemmSharedFragmentIterator(int M, int N, int K, float alpha,
   } else if constexpr (VARIANT == 2) {
     sgemmK23SharedFragmentIterator<2><<<gridDim, blockDim>>>(
         M, N, K, alpha, A, B, beta, C);
-  } else {
+  } else if constexpr (VARIANT == 3) {
     sgemmK23SharedFragmentIterator<3><<<gridDim, blockDim>>>(
+        M, N, K, alpha, A, B, beta, C);
+  } else {
+    sgemmK23SharedFragmentIterator<4><<<gridDim, blockDim>>>(
         M, N, K, alpha, A, B, beta, C);
   }
 }

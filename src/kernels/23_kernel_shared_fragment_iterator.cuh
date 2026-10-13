@@ -1,7 +1,7 @@
 #pragma once
 
-// K23 retains the K10 output ownership and arithmetic. The two layouts below
-// permute different operands and are deliberately not combined.
+// K23 retains the K10 output ownership and arithmetic. V2 and V3 permute one
+// operand at a time; V4 is the preserved-history addendum that combines both.
 namespace k23 {
 constexpr uint BM = 128, BN = 128, BK = 16, WM = 64, WN = 64;
 constexpr uint TM = 8, TN = 4, WNITER = 4, AS_STRIDE = BM + 4;
@@ -21,7 +21,7 @@ struct AIterator {
   const float *ptr;
   __device__ __forceinline__ AIterator(const float *base, uint warpRow,
                                       uint threadRow) {
-    if constexpr (VARIANT == 3)
+    if constexpr (VARIANT == 3 || VARIANT == 4)
       ptr = base + warpRow * BK * WM + threadRow * TM;
     else
       ptr = base + warpRow * WM + threadRow * TM;
@@ -32,7 +32,7 @@ struct AIterator {
       fragment[row] = ptr[row];
   }
   __device__ __forceinline__ void advance() {
-    ptr += (VARIANT == 3 ? WM : AS_STRIDE);
+    ptr += ((VARIANT == 3 || VARIANT == 4) ? WM : AS_STRIDE);
   }
 };
 
@@ -41,7 +41,7 @@ struct BIterator {
   const float *ptr;
   __device__ __forceinline__ BIterator(const float *base, uint warpCol,
                                       uint threadCol) {
-    if constexpr (VARIANT == 2)
+    if constexpr (VARIANT == 2 || VARIANT == 4)
       ptr = base + warpCol * (WNITER * BK * 16) + threadCol * TN;
     else
       ptr = base + warpCol * WN + threadCol * TN;
@@ -51,13 +51,14 @@ struct BIterator {
     for (uint group = 0; group < WNITER; ++group) {
 #pragma unroll
       for (uint col = 0; col < TN; ++col) {
-        const uint groupStride = VARIANT == 2 ? BK * 16 : 16;
+        const uint groupStride =
+            (VARIANT == 2 || VARIANT == 4) ? BK * 16 : 16;
         fragment[group * TN + col] = ptr[group * groupStride + col];
       }
     }
   }
   __device__ __forceinline__ void advance() {
-    ptr += (VARIANT == 2 ? 16 : BN);
+    ptr += ((VARIANT == 2 || VARIANT == 4) ? 16 : BN);
   }
 };
 
@@ -67,7 +68,7 @@ __device__ __forceinline__ void loadTile(int N, int K,
                                         const float *__restrict__ B,
                                         float *__restrict__ As,
                                         float *__restrict__ Bs) {
-  static_assert(VARIANT == 2 || VARIANT == 3);
+  static_assert(VARIANT >= 2 && VARIANT <= 4);
   constexpr uint ROW_STRIDE_A = (128 * 4) / BK;
   constexpr uint ROW_STRIDE_B = 128 / (BN / 4);
   const uint aRow = threadIdx.x / (BK / 4);
@@ -83,7 +84,7 @@ __device__ __forceinline__ void loadTile(int N, int K,
         &A[(aRow + offset) * K + aCol4 * 4])[0];
     const uint m = aRow + offset;
     const uint k = aCol4 * 4;
-    if constexpr (VARIANT == 3) {
+    if constexpr (VARIANT == 3 || VARIANT == 4) {
       As[aWarpOffset(k + 0, m)] = value.x;
       As[aWarpOffset(k + 1, m)] = value.y;
       As[aWarpOffset(k + 2, m)] = value.z;
@@ -102,7 +103,7 @@ __device__ __forceinline__ void loadTile(int N, int K,
     const uint n = bCol4 * 4;
     const float4 value =
         reinterpret_cast<const float4 *>(&B[k * N + n])[0];
-    if constexpr (VARIANT == 2)
+    if constexpr (VARIANT == 2 || VARIANT == 4)
       reinterpret_cast<float4 *>(&Bs[bFragmentOffset(k, n)])[0] = value;
     else
       reinterpret_cast<float4 *>(&Bs[k * BN + n])[0] = value;
@@ -117,7 +118,7 @@ __global__ void __launch_bounds__(128, 2)
                                    const float *__restrict__ A,
                                    const float *__restrict__ B, float beta,
                                    float *__restrict__ C) {
-  static_assert(VARIANT == 2 || VARIANT == 3);
+  static_assert(VARIANT >= 2 && VARIANT <= 4);
   constexpr uint BM = k23::BM, BN = k23::BN, BK = k23::BK;
   constexpr uint WM = k23::WM, WN = k23::WN, WNITER = k23::WNITER;
   constexpr uint TM = k23::TM, TN = k23::TN;

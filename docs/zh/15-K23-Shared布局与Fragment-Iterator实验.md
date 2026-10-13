@@ -4,7 +4,7 @@
 
 ## 结论
 
-冻结 K10 的 128×128 CTA、BK=16、4-warp ownership 和单阶段流程后，按 B 的 16 列 fragment 分组或按 A 的 64 行 warp tile 分组，均未提高性能。两种变体保持 Shared 读取零 bank conflict，却分别增加了 Shared 写入冲突；issue 与 FP32 活跃度下降。K23 没有缩小与同口径 strict FP32 cuBLAS 的差距。
+冻结 K10 的 128×128 CTA、BK=16、4-warp ownership 和单阶段流程后，按 B 的 16 列 fragment 分组或按 A 的 64 行 warp tile 分组，均未提高性能。两种变体保持 Shared 读取零 bank conflict，却分别增加了 Shared 写入冲突；issue 与 FP32 活跃度下降。后续 V4 将两种置换组合，性能进一步下降。K23 没有缩小与同口径 strict FP32 cuBLAS 的差距。
 
 V1 直接调用原有 K21 V1，SASS SHA-256 与 [K21 的记录](../results/rtx3080-k21-sass-20261012.csv)一致。它是本轮同时计时的 iterator 对照，不是新实现。
 
@@ -106,6 +106,64 @@ K10 的 Shared 读取已零冲突，且每 K step 用 8 个 A 与 16 个 B fragm
 Fragment Iterator 的作用是显式描述 warp/lane 对 Shared 坐标的访问、前进规则和 register fragment 形状，使写入布局与读取布局可以一同审计。K21 V1 已测到少量地址组织收益；本次 V2/V3 没有改善 LDS transaction 或吞吐。因此不能把 Iterator 抽象自身当作 CUTLASS 性能的证明。
 
 在 K10 的外形下停止继续 Shared 地址置换。若继续追求 95%，下一实验应把 256-thread CTA、BK=8、四阶段，以及 Global copy、Shared 写入/读取和 Fragment Iterator 作为一个共同设计的数据流；当前结果还不能证明需要专门的 loader warp。
+
+## 补充实验：V4 A+B coordinated layout
+
+用户后续提供的 K23 说明要求第三个实验同时协调 A+B。原 V3 已作为 A-only 历史结果提交，不能用新实现覆盖旧 CSV；因此将相同问题实现为 V4：
+
+```text
+A: (k,m) -> (m/64)*1024 + k*64 + m%64
+B: (k,n) -> (n/16)*256 + k*16 + n%16
+```
+
+V4 组合原 V2 的 B layout 和 V3 的 A layout；Global loader 的源元素与 float4 粒度、lane/output ownership、128 accumulator、FFMA 循环、BM/BN/BK、同步方式全部保持不变。重新编译 V1/V2/V3 后，SASS SHA-256 与原记录逐项相同，说明补充实现没有改写先前三个版本。
+
+### 正确性和资源
+
+V4 在六尺寸 × beta=0/1/3 下 **18/18 PASS**；阈值仍为 absolute error=0.01。Compute Sanitizer 对 128、256 共 **2/2 PASS**。ptxas/NCU：190 registers/thread、16,640/17,664 B Shared、local load/store=0、无 spill。
+
+### 七轮交错性能
+
+本轮只重新交错 strict、K10、V1、V4；4096³、alpha=0.5、beta=3、seed=20261013、每次复位 C、10 次预热、50 次计时。V2/V3 的旧数据保留，不把跨轮日期的数据混成同一统计样本。
+
+| 模式 | 平均 GFLOPS | 范围 | 样本标准差 | 平均 ms | 相对 K10 | strict 比例 |
+|---|---:|---:|---:|---:|---:|---:|
+| strict | 21,506.8 | 21,418.7–21,805.4 | 136.3 | 6.3907 | +9.87% | 100.00% |
+| K10 | 19,574.9 | 19,461.8–19,650.4 | 67.8 | 7.0213 | 基线 | 91.02% |
+| V1 | 19,697.4 | 19,646.7–19,808.5 | 55.9 | 6.9761 | +0.63% | 91.59% |
+| V4 A+B | 18,553.7 | 18,452.9–18,678.3 | 95.5 | 7.4079 | **-5.22%** | 86.27% |
+
+V4 最大值仍低于 K10 最小值，失败幅度明显大于七轮波动。
+
+### 指标解释
+
+| 指标 | K10，原同口径采样 | V2 B-only | V3 A-only | V4 A+B |
+|---|---:|---:|---:|---:|
+| Issue slots busy | 79.32% | 73.88% | 75.74% | **72.50%** |
+| FP32 pipe active | 73.57% | 68.88% | 71.00% | **67.82%** |
+| No issue (`issue_inst0`) | 20.68% | 26.12% | 24.26% | **27.50%** |
+| Eligible warps/scheduler | 1.361 | 1.291 | 1.282 | **1.254** |
+| Long scoreboard | 0.082 | 0.174 | 0.171 | **0.201** |
+| Shared-load conflict | 0 | 0 | 0 | 0 |
+| Shared-load wavefront | 335.55 M | 335.55 M | 335.55 M | **335.55 M** |
+| Shared-store conflict | 16.78 M | 33.55 M | 50.33 M | **67.11 M** |
+| Shared-store wavefront | 50.33 M | 67.11 M | 83.89 M | **100.66 M** |
+
+原 K10/V2/V3 与 V4 分属独立 NCU 进程，但使用相同脚本、环境、输入和第一匹配 launch；表用于结构归因，不用 NCU duration 计算 GFLOPS。`No issue` 是 counter 名称的简写，不把所有无发射周期都等同于“没有 eligible warp”。
+
+V4 的 96 条静态 LDS、2,176 条 FFMA 和 335.55 M Shared-load wavefront 与其他 K23 版本基本相同。它没有改变 fragment 消费模式，只把两套物理地址置换叠加，因此没有得到公开 CUTLASS 已测到的每条 LDS 较低 wavefront；相反，写入 conflict/wavefront 接近 V2 与 V3 的增量叠加，issue、eligible warp 和 FP32 active 同时恶化。
+
+这回答了补充问题：**单纯把 A/B Shared 置换“协调”在一起，不等于 CUTLASS 的 Shared Layout + Fragment Iterator 协同设计。** 真正有研究价值的变量是 lane fragment ownership 和每条 LDS 的访问宽度/广播结构，而不是继续组合地址公式。该方向在冻结 K10 ownership 的约束下结束。
+
+补充数据：
+
+- [七轮原始性能](../results/rtx3080-k23-v4-fair-20261013.csv)
+- [性能摘要](../results/rtx3080-k23-v4-summary-20261013.csv)
+- [正确性](../results/rtx3080-k23-v4-correctness-20261013.csv)
+- [Compute Sanitizer](../results/rtx3080-k23-v4-memcheck-20261013.csv)
+- [Nsight](../results/rtx3080-k23-v4-nsight-20261013.csv)
+- [SASS](../results/rtx3080-k23-v4-sass-20261013.csv)
+- [LDS→FFMA 静态距离](../results/rtx3080-k23-v4-lds-distance-20261013.csv)
 
 ## 数据与复现
 
