@@ -1,0 +1,6 @@
+mode,threads,bm,bn,bk,registers_per_thread,ptxas_shared_bytes,ncu_shared_kb,occupancy_pct,spill_load_bytes,spill_store_bytes,local_load_sectors,local_store_sectors
+k10,128,128,128,16,184,16640,17.664,16.568870,0,0,0,0
+v1,128,128,128,16,190,16640,17.664,16.528236,0,0,0,0
+v2,128,128,128,16,190,16640,17.664,16.229304,0,0,0,0
+v3,128,128,128,16,190,16640,17.664,16.404269,0,0,0,0
+strict,256,256,128,8,202,unknown,50.176,16.665614,unknown,unknown,0,0

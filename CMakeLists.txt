@@ -89,6 +89,12 @@ if(DEFINED SGEMM_K22_VARIANT)
     sgemm PRIVATE SGEMM_K22_VARIANT=${SGEMM_K22_VARIANT})
 endif()
 
+# K23 V1 reuses K21 V1; V2/V3 only change one shared layout + matching iterator.
+if(DEFINED SGEMM_K23_VARIANT)
+  target_compile_definitions(
+    sgemm PRIVATE SGEMM_K23_VARIANT=${SGEMM_K23_VARIANT})
+endif()
+
 # 独立 cuBLAS 演示。
 # 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )

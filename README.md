@@ -161,8 +161,10 @@ make profile KERNEL=2 PREFIX=learning_
 14. [12：K20 256-thread SIMT 微内核](docs/zh/12-K20-256线程SIMT微内核.md)：256×128 CTA 的两种 one-pass warp 映射、64-accumulator 分阶段映射、资源交换与 RTX 3080 复现实验。
 15. [13：K21 CUTLASS-style SIMT 微内核骨架](docs/zh/13-K21-CUTLASS风格SIMT微内核骨架.md)：隔离 iterator 寻址，并用 256×128、48 KiB 双阶段异步骨架解释 cuBLAS 的 BK=8×4-stage 资源模型。
 16. [14：K22 128-thread 多阶段流水](docs/zh/14-K22-128线程多阶段流水实验.md)：冻结 K10 ownership，比较 BK=8 同步、两阶段和四阶段，说明 pipeline 为何必要但不充分。
+17. [15：K23 Shared 布局与 Fragment Iterator](docs/zh/15-K23-Shared布局与Fragment-Iterator实验.md)：冻结 K10 外形，比较 B fragment 分组与 A warp 分组的 Shared 映射；两者均未带来收益。
+18. [16：公开 CUTLASS 对照与主循环成本审计](docs/zh/16-公开CUTLASS对照与主循环成本审计.md)：同机七轮对照、冷缓存/稳态 NCU 与逐 PC 计数，解释零 bank conflict 下每条 LDS 的 wavefront 为何仍有差异。
 
-源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19/K20/K21/K22、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
+源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19/K20/K21/K22/K23、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 
 ## 运行前先注意
 

@@ -9,6 +9,7 @@ build-prefetch-*/
 build-simt256-*/
 build-k21-*/
 build-k22-*/
+build-k23-*/
 cmake-build-debug/
 cmake-build-release/
 .idea/

@@ -823,6 +823,34 @@ void runSgemmMultistagePipeline(int M, int N, int K, float alpha, float *A,
   }
 }
 
+#ifndef SGEMM_K23_VARIANT
+#define SGEMM_K23_VARIANT 1
+#endif
+
+void runSgemmSharedFragmentIterator(int M, int N, int K, float alpha,
+                                    float *A, float *B, float beta, float *C) {
+  constexpr uint VARIANT = SGEMM_K23_VARIANT;
+  static_assert(VARIANT >= 1 && VARIANT <= 3,
+                "SGEMM_K23_VARIANT must be in [1,3]");
+  if (M <= 0 || N <= 0 || K <= 0 || M % 128 != 0 || N % 128 != 0 ||
+      K % 16 != 0 || N % 4 != 0 || K % 4 != 0) {
+    throw std::invalid_argument(
+        "Kernel 23 requires M/N divisible by 128, K by 16, and float4 "
+        "aligned N/K");
+  }
+  const dim3 gridDim(N / 128, M / 128);
+  const dim3 blockDim(128);
+  if constexpr (VARIANT == 1) {
+    sgemmK21Iterator<<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
+  } else if constexpr (VARIANT == 2) {
+    sgemmK23SharedFragmentIterator<2><<<gridDim, blockDim>>>(
+        M, N, K, alpha, A, B, beta, C);
+  } else {
+    sgemmK23SharedFragmentIterator<3><<<gridDim, blockDim>>>(
+        M, N, K, alpha, A, B, beta, C);
+  }
+}
+
 void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
                              float *B, float beta, float *C) {
   // A100 配置（未启用）。
@@ -1011,6 +1039,9 @@ void run_kernel(int kernel_num, int M, int N, int K, float alpha, float *A,
     break;
   case 22:
     runSgemmMultistagePipeline(M, N, K, alpha, A, B, beta, C);
+    break;
+  case 23:
+    runSgemmSharedFragmentIterator(M, N, K, alpha, A, B, beta, C);
     break;
   default:
     throw std::invalid_argument("Unknown kernel number");

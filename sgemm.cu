@@ -65,6 +65,8 @@ const char *kernel_mode_name(int kernel) {
     return "K21 CUTLASS-style SIMT micro-kernel skeleton";
   case 22:
     return "K22 128-thread BK8 multi-stage pipeline";
+  case 23:
+    return "K23 shared layout and fragment iterator";
   default:
     return "custom CUDA kernel";
   }
@@ -73,20 +75,21 @@ const char *kernel_mode_name(int kernel) {
 
 int main(int argc, char **argv) {
   if (argc != 2) {
-    std::cerr << "Please select a kernel (0-22; 13=strict FP32 cuBLAS, "
+    std::cerr << "Please select a kernel (0-23; 13=strict FP32 cuBLAS, "
                  "14=TF32 cuBLAS, 15=grouped-grid K10, 16=A-smem swizzle, "
                  "17=B-only cp.async, 18=warp fragment layout, "
                  "19=B-fragment prefetch, 20=256-thread SIMT, "
-                 "21=CUTLASS-style skeleton, 22=128-thread multi-stage)"
+                 "21=CUTLASS-style skeleton, 22=128-thread multi-stage, "
+                 "23=shared fragment iterator)"
               << std::endl;
     exit(EXIT_FAILURE);
   }
 
   // 从命令行读取编号：0 为历史 cuBLAS，1–12 为教学实现，13/14
-  // 分别为严格 FP32 与显式 TF32 对照，15–22 为独立受控实验。
+  // 分别为严格 FP32 与显式 TF32 对照，15–23 为独立受控实验。
   int kernel_num = std::stoi(argv[1]);
-  if (kernel_num < 0 || kernel_num > 22) {
-    std::cerr << "Please enter a valid kernel number (0-22)" << std::endl;
+  if (kernel_num < 0 || kernel_num > 23) {
+    std::cerr << "Please enter a valid kernel number (0-23)" << std::endl;
     exit(EXIT_FAILURE);
   }
 
@@ -221,7 +224,7 @@ int main(int argc, char **argv) {
         (kernel_num >= 1 && kernel_num <= 12) || kernel_num == 15 ||
         kernel_num == 16 || kernel_num == 17 || kernel_num == 18 ||
         kernel_num == 19 || kernel_num == 20 || kernel_num == 21 ||
-        kernel_num == 22;
+        kernel_num == 22 || kernel_num == 23;
     const bool compareCublasMode =
         resetCEachRepeat && (kernel_num == 0 || kernel_num == 14);
 

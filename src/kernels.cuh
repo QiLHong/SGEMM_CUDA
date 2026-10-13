@@ -11,6 +11,7 @@
 #include "kernels/20_kernel_simt_256x128.cuh"
 #include "kernels/21_kernel_cutlass_style_skeleton.cuh"
 #include "kernels/22_kernel_multistage_pipeline.cuh"
+#include "kernels/23_kernel_shared_fragment_iterator.cuh"
 #include "kernels/11_kernel_double_buffering.cuh"
 #include "kernels/12_kernel_double_buffering.cuh"
 #include "kernels/1_naive.cuh"

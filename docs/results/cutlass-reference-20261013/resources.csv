@@ -1,0 +1,4 @@
+mode,registers,spill_store_bytes,spill_load_bytes,shared_bytes
+cutlass,254,0,0,49152
+k10,184,0,0,16640
+k21,190,0,0,16640

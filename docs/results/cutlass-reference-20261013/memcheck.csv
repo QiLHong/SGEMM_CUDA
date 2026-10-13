@@ -1,0 +1,4 @@
+mode,size,beta,result,log
+cutlass,128,3,PASS,benchmark_results/cutlass-reference-20261013/sanitizer/memcheck_128.log
+cutlass,256,3,PASS,benchmark_results/cutlass-reference-20261013/sanitizer/memcheck_256.log
+cutlass,4096,3,PASS,benchmark_results/cutlass-reference-20261013/sanitizer/memcheck_4096.log
