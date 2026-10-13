@@ -9,6 +9,9 @@ import re
 p = argparse.ArgumentParser()
 p.add_argument("source",type=Path)
 p.add_argument("--output",type=Path,required=True)
+p.add_argument("--modes",nargs="+",default=["strict","k10","cutlass"])
+p.add_argument("--skip-mapping",action="store_true",
+               help="For new kernels, use their own independently checked ownership mapping")
 args = p.parse_args()
 args.output.mkdir(parents=True,exist_ok=True)
 stats = ["Instructions Executed", "Predicated-On Thread Instructions Executed",
@@ -26,7 +29,7 @@ def write(name,rows):
         w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");w.writeheader();w.writerows(rows)
 
 totals, pcs, widths, hot_lds = [], [], [], []
-for mode in ["strict","k10","cutlass"]:
+for mode in args.modes:
     with (args.source/f"source_{mode}.csv").open() as f:
         next(f)
         rows=list(csv.DictReader(f))
@@ -73,6 +76,8 @@ write("pc-stalls.csv",pcs)
 write("mainloop-lds.csv",hot_lds)
 
 # Logical warp-relative coordinates from the public MmaSimtPolicy and iterators.
+if args.skip_mapping:
+    raise SystemExit(0)
 mapping=[]
 for mode in ["k10","cutlass"]:
     ownership=set()

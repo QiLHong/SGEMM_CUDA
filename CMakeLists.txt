@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 3.19)
 project(NVIDIA_SGEMM_PRACTICE LANGUAGES CXX CUDA)
+# 独立实验入口，不进入 sgemm dispatcher，也不替换默认 K10。
+option(SGEMM_BUILD_K30_AUDIT "Build isolated K30 mini-SIMT experiment" OFF)
+if(SGEMM_BUILD_K30_AUDIT)
+  find_package(CUDAToolkit REQUIRED)
+  add_executable(k30_audit scripts/k30_audit.cu)
+  set_target_properties(k30_audit PROPERTIES CUDA_ARCHITECTURES 86 CUDA_STANDARD 17)
+  target_compile_definitions(k30_audit PRIVATE SGEMM_K10_MIN_BLOCKS=2)
+  target_compile_options(k30_audit PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo;-Xptxas=-v>)
+  target_link_libraries(k30_audit PRIVATE CUDA::cublas CUDA::nvToolsExt)
+endif()
 # 为编辑器/clangd 导出实际编译命令，不影响矩阵乘算法。
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 

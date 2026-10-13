@@ -1,0 +1,6 @@
+mode,registers,spill_store_bytes,spill_load_bytes,shared_bytes
+v4,225,0,0,99328
+v3,233,0,0,66560
+v2,235,0,0,33280
+v1,199,0,0,16640
+k10,184,0,0,16640

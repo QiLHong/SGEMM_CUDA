@@ -34,7 +34,15 @@
 
 ### RTX 3080 本机调优结果（2026-10-10）
 
-在本机 RTX 3080、CUDA 12.4、4096³ FP32 上，Kernel 10 是现有自写 kernel 中最快的一个。A-tile shared-memory padding、安全的 `__restrict__` 和 `__launch_bounds__(128, 2)` 联合调优后，干净默认构建的完整六尺寸验证为 **19560.0 GFLOPS**，同轮 cuBLAS 为 **21659.9 GFLOPS（90.31%）**；独立长测的跨轮范围为 **89.4%–90.3%**。六个 stock 尺寸均通过 cuBLAS 正确性检查；完整方法、24 组 tile 搜索和资源分析见 [RTX 3080 Kernel 10 调优记录](docs/zh/04-RTX3080-K10调优.md)。
+2026-10-10 在本机 RTX 3080、CUDA 12.4、4096³ FP32 的调优中，Kernel 10 是当时最快的自写 kernel，仍作为默认稳定实现。A-tile shared-memory padding、安全的 `__restrict__` 和 `__launch_bounds__(128, 2)` 联合调优后，干净默认构建的完整六尺寸验证为 **19560.0 GFLOPS**，同轮 cuBLAS 为 **21659.9 GFLOPS（90.31%）**；独立长测的跨轮范围为 **89.4%–90.3%**。六个 stock 尺寸均通过 cuBLAS 正确性检查；完整方法、24 组 tile 搜索和资源分析见 [RTX 3080 Kernel 10 调优记录](docs/zh/04-RTX3080-K10调优.md)。
+
+2026-10-13 新增独立 **K30 Mini-SIMT**：七轮交错测量中 V2 为 **20801.16 GFLOPS**，
+相对同轮 K10 的 19652.21 提升 **5.85%**，达到 strict FP32 cuBLAS 的 **96.33%**。
+K30 全四版六尺寸 × beta=0/1/3 正确性通过，并完成 memcheck/racecheck/synccheck。
+有效组合是新的 fragment ownership 与双缓冲同步协议：shared-load wavefront 降约 40%，
+issue/FP32 pipe 同时上升，235 regs/thread、零 spill；四阶段和 256-thread 版本未胜出。
+SASS 显示源码预取被下沉，不能把收益称为大范围 load/compute overlap。
+K10 不修改，K30 通过独立 `k30_audit` 入口运行；详见 [K30 架构、指标与限制](docs/zh/17-K30-Mini-SIMT微内核.md)。
 
 后续审计没有覆盖上述历史数据，而是新增“固定 seed、每次恢复 C、复位 copy 不计时、
 三轮轮换顺序”的公平口径。严格 FP32 cuBLAS 平均 **21704.9 GFLOPS**，K10 平均
@@ -59,8 +67,8 @@
 全部冻结。5 个手工变体没有一个稳定快于 K10：最接近的 XOR lane permutation 相对
 K10 仅 +0.012%，属于噪声；`TM=4,TN=8` 与连续 16-column fragment 分别回退 5.78%
 和 9.12%。三轮同测 K10 为 19,648.9 GFLOPS，strict FP32 cuBLAS 为 21,603.8
-GFLOPS（K10 为 90.95%）。这排除了“简单换一个 warp fragment layout”这一主瓶颈
-假设；详见 [Warp Fragment Layout 受控实验](docs/zh/08-K10-Warp-Fragment-Layout调优.md)。
+GFLOPS（K10 为 90.95%）。这些特定变体未支持“简单换 layout 即可提速”的假设，
+但不排除未测试的 ownership 与同步协议组合；详见 [Warp Fragment Layout 受控实验](docs/zh/08-K10-Warp-Fragment-Layout调优.md)。
 
 随后 K19 只改变 shared→register 的 B fragment 调度。三种轻量预取均通过六尺寸、
 `beta=0/1/3` 验证且无 spill，但相对 K10 稳定回退 6.30%–7.36%。K10/V1/V2/V3
@@ -163,6 +171,7 @@ make profile KERNEL=2 PREFIX=learning_
 16. [14：K22 128-thread 多阶段流水](docs/zh/14-K22-128线程多阶段流水实验.md)：冻结 K10 ownership，比较 BK=8 同步、两阶段和四阶段，说明 pipeline 为何必要但不充分。
 17. [15：K23 Shared 布局与 Fragment Iterator](docs/zh/15-K23-Shared布局与Fragment-Iterator实验.md)：冻结 K10 外形，比较 B-only、A-only 及 A+B coordinated Shared 映射；三者均未降低 Shared-load wavefront，组合版本性能下降 5.22%。
 18. [16：公开 CUTLASS 对照与主循环成本审计](docs/zh/16-公开CUTLASS对照与主循环成本审计.md)：同机七轮对照、冷缓存/稳态 NCU 与逐 PC 计数，解释零 bank conflict 下每条 LDS 的 wavefront 为何仍有差异。
+19. [17：K30 Mini-SIMT 微内核](docs/zh/17-K30-Mini-SIMT微内核.md)：分层 ownership/layout/iterator、1/2/4-stage 与 CTA 扩展；V2 达 96.33% strict cuBLAS，以及“源码预取没有变成硬件重叠”的 SASS 反证。
 
 源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19/K20/K21/K22/K23、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 
