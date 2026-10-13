@@ -44,7 +44,15 @@ issue/FP32 pipe 同时上升，235 regs/thread、零 spill；四阶段和 256-th
 SASS 显示源码预取被下沉，不能把收益称为大范围 load/compute overlap。
 K10 不修改，K30 通过独立 `k30_audit` 入口运行；详见 [K30 架构、指标与限制](docs/zh/17-K30-Mini-SIMT微内核.md)。
 
-后续审计没有覆盖上述历史数据，而是新增“固定 seed、每次恢复 C、复位 copy 不计时、
+同日 **K31 精修审计**再次测得 K30 为 **20834.28 GFLOPS / 96.30% strict cuBLAS**。
+降低临时寄存器至 219/209、增加 3/4-stage、扩展 256-thread 均未胜出。
+寄存器预算 r240 的七轮 +0.625% 在独立五轮缩小到 +0.236%，issue 未改善，
+暂不接受为可靠优化，**没有达到 98%**。216 组正确性和 77 项 Sanitizer 全通过，
+r220 在编译期因 spill 淘汰；默认 K10 与研究基线 K30 均不替换。
+完整数据、逐 PC 证据与命令见 [K31 精修与因果审计](docs/zh/18-K31-微内核精修与因果审计.md)；
+[优化故事](docs/zh/06-RTX3080-K10优化故事.md)已补齐 K15–K31 的失败、突破与判断边界。
+
+2026-10-10 的 FP32 基线审计没有覆盖初次调优数据，而是新增“固定 seed、每次恢复 C、复位 copy 不计时、
 三轮轮换顺序”的公平口径。严格 FP32 cuBLAS 平均 **21704.9 GFLOPS**，K10 平均
 **19696.5 GFLOPS（90.75%）**。Nsight 确认两者均走普通 FP32 SIMT/FMA，现有 kernel
 0 没有使用 Tensor Core；显式 TF32 对照虽达到 29771.3 GFLOPS，但大量元素超过原
@@ -160,7 +168,7 @@ make profile KERNEL=2 PREFIX=learning_
 5. [04：RTX 3080 Kernel 10 调优](docs/zh/04-RTX3080-K10调优.md)：24 组 tile 搜索、shared-memory padding、Nsight 证据与最终结果。
 6. [05：RTX 3080 FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)：严格 FP32/TF32 分流、公平计时、K10/K11/K12 Nsight 对照与剩余性能差距。
 7. [05：K10 Grid Swizzle 调优](docs/zh/05-K10-Grid-Swizzle调优.md)：独立 K15、五种组宽、缓存收益为何没有转化为吞吐。
-8. [06：RTX 3080 K10 优化故事](docs/zh/06-RTX3080-K10优化故事.md)：从基线校准、有效改动到 K15–K19 失败实验，逐步收敛剩余瓶颈。
+8. [06：RTX 3080 K10 优化故事](docs/zh/06-RTX3080-K10优化故事.md)：从公平基线、K15–K23 反例到 K30 的 96% 突破，再到 K31 未接受的微小收益；保留每一步证据边界。
 9. [07：K10 Shared 布局与 B 异步流水](docs/zh/07-K10-Shared布局与B异步流水.md)：K16 XOR 和 K17 B-only `cp.async` 的正确性、性能、SASS 与 Nsight 证据。
 10. [08：K10 Warp Fragment Layout](docs/zh/08-K10-Warp-Fragment-Layout调优.md)：32-lane 输出映射、K18 六个版本、三轮性能、Nsight 与 SASS 反例。
 11. [09：K10 Fragment Register Prefetch](docs/zh/09-K10-Fragment寄存器预取调优.md)：K10 的 LDS→FFMA 距离、K19 三个版本及显式预取为何降低 issue/FMA 利用率。
@@ -172,6 +180,7 @@ make profile KERNEL=2 PREFIX=learning_
 17. [15：K23 Shared 布局与 Fragment Iterator](docs/zh/15-K23-Shared布局与Fragment-Iterator实验.md)：冻结 K10 外形，比较 B-only、A-only 及 A+B coordinated Shared 映射；三者均未降低 Shared-load wavefront，组合版本性能下降 5.22%。
 18. [16：公开 CUTLASS 对照与主循环成本审计](docs/zh/16-公开CUTLASS对照与主循环成本审计.md)：同机七轮对照、冷缓存/稳态 NCU 与逐 PC 计数，解释零 bank conflict 下每条 LDS 的 wavefront 为何仍有差异。
 19. [17：K30 Mini-SIMT 微内核](docs/zh/17-K30-Mini-SIMT微内核.md)：分层 ownership/layout/iterator、1/2/4-stage 与 CTA 扩展；V2 达 96.33% strict cuBLAS，以及“源码预取没有变成硬件重叠”的 SASS 反证。
+20. [18：K31 微内核精修与因果审计](docs/zh/18-K31-微内核精修与因果审计.md)：同 SASS control、寄存器预算/存活期、2/3/4-stage 与大 CTA 对照；七轮加独立五轮，没有把噪声写成 98%。
 
 源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19/K20/K21/K22/K23、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 

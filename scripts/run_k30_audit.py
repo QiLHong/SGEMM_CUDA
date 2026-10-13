@@ -5,6 +5,7 @@ import csv
 import os
 from pathlib import Path
 import subprocess
+from audit_log_checks import sanitizer_passed
 
 ROOT = Path(__file__).resolve().parents[1]
 p = argparse.ArgumentParser()
@@ -14,6 +15,8 @@ p.add_argument("--binary", type=Path, required=True)
 p.add_argument("--rounds", type=int, default=7)
 p.add_argument("--modes", nargs="+", default=["strict","k10","v1","v2","v3","v4"])
 p.add_argument("--policies", nargs="+", choices=["cold","steady"], default=["cold"])
+p.add_argument("--extra-metrics", nargs="*", default=[],
+               help="Additional NCU counters; default preserves the K30 metric set")
 args = p.parse_args()
 args.output.mkdir(parents=True, exist_ok=True)
 env = dict(os.environ)
@@ -66,7 +69,7 @@ elif args.action in ("memcheck","sync"):
             for n in sizes:
                 out = run(["compute-sanitizer","--tool",check,"--error-exitcode","99",
                      *bench(mode,n,3,1,0)], f"{check}_{mode}_{n}.log")
-                if ",PASS" not in out or ("0 errors" not in out and "0 hazards" not in out):
+                if not sanitizer_passed(out, check):
                     raise RuntimeError("Missing explicit sanitizer success")
                 print(f"{check} {mode} {n} PASS", flush=True)
 elif args.action == "source":
@@ -100,7 +103,7 @@ else:
         "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum",
         "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_st.sum",
         "l1tex__t_sectors_pipe_lsu_mem_local_op_ld.sum",
-        "l1tex__t_sectors_pipe_lsu_mem_local_op_st.sum"]
+        "l1tex__t_sectors_pipe_lsu_mem_local_op_st.sum"] + args.extra_metrics
     for policy in args.policies:
         for mode in MODES:
             dest = args.output / f"ncu_{policy}_{mode}"
