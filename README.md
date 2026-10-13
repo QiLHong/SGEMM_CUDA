@@ -177,6 +177,9 @@ make profile KERNEL=2 PREFIX=learning_
 
 建议按下面顺序读，每次只解释清楚一个变化：
 
+如果想先系统复习，先读 [CUDA 与 SGEMM 基础复习](docs/zh/22-CUDA与SGEMM基础复习.md)：
+36 个基础问题与 8 道手算题，再进入源码路线和项目面试 QA。
+
 1. [00：阅读路线](docs/zh/00-阅读路线.md)：项目调用链、文件职责、每个阶段要回答的问题。
 2. [01：矩阵索引与线程映射](docs/zh/01-矩阵索引与线程映射.md)：`[M,K] × [K,N]`、行主序、thread / block / warp、Kernel 1 与 2。
 3. [02：分块与流水线](docs/zh/02-分块与流水线.md)：shared memory、寄存器复用、float4、bank、warp tiling、双缓冲。
@@ -200,6 +203,7 @@ make profile KERNEL=2 PREFIX=learning_
 21. [19：K32 Warp 角色分工与同步代价](docs/zh/19-K32-Warp角色分工与同步代价.md)：一个 producer 加四个 consumer；加载等待下降但吞吐持平，解释 barrier、寄存器子分区与驻留容量的相互影响。
 22. [20：项目复现与简历讲述](docs/zh/20-项目复现与简历讲述.md)：从干净环境构建到验证、六轮计时和指标导出；结果口径、失败排查、简历表述与两分钟讲述。
 23. [21：SGEMM 模拟面试 QA](docs/zh/21-SGEMM模拟面试QA.md)：35 个问题覆盖映射、精度、实验可信度、成功与失败、寄存器调度和贡献边界，附二十分钟模拟安排。
+24. [22：CUDA 与 SGEMM 基础复习](docs/zh/22-CUDA与SGEMM基础复习.md)：矩阵与索引、执行层次、内存与同步、tiling、资源与测量；含 36 个基础问题、8 道练习及答案。
 
 源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19/K20/K21/K22/K23、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 
