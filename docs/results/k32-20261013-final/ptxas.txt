@@ -1,0 +1,21 @@
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z8sgemmK32ILb1ELb1EEviiifPKfS1_fPf' for 'sm_86'
+ptxas info    : Function properties for _Z8sgemmK32ILb1ELb1EEviiifPKfS1_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 187 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK32ILb1ELb0EEviiifPKfS1_fPf' for 'sm_86'
+ptxas info    : Function properties for _Z8sgemmK32ILb1ELb0EEviiifPKfS1_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 167 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK32ILb0ELb0EEviiifPKfS1_fPf' for 'sm_86'
+ptxas info    : Function properties for _Z8sgemmK32ILb0ELb0EEviiifPKfS1_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 181 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf' for 'sm_86'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 235 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf' for 'sm_86'
+ptxas info    : Function properties for _Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 184 registers, 16640 bytes smem, 400 bytes cmem[0]

@@ -1,0 +1,6 @@
+mode,threads,registers,dynamic_shared_bytes,local_bytes,theoretical_blocks_per_sm
+k10,128,184,0,0,2
+k30,128,235,33280,0,2
+serial,160,181,33280,0,1
+overlap,160,167,33280,0,2
+single,160,187,33280,0,1

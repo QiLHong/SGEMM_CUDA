@@ -6,6 +6,14 @@
 
 原项目：[siboehm/SGEMM_CUDA](https://github.com/siboehm/SGEMM_CUDA)。原作者：Simon Boehm。中文内容属于 AI 辅助翻译与学习补充，并非原作者审校版，也不是原博客的完整译文。`【学习补充】` 表示新增解释，`【注释辨析】` 表示原注释与实际表达式之间需要注意的区别；没有把这些问题偷偷改成另一套实现。
 
+**阶段收尾（2026-10-13）：暂停继续调优。** 最佳研究基线保留 K30 V2，默认教学入口
+保留 K10；K31/K32 未产生可靠替代版本。求职阅读建议依次看
+[完整优化故事](docs/zh/06-RTX3080-K10优化故事.md)、
+[复现与简历讲述](docs/zh/20-项目复现与简历讲述.md)、
+[35 题模拟面试 QA](docs/zh/21-SGEMM模拟面试QA.md)。
+核心成果限定为 RTX 3080、4096³ strict FP32：约 20.8 TFLOPS、96.3% 同口径 cuBLAS，
+不代表通用 GEMM 或 GPU 理论峰值比例。
+
 ## 概览
 
 以下是**原作者在 NVIDIA A6000（Ampere）上的历史结果**，不是本分支在你的 RTX 3080 上重新测得的数据：
@@ -50,7 +58,15 @@ K10 不修改，K30 通过独立 `k30_audit` 入口运行；详见 [K30 架构�
 暂不接受为可靠优化，**没有达到 98%**。216 组正确性和 77 项 Sanitizer 全通过，
 r220 在编译期因 spill 淘汰；默认 K10 与研究基线 K30 均不替换。
 完整数据、逐 PC 证据与命令见 [K31 精修与因果审计](docs/zh/18-K31-微内核精修与因果审计.md)；
-[优化故事](docs/zh/06-RTX3080-K10优化故事.md)已补齐 K15–K31 的失败、突破与判断边界。
+[优化故事](docs/zh/06-RTX3080-K10优化故事.md)已补齐 K15–K32 的失败、突破与判断边界。
+
+随后 **K32 Warp 角色分工**固定四个 K30 计算 warp，新增一个搬运 warp。
+独立五轮与最终六轮均未产生新最佳：最终 K30 为 **20851.74 GFLOPS**，
+重叠版为 **20842.38 GFLOPS（−0.045%，噪声内持平）**，同轮 strict cuBLAS 为
+21606.37 GFLOPS。long-scoreboard 明显下降，但 issue 未改善；删除一次 barrier
+又使寄存器从 167 增至 187，跨过 SM 子分区驻留阈值，性能回退 11.64%。
+90 项正确性与 28 项 Sanitizer 全通过、零 spill，不替换 K30；完整同步协议、
+资源解释和新旧两批 CSV 见 [K32 Warp 角色分工与同步代价](docs/zh/19-K32-Warp角色分工与同步代价.md)。
 
 2026-10-10 的 FP32 基线审计没有覆盖初次调优数据，而是新增“固定 seed、每次恢复 C、复位 copy 不计时、
 三轮轮换顺序”的公平口径。严格 FP32 cuBLAS 平均 **21704.9 GFLOPS**，K10 平均
@@ -168,7 +184,7 @@ make profile KERNEL=2 PREFIX=learning_
 5. [04：RTX 3080 Kernel 10 调优](docs/zh/04-RTX3080-K10调优.md)：24 组 tile 搜索、shared-memory padding、Nsight 证据与最终结果。
 6. [05：RTX 3080 FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)：严格 FP32/TF32 分流、公平计时、K10/K11/K12 Nsight 对照与剩余性能差距。
 7. [05：K10 Grid Swizzle 调优](docs/zh/05-K10-Grid-Swizzle调优.md)：独立 K15、五种组宽、缓存收益为何没有转化为吞吐。
-8. [06：RTX 3080 K10 优化故事](docs/zh/06-RTX3080-K10优化故事.md)：从公平基线、K15–K23 反例到 K30 的 96% 突破，再到 K31 未接受的微小收益；保留每一步证据边界。
+8. [06：RTX 3080 K10 优化故事](docs/zh/06-RTX3080-K10优化故事.md)：从公平基线、K15–K23 反例到 K30 的 96% 突破，再到 K31 精修与 K32 角色分工；保留每一步证据边界。
 9. [07：K10 Shared 布局与 B 异步流水](docs/zh/07-K10-Shared布局与B异步流水.md)：K16 XOR 和 K17 B-only `cp.async` 的正确性、性能、SASS 与 Nsight 证据。
 10. [08：K10 Warp Fragment Layout](docs/zh/08-K10-Warp-Fragment-Layout调优.md)：32-lane 输出映射、K18 六个版本、三轮性能、Nsight 与 SASS 反例。
 11. [09：K10 Fragment Register Prefetch](docs/zh/09-K10-Fragment寄存器预取调优.md)：K10 的 LDS→FFMA 距离、K19 三个版本及显式预取为何降低 issue/FMA 利用率。
@@ -181,6 +197,9 @@ make profile KERNEL=2 PREFIX=learning_
 18. [16：公开 CUTLASS 对照与主循环成本审计](docs/zh/16-公开CUTLASS对照与主循环成本审计.md)：同机七轮对照、冷缓存/稳态 NCU 与逐 PC 计数，解释零 bank conflict 下每条 LDS 的 wavefront 为何仍有差异。
 19. [17：K30 Mini-SIMT 微内核](docs/zh/17-K30-Mini-SIMT微内核.md)：分层 ownership/layout/iterator、1/2/4-stage 与 CTA 扩展；V2 达 96.33% strict cuBLAS，以及“源码预取没有变成硬件重叠”的 SASS 反证。
 20. [18：K31 微内核精修与因果审计](docs/zh/18-K31-微内核精修与因果审计.md)：同 SASS control、寄存器预算/存活期、2/3/4-stage 与大 CTA 对照；七轮加独立五轮，没有把噪声写成 98%。
+21. [19：K32 Warp 角色分工与同步代价](docs/zh/19-K32-Warp角色分工与同步代价.md)：一个 producer 加四个 consumer；加载等待下降但吞吐持平，解释 barrier、寄存器子分区与驻留容量的相互影响。
+22. [20：项目复现与简历讲述](docs/zh/20-项目复现与简历讲述.md)：从干净环境构建到验证、六轮计时和指标导出；结果口径、失败排查、简历表述与两分钟讲述。
+23. [21：SGEMM 模拟面试 QA](docs/zh/21-SGEMM模拟面试QA.md)：35 个问题覆盖映射、精度、实验可信度、成功与失败、寄存器调度和贡献边界，附二十分钟模拟安排。
 
 源码中的 1–12 号 kernel 和独立实验 K15/K16/K17/K18/K19/K20/K21/K22/K23、`sgemm.cu`、`src/runner.cu`、构建与调优脚本均有中文解释。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 

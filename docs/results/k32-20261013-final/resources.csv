@@ -1,0 +1,6 @@
+mode,registers,stack_bytes,spill_store_bytes,spill_load_bytes,resource_gate,threads,bm,bn,bk,stages,shared_bytes
+single,187,0,0,0,PASS,160,128,128,16,2,33280
+overlap,167,0,0,0,PASS,160,128,128,16,2,33280
+serial,181,0,0,0,PASS,160,128,128,16,2,33280
+k30,235,0,0,0,PASS,128,128,128,16,2,33280
+k10,184,0,0,0,PASS,128,128,128,16,1,16640

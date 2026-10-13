@@ -1,0 +1,11 @@
+mode,register,kind,defining_pc,updates_completed,last_use_pc,instruction_span
+single,R168,accumulator,0x87a0,14,0x9030,137
+single,R170,accumulator,0x8be0,15,0x9690,171
+single,R174,accumulator,0x8c00,15,0x9650,165
+single,R172,accumulator,0x8c20,15,0x9670,165
+single,R180,accumulator,0x8c40,15,0x9740,176
+single,R176,accumulator,0x8e50,15,0x9630,126
+single,R184,accumulator,0x8ed0,15,0x97c0,143
+single,R178,accumulator,0x8fc0,15,0x9780,124
+single,R182,accumulator,0x8ff0,15,0x97b0,124
+single,R168,accumulator,0x9030,15,0x9830,128

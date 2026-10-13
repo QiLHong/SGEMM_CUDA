@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+"""Publish K32 evidence as new CSVs, preserving all historical measurements."""
+import argparse
+import collections
+import csv
+import hashlib
+import io
+import math
+from pathlib import Path
+import re
+import statistics
+import subprocess
+from audit_log_checks import sanitizer_passed
+
+p=argparse.ArgumentParser()
+p.add_argument("directory",type=Path)
+p.add_argument("--output",type=Path,required=True)
+p.add_argument("--rounds",type=int,default=6)
+p.add_argument("--confirm-rounds",type=int,default=5)
+p.add_argument("--steady-modes",nargs="*",default=[],
+               help="Require these steady profiles to be complete before publishing")
+args=p.parse_args()
+args.output.mkdir(parents=True,exist_ok=True)
+
+def read(path):
+    with path.open() as f: return list(csv.DictReader(f))
+
+def save(name,rows):
+    if not rows: return
+    stream=io.StringIO(newline="")
+    w=csv.DictWriter(stream,fieldnames=list(rows[0]),lineterminator="\n")
+    w.writeheader();w.writerows(rows)
+    content=stream.getvalue(); dest=args.output/name
+    if dest.exists():
+        a=list(csv.reader(io.StringIO(dest.read_text())))
+        b=list(csv.reader(io.StringIO(content)))
+        def equal(x,y):
+            if x==y: return True
+            try: return math.isclose(float(x),float(y),rel_tol=1e-12,abs_tol=1e-8)
+            except ValueError: return False
+        assert len(a)==len(b) and all(len(x)==len(y) and all(equal(u,v) for u,v in zip(x,y))
+                                    for x,y in zip(a,b)),f"Refusing to overwrite {dest}"
+    else:
+        with dest.open("x") as f: f.write(content)
+
+def save_text(name,content):
+    dest=args.output/name
+    if dest.exists():
+        assert dest.read_text()==content,f"Refusing to overwrite {dest}"
+    else:
+        with dest.open("x") as f: f.write(content)
+
+def performance(data):
+    modes=list(dict.fromkeys(r["mode"] for r in data))
+    means={m:statistics.mean(float(r["gflops"]) for r in data if r["mode"]==m) for m in modes}
+    paired={r["round"]:float(r["gflops"]) for r in data if r["mode"]=="k30"}
+    result=[]
+    for mode in modes:
+        rows=[r for r in data if r["mode"]==mode]
+        values=[float(r["gflops"]) for r in rows]
+        gains=[100*(float(r["gflops"])/paired[r["round"]]-1) for r in rows]
+        result.append(dict(mode=mode,rounds=len(rows),mean_gflops=means[mode],
+                           min_gflops=min(values),max_gflops=max(values),
+                           stdev_gflops=statistics.stdev(values),
+                           mean_ms=statistics.mean(float(r["ms"]) for r in rows),
+                           pct_strict=100*means[mode]/means["strict"],
+                           gain_vs_k30_pct=100*(means[mode]/means["k30"]-1),
+                           paired_gain_min_pct=min(gains),paired_gain_max_pct=max(gains)))
+    return result
+
+data=read(args.directory/"timing/fair.csv")
+# Validate the complete experiment before publishing any immutable CSV.
+compiled=read(args.directory/"resources.csv")
+accepted={r["mode"] for r in compiled if r["resource_gate"]=="PASS"}
+expected_modes=accepted|{"strict"}
+if {r["mode"] for r in data}!=expected_modes:
+    raise RuntimeError("Incomplete benchmark mode set")
+for mode in expected_modes:
+    rows=[r for r in data if r["mode"]==mode]
+    if len(rows)!=args.rounds or {int(r["round"]) for r in rows}!=set(range(1,args.rounds+1)):
+        raise RuntimeError(f"Incomplete benchmark rounds: {mode}")
+    if any(r["correctness"]!="PASS" or not math.isfinite(float(r["gflops"])) for r in rows):
+        raise RuntimeError(f"Invalid benchmark: {mode}")
+    for prefix in ["ncu_cold_","sass_cold_"]:
+        if not (args.directory/f"profiles/{prefix}{mode}.csv").exists():
+            raise RuntimeError(f"Missing profile: {prefix}{mode}")
+correctness=read(args.directory/"tests/correctness.csv")
+expected_cases={(m,str(n),str(b)) for m in accepted for n in [128,256,512,1024,2048,4096] for b in [0,1,3]}
+if len(correctness)!=len(expected_cases) or {(r["mode"],r["size"],r["beta"]) for r in correctness}!=expected_cases:
+    raise RuntimeError("Incomplete correctness matrix")
+if any(r["correctness"]!="PASS" or not math.isfinite(float(r["max_abs_error"])) or float(r["max_abs_error"])>0.01 for r in correctness):
+    raise RuntimeError("Correctness failed")
+for mode in accepted-{"k10"}:
+    for tool,sizes in [("memcheck",[128,256,4096]),("racecheck",[128,256]),("synccheck",[128,256])]:
+        for n in sizes:
+            path=args.directory/f"sanitizer/{tool}_{mode}_{n}.log"
+            content=path.read_text()
+            if not sanitizer_passed(content, tool):
+                raise RuntimeError(f"Sanitizer check failed: {path}")
+for mode in args.steady_modes:
+    if mode not in expected_modes:
+        raise RuntimeError(f"Unknown required steady mode: {mode}")
+    for prefix in ["ncu_steady_","sass_steady_"]:
+        path=args.directory/f"profiles/{prefix}{mode}.csv"
+        if not path.is_file() or not path.stat().st_size:
+            raise RuntimeError(f"Missing required steady profile: {path}")
+    records=read(args.directory/f"profiles/ncu_steady_{mode}.csv")
+    if len(records)<2 or not records[-1].get("Kernel Name"):
+        raise RuntimeError(f"Incomplete steady profile: {mode}")
+confirmation=[]
+if (args.directory/"confirm/fair.csv").exists():
+    confirmation=read(args.directory/"confirm/fair.csv")
+    confirm_modes={r["mode"] for r in confirmation}
+    if not {"strict","k30"} <= confirm_modes <= expected_modes:
+        raise RuntimeError("Invalid confirmation mode set")
+    for mode in confirm_modes:
+        rows=[r for r in confirmation if r["mode"]==mode]
+        if len(rows)!=args.confirm_rounds or {int(r["round"]) for r in rows}!=set(range(1,args.confirm_rounds+1)):
+            raise RuntimeError(f"Incomplete confirmation rounds: {mode}")
+        if any(r["correctness"]!="PASS" or not math.isfinite(float(r["gflops"])) for r in rows):
+            raise RuntimeError(f"Invalid confirmation: {mode}")
+save("fair.csv",data); summary=performance(data); save("performance.csv",summary)
+if confirmation:
+    save("confirm-fair.csv",confirmation); save("confirm-performance.csv",performance(confirmation))
+for name,path in [("correctness.csv","tests/correctness.csv"),("resources.csv","resources.csv"),
+                  ("runtime-resources.csv","runtime-resources.csv"),("static-sass.csv","static-sass.csv"),
+                  ("schedule.csv","schedule.csv")]:
+    save(name,read(args.directory/path))
+
+metrics={
+    "launch__registers_per_thread":"registers",
+    "launch__shared_mem_per_block":"shared_bytes",
+    "sm__warps_active.avg.pct_of_peak_sustained_active":"occupancy_pct",
+    "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active":"fp32_pct",
+    "smsp__issue_active.avg.pct_of_peak_sustained_active":"issue_pct",
+    "smsp__issue_inst0.avg.pct_of_peak_sustained_active":"no_issue_pct",
+    "smsp__warps_eligible.avg.per_cycle_active":"eligible_warps",
+    "smsp__warps_issue_stalled_dispatch_stall.avg.per_cycle_active":"dispatch",
+    "smsp__warps_issue_stalled_barrier.avg.per_cycle_active":"barrier",
+    "smsp__warps_issue_stalled_wait.avg.per_cycle_active":"wait",
+    "smsp__warps_issue_stalled_long_scoreboard.avg.per_cycle_active":"long_scoreboard",
+    "smsp__warps_issue_stalled_short_scoreboard.avg.per_cycle_active":"short_scoreboard",
+    "dram__bytes_read.sum":"dram_bytes",
+    "lts__t_sector_hit_rate.pct":"l2_hit_pct",
+    "smsp__inst_executed.sum":"warp_instructions",
+    "smsp__sass_thread_inst_executed_op_ffma_pred_on.sum":"thread_ffma",
+    "smsp__inst_executed_op_ldgsts.sum":"warp_ldgsts",
+    "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_ld.sum":"shared_load_wavefronts",
+    "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_st.sum":"shared_store_wavefronts",
+    "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum":"shared_load_conflicts",
+    "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_st.sum":"shared_store_conflicts",
+    "l1tex__t_sectors_pipe_lsu_mem_local_op_ld.sum":"local_load_sectors",
+    "l1tex__t_sectors_pipe_lsu_mem_local_op_st.sum":"local_store_sectors",
+}
+profiles=[]
+for policy in ["cold","steady"]:
+    for mode in [r["mode"] for r in summary]:
+        path=args.directory/f"profiles/ncu_{policy}_{mode}.csv"
+        if policy=="steady" and not path.exists(): continue
+        records=read(path); units,values=records[0],records[-1]
+        row=dict(policy=policy,mode=mode,kernel=values["Kernel Name"])
+        for metric,name in metrics.items():
+            value=float(values[metric].replace(",",""))
+            if name in ["shared_bytes","dram_bytes"]:
+                value*={"byte":1,"Kbyte":1e3,"Mbyte":1e6,"Gbyte":1e9}[units[metric].split("/")[0]]
+            row[name]=value
+        profiles.append(row)
+save("nsight.csv",profiles)
+# Library SASS is obtained from NCU, not from the executable's cuobjdump.
+strict_counts=collections.Counter()
+for row in csv.reader((args.directory/"profiles/sass_cold_strict.csv").open()):
+    if len(row)!=2 or not row[0].startswith("0x"): continue
+    original=row[1].strip()
+    ins=re.sub(r"^@!?U?P(?:\d+|T)\s+","",original)
+    match=re.match(r"([A-Z][A-Z0-9_.]*)",ins)
+    if match:
+        op=match[1].split(".")[0]
+        if original.startswith("@!PT "): op+="_PRED_OFF"
+        strict_counts[op]+=1
+save("cublas-static-sass.csv",[dict(mode="strict",static_total=sum(strict_counts.values()),
+      **{op:strict_counts[op] for op in ["FFMA","LDS","LDS_PRED_OFF","LDGSTS","DEPBAR","BAR","LDG","STS","IMAD","IADD3","MOV","HMMA","MMA"]})])
+checks=[]
+for path in sorted((args.directory/"sanitizer").glob("*.log")):
+    text=path.read_text()
+    tool=path.stem.split("_")[0]
+    checks.append(dict(test=path.stem,result="PASS" if sanitizer_passed(text,tool) else "FAIL",
+                       summary="; ".join(line for line in text.splitlines() if "SUMMARY:" in line),
+                       log_sha256=hashlib.sha256(text.encode()).hexdigest()))
+save("sanitizer.csv",checks)
+for dst,src in [("ptxas.txt","build.log"),("nvcc-version.txt","nvcc-version.txt"),("sha256.txt","sha256.txt")]:
+    save_text(dst,(args.directory/src).read_text())
+root=Path(__file__).resolve().parents[1]
+files=[args.directory/"audit",root/"scripts/k32_audit.cu",root/"src/kernels/10_kernel_warptiling.cuh",
+       root/"src/kernels/30_kernel_mini_simt.cuh",root/"src/kernels/32_kernel_warp_specialized.cuh"]
+save("sha256.csv",[dict(file=str(f.relative_to(root)) if f.is_relative_to(root) else str(f),
+                       sha256=hashlib.sha256(f.read_bytes()).hexdigest()) for f in files])
+if not (args.output/"environment.txt").exists():
+    out=io.StringIO()
+    for command in [["nvcc","--version"],["ncu","--version"],["git","rev-parse","HEAD"],
+                    ["nvidia-smi","--query-gpu=name,uuid,driver_version","--format=csv"]]:
+        r=subprocess.run(command,text=True,capture_output=True)
+        if r.returncode: raise RuntimeError(r.stderr)
+        out.write(" ".join(command)+"\n"+r.stdout+"\n")
+    out.write("nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
+    out.write("seed=20261013 alpha=0.5 beta=3 reset-C-before-every-call warmup=10 repeat=50\n")
+    out.write("cold: NVTX measure/ kernel-replay cache=all clock=base; steady: application-replay cache=none clock=none\n")
+    save_text("environment.txt",out.getvalue())
+for row in summary: print(row)
+print(f"Saved {len(profiles)} Nsight rows and {len(checks)} sanitizer outcomes")

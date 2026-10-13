@@ -1,0 +1,3 @@
+mode,input_sha256,mainloop_ffma,mainloop_lds128,accumulators,payload_live_peak,fragment_live_peak,ffma_non_inplace,lds_first_use_min,lds_first_use_median,lds_first_use_mean,lds_first_use_max,accumulator_reuse_min,accumulator_reuse_median,accumulator_reuse_mean,accumulator_reuse_max
+overlap,6d4ad6315be3c07818cd33034b8d80c7d200a367d0160b77f702e53d73846855,2048,96,128,155,27,73,3,35.0,56.333333333333336,139,113,134.0,133.96197916666668,157
+single,00f9b82fa833569c92e4e730fda9006b118c9498f68618e99e05364dfa03acae,2048,96,128,159,31,103,3,50.0,57.489583333333336,139,78,134.0,134.00104166666668,181
