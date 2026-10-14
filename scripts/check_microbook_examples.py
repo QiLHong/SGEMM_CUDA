@@ -114,6 +114,81 @@ class MicrobookExamples(unittest.TestCase):
         self.assertNotEqual((1 * 4) % 16, 0)
         self.assertEqual((4 * 4) % 16, 0)
 
+    def test_k1_k2_block_trace(self):
+        # Chapter 2: block (1,2), BLOCKSIZE=32, two different lane mappings.
+        k1 = [(32 + tid % 32, 64 + tid // 32) for tid in (0, 1, 31, 32)]
+        k2 = [(32 + tid // 32, 64 + tid % 32) for tid in (0, 1, 31, 32)]
+        self.assertEqual(k1, [(32, 64), (33, 64), (63, 64), (32, 65)])
+        self.assertEqual(k2, [(32, 64), (32, 65), (32, 95), (33, 64)])
+        self.assertEqual((4096 // 128)**2 * 128 * 128, 4096**2)
+
+    def test_k3_cooperative_load_trace(self):
+        # Chapter 3: first K tile, tid=33, block (1,2), M=N=K=128.
+        row, col = divmod(33, 32)
+        self.assertEqual((row, col), (1, 1))
+        self.assertEqual(32 * 128 + row * 128 + col, 4225)  # A[33,1]
+        self.assertEqual(64 + row * 128 + col, 193)       # B[1,65]
+        self.assertEqual(32 * 128 + 64 + row * 128 + col, 4289)
+        a_producer, b_producer = row * 32 + 3, 3 * 32 + col
+        self.assertEqual((a_producer, b_producer), (35, 97))
+        self.assertEqual(divmod(a_producer, 32), (1, 3))
+        self.assertEqual(divmod(b_producer, 32), (3, 1))
+
+    def test_k5_loader_vs_output_trace(self):
+        # Chapter 4: 128x128x8 CTA; 8x8 outputs/thread; 256 threads.
+        tid = 17
+        tr, tc = divmod(tid, 128 // 8)
+        self.assertEqual((tr, tc), (1, 1))
+        a_rows = [tid // 8 + offset for offset in range(0, 128, 256 // 8)]
+        b_rows = [tid // 128 + offset for offset in range(0, 8, 256 // 128)]
+        self.assertEqual(a_rows, [2, 34, 66, 98])
+        self.assertEqual(b_rows, [0, 2, 4, 6])
+        self.assertEqual((tid % 8, tid % 128), (1, 17))
+        i, j = 2, 3
+        row, col = tr * 8 + i, 128 + tc * 8 + j
+        self.assertEqual((i * 8 + j, row, col, row * 256 + col), (19, 10, 139, 2699))
+        self.assertEqual(8 + 5, 13)  # Second K tile, dotIdx=5.
+
+    def test_k30_global_to_fragment_trace(self):
+        # Chapter 5: enumerate all logical stores for one 128x128x16 tile.
+        # This tests coordinate formulas, NOT CUDA alignment or execution.
+        a_stores, b_stores = {}, {}
+        for tid in range(128):
+            ar, ak = tid // 4, (tid % 4) * 4
+            bk, bn = tid // 32, (tid % 32) * 4
+            for t in range(4):
+                for component in range(4):
+                    ac = (ar + t * 32, ak + component)
+                    bc = (bk + t * 4, bn + component)
+                    self.assertNotIn(ac, a_stores)
+                    self.assertNotIn(bc, b_stores)
+                    a_stores[ac] = (tid, t, component)
+                    b_stores[bc] = (tid, t, component)
+        self.assertEqual(set(a_stores), {(m, k) for m in range(128) for k in range(16)})
+        self.assertEqual(set(b_stores), {(k, n) for k in range(16) for n in range(128)})
+        self.assertEqual(a_stores[17, 2], (68, 0, 2))
+        self.assertEqual(b_stores[2, 38], (73, 0, 2))
+        self.assertEqual(output_coordinates("k30", 2)[5 * 8 + 6], (17, 38))
+        self.assertEqual(output_coordinates("k30", 3)[5 * 8 + 6], (21, 38))
+        self.assertEqual((2 * 132 + 17, 2 * 128 + 38), (281, 294))
+        self.assertEqual(output_coordinates("k30", 2)[44:48],
+                         [(17, 36), (17, 37), (17, 38), (17, 39)])
+
+    def test_k30_two_slot_sequential_trace(self):
+        # Chapter 6: sequential slot contents only, not a concurrent barrier proof.
+        for tiles in (1, 2, 3, 256):
+            slots = [0, None]  # Prologue publishes tile 0.
+            consumed = []
+            for tile in range(tiles):
+                self.assertEqual(slots[tile % 2], tile)
+                consumed.append(slots[tile % 2])
+                future = tile + 1
+                if future < tiles:
+                    self.assertNotEqual(future % 2, tile % 2)
+                    slots[future % 2] = future
+            self.assertEqual(consumed, list(range(tiles)))
+        self.assertEqual((2 * 256, 1 + 256), (512, 257))
+
     def test_resources_and_units(self):
         self.assertEqual(2 * (16 * 132 + 16 * 128) * 4, 33280)
         self.assertEqual(2 * 132 + 3, 267)

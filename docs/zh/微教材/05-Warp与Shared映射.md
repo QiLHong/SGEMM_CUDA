@@ -88,7 +88,117 @@ shared-load conflict 为零，只排除了一类额外服务成本。一次宽�
 不要反过来推断“wavefront 少就一定快”。V1 的失败已经说明，其他调度与同步
 成本可能抵消它。硬件计数是解释的一环，不是最终接受标准。
 
-## 6 练习
+## 6 源码精读：沿着一个 accumulator 找到它的所有输入
+
+现在把公式接回 [K30 实现](../../../src/kernels/30_kernel_mini_simt.cuh)。
+建议按下面顺序阅读，而不是从文件第一行一路硬读到最后：
+
+```text
+Shape 定义常量
+  → FragmentIterator 定义“谁算哪个 C”
+  → SharedLayoutA/B 定义“数据存在哪”
+  → WarpIteratorA/B 定义“这轮取哪些输入”
+  → compute 更新 accumulator
+  → epilogue 把 accumulator 放回 C
+```
+
+### 6.1 先把模板参数替换成数字
+
+当前审计入口的 `Small=k30::Shape<128,128,16,64,64,4,4,128>` 展开如下：
+
+|源码常量|数值|用途|
+|---|---:|---|
+|M/N/K|128/128/16|CTA 的输出宽高与一次 K tile 长度，不是完整矩阵尺寸|
+|WarpM/WarpN|64/64|一个 warp 的逻辑输出区域|
+|ThreadM/ThreadN|4/4|fragment 的基本四元素分组约束|
+|Rows=WM/4|16|每 lane 的 A fragment 元素数|
+|Cols=WN/8|8|每 lane 的 B fragment 元素数|
+|Rows*Cols|128|每 lane 的输出 accumulator 数|
+|ALoads/BLoads|4/4|每线程每 K tile 各搬运多少个 float4|
+
+**TM=TN=4 不代表这个线程总共只算 4×4 个输出。** 它是分组形状；
+实际所有权由 Rows、Cols 与 m(i)/n(j) 共同定义。这也是只看模板名字容易误读
+微内核的地方。`static_assert` 会检查 warp 覆盖、整除和分组条件，但不会替
+主机检查传入矩阵是否满足所有运行时边界与对齐契约。
+
+### 6.2 一个具体的 Shared → Register → C 追踪
+
+取 blockIdx=(0,0)、tid=2，即 warp 0、lane 2。由 FragmentIterator 得到
+row=0、col=4。选择 i=5、j=6：
+
+```text
+m(5) = 0 + 16 + 1 = 17
+n(6) = 4 + 32 + 2 = 38
+reg(5,6) = 5*8+6 = 46
+```
+
+所以 acc[46] 始终负责 C[17,38]。在第一段 K 的 k=2，这一轮的数据流是：
+
+```text
+A[17,2] → As[2*132+17] = As[281] → fa[5] ┐
+                                         ├→ acc[46] += fa[5]*fb[6]
+B[2,38] → Bs[2*128+38] = Bs[294] → fb[6] ┘
+```
+
+沿源码逐个检查对应实现：
+
+```cpp
+// SharedLayoutA / SharedLayoutB
+__device__ static int offset(int m,int k) { return k*Stride+m; }
+__device__ static int offset(int k,int n) { return k*Stride+n; }
+
+// FragmentIterator
+__device__ static int reg(int i,int j) { return i*S::Cols+j; }
+
+// compute
+acc[FragmentIterator<S>::reg(i,j)]+=fa[i]*fb[j];
+```
+
+这里把不同结构体中的相关行放在一起展示；它们不是一个可以独立编译的结构体。
+上述代码中的两个 Stride 分别是 132 和 128。
+
+### 6.3 WarpIterator 到底“迭代”什么
+
+A 的 iterator 从 `base+offset(map.row,0)` 开始，load 取
+`ptr[(i/4)*16+i%4]`，advance 执行 `ptr+=132`。
+B 的 iterator 从 `base+offset(0,map.col)` 开始，load 取
+`ptr[(j/4)*32+j%4]`，advance 执行 `ptr+=128`。
+
+因此每 advance 一次，输出所属的行/列不变，只切换到下一个 k。
+`compute` 为当前 shared tile 新建 iterator，循环 16 次。下一 tile 又从它自己的
+shared 基址重新开始，但 acc 不清零。这让“沿 shared 的 k 前进”和“沿全局 K
+tile 前进”成为两个清楚的层次。
+
+这并非魔法：常量表达式、内联和展开可能使它与直接索引生成一样的 SASS。
+它首先让映射关系能被检查；性能价值需要另看地址指令、load 调度和寄存器分配。
+
+### 6.4 这两个输入又是谁从 global 搬来的
+
+读 [GlobalIterator](../../../src/kernels/30_kernel_mini_simt.cuh#L41)：
+A 每线程一次搬四个连续 k，`ar=tid/4`、`ak=(tid%4)*4`，再以 32 行为步长搬四组。
+B 每线程搬四个连续 n，`bk=tid/32`、`bn=(tid%32)*4`，再以 4 个 k 行为步长搬四组。
+
+因此第一段中，A[17,2] 来自 tid=68 的第一个 float4 的 z 分量；
+B[2,38] 来自 tid=73 的第一个 float4 的 z 分量。消费者 tid=2 与两位搬运者
+都不同。这把第三章的合作加载思想延续到了 K30，而不是每个线程独立做完全部工作。
+
+A 装载沿 global 的 k 连续，写入 shared 时 x/y/z/w 分别放到不同 k 行；
+B 装载沿 n 连续，写入 shared 时仍保持四个连续 n，所以可以整组 float4 store。
+由此能理解：A/B 数学地位对称，不代表最合适的物理搬运方式对称。
+
+### 6.5 最后怎么从 acc[46] 回到 C
+
+epilogue 的 j 按 4 前进。i=5、j=4 时，目标起点是 C[17,36]，r=44，
+一次处理 acc[44..47]，其中第三项就是 acc[46]，写到 C[17,38]。
+这里仍用完整 N 作为 global 行跨度，不是 128 或 8。
+
+四列一组的输出地址满足当前契约的 16 字节对齐；这不等于支持任意 N 或子矩阵
+偏移。源码只对 M 行做了特定保护，没有通用 N/K 尾部处理。
+
+本章动手项：将 tid=2 改成 tid=3，再追踪 i=5、j=6。输出行变成 21，列仍是 38。
+不要先想着“怎样改快”，先确保能从任意 acc 编号追到 A/B/C 三个坐标。
+
+## 7 练习
 
 1. K30 的 warp 1、lane 0 相对 warp 0、lane 0 改变哪些坐标？
 2. K30 lane 31 在 warp 0 中负责的最大 M/N 坐标分别是多少？
