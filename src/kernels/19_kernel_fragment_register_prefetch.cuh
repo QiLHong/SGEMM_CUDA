@@ -1,3 +1,15 @@
+// 【文件导读】K19：实验：把下一步 B 片段提前读入寄存器
+// 给初学者：这是回答某个性能问题的实验，不是编号越大越快；先了解对照版本与唯一改动，再看复杂细节。
+// 先知道：kernel 是在 GPU 上执行的函数；K19 是本工程实验编号，不代表性能排名。
+// 这一版在做什么：Even/Odd 两组寄存器轮流保存 B(k) 与 B(k+1)，不是两份 shared tile，也没有改变全局内存加载。
+// 谁调用它：src/runner.cu 的编号 19 入口选择参数；头文件不能直接用 bash 或 python 运行。
+// 输入/输出：行主序 FP32 矩阵 A[M,K]、B[K,N]、C[M,N]，计算 C=alpha*AB+beta*C。
+// 变体：V1 普通 B 预取；V2 四个指针提前推进；V3 每轮显式处理两个 k。源代码不同不保证 SASS 不同。
+// 边界：这是特定分块/对齐条件下的实验核，不是任意尺寸 GEMM；先读调用方约束再改 M/N/K。
+// 阅读顺序：看线程如何分工 → 数据怎么搬 → 何时同步 → 怎么乘加 → 如何写回 C。
+// 评价方法：正确性 PASS 只说明该次测试满足误差条件；是否更快还要看同口径多轮计时和 profiler。
+// 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 #pragma once
 
 // K19 freezes all K10 tiling, global-memory loading and shared-memory layout.
@@ -42,6 +54,8 @@ loadBFragment(const float *__restrict__ Bs, float *__restrict__ regN,
 // V2 only: four B fragment addresses are advanced before the current FFMA
 // group. The fixed K19 shape is asserted by the caller.
 __device__ __forceinline__ void
+// 四个指针分别指向当前 k 的四组连续 B 元素，每组 float4。
+// V2 想把地址推进提前；有四个指针也可能延长地址寄存器的存活时间，所以必须同时看编译资源。
 loadBFragmentFromPointers(const float *__restrict__ b0,
                           const float *__restrict__ b1,
                           const float *__restrict__ b2,
@@ -97,6 +111,8 @@ template <const int VARIANT, const int BM, const int BN, const int BK,
           const int WNITER, const int WSUBM, const int WSUBN, const int TM,
           const int TN>
 __device__ __forceinline__ void
+// Even/Odd 像两只轮流使用的托盘：读下一份 B 时，不覆盖当前乘加还要用的那份。
+// 每个 k 的 A 仍现读现用；这里只改变 shared→register 的取数次序，不改变每个输出的 k 累加顺序。
 process(float *__restrict__ regM, float *__restrict__ regNEven,
         float *__restrict__ regNOdd, float *__restrict__ threadResults,
         const float *__restrict__ As, const float *__restrict__ Bs,
@@ -136,6 +152,7 @@ process(float *__restrict__ regM, float *__restrict__ regNEven,
                                                 threadResults);
       }
     }
+  // 把两个 k 步骤写在同一循环里只是软件展开；ptxas 本来就可能做相同展开，最终 SASS 可能与 V1 完全一致。
   } else if constexpr (VARIANT == 3) {
     // Explicit two-dot software schedule: B(k+1) is loaded before compute(k),
     // then the consumed register bank is reused for B(k+2).

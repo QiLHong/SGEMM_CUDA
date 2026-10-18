@@ -1,3 +1,15 @@
+// 【文件导读】K0–K23 的教学 benchmark 主程序
+// 给初学者：host 是 CPU 端控制代码，device 是 GPU 端计算代码；分配、拷贝、启动、等待、校验各有职责。
+// 调用链：命令行 kernel 编号 → run_kernel → runner 的配置/网格 → src/kernels 的设备代码。
+// 例如：SGEMM_RESET_C_EACH_REPEAT=1 SGEMM_SEED=20261013 SGEMM_WARMUP=10 SGEMM_REPEAT=50 ./build/sgemm 10。
+// 主程序支持 0–23，不包含 K30；K30/K31/K32 使用 scripts 下独立 audit 可执行文件。
+// 默认六个方阵尺寸 128/256/512/1024/2048/4096；SGEMM_BENCH_SIZE 可限制成一个尺寸。
+// alpha 默认 0.5、beta 默认 3（SGEMM_ALPHA/SGEMM_BETA 可设）；自写核对照 strict FP32，保持有限值检查及绝对误差 0.01。
+// 默认历史模式不复位 C，会反复执行 beta*C；公平对比须 SGEMM_RESET_C_EACH_REPEAT=1，复位拷贝在 event 计时外。
+// DEVICE 选择设备；SGEMM_SEED 固定随机输入，未设时不能认为两次独立进程输入完全相同。
+// 输出耗时单位为秒、吞吐为 GFLOPS；错误时可能写矩阵诊断文件，不能把一次 PASS 当作所有尺寸通过。
+// 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 #include <algorithm>
 #include <cmath>
 #include <cstdio>

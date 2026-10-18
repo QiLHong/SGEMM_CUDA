@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# 【文件导读】生成 K18 六个变体的 lane 分工表
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/generate_k18_lane_map.py --output <新的csv文件>。
+# Python 标准库即可；不带 --output 时打印 CSV 到终端，已有输出文件会拒绝覆盖。
+# 枚举 lane=0..31 的行/列分组，检查每 lane 128 个输出、整个 warp 恰好覆盖 64×64 且无重叠。
+# 只证明有限配置的几何覆盖，不验证 GPU 地址对齐、shared 冲突、FP32 误差或性能。
+# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Generate and validate the six K18 lane-to-output-fragment maps."""
 
 import argparse
@@ -16,6 +25,7 @@ VARIANTS = {
 }
 
 
+# 输入变体号与 lane，返回这一线程的行组/列组；注意完整输出是行集合与列集合的笛卡尔积。
 def lane_fragment(variant: int, lane: int):
     name, wniter, tm, tn = VARIANTS[variant]
     wsubn = 64 // wniter
@@ -38,6 +48,7 @@ def lane_fragment(variant: int, lane: int):
     return name, tm, tn, wniter, lane_m, lane_n, rows, col_ranges, coords
 
 
+# 枚举 32 个 lane，用集合断言无漏格/重叠，再写 CSV；覆盖检查和 GPU 正确性是两步。
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path)

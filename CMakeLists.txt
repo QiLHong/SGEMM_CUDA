@@ -1,3 +1,13 @@
+# 【文件导读】全工程目标与编译期实验参数
+# 给初学者：构建就是把源代码翻译成可执行文件；编译通过只是第一步，还没有证明计算正确或速度快。
+# 使用：cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_CUDA_ARCHITECTURES=86，然后 cmake --build build -j2。
+# 主目标 sgemm 连接 sgemm.cu 与 src/runner.cu；cuBLAS_sgemm/simplest_kernel 为两个入门示例。
+# SGEMM_K10_* 宏决定 K10 的模板参数，SGEMM_K18_VARIANT 等选择实验变体；这些不是可执行程序的运行时参数。
+# SGEMM_BUILD_K30_AUDIT/K31_AUDIT/K32_AUDIT 默认关闭；打开后构建独立 audit，不替换 sgemm 的编号分发。
+# Release 用于性能对比；Debug 的 -G 用于调试，不能与 Release 的 GFLOPS 混比。
+# CMake 的缓存保存在 -B 指定目录，切换变体建议使用新目录；命令执行会写构建产物，不会生成实验报告。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 cmake_minimum_required(VERSION 3.19)
 project(NVIDIA_SGEMM_PRACTICE LANGUAGES CXX CUDA)
 # 独立实验入口，不进入 sgemm dispatcher，也不替换默认 K10。

@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
+# 【文件导读】把 K23 的 Nsight 报告整理为 CSV
+# 给初学者：summarize 只整理已有结果，不会把失败变成功，也不会重新测出 GFLOPS；先确认输入文件齐全。
+# 运行：python3 scripts/summarize_kernel_23_ncu.py --results benchmark_results --tag <本次RUN_TAG>。
+# 输入：profile_kernel_23_ncu.sh 生成的 ncu_k23_<mode>_<tag>.ncu-rep。
+# 输出：CSV 写标准输出；脚本用 ncu --import 读取报告，不重新运行 GPU。
+# FIELDS 把完整 metric 名缩写成列名；最后一个含 Kernel Name 的记录作为数据行。
+# 旧列 no_eligible_pct 实际来自 smsp__issue_inst0：应解释为 no-issue，不能等同于无 eligible warp。
+# 部分旧列名带 ms/kb，但直接保留 ncu 显示值；换工具/量级时必须核对原报告单位。
+# DRAM 值与 dram_read_unit 一起输出，不能丢掉单位再比较流量。
+# 先确认报告 mode/tag 对应本次构建，再把资源、等待和吞吐联系起来解释。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Export K23 Nsight reports, including the unit of DRAM read measurements."""
 import argparse
 import csv
@@ -35,6 +47,7 @@ FIELDS = {
 }
 
 
+# 解析报告路径/标签，逐模式汇总并输出表；这一步不运行新的性能实验。
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--results", type=Path, default=Path("benchmark_results"))

@@ -1,3 +1,14 @@
+// 【文件导读】独立 CUTLASS SIMT 参考程序，不是 cuBLAS 私有源码
+// 给初学者：audit 在这里指一套实验检查，不是另一个算法；构建、验算、计时、性能采样是不同步骤。
+// 由 build_cutlass_reference.sh 用指定版本 CUTLASS 头文件编译；再用 run_cutlass_reference.py 调度实验。
+// mode 为 strict/k10/k21/cutlass；后面依次传方阵边长、beta、repeat、warmup，与独立 audit 的计时口径一致。
+// 参考类型使用 OpClassSimt、Sm80、threadblock 256×128×8、warp 64×64×8 与 4 stages；不使用 Tensor Core。
+// 这里显式声明的是公开 CUTLASS 参考模板，不代表已复刻 cuBLAS 同名核的全部私有实现。
+// cuBLAS 对照使用 PEDANTIC 模式；固定输入、alpha=0.5、beta=0/1/3、每次 C 复位、绝对误差 0.01。
+// compute 与初始化的失败检查都应通过；NVTX measure 范围内仅计时 launch，不把库初始化算进耗时。
+// 库模板名称很长：把它拆成数学类型、架构、block/warp/指令分块、epilogue、stage 逐项阅读即可。
+// 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 // Independent reference experiment; does not change the production dispatcher.
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
@@ -30,6 +41,7 @@ using Reference = cutlass::gemm::device::Gemm<
     cutlass::gemm::threadblock::GemmIdentityThreadblockSwizzle<1>,
     4, 1, 1, false, cutlass::arch::OpMultiplyAdd>;
 
+// 输入生成与独立 audit 使用同一规则；随机种子固定不等于跨所有平台的 rand 序列相同。
 void initialize(std::vector<float>& a, unsigned index) {
   srand(20261013U + 0x9e3779b9U * index);
   for (auto &v : a) {
@@ -72,6 +84,7 @@ int main(int argc, char** argv) {
   Reference::Arguments args({n,n,n}, {da,n}, {db,n}, {dc,n}, {dc,n}, {alpha,beta}, 1);
   CUT_OK(op.can_implement(args));
   CUT_OK(op.initialize(args));
+  // 把库与自写核放在同一个发射入口，外层统一验算、C 复位和 event 计时，避免比较口径不同。
   auto launch = [&]() {
     if (mode == "strict") strict(dc);
     else if (mode == "cutlass") { CUT_OK(op.run()); }
@@ -102,6 +115,7 @@ int main(int argc, char** argv) {
   cudaEvent_t start, stop;
   CUDA_OK(cudaEventCreate(&start)); CUDA_OK(cudaEventCreate(&stop));
   double total = 0;
+  // 每次从 C0 重来，计时只包围 GEMM；beta=3 不再把上一次输出递归放大。
   for (int i=0; i<repeats; ++i) {
     CUDA_OK(cudaMemcpy(dc, di, bytes, cudaMemcpyDeviceToDevice));
     // NCU filters only this launch: validation and warmup are never profiled.

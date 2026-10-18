@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
+# 【文件导读】RTX 3080 的受限 K10 参数搜索
+# 给初学者：这是保留实验历史的工具，不是推荐的一键运行入口；先看下面的改写/覆盖风险。
+# 运行示例：MIN_BLOCKS=2 bash scripts/kernel_10_rtx3080_tuner.sh；需可用 GPU 与 CMake/nvcc。
+# MIN_BLOCKS 必须显式给出；每种 tile 需独立检查寄存器/spill，launch bounds 不是运行时驻留保证。
+# 候选来自固定 CANDIDATES 表；通过 CMake 宏重新构建 BUILD_DIR，不用 sed 改源码。
+# SEARCH_REPEAT/FINAL_REPEAT 控制初筛和复核次数；AS_PAD、SEED、WARMUP 控制输入与布局。
+# 输出带 RUN_TAG 的 CSV/LOG：每组保留参数、GFLOPS、build_failed/run_failed/ok，最后重建最快候选。
+# 此历史脚本吞吐分母使用 kernel 0 的原 cuBLAS 配置；不能直接称为 kernel 13 strict 基线。
+# 只有 4096³ 初筛及最后长测，不等于六尺寸正确性与多轮独立确认；最佳参数不自动替换源码默认值。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
+
+# Bash 的安全开关：-e 遇失败尽早停，-u 防止误用未定义变量，pipefail 让管道中间失败也能被发现。
 set -euo pipefail
 
 # RTX 3080 / SM86 focused Kernel 10 search. Unlike the upstream tuner, this
@@ -9,8 +21,10 @@ set -euo pipefail
 # correctness comparison before timing.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# 根据脚本自身位置找仓库，不是把当前 shell 所在目录随意当根目录；后续路径都由这里展开。
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 BUILD_DIR="${BUILD_DIR:-${ROOT_DIR}/build-tune}"
+# OUTPUT_DIR 是结果存放处，RUN_TAG（若有）是批次名字；两者不是 kernel 参数，换标签不会重新选 tile。
 OUTPUT_DIR="${OUTPUT_DIR:-${ROOT_DIR}/benchmark_results}"
 DEVICE="${DEVICE:-0}"
 SEARCH_REPEAT="${SEARCH_REPEAT:-15}"
@@ -34,6 +48,7 @@ fi
 
 mkdir -p "${BUILD_DIR}" "${OUTPUT_DIR}"
 
+# 把一组候选参数交给 CMake 宏并重新编译；只改 shell 变量、不重编译不会改变模板内核。
 configure_candidate() {
   local bm="$1" bn="$2" bk="$3" wm="$4" wn="$5"
   local wniter="$6" tm="$7" tn="$8" threads="$9"
@@ -49,6 +64,7 @@ configure_candidate() {
   cmake --build "${BUILD_DIR}" --target sgemm --parallel 2
 }
 
+# 在统一输入/预热/重复参数下启动可执行程序，把原始输出留到日志，解析放在后面。
 measure_kernel() {
   local kernel="$1" repeats="$2"
   DEVICE="${DEVICE}" SGEMM_BENCH_SIZE=4096 SGEMM_WARMUP="${WARMUP}" \
@@ -57,6 +73,7 @@ measure_kernel() {
     "${BUILD_DIR}/sgemm" "${kernel}"
 }
 
+# 从 benchmark 的固定文本行取吞吐；解析到一个数字不代表 correctness 一定 PASS。
 extract_gflops() {
   awk -F'[()]' '/performance:/ {value=$4} END {gsub(/[^0-9.]/, "", value); print value}'
 }

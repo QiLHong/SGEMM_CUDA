@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# 【文件导读】估算 K32 中数据寄存器的存活区间
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/analyze_k32_payload_liveness.py <含sass_overlap/sass_single的目录> --output <全新目录>。
+# 输入是 analyze_k32_binary.py 导出的汇编文本，不启动 GPU。
+# 输出 payload-liveness.csv 与 high-register-values.csv；核对 2048 FFMA、96 LDS.128 的主体结构后统计。
+# lifetime 指一个值从产生到最后使用这段区间；这里只跟踪部分数据值，不包括全部地址/控制寄存器，不能冒充总资源需求。
+# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Trace K32's straight-line LDS/FFMA payload, not whole-kernel allocation.
 
 Input: cuobjdump text saved by analyze_k32_binary.py. No GPU is required.
@@ -15,6 +24,8 @@ import re
 import statistics
 
 
+# 跟踪数据值从写入到最后一次使用，估计同时活着的 payload 数；先检查汇编符合识别假设。
+# 这里没有完整重建地址/谓词/控制寄存器，不等价于 ptxas 的总寄存器分配。
 def analyze(path, mode):
     raw = path.read_text()
     instructions = [(int(pc, 16), text.strip()) for pc, text in
@@ -93,6 +104,7 @@ def analyze(path, mode):
     return summary, high
 
 
+# 保存派生表时保留既有结果约束；CSV 是汇编分析证据，不是新的硬件测量。
 def save(path, rows):
     stream = io.StringIO()
     writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
@@ -106,6 +118,7 @@ def save(path, rows):
             output.write(content)
 
 
+# 读取 overlap/single 的 SASS，生成对比表与输入哈希；哈希用来确认分析的是哪份汇编。
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", type=Path)

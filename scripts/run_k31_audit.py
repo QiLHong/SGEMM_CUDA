@@ -1,4 +1,17 @@
 #!/usr/bin/env python3
+# 【文件导读】K31 实验的统一入口与资源筛选
+# 给初学者：audit 在这里指一套实验检查，不是另一个算法；构建、验算、计时、性能采样是不同步骤。
+# 运行示例：python3 scripts/run_k31_audit.py correctness --directory benchmark_results/k31-new-session。
+# 前置：先 build_k31_audit.sh，再 analyze_k31_binary.py；目录内必须有 audit 与 resources.csv。
+# action：resources 查询函数属性；correctness/fair/profile/source/memcheck/sync 执行对应阶段。
+# resources 将运行时 registers 与编译统计交叉核对，写 runtime-resources.csv；理论 blocks/SM 是上限。
+# 其他 action 从 ORDER 选择模式，按 resource_gate 跳过有 spill 或超预算的版本。
+# 实际尺寸、beta、预热、计时、NVTX 和 Sanitizer 流程复用 run_k30_audit.py，避免另写一套口径。
+# 参数：--modes 可选子集，--rounds 控制轮数，--policies cold/steady 控制采样策略，--output 可指定新目录。
+# 结果默认放 tests/timing/profiles/source/sanitizer；子集实验不自动满足完整 summarize 的发布要求。
+# 运行会占用 GPU；它不是只读报告脚本，重复动作应使用新的输出位置。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """K31 experiment selection, resource gate, and the unchanged K30 fair harness."""
 import argparse
 import csv
@@ -19,8 +32,11 @@ p.add_argument("--rounds",type=int,default=7)
 p.add_argument("--policies",nargs="+",default=["cold"],choices=["cold","steady"])
 args=p.parse_args()
 binary=args.directory/"audit"
+# 先读 analyze_k31_binary.py 生成的资源表；因此即使运行 resources 动作，也要先完成静态分析。
+# resource_gate 是本实验预设的筛选门槛，不是设备通用上限，更不是性能已经合格。
 resources={r["mode"]:r for r in csv.DictReader((args.directory/"resources.csv").open())}
 env=dict(os.environ); env.pop("NVIDIA_TF32_OVERRIDE",None)
+# 向 CUDA 查询已编译核的资源并与编译日志交叉检查；这是查询动作，不测 GFLOPS。
 if args.action=="resources":
     out=subprocess.check_output([str(binary),"resources"],text=True,env=env)
     rows=[]
@@ -40,6 +56,7 @@ if args.action=="resources":
     print(out,end="")
 else:
     selected=args.modes or ORDER
+    # 只把通过资源门槛的候选交给后续实验；被跳过的是失败/不合格候选，不应在报告中当作未测试的赢家。
     modes=[]
     for mode in selected:
         if mode not in ORDER: p.error(f"Unknown mode: {mode}")
@@ -51,6 +68,7 @@ else:
     folders={"correctness":"tests","fair":"timing","profile":"profiles",
              "memcheck":"sanitizer","sync":"sanitizer","source":"source"}
     output=args.output or args.directory/folders[args.action]
+    # 复用 K30 的统一执行器，保持输入、C 复位、event 和 warmup/repeat 规则一致；这里只选择模式与目录。
     command=[sys.executable,str(ROOT/"scripts/run_k30_audit.py"),args.action,
              "--binary",str(binary),"--output",str(output),"--modes",*modes,
              "--rounds",str(args.rounds),"--policies",*args.policies,

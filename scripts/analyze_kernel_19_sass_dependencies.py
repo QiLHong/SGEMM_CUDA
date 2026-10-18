@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# 【文件导读】比较 K19 的 shared load 到第一次乘加使用的间隔
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/analyze_kernel_19_sass_dependencies.py。
+# 读取固定 build-prefetch-v1/v2/v3/sgemm；先构建这些变体，需要 cuobjdump，不需要运行 GPU。
+# 终端输出 K10 与 K19 变体的 LDS.128→FFMA 距离分布；一条 LDS.128 按四个连续物理寄存器处理。
+# 只是沿汇编文本寻找后续使用的近似，不是完整控制流/重命名分析；配合 Nsight 动态指标看，不能当作真实等待周期。
+# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Measure static instruction distance from each LDS.128 to its first FFMA use.
 
 This is a SASS ordering audit, not a latency-in-cycles measurement.  LDS.128 writes
@@ -23,6 +32,7 @@ MODES = {
 INST = re.compile(r"/\*([0-9a-f]+)\*/\s+(?:@[!P0-9]+\s+)?([A-Z0-9_.]+)\s+(.*?)\s*;")
 REG = re.compile(r"\bR(\d+)\b")
 
+# 提取指定 kernel 的汇编文本；同一 sgemm 二进制还含其他核，必须按 marker 区分。
 def instructions(binary: Path, marker: str):
     text = subprocess.run(["cuobjdump", "--dump-sass", str(binary)], check=True,
                           text=True, capture_output=True).stdout
@@ -38,6 +48,7 @@ def instructions(binary: Path, marker: str):
             result.append((int(match.group(1), 16), match.group(2), match.group(3)))
     return result
 
+# LDS.128 写四个连续寄存器，再找其后 FFMA 第一次读它的位置；简单近似没有完整控制流证明。
 def distances(insts):
     found = []
     for index, (_, opcode, operands) in enumerate(insts):

@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# 【文件导读】画出 K30 的线程到输出坐标映射
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/analyze_k30_mapping.py --output <新的映射csv文件>。
+# 不需要 GPU；根据源码公式枚举每个 lane 的输出格子。
+# 输出 lane 映射 CSV，并检查 CTA 中每个输出是否恰好由一个线程负责；坐标正确不等于浮点结果已验证。
+# 把它当作分工表生成器：warp 是 32 人小组，lane 是组内编号，fragment 是一个人的工作清单。
+# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """CPU proof of ownership/layout bounds, plus complete per-warp mapping CSV."""
 import argparse
 import csv

@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# 【文件导读】历史 K10/cuBLAS 的 SASS 指令数量对照
+# 给初学者：summarize 只整理已有结果，不会把失败变成功，也不会重新测出 GFLOPS；先确认输入文件齐全。
+# 运行前：python3 scripts/summarize_kernel_10_cublas_sass.py --help；用 --results 与 --tag 指定历史报告目录和命名标签。
+# 输入匹配标签的 Nsight 报告，调用 ncu 导出 SASS；需要已安装 ncu，本身不重新跑 GPU benchmark。
+# 输出 CSV 到终端，按 FFMA/LDS/整数等 opcode 统计；默认 tag 保留当时实验日期，换报告要显式指定。
+# SASS 是 GPU 最终机器指令的文本形式；本脚本数的是静态出现次数，不含循环执行次数权重。
+# 两个库核有不同尾部/分支时，总静态条数不能直接推出吞吐差异。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Count static SASS opcodes exported from K10/cuBLAS NCU reports.
 
 The cuBLAS kernel contains multiple predicated/branched paths.  These whole-function
@@ -18,6 +27,7 @@ OPCODES = ["FFMA", "LDS", "LDGSTS", "LDGDEPBAR", "DEPBAR", "BAR", "IMAD",
            "LDG", "NOP"]
 
 
+# 按 opcode 汇总 SASS 的静态数量；循环里的指令实际执行多少次仍需动态计数。
 def summarize(path):
     output = subprocess.run(
         ["ncu", "--import", str(path), "--page", "source", "--print-source", "sass", "--csv"],
@@ -42,6 +52,7 @@ def summarize(path):
             **{opcode: counts.get(opcode, 0) for opcode in OPCODES}}
 
 
+# 解析报告路径/标签，逐模式汇总并输出表；这一步不运行新的性能实验。
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--results", type=Path, default=Path("benchmark_results"))

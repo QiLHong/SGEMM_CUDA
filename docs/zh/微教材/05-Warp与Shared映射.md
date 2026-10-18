@@ -174,7 +174,7 @@ tile 前进”成为两个清楚的层次。
 
 ### 6.4 这两个输入又是谁从 global 搬来的
 
-读 [GlobalIterator](../../../src/kernels/30_kernel_mini_simt.cuh#L41)：
+读 [GlobalIterator](../../../src/kernels/30_kernel_mini_simt.cuh#L72)：
 A 每线程一次搬四个连续 k，`ar=tid/4`、`ak=(tid%4)*4`，再以 32 行为步长搬四组。
 B 每线程搬四个连续 n，`bk=tid/32`、`bn=(tid%32)*4`，再以 4 个 k 行为步长搬四组。
 

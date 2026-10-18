@@ -1,3 +1,14 @@
+// 【文件导读】K31：K30 的受控精修对照，不是默认更快版本
+// 给初学者：这是回答某个性能问题的实验，不是编号越大越快；先了解对照版本与唯一改动，再看复杂细节。
+// 先知道：kernel 是在 GPU 上执行的函数；K31 是本工程实验编号，不代表性能排名。
+// 这一版在做什么：分别研究搬运时机、逐向量搬运、stage 数、CTA 大小和寄存器上限；一次比较一个因素，失败方案仍保留作证据。
+// 谁调用它：scripts/k31_audit.cu 独立测试程序；主程序 ./build/sgemm 不支持编号 31。
+// 输入/输出：行主序 FP32 矩阵 A[M,K]、B[K,N]、C[M,N]，计算 C=alpha*AB+beta*C。
+// 边界：这是特定分块/对齐条件下的实验核，不是任意尺寸 GEMM；先读调用方约束再改 M/N/K。
+// 阅读顺序：看线程如何分工 → 数据怎么搬 → 何时同步 → 怎么乘加 → 如何写回 C。
+// 评价方法：正确性 PASS 只说明该次测试满足误差条件；是否更快还要看同口径多轮计时和 profiler。
+// 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 #pragma once
 #include "30_kernel_mini_simt.cuh"
 
@@ -8,6 +19,8 @@ namespace k31 {
 using Small = k30::Shape<128,128,16,64,64,4,4,128>;
 using Large = k30::Shape<256,128,16,64,64,4,4,256>;
 
+// 实验菜单：0=原样 control，1=晚加载，2=逐 float4 加载后立刻存，3/4=三/四槽，5=256线程。
+// 名字只表明改变了什么，不表示 5 比 0 更快；应先确认 control 与 K30 一致再比较。
 template<int Variant> struct Config {
   static_assert(Variant>=0 && Variant<=5);
   using S = Small;
@@ -23,6 +36,8 @@ template<> struct Config<5> {
 // global/shared coordinates and transfer count are identical to GlobalIterator.
 // ptxas may still reschedule these operations; lexical scope is not a guarantee.
 template<class S>
+// 一个包裹取到就放下，尝试缩短临时值从产生到最后使用的时间。
+// 坐标和搬运总量不变；编译器仍可能重排，所以 C++ 局部作用域不等于物理寄存器立即释放。
 __device__ __forceinline__ void copyVectors(const k30::GlobalIterator<S> &g,
                                            float *as,float *bs) {
 #pragma unroll
@@ -43,6 +58,9 @@ __device__ __forceinline__ void copyVectors(const k30::GlobalIterator<S> &g,
   }
 }
 
+// 复用 K30 的 ownership、shared 布局、乘加与写回，仅把搬运策略/槽数作为编译时选项。
+// Policy=0 在 compute 前取 next；Policy=1 在 compute 后取；Policy=2 逐向量取了就存。
+// 所有策略共用同一轮尾屏障协议，避免把同步变化误认为仅寄存器生命周期变化。
 template<class S,int Stages,int Policy>
 __device__ __forceinline__ void run(int M,int N,int K,float alpha,
     const float *__restrict__ A,const float *__restrict__ B,float beta,
@@ -111,6 +129,8 @@ void sgemmK31(int M,int N,int K,float alpha,const float *__restrict__ A,
 // __maxnreg__ and __launch_bounds__ cannot be combined. These are separate
 // annotation controls, not an assertion that ptxas will allocate exactly Limit.
 // All five budgets still permit at most two 128-thread CTAs by registers.
+// Limit 是编译器寄存器上限，不是实际使用量；限制过紧可能把数据溢出到 local memory。
+// 这一路用 __maxnreg__，不能同时加 __launch_bounds__；比较时要保留这个编译约束差别。
 template<int Limit>
 __global__ __maxnreg__(Limit)
 void sgemmK31Budget(int M,int N,int K,float alpha,const float *__restrict__ A,

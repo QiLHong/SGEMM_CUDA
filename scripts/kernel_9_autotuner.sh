@@ -1,4 +1,15 @@
 #!/usr/bin/env bash
+# 【文件导读】上游 K9 原地改源码的历史搜索器
+# 给初学者：这是保留实验历史的工具，不是推荐的一键运行入口；先看下面的改写/覆盖风险。
+# 入口：bash scripts/kernel_9_autotuner.sh；仅供理解原作者的参数搜索流程。
+# 先进入 build/，枚举 BM/BN/BK/TM/TN 等组合，以整除约束过滤，再 sed -i 改源码、make、运行。
+# 会改写 src/runner.cu 和 K9 header，并清空 benchmark_results 中同名结果；不是只读检查。
+# 固定 DEVICE=2；必须先有 Makefile 生成的 build/，Ninja 目录不适用。
+# set -u 只检查未定义变量，未设置完整的 -e/pipefail；编译失败可能继续，timeout 也不等于数值失败。
+# 这里保存的是历史搜索规则，与当前 runner 的合法参数约束须逐项核对。
+# 当前复现优先读 build_k30_audit.sh/run_k30_audit.py；不要在学习分支直接启动此原地搜索器。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 
 set -u
 

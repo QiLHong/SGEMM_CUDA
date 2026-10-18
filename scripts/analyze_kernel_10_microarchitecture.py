@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# 【文件导读】把 K10 汇编变成微内核指标
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/analyze_kernel_10_microarchitecture.py --binary <sgemm二进制>。
+# 需要 cuobjdump/nvdisasm；默认二进制路径为历史 build-prefetch-v1/sgemm。
+# 终端输出 CSV：主循环 FFMA 链、累加器复用距离、LDS 首次使用距离及 nvdisasm 寄存器信息。
+# 这里既有源码推导常量，也有汇编统计；静态距离不能直接换算延迟，更不能单凭它断言 scoreboard 瓶颈。
+# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Static SM86 SASS and register-liveness audit for Kernel 10.
 
 The accumulator and LDS distances are counts of intervening static SASS
@@ -21,11 +30,13 @@ REG = re.compile(r"\bR(\d+)\b")
 LIVE = re.compile(r"// \|\s*(\d+)\s+\|")
 
 
+# 调用外部工具并收集文本；返回码非零表示工具失败，不应继续生成看似完整的统计。
 def command(*args, cwd=None):
     return subprocess.run(args, cwd=cwd, check=True, text=True,
                           capture_output=True).stdout
 
 
+# 从包含多个函数的 cuobjdump 输出中挑出 K10；不能把整份二进制所有函数都计入一个核。
 def extract_function(text):
     on = False
     lines = []
@@ -42,6 +53,7 @@ def extract_function(text):
     return lines
 
 
+# 去掉地址/编码展示，只留下便于分析的指令记录；格式假设依赖工具版本。
 def parse_instructions(lines):
     result = []
     for line in lines:
@@ -53,11 +65,13 @@ def parse_instructions(lines):
     return result
 
 
+# 从 R123 这样的物理寄存器名称取编号；编号不是变量名，也不直接等于存活寄存器总数。
 def register_number(text):
     match = REG.search(text)
     return int(match.group(1)) if match else None
 
 
+# 沿 FFMA 的源/目的寄存器追踪同一个部分和，不能只盯住固定寄存器号，因为编译器可能重命名。
 def accumulator_chains(instructions):
     """Follow FFMA accumulator values even when ptxas renames the GPR.
 
@@ -93,6 +107,7 @@ def accumulator_chains(instructions):
     return ffmas, chains, physical_renames
 
 
+# 估算 shared load 到第一次后续 FFMA 使用之间隔了多少条指令；这是静态文本距离，不是周期。
 def lds_to_ffma_distances(instructions):
     distances = []
     for index, instruction in enumerate(instructions):
@@ -112,6 +127,7 @@ def lds_to_ffma_distances(instructions):
     return distances
 
 
+# 提取 cubin 并调用 nvdisasm 的存活分析；临时文件用临时目录隔离，不改原二进制。
 def nvdisasm_liveness(binary):
     with tempfile.TemporaryDirectory(prefix="k10-nvdisasm-") as directory:
         listing = command("cuobjdump", "-lelf", str(binary))
@@ -156,6 +172,7 @@ def nvdisasm_liveness(binary):
         return best
 
 
+# 把循环结构、依赖间隔和寄存器指标装进报告；部分源码规模常量只适用于当前 K10。
 def summarize(binary):
     sass = command("cuobjdump", "--dump-sass", str(binary))
     function_lines = extract_function(sass)
@@ -223,6 +240,7 @@ def summarize(binary):
     return metrics
 
 
+# 命令行只选择二进制，输出 metric/value/unit 表到终端；重定向保存时要另选新文件名。
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--binary", type=Path, default=Path("build-prefetch-v1/sgemm"))

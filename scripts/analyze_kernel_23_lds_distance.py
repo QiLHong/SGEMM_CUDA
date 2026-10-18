@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# 【文件导读】比较 K23 共享布局变化后的 load-use 静态距离
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/analyze_kernel_23_lds_distance.py。
+# 读取固定 build-k23-v1/v2/v3/v4/sgemm；V1 的符号来自 K21 iterator，需先构建变体。
+# 终端输出每种模式的 LDS.128 到 FFMA 首次使用间隔；需要 cuobjdump，不运行计时。
+# 距离少不一定更好，距离多也可能占用更多寄存器；它用于解释 SASS，不用于单独选最快实现。
+# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Static LDS.128 to first FFMA use distance (instructions, not cycles)."""
 import csv
 import re
@@ -19,6 +28,7 @@ MODES = {
 }
 
 
+# 只分析 mode 对应的函数；V1 实际复用 K21，不能只搜索 K23 字符串。
 def instructions(binary, marker):
     raw = subprocess.run(["cuobjdump", "--dump-sass", str(binary)], check=True,
                          text=True, capture_output=True).stdout

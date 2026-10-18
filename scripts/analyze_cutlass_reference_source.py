@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# 【文件导读】把逐条指令的 Nsight 数据汇成热点表
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/analyze_cutlass_reference_source.py <source结果目录> --output <全新目录>。
+# 输入 source_<mode>.csv，来自 run_cutlass_reference.py 或 run_k30_audit.py 的 source 动作；此脚本本身不采样 GPU。
+# --modes 默认 strict/k10/cutlass；分析新 kernel 时通常加 --skip-mapping，避免误套旧 lane 分工公式。
+# 输出动态 opcode、memory-instructions、pc-stalls、mainloop-lds 等 CSV；PC 是汇编指令地址，不是源码行号。
+# 逐 PC 指标是 profiler 提供的执行/采样量；hot LDS 的阈值属于本实验筛选规则，不是通用瓶颈判据。
+# 文件用排他创建保护旧结果；读者应同时看单位、采样策略和有效指令谓词，不能把静态数与动态数相加。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Aggregate NCU per-PC executed instructions; sampled stalls are not cycle counts."""
 import argparse
 import collections
@@ -20,15 +30,18 @@ stats = ["Instructions Executed", "Predicated-On Thread Instructions Executed",
          "L2 Theoretical Sectors Global Ideal", "Warp Stall Sampling (Not-issued Samples)"]
 stall_names = ["stall_dispatch", "stall_long_sb", "stall_short_sb", "stall_barrier", "stall_wait", "stall_mio"]
 
+# 把带分隔符的 profiler 数字转成可计算形式；单位由原报告决定，不能仅凭转成 float 就忽略单位。
 def number(value):
     if value in ("", "-", "N/A", None): return 0
     return float(value.replace(",",""))
 
+# 每张派生表用新文件保存；同名输出会失败，防止不同批次证据互相覆盖。
 def write(name,rows):
     with (args.output/name).open("x") as f:
         w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");w.writeheader();w.writerows(rows)
 
 totals, pcs, widths, hot_lds = [], [], [], []
+# 先按模式读取逐 PC 记录，再按 opcode 汇总；有谓词关闭的指令不应当作实际有效 FFMA。
 for mode in args.modes:
     with (args.source/f"source_{mode}.csv").open() as f:
         next(f)

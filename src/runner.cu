@@ -1,3 +1,15 @@
+// 【文件导读】主 benchmark 的工具函数、cuBLAS 精度与 kernel 发射配置
+// 给初学者：host 是 CPU 端控制代码，device 是 GPU 端计算代码；分配、拷贝、启动、等待、校验各有职责。
+// 该文件由 sgemm.cu 调用，不独立运行；run_kernel 是编号到具体包装函数的总开关。
+// 每个 runSgemm* 负责选择模板参数、检查覆盖约束、设定 grid/block 并发射设备核。
+// 编号 0 为历史 cuBLAS 配置，13 为严格 FP32，14 为 TF32 对照；后两者不能混称同精度。
+// runCublasGemm 在每次调用前显式设置 math mode（不恢复旧模式），再交换 A/B 与 M/N 适配列主序 cuBLAS。
+// verify_matrix 检查有限值与绝对误差 0.01；launch 成功不等于异步执行成功，主程序还需同步查错。
+// K10 默认宏集中在 runSgemmWarptiling 附近；调参须同时满足线程数、向量对齐、搬运覆盖和 warp 铺满约束。
+// CEIL_DIV 只让网格向上取整，不自动提供设备核的尾块屏蔽；K20 等仅有指定方向的特殊边界路径。
+// CUDA 资源、频率与精度配置会影响结果；本次中文注释不更改参数或计时口径。
+// 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 #include "kernels.cuh"
 #include "runner.cuh"
 #include <cmath>

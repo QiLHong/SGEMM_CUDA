@@ -1,3 +1,15 @@
+// 【文件导读】K23：实验：共享布局和读取游标配套设计
+// 给初学者：这是回答某个性能问题的实验，不是编号越大越快；先了解对照版本与唯一改动，再看复杂细节。
+// 先知道：kernel 是在 GPU 上执行的函数；K23 是本工程实验编号，不代表性能排名。
+// 这一版在做什么：global loader 从原地址读取，但 shared 的存放次序与 iterator 的寻址规则一起改；不改变每线程输出归属。
+// 谁调用它：src/runner.cu 的编号 23 入口选择参数；头文件不能直接用 bash 或 python 运行。
+// 输入/输出：行主序 FP32 矩阵 A[M,K]、B[K,N]、C[M,N]，计算 C=alpha*AB+beta*C。
+// V1 在 runner 中直接调用 K21 iterator；V2 重排 B；V3 重排 A；V4 同时采用两种布局。
+// 边界：这是特定分块/对齐条件下的实验核，不是任意尺寸 GEMM；先读调用方约束再改 M/N/K。
+// 阅读顺序：看线程如何分工 → 数据怎么搬 → 何时同步 → 怎么乘加 → 如何写回 C。
+// 评价方法：正确性 PASS 只说明该次测试满足误差条件；是否更快还要看同口径多轮计时和 profiler。
+// 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 #pragma once
 
 // K23 retains the K10 output ownership and arithmetic. V2 and V3 permute one

@@ -1,3 +1,12 @@
+# 【文件导读】历史快捷构建、benchmark 和反汇编入口
+# 给初学者：构建就是把源代码翻译成可执行文件；编译通过只是第一步，还没有证明计算正确或速度快。
+# 运行前先阅读目标配方：make 默认构建，make debug 为调试；实际 CUDA 参数仍由 CMake 决定。
+# 子命令使用 make -C build，因此假定 build 是 Unix Makefiles 生成器；不能混用已有 Ninja 构建目录。
+# 注意：clean 删除 build；profile 含覆盖已有报告的选项；bench 会调用绘图器并更新 README/图片。
+# cuobjdump 目标导出 K10 相关汇编；不是 Nsight 动态采样，静态指令不能直接等同运行周期。
+# 当前 K30 复现优先看 scripts/build_k30_audit.sh 与 scripts/run_k30_audit.py，不要盲目执行所有目标。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 .PHONY: all build debug clean profile bench cuobjdump
 
 # 这些目标封装原有构建/性能分析命令；配方开头必须是制表符。

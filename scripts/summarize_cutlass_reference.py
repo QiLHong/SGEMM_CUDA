@@ -1,4 +1,17 @@
 #!/usr/bin/env python3
+# 【文件导读】公开 CUTLASS 对照的结果归档与统计
+# 给初学者：summarize 只整理已有结果，不会把失败变成功，也不会重新测出 GFLOPS；先确认输入文件齐全。
+# 运行：python3 scripts/summarize_cutlass_reference.py <实验目录> --output <新的报告目录>。
+# 输入：timing/fair.csv、tests/correctness.csv、profiles 及编译/工具日志；不是 benchmark 启动入口。
+# 统计：按 mode 汇总各轮 GFLOPS 均值、最小/最大值和样本标准差；这些不是单 launch 的分布。
+# Nsight 按 cold/steady 分组；shared/DRAM 字节量按单位行换算，静态 opcode 与动态执行计数分开。
+# 输出：performance/fair/correctness/nsight/resources 等 CSV、哈希和环境信息；相同结果可核对，不同内容拒绝覆盖。
+# 这是早期汇总入口，完整性规则不同于 K31/K32；不要把成功导出误当成所有验证齐全。
+# 同一份报告应引用同批模式，不要跨日期挑最好的基线；独立确认结果另外保存。
+# 环境记录可能调用 nvcc/ncu/nvidia-smi 查询版本/设备；不重新测吞吐，但并非完全不依赖 CUDA 工具。
+# 历史源码哈希属于原实验时点；给源码加注释后哈希会变化，不能改写旧归档让它假装对应新文件。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Summarize reference raw logs; units and static/dynamic counts stay explicit."""
 import argparse
 import collections
@@ -18,6 +31,7 @@ p.add_argument("--cutlass-dir",type=Path,default=Path("/tmp/sgemm-cutlass-v3.5.1
 args = p.parse_args()
 args.output.mkdir(parents=True, exist_ok=True)
 
+# 把派生结果写入新文件或按本函数规则核对旧内容，保存历史证据；不要手工改 CSV 数字来凑结论。
 def write(name, rows):
     buffer = io.StringIO(newline="")
     w = csv.DictWriter(buffer, fieldnames=list(rows[0]), lineterminator="\n")

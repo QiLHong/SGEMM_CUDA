@@ -1,3 +1,15 @@
+// 【文件导读】K10：把输出依次分给 block、warp 和线程
+// 给初学者：先看本文件的分工与下标，不必一次读懂全部模板；BM/BN 是输出块高宽，BK 是一次处理的 K 长度。
+// 先知道：kernel 是在 GPU 上执行的函数；K10 是本工程实验编号，不代表性能排名。
+// 这一版在做什么：默认 128×128 block 由 4 个 warp 各算 64×64；每线程负责 8 行×16 列共 128 个输出，分散在多个子块。
+// 谁调用它：src/runner.cu 的编号 10 入口选择参数；头文件不能直接用 bash 或 python 运行。
+// 输入/输出：行主序 FP32 矩阵 A[M,K]、B[K,N]、C[M,N]，计算 C=alpha*AB+beta*C。
+// 核心 wt::loadFromGmem 搬运；processFromSmem 做外积累加；runWarptilingCore 串起流程，也被 K15/K16 复用。
+// 边界：这是特定分块/对齐条件下的实验核，不是任意尺寸 GEMM；先读调用方约束再改 M/N/K。
+// 阅读顺序：看线程如何分工 → 数据怎么搬 → 何时同步 → 怎么乘加 → 如何写回 C。
+// 评价方法：正确性 PASS 只说明该次测试满足误差条件；是否更快还要看同口径多轮计时和 profiler。
+// 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 #pragma once
 
 #include <algorithm>
@@ -150,6 +162,9 @@ runWarptilingCore(int M, int N, int K, float alpha,
   static_assert(WSUBM >= TM && WSUBM % TM == 0);
   static_assert(WSUBN >= TN && WSUBN % TN == 0);
 
+  // 默认参数下 WSUBN/TN=4：lane/4 给出 0..7 的行组，lane%4 给出 0..3 的列组。
+  // warp 0 的 lane 0 算行 0..7，列 0..3、16..19、32..35、48..51；lane 1 把这些列起点各加 4。
+  // 四个 warp 的 (warpRow,warpCol) 再把这些局部坐标平移到 128×128 CTA 中；不是所有线程算同一份 C。
   const uint threadIdxInWarp = threadIdx.x % WARPSIZE;
   const uint threadColInWarp = threadIdxInWarp % (WSUBN / TN);
   const uint threadRowInWarp = threadIdxInWarp / (WSUBN / TN);
@@ -165,6 +180,8 @@ runWarptilingCore(int M, int N, int K, float alpha,
   const uint innerColB = threadIdx.x % (BN / 4);
   constexpr uint rowStrideB = NUM_THREADS / (BN / 4);
 
+  // 默认 threadResults 有 128 个部分和；regM 有 8 个 A 值、regN 有 16 个 B 值。
+  // 一个 dotIdx 用 8×16 个配对更新输出。C++ 数组只是逻辑组织，实际寄存器数还包含地址和搬运临时值。
   float threadResults[WMITER * TM * WNITER * TN] = {0.0};
   float regM[WMITER * TM] = {0.0};
   float regN[WNITER * TN] = {0.0};

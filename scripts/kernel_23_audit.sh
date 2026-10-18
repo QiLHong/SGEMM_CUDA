@@ -1,8 +1,22 @@
 #!/usr/bin/env bash
+# 【文件导读】K23 的构建、正确性、访存与性能入口
+# 给初学者：一个脚本可能有多个动作；先选 build，再 correctness，最后 fair/profile，不要把它们混成一步。
+# 运行：bash scripts/kernel_23_audit.sh {build|correctness|memcheck|fair}；一次只选择一个动作。
+# build 生成 build-k23-v1..v4；V1 复用 K21 iterator，V2/V3 单独改一种 shared 布局，V4 合并。
+# VARIANTS 可限制变体；build 默认 1..4，correctness/memcheck 默认 2..4，两者默认集合不同。
+# correctness：每变体六尺寸 × beta=0/1/3；memcheck：128/256、beta=3，不包含其他工具。
+# fair：默认 strict/k10/v1..v4，4096³ 循环移位测量；MODES/ROUNDS/REPEAT/WARMUP 可配置。
+# OUTPUT_DIR/RUN_TAG/SEED 决定新结果和输入；每类输出独立命名，不覆盖已有主 CSV。
+# Nsight 另用 profile_kernel_23_ncu.sh；SASS 另用 audit_kernel_23_sass.sh，名称 audit 不代表已完成所有阶段。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 # Reproducible K23 correctness, fair timing, memcheck and Nsight runs.
+# Bash 的安全开关：-e 遇失败尽早停，-u 防止误用未定义变量，pipefail 让管道中间失败也能被发现。
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# 根据脚本自身位置找仓库，不是把当前 shell 所在目录随意当根目录；后续路径都由这里展开。
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+# OUTPUT_DIR 是结果存放处，RUN_TAG（若有）是批次名字；两者不是 kernel 参数，换标签不会重新选 tile。
 OUTPUT_DIR="${OUTPUT_DIR:-${ROOT_DIR}/benchmark_results}"
 RUN_TAG="${RUN_TAG:-$(date +%Y%m%d-%H%M%S)}"
 SEED="${SEED:-20261013}"

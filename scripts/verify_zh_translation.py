@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# 【文件导读】固定历史纯翻译提交的只读检查
+# 给初学者：这些小检查可以帮助理解索引或测试规则；不需要因此先跑一次大型 GPU 性能实验。
+# 运行：python3 scripts/verify_zh_translation.py；--self-test 只测试比较器。
+# 默认上游 BASE 与纯翻译 aadcd8e 比较；不是拿当前优化分支和上游比较算法。
+# git 读取历史 blob 与文件模式；C/CUDA 用保留字符串的 token，Python 用 AST，shell/构建文件忽略整行注释。
+# README 在翻译提交中保存在 README.en.md；普通字符串、宏、Makefile TAB 等仍属于行为文本。
+# --base/--translation 可显式选历史提交；若对象缺失会报 CHECK BLOCKED，不自动下载或修改仓库。
+# 该检查器不编译、不运行 GPU；本次新增注释的等价核对需要另对修改前 HEAD 比较。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """只读检查中文翻译是否改变原版执行文本；不是编译器或 GPU 测试。"""
 from __future__ import annotations
 
@@ -22,6 +32,8 @@ CPP_TOKEN = re.compile(
 )
 
 
+# 删除真正的注释/空白后比较 C++ token，同时保护字符串、原始字符串和预处理边界。
+# 不能简单用正则删除所有 //，因为字符串里的 URL 或字符内容也可能包含它。
 def cpp_tokens(text: str) -> list[str]:
     """忽略注释/排版，保留字面量、运算符和预处理指令的行终止。"""
     text = re.sub(r"\\\r?\n", "", text)
@@ -57,10 +69,12 @@ class WithoutDocstrings(ast.NodeTransformer):
         return node
 
 
+# 用 AST 比较 Python 程序结构，并按纯翻译验证规则忽略 docstring；不是运行 Python。
 def python_structure(text: str) -> str:
     return ast.dump(WithoutDocstrings().visit(ast.parse(text)), include_attributes=False)
 
 
+# 其他文本只去空行与整行 # 注释，保留有效行前导空白；Makefile 的 tab 有执行意义。
 def noncomment_lines(text: str) -> list[str]:
     # 对本仓库 shell/Make/CMake/YAML，仅忽略整行注释和空行。
     # 保留 shebang、前导空白、Makefile TAB、命令字符串和所有非注释文本。
@@ -68,6 +82,7 @@ def noncomment_lines(text: str) -> list[str]:
             if line.strip() and (not line.lstrip().startswith("#") or line.startswith("#!"))]
 
 
+# 按扩展名选择比较方法；这个指纹检查语义文本结构，不是 benchmark 性能哈希。
 def fingerprint(path: str, data: bytes) -> object:
     if path.endswith((".cu", ".cuh")) or path.startswith(".vscode/"):
         return cpp_tokens(data.decode("utf-8"))
@@ -78,6 +93,7 @@ def fingerprint(path: str, data: bytes) -> object:
     return data
 
 
+# 只读指定 Git 对象的文件内容；验证纯翻译提交不等于要求当前工作区没有真实优化。
 def git(root: Path, *args: str) -> bytes:
     result = subprocess.run(["git", "-C", str(root), *args], capture_output=True, timeout=30)
     if result.returncode:
@@ -85,6 +101,7 @@ def git(root: Path, *args: str) -> bytes:
     return result.stdout
 
 
+# 用含字符串/宏的反例测试过滤规则，防止把算法变化误删成注释。
 def self_test() -> None:
     assert cpp_tokens('const char *s="https://a/b"; // old\n') == cpp_tokens('/*中文*/ const char *s="https://a/b";\n')
     assert cpp_tokens('x++;') != cpp_tokens('x+ +;')
@@ -98,6 +115,7 @@ def self_test() -> None:
     print('SELF-TEST PASS: token / docstring / Makefile checks')
 
 
+# 默认比较指定上游基线与纯翻译提交 aadcd8e；后续 K10–K32 算法变更不属于纯翻译检查。
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base', default=BASE, help='要比较的原版 commit，默认固定上游基线')

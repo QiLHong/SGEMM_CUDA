@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# 【文件导读】历史 K10/cuBLAS 的 Nsight 微结构指标对照
+# 给初学者：summarize 只整理已有结果，不会把失败变成功，也不会重新测出 GFLOPS；先确认输入文件齐全。
+# 用法先看 --help；--results 指报告目录，--tag 选择 ncu_k10_micro 等报告的历史命名标签。
+# 读取已有 .ncu-rep，调用 ncu 导出 raw CSV，不重新执行 kernel；输出汇总 CSV 到终端。
+# 列涉及 issue、FP32、stall、memory 和资源；计数、百分比、每秒吞吐必须各按自身单位解释。
+# 历史 no_eligible_pct 字段实际来自 issue_inst0（没有发射指令），不等同严格意义的没有 eligible warp。
+# 这是旧表兼容入口，注释解释其限制，不改列名或历史数据；不能直接把它与新策略采样表拼接比较。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Export the K10/strict-cuBLAS microarchitecture NCU reports as CSV."""
 
 import argparse
@@ -46,6 +55,8 @@ FIELDS = {
 }
 
 
+# 把一个已有 Nsight 报告转换成一行指标；先认列名/单位，再转数字，不能仅凭显示列名猜含义。
+# 本脚本保留历史格式；报告缺失或工具版本不兼容时应先查原始 CSV，而不是填 0 冒充测得值。
 def row_from_report(path):
     result = subprocess.run(["ncu", "--import", str(path), "--csv", "--page", "raw"],
                             check=True, text=True, capture_output=True)
@@ -55,6 +66,7 @@ def row_from_report(path):
             **{label: data.get(metric, "") for metric, label in FIELDS.items()}}
 
 
+# 解析报告路径/标签，逐模式汇总并输出表；这一步不运行新的性能实验。
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--results", type=Path, default=Path("benchmark_results"))

@@ -1,4 +1,17 @@
 #!/usr/bin/env python3
+# 【文件导读】K32的结果归档与统计
+# 给初学者：summarize 只整理已有结果，不会把失败变成功，也不会重新测出 GFLOPS；先确认输入文件齐全。
+# 运行：python3 scripts/summarize_k32_audit.py <实验目录> --output <新的报告目录>。
+# 输入：timing/fair.csv、tests/correctness.csv、profiles 及编译/工具日志；不是 benchmark 启动入口。
+# 统计：按 mode 汇总各轮 GFLOPS 均值、最小/最大值和样本标准差；这些不是单 launch 的分布。
+# Nsight 按 cold/steady 分组；shared/DRAM 字节量按单位行换算，静态 opcode 与动态执行计数分开。
+# 输出：performance/fair/correctness/nsight/resources 等 CSV、哈希和环境信息；相同结果可核对，不同内容拒绝覆盖。
+# 发布前核对资源通过的模式、轮数、六尺寸×三 beta、工具日志与必要 profile；缺一项即失败。
+# --rounds 与实际 fair 轮数一致；--confirm-rounds 对独立确认生效；--steady-modes 指定必须完整的 steady 模式。
+# 环境记录可能调用 nvcc/ncu/nvidia-smi 查询版本/设备；不重新测吞吐，但并非完全不依赖 CUDA 工具。
+# 历史源码哈希属于原实验时点；给源码加注释后哈希会变化，不能改写旧归档让它假装对应新文件。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Publish K32 evidence as new CSVs, preserving all historical measurements."""
 import argparse
 import collections
@@ -22,9 +35,11 @@ p.add_argument("--steady-modes",nargs="*",default=[],
 args=p.parse_args()
 args.output.mkdir(parents=True,exist_ok=True)
 
+# CSV 按列名读取；返回的是记录集合，后续必须再验证是否齐全，不能把成功打开文件等同完成实验。
 def read(path):
     with path.open() as f: return list(csv.DictReader(f))
 
+# 把派生结果写入新文件或按本函数规则核对旧内容，保存历史证据；不要手工改 CSV 数字来凑结论。
 def save(name,rows):
     if not rows: return
     stream=io.StringIO(newline="")
@@ -43,6 +58,7 @@ def save(name,rows):
     else:
         with dest.open("x") as f: f.write(content)
 
+# 文本证据也要遵守不可覆盖不同历史内容的约定；需要重跑时换新的实验目录。
 def save_text(name,content):
     dest=args.output/name
     if dest.exists():
@@ -50,6 +66,8 @@ def save_text(name,content):
     else:
         with dest.open("x") as f: f.write(content)
 
+# 对各轮做均值、标准差与最小/最大统计；先检查轮次和模式完整，避免只挑最好的一轮。
+# 同一轮内的配对提升与“两个总体均值之比”不是同一个统计量，报告字段应分别解释。
 def performance(data):
     modes=list(dict.fromkeys(r["mode"] for r in data))
     means={m:statistics.mean(float(r["gflops"]) for r in data if r["mode"]==m) for m in modes}

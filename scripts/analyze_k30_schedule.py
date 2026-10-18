@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# 【文件导读】从 K30 汇编识别加载与计算的先后位置
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/analyze_k30_schedule.py <audit二进制> --output <新的调度csv文件>。
+# 需要 CUDA 的 cuobjdump，但无需在 GPU 上执行 benchmark。
+# 识别含 2048 条 FFMA 的主循环并记录 LDG/STS/BAR 在循环中的位置；二进制结构改变时识别假设须重新检查。
+# 指令距离是文本顺序上的间隔，不是时钟周期；load 出现在 FFMA 前面不等于硬件真的隐藏了等待。
+# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Static mainloop LDG placement: instruction positions, not latency/cycle claims."""
 import argparse
 import csv

@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# 【文件导读】将上游文本结果绘成曲线并改写 README 表格
+# 给初学者：这是保留实验历史的工具，不是推荐的一键运行入口；先看下面的改写/覆盖风险。
+# 运行：python3 plot_benchmark_results.py；工作目录应为仓库根目录，需 pandas/matplotlib/seaborn/tabulate。
+# 输入：benchmark_results/*.txt 中符合预期格式的 <kernel>_output 日志，尤其需要 0 号 4096 的基线。
+# parse_file 提取 size/GFLOPS → DataFrame → 绘图 → 4096 结果相对 cuBLAS 排序。
+# 输出会覆盖 benchmark_results.png，并替换 README 的 benchmark_results 标记区间。
+# 这是上游数据格式专用工具，标签只覆盖 0..11，且曲线编号假定完整；不能直接消费 K30 的 fair.csv。
+# 只想看当前结论请读 docs/results；运行本文件属于修改文档和图，不是只读查询。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 
 import re
 import matplotlib
@@ -40,6 +50,7 @@ KERNEL_NAMES = {
 }
 
 
+# 从历史 benchmark 文本提取尺寸与 GFLOPS；正则依赖原输出格式，不是读取现代 audit CSV。
 def parse_file(file):
     """
     从日志提取矩阵尺寸和 GFLOPS；待解析的上游输出格式如下：
@@ -58,6 +69,8 @@ def parse_file(file):
     return data
 
 
+# 以编号 0 的历史 cuBLAS 为分母画图；本函数会保存图片，主流程还会更新 README。
+# 不能把这张旧图的分母自动叫作严格 FP32 cuBLAS，更不要误用它覆盖当前研究图表。
 def plot(df: pd.DataFrame):
     """
     输入表包含 kernel、size、gflops 三列。

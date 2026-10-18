@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+# 【文件导读】微教材的 CPU 手算与坐标练习
+# 给初学者：这些小检查可以帮助理解索引或测试规则；不需要因此先跑一次大型 GPU 性能实验。
+# 运行：python3 scripts/check_microbook_examples.py；Python 标准库即可，不启动 GPU。
+# 验证小矩阵、行主序地址、K1/K2/K3/K5 线程追踪、K10/K30 输出覆盖及双槽顺序模型。
+# 输入是文件内固定的教学数据/有限枚举范围；失败以断言或 unittest 非零退出体现。
+# 结果打印终端，不生成 benchmark CSV；模型通过不等于设备 FP32、异步调度或吞吐验证。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """CPU-only microbook exercises. No CUDA execution or performance measurement.
 
 Python arithmetic checks the teaching examples, not device FP32 rounding.
@@ -7,6 +15,7 @@ All data is in memory; no historical results are modified.
 import unittest
 
 
+# 在 CPU 用小整数矩阵验证点积或分块循环是否算同一件事；不是 GPU 性能模型。
 def matmul(a, b, bk=None):
     """Row-major list model; split K while preserving its accumulation order."""
     m, k, n = len(a), len(a[0]), len(b[0])
@@ -24,6 +33,7 @@ def matmul(a, b, bk=None):
     return out
 
 
+# 用 Python 重现 K10/K30 的线程到输出坐标公式；便于检查每格是否恰好分给一个线程。
 def output_coordinates(mode, tid):
     """Only the specific K10/K30 128-thread CTA mappings used in the book."""
     warp, lane = divmod(tid, 32)

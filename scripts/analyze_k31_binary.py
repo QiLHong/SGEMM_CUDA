@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
+# 【文件导读】K31 的资源门槛与静态机器码审计
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/analyze_k31_binary.py <build_k31_audit.sh 的输出目录>。
+# 输入：build.log 和 audit；需 cuobjdump，不启动 GPU workload。
+# 流程：识别模板符号对应的 mode → 读取 ptxas registers/stack/spill → 反汇编每个函数。
+# resource_gate 要求 registers<=240 且 spill load/store 都为零；门槛是本阶段规则，不是普适最优值。
+# 输出：resources.csv、static-sass.csv、schedule.csv、sass_<mode>.txt；原始 SASS 留给进一步依赖分析。
+# shape 中 shared_bytes 是源码布局计算的用户容量；运行时/NCU 口径另外核对。
+# 主循环识别依赖 2048 次 FFMA 的展开形态；编译器改变结构会触发断言，不能直接删掉断言继续解释。
+# 静态 FFMA/LDS 数和代码哈希能说明生成了什么；不能独立证明哪个版本更快。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Record exact compiler resources and SASS; no GPU or performance inference."""
 import argparse
 import collections
@@ -9,6 +21,7 @@ import re
 import subprocess
 
 NAMES={0:"control",1:"late",2:"vectors",3:"stage3",4:"stage4",5:"cta256"}
+# 把编译器的长模板符号翻译成人能读的 mode；名字匹配错误会把不同实验混为一谈。
 def mode_for(name):
     if "sgemmWarptiling" in name: return "k10"
     if "sgemmK30" in name: return "k30"
@@ -16,6 +29,7 @@ def mode_for(name):
         return "r"+re.search(r"BudgetILi(\d+)EE",name)[1]
     return NAMES[int(re.search(r"sgemmK31ILi(\d+)EE",name)[1])]
 
+# 从已知 mode 还原线程/分块/stage 配置；shared_bytes 是源码布局推导的用户字节数，不是 profiler 值。
 def shape(mode):
     threads=256 if mode=="cta256" else 128
     stages=3 if mode=="stage3" else 4 if mode=="stage4" else 1 if mode=="k10" else 2
@@ -23,11 +37,13 @@ def shape(mode):
     return dict(threads=threads,bm=bm,bn=128,bk=16,stages=stages,
                 shared_bytes=(bm+4+128)*16*4*stages)
 
+# 用 open('x') 新建 CSV，已有文件就报错，避免悄悄覆盖先前证据。
 def write(path,rows):
     with path.open("x") as f:
         w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n")
         w.writeheader(); w.writerows(rows)
 
+# 先读 ptxas 构建日志做资源筛选，再读 SASS 统计指令和主循环搬运位置；全程不跑 GPU。
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("directory",type=Path)

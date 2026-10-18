@@ -1,3 +1,12 @@
+// 【文件导读】小矩阵 cuBLAS 行主序适配演示
+// 给初学者：这是先理解基本概念的小例子；不要把示例输出当成正式 benchmark 结论。
+// 用途是打印一个 2×3 乘 3×4 的示例，帮助理解 C=alpha*AB+beta*C，不是性能基准。
+// 行主序数据传给列主序 cuBLAS 时交换 A/B 与 M/N，利用 (AB)^T=B^T A^T，未显式转置矩阵。
+// alpha=1、beta=0.5，旧 C 参与结果；设备内存分配、拷贝、调用和释放均在 main 内。
+// 注意已有注释指出的 A 打印索引问题：打印结果不能替代严格验证；本轮只补注释，不修算法或输出。
+// 目标名见 CMakeLists.txt；不要把示例的默认 cuBLAS 配置当作 audit 中的 strict FP32 模式。
+// 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 #include <cstdio>
 #include <cublas_v2.h>
 #include <cuda_runtime.h>

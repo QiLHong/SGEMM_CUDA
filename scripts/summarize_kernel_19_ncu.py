@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
+# 【文件导读】把 K19 的 Nsight 报告整理为 CSV
+# 给初学者：summarize 只整理已有结果，不会把失败变成功，也不会重新测出 GFLOPS；先确认输入文件齐全。
+# 运行：python3 scripts/summarize_kernel_19_ncu.py --results benchmark_results --tag <本次RUN_TAG>。
+# 输入：profile_kernel_19_ncu.sh 生成的 ncu_k19_<mode>_<tag>.ncu-rep。
+# 输出：CSV 写标准输出；脚本用 ncu --import 读取报告，不重新运行 GPU。
+# FIELDS 把完整 metric 名缩写成列名；最后一个含 Kernel Name 的记录作为数据行。
+# 旧列 no_eligible_pct 实际来自 smsp__issue_inst0：应解释为 no-issue，不能等同于无 eligible warp。
+# 部分旧列名带 ms/kb，但直接保留 ncu 显示值；换工具/量级时必须核对原报告单位。
+# 本文件保留历史输出格式；不要把 profiler duration 混进 fair 性能统计。
+# shared_load_wavefronts_per_second 以 duration 为毫秒的旧口径计算，使用前先确认单位。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Export selected K19 Nsight Compute reports as one compact CSV."""
 
 import argparse
@@ -35,6 +47,8 @@ FIELDS = {
     "l1tex__t_sectors_pipe_lsu_mem_local_op_st.sum": "local_store_sectors",
 }
 
+# 把一个已有 Nsight 报告转换成一行指标；先认列名/单位，再转数字，不能仅凭显示列名猜含义。
+# 本脚本保留历史格式；报告缺失或工具版本不兼容时应先查原始 CSV，而不是填 0 冒充测得值。
 def report_row(report: Path):
     result = subprocess.run(["ncu", "--import", str(report), "--csv", "--page", "raw"],
                             check=True, text=True, capture_output=True)
@@ -47,6 +61,7 @@ def report_row(report: Path):
     )
     return row
 
+# 解析报告路径/标签，逐模式汇总并输出表；这一步不运行新的性能实验。
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--results", type=Path, default=Path("benchmark_results"))

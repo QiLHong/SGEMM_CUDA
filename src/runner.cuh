@@ -1,3 +1,11 @@
+// 【文件导读】主程序与 runner 实现之间的声明接口
+// 给初学者：host 是 CPU 端控制代码，device 是 GPU 端计算代码；分配、拷贝、启动、等待、校验各有职责。
+// 供 sgemm.cu 引用；函数实现位于同目录 runner.cu，设备实现由 kernels.cuh 汇总。
+// cudaCheck 接口接收 CUDA 错误码、源码文件名和行号；调用处的宏负责补充位置，添加注释会改变诊断行号。
+// 矩阵函数处理 CPU 侧 float 缓冲；run_kernel 接收 GPU 指针和 cuBLAS handle，不能混用主机/设备地址。
+// 各包装函数的编号、tile 和尺寸约束应结合 runner.cu 阅读，不要只凭声明推断支持任意尺寸。
+// 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 #pragma once
 #include <cublas_v2.h>
 #include <cuda_runtime.h>

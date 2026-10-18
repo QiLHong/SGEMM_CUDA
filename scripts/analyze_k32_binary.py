@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
+# 【文件导读】K32 的资源门槛与静态机器码审计
+# 给初学者：这类脚本像读图纸，不负责测 GPU 跑多快；先准备它要求的二进制或报告，再读输出表。
+# 运行：python3 scripts/analyze_k32_binary.py <build_k32_audit.sh 的输出目录>。
+# 输入：build.log 和 audit；需 cuobjdump，不启动 GPU workload。
+# 流程：识别模板符号对应的 mode → 读取 ptxas registers/stack/spill → 反汇编每个函数。
+# resource_gate 要求 registers<=240 且 spill load/store 都为零；门槛是本阶段规则，不是普适最优值。
+# 输出：resources.csv、static-sass.csv、schedule.csv、sass_<mode>.txt；原始 SASS 留给进一步依赖分析。
+# shape 中 shared_bytes 是源码布局计算的用户容量；运行时/NCU 口径另外核对。
+# K32 分辨 producer/consumer 两条循环；linear_ffma_before/after 只是线性窗口，互斥路径不代表同时执行。
+# 静态 FFMA/LDS 数和代码哈希能说明生成了什么；不能独立证明哪个版本更快。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 """Record exact compiler resources and SASS; no GPU or performance inference."""
 import argparse
 import collections
@@ -10,6 +22,7 @@ import subprocess
 import io
 
 
+# 区分 serial、overlap、single 的模板布尔参数；保留旧符号格式兼容，未知函数直接拒绝。
 def mode_for(name):
     if "sgemmWarptiling" in name: return "k10"
     if "sgemmK30" in name: return "k30"
@@ -18,6 +31,7 @@ def mode_for(name):
     if "sgemmK32ILb0ELb0EE" in name or "sgemmK32ILb0EE" in name: return "serial"
     raise ValueError(name)
 
+# 从模式推导静态形状；K32 有 160 个线程，但只有后 128 个沿用 K30 的输出分工。
 def shape(mode):
     threads=160 if mode in ("serial","overlap","single") else 128
     stages=1 if mode=="k10" else 2
@@ -25,18 +39,21 @@ def shape(mode):
     return dict(threads=threads,bm=bm,bn=128,bk=16,stages=stages,
                 shared_bytes=(bm+4+128)*16*4*stages)
 
+# 先在内存生成完整 CSV，再交给 save_text 检查是否与旧文件一致；不覆盖不同内容。
 def write(path,rows):
     f=io.StringIO()
     w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n")
     w.writeheader(); w.writerows(rows)
     save_text(path,f.getvalue())
 
+# 结果已存在时只允许逐字相同；有差异时停下，而不是把历史失败结果改写成新结果。
 def save_text(path,text):
     if path.exists():
         assert path.read_text()==text, f"Refusing to overwrite {path}"
     else:
         with path.open("x") as f: f.write(text)
 
+# build.log 告诉我们寄存器/spill；SASS 告诉我们编译器排了哪些指令；它们都不能替代实际计时。
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("directory",type=Path)

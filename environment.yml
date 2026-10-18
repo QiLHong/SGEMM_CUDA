@@ -1,3 +1,11 @@
+# 【文件导读】绘图与辅助开发的 Conda 环境
+# 给初学者：构建就是把源代码翻译成可执行文件；编译通过只是第一步，还没有证明计算正确或速度快。
+# 用法：conda env create -f environment.yml；已有环境可选择 conda env update -f environment.yml。
+# 该文件配置 Python、绘图和构建辅助包，不负责安装 NVIDIA 驱动、完整 CUDA Toolkit 或 Nsight。
+# 环境名、channels、依赖版本以正文为准；它不是完整锁文件，重建时解析出的依赖可能变化。
+# 性能报告还需独立记录 GPU/驱动/nvcc/编译参数，不能只用这个文件宣称复现了 CUDA 12.4 环境。
+# 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+
 # 上游的辅助 Python/绘图环境；它不是完整锁定的 CUDA 编译工具链。
 # CUDA Toolkit/nvcc、C++ 编译器、Ninja/Make 及 ncu 需要另外检查。
 # 本分支仅补充说明，不升级或锁定依赖，也不改已有 liteq3080 环境。
