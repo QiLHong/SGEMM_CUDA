@@ -1,0 +1,29 @@
+{
+  "utc_start": "2026-10-20T19:03:53.8016311+00:00",
+  "gpu": "RTX 4090 D only; no RTX 3080 measurements",
+  "original_tf32_override": null,
+  "active_tf32_override": null,
+  "rounds": 7,
+  "repeats": 30,
+  "warmup": 10,
+  "alpha": 1,
+  "beta": 0,
+  "seed": 20261020,
+  "precision_groups": [
+    "FP32 SIMT",
+    "TF32 input / FP32 accumulator+output",
+    "FP16 input+output / FP32 accumulator"
+  ],
+  "conversion": "GPU explicit conversion before timing; all implementations within a precision group share exact input bytes",
+  "timing": "CUDA events per invocation; C0 zero restore D2D same stream before every warmup/timed invocation, outside events",
+  "cache_caveat": "C0 reset changes caches; FP16 copies half as many bytes as FP32; cross-precision speed is not a single-factor algorithm claim",
+  "selection": "grid_w1",
+  "order": "Scan: rotate/reverse five implementations per precision. Confirmation: baseline/candidate adjacent and swap; cuBLAS rotates outside pair.",
+  "thresholds": "Original abs<=.01 and SIMT atol=rtol=.001 reported independently; original TF32 .1 and HGEMM .016 also reported",
+  "cpu_double": "Full128x1024 outputs for K32 and K64; 256 fixed positions per large square; FP16 reference rounded to FP16 output",
+  "sanitizer": "Not completed: unverified",
+  "profiler": "Separate from fair event table",
+  "clocks": "Not locked; WDDM",
+  "sgmm_commit": "545fb01a576ae38d84d00df6359e084eb14c94c2",
+  "vitamin_commit": "520f97093a2abc239977be83d244b327d0e2e2ef"
+}

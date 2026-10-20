@@ -1,0 +1,15 @@
+{
+  "source-before": {
+    "count": 350,
+    "changed": []
+  },
+  "results-before": {
+    "count": 1081,
+    "changed": []
+  },
+  "_ZN12vitamin_fp1623hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii_old_sass_equal": true,
+  "_ZN12vitamin_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii_old_sass_equal": true,
+  "confirmation_adjacent_and_swapping": true,
+  "static_functions": 8,
+  "loops": 8
+}

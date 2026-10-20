@@ -1,0 +1,1 @@
+Final PowerShell hash check exposed CP936-encoded path columns in initial Python-created manifests. Original bytes preserved as *-original-encoding.csv. Delivery source manifest and final archive manifest explicitly encoded UTF-8, then all hashes verified. No source code, benchmark data, or older-stage archive changed.

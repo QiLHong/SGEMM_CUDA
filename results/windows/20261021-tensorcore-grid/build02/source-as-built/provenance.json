@@ -1,0 +1,32 @@
+{
+  "author": "QiLHong / vitamin-cuda",
+  "commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "source_paths": [
+    "kernels/sgemm/sgemm_tf32.cu",
+    "kernels/hgemm/hgemm.cu"
+  ],
+  "adaptation": [
+    {
+      "kind": "tf32",
+      "original_header": "experiments\\tensorcore\\vendor\\vitamin_tf32.cuh",
+      "function": "sgemm_tf32_swizzle_bcf_dbf_kernel",
+      "source_body_sha256": "7a86f5558e67dbe5e6244a9028f9fef623b52a60ec5335af46ee8c4399584cf7",
+      "experiment_sha256": "97c1733734f3c20c3d145ff7e0e1b88008e8d2cae2cc4fc58dd6f8f76028ebba",
+      "changes": [
+        "add GRID_W template parameter",
+        "SWIZZLE_W=GRID_W instead of 8"
+      ]
+    },
+    {
+      "kind": "fp16",
+      "original_header": "experiments\\tensorcore\\vendor\\vitamin_fp16.cuh",
+      "function": "hgemm_bcf_dbf_rw_kernel",
+      "source_body_sha256": "7c600cfbf606be3eb64d7f86dd28b66ba964c0e8f3a49ce3da35faccf81bd0f4",
+      "experiment_sha256": "50a5fb12240d94fbd12a9ae56f0ba23f006a8fa314a35ce7fefba76ada6cce25",
+      "changes": [
+        "add GRID_W template parameter",
+        "SWIZZLE_W=GRID_W instead of 8"
+      ]
+    }
+  ]
+}

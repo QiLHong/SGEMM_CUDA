@@ -1,0 +1,9 @@
+function,instructions,HMMA,LDGSTS,LDSM,BAR,DEPBAR,LDL,STL
+_ZN9grid_fp1623hgemm_bcf_dbf_rw_kernelILi4ELi128ELi128ELi32E6__halfEEvPT3_S3_S3_iii,664,64,8,32,4,2,0,0
+_ZN9grid_fp1623hgemm_bcf_dbf_rw_kernelILi2ELi128ELi128ELi32E6__halfEEvPT3_S3_S3_iii,664,64,8,32,4,2,0,0
+_ZN9grid_fp1623hgemm_bcf_dbf_rw_kernelILi1ELi128ELi128ELi32E6__halfEEvPT3_S3_S3_iii,640,64,8,32,4,2,0,0
+_ZN9grid_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi4ELi128ELi128ELi16EEEvPfS1_S1_iii,504,64,8,16,2,2,0,0
+_ZN9grid_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi2ELi128ELi128ELi16EEEvPfS1_S1_iii,504,64,8,16,2,2,0,0
+_ZN9grid_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi1ELi128ELi128ELi16EEEvPfS1_S1_iii,480,64,8,16,2,2,0,0
+_ZN12vitamin_fp1623hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii,664,64,8,32,4,2,0,0
+_ZN12vitamin_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii,504,64,8,16,2,2,0,0

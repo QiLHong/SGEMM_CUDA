@@ -1,0 +1,10 @@
+{
+  "events": 3780,
+  "round_groups": 126,
+  "check_rows": 736,
+  "bitwise_checks": 128,
+  "bitwise_mismatches": 0,
+  "nonfinite": 0,
+  "original_fp32_failed_rows": 184,
+  "removed_events": 0
+}

@@ -1,0 +1,13 @@
+file,launch__registers_per_thread,launch__shared_mem_per_block,sm__pipe_tensor_cycles_active.avg.pct_of_peak_sustained_active,sm__warps_active.avg.pct_of_peak_sustained_active,smsp__warps_eligible.avg.per_cycle_active,smsp__issue_active.avg.pct_of_peak_sustained_active,smsp__warps_issue_stalled_barrier.avg.per_cycle_active,smsp__warps_issue_stalled_long_scoreboard.avg.per_cycle_active,smsp__warps_issue_stalled_short_scoreboard.avg.per_cycle_active,lts__t_sector_hit_rate.pct,dram__bytes_read.sum,l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum,l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_st.sum,l1tex__t_sectors_pipe_lsu_mem_local_op_ld.sum,l1tex__t_sectors_pipe_lsu_mem_local_op_st.sum
+1024-fp16_w1.csv,128.0,33792.0,42.29,16.61,0.14,9.24,0.25,0.04,0.01,99.93,25600.0,0.0,0.0,0.0,0.0
+1024-tf32_w1.csv,127.0,33792.0,41.28,16.59,0.13,9.27,0.1,0.03,0.2,99.99,9728.0,0.0,0.0,0.0,0.0
+1024-vitamin_fp16_dbf_rw.csv,128.0,33792.0,42.23,16.61,0.14,9.29,0.24,0.04,0.01,99.93,26624.0,0.0,0.0,0.0,0.0
+1024-vitamin_tf32_dbf.csv,127.0,33792.0,40.86,16.58,0.13,9.19,0.11,0.03,0.2,99.93,47104.0,0.0,0.0,0.0,0.0
+2048-fp16_w1.csv,128.0,33792.0,46.69,28.78,0.19,9.65,0.64,0.03,0.01,95.45,16789504.0,886.0,17.0,0.0,0.0
+2048-tf32_w1.csv,127.0,33792.0,44.41,27.41,0.18,9.81,0.37,0.03,0.23,95.42,33788416.0,9699.0,0.0,0.0,0.0
+2048-vitamin_fp16_dbf_rw.csv,128.0,33792.0,46.57,28.8,0.19,9.65,0.68,0.03,0.01,95.42,16903168.0,1473.0,35.0,0.0,0.0
+2048-vitamin_tf32_dbf.csv,127.0,33792.0,44.28,27.37,0.17,9.77,0.37,0.03,0.24,95.42,33740288.0,6205.0,0.0,0.0,0.0
+4096-fp16_w1.csv,128.0,33792.0,48.53,31.94,0.2,9.67,0.75,0.02,0.01,97.67,67639680.0,14675.0,61.0,0.0,0.0
+4096-tf32_w1.csv,127.0,33792.0,45.9,31.71,0.19,10.02,0.48,0.02,0.24,93.79,461959808.0,101485.0,0.0,0.0,0.0
+4096-vitamin_fp16_dbf_rw.csv,128.0,33792.0,48.39,31.94,0.2,9.67,0.8,0.02,0.01,97.52,71701376.0,13420.0,78.0,0.0,0.0
+4096-vitamin_tf32_dbf.csv,127.0,33792.0,45.87,31.7,0.19,10.02,0.48,0.03,0.25,94.71,364538880.0,93819.0,0.0,0.0,0.0

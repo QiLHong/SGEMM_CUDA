@@ -1,0 +1,51 @@
+CUDA: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe
+MSVC: D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe
+Windows SDK: D:\Windows Kits\10\ 10.0.26100.0\
+Profiling 1024-vitamin_tf32_dbf (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE vitamin_tf32_dbf
+Profiling 1024-tf32_w1 (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE tf32_w1
+Profiling 1024-vitamin_fp16_dbf_rw (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE vitamin_fp16_dbf_rw
+Profiling 1024-fp16_w1 (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE fp16_w1
+Profiling 2048-vitamin_tf32_dbf (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE vitamin_tf32_dbf
+Profiling 2048-tf32_w1 (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE tf32_w1
+Profiling 2048-vitamin_fp16_dbf_rw (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE vitamin_fp16_dbf_rw
+Profiling 2048-fp16_w1 (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE fp16_w1
+Profiling 4096-vitamin_tf32_dbf (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE vitamin_tf32_dbf
+Profiling 4096-tf32_w1 (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE tf32_w1
+Profiling 4096-vitamin_fp16_dbf_rw (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE vitamin_fp16_dbf_rw
+Profiling 4096-fp16_w1 (not performance-table timing)
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE fp16_w1

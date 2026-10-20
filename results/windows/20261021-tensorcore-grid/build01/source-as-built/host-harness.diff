@@ -1,0 +1,151 @@
+--- tensorcore/benchmark.cu
++++ tensorcore-grid/benchmark.cu
+@@ -1,4 +1,7 @@
+-// 原生 Tensor Core 教学实验。来源见 vendor/provenance.json；原 device region 不改。
++// Tensor Core grid-width experiment; derived from ../tensorcore/benchmark.cu.
++// Original kernels stay unchanged; experimental kernels only parameterize GRID_W.
++// Default scan: W8/W1/W2/W4/cuBLAS per precision; confirm grid_w1/2/4 separately.
++// Precision and event protocol retained; additionally require baseline bitwise equality.
+ // C=AB；TF32输入提前显式转换，FP16输入/输出 + FP32累加；转换不在GEMM事件内。
+ // CLI: M N K rounds repeats warmup new.csv [all|implementation|tensor_pairs]
+ //      --profile implementation N （只在cudaProfilerStart/Stop区间采一个GEMM）
+@@ -22,8 +25,11 @@
+ #include <string>
+ #include <vector>
+ #include "../../src/kernels/30_kernel_mini_simt.cuh"
+-#include "vendor/vitamin_tf32.cuh"
+-#include "vendor/vitamin_fp16.cuh"
++#include "../tensorcore/vendor/vitamin_tf32.cuh"
++#include "../tensorcore/vendor/vitamin_fp16.cuh"
++
++#include "tf32_grid.cuh"
++#include "fp16_grid.cuh"
+ 
+ void ck(cudaError_t s) { if(s != cudaSuccess) throw std::runtime_error(cudaGetErrorString(s)); }
+ void bk(cublasStatus_t s) { if(s != CUBLAS_STATUS_SUCCESS) throw std::runtime_error("cuBLAS "+std::to_string(s)); }
+@@ -77,15 +83,16 @@
+   size_t i=blockIdx.x*size_t(blockDim.x)+threadIdx.x;
+   if(i<n){tf[i]=nvcuda::wmma::__float_to_tf32(x[i]);half h=__float2half_rn(x[i]);fp16[i]=h;fp16AsFloat[i]=__half2float(h);}
+ }
+-enum Impl {K30,Strict,TFSingle,TFDouble,TFBlas,HSingle,HDouble,HBlas};
+-const std::array<const char*,8> Names={{
++enum Impl {K30,Strict,TFSingle,TFDouble,TFBlas,HSingle,HDouble,HBlas,TFW1,TFW2,TFW4,HW1,HW2,HW4};
++const std::array<const char*,14> Names={{
+     "k30_fp32","cublas_strict_fp32","vitamin_tf32_single","vitamin_tf32_dbf","cublas_tf32",
+-    "vitamin_fp16_single","vitamin_fp16_dbf_rw","cublas_fp16"}};
++    "vitamin_fp16_single","vitamin_fp16_dbf_rw","cublas_fp16",
++    "tf32_w1","tf32_w2","tf32_w4","fp16_w1","fp16_w2","fp16_w4"}};
+ int findImpl(const std::string& s){
+-  for(int i=0;i<8;++i) if(s==Names[i])return i;
++  for(int i=0;i<14;++i) if(s==Names[i])return i;
+   throw std::runtime_error("Unknown implementation: "+s);
+ }
+-int precision(int impl){return impl<2?0:(impl<5?1:2);}
++int precision(int impl){return impl<8?(impl<2?0:(impl<5?1:2)):(impl<11?1:2);}
+ using Shape=k30::Shape<128,128,16,64,64,4,4,128>;
+ void blas(cublasHandle_t h,int m,int n,int k,void* a,void* b,void* c,
+           cudaDataType_t type,cublasComputeType_t compute){
+@@ -114,6 +121,13 @@
+   void launch(int impl){
+     dim3 grid(n/128,m/128);
+     switch(impl){
++      case TFW1:grid_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<1,128,128,16><<<grid,256>>>(ta.f(),tb.f(),c.f(),m,n,k);break;
++      case TFW2:grid_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<2,128,128,16><<<grid,256>>>(ta.f(),tb.f(),c.f(),m,n,k);break;
++      case TFW4:grid_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<4,128,128,16><<<grid,256>>>(ta.f(),tb.f(),c.f(),m,n,k);break;
++      case HW1:grid_fp16::hgemm_bcf_dbf_rw_kernel<1,128,128,32><<<grid,256>>>(ha.h(),hb.h(),hc.h(),m,n,k);break;
++      case HW2:grid_fp16::hgemm_bcf_dbf_rw_kernel<2,128,128,32><<<grid,256>>>(ha.h(),hb.h(),hc.h(),m,n,k);break;
++      case HW4:grid_fp16::hgemm_bcf_dbf_rw_kernel<4,128,128,32><<<grid,256>>>(ha.h(),hb.h(),hc.h(),m,n,k);break;
++
+       case K30:sgemmK30<Shape,2><<<grid,128,2*(k30::SharedLayoutA<Shape>::Size+k30::SharedLayoutB<Shape>::Size)*4>>>
+                    (m,n,k,1.f,a.f(),b.f(),0.f,c.f());break;
+       case Strict:blas(strict.h,m,n,k,a.p,b.p,c.p,CUDA_R_32F,CUBLAS_COMPUTE_32F_PEDANTIC);break;
+@@ -176,7 +190,9 @@
+     m=std::stoi(argv[1]);n=std::stoi(argv[2]);k=std::stoi(argv[3]);
+     rounds=std::stoi(argv[4]);repeats=std::stoi(argv[5]);warm=std::stoi(argv[6]);path=argv[7];
+     if(argc==9&&std::string(argv[8])!="all")
+-      selected=std::string(argv[8])=="tensor_pairs"?-2:findImpl(argv[8]);
++      selected=std::string(argv[8])=="grid_w1"?-4:
++               std::string(argv[8])=="grid_w2"?-5:
++               std::string(argv[8])=="grid_w4"?-6:findImpl(argv[8]);
+   }
+   shapeCheck(m,n,k);
+   if(rounds<1||rounds>100||repeats<1||repeats>10000||warm<0||warm>1000)throw std::runtime_error("Invalid iteration count");
+@@ -201,11 +217,13 @@
+     ck(cudaProfilerStart());d.launch(selected);ck(cudaDeviceSynchronize());ck(cudaProfilerStop());
+     std::cout<<"PROFILE_COMPLETE "<<Names[selected]<<'\n';return 0;
+   }
++  std::ofstream bits(path+".bitwise.csv");
+   std::ofstream events(path),checks(path+".checks.csv"),meta(path+".meta.txt"),windows(path+".windows.csv");
+   if(!events||!checks||!meta||!windows)throw std::runtime_error("Cannot create output files");
+   events<<std::setprecision(17);checks<<std::setprecision(17);meta<<std::setprecision(17);
+   events<<"m,n,k,implementation,round,order,iteration,milliseconds,tflops\n";
+   checks<<"m,n,k,implementation,round,reference,count,max_abs,max_rel,relative_l2,nonfinite,abs_001_fail,simt_allclose_fail,native_eps,native_allclose_fail\n";
++  bits<<"implementation,round,count,bitwise_mismatches\n";
+   windows<<"implementation,round,start_utc_ms,end_utc_ms\n";
+   std::array<std::vector<float>,3> aa={d.hostA,copyFloat(d.ta,d.ac),copyFloat(d.haf,d.ac)};
+   std::array<std::vector<float>,3> bb={d.hostB,copyFloat(d.tb,d.bc),copyFloat(d.hbf,d.bc)};
+@@ -241,9 +259,16 @@
+     cpu[p].push_back(sum);
+   }
+   bool failed=false;
+-  auto chosen=[&](int impl){return selected==-2?
+-      (impl==TFDouble||impl==TFBlas||impl==HDouble||impl==HBlas):
+-      (selected<0||selected==impl);};
++  std::array<std::vector<float>,3> baseline;
++  for(int p=1;p<3;++p){int impl=p==1?TFDouble:HDouble;
++    d.reset(impl);d.launch(impl);baseline[p]=d.output(impl);}
++  auto chosen=[&](int impl){
++    if(selected>=0)return selected==impl;
++    if(selected<=-4){int offset=-selected-4;
++      return impl==TFDouble||impl==TFBlas||impl==HDouble||impl==HBlas||
++             impl==TFW1+offset||impl==HW1+offset;}
++    return impl==TFDouble||impl==TFBlas||impl==HDouble||impl==HBlas||impl>=TFW1;
++  };
+   auto validate=[&](int impl,int round){
+     auto actual=d.output(impl);int p=precision(impl);
+     double eps=p==0?.001:(p==1?.1:.016); // 上游各精度判据，另列严格标准，绝不覆盖。
+@@ -264,6 +289,13 @@
+     bool bad=represented.nonfinite||same.nonfinite||cpuError.nonfinite||
+              represented.native||same.native||cpuError.native;
+     if(p==0)bad|=represented.abs001||cpuError.abs001;
++    if(p>0&&impl!=TFBlas&&impl!=HBlas){
++      size_t mismatch=0;
++      for(size_t i=0;i<d.cc;++i)
++        mismatch+=std::memcmp(&actual[i],&baseline[p][i],sizeof(float))!=0;
++      bits<<Names[impl]<<','<<round<<','<<d.cc<<','<<mismatch<<'\n';bits.flush();
++      bad|=mismatch!=0;
++    }
+     failed|=bad;
+     std::cout<<Names[impl]<<" round="<<round<<" original_max_abs="<<original.maxAbs
+              <<" represented_max_abs="<<represented.maxAbs<<" same_blas_max_abs="<<same.maxAbs
+@@ -272,16 +304,22 @@
+     checks.flush();
+   };
+   // 每个候选先检查，验证失败不进入正式计时。
+-  for(int impl=0;impl<8;++impl)if(chosen(impl)){d.reset(impl);d.launch(impl);validate(impl,-1);}
++  for(int impl=0;impl<14;++impl)if(chosen(impl)){d.reset(impl);d.launch(impl);validate(impl,-1);}
+   if(failed)throw std::runtime_error("Preflight numerical validation failed; evidence retained");
+   for(int r=0;r<rounds;++r){
+-    std::array<std::vector<int>,3> groups={std::vector<int>{K30,Strict},
+-        r%2?std::vector<int>{TFDouble,TFSingle,TFBlas}:std::vector<int>{TFSingle,TFDouble,TFBlas},
+-        r%2?std::vector<int>{HDouble,HSingle,HBlas}:std::vector<int>{HSingle,HDouble,HBlas}};
+-    if(selected==-2){
+-      groups[0]={};
+-      groups[1]=r%2?std::vector<int>{TFBlas,TFDouble}:std::vector<int>{TFDouble,TFBlas};
+-      groups[2]=r%2?std::vector<int>{HBlas,HDouble}:std::vector<int>{HDouble,HBlas};
++    std::array<std::vector<int>,3> groups={std::vector<int>{},
++        std::vector<int>{TFDouble,TFW1,TFW2,TFW4,TFBlas},
++        std::vector<int>{HDouble,HW1,HW2,HW4,HBlas}};
++    for(int p=1;p<3;++p){
++      if(selected<=-4){
++        int base=p==1?TFDouble:HDouble, lib=p==1?TFBlas:HBlas;
++        int candidate=(p==1?TFW1:HW1)+(-selected-4);
++        groups[p]=r%2?std::vector<int>{candidate,base}:std::vector<int>{base,candidate};
++        if(r%3==0)groups[p].insert(groups[p].begin(),lib);else groups[p].push_back(lib);
++      }else{
++        std::rotate(groups[p].begin(),groups[p].begin()+r%5,groups[p].end());
++        if(r%2)std::reverse(groups[p].begin(),groups[p].end());
++      }
+     }
+     int order=0;
+     for(int g=0;g<3;++g)for(int impl:groups[(r+g)%3]){

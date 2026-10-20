@@ -1,0 +1,17 @@
+implementation,round,count,bitwise_mismatches
+vitamin_tf32_dbf,-1,131072,0
+vitamin_fp16_dbf_rw,-1,131072,0
+tf32_w1,-1,131072,0
+tf32_w2,-1,131072,0
+tf32_w4,-1,131072,0
+fp16_w1,-1,131072,0
+fp16_w2,-1,131072,0
+fp16_w4,-1,131072,0
+vitamin_tf32_dbf,0,131072,0
+tf32_w1,0,131072,0
+tf32_w2,0,131072,0
+tf32_w4,0,131072,0
+vitamin_fp16_dbf_rw,0,131072,0
+fp16_w1,0,131072,0
+fp16_w2,0,131072,0
+fp16_w4,0,131072,0

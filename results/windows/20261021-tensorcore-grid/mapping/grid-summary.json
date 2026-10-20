@@ -1,0 +1,146 @@
+[
+  {
+    "m": 128,
+    "n": 1024,
+    "width": 1,
+    "ctas": 8,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 128,
+    "n": 1024,
+    "width": 2,
+    "ctas": 8,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 128,
+    "n": 1024,
+    "width": 4,
+    "ctas": 8,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 128,
+    "n": 1024,
+    "width": 8,
+    "ctas": 8,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 1024,
+    "n": 1024,
+    "width": 1,
+    "ctas": 64,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 1024,
+    "n": 1024,
+    "width": 2,
+    "ctas": 64,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 1024,
+    "n": 1024,
+    "width": 4,
+    "ctas": 64,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 1024,
+    "n": 1024,
+    "width": 8,
+    "ctas": 64,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 2048,
+    "n": 2048,
+    "width": 1,
+    "ctas": 256,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 2048,
+    "n": 2048,
+    "width": 2,
+    "ctas": 256,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 2048,
+    "n": 2048,
+    "width": 4,
+    "ctas": 256,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 2048,
+    "n": 2048,
+    "width": 8,
+    "ctas": 256,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 4096,
+    "n": 4096,
+    "width": 1,
+    "ctas": 1024,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 4096,
+    "n": 4096,
+    "width": 2,
+    "ctas": 1024,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 4096,
+    "n": 4096,
+    "width": 4,
+    "ctas": 1024,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  },
+  {
+    "m": 4096,
+    "n": 4096,
+    "width": 8,
+    "ctas": 1024,
+    "duplicate": 0,
+    "missing": 0,
+    "out_of_bounds": 0
+  }
+]

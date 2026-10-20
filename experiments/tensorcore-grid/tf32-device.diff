@@ -1,0 +1,13 @@
+--- upstream/sgemm_tf32_swizzle_bcf_dbf_kernel
++++ grid/sgemm_tf32_swizzle_bcf_dbf_kernel
+@@ -1,8 +1,8 @@
+-template <const int BM = 128, const int BN = 128, const int BK = 16>
++template <const int GRID_W, const int BM = 128, const int BN = 128, const int BK = 16>
+ __global__ void sgemm_tf32_swizzle_bcf_dbf_kernel(float *a, float *b, float *c, int m, int n, int k) {
+     // grid swizzling
+     int linear_id = blockIdx.y * gridDim.x + blockIdx.x;
+-    const int SWIZZLE_W = 8; // grid swizzle tile width
++    const int SWIZZLE_W = GRID_W; // grid swizzle tile width
+ 
+     int bx = (linear_id % SWIZZLE_W) + (linear_id / (SWIZZLE_W * gridDim.y)) * SWIZZLE_W;
+     int by = (linear_id / SWIZZLE_W) % gridDim.y;

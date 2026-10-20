@@ -1,0 +1,15 @@
+CUDA: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe
+MSVC: D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe
+Windows SDK: D:\Windows Kits\10\ 10.0.26100.0\
+VERIFIED unchanged device regions
+VERIFIED: kernel changes restricted to grid width
+Verified host derivation
+-- Configuring done (1.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-tensor-grid-sm89
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-tensor-grid-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2
+ninja: no work to do.
+
+Built and verified Tensor Core instructions: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-tensorcore-grid\build02

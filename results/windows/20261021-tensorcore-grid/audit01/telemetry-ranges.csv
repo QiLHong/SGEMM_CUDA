@@ -1,0 +1,3 @@
+run,samples,temperature_c_min,temperature_c_max,sm_mhz_min,sm_mhz_max,power_w_min,power_w_max,utilization_pct_min,utilization_pct_max
+scan01,218,43.0,48.0,2520.0,2715.0,63.13,119.09,0.0,59.0
+confirm-w1-01,126,44.0,52.0,2520.0,2715.0,63.24,126.18,0.0,79.0
