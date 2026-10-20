@@ -1,0 +1,44 @@
+[
+{
+  "directory": "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89",
+  "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -Xcompiler=/utf-8 -lineinfo -Xptxas=-v -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\k30_audit.cu -o CMakeFiles\\k30_audit.dir\\scripts\\k30_audit.cu.obj -Xcompiler=-FdCMakeFiles\\k30_audit.dir\\,-FS",
+  "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\k30_audit.cu",
+  "output": "CMakeFiles\\k30_audit.dir\\scripts\\k30_audit.cu.obj"
+},
+{
+  "directory": "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89",
+  "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\sgemm.cu -o CMakeFiles\\sgemm.dir\\sgemm.cu.obj -Xcompiler=-FdCMakeFiles\\sgemm.dir\\,-FS",
+  "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\sgemm.cu",
+  "output": "CMakeFiles\\sgemm.dir\\sgemm.cu.obj"
+},
+{
+  "directory": "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89",
+  "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\runner.cu -o CMakeFiles\\sgemm.dir\\src\\runner.cu.obj -Xcompiler=-FdCMakeFiles\\sgemm.dir\\,-FS",
+  "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\runner.cu",
+  "output": "CMakeFiles\\sgemm.dir\\src\\runner.cu.obj"
+},
+{
+  "directory": "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89",
+  "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\cuBLAS_sgemm.cu -o CMakeFiles\\cuBLAS_sgemm.dir\\cuBLAS_sgemm.cu.obj -Xcompiler=-FdCMakeFiles\\cuBLAS_sgemm.dir\\,-FS",
+  "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\cuBLAS_sgemm.cu",
+  "output": "CMakeFiles\\cuBLAS_sgemm.dir\\cuBLAS_sgemm.cu.obj"
+},
+{
+  "directory": "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89",
+  "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\simplest_kernel.cu -o CMakeFiles\\simplest_kernel.dir\\simplest_kernel.cu.obj -Xcompiler=-FdCMakeFiles\\simplest_kernel.dir\\,-FS",
+  "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\simplest_kernel.cu",
+  "output": "CMakeFiles\\simplest_kernel.dir\\simplest_kernel.cu.obj"
+},
+{
+  "directory": "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89",
+  "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\cuda_smoke.cu -o CMakeFiles\\cuda_smoke.dir\\scripts\\cuda_smoke.cu.obj -Xcompiler=-FdCMakeFiles\\cuda_smoke.dir\\,-FS",
+  "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\cuda_smoke.cu",
+  "output": "CMakeFiles\\cuda_smoke.dir\\scripts\\cuda_smoke.cu.obj"
+},
+{
+  "directory": "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89",
+  "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -Xcompiler=/utf-8 -lineinfo -Xptxas=-v -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_benchmark.cu -o CMakeFiles\\windows_benchmark.dir\\scripts\\windows_benchmark.cu.obj -Xcompiler=-FdCMakeFiles\\windows_benchmark.dir\\,-FS",
+  "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_benchmark.cu",
+  "output": "CMakeFiles\\windows_benchmark.dir\\scripts\\windows_benchmark.cu.obj"
+}
+]

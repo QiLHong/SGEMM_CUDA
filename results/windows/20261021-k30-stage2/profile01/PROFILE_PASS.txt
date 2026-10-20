@@ -1,0 +1,1 @@
+PASS: every requested profile and metric parsed; profiled events are not performance results.

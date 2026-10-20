@@ -1,0 +1,820 @@
+diff --git a/.gitignore b/.gitignore
+index df40db1..5e1cc4a 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,4 +1,5 @@
+ build/
++build-windows*/
+ build-tune/
+ build-audit*/
+ build-swizzle-*/
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4a7432b..a3aba99 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,48 +9,63 @@
+ # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+ 
+ cmake_minimum_required(VERSION 3.19)
++# 所有 target 共用一个架构参数；Linux 默认仍为 86，Windows 本次传入 89。
++# 在 project() 前设置，供后续所有项目 target 初始化其架构属性。
++if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
++  set(CMAKE_CUDA_ARCHITECTURES 86 CACHE STRING "CUDA target architectures")
++endif()
+ project(NVIDIA_SGEMM_PRACTICE LANGUAGES CXX CUDA)
++set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
++find_package(CUDAToolkit REQUIRED)
++set(CMAKE_CUDA_STANDARD 17)
++set(CMAKE_CUDA_STANDARD_REQUIRED ON)
++if(MSVC)
++  # 中文源码使用 UTF-8；避免 Windows SDK 的 min/max 宏污染 C++ 标准库。
++  add_compile_options("$<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler=/utf-8>"
++                      "$<$<COMPILE_LANGUAGE:CXX>:/utf-8>")
++  add_compile_definitions(NOMINMAX _CRT_SECURE_NO_WARNINGS)
++endif()
+ # 独立实验入口，不进入 sgemm dispatcher，也不替换默认 K10。
+ option(SGEMM_BUILD_K30_AUDIT "Build isolated K30 mini-SIMT experiment" OFF)
+ option(SGEMM_BUILD_K31_AUDIT "Build isolated K31 resource/lifetime experiments" OFF)
+ option(SGEMM_BUILD_K32_AUDIT "Build isolated K32 producer/consumer experiment" OFF)
++if(TARGET CUDA::nvtx3)
++  set(SGEMM_NVTX_TARGET CUDA::nvtx3)
++else()
++  set(SGEMM_NVTX_TARGET CUDA::nvToolsExt)
++endif()
+ if(SGEMM_BUILD_K32_AUDIT)
+   find_package(CUDAToolkit REQUIRED)
+   add_executable(k32_audit scripts/k32_audit.cu)
+-  set_target_properties(k32_audit PROPERTIES CUDA_ARCHITECTURES 86 CUDA_STANDARD 17)
++  set_target_properties(k32_audit PROPERTIES CUDA_STANDARD 17)
+   target_compile_definitions(k32_audit PRIVATE SGEMM_K10_MIN_BLOCKS=2)
+   target_compile_options(k32_audit PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo;-Xptxas=-v>)
+-  target_link_libraries(k32_audit PRIVATE CUDA::cublas CUDA::nvToolsExt)
++  target_link_libraries(k32_audit PRIVATE CUDA::cublas ${SGEMM_NVTX_TARGET})
+ endif()
+ if(SGEMM_BUILD_K31_AUDIT)
+   find_package(CUDAToolkit 12.4 REQUIRED)
+   add_executable(k31_audit scripts/k31_audit.cu)
+-  set_target_properties(k31_audit PROPERTIES CUDA_ARCHITECTURES 86 CUDA_STANDARD 17)
++  set_target_properties(k31_audit PROPERTIES CUDA_STANDARD 17)
+   target_compile_definitions(k31_audit PRIVATE SGEMM_K10_MIN_BLOCKS=2)
+   target_compile_options(k31_audit PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo;-Xptxas=-v>)
+-  target_link_libraries(k31_audit PRIVATE CUDA::cublas CUDA::nvToolsExt)
++  target_link_libraries(k31_audit PRIVATE CUDA::cublas ${SGEMM_NVTX_TARGET})
+ endif()
+ if(SGEMM_BUILD_K30_AUDIT)
+   find_package(CUDAToolkit REQUIRED)
+   add_executable(k30_audit scripts/k30_audit.cu)
+-  set_target_properties(k30_audit PROPERTIES CUDA_ARCHITECTURES 86 CUDA_STANDARD 17)
++  set_target_properties(k30_audit PROPERTIES CUDA_STANDARD 17)
+   target_compile_definitions(k30_audit PRIVATE SGEMM_K10_MIN_BLOCKS=2)
+   target_compile_options(k30_audit PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo;-Xptxas=-v>)
+-  target_link_libraries(k30_audit PRIVATE CUDA::cublas CUDA::nvToolsExt)
++  target_link_libraries(k30_audit PRIVATE CUDA::cublas ${SGEMM_NVTX_TARGET})
+ endif()
+-# 为编辑器/clangd 导出实际编译命令，不影响矩阵乘算法。
+-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+-
+-find_package(CUDA REQUIRED)
++# 编译命令导出已在创建任何 target 之前启用，包含各独立 audit。
+ 
+ # 确认 CUDA 编译语言可用。
+ include(CheckLanguage)
+ check_language(CUDA)
+ 
+ set(CMAKE_CXX_STANDARD 20)
+-# 当前上游值是 86，对应本次学习用 RTX 3080 的目标架构。
+-# 换 GPU 时先查 compute capability，不要把驱动显示的 CUDA 版本填在这里。
+-set(CUDA_COMPUTE_CAPABILITY 86)
++# CMAKE_CUDA_ARCHITECTURES 是唯一架构开关，例如 -DCMAKE_CUDA_ARCHITECTURES=89。
+ 
+ # Debug 模式为设备代码添加调试信息。
+ # -G 会关闭大部分设备优化，严重影响性能；测吞吐率应使用 Release。
+@@ -59,15 +74,14 @@ add_compile_options("$<$<AND:$<CONFIG:Debug>,$<COMPILE_LANGUAGE:CUDA>>:-G;-src-i
+ # add_compile_options("--ptxas-options=-v")
+ 
+ # 配置头文件搜索路径。
+-include_directories(${CUDA_INCLUDE_DIRS})
++include_directories(${CUDAToolkit_INCLUDE_DIRS})
+ include_directories(${PROJECT_SOURCE_DIR}/src)
+ # 收集 src 中待编译的源文件。
+ aux_source_directory(${PROJECT_SOURCE_DIR}/src SRC)
+ 
+ # 主 benchmark 可执行文件，链接 CUDA runtime 与 cuBLAS。
+ add_executable(sgemm sgemm.cu ${SRC})
+-set_target_properties(sgemm PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
+-target_link_libraries(sgemm ${CUDA_LIBRARIES} ${CUDA_CUBLAS_LIBRARIES})
++target_link_libraries(sgemm CUDA::cudart CUDA::cublas)
+ 
+ # Kernel 10 调优参数。仅把显式传给 CMake 的值转成交给 nvcc 的编译期定义；
+ # 默认构建不设置这些 cache 变量，因此使用 runner/header 中记录的 RTX 3080 默认值。
+@@ -137,10 +151,23 @@ endif()
+ # 独立 cuBLAS 演示。
+ # 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
+ add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )
+-set_target_properties(cuBLAS_sgemm PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
+-target_link_libraries(cuBLAS_sgemm ${CUDA_LIBRARIES} ${CUDA_CUBLAS_LIBRARIES})
++target_link_libraries(cuBLAS_sgemm CUDA::cudart CUDA::cublas)
+ 
+ # 最简单的线程索引演示；架构属性应设置给它自身。
+ add_executable(simplest_kernel simplest_kernel.cu)
+-set_target_properties(simplest_kernel PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
+-target_link_libraries(simplest_kernel ${CUDA_LIBRARIES})
++target_link_libraries(simplest_kernel CUDA::cudart)
++
++# 独立、带退出码的最小 CUDA 自检；先确认工具链和设备，再运行 GEMM。
++add_executable(cuda_smoke scripts/cuda_smoke.cu)
++target_link_libraries(cuda_smoke PRIVATE CUDA::cudart)
++enable_testing()
++add_test(NAME cuda_smoke COMMAND cuda_smoke)
++
++option(SGEMM_BUILD_WINDOWS_BENCHMARK "Build portable controlled FP32 experiment" OFF)
++if(SGEMM_BUILD_WINDOWS_BENCHMARK)
++  add_executable(windows_benchmark scripts/windows_benchmark.cu)
++  target_compile_definitions(windows_benchmark PRIVATE SGEMM_K10_MIN_BLOCKS=2)
++  target_compile_options(windows_benchmark PRIVATE
++    $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo;-Xptxas=-v>)
++  target_link_libraries(windows_benchmark PRIVATE CUDA::cublas)
++endif()
+diff --git a/README.md b/README.md
+index 55b73b2..84e4247 100644
+--- a/README.md
++++ b/README.md
+@@ -20,7 +20,7 @@
+ [第 7 章的验证与计时调用链](docs/zh/微教材/07-验证与性能分析.md)。
+ 
+ 如果不知道一堆脚本各自做什么，先读[代码与脚本使用索引](docs/zh/23-代码与脚本使用索引.md)。
+-它按初学者视角解释全部 122 个代码/脚本/构建配置文件，给出最小 K30 运行路线，
++它按初学者视角解释此前整理的 122 个代码/脚本/构建配置文件，并补充 Windows 入口，给出最小 K30 运行路线，
+ 并区分“只读分析”“需要 GPU”“会改源码或覆盖结果”的入口。各文件顶部和关键流程旁
+ 都有中文解释，K30 还包含 lane 0/1/2 的具体坐标例子；本轮注释整理不改变算法或历史数据。
+ 
+@@ -121,6 +121,19 @@ iterator/pipeline 与 fragment 调度的整体协同，而不是单个 accumulat
+ 
+ ## 环境与构建
+ 
++**Windows 原生 / RTX 4090 D：** 先读新增的
++[Windows 构建与受控实验教程](docs/zh/24-Windows原生构建与4090D实验.md)。
++在 PowerShell 的仓库根目录运行：
++
++```powershell
++.\scripts\windows\Build.ps1 -WithExperiment
++.\scripts\windows\Run-Benchmarks.ps1
++```
++
++脚本只在当前进程加载已安装的 CUDA 12.4、MSVC 14.37 和 VS 附带 Ninja，
++默认 Release / sm_89。结果写入新的 `results/windows/时间戳/`，
++保留原始事件时间、误差和工具链信息；Linux 入口继续见下文。
++
+ 上游列出的依赖为 CUDA Toolkit 12、Python（以及 Seaborn）、CMake 和 Ninja，辅助 Python 环境见 [environment.yml](environment.yml)。
+ 
+ **学习补充：** 编译并运行 `sgemm` 主要需要 CUDA Toolkit / cuBLAS、C++ 编译器和 CMake。Python 用于画图等辅助工具，Ninja 或 Make 则是构建后端。`environment.yml` 不是完整且锁定的 CUDA 工具链；`nvidia-smi` 中的 CUDA 版本也不能替代 `nvcc --version` 检查。
+@@ -128,10 +141,11 @@ iterator/pipeline 与 fragment 调度的整体协同，而不是单个 accumulat
+ 检查 GPU 的 [compute capability](https://developer.nvidia.com/cuda-gpus)，再设置 `CMakeLists.txt`。原英文 README 的 `80` 是示例；当前源码实际设置为：
+ 
+ ```cmake
+-set(CUDA_COMPUTE_CAPABILITY 86)
++set(CMAKE_CUDA_ARCHITECTURES 86 CACHE STRING "CUDA target architectures")
+ ```
+ 
+-这与 RTX 3080 的目标架构匹配。这里填的是计算能力，不是 CUDA 的 `12.4` 版本号。
++这与 RTX 3080 的目标架构匹配。配置时可传入 `-DCMAKE_CUDA_ARCHITECTURES=89`
++用于 RTX 4090 D，所有 target 共用该参数。这里填的是计算能力，不是 CUDA 的 `12.4` 版本号。
+ 
+ 上游构建方式为 `mkdir build && cd build && cmake .. && cmake --build .`。为了区分调试与性能测试，中文学习示例明确使用 Release，并使用与仓库 Makefile / autotuner 一致的 Makefiles 生成器：
+ 
+@@ -153,7 +167,7 @@ DEVICE=0 ./build/sgemm 1
+ DEVICE=0 ./build/sgemm 2
+ ```
+ 
+-如果已有 `build/` 是 Ninja 生成的，不要在同一目录混用生成器。可以另选构建目录；使用原 `make profile` 或 autotuner 前，则需检查它们固定依赖的 `build/` 和 `make`。Debug 会使用 `-G`，不适合拿来比较吞吐率。当前 CMake 仍使用上游 `find_package(CUDA)`，这里没有顺带升级构建系统；新版本 CMake 的兼容问题应独立处理。
++如果已有 `build/` 是 Ninja 生成的，不要在同一目录混用生成器。可以另选构建目录；使用原 `make profile` 或 autotuner 前，则需检查它们固定依赖的 `build/` 和 `make`。Debug 会使用 `-G`，不适合拿来比较吞吐率。本次 Windows 适配将已弃用的 `find_package(CUDA)` 替换为 `find_package(CUDAToolkit)` 与导入库目标，保留 Linux 构建入口；本次未在 Linux 上复测。
+ 
+ 在构建目录内，运行格式是 `DEVICE=<设备编号> ./sgemm <kernel编号>`。1–12 是原有
+ 自写 kernel，15 是独立的 K10 grouped-grid 实验，16 是 A shared XOR 实验，17 是
+@@ -216,6 +230,7 @@ make profile KERNEL=2 PREFIX=learning_
+ 24. [22：CUDA 与 SGEMM 基础复习](docs/zh/22-CUDA与SGEMM基础复习.md)：矩阵与索引、执行层次、内存与同步、tiling、资源与测量；含 36 个基础问题、8 道练习及答案。
+ 25. [微教材：从矩阵乘法到 CUDA 微内核](docs/zh/微教材/README.md)：通过连续推导，从一个点积走到 K30；包含真实源码精读、线程/fragment 追踪、验证与 CSV 调用链、练习与答案。
+ 26. [23：代码与脚本使用索引](docs/zh/23-代码与脚本使用索引.md)：逐文件用途、术语解释、调用链、初学者运行路线、输出读法与历史工具风险。
++27. [24：Windows 原生构建与 4090 D 实验](docs/zh/24-Windows原生构建与4090D实验.md)：兼容工具链、sm_89、K10 线程坐标、七轮严格 FP32 基线、PAD8 反例及 Nsight 证据。
+ 
+ 源码中的 1–12 号 kernel 和独立实验 K15–K23、K30/K31/K32，以及主程序、构建、分析、验证和调优脚本均有中文导读。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
+ 
+diff --git "a/docs/zh/00-\351\230\205\350\257\273\350\267\257\347\272\277.md" "b/docs/zh/00-\351\230\205\350\257\273\350\267\257\347\272\277.md"
+index c043ff5..69d462c 100644
+--- "a/docs/zh/00-\351\230\205\350\257\273\350\267\257\347\272\277.md"
++++ "b/docs/zh/00-\351\230\205\350\257\273\350\267\257\347\272\277.md"
+@@ -5,6 +5,9 @@
+ 如果希望像读一本小书一样循序渐进，先读[八章微教材](微教材/README.md)。
+ 本页用于定位源码；微教材用于完整推导，基础复习和面试 QA 用于查漏与表达训练。
+ 
++Windows 原生开发从[第 24 章：构建与 RTX 4090 D 实验](24-Windows原生构建与4090D实验.md)开始。
++它连接 PowerShell 构建、K10 下标推导、正确性与实测结果；以下 Bash 示例仍属于 Linux 路线。
++
+ 不知道脚本什么时候该用时，先查[代码与脚本使用索引](23-代码与脚本使用索引.md)。
+ 文件顶部的“文件导读”会说明用途、命令、输入输出和风险；关键函数旁的注释解释下标、数据流与同步理由。
+ 
+diff --git "a/docs/zh/23-\344\273\243\347\240\201\344\270\216\350\204\232\346\234\254\344\275\277\347\224\250\347\264\242\345\274\225.md" "b/docs/zh/23-\344\273\243\347\240\201\344\270\216\350\204\232\346\234\254\344\275\277\347\224\250\347\264\242\345\274\225.md"
+index fc7c8bc..9087f79 100644
+--- "a/docs/zh/23-\344\273\243\347\240\201\344\270\216\350\204\232\346\234\254\344\275\277\347\224\250\347\264\242\345\274\225.md"
++++ "b/docs/zh/23-\344\273\243\347\240\201\344\270\216\350\204\232\346\234\254\344\275\277\347\224\250\347\264\242\345\274\225.md"
+@@ -2,7 +2,22 @@
+ 
+ 这份索引写给第一次接触 CUDA 项目的人。你不需要按文件名顺序把所有脚本运行一遍。
+ 先分清“计算代码”和“实验工具”：前者决定怎么做矩阵乘法，后者负责编译、检查、计时、采样和整理证据。
+-本页覆盖当前分支的 122 个受 Git 管理的代码、脚本及构建配置文件；每个文件开头都有中文导读。
++原索引覆盖 2026-10-13 整理时的 122 个代码、脚本及构建配置文件；Windows 新入口补充如下。
++
++## Windows 原生新增入口（2026-10-20）
++
++先读[第 24 章](24-Windows原生构建与4090D实验.md)，PowerShell 脚本要求已有的 7.0 或以上版本。
++
++| 文件 | 用途 |
++|---|---|
++| [Initialize-Toolchain.ps1](../../scripts/windows/Initialize-Toolchain.ps1) | 在当前进程加载兼容的 MSVC x64、SDK、CUDA、CMake 和 Ninja |
++| [Build.ps1](../../scripts/windows/Build.ps1) | Release / sm_89 构建、最小测试，并检查导出的实际架构命令 |
++| [Run-Benchmarks.ps1](../../scripts/windows/Run-Benchmarks.ps1) | 六尺寸三种 beta 验证、七轮交替计时，创建全新的结果目录 |
++| [Summarize-Results.ps1](../../scripts/windows/Summarize-Results.ps1) | 只读原始 event CSV，生成中位数、波动和配对结果；已有汇总默认拒绝覆盖 |
++| [Profile-Experiment.ps1](../../scripts/windows/Profile-Experiment.ps1) | 使用已安装 NCU 比较 PAD4/PAD8 的 shared 冲突；插桩时间不能当基准 |
++| [windows_benchmark.cu](../../scripts/windows_benchmark.cu) | 同输入比较 K10、PAD8、K30 V2、严格 FP32 cuBLAS，不占用算法编号 |
++| [cuda_smoke.cu](../../scripts/cuda_smoke.cu) | 257 个整数输出的最小设备自检 |
++| [nvtx_compat.h](../../scripts/nvtx_compat.h) | 兼容 Toolkit 的 NVTX3 及旧 NVTX 头 |
+ 
+ ## 先选你现在要做的事
+ 
+diff --git a/scripts/README.md b/scripts/README.md
+index efb6bba..fc67c45 100644
+--- a/scripts/README.md
++++ b/scripts/README.md
+@@ -1,7 +1,19 @@
+ # 脚本怎么选
+ 
+ 第一次来，不要挨个运行脚本。先读[代码与脚本使用索引](../docs/zh/23-代码与脚本使用索引.md)：
+-它解释全部 122 个代码/配置文件，包含术语、调用关系、最小 K30 路线、结果读法和危险入口。
++它解释此前整理的 122 个代码/配置文件并补充 Windows 入口，包含术语、调用关系、最小 K30 路线、结果读法和危险入口。
++
++Windows 原生在仓库根目录使用 PowerShell 7：
++
++```powershell
++.\scripts\windows\Build.ps1 -WithExperiment
++.\scripts\windows\Run-Benchmarks.ps1
++# 可选，单独运行，避免与 benchmark 同时占用 GPU：
++.\scripts\windows\Profile-Experiment.ps1
++```
++
++工具链选择、每个线程的数据流与本次实测见[Windows 教程](../docs/zh/24-Windows原生构建与4090D实验.md)。
++以下 `.sh` 和历史复现说明继续保留为 Linux 入口。
+ 
+ ## 常用顺序
+ 
+diff --git a/scripts/build_cutlass_reference.sh b/scripts/build_cutlass_reference.sh
+index e669342..f38c47f 100755
+--- a/scripts/build_cutlass_reference.sh
++++ b/scripts/build_cutlass_reference.sh
+@@ -3,13 +3,15 @@
+ # 给初学者：构建就是把源代码翻译成可执行文件；编译通过只是第一步，还没有证明计算正确或速度快。
+ # 运行：bash scripts/build_cutlass_reference.sh <CUTLASS检出目录> <尚不存在的输出目录>。
+ # 必须使用源码中 EXPECTED 对应的干净 CUTLASS v3.5.1 检出；脚本不下载也不修改第三方库。
+-# 以 -I 引入 CUTLASS headers，nvcc 为 SM86 编译独立 reference，链接 cuBLAS/NVTX。
+-# 输出 reference、build.log、cutlass-commit.txt、nvcc-version.txt、sha256.txt；全部属于本次构建。
++# 以 -I 引入 CUTLASS headers，nvcc 按 CUDA_ARCH（默认 86）编译独立 reference，链接 cuBLAS/NVTX。
++# 指定其他架构：CUDA_ARCH=89 bash scripts/build_cutlass_reference.sh <CUTLASS检出目录> <新输出目录>。
++# 输出 reference、build.log、cuda-architecture.txt、cutlass-commit.txt、nvcc-version.txt、sha256.txt；全部属于本次构建。
+ # 之后用 run_cutlass_reference.py 做数值/公平计时/采样；公开 CUTLASS 是可读对照，不等于闭源 cuBLAS 实现。
+ # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+ 
+ # Bash 的安全开关：-e 遇失败尽早停，-u 防止误用未定义变量，pipefail 让管道中间失败也能被发现。
+ set -euo pipefail
++CUDA_ARCH="${CUDA_ARCH:-86}"
+ # 根据脚本自身位置找仓库，不是把当前 shell 所在目录随意当根目录；后续路径都由这里展开。
+ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ CUTLASS_DIR="${1:?Pass CUTLASS v3.5.1 checkout directory}"
+@@ -20,10 +22,11 @@ EXPECTED=f7b19de32c5d1f3cedfc735c2849f12b537522ee
+ [[ -z "$(git -C "${CUTLASS_DIR}" status --porcelain)" ]]
+ [[ ! -e "${OUTPUT_DIR}" ]] || { echo 'Refusing to overwrite output directory' >&2; exit 1; }
+ mkdir -p "${OUTPUT_DIR}"
+-nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo \
++nvcc -O3 -DNDEBUG -std=c++17 -arch="sm_${CUDA_ARCH}" -lineinfo \
+   -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v -I"${CUTLASS_DIR}/include" \
+   "${ROOT_DIR}/scripts/cutlass_simt_reference.cu" -lcublas -lnvToolsExt \
+   -o "${OUTPUT_DIR}/reference" >"${OUTPUT_DIR}/build.log" 2>&1
++printf '%s\n' "sm_${CUDA_ARCH}" >"${OUTPUT_DIR}/cuda-architecture.txt"
+ git -C "${CUTLASS_DIR}" rev-parse HEAD >"${OUTPUT_DIR}/cutlass-commit.txt"
+ nvcc --version >"${OUTPUT_DIR}/nvcc-version.txt"
+ sha256sum "${OUTPUT_DIR}/reference" "${ROOT_DIR}/scripts/cutlass_simt_reference.cu" \
+diff --git a/scripts/build_k30_audit.sh b/scripts/build_k30_audit.sh
+index a82240c..d4f443a 100644
+--- a/scripts/build_k30_audit.sh
++++ b/scripts/build_k30_audit.sh
+@@ -3,25 +3,28 @@
+ # 给初学者：构建就是把源代码翻译成可执行文件；编译通过只是第一步，还没有证明计算正确或速度快。
+ # 运行：bash scripts/build_k30_audit.sh benchmark_results/k30-new-session；目标目录必须尚不存在。
+ # 输入：scripts/k30_audit.cu 与其包含的 kernel；不经过主 sgemm 编号分发。
+-# 编译：nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo，固定 K10 MIN_BLOCKS=2。
++# 编译：nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_${CUDA_ARCH} -lineinfo，固定 K10 MIN_BLOCKS=2。
++# CUDA_ARCH 默认 86；例如 CUDA_ARCH=89 bash scripts/build_k30_audit.sh <新输出目录>。
+ # 链接 cuBLAS 与 NVTX；-Xptxas=-v 把寄存器、stack、spill 统计写入 build.log。
+-# 输出：audit、build.log、nvcc-version.txt、sha256.txt；哈希对应本次源码/可执行文件。
++# 输出：audit、build.log、cuda-architecture.txt、nvcc-version.txt、sha256.txt；哈希对应本次源码/可执行文件。
+ # 后续：run_k30_audit.py；静态调度另用 analyze_k30_schedule.py。
+ # 本脚本只编译；没有新 correctness 或 benchmark 结果。失败时先看 build.log。
+ # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+ 
+ # Bash 的安全开关：-e 遇失败尽早停，-u 防止误用未定义变量，pipefail 让管道中间失败也能被发现。
+ set -euo pipefail
++CUDA_ARCH="${CUDA_ARCH:-86}"
+ # 根据脚本自身位置找仓库，不是把当前 shell 所在目录随意当根目录；后续路径都由这里展开。
+ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ # 输出目录属于这一批构建；选择一个没用过的名字，不要复用保存过报告的目录。
+ OUTPUT_DIR="${1:?Pass a fresh output directory}"
+ [[ ! -e "${OUTPUT_DIR}" ]] || { echo 'Refusing to overwrite output directory' >&2; exit 1; }
+ mkdir -p "${OUTPUT_DIR}"
+-nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo \
++nvcc -O3 -DNDEBUG -std=c++17 -arch="sm_${CUDA_ARCH}" -lineinfo \
+   -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v \
+   "${ROOT_DIR}/scripts/k30_audit.cu" -lcublas -lnvToolsExt \
+   -o "${OUTPUT_DIR}/audit" >"${OUTPUT_DIR}/build.log" 2>&1
++printf '%s\n' "sm_${CUDA_ARCH}" >"${OUTPUT_DIR}/cuda-architecture.txt"
+ nvcc --version >"${OUTPUT_DIR}/nvcc-version.txt"
+ sha256sum "${OUTPUT_DIR}/audit" "${ROOT_DIR}/scripts/k30_audit.cu" \
+   "${ROOT_DIR}/src/kernels/30_kernel_mini_simt.cuh" >"${OUTPUT_DIR}/sha256.txt"
+diff --git a/scripts/build_k31_audit.sh b/scripts/build_k31_audit.sh
+index 58fda42..ce032fc 100644
+--- a/scripts/build_k31_audit.sh
++++ b/scripts/build_k31_audit.sh
+@@ -3,25 +3,28 @@
+ # 给初学者：构建就是把源代码翻译成可执行文件；编译通过只是第一步，还没有证明计算正确或速度快。
+ # 运行：bash scripts/build_k31_audit.sh benchmark_results/k31-new-session；目标目录必须尚不存在。
+ # 输入：scripts/k31_audit.cu 与其包含的 kernel；不经过主 sgemm 编号分发。
+-# 编译：nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo，固定 K10 MIN_BLOCKS=2。
++# 编译：nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_${CUDA_ARCH} -lineinfo，固定 K10 MIN_BLOCKS=2。
++# CUDA_ARCH 默认 86；例如 CUDA_ARCH=89 bash scripts/build_k31_audit.sh <新输出目录>。
+ # 链接 cuBLAS 与 NVTX；-Xptxas=-v 把寄存器、stack、spill 统计写入 build.log。
+-# 输出：audit、build.log、nvcc-version.txt、sha256.txt；哈希对应本次源码/可执行文件。
++# 输出：audit、build.log、cuda-architecture.txt、nvcc-version.txt、sha256.txt；哈希对应本次源码/可执行文件。
+ # 后续：先 analyze_k31_binary.py，再 run_k31_audit.py resources/correctness/fair。
+ # 本脚本只编译；没有新 correctness 或 benchmark 结果。失败时先看 build.log。
+ # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+ 
+ # Bash 的安全开关：-e 遇失败尽早停，-u 防止误用未定义变量，pipefail 让管道中间失败也能被发现。
+ set -euo pipefail
++CUDA_ARCH="${CUDA_ARCH:-86}"
+ # 根据脚本自身位置找仓库，不是把当前 shell 所在目录随意当根目录；后续路径都由这里展开。
+ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ # 输出目录属于这一批构建；选择一个没用过的名字，不要复用保存过报告的目录。
+ OUTPUT_DIR="${1:?Pass a fresh output directory}"
+ [[ ! -e "${OUTPUT_DIR}" ]] || { echo 'Refusing to overwrite output directory' >&2; exit 1; }
+ mkdir -p "${OUTPUT_DIR}"
+-nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo \
++nvcc -O3 -DNDEBUG -std=c++17 -arch="sm_${CUDA_ARCH}" -lineinfo \
+   -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v \
+   "${ROOT_DIR}/scripts/k31_audit.cu" -lcublas -lnvToolsExt \
+   -o "${OUTPUT_DIR}/audit" >"${OUTPUT_DIR}/build.log" 2>&1
++printf '%s\n' "sm_${CUDA_ARCH}" >"${OUTPUT_DIR}/cuda-architecture.txt"
+ nvcc --version >"${OUTPUT_DIR}/nvcc-version.txt"
+ sha256sum "${OUTPUT_DIR}/audit" "${ROOT_DIR}/scripts/k31_audit.cu" \
+   "${ROOT_DIR}/src/kernels/30_kernel_mini_simt.cuh" \
+diff --git a/scripts/build_k32_audit.sh b/scripts/build_k32_audit.sh
+index 0014b9e..7745f72 100644
+--- a/scripts/build_k32_audit.sh
++++ b/scripts/build_k32_audit.sh
+@@ -3,25 +3,28 @@
+ # 给初学者：构建就是把源代码翻译成可执行文件；编译通过只是第一步，还没有证明计算正确或速度快。
+ # 运行：bash scripts/build_k32_audit.sh benchmark_results/k32-new-session；目标目录必须尚不存在。
+ # 输入：scripts/k32_audit.cu 与其包含的 kernel；不经过主 sgemm 编号分发。
+-# 编译：nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo，固定 K10 MIN_BLOCKS=2。
++# 编译：nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_${CUDA_ARCH} -lineinfo，固定 K10 MIN_BLOCKS=2。
++# CUDA_ARCH 默认 86；例如 CUDA_ARCH=89 bash scripts/build_k32_audit.sh <新输出目录>。
+ # 链接 cuBLAS 与 NVTX；-Xptxas=-v 把寄存器、stack、spill 统计写入 build.log。
+-# 输出：audit、build.log、nvcc-version.txt、sha256.txt；哈希对应本次源码/可执行文件。
++# 输出：audit、build.log、cuda-architecture.txt、nvcc-version.txt、sha256.txt；哈希对应本次源码/可执行文件。
+ # 后续：先 analyze_k32_binary.py，再 run_k32_audit.py resources/correctness/fair。
+ # 本脚本只编译；没有新 correctness 或 benchmark 结果。失败时先看 build.log。
+ # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
+ 
+ # Bash 的安全开关：-e 遇失败尽早停，-u 防止误用未定义变量，pipefail 让管道中间失败也能被发现。
+ set -euo pipefail
++CUDA_ARCH="${CUDA_ARCH:-86}"
+ # 根据脚本自身位置找仓库，不是把当前 shell 所在目录随意当根目录；后续路径都由这里展开。
+ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ # 输出目录属于这一批构建；选择一个没用过的名字，不要复用保存过报告的目录。
+ OUTPUT_DIR="${1:?Pass a fresh output directory}"
+ [[ ! -e "${OUTPUT_DIR}" ]] || { echo 'Refusing to overwrite output directory' >&2; exit 1; }
+ mkdir -p "${OUTPUT_DIR}"
+-nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo \
++nvcc -O3 -DNDEBUG -std=c++17 -arch="sm_${CUDA_ARCH}" -lineinfo \
+   -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v \
+   "${ROOT_DIR}/scripts/k32_audit.cu" -lcublas -lnvToolsExt \
+   -o "${OUTPUT_DIR}/audit" >"${OUTPUT_DIR}/build.log" 2>&1
++printf '%s\n' "sm_${CUDA_ARCH}" >"${OUTPUT_DIR}/cuda-architecture.txt"
+ nvcc --version >"${OUTPUT_DIR}/nvcc-version.txt"
+ sha256sum "${OUTPUT_DIR}/audit" "${ROOT_DIR}/scripts/k32_audit.cu" \
+   "${ROOT_DIR}/src/kernels/30_kernel_mini_simt.cuh" \
+diff --git a/scripts/k30_audit.cu b/scripts/k30_audit.cu
+index 9160212..c3b719e 100644
+--- a/scripts/k30_audit.cu
++++ b/scripts/k30_audit.cu
+@@ -14,7 +14,7 @@
+ // K30 isolated audit: strict FP32 cuBLAS / unchanged K10 / mini SIMT. No CUTLASS dependency.
+ #include <cuda_runtime.h>
+ #include <cublas_v2.h>
+-#include <nvToolsExt.h>
++#include "nvtx_compat.h"
+ #include <algorithm>
+ #include <cmath>
+ #include <cstdio>
+diff --git a/scripts/k31_audit.cu b/scripts/k31_audit.cu
+index 2872b17..4d4a171 100644
+--- a/scripts/k31_audit.cu
++++ b/scripts/k31_audit.cu
+@@ -14,7 +14,7 @@
+ // K31 controlled refinement. Same strict FP32 input/validation/timing as K30.
+ #include <cuda_runtime.h>
+ #include <cublas_v2.h>
+-#include <nvToolsExt.h>
++#include "nvtx_compat.h"
+ #include <algorithm>
+ #include <cmath>
+ #include <cstdio>
+diff --git a/scripts/k32_audit.cu b/scripts/k32_audit.cu
+index 42bb9aa..07f08ad 100644
+--- a/scripts/k32_audit.cu
++++ b/scripts/k32_audit.cu
+@@ -14,7 +14,7 @@
+ // K32 warp-role audit. Numerical/timing protocol copied unchanged from K30.
+ #include <cuda_runtime.h>
+ #include <cublas_v2.h>
+-#include <nvToolsExt.h>
++#include "nvtx_compat.h"
+ #include <algorithm>
+ #include <cmath>
+ #include <cstdio>
+diff --git a/scripts/summarize_cutlass_reference.py b/scripts/summarize_cutlass_reference.py
+index ef9dbd2..bde5be2 100755
+--- a/scripts/summarize_cutlass_reference.py
++++ b/scripts/summarize_cutlass_reference.py
+@@ -31,6 +31,13 @@ p.add_argument("--cutlass-dir",type=Path,default=Path("/tmp/sgemm-cutlass-v3.5.1
+ args = p.parse_args()
+ args.output.mkdir(parents=True, exist_ok=True)
+ 
++# 新构建记录实际 -arch；无元数据时只保留旧脚本默认值，并明确标为历史推定。
++architecture_file = args.directory / "cuda-architecture.txt"
++cuda_arch = architecture_file.read_text().strip() if architecture_file.exists() else "sm_86"
++architecture_source = "cuda-architecture.txt" if architecture_file.exists() else "legacy default (metadata missing)"
++if not re.fullmatch(r"sm_[0-9]+[a-z]?", cuda_arch):
++    raise ValueError(f"Invalid CUDA architecture metadata: {cuda_arch!r}")
++
+ # 把派生结果写入新文件或按本函数规则核对旧内容，保存历史证据；不要手工改 CSV 数字来凑结论。
+ def write(name, rows):
+     buffer = io.StringIO(newline="")
+@@ -154,7 +161,8 @@ if not (args.output/"environment.txt").exists():
+                 ["nvidia-smi","--query-gpu=name,uuid,driver_version","--format=csv"]]:
+         result = subprocess.run(cmd, text=True, capture_output=True)
+         out.write(" ".join(cmd)+"\n"+result.stdout+result.stderr+"\n")
+-    out.write("nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
++    out.write(f"nvcc -O3 -DNDEBUG -std=c++17 -arch={cuda_arch} -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
++    out.write(f"architecture_source={architecture_source}\n")
+     out.write("seed=20261013 alpha=0.5 beta=3 reset-C-before-each-call; timed repeat=50 warmup=10\n")
+     with (args.output/"environment.txt").open("x") as f: f.write(out.getvalue())
+ for row in summary: print(row)
+diff --git a/scripts/summarize_k30_audit.py b/scripts/summarize_k30_audit.py
+index 4e39f5c..9df0343 100644
+--- a/scripts/summarize_k30_audit.py
++++ b/scripts/summarize_k30_audit.py
+@@ -31,6 +31,13 @@ p.add_argument("--output", type=Path, required=True)
+ args = p.parse_args()
+ args.output.mkdir(parents=True, exist_ok=True)
+ 
++# 新构建记录实际 -arch；无元数据时只保留旧脚本默认值，并明确标为历史推定。
++architecture_file = args.directory / "cuda-architecture.txt"
++cuda_arch = architecture_file.read_text().strip() if architecture_file.exists() else "sm_86"
++architecture_source = "cuda-architecture.txt" if architecture_file.exists() else "legacy default (metadata missing)"
++if not re.fullmatch(r"sm_[0-9]+[a-z]?", cuda_arch):
++    raise ValueError(f"Invalid CUDA architecture metadata: {cuda_arch!r}")
++
+ # 把派生结果写入新文件或按本函数规则核对旧内容，保存历史证据；不要手工改 CSV 数字来凑结论。
+ def write(name, rows):
+     buffer = io.StringIO(newline="")
+@@ -177,7 +184,8 @@ if not (args.output/"environment.txt").exists():
+                 ["nvidia-smi","--query-gpu=name,uuid,driver_version","--format=csv"]]:
+         result = subprocess.run(cmd, text=True, capture_output=True)
+         out.write(" ".join(cmd)+"\n"+result.stdout+result.stderr+"\n")
+-    out.write("nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
++    out.write(f"nvcc -O3 -DNDEBUG -std=c++17 -arch={cuda_arch} -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
++    out.write(f"architecture_source={architecture_source}\n")
+     out.write("seed=20261013 alpha=0.5 beta=3 reset-C-before-each-call; timed repeat=50 warmup=10\n")
+     with (args.output/"environment.txt").open("x") as f: f.write(out.getvalue())
+ for row in summary: print(row)
+diff --git a/scripts/summarize_k31_audit.py b/scripts/summarize_k31_audit.py
+index 4245c2a..982d7e1 100644
+--- a/scripts/summarize_k31_audit.py
++++ b/scripts/summarize_k31_audit.py
+@@ -33,6 +33,13 @@ p.add_argument("--confirm-rounds",type=int,default=5)
+ args=p.parse_args()
+ args.output.mkdir(parents=True,exist_ok=True)
+ 
++# 新构建记录实际 -arch；无元数据时只保留旧脚本默认值，并明确标为历史推定。
++architecture_file = args.directory / "cuda-architecture.txt"
++cuda_arch = architecture_file.read_text().strip() if architecture_file.exists() else "sm_86"
++architecture_source = "cuda-architecture.txt" if architecture_file.exists() else "legacy default (metadata missing)"
++if not re.fullmatch(r"sm_[0-9]+[a-z]?", cuda_arch):
++    raise ValueError(f"Invalid CUDA architecture metadata: {cuda_arch!r}")
++
+ # CSV 按列名读取；返回的是记录集合，后续必须再验证是否齐全，不能把成功打开文件等同完成实验。
+ def read(path):
+     with path.open() as f: return list(csv.DictReader(f))
+@@ -207,7 +214,8 @@ if not (args.output/"environment.txt").exists():
+         r=subprocess.run(command,text=True,capture_output=True)
+         if r.returncode: raise RuntimeError(r.stderr)
+         out.write(" ".join(command)+"\n"+r.stdout+"\n")
+-    out.write("nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
++    out.write(f"nvcc -O3 -DNDEBUG -std=c++17 -arch={cuda_arch} -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
++    out.write(f"architecture_source={architecture_source}\n")
+     out.write("seed=20261013 alpha=0.5 beta=3 reset-C-before-every-call warmup=10 repeat=50\n")
+     out.write("cold: NVTX measure/ kernel-replay cache=all clock=base; steady: application-replay cache=none clock=none\n")
+     save_text("environment.txt",out.getvalue())
+diff --git a/scripts/summarize_k32_audit.py b/scripts/summarize_k32_audit.py
+index 296e751..9a70b6d 100644
+--- a/scripts/summarize_k32_audit.py
++++ b/scripts/summarize_k32_audit.py
+@@ -35,6 +35,13 @@ p.add_argument("--steady-modes",nargs="*",default=[],
+ args=p.parse_args()
+ args.output.mkdir(parents=True,exist_ok=True)
+ 
++# 新构建记录实际 -arch；无元数据时只保留旧脚本默认值，并明确标为历史推定。
++architecture_file = args.directory / "cuda-architecture.txt"
++cuda_arch = architecture_file.read_text().strip() if architecture_file.exists() else "sm_86"
++architecture_source = "cuda-architecture.txt" if architecture_file.exists() else "legacy default (metadata missing)"
++if not re.fullmatch(r"sm_[0-9]+[a-z]?", cuda_arch):
++    raise ValueError(f"Invalid CUDA architecture metadata: {cuda_arch!r}")
++
+ # CSV 按列名读取；返回的是记录集合，后续必须再验证是否齐全，不能把成功打开文件等同完成实验。
+ def read(path):
+     with path.open() as f: return list(csv.DictReader(f))
+@@ -219,7 +226,8 @@ if not (args.output/"environment.txt").exists():
+         r=subprocess.run(command,text=True,capture_output=True)
+         if r.returncode: raise RuntimeError(r.stderr)
+         out.write(" ".join(command)+"\n"+r.stdout+"\n")
+-    out.write("nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
++    out.write(f"nvcc -O3 -DNDEBUG -std=c++17 -arch={cuda_arch} -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
++    out.write(f"architecture_source={architecture_source}\n")
+     out.write("seed=20261013 alpha=0.5 beta=3 reset-C-before-every-call warmup=10 repeat=50\n")
+     out.write("cold: NVTX measure/ kernel-replay cache=all clock=base; steady: application-replay cache=none clock=none\n")
+     save_text("environment.txt",out.getvalue())
+diff --git a/sgemm.cu b/sgemm.cu
+index 52aec1d..e2bdbc3 100644
+--- a/sgemm.cu
++++ b/sgemm.cu
+@@ -17,6 +17,8 @@
+ #include <ctime>
+ #include <fstream>
+ #include <iostream>
++#include <string>
++#include <limits>
+ #include <runner.cuh>
+ #include <vector>
+ 
+@@ -287,7 +289,7 @@ int main(int argc, char **argv) {
+         for (long i = 0; i < m * n; ++i) {
+           const double diff = std::fabs(static_cast<double>(C_ref[i]) - C[i]);
+           if (!std::isfinite(diff)) {
+-            maxAbsDiff = INFINITY;
++            maxAbsDiff = std::numeric_limits<double>::infinity();
+             ++overThreshold;
+           } else {
+             maxAbsDiff = std::max(maxAbsDiff, diff);
+@@ -340,7 +342,8 @@ int main(int argc, char **argv) {
+     }
+ 
+     // 按 GEMM 主体的乘+加计数：约 2*M*N*K FLOPs；不是字节数。
+-    long flops = 2 * m * n * k;
++    // Windows LLP64 的 long 只有 32 位；1024³ 起即溢出，必须先提升乘法。
++    const double flops = 2.0 * m * n * k;
+     printf(
+         "Average elapsed time: (%7.6f) s, performance: (%7.1f) GFLOPS. size: "
+         "(%ld).\n",
+diff --git a/simplest_kernel.cu b/simplest_kernel.cu
+index 1c7be43..446b2d4 100644
+--- a/simplest_kernel.cu
++++ b/simplest_kernel.cu
+@@ -10,6 +10,8 @@
+ #include <iostream>
+ #include <vector>
+ 
++using uint = unsigned int;
++
+ // 【学习补充】阅读 GEMM 前的索引练习：16 个一维线程铺成 4×4 输出。
+ // x=tid/4 是行号，y=tid%4 是列号；row 参数在地址公式中实际充当行跨度。
+ // 这个例子硬编码了 4，不能只改 SIZE 就当成任意尺寸版本。
+diff --git a/src/kernels/10_kernel_warptiling.cuh b/src/kernels/10_kernel_warptiling.cuh
+index 3de5d0e..c04a978 100644
+--- a/src/kernels/10_kernel_warptiling.cuh
++++ b/src/kernels/10_kernel_warptiling.cuh
+@@ -19,6 +19,11 @@
+ #include <cublas_v2.h>
+ #include <cuda_runtime.h>
+ 
++#ifdef _WIN32
++// Linux 系统头间接提供的 uint 不是标准 C++ 类型；MSVC 显式补同义类型。
++using uint = unsigned int;
++#endif
++
+ #define CEIL_DIV(M, N) (((M) + (N)-1) / (N))
+ const int WARPSIZE = 32; // 内建 warpSize 不是 constexpr，这里供编译期公式使用。
+ 
+diff --git a/src/runner.cu b/src/runner.cu
+index 9ea6b42..9f63e25 100644
+--- a/src/runner.cu
++++ b/src/runner.cu
+@@ -16,6 +16,7 @@
+ #include <cstdio>
+ #include <fstream>
+ #include <iomanip>
++#include <chrono>
+ 
+ // 【学习补充】本文件是“主机调用”和“GPU kernel”之间的桥梁。
+ // 阅读顺序：末尾 run_kernel 的编号分发 → 对应 runSgemm... → 目标 kernel。
+@@ -24,9 +25,16 @@
+ 
+ // 返回微秒量级的主机时间；不要因函数名含 sec 就直接按秒使用。
+ float get_current_sec() {
++#ifdef _WIN32
++  // 仅供 CPU helper 使用，保留微秒单位；GEMM 仍使用 CUDA events。
++  static const auto origin = std::chrono::steady_clock::now();
++  return std::chrono::duration<float, std::micro>(
++             std::chrono::steady_clock::now() - origin).count();
++#else
+   struct timeval time;
+   gettimeofday(&time, NULL);
+   return (1e6 * time.tv_sec + time.tv_usec);
++#endif
+ }
+ 
+ float cpu_elapsed_time(float &beg, float &end) { return 1.0e-6 * (end - beg); }
+@@ -106,9 +114,15 @@ void randomize_matrix(float *mat, int N) {
+     }
+     srand(static_cast<unsigned>(seed) + 0x9e3779b9U * callIndex++);
+   } else {
++#ifdef _WIN32
++    const auto ticks = std::chrono::system_clock::now().time_since_epoch();
++    srand(static_cast<unsigned>(
++        std::chrono::duration_cast<std::chrono::microseconds>(ticks).count()));
++#else
+     struct timeval time {};
+     gettimeofday(&time, nullptr);
+     srand(time.tv_usec);
++#endif
+   }
+   for (int i = 0; i < N; i++) {
+     float tmp = (float)(rand() % 5) + 0.01 * (rand() % 5);
+@@ -261,7 +275,7 @@ void runSgemm2DBlocktiling(int M, int N, int K, float alpha, float *A, float *B,
+   const uint BK = 8;
+   const uint TM = 8;
+   const uint TN = 8;
+-  if (M >= 128 and N >= 128) {
++  if (M >= 128 && N >= 128) {
+     const uint BM = 128;
+     const uint BN = 128;
+     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
+@@ -285,7 +299,7 @@ void runSgemmVectorize(int M, int N, int K, float alpha, float *A, float *B,
+   const uint BK = 8;
+   const uint TM = 8;
+   const uint TN = 8;
+-  if (M >= 128 and N >= 128) {
++  if (M >= 128 && N >= 128) {
+     const uint BM = 128;
+     const uint BN = 128;
+     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
+@@ -309,7 +323,7 @@ void runSgemmResolveBankConflicts(int M, int N, int K, float alpha, float *A,
+   const uint BK = 8;
+   const uint TM = 8;
+   const uint TN = 8;
+-  if (M >= 128 and N >= 128) {
++  if (M >= 128 && N >= 128) {
+     const uint BM = 128;
+     const uint BN = 128;
+     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
+@@ -333,7 +347,7 @@ void runSgemmResolveBankExtraCol(int M, int N, int K, float alpha, float *A,
+   const uint BK = 8;
+   const uint TM = 8;
+   const uint TN = 8;
+-  if (M >= 128 and N >= 128) {
++  if (M >= 128 && N >= 128) {
+     const uint BM = 128;
+     const uint BN = 128;
+     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
+@@ -461,7 +475,7 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
+   constexpr uint NUM_WARPS = K10_NUM_THREADS / 32;
+ 
+   // warp tile 必须恰好铺满 block tile；这里 4 个 warp 覆盖 2×2 个区域。
+-  static_assert((K10_BN % K10_WN == 0) and (K10_BM % K10_WM == 0));
++  static_assert((K10_BN % K10_WN == 0) && (K10_BM % K10_WM == 0));
+   static_assert((K10_BN / K10_WN) * (K10_BM / K10_WM) == NUM_WARPS);
+ 
+   // warp 子块中的线程覆盖关系。
+@@ -470,7 +484,7 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
+   constexpr uint K10_WMITER =
+       (K10_WM * K10_WN) / (32 * K10_TM * K10_TN * K10_WNITER);
+   // 子块必须整除 warp tile；当前参数推导 WMITER=1。
+-  static_assert((K10_WM % K10_WMITER == 0) and (K10_WN % K10_WNITER == 0));
++  static_assert((K10_WM % K10_WMITER == 0) && (K10_WN % K10_WNITER == 0));
+ 
+   // 搬运与向量化的整除约束；原字符串中的 K9/256 文案未更名。
+   static_assert((K10_NUM_THREADS * 4) % K10_BK == 0,
+@@ -519,12 +533,12 @@ void runSgemmWarptilingGrouped(int M, int N, int K, float alpha, float *A,
+   static_assert(GROUP_M > 0);
+   constexpr uint NUM_WARPS = NUM_THREADS / WARPSIZE;
+   static_assert(NUM_THREADS % WARPSIZE == 0);
+-  static_assert((BN % WN == 0) and (BM % WM == 0));
++  static_assert((BN % WN == 0) && (BM % WM == 0));
+   static_assert((BN / WN) * (BM / WM) == NUM_WARPS);
+   static_assert((WM * WN) % (WARPSIZE * TM * TN * WNITER) == 0);
+   constexpr uint WMITER =
+       (WM * WN) / (WARPSIZE * TM * TN * WNITER);
+-  static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
++  static_assert((WM % WMITER == 0) && (WN % WNITER == 0));
+   static_assert((NUM_THREADS * 4) % BK == 0);
+   static_assert((NUM_THREADS * 4) % BN == 0);
+   static_assert(BN % (16 * TN) == 0);
+@@ -563,12 +577,12 @@ void runSgemmWarptilingASwizzle(int M, int N, int K, float alpha, float *A,
+         "float4-aligned N/K");
+   }
+   static_assert(NUM_THREADS % WARPSIZE == 0);
+-  static_assert((BN % WN == 0) and (BM % WM == 0));
++  static_assert((BN % WN == 0) && (BM % WM == 0));
+   static_assert((BN / WN) * (BM / WM) == NUM_THREADS / WARPSIZE);
+   static_assert((WM * WN) % (WARPSIZE * TM * TN * WNITER) == 0);
+   constexpr uint WMITER =
+       (WM * WN) / (WARPSIZE * TM * TN * WNITER);
+-  static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
++  static_assert((WM % WMITER == 0) && (WN % WNITER == 0));
+   static_assert((NUM_THREADS * 4) % BK == 0);
+   static_assert((NUM_THREADS * 4) % BN == 0);
+   static_assert(BN % (16 * TN) == 0);
+@@ -603,12 +617,12 @@ void runSgemmWarptilingBAsync(int M, int N, int K, float alpha, float *A,
+         "float4-aligned N/K");
+   }
+   static_assert(NUM_THREADS % WARPSIZE == 0);
+-  static_assert((BN % WN == 0) and (BM % WM == 0));
++  static_assert((BN % WN == 0) && (BM % WM == 0));
+   static_assert((BN / WN) * (BM / WM) == NUM_THREADS / WARPSIZE);
+   static_assert((WM * WN) % (WARPSIZE * TM * TN * WNITER) == 0);
+   constexpr uint WMITER =
+       (WM * WN) / (WARPSIZE * TM * TN * WNITER);
+-  static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
++  static_assert((WM % WMITER == 0) && (WN % WNITER == 0));
+   static_assert((NUM_THREADS * 4) % BK == 0);
+   static_assert((NUM_THREADS * 4) % BN == 0);
+   static_assert(BN % (16 * TN) == 0);
+@@ -895,7 +909,7 @@ void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
+   constexpr uint NUM_WARPS = K11_NUM_THREADS / 32;
+ 
+   // warp tile 在 block tile 内的完整覆盖。
+-  static_assert((K11_BN % K11_WN == 0) and (K11_BM % K11_WM == 0));
++  static_assert((K11_BN % K11_WN == 0) && (K11_BM % K11_WM == 0));
+   static_assert((K11_BN / K11_WN) * (K11_BM / K11_WM) == NUM_WARPS);
+ 
+   // warp 子块的线程覆盖关系。
+@@ -904,7 +918,7 @@ void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
+   constexpr uint K11_WMITER =
+       (K11_WM * K11_WN) / (32 * K11_TM * K11_TN * K11_WNITER);
+   // warp 子块必须整除 warp tile。
+-  static_assert((K11_WM % K11_WMITER == 0) and (K11_WN % K11_WNITER == 0));
++  static_assert((K11_WM % K11_WMITER == 0) && (K11_WN % K11_WNITER == 0));
+ 
+   // Kernel 11 用半个 block 合作加载，所以搬运约束中的线程数也除以 2。
+   static_assert((K11_NUM_THREADS / 2 * 4) % K11_BK == 0,
+@@ -947,7 +961,7 @@ void runSgemmDoubleBuffering2(int M, int N, int K, float alpha, float *A,
+   constexpr uint NUM_WARPS = K12_NUM_THREADS / 32;
+ 
+   // warp tile 恰好铺满 block tile。
+-  static_assert((K12_BN % K12_WN == 0) and (K12_BM % K12_WM == 0));
++  static_assert((K12_BN % K12_WN == 0) && (K12_BM % K12_WM == 0));
+   static_assert((K12_BN / K12_WN) * (K12_BM / K12_WM) == NUM_WARPS);
+ 
+   // 线程、warp 子块、warp tile 三层覆盖关系。
+@@ -956,7 +970,7 @@ void runSgemmDoubleBuffering2(int M, int N, int K, float alpha, float *A,
+   constexpr uint K12_WMITER =
+       (K12_WM * K12_WN) / (32 * K12_TM * K12_TN * K12_WNITER);
+   // 子块必须整除整个 warp tile。
+-  static_assert((K12_WM % K12_WMITER == 0) and (K12_WN % K12_WNITER == 0));
++  static_assert((K12_WM % K12_WMITER == 0) && (K12_WN % K12_WNITER == 0));
+ 
+   // 全 block 向量搬运的覆盖条件；这些编译期断言不替代运行时矩阵边界检查。
+   static_assert((K12_NUM_THREADS * 4) % K12_BK == 0,
+diff --git a/src/runner.cuh b/src/runner.cuh
+index 395045c..3db89ce 100644
+--- a/src/runner.cuh
++++ b/src/runner.cuh
+@@ -12,9 +12,11 @@
+ #include <fstream>
+ #include <stdio.h>
+ #include <stdlib.h>
+-#include <sys/time.h>
+ #include <time.h>
++#ifndef _WIN32
++#include <sys/time.h>
+ #include <unistd.h>
++#endif
+ 
+ // 主机端辅助接口：设备错误、矩阵初始化/校验以及 kernel 编号分发。
+ void cudaCheck(cudaError_t error, const char *file,

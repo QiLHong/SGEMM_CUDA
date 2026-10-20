@@ -1,0 +1,567 @@
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\cuda_smoke.exe 
+GPU=NVIDIA GeForce RTX 4090 D compute=8.9 VRAM_MiB=24563
+CUDA_SMOKE PASS (257 integer outputs)
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 128 0 1 1
+RESULT,v1,128,0,0.017408000,240.941,5.34057617e-05,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 128 0 1 1
+RESULT,v2,128,0,0.015360000,273.067,5.34057617e-05,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 128 0 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-128-beta0.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=128,alpha=0.5,beta=0,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12350557075175389799,b=18164722883612022857,c0=12782700796385326220
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=16384,max_abs=2.18214258e-05,max_rel=0.0027967805,failures=0,nonfinite=0
+CHECK,k10,n=128,beta=0,max_abs=5.34057617e-05,max_rel=0.00717501407,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=128,beta=0,max_abs=5.34057617e-05,max_rel=0.00717501407,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=128,beta=0,max_abs=5.34057617e-05,max_rel=0.00717501407,failures=0,nonfinite=0,PASS
+CHECK,strict,n=128,beta=0,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=128,beta=0,round=1,order=1,mean_ms=0.034816001,median_sample_ms=0.034816001,gflops=120.471,max_abs=5.34057617e-05,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=128,beta=0,round=1,order=2,mean_ms=0.017408000,median_sample_ms=0.017408000,gflops=240.941,max_abs=5.34057617e-05,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=128,beta=0,round=1,order=3,mean_ms=0.031711999,median_sample_ms=0.031711999,gflops=132.262,max_abs=5.34057617e-05,failures=0,nonfinite=0,PASS
+ROUND,strict,n=128,beta=0,round=1,order=4,mean_ms=0.010112000,median_sample_ms=0.010112000,gflops=414.785,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=128,beta=0,rounds=1,median_round_ms=0.034816001,min_round_ms=0.034816001,max_round_ms=0.034816001,range_over_median_pct=0.0000,median_gflops=120.471,PASS
+SUMMARY,k30_v1,n=128,beta=0,rounds=1,median_round_ms=0.017408000,min_round_ms=0.017408000,max_round_ms=0.017408000,range_over_median_pct=0.0000,median_gflops=240.941,PASS
+SUMMARY,k30_v2,n=128,beta=0,rounds=1,median_round_ms=0.031711999,min_round_ms=0.031711999,max_round_ms=0.031711999,range_over_median_pct=0.0000,median_gflops=132.262,PASS
+SUMMARY,strict,n=128,beta=0,rounds=1,median_round_ms=0.010112000,min_round_ms=0.010112000,max_round_ms=0.010112000,range_over_median_pct=0.0000,median_gflops=414.785,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 256 0 1 1
+RESULT,v1,256,0,0.030688001,1093.406,0.00016784668,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 256 0 1 1
+RESULT,v2,256,0,0.027648000,1213.630,0.00016784668,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 256 0 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-256-beta0.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=256,alpha=0.5,beta=0,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=470815371941295652,b=8685906150660230495,c0=11266788275463928338
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=1.54983055e-05,max_rel=4.05069772e-05,failures=0,nonfinite=0
+CHECK,k10,n=256,beta=0,max_abs=0.000106811523,max_rel=0.0145942591,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=256,beta=0,max_abs=0.000106811523,max_rel=0.0145942591,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=256,beta=0,max_abs=0.000106811523,max_rel=0.0145942591,failures=0,nonfinite=0,PASS
+CHECK,strict,n=256,beta=0,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=256,beta=0,round=1,order=1,mean_ms=0.034816001,median_sample_ms=0.034816001,gflops=963.765,max_abs=0.000106811523,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=256,beta=0,round=1,order=2,mean_ms=0.029696001,median_sample_ms=0.029696001,gflops=1129.931,max_abs=0.000106811523,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=256,beta=0,round=1,order=3,mean_ms=0.026720000,median_sample_ms=0.026720000,gflops=1255.780,max_abs=0.000106811523,failures=0,nonfinite=0,PASS
+ROUND,strict,n=256,beta=0,round=1,order=4,mean_ms=0.024576001,median_sample_ms=0.024576001,gflops=1365.333,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=256,beta=0,rounds=1,median_round_ms=0.034816001,min_round_ms=0.034816001,max_round_ms=0.034816001,range_over_median_pct=0.0000,median_gflops=963.765,PASS
+SUMMARY,k30_v1,n=256,beta=0,rounds=1,median_round_ms=0.029696001,min_round_ms=0.029696001,max_round_ms=0.029696001,range_over_median_pct=0.0000,median_gflops=1129.931,PASS
+SUMMARY,k30_v2,n=256,beta=0,rounds=1,median_round_ms=0.026720000,min_round_ms=0.026720000,max_round_ms=0.026720000,range_over_median_pct=0.0000,median_gflops=1255.780,PASS
+SUMMARY,strict,n=256,beta=0,rounds=1,median_round_ms=0.024576001,min_round_ms=0.024576001,max_round_ms=0.024576001,range_over_median_pct=0.0000,median_gflops=1365.333,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 512 0 1 1
+RESULT,v1,512,0,0.054272000,4946.113,0.000274658203,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 512 0 1 1
+RESULT,v2,512,0,0.053247999,5041.231,0.000274658203,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 512 0 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-512-beta0.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=512,alpha=0.5,beta=0,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12275386947047665050,b=5793751590765184589,c0=6406734303292954227
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=4.44640763e-05,max_rel=0.000122621994,failures=0,nonfinite=0
+CHECK,k10,n=512,beta=0,max_abs=0.00032043457,max_rel=0.0325370621,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=512,beta=0,max_abs=0.00032043457,max_rel=0.0325370621,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=512,beta=0,max_abs=0.00032043457,max_rel=0.0325370621,failures=0,nonfinite=0,PASS
+CHECK,strict,n=512,beta=0,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=512,beta=0,round=1,order=1,mean_ms=0.056320000,median_sample_ms=0.056320000,gflops=4766.255,max_abs=0.00032043457,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=512,beta=0,round=1,order=2,mean_ms=0.055296000,median_sample_ms=0.055296000,gflops=4854.519,max_abs=0.00032043457,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=512,beta=0,round=1,order=3,mean_ms=0.050175998,median_sample_ms=0.050175998,gflops=5349.878,max_abs=0.00032043457,failures=0,nonfinite=0,PASS
+ROUND,strict,n=512,beta=0,round=1,order=4,mean_ms=0.017408000,median_sample_ms=0.017408000,gflops=15420.235,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=512,beta=0,rounds=1,median_round_ms=0.056320000,min_round_ms=0.056320000,max_round_ms=0.056320000,range_over_median_pct=0.0000,median_gflops=4766.255,PASS
+SUMMARY,k30_v1,n=512,beta=0,rounds=1,median_round_ms=0.055296000,min_round_ms=0.055296000,max_round_ms=0.055296000,range_over_median_pct=0.0000,median_gflops=4854.519,PASS
+SUMMARY,k30_v2,n=512,beta=0,rounds=1,median_round_ms=0.050175998,min_round_ms=0.050175998,max_round_ms=0.050175998,range_over_median_pct=0.0000,median_gflops=5349.878,PASS
+SUMMARY,strict,n=512,beta=0,rounds=1,median_round_ms=0.017408000,min_round_ms=0.017408000,max_round_ms=0.017408000,range_over_median_pct=0.0000,median_gflops=15420.235,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 1024 0 1 1
+RESULT,v1,1024,0,0.106495999,20164.923,0.000610351562,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 1024 0 1 1
+RESULT,v2,1024,0,0.099327996,21620.125,0.000610351562,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 1024 0 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-1024-beta0.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=1024,alpha=0.5,beta=0,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=7.64100859e-05,max_rel=6.10164814e-05,failures=0,nonfinite=0
+CHECK,k10,n=1024,beta=0,max_abs=0.00065612793,max_rel=0.0690038144,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=1024,beta=0,max_abs=0.00065612793,max_rel=0.0690038144,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=1024,beta=0,max_abs=0.00065612793,max_rel=0.0690038144,failures=0,nonfinite=0,PASS
+CHECK,strict,n=1024,beta=0,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=0,round=1,order=1,mean_ms=0.108543999,median_sample_ms=0.108543999,gflops=19784.453,max_abs=0.00065612793,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=0,round=1,order=2,mean_ms=0.105471998,median_sample_ms=0.105471998,gflops=20360.699,max_abs=0.00065612793,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=0,round=1,order=3,mean_ms=0.097280003,median_sample_ms=0.097280003,gflops=22075.284,max_abs=0.00065612793,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=0,round=1,order=4,mean_ms=0.071680002,median_sample_ms=0.071680002,gflops=29959.313,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=1024,beta=0,rounds=1,median_round_ms=0.108543999,min_round_ms=0.108543999,max_round_ms=0.108543999,range_over_median_pct=0.0000,median_gflops=19784.453,PASS
+SUMMARY,k30_v1,n=1024,beta=0,rounds=1,median_round_ms=0.105471998,min_round_ms=0.105471998,max_round_ms=0.105471998,range_over_median_pct=0.0000,median_gflops=20360.699,PASS
+SUMMARY,k30_v2,n=1024,beta=0,rounds=1,median_round_ms=0.097280003,min_round_ms=0.097280003,max_round_ms=0.097280003,range_over_median_pct=0.0000,median_gflops=22075.284,PASS
+SUMMARY,strict,n=1024,beta=0,rounds=1,median_round_ms=0.071680002,min_round_ms=0.071680002,max_round_ms=0.071680002,range_over_median_pct=0.0000,median_gflops=29959.313,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 2048 0 1 1
+RESULT,v1,2048,0,0.617376029,27827.237,0.00146484375,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 2048 0 1 1
+RESULT,v2,2048,0,0.547519982,31377.611,0.00146484375,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 2048 0 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-2048-beta0.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=2048,alpha=0.5,beta=0,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=0.000194080165,max_rel=0.000274166981,failures=0,nonfinite=0
+CHECK,k10,n=2048,beta=0,max_abs=0.00170898438,max_rel=2.125,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=2048,beta=0,max_abs=0.00170898438,max_rel=2.125,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=2048,beta=0,max_abs=0.00170898438,max_rel=2.125,failures=0,nonfinite=0,PASS
+CHECK,strict,n=2048,beta=0,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=0,round=1,order=1,mean_ms=0.584703982,median_sample_ms=0.584703982,gflops=29382.166,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=0,round=1,order=2,mean_ms=0.612352014,median_sample_ms=0.612352014,gflops=28055.545,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=0,round=1,order=3,mean_ms=0.545791984,median_sample_ms=0.545791984,gflops=31476.954,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=0,round=1,order=4,mean_ms=0.384000003,median_sample_ms=0.384000003,gflops=44739.242,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=2048,beta=0,rounds=1,median_round_ms=0.584703982,min_round_ms=0.584703982,max_round_ms=0.584703982,range_over_median_pct=0.0000,median_gflops=29382.166,PASS
+SUMMARY,k30_v1,n=2048,beta=0,rounds=1,median_round_ms=0.612352014,min_round_ms=0.612352014,max_round_ms=0.612352014,range_over_median_pct=0.0000,median_gflops=28055.545,PASS
+SUMMARY,k30_v2,n=2048,beta=0,rounds=1,median_round_ms=0.545791984,min_round_ms=0.545791984,max_round_ms=0.545791984,range_over_median_pct=0.0000,median_gflops=31476.954,PASS
+SUMMARY,strict,n=2048,beta=0,rounds=1,median_round_ms=0.384000003,min_round_ms=0.384000003,max_round_ms=0.384000003,range_over_median_pct=0.0000,median_gflops=44739.242,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 4096 0 1 1
+RESULT,v1,4096,0,3.314687967,41463.617,0,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 4096 0 1 1
+RESULT,v2,4096,0,2.951168060,46571.036,0,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 4096 0 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-4096-beta0.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=4096,alpha=0.5,beta=0,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=0.000916325856,max_rel=0.000253345356,failures=0,nonfinite=0
+CHECK,k10,n=4096,beta=0,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=4096,beta=0,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=4096,beta=0,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,strict,n=4096,beta=0,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=0,round=1,order=1,mean_ms=2.921472073,median_sample_ms=2.921472073,gflops=47044.418,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=0,round=1,order=2,mean_ms=3.322880030,median_sample_ms=3.322880030,gflops=41361.395,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=0,round=1,order=3,mean_ms=2.808831930,median_sample_ms=2.808831930,gflops=48930.999,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=0,round=1,order=4,mean_ms=2.767872095,median_sample_ms=2.767872095,gflops=49655.096,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=4096,beta=0,rounds=1,median_round_ms=2.921472073,min_round_ms=2.921472073,max_round_ms=2.921472073,range_over_median_pct=0.0000,median_gflops=47044.418,PASS
+SUMMARY,k30_v1,n=4096,beta=0,rounds=1,median_round_ms=3.322880030,min_round_ms=3.322880030,max_round_ms=3.322880030,range_over_median_pct=0.0000,median_gflops=41361.395,PASS
+SUMMARY,k30_v2,n=4096,beta=0,rounds=1,median_round_ms=2.808831930,min_round_ms=2.808831930,max_round_ms=2.808831930,range_over_median_pct=0.0000,median_gflops=48930.999,PASS
+SUMMARY,strict,n=4096,beta=0,rounds=1,median_round_ms=2.767872095,min_round_ms=2.767872095,max_round_ms=2.767872095,range_over_median_pct=0.0000,median_gflops=49655.096,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 128 1 1 1
+RESULT,v1,128,1,0.019487999,215.225,5.34057617e-05,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 128 1 1 1
+RESULT,v2,128,1,0.018432001,227.556,5.34057617e-05,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 128 1 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-128-beta1.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=128,alpha=0.5,beta=1,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12350557075175389799,b=18164722883612022857,c0=12782700796385326220
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=16384,max_abs=2.08677515e-05,max_rel=0.000876607293,failures=0,nonfinite=0
+CHECK,k10,n=128,beta=1,max_abs=5.34057617e-05,max_rel=0.00215104957,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=128,beta=1,max_abs=5.34057617e-05,max_rel=0.00215104957,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=128,beta=1,max_abs=5.34057617e-05,max_rel=0.00215104957,failures=0,nonfinite=0,PASS
+CHECK,strict,n=128,beta=1,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=128,beta=1,round=1,order=1,mean_ms=0.020479999,median_sample_ms=0.020479999,gflops=204.800,max_abs=5.34057617e-05,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=128,beta=1,round=1,order=2,mean_ms=0.019455999,median_sample_ms=0.019455999,gflops=215.579,max_abs=5.34057617e-05,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=128,beta=1,round=1,order=3,mean_ms=0.018432001,median_sample_ms=0.018432001,gflops=227.556,max_abs=5.34057617e-05,failures=0,nonfinite=0,PASS
+ROUND,strict,n=128,beta=1,round=1,order=4,mean_ms=0.009216000,median_sample_ms=0.009216000,gflops=455.111,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=128,beta=1,rounds=1,median_round_ms=0.020479999,min_round_ms=0.020479999,max_round_ms=0.020479999,range_over_median_pct=0.0000,median_gflops=204.800,PASS
+SUMMARY,k30_v1,n=128,beta=1,rounds=1,median_round_ms=0.019455999,min_round_ms=0.019455999,max_round_ms=0.019455999,range_over_median_pct=0.0000,median_gflops=215.579,PASS
+SUMMARY,k30_v2,n=128,beta=1,rounds=1,median_round_ms=0.018432001,min_round_ms=0.018432001,max_round_ms=0.018432001,range_over_median_pct=0.0000,median_gflops=227.556,PASS
+SUMMARY,strict,n=128,beta=1,rounds=1,median_round_ms=0.009216000,min_round_ms=0.009216000,max_round_ms=0.009216000,range_over_median_pct=0.0000,median_gflops=455.111,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 256 1 1 1
+RESULT,v1,256,1,0.032768000,1024.000,0.00016784668,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 256 1 1 1
+RESULT,v2,256,1,0.029696001,1129.931,0.00016784668,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 256 1 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-256-beta1.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=256,alpha=0.5,beta=1,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=470815371941295652,b=8685906150660230495,c0=11266788275463928338
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=1.59751426e-05,max_rel=9.31292855e-05,failures=0,nonfinite=0
+CHECK,k10,n=256,beta=1,max_abs=0.000106811523,max_rel=0.0145942591,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=256,beta=1,max_abs=0.000106811523,max_rel=0.0145942591,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=256,beta=1,max_abs=0.000106811523,max_rel=0.0145942591,failures=0,nonfinite=0,PASS
+CHECK,strict,n=256,beta=1,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=256,beta=1,round=1,order=1,mean_ms=0.035840001,median_sample_ms=0.035840001,gflops=936.229,max_abs=0.000106811523,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=256,beta=1,round=1,order=2,mean_ms=0.032768000,median_sample_ms=0.032768000,gflops=1024.000,max_abs=0.000106811523,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=256,beta=1,round=1,order=3,mean_ms=0.029696001,median_sample_ms=0.029696001,gflops=1129.931,max_abs=0.000106811523,failures=0,nonfinite=0,PASS
+ROUND,strict,n=256,beta=1,round=1,order=4,mean_ms=0.012288000,median_sample_ms=0.012288000,gflops=2730.667,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=256,beta=1,rounds=1,median_round_ms=0.035840001,min_round_ms=0.035840001,max_round_ms=0.035840001,range_over_median_pct=0.0000,median_gflops=936.229,PASS
+SUMMARY,k30_v1,n=256,beta=1,rounds=1,median_round_ms=0.032768000,min_round_ms=0.032768000,max_round_ms=0.032768000,range_over_median_pct=0.0000,median_gflops=1024.000,PASS
+SUMMARY,k30_v2,n=256,beta=1,rounds=1,median_round_ms=0.029696001,min_round_ms=0.029696001,max_round_ms=0.029696001,range_over_median_pct=0.0000,median_gflops=1129.931,PASS
+SUMMARY,strict,n=256,beta=1,rounds=1,median_round_ms=0.012288000,min_round_ms=0.012288000,max_round_ms=0.012288000,range_over_median_pct=0.0000,median_gflops=2730.667,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 512 1 1 1
+RESULT,v1,512,1,0.060128000,4464.400,0.000274658203,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 512 1 1 1
+RESULT,v2,512,1,0.055296000,4854.519,0.000274658203,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 512 1 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-512-beta1.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=512,alpha=0.5,beta=1,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12275386947047665050,b=5793751590765184589,c0=6406734303292954227
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=4.44640763e-05,max_rel=0.000100857087,failures=0,nonfinite=0
+CHECK,k10,n=512,beta=1,max_abs=0.00032043457,max_rel=0.108045213,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=512,beta=1,max_abs=0.00032043457,max_rel=0.108045213,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=512,beta=1,max_abs=0.00032043457,max_rel=0.108045213,failures=0,nonfinite=0,PASS
+CHECK,strict,n=512,beta=1,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=512,beta=1,round=1,order=1,mean_ms=0.059392001,median_sample_ms=0.059392001,gflops=4519.724,max_abs=0.00032043457,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=512,beta=1,round=1,order=2,mean_ms=0.059392001,median_sample_ms=0.059392001,gflops=4519.724,max_abs=0.00032043457,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=512,beta=1,round=1,order=3,mean_ms=0.055296000,median_sample_ms=0.055296000,gflops=4854.519,max_abs=0.00032043457,failures=0,nonfinite=0,PASS
+ROUND,strict,n=512,beta=1,round=1,order=4,mean_ms=0.032768000,median_sample_ms=0.032768000,gflops=8192.000,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=512,beta=1,rounds=1,median_round_ms=0.059392001,min_round_ms=0.059392001,max_round_ms=0.059392001,range_over_median_pct=0.0000,median_gflops=4519.724,PASS
+SUMMARY,k30_v1,n=512,beta=1,rounds=1,median_round_ms=0.059392001,min_round_ms=0.059392001,max_round_ms=0.059392001,range_over_median_pct=0.0000,median_gflops=4519.724,PASS
+SUMMARY,k30_v2,n=512,beta=1,rounds=1,median_round_ms=0.055296000,min_round_ms=0.055296000,max_round_ms=0.055296000,range_over_median_pct=0.0000,median_gflops=4854.519,PASS
+SUMMARY,strict,n=512,beta=1,rounds=1,median_round_ms=0.032768000,min_round_ms=0.032768000,max_round_ms=0.032768000,range_over_median_pct=0.0000,median_gflops=8192.000,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 1024 1 1 1
+RESULT,v1,1024,1,0.109568000,19599.551,0.000610351562,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 1024 1 1 1
+RESULT,v2,1024,1,0.100064002,21461.101,0.000610351562,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 1024 1 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-1024-beta1.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=1024,alpha=0.5,beta=1,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=7.64100859e-05,max_rel=4.19557167e-05,failures=0,nonfinite=0
+CHECK,k10,n=1024,beta=1,max_abs=0.000671386719,max_rel=0.0817535545,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=1024,beta=1,max_abs=0.000671386719,max_rel=0.0817535545,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=1024,beta=1,max_abs=0.000671386719,max_rel=0.0817535545,failures=0,nonfinite=0,PASS
+CHECK,strict,n=1024,beta=1,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=1,round=1,order=1,mean_ms=0.108383998,median_sample_ms=0.108383998,gflops=19813.660,max_abs=0.000671386719,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=1,round=1,order=2,mean_ms=0.108543999,median_sample_ms=0.108543999,gflops=19784.453,max_abs=0.000671386719,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=1,round=1,order=3,mean_ms=0.101375997,median_sample_ms=0.101375997,gflops=21183.354,max_abs=0.000671386719,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=1,round=1,order=4,mean_ms=0.084991999,median_sample_ms=0.084991999,gflops=25266.892,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=1024,beta=1,rounds=1,median_round_ms=0.108383998,min_round_ms=0.108383998,max_round_ms=0.108383998,range_over_median_pct=0.0000,median_gflops=19813.660,PASS
+SUMMARY,k30_v1,n=1024,beta=1,rounds=1,median_round_ms=0.108543999,min_round_ms=0.108543999,max_round_ms=0.108543999,range_over_median_pct=0.0000,median_gflops=19784.453,PASS
+SUMMARY,k30_v2,n=1024,beta=1,rounds=1,median_round_ms=0.101375997,min_round_ms=0.101375997,max_round_ms=0.101375997,range_over_median_pct=0.0000,median_gflops=21183.354,PASS
+SUMMARY,strict,n=1024,beta=1,rounds=1,median_round_ms=0.084991999,min_round_ms=0.084991999,max_round_ms=0.084991999,range_over_median_pct=0.0000,median_gflops=25266.892,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 2048 1 1 1
+RESULT,v1,2048,1,0.621568024,27639.564,0.00146484375,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 2048 1 1 1
+RESULT,v2,2048,1,0.551935971,31126.562,0.00146484375,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 2048 1 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-2048-beta1.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=2048,alpha=0.5,beta=1,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=0.000194768929,max_rel=4.48816077e-05,failures=0,nonfinite=0
+CHECK,k10,n=2048,beta=1,max_abs=0.00170898438,max_rel=1.23214286,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=2048,beta=1,max_abs=0.00170898438,max_rel=1.23214286,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=2048,beta=1,max_abs=0.00170898438,max_rel=1.23214286,failures=0,nonfinite=0,PASS
+CHECK,strict,n=2048,beta=1,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=1,round=1,order=1,mean_ms=0.583679974,median_sample_ms=0.583679974,gflops=29433.714,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=1,round=1,order=2,mean_ms=0.621568024,median_sample_ms=0.621568024,gflops=27639.564,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=1,round=1,order=3,mean_ms=0.551935971,median_sample_ms=0.551935971,gflops=31126.562,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=1,round=1,order=4,mean_ms=0.386112005,median_sample_ms=0.386112005,gflops=44494.522,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=2048,beta=1,rounds=1,median_round_ms=0.583679974,min_round_ms=0.583679974,max_round_ms=0.583679974,range_over_median_pct=0.0000,median_gflops=29433.714,PASS
+SUMMARY,k30_v1,n=2048,beta=1,rounds=1,median_round_ms=0.621568024,min_round_ms=0.621568024,max_round_ms=0.621568024,range_over_median_pct=0.0000,median_gflops=27639.564,PASS
+SUMMARY,k30_v2,n=2048,beta=1,rounds=1,median_round_ms=0.551935971,min_round_ms=0.551935971,max_round_ms=0.551935971,range_over_median_pct=0.0000,median_gflops=31126.562,PASS
+SUMMARY,strict,n=2048,beta=1,rounds=1,median_round_ms=0.386112005,min_round_ms=0.386112005,max_round_ms=0.386112005,range_over_median_pct=0.0000,median_gflops=44494.522,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 4096 1 1 1
+RESULT,v1,4096,1,3.633055925,37830.123,0,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 4096 1 1 1
+RESULT,v2,4096,1,2.818048000,48770.977,0,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 4096 1 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-4096-beta1.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=4096,alpha=0.5,beta=1,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=0.000906789113,max_rel=0.000251116346,failures=0,nonfinite=0
+CHECK,k10,n=4096,beta=1,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=4096,beta=1,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=4096,beta=1,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,strict,n=4096,beta=1,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=1,round=1,order=1,mean_ms=2.923520088,median_sample_ms=2.923520088,gflops=47011.462,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=1,round=1,order=2,mean_ms=3.388416052,median_sample_ms=3.388416052,gflops=40561.416,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=1,round=1,order=3,mean_ms=2.915328026,median_sample_ms=2.915328026,gflops=47143.564,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=1,round=1,order=4,mean_ms=3.460095882,median_sample_ms=3.460095882,gflops=39721.140,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=4096,beta=1,rounds=1,median_round_ms=2.923520088,min_round_ms=2.923520088,max_round_ms=2.923520088,range_over_median_pct=0.0000,median_gflops=47011.462,PASS
+SUMMARY,k30_v1,n=4096,beta=1,rounds=1,median_round_ms=3.388416052,min_round_ms=3.388416052,max_round_ms=3.388416052,range_over_median_pct=0.0000,median_gflops=40561.416,PASS
+SUMMARY,k30_v2,n=4096,beta=1,rounds=1,median_round_ms=2.915328026,min_round_ms=2.915328026,max_round_ms=2.915328026,range_over_median_pct=0.0000,median_gflops=47143.564,PASS
+SUMMARY,strict,n=4096,beta=1,rounds=1,median_round_ms=3.460095882,min_round_ms=3.460095882,max_round_ms=3.460095882,range_over_median_pct=0.0000,median_gflops=39721.140,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 128 3 1 1
+RESULT,v1,128,3,0.019455999,215.579,5.34057617e-05,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 128 3 1 1
+RESULT,v2,128,3,0.021504000,195.048,5.34057617e-05,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 128 3 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-128-beta3.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=128,alpha=0.5,beta=3,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12350557075175389799,b=18164722883612022857,c0=12782700796385326220
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=16384,max_abs=2.27751002e-05,max_rel=0.0161192607,failures=0,nonfinite=0
+CHECK,k10,n=128,beta=3,max_abs=5.34057617e-05,max_rel=0.00125711184,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=128,beta=3,max_abs=5.34057617e-05,max_rel=0.00125711184,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=128,beta=3,max_abs=5.34057617e-05,max_rel=0.00125711184,failures=0,nonfinite=0,PASS
+CHECK,strict,n=128,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=128,beta=3,round=1,order=1,mean_ms=0.020479999,median_sample_ms=0.020479999,gflops=204.800,max_abs=5.34057617e-05,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=128,beta=3,round=1,order=2,mean_ms=0.022528000,median_sample_ms=0.022528000,gflops=186.182,max_abs=5.34057617e-05,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=128,beta=3,round=1,order=3,mean_ms=0.018432001,median_sample_ms=0.018432001,gflops=227.556,max_abs=5.34057617e-05,failures=0,nonfinite=0,PASS
+ROUND,strict,n=128,beta=3,round=1,order=4,mean_ms=0.009216000,median_sample_ms=0.009216000,gflops=455.111,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=128,beta=3,rounds=1,median_round_ms=0.020479999,min_round_ms=0.020479999,max_round_ms=0.020479999,range_over_median_pct=0.0000,median_gflops=204.800,PASS
+SUMMARY,k30_v1,n=128,beta=3,rounds=1,median_round_ms=0.022528000,min_round_ms=0.022528000,max_round_ms=0.022528000,range_over_median_pct=0.0000,median_gflops=186.182,PASS
+SUMMARY,k30_v2,n=128,beta=3,rounds=1,median_round_ms=0.018432001,min_round_ms=0.018432001,max_round_ms=0.018432001,range_over_median_pct=0.0000,median_gflops=227.556,PASS
+SUMMARY,strict,n=128,beta=3,rounds=1,median_round_ms=0.009216000,min_round_ms=0.009216000,max_round_ms=0.009216000,range_over_median_pct=0.0000,median_gflops=455.111,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 256 3 1 1
+RESULT,v1,256,3,0.031744000,1057.032,0.00016784668,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 256 3 1 1
+RESULT,v2,256,3,0.029568000,1134.823,0.00016784668,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 256 3 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-256-beta3.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=256,alpha=0.5,beta=3,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=470815371941295652,b=8685906150660230495,c0=11266788275463928338
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=1.69288169e-05,max_rel=1.89501296e-05,failures=0,nonfinite=0
+CHECK,k10,n=256,beta=3,max_abs=0.000106811523,max_rel=0.0145942591,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=256,beta=3,max_abs=0.000106811523,max_rel=0.0145942591,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=256,beta=3,max_abs=0.000106811523,max_rel=0.0145942591,failures=0,nonfinite=0,PASS
+CHECK,strict,n=256,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=256,beta=3,round=1,order=1,mean_ms=0.035840001,median_sample_ms=0.035840001,gflops=936.229,max_abs=0.000106811523,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=256,beta=3,round=1,order=2,mean_ms=0.034816001,median_sample_ms=0.034816001,gflops=963.765,max_abs=0.000106811523,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=256,beta=3,round=1,order=3,mean_ms=0.029696001,median_sample_ms=0.029696001,gflops=1129.931,max_abs=0.000106811523,failures=0,nonfinite=0,PASS
+ROUND,strict,n=256,beta=3,round=1,order=4,mean_ms=0.012288000,median_sample_ms=0.012288000,gflops=2730.667,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=256,beta=3,rounds=1,median_round_ms=0.035840001,min_round_ms=0.035840001,max_round_ms=0.035840001,range_over_median_pct=0.0000,median_gflops=936.229,PASS
+SUMMARY,k30_v1,n=256,beta=3,rounds=1,median_round_ms=0.034816001,min_round_ms=0.034816001,max_round_ms=0.034816001,range_over_median_pct=0.0000,median_gflops=963.765,PASS
+SUMMARY,k30_v2,n=256,beta=3,rounds=1,median_round_ms=0.029696001,min_round_ms=0.029696001,max_round_ms=0.029696001,range_over_median_pct=0.0000,median_gflops=1129.931,PASS
+SUMMARY,strict,n=256,beta=3,rounds=1,median_round_ms=0.012288000,min_round_ms=0.012288000,max_round_ms=0.012288000,range_over_median_pct=0.0000,median_gflops=2730.667,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 512 3 1 1
+RESULT,v1,512,3,0.057280000,4686.373,0.000274658203,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 512 3 1 1
+RESULT,v2,512,3,0.053087998,5056.425,0.000274658203,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 512 3 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-512-beta3.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=512,alpha=0.5,beta=3,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12275386947047665050,b=5793751590765184589,c0=6406734303292954227
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=4.46545198e-05,max_rel=7.45120537e-05,failures=0,nonfinite=0
+CHECK,k10,n=512,beta=3,max_abs=0.00032043457,max_rel=0.111894273,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=512,beta=3,max_abs=0.00032043457,max_rel=0.111894273,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=512,beta=3,max_abs=0.00032043457,max_rel=0.111894273,failures=0,nonfinite=0,PASS
+CHECK,strict,n=512,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=512,beta=3,round=1,order=1,mean_ms=0.059103999,median_sample_ms=0.059103999,gflops=4541.748,max_abs=0.00032043457,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=512,beta=3,round=1,order=2,mean_ms=0.056320000,median_sample_ms=0.056320000,gflops=4766.255,max_abs=0.00032043457,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=512,beta=3,round=1,order=3,mean_ms=0.055296000,median_sample_ms=0.055296000,gflops=4854.519,max_abs=0.00032043457,failures=0,nonfinite=0,PASS
+ROUND,strict,n=512,beta=3,round=1,order=4,mean_ms=0.019455999,median_sample_ms=0.019455999,gflops=13797.053,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=512,beta=3,rounds=1,median_round_ms=0.059103999,min_round_ms=0.059103999,max_round_ms=0.059103999,range_over_median_pct=0.0000,median_gflops=4541.748,PASS
+SUMMARY,k30_v1,n=512,beta=3,rounds=1,median_round_ms=0.056320000,min_round_ms=0.056320000,max_round_ms=0.056320000,range_over_median_pct=0.0000,median_gflops=4766.255,PASS
+SUMMARY,k30_v2,n=512,beta=3,rounds=1,median_round_ms=0.055296000,min_round_ms=0.055296000,max_round_ms=0.055296000,range_over_median_pct=0.0000,median_gflops=4854.519,PASS
+SUMMARY,strict,n=512,beta=3,rounds=1,median_round_ms=0.019455999,min_round_ms=0.019455999,max_round_ms=0.019455999,range_over_median_pct=0.0000,median_gflops=13797.053,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 1024 3 1 1
+RESULT,v1,1024,3,0.108543999,19784.453,0.000610351562,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 1024 3 1 1
+RESULT,v2,1024,3,0.100351997,21399.511,0.000610351562,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 1024 3 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-1024-beta3.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=1024,alpha=0.5,beta=3,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=7.64100859e-05,max_rel=1.58910522e-05,failures=0,nonfinite=0
+CHECK,k10,n=1024,beta=3,max_abs=0.000640869141,max_rel=0.0784883721,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=1024,beta=3,max_abs=0.000640869141,max_rel=0.0784883721,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=1024,beta=3,max_abs=0.000640869141,max_rel=0.0784883721,failures=0,nonfinite=0,PASS
+CHECK,strict,n=1024,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=3,round=1,order=1,mean_ms=0.108479999,median_sample_ms=0.108479999,gflops=19796.125,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=3,round=1,order=2,mean_ms=0.108543999,median_sample_ms=0.108543999,gflops=19784.453,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=3,round=1,order=3,mean_ms=0.099327996,median_sample_ms=0.099327996,gflops=21620.125,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=3,round=1,order=4,mean_ms=0.072704002,median_sample_ms=0.072704002,gflops=29537.351,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=1024,beta=3,rounds=1,median_round_ms=0.108479999,min_round_ms=0.108479999,max_round_ms=0.108479999,range_over_median_pct=0.0000,median_gflops=19796.125,PASS
+SUMMARY,k30_v1,n=1024,beta=3,rounds=1,median_round_ms=0.108543999,min_round_ms=0.108543999,max_round_ms=0.108543999,range_over_median_pct=0.0000,median_gflops=19784.453,PASS
+SUMMARY,k30_v2,n=1024,beta=3,rounds=1,median_round_ms=0.099327996,min_round_ms=0.099327996,max_round_ms=0.099327996,range_over_median_pct=0.0000,median_gflops=21620.125,PASS
+SUMMARY,strict,n=1024,beta=3,rounds=1,median_round_ms=0.072704002,min_round_ms=0.072704002,max_round_ms=0.072704002,range_over_median_pct=0.0000,median_gflops=29537.351,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 2048 3 1 1
+RESULT,v1,2048,3,0.625663996,27458.619,0.00152587891,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 2048 3 1 1
+RESULT,v2,2048,3,0.551967978,31124.757,0.00152587891,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 2048 3 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-2048-beta3.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=2048,alpha=0.5,beta=3,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=0.00019286158,max_rel=0.00139213021,failures=0,nonfinite=0
+CHECK,k10,n=2048,beta=3,max_abs=0.00170898438,max_rel=3.57575758,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=2048,beta=3,max_abs=0.00170898438,max_rel=3.57575758,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=2048,beta=3,max_abs=0.00170898438,max_rel=3.57575758,failures=0,nonfinite=0,PASS
+CHECK,strict,n=2048,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=3,round=1,order=1,mean_ms=0.839680016,median_sample_ms=0.839680016,gflops=20460.019,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=3,round=1,order=2,mean_ms=0.626688004,median_sample_ms=0.626688004,gflops=27413.751,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=3,round=1,order=3,mean_ms=0.550912023,median_sample_ms=0.550912023,gflops=31184.415,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=3,round=1,order=4,mean_ms=0.386047989,median_sample_ms=0.386047989,gflops=44501.900,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=2048,beta=3,rounds=1,median_round_ms=0.839680016,min_round_ms=0.839680016,max_round_ms=0.839680016,range_over_median_pct=0.0000,median_gflops=20460.019,PASS
+SUMMARY,k30_v1,n=2048,beta=3,rounds=1,median_round_ms=0.626688004,min_round_ms=0.626688004,max_round_ms=0.626688004,range_over_median_pct=0.0000,median_gflops=27413.751,PASS
+SUMMARY,k30_v2,n=2048,beta=3,rounds=1,median_round_ms=0.550912023,min_round_ms=0.550912023,max_round_ms=0.550912023,range_over_median_pct=0.0000,median_gflops=31184.415,PASS
+SUMMARY,strict,n=2048,beta=3,rounds=1,median_round_ms=0.386047989,min_round_ms=0.386047989,max_round_ms=0.386047989,range_over_median_pct=0.0000,median_gflops=44501.900,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v1 4096 3 1 1
+RESULT,v1,4096,3,3.353600025,40982.512,0,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\k30_audit.exe v2 4096 3 1 1
+RESULT,v2,4096,3,2.918400049,47093.939,0,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 4096 3 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\correctness-4096-beta3.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=4096,alpha=0.5,beta=3,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=0.000887715627,max_rel=0.000317576273,failures=0,nonfinite=0
+CHECK,k10,n=4096,beta=3,max_abs=7.62939453e-06,max_rel=0.00121212121,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=4096,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=4096,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,strict,n=4096,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=3,round=1,order=1,mean_ms=2.917471886,median_sample_ms=2.917471886,gflops=47108.921,max_abs=7.62939453e-06,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=3,round=1,order=2,mean_ms=3.337215900,median_sample_ms=3.337215900,gflops=41183.716,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=3,round=1,order=3,mean_ms=2.834431887,median_sample_ms=2.834431887,gflops=48489.066,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=3,round=1,order=4,mean_ms=3.465215921,median_sample_ms=3.465215921,gflops=39662.450,max_abs=0,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=4096,beta=3,rounds=1,median_round_ms=2.917471886,min_round_ms=2.917471886,max_round_ms=2.917471886,range_over_median_pct=0.0000,median_gflops=47108.921,PASS
+SUMMARY,k30_v1,n=4096,beta=3,rounds=1,median_round_ms=3.337215900,min_round_ms=3.337215900,max_round_ms=3.337215900,range_over_median_pct=0.0000,median_gflops=41183.716,PASS
+SUMMARY,k30_v2,n=4096,beta=3,rounds=1,median_round_ms=2.834431887,min_round_ms=2.834431887,max_round_ms=2.834431887,range_over_median_pct=0.0000,median_gflops=48489.066,PASS
+SUMMARY,strict,n=4096,beta=3,rounds=1,median_round_ms=3.465215921,min_round_ms=3.465215921,max_round_ms=3.465215921,range_over_median_pct=0.0000,median_gflops=39662.450,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 1024 3 7 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\timings-1024.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=1024,alpha=0.5,beta=3,seed=20261020,rounds=7,repeats=30,warmup=10,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=7.64100859e-05,max_rel=1.58910522e-05,failures=0,nonfinite=0
+CHECK,k10,n=1024,beta=3,max_abs=0.000640869141,max_rel=0.0784883721,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=1024,beta=3,max_abs=0.000640869141,max_rel=0.0784883721,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=1024,beta=3,max_abs=0.000640869141,max_rel=0.0784883721,failures=0,nonfinite=0,PASS
+CHECK,strict,n=1024,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=3,round=1,order=1,mean_ms=0.105509332,median_sample_ms=0.105471998,gflops=20353.495,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=3,round=1,order=2,mean_ms=0.108270933,median_sample_ms=0.107519999,gflops=19834.351,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=3,round=1,order=3,mean_ms=0.098952533,median_sample_ms=0.099327996,gflops=21702.159,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=3,round=1,order=4,mean_ms=0.074171735,median_sample_ms=0.072704002,gflops=28952.857,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=3,round=2,order=1,mean_ms=0.073118936,median_sample_ms=0.072704002,gflops=29369.733,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=3,round=2,order=2,mean_ms=0.098921599,median_sample_ms=0.099327996,gflops=21708.946,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=3,round=2,order=3,mean_ms=0.107998933,median_sample_ms=0.107519999,gflops=19884.304,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=3,round=2,order=4,mean_ms=0.105543465,median_sample_ms=0.105471998,gflops=20346.912,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=3,round=3,order=1,mean_ms=0.108236799,median_sample_ms=0.107519999,gflops=19840.606,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=3,round=3,order=2,mean_ms=0.102189865,median_sample_ms=0.099327996,gflops=21014.644,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=3,round=3,order=3,mean_ms=0.073454935,median_sample_ms=0.072704002,gflops=29235.390,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=3,round=3,order=4,mean_ms=0.105582932,median_sample_ms=0.105471998,gflops=20339.307,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=3,round=4,order=1,mean_ms=0.105852799,median_sample_ms=0.105471998,gflops=20287.453,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=3,round=4,order=2,mean_ms=0.072492802,median_sample_ms=0.072704002,gflops=29623.405,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=3,round=4,order=3,mean_ms=0.099086932,median_sample_ms=0.099327996,gflops=21672.723,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=3,round=4,order=4,mean_ms=0.108036266,median_sample_ms=0.107535999,gflops=19877.433,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=3,round=5,order=1,mean_ms=0.105643732,median_sample_ms=0.105471998,gflops=20327.601,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=3,round=5,order=2,mean_ms=0.107932799,median_sample_ms=0.107519999,gflops=19896.488,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=3,round=5,order=3,mean_ms=0.099593598,median_sample_ms=0.099327996,gflops=21562.467,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=3,round=5,order=4,mean_ms=0.074952535,median_sample_ms=0.072704002,gflops=28651.248,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=3,round=6,order=1,mean_ms=0.073590402,median_sample_ms=0.072704002,gflops=29181.572,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=3,round=6,order=2,mean_ms=0.099123199,median_sample_ms=0.099327996,gflops=21664.794,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=3,round=6,order=3,mean_ms=0.108102399,median_sample_ms=0.108064000,gflops=19865.273,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=3,round=6,order=4,mean_ms=0.105817599,median_sample_ms=0.105471998,gflops=20294.201,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=1024,beta=3,round=7,order=1,mean_ms=0.108376533,median_sample_ms=0.108080000,gflops=19815.024,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=1024,beta=3,round=7,order=2,mean_ms=0.099018666,median_sample_ms=0.099327996,gflops=21687.665,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+ROUND,strict,n=1024,beta=3,round=7,order=3,mean_ms=0.072428802,median_sample_ms=0.072704002,gflops=29649.581,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=1024,beta=3,round=7,order=4,mean_ms=0.105746132,median_sample_ms=0.105471998,gflops=20307.917,max_abs=0.000640869141,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=1024,beta=3,rounds=7,median_round_ms=0.105643732,min_round_ms=0.105509332,max_round_ms=0.105852799,range_over_median_pct=0.3251,median_gflops=20327.601,PASS
+SUMMARY,k30_v1,n=1024,beta=3,rounds=7,median_round_ms=0.108102399,min_round_ms=0.107932799,max_round_ms=0.108376533,range_over_median_pct=0.4105,median_gflops=19865.273,PASS
+SUMMARY,k30_v2,n=1024,beta=3,rounds=7,median_round_ms=0.099086932,min_round_ms=0.098921599,max_round_ms=0.102189865,range_over_median_pct=3.2984,median_gflops=21672.723,PASS
+SUMMARY,strict,n=1024,beta=3,rounds=7,median_round_ms=0.073454935,min_round_ms=0.072428802,max_round_ms=0.074952535,range_over_median_pct=3.4358,median_gflops=29235.390,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 2048 3 7 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\timings-2048.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=2048,alpha=0.5,beta=3,seed=20261020,rounds=7,repeats=30,warmup=10,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=0.00019286158,max_rel=0.00139213021,failures=0,nonfinite=0
+CHECK,k10,n=2048,beta=3,max_abs=0.00170898438,max_rel=3.57575758,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=2048,beta=3,max_abs=0.00170898438,max_rel=3.57575758,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=2048,beta=3,max_abs=0.00170898438,max_rel=3.57575758,failures=0,nonfinite=0,PASS
+CHECK,strict,n=2048,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=3,round=1,order=1,mean_ms=0.583240531,median_sample_ms=0.548911989,gflops=29455.890,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=3,round=1,order=2,mean_ms=0.592354133,median_sample_ms=0.577535987,gflops=29002.700,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=3,round=1,order=3,mean_ms=0.535793068,median_sample_ms=0.521215975,gflops=32064.374,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=3,round=1,order=4,mean_ms=0.360421336,median_sample_ms=0.360448003,gflops=47666.072,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=3,round=2,order=1,mean_ms=0.362635737,median_sample_ms=0.361472011,gflops=47375.003,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=3,round=2,order=2,mean_ms=0.545974389,median_sample_ms=0.522239983,gflops=31466.438,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=3,round=2,order=3,mean_ms=0.588354139,median_sample_ms=0.580080003,gflops=29199.878,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=3,round=2,order=4,mean_ms=0.570230407,median_sample_ms=0.549376011,gflops=30127.943,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=3,round=3,order=1,mean_ms=0.598152534,median_sample_ms=0.579071999,gflops=28721.552,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=3,round=3,order=2,mean_ms=0.539307725,median_sample_ms=0.522239983,gflops=31855.411,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=3,round=3,order=3,mean_ms=0.362640001,median_sample_ms=0.361472011,gflops=47374.446,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=3,round=3,order=4,mean_ms=0.550028797,median_sample_ms=0.549888015,gflops=31234.490,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=3,round=4,order=1,mean_ms=0.549271472,median_sample_ms=0.548864007,gflops=31277.556,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=3,round=4,order=2,mean_ms=0.362805334,median_sample_ms=0.361984000,gflops=47352.857,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=3,round=4,order=3,mean_ms=0.521732262,median_sample_ms=0.523263991,gflops=32928.516,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=3,round=4,order=4,mean_ms=0.584739200,median_sample_ms=0.575999975,gflops=29380.396,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=3,round=5,order=1,mean_ms=0.551977599,median_sample_ms=0.551487982,gflops=31124.215,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=3,round=5,order=2,mean_ms=0.581161602,median_sample_ms=0.580096006,gflops=29561.260,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=3,round=5,order=3,mean_ms=0.523059191,median_sample_ms=0.523263991,gflops=32844.981,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=3,round=5,order=4,mean_ms=0.364001064,median_sample_ms=0.362495989,gflops=47197.305,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=3,round=6,order=1,mean_ms=0.362601599,median_sample_ms=0.362495989,gflops=47379.463,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=3,round=6,order=2,mean_ms=0.521186124,median_sample_ms=0.522239983,gflops=32963.021,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=3,round=6,order=3,mean_ms=0.580474667,median_sample_ms=0.580608010,gflops=29596.243,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=3,round=6,order=4,mean_ms=0.550941871,median_sample_ms=0.549888015,gflops=31182.726,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=2048,beta=3,round=7,order=1,mean_ms=0.578156797,median_sample_ms=0.579071999,gflops=29714.896,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=2048,beta=3,round=7,order=2,mean_ms=0.519779190,median_sample_ms=0.522239983,gflops=33052.245,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+ROUND,strict,n=2048,beta=3,round=7,order=3,mean_ms=0.364919471,median_sample_ms=0.361472011,gflops=47078.522,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=2048,beta=3,round=7,order=4,mean_ms=0.568212273,median_sample_ms=0.549888015,gflops=30234.949,max_abs=0.00170898438,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=2048,beta=3,rounds=7,median_round_ms=0.551977599,min_round_ms=0.549271472,max_round_ms=0.583240531,range_over_median_pct=6.1541,median_gflops=31124.215,PASS
+SUMMARY,k30_v1,n=2048,beta=3,rounds=7,median_round_ms=0.584739200,min_round_ms=0.578156797,max_round_ms=0.598152534,range_over_median_pct=3.4196,median_gflops=29380.396,PASS
+SUMMARY,k30_v2,n=2048,beta=3,rounds=7,median_round_ms=0.523059191,min_round_ms=0.519779190,max_round_ms=0.545974389,range_over_median_pct=5.0081,median_gflops=32844.981,PASS
+SUMMARY,strict,n=2048,beta=3,rounds=7,median_round_ms=0.362640001,min_round_ms=0.360421336,max_round_ms=0.364919471,range_over_median_pct=1.2404,median_gflops=47374.446,PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-k30-sync-sm89\windows_benchmark.exe 4096 3 7 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-k30-stage2\run01\timings-4096.csv sync
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=4096,alpha=0.5,beta=3,seed=20261020,rounds=7,repeats=30,warmup=10,abs_tolerance=0.01,precision=strict_fp32,selection=sync
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=0.000887715627,max_rel=0.000317576273,failures=0,nonfinite=0
+CHECK,k10,n=4096,beta=3,max_abs=7.62939453e-06,max_rel=0.00121212121,failures=0,nonfinite=0,PASS
+CHECK,k30_v1,n=4096,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,k30_v2,n=4096,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+CHECK,strict,n=4096,beta=3,max_abs=0,max_rel=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=3,round=1,order=1,mean_ms=3.066779709,median_sample_ms=2.996735930,gflops=44815.398,max_abs=7.62939453e-06,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=3,round=1,order=2,mean_ms=3.325678921,median_sample_ms=3.231232047,gflops=41326.585,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=3,round=1,order=3,mean_ms=3.001891192,median_sample_ms=2.932223916,gflops=45784.122,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=3,round=1,order=4,mean_ms=2.877234125,median_sample_ms=2.792960048,gflops=47767.734,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=3,round=2,order=1,mean_ms=2.824362675,median_sample_ms=2.785279989,gflops=48661.935,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=3,round=2,order=2,mean_ms=2.971478383,median_sample_ms=2.887664080,gflops=46252.719,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=3,round=2,order=3,mean_ms=3.325339739,median_sample_ms=3.234816074,gflops=41330.801,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=3,round=2,order=4,mean_ms=3.083783452,median_sample_ms=3.008032084,gflops=44568.289,max_abs=7.62939453e-06,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=3,round=3,order=1,mean_ms=3.278510936,median_sample_ms=3.231232047,gflops=41921.151,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=3,round=3,order=2,mean_ms=2.957317336,median_sample_ms=2.878975987,gflops=46474.199,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=3,round=3,order=3,mean_ms=2.841663980,median_sample_ms=2.785791993,gflops=48365.660,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=3,round=3,order=4,mean_ms=3.098589881,median_sample_ms=3.067391992,gflops=44355.322,max_abs=7.62939453e-06,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=3,round=4,order=1,mean_ms=3.039578652,median_sample_ms=2.999295950,gflops=45216.449,max_abs=7.62939453e-06,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=3,round=4,order=2,mean_ms=2.890449039,median_sample_ms=2.867247939,gflops=47549.343,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=3,round=4,order=3,mean_ms=2.937825052,median_sample_ms=2.883087993,gflops=46782.552,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=3,round=4,order=4,mean_ms=3.273522147,median_sample_ms=3.216895938,gflops=41985.039,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=3,round=5,order=1,mean_ms=3.111285345,median_sample_ms=3.037696004,gflops=44174.333,max_abs=7.62939453e-06,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=3,round=5,order=2,mean_ms=3.305983980,median_sample_ms=3.229184031,gflops=41572.783,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=3,round=5,order=3,mean_ms=2.953110385,median_sample_ms=2.877951980,gflops=46540.405,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=3,round=5,order=4,mean_ms=2.776232545,median_sample_ms=2.700800061,gflops=49505.562,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=3,round=6,order=1,mean_ms=2.780902410,median_sample_ms=2.724848032,gflops=49422.430,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=3,round=6,order=2,mean_ms=2.977689608,median_sample_ms=2.886144042,gflops=46156.239,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=3,round=6,order=3,mean_ms=3.298169605,median_sample_ms=3.216383934,gflops=41671.281,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=3,round=6,order=4,mean_ms=3.107838949,median_sample_ms=3.043328047,gflops=44223.319,max_abs=7.62939453e-06,failures=0,nonfinite=0,PASS
+ROUND,k30_v1,n=4096,beta=3,round=7,order=1,mean_ms=3.312466145,median_sample_ms=3.218943954,gflops=41491.429,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k30_v2,n=4096,beta=3,round=7,order=2,mean_ms=2.935268275,median_sample_ms=2.857984066,gflops=46823.302,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,strict,n=4096,beta=3,round=7,order=3,mean_ms=2.838696512,median_sample_ms=2.771967888,gflops=48416.220,max_abs=0,failures=0,nonfinite=0,PASS
+ROUND,k10,n=4096,beta=3,round=7,order=4,mean_ms=3.034214362,median_sample_ms=2.997759938,gflops=45296.389,max_abs=7.62939453e-06,failures=0,nonfinite=0,PASS
+SUMMARY,k10,n=4096,beta=3,rounds=7,median_round_ms=3.083783452,min_round_ms=3.034214362,max_round_ms=3.111285345,range_over_median_pct=2.4992,median_gflops=44568.289,PASS
+SUMMARY,k30_v1,n=4096,beta=3,rounds=7,median_round_ms=3.305983980,min_round_ms=3.273522147,max_round_ms=3.325678921,range_over_median_pct=1.5776,median_gflops=41572.783,PASS
+SUMMARY,k30_v2,n=4096,beta=3,rounds=7,median_round_ms=2.957317336,min_round_ms=2.935268275,max_round_ms=3.001891192,range_over_median_pct=2.2528,median_gflops=46474.199,PASS
+SUMMARY,strict,n=4096,beta=3,rounds=7,median_round_ms=2.838696512,min_round_ms=2.776232545,max_round_ms=2.890449039,range_over_median_pct=4.0236,median_gflops=48416.220,PASS

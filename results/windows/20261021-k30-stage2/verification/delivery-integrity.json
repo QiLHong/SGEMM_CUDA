@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "delivery_manifest_entries": 339,
+  "source_zip_files_verified": 337,
+  "executable_sha256": "10F54802B0B7B9153394730B8A459E9F6DF8B17ED9CB85D725837CB2D7678D7E",
+  "branch": "windows-sm89-learning-20261020",
+  "head": "77567876cecc180a039d2855d748acd9d2ba427a",
+  "powershell_syntax_files": 9,
+  "diff_check": "PASS",
+  "note": "Actual run snapshot remains unchanged; delivery adds final documents and CPU audit scripts."
+}

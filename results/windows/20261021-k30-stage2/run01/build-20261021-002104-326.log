@@ -1,0 +1,161 @@
+-- The CXX compiler identification is MSVC 19.37.32826.1
+-- The CUDA compiler identification is NVIDIA 12.4.131 with host compiler MSVC 19.37.32826.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: D:/VS/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/bin/nvcc.exe - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Found CUDAToolkit: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/include (found version "12.4.131")
+-- Configuring done (25.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2 cuda_smoke
+[1/2] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\cuda_smoke.dir\scripts\cuda_smoke.cu.obj -MF CMakeFiles\cuda_smoke.dir\scripts\cuda_smoke.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\cuda_smoke.cu -o CMakeFiles\cuda_smoke.dir\scripts\cuda_smoke.cu.obj -Xcompiler=-FdCMakeFiles\cuda_smoke.dir\,-FS
+cuda_smoke.cu
+
+tmpxft_0000722c_00000000-10_cuda_smoke.cudafe1.cpp
+
+[2/2] C:\WINDOWS\system32\cmd.exe /C "cd . && "D:\VS\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cuda_smoke.dir --rc="D:\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests  -- "D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\link.exe" /nologo CMakeFiles\cuda_smoke.dir\scripts\cuda_smoke.cu.obj  /out:cuda_smoke.exe /implib:cuda_smoke.lib /pdb:cuda_smoke.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cudart.lib"  cudadevrt.lib  cudart_static.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib -LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/lib/x64" && cd ."
+
+GPU=NVIDIA GeForce RTX 4090 D compute=8.9 VRAM_MiB=24563
+CUDA_SMOKE PASS (257 integer outputs)
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-k30-sync-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2
+[1/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\sgemm.dir\sgemm.cu.obj -MF CMakeFiles\sgemm.dir\sgemm.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\sgemm.cu -o CMakeFiles\sgemm.dir\sgemm.cu.obj -Xcompiler=-FdCMakeFiles\sgemm.dir\,-FS
+sgemm.cu
+
+tmpxft_00007538_00000000-10_sgemm.cudafe1.cpp
+
+[2/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -lineinfo -Xptxas=-v -MD -MT CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj -MF CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\k30_audit.cu -o CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj -Xcompiler=-FdCMakeFiles\k30_audit.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/30_kernel_mini_simt.cuh(193): warning #177-D: variable "StageSize" was declared but never referenced
+    constexpr int StageSize=ASize+k30::SharedLayoutB<S>::Size;
+                  ^
+          detected during:
+            instantiation of "void sgemmK30<S,STAGES>(int, int, int, float, const float *, const float *, float, float *) [with S=Small, STAGES=1]" at line 42 of D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\k30_audit.cu
+            instantiation of "void configureK30<S,Stages>() [with S=Small, Stages=1]" at line 67 of D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\k30_audit.cu
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi256ELi128ELi16ELi64ELi64ELi4ELi4ELi256EEELi4EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi256ELi128ELi16ELi64ELi64ELi4ELi4ELi256EEELi4EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 225 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi4EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi4EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 233 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 235 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 199 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf
+
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+
+ptxas info    : Used 184 registers, 16640 bytes smem, 400 bytes cmem[0]
+
+k30_audit.cu
+
+tmpxft_00006988_00000000-10_k30_audit.cudafe1.cpp
+
+[3/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\cuBLAS_sgemm.dir\cuBLAS_sgemm.cu.obj -MF CMakeFiles\cuBLAS_sgemm.dir\cuBLAS_sgemm.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\cuBLAS_sgemm.cu -o CMakeFiles\cuBLAS_sgemm.dir\cuBLAS_sgemm.cu.obj -Xcompiler=-FdCMakeFiles\cuBLAS_sgemm.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\cuBLAS_sgemm.cu(25): warning #177-D: variable "cudaStat" was declared but never referenced
+
+    cudaError_t cudaStat;  
+
+                ^
+
+
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\cuBLAS_sgemm.cu(26): warning #550-D: variable "stat" was set but never used
+
+    cublasStatus_t stat;   
+
+                   ^
+
+
+
+cuBLAS_sgemm.cu
+
+tmpxft_000099f8_00000000-10_cuBLAS_sgemm.cudafe1.cpp
+
+[4/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\sgemm.dir\src\runner.cu.obj -MF CMakeFiles\sgemm.dir\src\runner.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu -o CMakeFiles\sgemm.dir\src\runner.cu.obj -Xcompiler=-FdCMakeFiles\sgemm.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\kernels/12_kernel_double_buffering.cuh(130): warning #20054-D: dynamic initialization is not supported for a function-scope static __shared__ variable within a __device__/__global__ function
+    __declspec(__shared__) cuda::barrier<cuda::thread_scope::thread_scope_block> frontBarrier;
+                                                                                 ^
+          detected during instantiation of "void runSgemmDoubleBuffering2<BM,BN,BK,WM,WN,WNITER,TM,TN,NUM_THREADS>(int, int, int, float, float *, float *, float, float *) [with BM=128, BN=128, BK=16, WM=64, WN=64, WNITER=4, TM=8, TN=4, NUM_THREADS=128]" at line 994 of D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\kernels/12_kernel_double_buffering.cuh(131): warning #20054-D: dynamic initialization is not supported for a function-scope static __shared__ variable within a __device__/__global__ function
+    __declspec(__shared__) cuda::barrier<cuda::thread_scope::thread_scope_block> backBarrier;
+                                                                                 ^
+          detected during instantiation of "void runSgemmDoubleBuffering2<BM,BN,BK,WM,WN,WNITER,TM,TN,NUM_THREADS>(int, int, int, float, float *, float *, float, float *) [with BM=128, BN=128, BK=16, WM=64, WN=64, WNITER=4, TM=8, TN=4, NUM_THREADS=128]" at line 994 of D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu
+
+
+
+runner.cu
+
+tmpxft_0000720c_00000000-10_runner.cudafe1.cpp
+
+[5/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\simplest_kernel.dir\simplest_kernel.cu.obj -MF CMakeFiles\simplest_kernel.dir\simplest_kernel.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\simplest_kernel.cu -o CMakeFiles\simplest_kernel.dir\simplest_kernel.cu.obj -Xcompiler=-FdCMakeFiles\simplest_kernel.dir\,-FS
+simplest_kernel.cu
+
+tmpxft_00001e3c_00000000-10_simplest_kernel.cudafe1.cpp
+
+[6/11] C:\WINDOWS\system32\cmd.exe /C "cd . && "D:\VS\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\k30_audit.dir --rc="D:\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests  -- "D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\link.exe" /nologo CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj  /out:k30_audit.exe /implib:k30_audit.lib /pdb:k30_audit.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublas.lib"  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublasLt.lib"  cudadevrt.lib  cudart_static.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib -LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/lib/x64" && cd ."
+[7/11] C:\WINDOWS\system32\cmd.exe /C "cd . && "D:\VS\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\sgemm.dir --rc="D:\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests  -- "D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\link.exe" /nologo CMakeFiles\sgemm.dir\sgemm.cu.obj CMakeFiles\sgemm.dir\src\runner.cu.obj  /out:sgemm.exe /implib:sgemm.lib /pdb:sgemm.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cudart.lib"  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublas.lib"  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublasLt.lib"  cudadevrt.lib  cudart_static.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib -LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/lib/x64" && cd ."
+[8/11] C:\WINDOWS\system32\cmd.exe /C "cd . && "D:\VS\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cuBLAS_sgemm.dir --rc="D:\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests  -- "D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\link.exe" /nologo CMakeFiles\cuBLAS_sgemm.dir\cuBLAS_sgemm.cu.obj  /out:cuBLAS_sgemm.exe /implib:cuBLAS_sgemm.lib /pdb:cuBLAS_sgemm.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cudart.lib"  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublas.lib"  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublasLt.lib"  cudadevrt.lib  cudart_static.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib -LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/lib/x64" && cd ."
+[9/11] C:\WINDOWS\system32\cmd.exe /C "cd . && "D:\VS\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\simplest_kernel.dir --rc="D:\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests  -- "D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\link.exe" /nologo CMakeFiles\simplest_kernel.dir\simplest_kernel.cu.obj  /out:simplest_kernel.exe /implib:simplest_kernel.lib /pdb:simplest_kernel.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cudart.lib"  cudadevrt.lib  cudart_static.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib -LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/lib/x64" && cd ."
+[10/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -lineinfo -Xptxas=-v -MD -MT CMakeFiles\windows_benchmark.dir\scripts\windows_benchmark.cu.obj -MF CMakeFiles\windows_benchmark.dir\scripts\windows_benchmark.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\windows_benchmark.cu -o CMakeFiles\windows_benchmark.dir\scripts\windows_benchmark.cu.obj -Xcompiler=-FdCMakeFiles\windows_benchmark.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/30_kernel_mini_simt.cuh(193): warning #177-D: variable "StageSize" was declared but never referenced
+    constexpr int StageSize=ASize+k30::SharedLayoutB<S>::Size;
+                  ^
+          detected during instantiation of "void sgemmK30<S,STAGES>(int, int, int, float, const float *, const float *, float, float *) [with S=<unnamed>::K30Shape, STAGES=1]" at line 198 of D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\windows_benchmark.cu
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 199 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 235 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi8EEviiifPKfS1_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi8EEviiifPKfS1_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 184 registers, 16896 bytes smem, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf
+
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+
+ptxas info    : Used 184 registers, 16640 bytes smem, 400 bytes cmem[0]
+
+windows_benchmark.cu
+
+tmpxft_000098f8_00000000-10_windows_benchmark.cudafe1.cpp
+
+[11/11] C:\WINDOWS\system32\cmd.exe /C "cd . && "D:\VS\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\windows_benchmark.dir --rc="D:\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests  -- "D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\link.exe" /nologo CMakeFiles\windows_benchmark.dir\scripts\windows_benchmark.cu.obj  /out:windows_benchmark.exe /implib:windows_benchmark.lib /pdb:windows_benchmark.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublas.lib"  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublasLt.lib"  cudadevrt.lib  cudart_static.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib -LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/lib/x64" && cd ."
+

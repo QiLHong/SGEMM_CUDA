@@ -1,0 +1,96 @@
+{
+  "ptx": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\static\\windows_benchmark.ptx",
+  "ptx_sha256": "2b63096ce8c2615bbefc2b85c2ed0004edddb66d93e46a1c4d6bd0b86abab710",
+  "profile": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\profile01\\ncu-summary.csv",
+  "profile_sha256": "555adaf7aa0b61bfe2a19d6741c3d7196d934a58dddf6efbdffb9d626f866326",
+  "script_sha256": "27946009426964438d5d064b9166570802d0246f7450583e3a951094c8f65d87",
+  "ptx_loop_selection": "Unique backward-branch interval with maximal static fma.rn.f32 count",
+  "ptx_diagnostics": [
+    {
+      "mode": "k30_v2",
+      "function": ".visible .entry _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf(",
+      "loop_static_fma": 2048,
+      "backward_branch_arithmetic_candidates": 1,
+      "cp_async_occurrences": 0
+    },
+    {
+      "mode": "k30_v1",
+      "function": ".visible .entry _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf(",
+      "loop_static_fma": 2048,
+      "backward_branch_arithmetic_candidates": 1,
+      "cp_async_occurrences": 0
+    }
+  ],
+  "profile_groups": [
+    {
+      "size": 2048,
+      "mode": "k10",
+      "repetitions": [
+        1,
+        2
+      ]
+    },
+    {
+      "size": 2048,
+      "mode": "k30_v1",
+      "repetitions": [
+        1,
+        2
+      ]
+    },
+    {
+      "size": 2048,
+      "mode": "k30_v2",
+      "repetitions": [
+        1,
+        2
+      ]
+    },
+    {
+      "size": 2048,
+      "mode": "strict",
+      "repetitions": [
+        1,
+        2
+      ]
+    },
+    {
+      "size": 4096,
+      "mode": "k10",
+      "repetitions": [
+        1,
+        2
+      ]
+    },
+    {
+      "size": 4096,
+      "mode": "k30_v1",
+      "repetitions": [
+        1,
+        2
+      ]
+    },
+    {
+      "size": 4096,
+      "mode": "k30_v2",
+      "repetitions": [
+        1,
+        2
+      ]
+    },
+    {
+      "size": 4096,
+      "mode": "strict",
+      "repetitions": [
+        1,
+        2
+      ]
+    }
+  ],
+  "limitations": [
+    "PTX is virtual ISA; inspect SASS before drawing machine-scheduling conclusions.",
+    "Static line/instruction distances are not cycles or measured overlap.",
+    "Profiler ranges describe available observations, not confidence intervals.",
+    "NCU-instrumented CUDA-event timing is not unprofiled benchmark timing."
+  ]
+}

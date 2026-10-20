@@ -1,0 +1,10 @@
+{
+  "phase2_changed_source_files": 14,
+  "modified": 6,
+  "added": 8,
+  "kernel_sources_unchanged": true,
+  "readme_en_license_git_diff": "unchanged",
+  "readme_en_note": "Not in preflight ZIP; unchanged against Git HEAD, excluded from delta",
+  "scope": "source/docs/scripts only; new results archive listed separately",
+  "status": "PASS"
+}

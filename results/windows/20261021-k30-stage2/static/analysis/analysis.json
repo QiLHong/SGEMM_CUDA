@@ -1,0 +1,17 @@
+{
+  "source": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\static\\windows_benchmark.sass",
+  "sass_sha256": "66d8b97a3fc4fe5d01e2858b79542a494320652e38c97da5c038cae623b0fac2",
+  "binary": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-k30-sync-sm89\\windows_benchmark.exe",
+  "binary_sha256": "10f54802b0b7b9153394730b8a459e9f6df8b17ed9cb85d725837cb2d7678d7e",
+  "parser_source": "Adapted from scripts/analyze_k30_schedule.py in the same repository",
+  "selection": "Backward BRA intervals; choose maximum static FFMA count, then shortest interval; flag ties.",
+  "counting": "Function counts include all parsed static instructions. Loop summary excludes @!PT; other predicates are not evaluated.",
+  "limitations": [
+    "Static instruction order/counts are not dynamic execution counts or cycles.",
+    "A load appearing before arithmetic does not prove overlap or hidden latency.",
+    "A backward BRA interval is a structural heuristic, not a full control-flow graph.",
+    "Executable SASS does not expose dynamically linked cuBLAS kernels.",
+    "Only input evidence is analyzed; no historical result values are assumed."
+  ],
+  "warnings": []
+}

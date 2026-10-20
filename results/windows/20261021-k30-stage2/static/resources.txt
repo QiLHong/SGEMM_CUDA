@@ -1,0 +1,30 @@
+
+Fatbin ptx code:
+================
+arch = sm_89
+code version = [8,4]
+host = windows
+compile_size = 64bit
+compressed
+identifier = D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/scripts/windows_benchmark.cu
+ptxasOptions = -v --generate-line-info 
+
+Fatbin elf code:
+================
+arch = sm_89
+code version = [1,7]
+host = windows
+compile_size = 64bit
+identifier = D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/scripts/windows_benchmark.cu
+
+Resource usage:
+ Common:
+  GLOBAL:0
+ Function _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf:
+  REG:199 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:400 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf:
+  REG:235 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:400 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi8EEviiifPKfS1_fPf:
+  REG:184 STACK:0 SHARED:16896 LOCAL:0 CONSTANT[0]:400 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf:
+  REG:184 STACK:0 SHARED:16640 LOCAL:0 CONSTANT[0]:400 TEXTURE:0 SURFACE:0 SAMPLER:0

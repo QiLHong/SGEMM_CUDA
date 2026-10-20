@@ -1,0 +1,1460 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "audit_utc": "2026-10-20T16:30:08.2288935+00:00",
+  "result_dir": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01",
+  "phase1_dir": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01",
+  "method": "Independent CPU-only recomputation from original events; no GPU, no input-file writes.",
+  "counts": {
+    "paired_comparisons": 6,
+    "event_samples": 2520,
+    "correctness_cases": 72,
+    "rounds": 84
+  },
+  "correctness": {
+    "max_abs_error": 0.001708984375,
+    "max_cpu_abs_error": 0.0009163258564512944,
+    "failed_cases": 0,
+    "nonfinite_count": 0.0
+  },
+  "phase1_inputs": [
+    {
+      "n": 1024,
+      "a_hash": true,
+      "b_hash": true,
+      "c0_hash": true,
+      "alpha": true,
+      "beta": true,
+      "seed": true
+    },
+    {
+      "n": 2048,
+      "a_hash": true,
+      "b_hash": true,
+      "c0_hash": true,
+      "alpha": true,
+      "beta": true,
+      "seed": true
+    },
+    {
+      "n": 4096,
+      "a_hash": true,
+      "b_hash": true,
+      "c0_hash": true,
+      "alpha": true,
+      "beta": true,
+      "seed": true
+    }
+  ],
+  "recomputed_summary": [
+    {
+      "n": 1024,
+      "implementation": "k10",
+      "rounds": 7,
+      "median_round_ms": 0.10564373185237248,
+      "tflops_at_median_ms": 20.327601177521004,
+      "minimum_round_ms": 0.10550933182239533,
+      "maximum_round_ms": 0.10585279862085978
+    },
+    {
+      "n": 1024,
+      "implementation": "k30_v1",
+      "rounds": 7,
+      "median_round_ms": 0.10810239935914676,
+      "tflops_at_median_ms": 19.865272748160304,
+      "minimum_round_ms": 0.10793279930949211,
+      "maximum_round_ms": 0.10837653279304504
+    },
+    {
+      "n": 1024,
+      "implementation": "k30_v2",
+      "rounds": 7,
+      "median_round_ms": 0.09908693159619968,
+      "tflops_at_median_ms": 21.672723268406905,
+      "minimum_round_ms": 0.09892159899075827,
+      "maximum_round_ms": 0.10218986545999845
+    },
+    {
+      "n": 1024,
+      "implementation": "strict",
+      "rounds": 7,
+      "median_round_ms": 0.07345493535200755,
+      "tflops_at_median_ms": 29.23538953113119,
+      "minimum_round_ms": 0.07242880215247473,
+      "maximum_round_ms": 0.07495253483454387
+    },
+    {
+      "n": 2048,
+      "implementation": "k10",
+      "rounds": 7,
+      "median_round_ms": 0.5519775986671448,
+      "tflops_at_median_ms": 31.124214507045345,
+      "minimum_round_ms": 0.5492714722951253,
+      "maximum_round_ms": 0.5832405308882396
+    },
+    {
+      "n": 2048,
+      "implementation": "k30_v1",
+      "rounds": 7,
+      "median_round_ms": 0.5847392002741496,
+      "tflops_at_median_ms": 29.380395868697317,
+      "minimum_round_ms": 0.5781567970911662,
+      "maximum_round_ms": 0.5981525341669719
+    },
+    {
+      "n": 2048,
+      "implementation": "k30_v2",
+      "rounds": 7,
+      "median_round_ms": 0.5230591913064321,
+      "tflops_at_median_ms": 32.844980968770024,
+      "minimum_round_ms": 0.5197791904211044,
+      "maximum_round_ms": 0.545974388718605
+    },
+    {
+      "n": 2048,
+      "implementation": "strict",
+      "rounds": 7,
+      "median_round_ms": 0.36264000137646996,
+      "tflops_at_median_ms": 47.374446058875186,
+      "minimum_round_ms": 0.36042133569717405,
+      "maximum_round_ms": 0.3649194707473119
+    },
+    {
+      "n": 4096,
+      "implementation": "k10",
+      "rounds": 7,
+      "median_round_ms": 3.0837834517161054,
+      "tflops_at_median_ms": 44.568289448312626,
+      "minimum_round_ms": 3.0342143615086874,
+      "maximum_round_ms": 3.111285344759623
+    },
+    {
+      "n": 4096,
+      "implementation": "k30_v1",
+      "rounds": 7,
+      "median_round_ms": 3.3059839804967246,
+      "tflops_at_median_ms": 41.5727826519443,
+      "minimum_round_ms": 3.273522146542867,
+      "maximum_round_ms": 3.3256789207458497
+    },
+    {
+      "n": 4096,
+      "implementation": "k30_v2",
+      "rounds": 7,
+      "median_round_ms": 2.95731733640035,
+      "tflops_at_median_ms": 46.47419868687168,
+      "minimum_round_ms": 2.935268274943034,
+      "maximum_round_ms": 3.001891191800435
+    },
+    {
+      "n": 4096,
+      "implementation": "strict",
+      "rounds": 7,
+      "median_round_ms": 2.838696511586507,
+      "tflops_at_median_ms": 48.41621952576654,
+      "minimum_round_ms": 2.7762325445810956,
+      "maximum_round_ms": 2.890449039141337
+    }
+  ],
+  "recomputed_paired_summary": [
+    {
+      "n": 1024,
+      "comparison": "v2_vs_k10",
+      "baseline": "k10",
+      "candidate": "k30_v2",
+      "pair_count": 7,
+      "median_speedup_pct": 6.694054932476767,
+      "min_speedup_pct": 3.3203551162775513,
+      "max_speedup_pct": 6.828213282688433,
+      "median_latency_change_pct": -6.274065538809282,
+      "geomean_speedup_pct": 6.149244706251666,
+      "conditional_ci95_low_pct": 5.160342835161491,
+      "conditional_ci95_high_pct": 6.756128573920095,
+      "faster_pair_count": 7,
+      "slower_pair_count": 0,
+      "tied_pair_count": 0,
+      "adjacent_pair_count": 0,
+      "bootstrap_seed": 20261021,
+      "bootstrap_resamples": 20000
+    },
+    {
+      "n": 1024,
+      "comparison": "v2_vs_v1",
+      "baseline": "k30_v1",
+      "candidate": "k30_v2",
+      "pair_count": 7,
+      "median_speedup_pct": 9.058626993955986,
+      "min_speedup_pct": 5.917351884069677,
+      "max_speedup_pct": 9.450608941427664,
+      "median_latency_change_pct": -8.306199375183787,
+      "geomean_speedup_pct": 8.625903940678835,
+      "conditional_ci95_low_pct": 7.659325963996388,
+      "conditional_ci95_high_pct": 9.272147906003436,
+      "faster_pair_count": 7,
+      "slower_pair_count": 0,
+      "tied_pair_count": 0,
+      "adjacent_pair_count": 7,
+      "bootstrap_seed": 20261021,
+      "bootstrap_resamples": 20000
+    },
+    {
+      "n": 2048,
+      "comparison": "v2_vs_k10",
+      "baseline": "k10",
+      "candidate": "k30_v2",
+      "pair_count": 7,
+      "median_speedup_pct": 5.528706471725298,
+      "min_speedup_pct": 1.9879321314447695,
+      "max_speedup_pct": 9.318011031409856,
+      "median_latency_change_pct": -5.239054525136844,
+      "geomean_speedup_pct": 5.848470728519506,
+      "conditional_ci95_low_pct": 4.1757380251690845,
+      "conditional_ci95_high_pct": 7.56496131104516,
+      "faster_pair_count": 7,
+      "slower_pair_count": 0,
+      "tied_pair_count": 0,
+      "adjacent_pair_count": 0,
+      "bootstrap_seed": 20261021,
+      "bootstrap_resamples": 20000
+    },
+    {
+      "n": 2048,
+      "comparison": "v2_vs_v1",
+      "baseline": "k30_v1",
+      "candidate": "k30_v2",
+      "pair_count": 7,
+      "median_speedup_pct": 11.108190429959187,
+      "min_speedup_pct": 7.76222304385632,
+      "max_speedup_pct": 12.076488864736001,
+      "median_latency_change_pct": -9.997634186078841,
+      "geomean_speedup_pct": 10.709853942185799,
+      "conditional_ci95_low_pct": 9.631233933003047,
+      "conditional_ci95_high_pct": 11.46753154615845,
+      "faster_pair_count": 7,
+      "slower_pair_count": 0,
+      "tied_pair_count": 0,
+      "adjacent_pair_count": 7,
+      "bootstrap_seed": 20261021,
+      "bootstrap_resamples": 20000
+    },
+    {
+      "n": 4096,
+      "comparison": "v2_vs_k10",
+      "baseline": "k10",
+      "candidate": "k30_v2",
+      "pair_count": 7,
+      "median_speedup_pct": 3.7794341571460333,
+      "min_speedup_pct": 2.1615879096188007,
+      "max_speedup_pct": 5.3562156235374525,
+      "median_latency_change_pct": -3.641794916151775,
+      "geomean_speedup_pct": 3.892530089111701,
+      "conditional_ci95_low_pct": 3.147365423503401,
+      "conditional_ci95_high_pct": 4.5889509251759275,
+      "faster_pair_count": 7,
+      "slower_pair_count": 0,
+      "tied_pair_count": 0,
+      "adjacent_pair_count": 0,
+      "bootstrap_seed": 20261021,
+      "bootstrap_resamples": 20000
+    },
+    {
+      "n": 4096,
+      "comparison": "v2_vs_v1",
+      "baseline": "k30_v1",
+      "candidate": "k30_v2",
+      "pair_count": 7,
+      "median_speedup_pct": 11.426721764025128,
+      "min_speedup_pct": 10.762706634860365,
+      "max_speedup_pct": 12.850541561692651,
+      "median_latency_change_pct": -10.254920528151368,
+      "geomean_speedup_pct": 11.504074105165074,
+      "conditional_ci95_low_pct": 10.983660015231077,
+      "conditional_ci95_high_pct": 12.050315176743066,
+      "faster_pair_count": 7,
+      "slower_pair_count": 0,
+      "tied_pair_count": 0,
+      "adjacent_pair_count": 7,
+      "bootstrap_seed": 20261021,
+      "bootstrap_resamples": 20000
+    }
+  ],
+  "slow_event_diagnostics": [
+    {
+      "n": 1024,
+      "implementation": "k10",
+      "samples": 210,
+      "median_event_ms": 0.10547199845314026,
+      "maximum_event_ms": 0.1085439994931221,
+      "max_over_event_median": 1.029126223879665,
+      "samples_over_1_5x_event_median": 0,
+      "dropped_samples": 0
+    },
+    {
+      "n": 1024,
+      "implementation": "k30_v1",
+      "samples": 210,
+      "median_event_ms": 0.10751999914646149,
+      "maximum_event_ms": 0.1157120019197464,
+      "max_over_event_median": 1.0761905025885086,
+      "samples_over_1_5x_event_median": 0,
+      "dropped_samples": 0
+    },
+    {
+      "n": 1024,
+      "implementation": "k30_v2",
+      "samples": 210,
+      "median_event_ms": 0.09932799637317657,
+      "maximum_event_ms": 0.1372160017490387,
+      "max_over_event_median": 1.381443367019268,
+      "samples_over_1_5x_event_median": 0,
+      "dropped_samples": 0
+    },
+    {
+      "n": 1024,
+      "implementation": "strict",
+      "samples": 210,
+      "median_event_ms": 0.0727040022611618,
+      "maximum_event_ms": 0.12697599828243256,
+      "max_over_event_median": 1.7464787952982148,
+      "samples_over_1_5x_event_median": 1,
+      "dropped_samples": 0
+    },
+    {
+      "n": 2048,
+      "implementation": "k10",
+      "samples": 210,
+      "median_event_ms": 0.549888014793396,
+      "maximum_event_ms": 0.9297919869422913,
+      "max_over_event_median": 1.6908751635396762,
+      "samples_over_1_5x_event_median": 3,
+      "dropped_samples": 0
+    },
+    {
+      "n": 2048,
+      "implementation": "k30_v1",
+      "samples": 210,
+      "median_event_ms": 0.579584002494812,
+      "maximum_event_ms": 0.9492480158805847,
+      "max_over_event_median": 1.6378092076291937,
+      "samples_over_1_5x_event_median": 2,
+      "dropped_samples": 0
+    },
+    {
+      "n": 2048,
+      "implementation": "k30_v2",
+      "samples": 210,
+      "median_event_ms": 0.5222399830818176,
+      "maximum_event_ms": 0.894976019859314,
+      "max_over_event_median": 1.7137255837401117,
+      "samples_over_1_5x_event_median": 3,
+      "dropped_samples": 0
+    },
+    {
+      "n": 2048,
+      "implementation": "strict",
+      "samples": 210,
+      "median_event_ms": 0.3614720106124878,
+      "maximum_event_ms": 0.4044800102710724,
+      "max_over_event_median": 1.1189801655340084,
+      "samples_over_1_5x_event_median": 0,
+      "dropped_samples": 0
+    },
+    {
+      "n": 4096,
+      "implementation": "k10",
+      "samples": 210,
+      "median_event_ms": 3.020288109779358,
+      "maximum_event_ms": 3.8051838874816895,
+      "max_over_event_median": 1.259874471962104,
+      "samples_over_1_5x_event_median": 0,
+      "dropped_samples": 0
+    },
+    {
+      "n": 4096,
+      "implementation": "k30_v1",
+      "samples": 210,
+      "median_event_ms": 3.224575996398926,
+      "maximum_event_ms": 4.4615678787231445,
+      "max_over_event_median": 1.3836138096002826,
+      "samples_over_1_5x_event_median": 0,
+      "dropped_samples": 0
+    },
+    {
+      "n": 4096,
+      "implementation": "k30_v2",
+      "samples": 210,
+      "median_event_ms": 2.887168049812317,
+      "maximum_event_ms": 3.7109758853912354,
+      "max_over_event_median": 1.2853342172557192,
+      "samples_over_1_5x_event_median": 0,
+      "dropped_samples": 0
+    },
+    {
+      "n": 4096,
+      "implementation": "strict",
+      "samples": 210,
+      "median_event_ms": 2.778623938560486,
+      "maximum_event_ms": 3.604480028152466,
+      "max_over_event_median": 1.297217654440791,
+      "samples_over_1_5x_event_median": 0,
+      "dropped_samples": 0
+    }
+  ],
+  "telemetry": {
+    "raw_points": 42,
+    "coverage": [
+      {
+        "n": 1024,
+        "implementation": "k10",
+        "round": 1,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k10",
+        "round": 2,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k10",
+        "round": 3,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k10",
+        "round": 4,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k10",
+        "round": 5,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k10",
+        "round": 6,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k10",
+        "round": 7,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v1",
+        "round": 1,
+        "points": 1
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v1",
+        "round": 2,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v1",
+        "round": 3,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v1",
+        "round": 4,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v1",
+        "round": 5,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v1",
+        "round": 6,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v1",
+        "round": 7,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v2",
+        "round": 1,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v2",
+        "round": 2,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v2",
+        "round": 3,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v2",
+        "round": 4,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v2",
+        "round": 5,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v2",
+        "round": 6,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "k30_v2",
+        "round": 7,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "strict",
+        "round": 1,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "strict",
+        "round": 2,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "strict",
+        "round": 3,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "strict",
+        "round": 4,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "strict",
+        "round": 5,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "strict",
+        "round": 6,
+        "points": 0
+      },
+      {
+        "n": 1024,
+        "implementation": "strict",
+        "round": 7,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k10",
+        "round": 1,
+        "points": 1
+      },
+      {
+        "n": 2048,
+        "implementation": "k10",
+        "round": 2,
+        "points": 1
+      },
+      {
+        "n": 2048,
+        "implementation": "k10",
+        "round": 3,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k10",
+        "round": 4,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k10",
+        "round": 5,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k10",
+        "round": 6,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k10",
+        "round": 7,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v1",
+        "round": 1,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v1",
+        "round": 2,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v1",
+        "round": 3,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v1",
+        "round": 4,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v1",
+        "round": 5,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v1",
+        "round": 6,
+        "points": 1
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v1",
+        "round": 7,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v2",
+        "round": 1,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v2",
+        "round": 2,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v2",
+        "round": 3,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v2",
+        "round": 4,
+        "points": 1
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v2",
+        "round": 5,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v2",
+        "round": 6,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "k30_v2",
+        "round": 7,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "strict",
+        "round": 1,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "strict",
+        "round": 2,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "strict",
+        "round": 3,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "strict",
+        "round": 4,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "strict",
+        "round": 5,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "strict",
+        "round": 6,
+        "points": 0
+      },
+      {
+        "n": 2048,
+        "implementation": "strict",
+        "round": 7,
+        "points": 0
+      },
+      {
+        "n": 4096,
+        "implementation": "k10",
+        "round": 1,
+        "points": 0
+      },
+      {
+        "n": 4096,
+        "implementation": "k10",
+        "round": 2,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k10",
+        "round": 3,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k10",
+        "round": 4,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k10",
+        "round": 5,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k10",
+        "round": 6,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k10",
+        "round": 7,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v1",
+        "round": 1,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v1",
+        "round": 2,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v1",
+        "round": 3,
+        "points": 0
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v1",
+        "round": 4,
+        "points": 2
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v1",
+        "round": 5,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v1",
+        "round": 6,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v1",
+        "round": 7,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v2",
+        "round": 1,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v2",
+        "round": 2,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v2",
+        "round": 3,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v2",
+        "round": 4,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v2",
+        "round": 5,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v2",
+        "round": 6,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "k30_v2",
+        "round": 7,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "strict",
+        "round": 1,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "strict",
+        "round": 2,
+        "points": 0
+      },
+      {
+        "n": 4096,
+        "implementation": "strict",
+        "round": 3,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "strict",
+        "round": 4,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "strict",
+        "round": 5,
+        "points": 1
+      },
+      {
+        "n": 4096,
+        "implementation": "strict",
+        "round": 6,
+        "points": 2
+      },
+      {
+        "n": 4096,
+        "implementation": "strict",
+        "round": 7,
+        "points": 1
+      }
+    ],
+    "windows_without_samples": 54,
+    "windows_with_samples": 30,
+    "windows": 84
+  },
+  "historical_results": {
+    "unchanged": 69,
+    "checked": 69,
+    "files": [
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\delivery-sha256.csv",
+        "expected_sha256": "C4886C3CE41A537EFEB4DDD5D11461DCF7041F6653E2D89CFE764FD2A81E08CF",
+        "actual_sha256": "C4886C3CE41A537EFEB4DDD5D11461DCF7041F6653E2D89CFE764FD2A81E08CF",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\delivery-source.zip",
+        "expected_sha256": "B41DDD7C742ADC21377CF2D90298D592323C9B5C0D95DC94F1ABDA5FA461B6A9",
+        "actual_sha256": "B41DDD7C742ADC21377CF2D90298D592323C9B5C0D95DC94F1ABDA5FA461B6A9",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\README.md",
+        "expected_sha256": "9B526637724C23D7CB0073997B5B47F6F0C6F5CDF6180B653DD2CECB9AFFEF37",
+        "actual_sha256": "9B526637724C23D7CB0073997B5B47F6F0C6F5CDF6180B653DD2CECB9AFFEF37",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\commands.json",
+        "expected_sha256": "6B6A380866F3D6C202F91D91A73C91E54167B1649F9CCA6392D7378BF3A8B9C2",
+        "actual_sha256": "6B6A380866F3D6C202F91D91A73C91E54167B1649F9CCA6392D7378BF3A8B9C2",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\environment.json",
+        "expected_sha256": "C7C8288558D173204BFB2A7DBBCB38F76D9BE3F9C6277C44B99349EBF5653A3C",
+        "actual_sha256": "C7C8288558D173204BFB2A7DBBCB38F76D9BE3F9C6277C44B99349EBF5653A3C",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\exit-codes.csv",
+        "expected_sha256": "D357A3A49169E9BD0C1124408F8CAB2E9F70BF36FBBA27661015E456F6F745FD",
+        "actual_sha256": "D357A3A49169E9BD0C1124408F8CAB2E9F70BF36FBBA27661015E456F6F745FD",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\ncu-k10-console.log",
+        "expected_sha256": "084480DA6F4A131142C69BFE0D0973BA21D7003BEF3FF6F2E37C9E85901B353C",
+        "actual_sha256": "084480DA6F4A131142C69BFE0D0973BA21D7003BEF3FF6F2E37C9E85901B353C",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\ncu-k10-pad8-console.log",
+        "expected_sha256": "1F87FE1ADA6D1B555FC38CA1EECF308B86EFC5D871D8B0A33C19204F44F78001",
+        "actual_sha256": "1F87FE1ADA6D1B555FC38CA1EECF308B86EFC5D871D8B0A33C19204F44F78001",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\ncu-k10-pad8.csv",
+        "expected_sha256": "43E0F2988E60198BC139EBA62FA3E0DB6E73A797A1445BB90BE52411A895074B",
+        "actual_sha256": "43E0F2988E60198BC139EBA62FA3E0DB6E73A797A1445BB90BE52411A895074B",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\ncu-k10-pad8.ncu-rep",
+        "expected_sha256": "00A990A015026E2016D65C187B5A03FE3DC62F276747BBE9A6BF98B7798EE0DE",
+        "actual_sha256": "00A990A015026E2016D65C187B5A03FE3DC62F276747BBE9A6BF98B7798EE0DE",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\ncu-k10.csv",
+        "expected_sha256": "E3377CC7B0FD4A7F64CC98EBF71F6BE894A4F6D6CD07B7915469961A80625DA3",
+        "actual_sha256": "E3377CC7B0FD4A7F64CC98EBF71F6BE894A4F6D6CD07B7915469961A80625DA3",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\ncu-k10.ncu-rep",
+        "expected_sha256": "92B1D2E37623825A125DA7F20ABC0A8C49A268E1596BB05F8DA703A6001E60A5",
+        "actual_sha256": "92B1D2E37623825A125DA7F20ABC0A8C49A268E1596BB05F8DA703A6001E60A5",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\ncu-summary.csv",
+        "expected_sha256": "FD5C447E48A03EA6891C4E5967AB65DA2C493ED9E659C5E93CED532538A63857",
+        "actual_sha256": "FD5C447E48A03EA6891C4E5967AB65DA2C493ED9E659C5E93CED532538A63857",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\ncu-version.txt",
+        "expected_sha256": "2ED043C451664F2ECBB8486E7D22BC6111116938062B2E470FD5E5800D0990E3",
+        "actual_sha256": "2ED043C451664F2ECBB8486E7D22BC6111116938062B2E470FD5E5800D0990E3",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\profile-k10-events.csv",
+        "expected_sha256": "5FAC23FBB0D0DE131ADB599045AB75F4758362645F2BD92AE6B54E7A3C5BA80D",
+        "actual_sha256": "5FAC23FBB0D0DE131ADB599045AB75F4758362645F2BD92AE6B54E7A3C5BA80D",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script\\profile-k10-pad8-events.csv",
+        "expected_sha256": "D21C50973EC687C80CE41FC02648E02AE649C60CF0146C4F2F0AE0BC033166AC",
+        "actual_sha256": "D21C50973EC687C80CE41FC02648E02AE649C60CF0146C4F2F0AE0BC033166AC",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\build-20261020-223723-894.log",
+        "expected_sha256": "7BBBA208C9C6907086A8165B9B8BDC9F353DE8F26BA74119F13E46C0DF673C3F",
+        "actual_sha256": "7BBBA208C9C6907086A8165B9B8BDC9F353DE8F26BA74119F13E46C0DF673C3F",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\build-20261020-224017-239.log",
+        "expected_sha256": "D3B763EC51125A3D1BA0F1010D617970B2E635BC665711FF1985FAAB54F41B79",
+        "actual_sha256": "D3B763EC51125A3D1BA0F1010D617970B2E635BC665711FF1985FAAB54F41B79",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\build-20261020-224302-595.log",
+        "expected_sha256": "EC43211D61549097200E5C47D4479E4F4F4F5723D5E8C873F7715FC199A71643",
+        "actual_sha256": "EC43211D61549097200E5C47D4479E4F4F4F5723D5E8C873F7715FC199A71643",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\build-20261020-224450-160.log",
+        "expected_sha256": "320E2941D7B60B782717E4B34EFF24CFF10BEFD8423C143A0A72112A3FCFFFC6",
+        "actual_sha256": "320E2941D7B60B782717E4B34EFF24CFF10BEFD8423C143A0A72112A3FCFFFC6",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\build-20261020-224706-160.log",
+        "expected_sha256": "F4E7A35C9CD970DA1AB870D185BDCF7BC0182F8359A6C081535A409EF1E0425A",
+        "actual_sha256": "F4E7A35C9CD970DA1AB870D185BDCF7BC0182F8359A6C081535A409EF1E0425A",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\build-20261020-224812-167.log",
+        "expected_sha256": "61584010779FF1C01CD0894F0A81D985C7BB9CB9DB1A89CE480C92EF8A78F709",
+        "actual_sha256": "61584010779FF1C01CD0894F0A81D985C7BB9CB9DB1A89CE480C92EF8A78F709",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\CMakeCache.txt",
+        "expected_sha256": "B06AF0B306E6A813B8597F6BC1B980AE5D5A2231C16F4E81D773BF0BAC3791A0",
+        "actual_sha256": "B06AF0B306E6A813B8597F6BC1B980AE5D5A2231C16F4E81D773BF0BAC3791A0",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\compile_commands.json",
+        "expected_sha256": "04C01BA938FC29693BAE27B6E4DD3A11B80EA366C602BE30B91E40C921764382",
+        "actual_sha256": "04C01BA938FC29693BAE27B6E4DD3A11B80EA366C602BE30B91E40C921764382",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-1024-beta0.csv",
+        "expected_sha256": "D21DB84668258651F0365D1D1CEC156679B97EF46BB0C7918A41839E96C8E11E",
+        "actual_sha256": "D21DB84668258651F0365D1D1CEC156679B97EF46BB0C7918A41839E96C8E11E",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-1024-beta1.csv",
+        "expected_sha256": "7EEE73AA06CCFC3101BD8ABB8CBE20063EA7F45E5D026582DA15A1BBE1C2E5EB",
+        "actual_sha256": "7EEE73AA06CCFC3101BD8ABB8CBE20063EA7F45E5D026582DA15A1BBE1C2E5EB",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-1024-beta3.csv",
+        "expected_sha256": "C21418A7EB91182BC27118782FE6B24D224A86071A3425E08F60003A1FC0F889",
+        "actual_sha256": "C21418A7EB91182BC27118782FE6B24D224A86071A3425E08F60003A1FC0F889",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-128-beta0.csv",
+        "expected_sha256": "C201B726150ABFF047C8357C5C94AFE998DFE130EB842650766E9ACDCB37B66C",
+        "actual_sha256": "C201B726150ABFF047C8357C5C94AFE998DFE130EB842650766E9ACDCB37B66C",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-128-beta1.csv",
+        "expected_sha256": "03081D030877EA65B8655BF852C5B686BE298084722CAE179D8D165CC2914EAF",
+        "actual_sha256": "03081D030877EA65B8655BF852C5B686BE298084722CAE179D8D165CC2914EAF",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-128-beta3.csv",
+        "expected_sha256": "06C0B007B76964CCF34618196F011F36D83BC2C2D1B0E758FA8DD2645EE8C30B",
+        "actual_sha256": "06C0B007B76964CCF34618196F011F36D83BC2C2D1B0E758FA8DD2645EE8C30B",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-2048-beta0.csv",
+        "expected_sha256": "52973CE49F7A6C20B664712866E741CF5E999345559B9CCF92A6A2871BE42F43",
+        "actual_sha256": "52973CE49F7A6C20B664712866E741CF5E999345559B9CCF92A6A2871BE42F43",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-2048-beta1.csv",
+        "expected_sha256": "15C6A2AAD84E258AADD2429CF775BEF9F28DCD9CB0C663C7105A26DDD23BBC58",
+        "actual_sha256": "15C6A2AAD84E258AADD2429CF775BEF9F28DCD9CB0C663C7105A26DDD23BBC58",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-2048-beta3.csv",
+        "expected_sha256": "B5196187A3991F5F854F43301439C70005C7D52B9C5489AD554E5FBB37E03C9D",
+        "actual_sha256": "B5196187A3991F5F854F43301439C70005C7D52B9C5489AD554E5FBB37E03C9D",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-256-beta0.csv",
+        "expected_sha256": "B438F47ED334F1FD51C0FBEACF4619FECC197A268076FF845E8EF50ECCC956DC",
+        "actual_sha256": "B438F47ED334F1FD51C0FBEACF4619FECC197A268076FF845E8EF50ECCC956DC",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-256-beta1.csv",
+        "expected_sha256": "4D89055CF2B360A7DF49F822D80ABE20E1E560B447099E7035C3B7CEA9CB049F",
+        "actual_sha256": "4D89055CF2B360A7DF49F822D80ABE20E1E560B447099E7035C3B7CEA9CB049F",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-256-beta3.csv",
+        "expected_sha256": "2C52E7E70364F573F492667B54C35C7468CC00598E8C50775F535A82E42DBD42",
+        "actual_sha256": "2C52E7E70364F573F492667B54C35C7468CC00598E8C50775F535A82E42DBD42",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-4096-beta0.csv",
+        "expected_sha256": "C6E7563EC1720CC7F8375318A514FA3AEF3160915C3D357ABF441494BA523A09",
+        "actual_sha256": "C6E7563EC1720CC7F8375318A514FA3AEF3160915C3D357ABF441494BA523A09",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-4096-beta1.csv",
+        "expected_sha256": "87074DB8CE030B2A706FE0A73A7736E4F184B84C9BCE42A61D5494611E22F31F",
+        "actual_sha256": "87074DB8CE030B2A706FE0A73A7736E4F184B84C9BCE42A61D5494611E22F31F",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-4096-beta3.csv",
+        "expected_sha256": "284D199501F175B6BAFBF684AC584A5FEFB05BFEAA57EB6D757A1906931C333E",
+        "actual_sha256": "284D199501F175B6BAFBF684AC584A5FEFB05BFEAA57EB6D757A1906931C333E",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-512-beta0.csv",
+        "expected_sha256": "5747F9EC542A3479AA0BCFE306EF391EBB509F652150EE5ACF5F25B68C7E0B22",
+        "actual_sha256": "5747F9EC542A3479AA0BCFE306EF391EBB509F652150EE5ACF5F25B68C7E0B22",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-512-beta1.csv",
+        "expected_sha256": "C59302801EB8B5EE94A0183098DB43F82DF2D2125A55C0A98E943DE935517DF8",
+        "actual_sha256": "C59302801EB8B5EE94A0183098DB43F82DF2D2125A55C0A98E943DE935517DF8",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\correctness-512-beta3.csv",
+        "expected_sha256": "064436E773B4C9B00B6D438B4201AD3966756A087054BFB4BE48549B9DB03024",
+        "actual_sha256": "064436E773B4C9B00B6D438B4201AD3966756A087054BFB4BE48549B9DB03024",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\environment.json",
+        "expected_sha256": "AB07F19CA90FF983FEA8BE19D5B6DE4F5C39FB50C272BA7EF2BF9FEFBE98BA1E",
+        "actual_sha256": "AB07F19CA90FF983FEA8BE19D5B6DE4F5C39FB50C272BA7EF2BF9FEFBE98BA1E",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\git-status.txt",
+        "expected_sha256": "7B284FCEF6D1D0578C030509727D314A3B33E03CFA7719E16D9210D4887512CB",
+        "actual_sha256": "7B284FCEF6D1D0578C030509727D314A3B33E03CFA7719E16D9210D4887512CB",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\ncu-k10-console.log",
+        "expected_sha256": "8FA13ADA9B99A501A692546771C43ECF46B826D56CBD3183850506D615602196",
+        "actual_sha256": "8FA13ADA9B99A501A692546771C43ECF46B826D56CBD3183850506D615602196",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\ncu-k10-pad8-console.log",
+        "expected_sha256": "7C8A0EA207E542B845977B8FEC2969F8AD50592F6B8EBB53266A9CA49274AD5B",
+        "actual_sha256": "7C8A0EA207E542B845977B8FEC2969F8AD50592F6B8EBB53266A9CA49274AD5B",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\ncu-k10-pad8.csv",
+        "expected_sha256": "0379D81CF9D46FA16B75FAAD7C8A800E18C91C288DCB27746A521135F0C5F151",
+        "actual_sha256": "0379D81CF9D46FA16B75FAAD7C8A800E18C91C288DCB27746A521135F0C5F151",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\ncu-k10-pad8.ncu-rep",
+        "expected_sha256": "0B8169190075141674A6CC524A21DB1BFF54F43F1B16C08782D109705FF8618F",
+        "actual_sha256": "0B8169190075141674A6CC524A21DB1BFF54F43F1B16C08782D109705FF8618F",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\ncu-k10.csv",
+        "expected_sha256": "96011E211466BA34A83045FC92751B2F4EADE0C3AB136ADB2EBDB2BFFDA2E25B",
+        "actual_sha256": "96011E211466BA34A83045FC92751B2F4EADE0C3AB136ADB2EBDB2BFFDA2E25B",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\ncu-k10.ncu-rep",
+        "expected_sha256": "16B80BDE632F210F6D7FD8AF3EF3F70071586C76730ECB39B5DF8AFBE9F73752",
+        "actual_sha256": "16B80BDE632F210F6D7FD8AF3EF3F70071586C76730ECB39B5DF8AFBE9F73752",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\nvidia-smi-after.txt",
+        "expected_sha256": "5AAB1F18F5F3D74BCFCAC65BB4D2026452EF00B3772BFFDF37C088303C83D847",
+        "actual_sha256": "5AAB1F18F5F3D74BCFCAC65BB4D2026452EF00B3772BFFDF37C088303C83D847",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\nvidia-smi-before.txt",
+        "expected_sha256": "EC0AFB5C11F950BE75A62C63464039E735730DD834C23DAC9AF94C3D1B633A7C",
+        "actual_sha256": "EC0AFB5C11F950BE75A62C63464039E735730DD834C23DAC9AF94C3D1B633A7C",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\paired-summary.csv",
+        "expected_sha256": "05BF45476EADCDDA9FB489C361C815FC7654F41ECADBA04A167EDA09954C37F5",
+        "actual_sha256": "05BF45476EADCDDA9FB489C361C815FC7654F41ECADBA04A167EDA09954C37F5",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\paired.csv",
+        "expected_sha256": "07AB6616C69830F50625C54B088F08063F9C1FD9572F1CAF5E8D1D0E484CBCF6",
+        "actual_sha256": "07AB6616C69830F50625C54B088F08063F9C1FD9572F1CAF5E8D1D0E484CBCF6",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\PASS.txt",
+        "expected_sha256": "4526FFDF5CD99CB2D2B09CFF86491FE44AD579D0ACD577918F750597458FE140",
+        "actual_sha256": "4526FFDF5CD99CB2D2B09CFF86491FE44AD579D0ACD577918F750597458FE140",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\profile-k10-events.csv",
+        "expected_sha256": "8BC34AFE0EE4CB707CC8FC8581D0EFF4A483D95AC14516BEF3C9B2DDCC23583E",
+        "actual_sha256": "8BC34AFE0EE4CB707CC8FC8581D0EFF4A483D95AC14516BEF3C9B2DDCC23583E",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\profile-k10-pad8-events.csv",
+        "expected_sha256": "897C40A70387ED5EBA75CC7FC6C4FC8FE5897062746F826715D9A9CB4C699754",
+        "actual_sha256": "897C40A70387ED5EBA75CC7FC6C4FC8FE5897062746F826715D9A9CB4C699754",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\rounds.csv",
+        "expected_sha256": "24C212655B8A36FE83CC0E4E0941EA60268AE0B446E75DA14EF96060C73DEE2B",
+        "actual_sha256": "24C212655B8A36FE83CC0E4E0941EA60268AE0B446E75DA14EF96060C73DEE2B",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\run.log",
+        "expected_sha256": "EDCD8C342676C396E2B84137311C76FA8A850FBEA4B3111FBDF422DEF5432DC2",
+        "actual_sha256": "EDCD8C342676C396E2B84137311C76FA8A850FBEA4B3111FBDF422DEF5432DC2",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\sanitizer-memcheck-events.csv",
+        "expected_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "actual_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\sanitizer-memcheck.log",
+        "expected_sha256": "7D44DFABBDA1E5FB7B0018BBA54F616CE512064B9F4094EF802DB805F481734B",
+        "actual_sha256": "7D44DFABBDA1E5FB7B0018BBA54F616CE512064B9F4094EF802DB805F481734B",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\sha256.csv",
+        "expected_sha256": "EE85B49CE3E38A5CBB42C52810ADC1CC321ECF8FFF86455EA75C363F1DD008B2",
+        "actual_sha256": "EE85B49CE3E38A5CBB42C52810ADC1CC321ECF8FFF86455EA75C363F1DD008B2",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\source-snapshot.zip",
+        "expected_sha256": "2E3FF87FB44B4C72318E41783D47B0167280DF5727305A7D982A9035A7701B6F",
+        "actual_sha256": "2E3FF87FB44B4C72318E41783D47B0167280DF5727305A7D982A9035A7701B6F",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\summary.csv",
+        "expected_sha256": "EFFF263F0B8A570664D0BE4E343582455C424027EF08E2B641B5B15A2CF45CD7",
+        "actual_sha256": "EFFF263F0B8A570664D0BE4E343582455C424027EF08E2B641B5B15A2CF45CD7",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\telemetry.csv",
+        "expected_sha256": "1F29562A1C0910AFC3A2B7CA6EA64508BA243B28988CC76BC7CD12977B8E25EE",
+        "actual_sha256": "1F29562A1C0910AFC3A2B7CA6EA64508BA243B28988CC76BC7CD12977B8E25EE",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\timings-1024.csv",
+        "expected_sha256": "9D92D3290717BAF354CE90E6BB0788606F454464F139A5571D0990DECEC052AE",
+        "actual_sha256": "9D92D3290717BAF354CE90E6BB0788606F454464F139A5571D0990DECEC052AE",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\timings-2048.csv",
+        "expected_sha256": "F44B29411113EDF58A606719EE6C73628452140D6A74CA98818334A0516E79FF",
+        "actual_sha256": "F44B29411113EDF58A606719EE6C73628452140D6A74CA98818334A0516E79FF",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\timings-4096.csv",
+        "expected_sha256": "5D78B208C8A30F5D83D4522164B52361D05E95AC05982D06158A9F8149CC6790",
+        "actual_sha256": "5D78B208C8A30F5D83D4522164B52361D05E95AC05982D06158A9F8149CC6790",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01\\tracked-changes.patch",
+        "expected_sha256": "495157F61535972A1E3D050B91029A1279EB79A7977C45BE0B27A7E3EC297671",
+        "actual_sha256": "495157F61535972A1E3D050B91029A1279EB79A7977C45BE0B27A7E3EC297671",
+        "unchanged": true
+      }
+    ]
+  },
+  "limitations": [
+    "Bootstrap intervals are conditional on observed paired rounds and exchangeability; not WDDM or between-session uncertainty.",
+    "Telemetry is sparse and associated with warmup+timing+validation windows; empty windows remain unknown.",
+    "CPU double reference is full at N128 and sampled at larger sizes; numerical PASS is not a sanitizer proof.",
+    "No event outlier was removed; medians summarize round means, not pooled events."
+  ],
+  "input_sha256": [
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\timings-1024.csv",
+      "Hash": "22442B148528493CB34201F4BD7FBEC00A5E9578EFE548007E34D03ACBC66812"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\timings-2048.csv",
+      "Hash": "877E9FC9167EF7E17B297E66289C27158D35D3BD19BBB5E77761D10A03D8DE89"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\timings-4096.csv",
+      "Hash": "5628C522EE263812F1368C4850D5778F19AD2B0A2FD9545C8077A2A61361C796"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-1024-beta0.csv",
+      "Hash": "C903BDF2AB71E20E429B1547DFCE7D2D7B00650BC4102415F6AB9D2F59372293"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-1024-beta1.csv",
+      "Hash": "CE4D4536F164D94DC62E3544653C523B1E350DB938CF2655906F3E552EC5D6F4"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-1024-beta3.csv",
+      "Hash": "AF3FFFC362113D642B8A3ABAB69B410D65BA4EDB8DF4C5920367C89449F6A8E9"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-128-beta0.csv",
+      "Hash": "0FE7B7D4C300637D757584C621404142C35C13734D991F13DE4428272EF6A99C"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-128-beta1.csv",
+      "Hash": "B761CC3089D0C530F8C0B8CAB76AE4224D360D6189F3ED29216156749287B326"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-128-beta3.csv",
+      "Hash": "52EFBB77363F032BB79196604597DC4063F1D2839EE3C87632B9088418820A46"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-2048-beta0.csv",
+      "Hash": "F27E39CA19F155E17B18EB3B3A02EACFC600DE4724157EF90852A2FD2AEAF73A"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-2048-beta1.csv",
+      "Hash": "C5ECD38CE2D5D7A50E22D6DC0C49D446198BA53476DE2DC53AE889DDCD7991E9"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-2048-beta3.csv",
+      "Hash": "CF4E62912A3E2FEBD019E807F191B7E3EEB806DFFB02FC1D380A911EF48C8CB2"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-256-beta0.csv",
+      "Hash": "8641C64545930006471EA6243EDB49C9BB502B9B046F0C2C813B35FA194B117F"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-256-beta1.csv",
+      "Hash": "B241FE43A8717701E96BB5CF3D8D91C719439FA2024DBEE20606779CB804D50D"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-256-beta3.csv",
+      "Hash": "3C5F3B07BDD6322184A54B4515B06BCAB43EA4FDF727A7E6EAC1F2DEC88132B2"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-4096-beta0.csv",
+      "Hash": "11FA47424DAFE0A6AC96B8FAC20867471EAB3EA5931F789906E0B922D8DBDA48"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-4096-beta1.csv",
+      "Hash": "0448BC760506C4F01FCE5EC77DB18F76E191D8353A7CD0A50CCCBDD2A6C04A15"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-4096-beta3.csv",
+      "Hash": "0F633AB5203E93E8834A76B683FA8B18018ACDDFD5C37359D0737BE30BBC44BF"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-512-beta0.csv",
+      "Hash": "296D3D8A471593E8EC8B1CFD920F9741B9B063A57127E3608746BA611164CA9D"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-512-beta1.csv",
+      "Hash": "106EDF161080E2AC1223A3C9E9A55CB732C71B72F3114F078B225E616CEC7BE6"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\correctness-512-beta3.csv",
+      "Hash": "2EF09A0BFA7D7D3C0C873DF308C5726B99633C424F957E936CB694E509CE6B28"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\environment.json",
+      "Hash": "3404417A5965F8AA2B94828E3C8BC792272547752B3C52236AA9A104993E92D9"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\summary.csv",
+      "Hash": "8489576B82C31C6190353B57CA0A4D55552BB6DFF7AB4B52D7FB1E2B4DEBA865"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\rounds.csv",
+      "Hash": "14843E219331A5871496F9C74E34F4B013804DF36F34BBB907857009E4B81F06"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\paired-summary.csv",
+      "Hash": "A389705ED5E590BE3A49A56AE972A202569DC9B9E7FE3FA684FE456AB5027B50"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\telemetry.csv",
+      "Hash": "CEE4A85E2EE52F3596A09C69D5AE719EDD9C4AB44A2EDAAB2E80F031446D2B1F"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\run01\\round-telemetry.csv",
+      "Hash": "31615776A265F3158BC510D3F0884465F66AB714ACD01FC615BD9F7AAE0B8328"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2\\preflight\\prior-results-sha256.csv",
+      "Hash": "DD4E51B7A10B4D1876B408FF2F9A6A769934B87D4BC08B746B64CDDE632B37E2"
+    },
+    {
+      "Path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Verify-K30SyncResults.ps1",
+      "Hash": "9E061A59E13CA7B06D2B07C9FD43B6673D94A6313A53082389C303F1E8AC0DF0"
+    }
+  ],
+  "issues": []
+}

@@ -1,0 +1,5 @@
+function_id,mode,arch,function,selection_rule,loop_start,loop_end,static_instructions,static_ffma,static_ldg,static_lds,static_sts,static_bar,static_depbar,static_ldl,static_stl,static_ldgsts,ldg_first_instruction_index,ldg_last_instruction_index,ldg_min_ffma_after,ldg_max_ffma_after,bar_instruction_indices,bar_ffma_before
+0,k30_v1,sm_89,_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf,unique_maximum_static_FFMA,0xc70,0x9730,2221,2048,8,96,20,2,0,0,0,0,24,43,2048,2048,67;2218,0;2048
+1,k30_v2,sm_89,_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf,unique_maximum_static_FFMA,0xcf0,0x97f0,2225,2048,8,96,20,1,0,0,0,0,2166,2188,2,2,2222,2048
+2,k10_pad8,sm_89,_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi8EEviiifPKfS1_fPf,unique_maximum_static_FFMA,0x570,0x9080,2226,2048,8,96,20,2,0,0,0,0,14,28,2048,2048,57;2223,0;2048
+3,k10,sm_89,_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf,unique_maximum_static_FFMA,0x570,0x9080,2226,2048,8,96,20,2,0,0,0,0,14,28,2048,2048,57;2223,0;2048

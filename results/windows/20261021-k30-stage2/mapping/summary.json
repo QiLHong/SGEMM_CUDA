@@ -1,0 +1,188 @@
+{
+  "status": "PASS",
+  "scope": "CPU enumeration of source formulas; no GPU run",
+  "python_executable": "D:\\Anaconda\\Anaconda\\python.exe",
+  "python_version": "3.12.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "source_sha256": {
+    "src/kernels/10_kernel_warptiling.cuh": "233313c753ba1efc0599ae4a570059f1a515b0ab1040b62df03e81a2af53f9b3",
+    "src/kernels/30_kernel_mini_simt.cuh": "bed81ab2f52df0061af3c7e814ff43b66c851c634cfdb4fed5f22031ecabc4c4",
+    "scripts/analyze_k30_mapping.py": "4facb2e319f5bd3cb32e5dafc8657982983ff7dbfdde4cc2d36d37632934ea9c",
+    "scripts/analyze_windows_k30_mapping.py": "db493cf5c3bfd85c6fb8741de702f105130c556738cf3c66d27d80db4111369b"
+  },
+  "shape": {
+    "BM": 128,
+    "BN": 128,
+    "BK": 16,
+    "threads": 128,
+    "A_stride": 132
+  },
+  "ownership": [
+    {
+      "implementation": "k10",
+      "csv_rows": 16384,
+      "distinct_outputs": 16384,
+      "expected_outputs": 16384,
+      "duplicate_outputs": 0,
+      "missing_outputs": 0,
+      "out_of_bounds": 0,
+      "per_thread_outputs": 128,
+      "per_warp_outputs": 4096,
+      "status": "PASS"
+    },
+    {
+      "implementation": "k30_v1",
+      "csv_rows": 16384,
+      "distinct_outputs": 16384,
+      "expected_outputs": 16384,
+      "duplicate_outputs": 0,
+      "missing_outputs": 0,
+      "out_of_bounds": 0,
+      "per_thread_outputs": 128,
+      "per_warp_outputs": 4096,
+      "status": "PASS"
+    },
+    {
+      "implementation": "k30_v2",
+      "csv_rows": 16384,
+      "distinct_outputs": 16384,
+      "expected_outputs": 16384,
+      "duplicate_outputs": 0,
+      "missing_outputs": 0,
+      "out_of_bounds": 0,
+      "per_thread_outputs": 128,
+      "per_warp_outputs": 4096,
+      "status": "PASS"
+    }
+  ],
+  "k30_v1_v2_identical_ownership": true,
+  "global_shared_flow": {
+    "shared_a_logical_elements": 2048,
+    "shared_b_logical_elements": 2048,
+    "shared_a_allocated_floats": 2112,
+    "shared_a_unused_padding_floats": 64,
+    "one_stage_bytes": 16640,
+    "k30_v2_two_stage_bytes": 33280,
+    "duplicate_writers": 0,
+    "missing_elements": 0,
+    "out_of_bounds": 0,
+    "status": "PASS"
+  },
+  "legacy_crosscheck": {
+    "legacy_export_rows": 4096,
+    "compared_fields": [
+      "lane",
+      "a_register",
+      "b_register",
+      "accumulator",
+      "m",
+      "n",
+      "shared_a_k0",
+      "shared_b_k0",
+      "shared_a_k_stride",
+      "shared_b_k_stride"
+    ],
+    "matching_rows": 4096,
+    "legacy_script_exit_code": 0,
+    "note": "Legacy script additionally checks 256x128 CTA bounds internally.",
+    "status": "PASS"
+  },
+  "selected_lanes": [
+    {
+      "implementation": "k10",
+      "warp": 0,
+      "lane": 0,
+      "rows": "0 1 2 3 4 5 6 7",
+      "cols": "0 1 2 3 16 17 18 19 32 33 34 35 48 49 50 51",
+      "output_count": 128
+    },
+    {
+      "implementation": "k10",
+      "warp": 0,
+      "lane": 1,
+      "rows": "0 1 2 3 4 5 6 7",
+      "cols": "4 5 6 7 20 21 22 23 36 37 38 39 52 53 54 55",
+      "output_count": 128
+    },
+    {
+      "implementation": "k10",
+      "warp": 0,
+      "lane": 2,
+      "rows": "0 1 2 3 4 5 6 7",
+      "cols": "8 9 10 11 24 25 26 27 40 41 42 43 56 57 58 59",
+      "output_count": 128
+    },
+    {
+      "implementation": "k10",
+      "warp": 0,
+      "lane": 31,
+      "rows": "56 57 58 59 60 61 62 63",
+      "cols": "12 13 14 15 28 29 30 31 44 45 46 47 60 61 62 63",
+      "output_count": 128
+    },
+    {
+      "implementation": "k30_v1",
+      "warp": 0,
+      "lane": 0,
+      "rows": "0 1 2 3 16 17 18 19 32 33 34 35 48 49 50 51",
+      "cols": "0 1 2 3 32 33 34 35",
+      "output_count": 128
+    },
+    {
+      "implementation": "k30_v1",
+      "warp": 0,
+      "lane": 1,
+      "rows": "4 5 6 7 20 21 22 23 36 37 38 39 52 53 54 55",
+      "cols": "0 1 2 3 32 33 34 35",
+      "output_count": 128
+    },
+    {
+      "implementation": "k30_v1",
+      "warp": 0,
+      "lane": 2,
+      "rows": "0 1 2 3 16 17 18 19 32 33 34 35 48 49 50 51",
+      "cols": "4 5 6 7 36 37 38 39",
+      "output_count": 128
+    },
+    {
+      "implementation": "k30_v1",
+      "warp": 0,
+      "lane": 31,
+      "rows": "12 13 14 15 28 29 30 31 44 45 46 47 60 61 62 63",
+      "cols": "28 29 30 31 60 61 62 63",
+      "output_count": 128
+    },
+    {
+      "implementation": "k30_v2",
+      "warp": 0,
+      "lane": 0,
+      "rows": "0 1 2 3 16 17 18 19 32 33 34 35 48 49 50 51",
+      "cols": "0 1 2 3 32 33 34 35",
+      "output_count": 128
+    },
+    {
+      "implementation": "k30_v2",
+      "warp": 0,
+      "lane": 1,
+      "rows": "4 5 6 7 20 21 22 23 36 37 38 39 52 53 54 55",
+      "cols": "0 1 2 3 32 33 34 35",
+      "output_count": 128
+    },
+    {
+      "implementation": "k30_v2",
+      "warp": 0,
+      "lane": 2,
+      "rows": "0 1 2 3 16 17 18 19 32 33 34 35 48 49 50 51",
+      "cols": "4 5 6 7 36 37 38 39",
+      "output_count": 128
+    },
+    {
+      "implementation": "k30_v2",
+      "warp": 0,
+      "lane": 31,
+      "rows": "12 13 14 15 28 29 30 31 44 45 46 47 60 61 62 63",
+      "cols": "28 29 30 31 60 61 62 63",
+      "output_count": 128
+    }
+  ]
+}

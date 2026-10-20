@@ -1,0 +1,81 @@
+Windows K30 V1/V2 independent static and profiler inspection, 2026-10-21
+
+Evidence:
+- build-windows-k30-sync-sm89/windows_benchmark.exe SHA256:
+  10f54802b0b7b9153394730b8a459e9f6df8b17ed9cb85d725837cb2d7678d7e
+- windows_benchmark.sass / windows_benchmark.ptx / resources.txt
+- analysis/{functions,opcode-counts,loop-candidates,mainloop-order,mainloop-summary}.csv
+- ptx-placement.csv, profile-ranges.csv
+- ../profile01: PROFILE_PASS.txt and 16 parsed profiles, two repetitions per size/mode.
+
+Source/PTX/SASS distinction:
+The source V2 calls global.load(next) before compute(current), then stores next
+into the future shared slot and reaches one block barrier. Its PTX also puts
+eight ld.global instructions before all 2048 mainloop fma instructions.
+The final sm_89 SASS places all eight LDG after 2046 FFMA, with only two FFMA
+remaining after each LDG. PCs run from 0x9450 through 0x95b0; the end barrier is
+at 0x97d0. V1 loads before all 2048 FFMA and has two loop barriers.
+Both selected loops contain eight LDG, 96 LDS and 20 STS. Neither has LDL,
+STL or LDGSTS. Neither PTX function contains cp.async.
+These are static positions/counts, not cycles or evidence of guaranteed overlap.
+The parser discovers backward BRA intervals and flags ambiguous maximal-FFMA
+loops; none were ambiguous for this binary.
+
+Registers and shared memory:
+cuobjdump reports V1=199, V2=235, K10=184 registers; stack/local storage is zero.
+The dynamic profiler reports zero local load/store sectors for all 16 profiles.
+These agree with the supplied ptxas zero-spill evidence, without equating sectors
+to a compiler spill byte count.
+V1/V2 user dynamic shared memory is 16640/33280 bytes. NCU total per-block shared
+memory is 17664/34304 bytes, including an additional 1024 bytes in this run.
+Both have approximately two active warps per SMSP active cycle at 4096 and
+achieved occupancy near 16.6%; more registers did not lower the observed
+occupancy tier in these measurements.
+
+Dynamic comparison (two samples each; inspect profile-ranges.csv for exact ranges):
+4096 V1 -> V2:
+- Eligible warps/SMSP active cycle: 1.19–1.20 -> 1.35.
+- Long scoreboard stalled warps/SMSP active cycle: 0.27 -> 0.24.
+- Short scoreboard: 0.14 -> 0.05; barrier: 0.09 -> 0.06.
+- Issue active: 67.40–68.52% -> 78.47–78.50%.
+- FMA pipe active: 62.43–62.83% -> 72.43–72.82%.
+2048 points in the same direction for eligible warps, short scoreboard and
+barrier stalls, but long scoreboard ranges overlap; do not claim a universal
+long-scoreboard reduction.
+
+Do not claim zero V2 bank conflicts:
+V2 shared-load conflicts are 1722–1875 at 2048 and 11615–14026 at 4096.
+V2 shared-store conflicts are also higher than V1. V1 and V2 have identical
+logical shared layout/fragment ownership, so these counters do not establish a
+layout change as their cause. The measured excess and replay variability remain
+observations, not a proven mechanism.
+
+NCU duration varies substantially at 4096: V1 3.782496–4.433440 ms, V2
+2.915296–3.910240 ms. The normal events run owns throughput conclusions.
+Clock/cache control were both none, and kernel replay collects different counter
+groups across passes. DRAM and L2 counters also vary; avoid assigning precise
+fractions of runtime to these counters. The current two profiler repetitions
+support directional evidence, not confidence intervals.
+
+Next single-factor hypothesis:
+Keep V2's two shared slots, tile, ownership, precision and one barrier unchanged;
+move only the source global.load(next) from before compute to immediately after
+compute. Inspect PTX/SASS and resource use first. Identical SASS would show that
+the source-level early-load order did not create a distinct machine schedule.
+Different SASS would justify a paired timing/correctness experiment. This tests
+the prefetch-order hypothesis; V1 versus V2 alone cannot identify barrier count
+as the sole cause because buffering and generated scheduling change together.
+
+Metric definitions checked against NVIDIA documentation:
+https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-guide
+https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html
+The hardware metric query was also checked with the installed NCU 2024.1.1.
+.sum combines unit instances; per_cycle_active uses active-cycle denominators.
+Warp stall fields here are average warp counts, not percentages. A sector is a
+32-byte unit; a wavefront is a hardware work package, not a byte count.
+The CSV parser retains the reported units and normalizes durations to milliseconds
+and byte quantities to bytes. The official guide warns that CUDA events inside
+NCU include profiling overhead; static instruction distance is not latency.
+
+All inspection and parsing in this subtask was CPU-only. GPU profiles were
+executed serially by the parent task.
