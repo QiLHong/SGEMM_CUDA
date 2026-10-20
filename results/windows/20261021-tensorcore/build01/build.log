@@ -1,0 +1,36 @@
+-- The CXX compiler identification is MSVC 19.37.32826.1
+-- The CUDA compiler identification is NVIDIA 12.4.131 with host compiler MSVC 19.37.32826.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: D:/VS/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/bin/nvcc.exe - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Found CUDAToolkit: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/include (found suitable version "12.4.131", minimum required is "12.4")
+-- Configuring done (20.4s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-tensorcore-sm89
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-tensorcore-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2
+[1/2] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 -MD -MT CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj -MF CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\experiments\tensorcore\benchmark.cu -o CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj -Xcompiler=-FdCMakeFiles\windows_tensor_benchmark.dir\,-FS
+FAILED: CMakeFiles/windows_tensor_benchmark.dir/benchmark.cu.obj 
+"C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 -MD -MT CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj -MF CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\experiments\tensorcore\benchmark.cu -o CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj -Xcompiler=-FdCMakeFiles\windows_tensor_benchmark.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\experiments\tensorcore\benchmark.cu(77): error: identifier "__float_to_tf32" is undefined
+
+    if(i<n){tf[i]=__float_to_tf32(x[i]);half h=__float2half_rn(x[i]);fp16[i]=h;fp16AsFloat[i]=__half2float(h);}
+
+                  ^
+
+
+
+1 error detected in the compilation of "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/experiments/tensorcore/benchmark.cu".
+
+benchmark.cu
+
+ninja: build stopped: subcommand failed.
+

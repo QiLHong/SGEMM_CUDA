@@ -1,0 +1,15 @@
+n,candidate,baseline,round,throughput_change_pct
+4096,vitamin_tf32_dbf,cublas_tf32,0,-3.7193298995918167
+4096,vitamin_tf32_dbf,cublas_tf32,1,3.695354834065423
+4096,vitamin_tf32_dbf,cublas_tf32,2,-3.2299119579649926
+4096,vitamin_tf32_dbf,cublas_tf32,3,3.721274598447777
+4096,vitamin_tf32_dbf,cublas_tf32,4,2.8666103584953584
+4096,vitamin_tf32_dbf,cublas_tf32,5,12.118569037105065
+4096,vitamin_tf32_dbf,cublas_tf32,6,3.2877732992481423
+4096,vitamin_fp16_dbf_rw,cublas_fp16,0,0.8199178605728497
+4096,vitamin_fp16_dbf_rw,cublas_fp16,1,-1.7023545323672007
+4096,vitamin_fp16_dbf_rw,cublas_fp16,2,6.250087194312015
+4096,vitamin_fp16_dbf_rw,cublas_fp16,3,1.726272919933769
+4096,vitamin_fp16_dbf_rw,cublas_fp16,4,2.409799657728273
+4096,vitamin_fp16_dbf_rw,cublas_fp16,5,2.9666511503618764
+4096,vitamin_fp16_dbf_rw,cublas_fp16,6,2.587832822892877

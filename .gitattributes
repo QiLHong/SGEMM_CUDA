@@ -1,0 +1,12 @@
+# Preserve the exact bytes checked by the RTX 4090 D Tensor Core manifests.
+# Scope this rule to these experiments; leave other working files unchanged.
+results/windows/20261021-tensorcore/** -text
+results/windows/20261021-tensorcore-grid/** -text
+experiments/tensorcore/** -text
+experiments/tensorcore-grid/** -text
+scripts/*tensor*.py -text
+scripts/windows/*-TensorCore.ps1 -text
+scripts/windows/*-TensorGrid.ps1 -text
+scripts/windows/Initialize-Toolchain.ps1 -text
+docs/zh/28-* -text
+docs/zh/29-* -text

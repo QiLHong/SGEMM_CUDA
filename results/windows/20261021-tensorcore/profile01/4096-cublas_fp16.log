@@ -1,0 +1,3 @@
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+PROFILE_COMPLETE cublas_fp16

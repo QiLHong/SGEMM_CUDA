@@ -1,0 +1,7 @@
+function,HMMA,FFMA,LDGSTS,LDSM,BAR,DEPBAR,LDL,STL,hmma_variants
+_ZN12vitamin_fp1623hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii,64,0,8,32,4,2,0,0,HMMA.16816.F32
+_ZN12vitamin_fp1616hgemm_bcf_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii,32,0,4,16,2,1,0,0,HMMA.16816.F32
+_ZN12vitamin_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii,64,0,8,16,2,2,0,0,HMMA.1688.F32.TF32
+_ZN12vitamin_tf3229sgemm_tf32_swizzle_bcf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii,32,0,4,8,2,1,0,0,HMMA.1688.F32.TF32
+_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf,0,2304,0,0,2,0,0,0,
+_Z13prepareInputsPKfPfP6__halfS1_y,0,0,0,0,0,0,0,0,

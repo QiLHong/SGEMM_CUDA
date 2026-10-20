@@ -1,0 +1,3 @@
+run,samples,windows,windows_with_samples,temperature_min,temperature_max,sm_mhz_min,sm_mhz_max,memory_mhz_min,memory_mhz_max,timestamp_utc_offset_minutes,caveat
+run02,168,168,81,43.0,55.0,2490.0,2715.0,10251.0,10501.0,480,Windows include warmup/validation; sampled clocks do not prove every event's clock
+pair-confirm01,64,28,28,44.0,52.0,2520.0,2715.0,10251.0,10501.0,480,Windows include warmup/validation; sampled clocks do not prove every event's clock

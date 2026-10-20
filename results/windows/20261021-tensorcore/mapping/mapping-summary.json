@@ -1,0 +1,39 @@
+{
+  "outputs": 16384,
+  "duplicates": 0,
+  "omissions": 0,
+  "out_of_bounds": 0,
+  "applies_to": [
+    "tf32_single",
+    "tf32_dbf",
+    "fp16_single",
+    "fp16_dbf_rw"
+  ],
+  "grid_checks": [
+    {
+      "m": 128,
+      "n": 1024,
+      "ctas": 8,
+      "status": "PASS"
+    },
+    {
+      "m": 1024,
+      "n": 1024,
+      "ctas": 64,
+      "status": "PASS"
+    },
+    {
+      "m": 2048,
+      "n": 2048,
+      "ctas": 256,
+      "status": "PASS"
+    },
+    {
+      "m": 4096,
+      "n": 4096,
+      "ctas": 1024,
+      "status": "PASS"
+    }
+  ],
+  "caveat": "CPU formulas audit coverage; numerical GPU checks remain necessary"
+}

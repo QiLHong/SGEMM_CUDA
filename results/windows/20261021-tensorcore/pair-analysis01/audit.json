@@ -1,0 +1,8 @@
+{
+  "events": 840,
+  "round_groups": 28,
+  "correctness_rows": 256,
+  "nonfinite": 0,
+  "no_samples_removed": true,
+  "scope": "Numerical FP32 failures preserved; same-precision comparison is a separate contract"
+}

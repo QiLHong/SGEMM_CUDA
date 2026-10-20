@@ -1,0 +1,42 @@
+-- Configuring done (1.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-tensorcore-sm89
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-tensorcore-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2
+[1/2] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 -MD -MT CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj -MF CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\experiments\tensorcore\benchmark.cu -o CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj -Xcompiler=-FdCMakeFiles\windows_tensor_benchmark.dir\,-FS
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN12vitamin_fp1623hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii' for 'sm_89'
+ptxas info    : Function properties for _ZN12vitamin_fp1623hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, 32768 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN12vitamin_fp1616hgemm_bcf_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii' for 'sm_89'
+ptxas info    : Function properties for _ZN12vitamin_fp1616hgemm_bcf_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 124 registers, 16384 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN12vitamin_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii' for 'sm_89'
+ptxas info    : Function properties for _ZN12vitamin_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 127 registers, 32768 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN12vitamin_tf3229sgemm_tf32_swizzle_bcf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii' for 'sm_89'
+ptxas info    : Function properties for _ZN12vitamin_tf3229sgemm_tf32_swizzle_bcf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 126 registers, 16384 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 235 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z13prepareInputsPKfPfP6__halfS1_y' for 'sm_89'
+
+ptxas info    : Function properties for _Z13prepareInputsPKfPfP6__halfS1_y
+
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+
+ptxas info    : Used 16 registers, 392 bytes cmem[0]
+
+benchmark.cu
+
+tmpxft_00006cb4_00000000-10_benchmark.cudafe1.cpp
+
+[2/2] C:\WINDOWS\system32\cmd.exe /C "cd . && "D:\VS\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\windows_tensor_benchmark.dir --rc="D:\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests  -- "D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\link.exe" /nologo CMakeFiles\windows_tensor_benchmark.dir\benchmark.cu.obj  /out:windows_tensor_benchmark.exe /implib:windows_tensor_benchmark.lib /pdb:windows_tensor_benchmark.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublas.lib"  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublasLt.lib"  cudadevrt.lib  cudart_static.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib -LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/lib/x64" && cd ."
+

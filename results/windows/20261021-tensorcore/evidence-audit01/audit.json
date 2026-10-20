@@ -1,0 +1,11 @@
+{
+  "preserved_source_files": 373,
+  "preserved_historical_files": 845,
+  "device_instruction_lists_identical": true,
+  "pipeline_loops": 4,
+  "profiles": 12,
+  "all_tensor_profiles_have_tensor_activity": true,
+  "all_local_memory_sectors_zero": true,
+  "confirmation_input_fingerprints_identical": true,
+  "sanitizer": "unverified"
+}

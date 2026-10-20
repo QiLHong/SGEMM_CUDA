@@ -1,0 +1,120 @@
+COMMAND D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-tensorcore-sm89\windows_tensor_benchmark.exe 128 1024 32 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-tensorcore\run01\small-32.csv all
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+k30_fp32 round=-1 original_max_abs=3.05176e-05 represented_max_abs=3.05176e-05 same_blas_max_abs=3.05176e-05 native_gate=PASS
+cublas_strict_fp32 round=-1 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=-1 original_max_abs=0.0556488 represented_max_abs=4.57764e-05 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=-1 original_max_abs=0.0556488 represented_max_abs=4.57764e-05 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=-1 original_max_abs=0.0556488 represented_max_abs=4.57764e-05 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=-1 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=-1 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=-1 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 native_gate=PASS
+k30_fp32 round=0 original_max_abs=3.05176e-05 represented_max_abs=3.05176e-05 same_blas_max_abs=3.05176e-05 native_gate=PASS
+cublas_strict_fp32 round=0 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=0 original_max_abs=0.0556488 represented_max_abs=4.57764e-05 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=0 original_max_abs=0.0556488 represented_max_abs=4.57764e-05 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=0 original_max_abs=0.0556488 represented_max_abs=4.57764e-05 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=0 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=0 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=0 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 native_gate=PASS
+COMPLETE raw events retained; original-FP32 failures are reported separately
+COMMAND D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-tensorcore-sm89\windows_tensor_benchmark.exe 128 1024 64 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-tensorcore\run01\small-64.csv all
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+k30_fp32 round=-1 original_max_abs=7.62939e-05 represented_max_abs=7.62939e-05 same_blas_max_abs=7.62939e-05 native_gate=PASS
+cublas_strict_fp32 round=-1 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=-1 original_max_abs=0.0794601 represented_max_abs=9.15527e-05 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=-1 original_max_abs=0.0794601 represented_max_abs=9.15527e-05 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=-1 original_max_abs=0.0794601 represented_max_abs=9.15527e-05 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=-1 original_max_abs=0.109604 represented_max_abs=0.0625 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=-1 original_max_abs=0.109604 represented_max_abs=0.0625 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=-1 original_max_abs=0.109604 represented_max_abs=0.0625 same_blas_max_abs=0 native_gate=PASS
+k30_fp32 round=0 original_max_abs=7.62939e-05 represented_max_abs=7.62939e-05 same_blas_max_abs=7.62939e-05 native_gate=PASS
+cublas_strict_fp32 round=0 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=0 original_max_abs=0.0794601 represented_max_abs=9.15527e-05 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=0 original_max_abs=0.0794601 represented_max_abs=9.15527e-05 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=0 original_max_abs=0.0794601 represented_max_abs=9.15527e-05 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=0 original_max_abs=0.109604 represented_max_abs=0.0625 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=0 original_max_abs=0.109604 represented_max_abs=0.0625 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=0 original_max_abs=0.109604 represented_max_abs=0.0625 same_blas_max_abs=0 native_gate=PASS
+COMPLETE raw events retained; original-FP32 failures are reported separately
+COMMAND D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-tensorcore-sm89\windows_tensor_benchmark.exe 1024 1024 1024 7 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-tensorcore\run01\timings-1024.csv all
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+k30_fp32 round=-1 original_max_abs=0.00131226 represented_max_abs=0.00131226 same_blas_max_abs=0.00131226 native_gate=PASS
+cublas_strict_fp32 round=-1 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=-1 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=-1 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=-1 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=-1 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=-1 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=-1 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+k30_fp32 round=0 original_max_abs=0.00131226 represented_max_abs=0.00131226 same_blas_max_abs=0.00131226 native_gate=PASS
+cublas_strict_fp32 round=0 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=0 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=0 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=0 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=0 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=0 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=0 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=1 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=1 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=1 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=1 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=1 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=1 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+k30_fp32 round=1 original_max_abs=0.00131226 represented_max_abs=0.00131226 same_blas_max_abs=0.00131226 native_gate=PASS
+cublas_strict_fp32 round=1 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=2 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=2 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=2 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+k30_fp32 round=2 original_max_abs=0.00131226 represented_max_abs=0.00131226 same_blas_max_abs=0.00131226 native_gate=PASS
+cublas_strict_fp32 round=2 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=2 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=2 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=2 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+k30_fp32 round=3 original_max_abs=0.00131226 represented_max_abs=0.00131226 same_blas_max_abs=0.00131226 native_gate=PASS
+cublas_strict_fp32 round=3 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=3 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=3 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=3 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=3 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=3 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=3 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=4 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=4 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=4 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=4 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=4 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=4 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+k30_fp32 round=4 original_max_abs=0.00131226 represented_max_abs=0.00131226 same_blas_max_abs=0.00131226 native_gate=PASS
+cublas_strict_fp32 round=4 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=5 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=5 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=5 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+k30_fp32 round=5 original_max_abs=0.00131226 represented_max_abs=0.00131226 same_blas_max_abs=0.00131226 native_gate=PASS
+cublas_strict_fp32 round=5 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=5 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=5 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=5 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+k30_fp32 round=6 original_max_abs=0.00131226 represented_max_abs=0.00131226 same_blas_max_abs=0.00131226 native_gate=PASS
+cublas_strict_fp32 round=6 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=6 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_dbf round=6 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+cublas_tf32 round=6 original_max_abs=0.344391 represented_max_abs=0.00384521 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_single round=6 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=6 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=6 original_max_abs=0.499634 represented_max_abs=0.5 same_blas_max_abs=0 native_gate=PASS
+COMPLETE raw events retained; original-FP32 failures are reported separately
+COMMAND D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-tensorcore-sm89\windows_tensor_benchmark.exe 2048 2048 2048 7 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-tensorcore\run01\timings-2048.csv all
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+k30_fp32 round=-1 original_max_abs=0.00341797 represented_max_abs=0.00341797 same_blas_max_abs=0.00341797 native_gate=PASS
+cublas_strict_fp32 round=-1 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 native_gate=PASS
+vitamin_tf32_single round=-1 original_max_abs=0.503967 represented_max_abs=0.0106201 same_blas_max_abs=0 native_gate=FAIL
+vitamin_tf32_dbf round=-1 original_max_abs=0.503967 represented_max_abs=0.0106201 same_blas_max_abs=0 native_gate=FAIL
+cublas_tf32 round=-1 original_max_abs=0.503967 represented_max_abs=0.0106201 same_blas_max_abs=0 native_gate=FAIL
+vitamin_fp16_single round=-1 original_max_abs=0.738647 represented_max_abs=1 same_blas_max_abs=0 native_gate=PASS
+vitamin_fp16_dbf_rw round=-1 original_max_abs=0.738647 represented_max_abs=1 same_blas_max_abs=0 native_gate=PASS
+cublas_fp16 round=-1 original_max_abs=0.738647 represented_max_abs=1 same_blas_max_abs=0 native_gate=PASS
+ERROR: Preflight numerical validation failed; evidence retained
