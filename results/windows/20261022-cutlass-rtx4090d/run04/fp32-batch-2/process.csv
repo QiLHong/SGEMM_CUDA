@@ -1,0 +1,2 @@
+batch,pid,start_utc_ms,end_utc_ms,cases,formal_events,status,group
+2,53884,1792603739217,1792603806376,12,10080,COMPLETE,fp32

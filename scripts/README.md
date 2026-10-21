@@ -166,3 +166,21 @@ RTX 3080 / strict FP32 阶段的最佳研究基线 K30 V2：从 [build_k30_audit
 
 输出目录必须全新。若需要重新统计旧CSV，使用新的analysis/verification目录，不重写原统计。
 本轮Sanitizer附加超时，仍为未验证；六次NCU成功。完整命令与结论边界均在第33章。
+
+## CUTLASS 与 BN64 / K30 公平对照（RTX 4090 D）
+
+完整可复制命令见[第34章](../docs/zh/34-CUTLASS与BN64的4090D公平对照.md#348-下次复跑的准确-powershell-命令)，
+证据见[独立归档](../results/windows/20261022-cutlass-rtx4090d/README.md)。官方 CUTLASS 固定为 v3.5.1，外部源码目录 `../deps/cutlass-v3.5.1`，不修改头文件。
+
+| 入口 | 用途 |
+|---|---|
+| [Build-Cutlass4090D.ps1](windows/Build-Cutlass4090D.ps1) | 初始化已有 MSVC/CUDA，校验源码、编译 sm89、保存二进制/依赖/PTX/SASS；必传 `-EvidenceDir` |
+| [Run-Cutlass4090D.ps1](windows/Run-Cutlass4090D.ps1) | 两精度分组，小矩形全量 CPU 检查、非法形状拒绝、三批×三 seed×四尺寸×7×30；必传全新 `-OutputDir` |
+| [Resume-Cutlass4090D.ps1](windows/Resume-Cutlass4090D.ps1) | 原会话结束后复用完整进程；保留原计划/输入/binary，保存恢复文件哈希，不能用于拼接部分案例 |
+| [summarize_cutlass_4090d.py](summarize_cutlass_4090d.py) | 从原始 events 生成中位数、CV、逐轮配对、误差与输入/遥测汇总 |
+| [verify_cutlass_4090d.py](verify_cutlass_4090d.py) | 不导入 summarizer，独立复算并检查恢复链、原始文件和时间窗 |
+| [Profile-Cutlass4090D.ps1](windows/Profile-Cutlass4090D.ps1) | 公平计时结束后采集 2048/4096 的五实现 NCU；超时有界，不混用 profiler 时间 |
+| [analyze_cutlass_4090d_profiles.py](analyze_cutlass_4090d_profiles.py) | 读取 NCU CSV，保留指标单位并核验十次目标采集 |
+| [analyze_cutlass_4090d_static.py](analyze_cutlass_4090d_static.py) | ptxas、PTX、SASS、加载与 MMA 顺序；静态交错不等于周期重叠证明 |
+
+Run/Resume/Profile 共用独占文件锁，避免这些脚本并发测量。输出目录必须全新；abs、SIMT allclose、TF32 native allclose 分别判定，`DATA_AUDIT_PASS` 不覆盖数值 FAIL。

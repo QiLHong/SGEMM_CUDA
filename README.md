@@ -47,6 +47,11 @@
 
 Tensor Core 阅读路线：
 
+新增 [第 34 章：CUTLASS 与 BN64 的 4090 D 公平对照](docs/zh/34-CUTLASS与BN64的4090D公平对照.md)：
+官方 CUTLASS 3.5.1 原生编译，68040 个新 events，TF32 与 strict FP32 分表。
+固定 128×64×16 TF32 配置在 2048/4096 达到 62.946/74.780 TFLOPS，快于本轮同输入 BN64 和 TF32 cuBLAS；
+CUTLASS SIMT 配置未超过 K30 或 strict FP32 cuBLAS。精度门限失败、恢复记录与 NCU 证据均保留，不能把 TF32 成绩当作严格 FP32 提速。
+
 | 想解决的问题 | 文档 |
 |---|---|
 | Tensor Core 与普通 FP32 FMA 有何不同？ | [微教材第 9 章](docs/zh/微教材/09-TensorCore从SIMT到矩阵指令.md) |
@@ -54,6 +59,7 @@ Tensor Core 阅读路线：
 | 改 grid 为什么可能不提速？ | [第 29 章：分组与反例](docs/zh/29-TensorCore网格分组优化与反例.md) |
 | 怎样把代码、性能和证据连起来？ | [第 32 章：BK32 / BN64 学习指南](docs/zh/32-RTX4090D-TensorCore优化学习指南.md) |
 | 换 seed、重启进程和新增 3072 后，收益是否仍成立？ | [第 33 章：稳健性与尺寸适用范围](docs/zh/33-TensorCore-BN64稳健性与尺寸适用范围.md) |
+| 与官方 CUTLASS 相比如何，occupancy 和 bank conflict 能否单独预测速度？ | [第 34 章：CUTLASS 公平对照](docs/zh/34-CUTLASS与BN64的4090D公平对照.md) |
 | 从哪个脚本构建、计时、复算？ | [脚本说明](scripts/README.md#tensor-core四组独立实验)与[结果索引](results/windows/README.md) |
 
 导航发布记录：2026-10-21 核对时，第 24～27 章、SIMT `stage3` / `followup` 归档与 Windows 结果索引已在本机存在，但未随 `a54435d` 发布。2026-10-22 按用户要求，将这些材料、Windows 构建与实验脚本，以及第 33 章和 BN64 稳健性完整归档一并纳入版本控制。测量时的源码快照、哈希清单和原始结果保持原字节；归档内的“未提交/未推送”描述记录的是实验结束时的状态。

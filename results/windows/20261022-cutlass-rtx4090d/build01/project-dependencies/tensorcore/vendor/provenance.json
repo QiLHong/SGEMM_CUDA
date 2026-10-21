@@ -1,0 +1,26 @@
+{
+  "commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "regions": [
+    {
+      "source": "kernels/sgemm/sgemm_tf32.cu",
+      "commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+      "source_sha256": "b4a56eb331f5fd2e49f6a8a6690f309549e5ec5602a61ee44fc147ba35d9f6c2",
+      "device_sha256": "57ed6c9eb3e3bed764e99bfc749f24394bba571e3def2de0d15c7f2ced9c778f",
+      "extracted_sha256": "bb4123a52f6325f9514ee78e3535008ba3eda284ef418d285720ab38f2497d81",
+      "first_source_line": 15,
+      "last_source_line": 871,
+      "changes": "headers, namespace, macro cleanup only"
+    },
+    {
+      "source": "kernels/hgemm/hgemm.cu",
+      "commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+      "source_sha256": "e3d998bb5628169a30bbae452760a278cefe6f0c68bf9a12c7d70ad948d9c0e7",
+      "device_sha256": "ea816856bc283e62c63a56c36b5cfc01460ea8cd514262bbf1e834d813dfaa8e",
+      "extracted_sha256": "c9661f65077d1214cf379081c03d326ab2a7f8660330a72ba01eebe4016f1e04",
+      "first_source_line": 15,
+      "last_source_line": 883,
+      "changes": "headers, namespace, macro cleanup only"
+    }
+  ],
+  "contract": "M%128=0,N%1024=0,K%32=0; positive; TF32 input explicitly preconverted outside benchmark"
+}

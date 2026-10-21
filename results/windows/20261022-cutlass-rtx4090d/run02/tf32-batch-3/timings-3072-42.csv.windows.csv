@@ -1,0 +1,2 @@
+implementation,round,start_utc_ms,end_utc_ms,batch,seed,case_index,group
+cublas_tf32,0,1792603914794,1792603914972,3,42,2,tf32

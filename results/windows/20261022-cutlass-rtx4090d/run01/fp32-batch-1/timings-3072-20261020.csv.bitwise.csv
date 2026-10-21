@@ -1,0 +1,2 @@
+implementation,round,count,bitwise_mismatches,batch,seed,case_index,group,reference,required
+k10_fp32,-1,9437184,0,1,20261020,6,fp32,k30_fp32_baseline,0

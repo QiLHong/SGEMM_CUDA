@@ -1,0 +1,8 @@
+{
+  "resume_from": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02",
+  "utc": "2026-10-21T17:33:00.5534905+00:00",
+  "reused_complete_batches": 3,
+  "completed_before_utc": "2026-10-21T17:30:25Z",
+  "binary_sha256": "F971E74DA275F5787583ABD9AA81535AC175001991AD6D77F2495131E93E1D8C",
+  "policy": "Only completed processes with exit0 and completion marker before optional cutoff are copied; all other batches remain in original directory; original plans and bytes unchanged"
+}

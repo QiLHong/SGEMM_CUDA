@@ -1,0 +1,42 @@
+{
+  "status": "DATA_AUDIT_PASS",
+  "events": 68040,
+  "rounds": 2268,
+  "cases": 72,
+  "implementation_summaries": 324,
+  "paired_rounds": 8064,
+  "paired_summaries": 1152,
+  "check_records": 12960,
+  "bitwise_records": 2592,
+  "required_bitwise_checks": 576,
+  "input_fingerprint_records": 576,
+  "process_ids": [
+    54132,
+    46916,
+    53884,
+    51252,
+    29628,
+    46508
+  ],
+  "raw_manifest_files": 526,
+  "removed_events": 0,
+  "smoke_full_output_coordinate_checks": 786432,
+  "smoke_error_check_records": 270,
+  "fp32_simt_allclose_failed_checks": 720,
+  "numerical_status": {
+    "tf32": {
+      "abs_001": "FAIL",
+      "simt_allclose": "FAIL",
+      "native_allclose": "PASS",
+      "nonfinite": "PASS"
+    },
+    "fp32": {
+      "abs_001": "PASS",
+      "simt_allclose": "FAIL",
+      "native_allclose": "FAIL",
+      "nonfinite": "PASS"
+    }
+  },
+  "method": "Independent raw parsing; math.fsum means; explicitly sorted median; no summarizer import",
+  "uncertainty": "Descriptive within-session comparison; no IID-event assumptions or confidence interval"
+}

@@ -1,0 +1,61 @@
+{
+  "utc_prepared": "2026-10-21T17:26:31.5535448+00:00",
+  "binary_sha256": "F971E74DA275F5787583ABD9AA81535AC175001991AD6D77F2495131E93E1D8C",
+  "plans": {
+    "tf32": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\plan-tf32.csv",
+      "sha256": "61AFD3340B0EB877B3EF2BB7B880384C307A9012792BE4600A8B2EDD09A4079C",
+      "groups": 1260,
+      "events": 37800
+    },
+    "fp32": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\plan-fp32.csv",
+      "sha256": "6A0C957F97419BEE78C1D93B1804F320ED6CCC74E75E54ABA4A1200E5C1169C3",
+      "groups": 1008,
+      "events": 30240
+    }
+  },
+  "batches": 3,
+  "seeds": [
+    20261020,
+    42,
+    12345
+  ],
+  "sizes": [
+    1024,
+    2048,
+    3072,
+    4096
+  ],
+  "groups": {
+    "tf32": [
+      "vitamin_tf32_dbf",
+      "tf32_bn64_bk32",
+      "cutlass_tf32_128x128",
+      "cutlass_tf32_128x64_bk16",
+      "cublas_tf32"
+    ],
+    "fp32": [
+      "k10_fp32",
+      "k30_fp32",
+      "cutlass_simt_256x128",
+      "cublas_strict_fp32"
+    ]
+  },
+  "rounds": 7,
+  "warmup": 10,
+  "repeats": 30,
+  "expected_formal_events": 68040,
+  "alpha": 1,
+  "beta": 0,
+  "cutlass_commit": "f7b19de32c5d1f3cedfc735c2849f12b537522ee",
+  "sgemm_commit": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "order": "Rotating offset and alternating direction by round/batch/case; size and seed orders rotate per batch; group process order alternates per batch.",
+  "timing": "CUDA events around public launch APIs, C0 zero D2D restored on same stream outside every event; initialization/workspace allocation outside events",
+  "input": "Same represented TF32 allocations for all TF32 implementations; same original FP32 allocations for all FP32 implementations; FNV1a64 before/after",
+  "cache_caveat": "C0 restore writes output-sized bytes before every launch and can affect L2/cache residency equally by policy",
+  "cutlass": "Official device::Gemm run; fixed published unit-test TF32 configurations, one historical SIMT configuration; split_k=1; not library-wide autotuning",
+  "accuracy": "Preserved abs<=0.01; SIMT eps0.001 and TF32 eps0.1 allclose each separately recorded; CPU double full small shapes and 256 large outputs",
+  "resources": "Windows WDDM, dynamic clocks; telemetry200ms; no power/clock changes",
+  "profiler": "Separate launch stream/session; profiler time excluded from fair performance table"
+}

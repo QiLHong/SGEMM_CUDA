@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-cutlass-4090d-sm89",
+  "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\cutlass-rtx4090d\\benchmark.cu -o CMakeFiles\\windows_cutlass_4090d_benchmark.dir\\benchmark.cu.obj -Xcompiler=-FdCMakeFiles\\windows_cutlass_4090d_benchmark.dir\\,-FS",
+  "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\cutlass-rtx4090d\\benchmark.cu",
+  "output": "CMakeFiles\\windows_cutlass_4090d_benchmark.dir\\benchmark.cu.obj"
+}
+]

@@ -1,0 +1,1 @@
+2 groups x 3 legal small rectangles; CPU double all 131072 outputs per case

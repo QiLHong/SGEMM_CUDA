@@ -295,3 +295,5 @@ if ($LASTEXITCODE) { throw 'elapsed analysis failed' }
 </details>
 
 下一项待验证的假设：固定 BN64/BK32、精度、线程映射与同步，只改变 grid 分组宽度 W=1/2/4/8，观察 4096 的额外 A 请求能否更好利用 L2，同时检查 B 复用是否受损。这是后续实验建议，本页没有执行它，也没有预告提速。
+
+后续已完成的公开库对照见[第 34 章](34-CUTLASS与BN64的4090D公平对照.md)：CUTLASS 在同输入 TF32 下的一个固定配置快于 BN64，但 occupancy 更低、bank conflict 更多。新数据支持继续检查 shared operand 读取工作量；本页的旧成绩与未执行假设保持原意，不与新批次混算。

@@ -1,0 +1,7 @@
+"group","shape","exit_code","message"
+"tf32","127x1024x32","1","ERROR: Unsupported shape: M=128..4096 multiple128; N=1024..4096 multiple1024; K=32..4096 multiple32"
+"tf32","128x1024x31","1","ERROR: Unsupported shape: M=128..4096 multiple128; N=1024..4096 multiple1024; K=32..4096 multiple32"
+"tf32","0x1024x32","1","ERROR: Unsupported shape: M=128..4096 multiple128; N=1024..4096 multiple1024; K=32..4096 multiple32"
+"fp32","127x1024x32","1","ERROR: Unsupported shape: M=128..4096 multiple128; N=1024..4096 multiple1024; K=32..4096 multiple32"
+"fp32","128x1024x31","1","ERROR: Unsupported shape: M=128..4096 multiple128; N=1024..4096 multiple1024; K=32..4096 multiple32"
+"fp32","0x1024x32","1","ERROR: Unsupported shape: M=128..4096 multiple128; N=1024..4096 multiple1024; K=32..4096 multiple32"

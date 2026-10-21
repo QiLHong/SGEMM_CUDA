@@ -1,0 +1,9 @@
+implementation,round,count,bitwise_mismatches,batch,seed,case_index,group,reference,required
+k10_fp32,-1,131072,0,0,20261020,0,fp32,k30_fp32_baseline,0
+k30_fp32,-1,131072,0,0,20261020,0,fp32,k30_fp32_baseline,0
+cutlass_simt_256x128,-1,131072,0,0,20261020,0,fp32,k30_fp32_baseline,0
+cublas_strict_fp32,-1,131072,97345,0,20261020,0,fp32,k30_fp32_baseline,0
+k10_fp32,0,131072,0,0,20261020,0,fp32,k30_fp32_baseline,0
+k30_fp32,0,131072,0,0,20261020,0,fp32,k30_fp32_baseline,0
+cutlass_simt_256x128,0,131072,0,0,20261020,0,fp32,k30_fp32_baseline,0
+cublas_strict_fp32,0,131072,97345,0,20261020,0,fp32,k30_fp32_baseline,0

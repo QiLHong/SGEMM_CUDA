@@ -1,0 +1,1 @@
+12600 formal single-GEMM CUDA events; all precision/error standards retained

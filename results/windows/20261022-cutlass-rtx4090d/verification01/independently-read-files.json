@@ -1,0 +1,2102 @@
+[
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\environment.json",
+    "sha256": "1f5fdb8d98b208fa8db2d9c1ee12347d6d13098ef0cf9836944dee1569de0c27"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\process.csv",
+    "sha256": "d19c1f308ed1aa8daed8978184ff858e672604b281f1568565e6b148c1921922"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-12345.csv",
+    "sha256": "d4e7a32301b169167f5a7ba00f7fde3e845df93c96ac4c37604a6fdaa86cc847"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-12345.csv.bitwise.csv",
+    "sha256": "fa363646cfa8783c865872f299069023cdd7a29fcf48e4379ffcf34dea4fe8f9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-12345.csv.checks.csv",
+    "sha256": "5c0c04743aa397e963d737b87d7d16c46c486b155fd44adc2085858457686e02"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-12345.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-12345.csv.inputs.csv",
+    "sha256": "e3a3298a33e0133aae5b4f246922cbcddead648b0538c07356e4fa640b1fae8e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-12345.csv.meta.txt",
+    "sha256": "0970e48555682f0150d207fa764adb9f52f872fca4b0e646c8fe346f7312e0d2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-12345.csv.windows.csv",
+    "sha256": "73bb5582a7326c230973cbce699abc39f058f428dd1fb81d4ecaff8570b67c27"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-20261020.csv",
+    "sha256": "20ba36a37263a01870c0e8fa094daa5137e820686354464bba5089bfea7c7833"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-20261020.csv.bitwise.csv",
+    "sha256": "88300a797bd6b641389dbc49280c054b84117db281fc0b2f907ef6b015999b15"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-20261020.csv.checks.csv",
+    "sha256": "76bedad8fe7030a1d0290ce095b0bfab425600891b44a8d6a5aa93768f64fa0c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-20261020.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-20261020.csv.inputs.csv",
+    "sha256": "de69b70e80c0c23cc5407802f4ee0ea00636072aa797c2b7eeb86ad6c6ac1956"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-20261020.csv.meta.txt",
+    "sha256": "59eb11df213ffc5e940725849c7e6a22c0d0f3b2921e092be212318dc5c846e5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-20261020.csv.windows.csv",
+    "sha256": "98d00c6f93acac4d56bd42642b50b75d9f1cbc400ed5a0579736dfbb25d86911"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-42.csv",
+    "sha256": "8555a83a5d3fe28aa8fd78216707bb75802642970a9b804fe7e4a9df23faff88"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-42.csv.bitwise.csv",
+    "sha256": "5947840351febd694be0ff924f21457de0b42a34db8bc6a20b4e103535685414"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-42.csv.checks.csv",
+    "sha256": "e4adde5f35fad9a56f9fbad48670481b613d6e7299ba5cc6b71c9f0e6043d1ee"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-42.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-42.csv.inputs.csv",
+    "sha256": "529a2901f023d4bdad6f019e1580e48ed13e1c46f506b778d4abffc3b268cb09"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-42.csv.meta.txt",
+    "sha256": "3f7dc35179bfe84cfbf1c3b01fece72d66d520655a8566da1f2e707720457174"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-1024-42.csv.windows.csv",
+    "sha256": "c688f6a95b65514f0ccebf9ce9e35d5ba0984511411360dcc4f457fde1e7b0c8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-12345.csv",
+    "sha256": "6de59be5f209ff7debf197de3feb1c70afeca9c48ec92d10866a978fa88ec9c2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-12345.csv.bitwise.csv",
+    "sha256": "1ded18ba9ff2fe56246d87a363194faf7b58b26a9056f30a197c9fdd0e594f44"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-12345.csv.checks.csv",
+    "sha256": "dca2f719ff04efa72be4e4a8cecb9e11713f09539979b438115fe41ae03b74ed"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-12345.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-12345.csv.inputs.csv",
+    "sha256": "9de604c526061a5eb9e2de8dd9ae015e553ab6c116acb3dc2193d7cfe4cad5ba"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-12345.csv.meta.txt",
+    "sha256": "3f90843051e7c0746af0edb85cf4afec40d3a2ad0d00cfc036235b0a62af86e1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-12345.csv.windows.csv",
+    "sha256": "30421306976fed5a8d0a313c49942ff510160fce4ac88dff43dad6526f67b5aa"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-20261020.csv",
+    "sha256": "dafa1d524df4bd5125375bf4964a0a34e3261be7fac75c9770259f3320e66ac0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-20261020.csv.bitwise.csv",
+    "sha256": "7e883c3910d4bd4fe538ca57d92e3e7e0cae1cda7ef102233c87a124029a483d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-20261020.csv.checks.csv",
+    "sha256": "bac902ac5fc53777c995b7106f1a5d8cecf024824a97511766edef3071162c03"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-20261020.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-20261020.csv.inputs.csv",
+    "sha256": "b16b76cc65f9e9c997844175ea7dd3c77396da517c70cf79de9edcc4ef2d90ff"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-20261020.csv.meta.txt",
+    "sha256": "2710bfd600e066a124cf90d75b32ccb64541fbd205e9cbab8198ce740fb7d65d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-20261020.csv.windows.csv",
+    "sha256": "ec819348e01c59b4e49222f674fc5290c2ef17e16ec0a9f5f28ddca0ef9e3413"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-42.csv",
+    "sha256": "9e70fd65d8109003dd67d20bb65ce83b8cea3902dd23b9373f2aa4ce76b3a71c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-42.csv.bitwise.csv",
+    "sha256": "7c283e0463c62517c7d60939ac920a7ad7a5252b0e78264bea7bab8a35fe60a9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-42.csv.checks.csv",
+    "sha256": "a5679a977b40f8342cb44b6d3b3dbf85a3d4b33938d9f054bb7b7359cc9be94e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-42.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-42.csv.inputs.csv",
+    "sha256": "87640401f4b6b96a9a7096c5325a5c77aaa1f9def29687160f4eb8bd87cb647a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-42.csv.meta.txt",
+    "sha256": "d95cb723fcc13fdaa1ab4a76ea07abcf84173ad26098b15352da01a7d5e00886"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-2048-42.csv.windows.csv",
+    "sha256": "a4c18723311adf34777c89488a04d89b113be4dd030c23186135bd74a1e26e6c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-12345.csv",
+    "sha256": "bdd47ffc80b664858d7f89b7d8b04b95c19e68efdb8a00055590fbd3db3dc358"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-12345.csv.bitwise.csv",
+    "sha256": "9d62760dc0dbb6596877bddb18b24f70e4879f3563e3df04d29a07998fca2874"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-12345.csv.checks.csv",
+    "sha256": "c2fd80d3dd11bd3a537d98a9c4d4e684ac1e3602c9f7e0c4336f5bffea59edc4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-12345.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-12345.csv.inputs.csv",
+    "sha256": "d2069f03feb85709a4ca5efa1442b1a3860118593cfcffaa8e88e3f1397eec68"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-12345.csv.meta.txt",
+    "sha256": "a8c5605aec7f5f29d4deb33965016c07fd8d2035a1f3f3458a6b01863cf95f5a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-12345.csv.windows.csv",
+    "sha256": "2e418dd0492d595a3044b20241df2e8d6508e298e0645ca28814f2bc77ae9da6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-20261020.csv",
+    "sha256": "8674d12fb348a2204bb8b4cc38861dadaad909d2ece559cecc9b1cc85b60d0eb"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-20261020.csv.bitwise.csv",
+    "sha256": "a1461c6b4fbc7c456f30801039bb0617ad4dbb4bdf07f8ba62bac179b64acf87"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-20261020.csv.checks.csv",
+    "sha256": "ef316b7e647e7c24bb435f323f25965406989adada5ba79164159d69959a925c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-20261020.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-20261020.csv.inputs.csv",
+    "sha256": "21c1cc960d703ee02eda6a952337070aa31e5c402f51a444e3fb0f63819fe3a8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-20261020.csv.meta.txt",
+    "sha256": "1736f23b03a71c86e86a0d88c76c33f4f121dffc44f29adc01f4d77c9775baf6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-20261020.csv.windows.csv",
+    "sha256": "b36f54174cfc5cc2abdc9ddae8d2bea414dd6eb865d1d64c9c408ee8b7d7e440"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-42.csv",
+    "sha256": "a1c6baf71f5d49511d373ebd415a18a2183bbd4684dc524649e63d75b9ebbd75"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-42.csv.bitwise.csv",
+    "sha256": "ea1cf8e16f3a8de8ccf67dcc79d5af181476ca312653b92718dda074ea86f9e4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-42.csv.checks.csv",
+    "sha256": "54e9e9a5bd9feaf72cbc1674c29f981805eae01623687a0326144e4b5dd2a30c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-42.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-42.csv.inputs.csv",
+    "sha256": "d2e9ee6205a459096f06c0d403f5e29a2099e104b841924a7c06a49fa7a6ab3d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-42.csv.meta.txt",
+    "sha256": "3373a0991db093994d2c9adfdd884e41496552ee8f49f70a202bfa9eb7dca969"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-3072-42.csv.windows.csv",
+    "sha256": "241b910197d55767478dfc341be3e18be210cf375d35ebe51bb10299b97be1ba"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-12345.csv",
+    "sha256": "fbc8d162fc80f018c552d9c528e43d9c87ee721835aafa220c8d02233475545f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-12345.csv.bitwise.csv",
+    "sha256": "e98ad718364f807c305ce9dc881b479e47d3dd9d2f4673a592b5316be65d6f75"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-12345.csv.checks.csv",
+    "sha256": "0fa91b98b0dd21d6ee5ad39525d84a8e5975c30f6e58f787c039a633ee67e47b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-12345.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-12345.csv.inputs.csv",
+    "sha256": "42b947dc69cc95120111b85d3a1cae6927b3b0889ffe7fd908027554fddcb83d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-12345.csv.meta.txt",
+    "sha256": "285850a0ba25a77b31a89e992e75a9fd8ae4f42b205fda4bf63367a876f629c9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-12345.csv.windows.csv",
+    "sha256": "1f7c138bd558ffc615bd38c88b4e92763164675a31c525987b2e7d3b69305c61"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-20261020.csv",
+    "sha256": "d4d70fac98af3f5a2eace9ebd3c198050c5e6506eac878d7b54559651d6512d9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-20261020.csv.bitwise.csv",
+    "sha256": "fa6927c91371f577b36a426373413bc92ab914e50347b775ec473354c50d2eaa"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-20261020.csv.checks.csv",
+    "sha256": "14adb43f9681cb089f69d5fc0de028b0731ea666c9e2e3b00b6a4c07843d62e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-20261020.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-20261020.csv.inputs.csv",
+    "sha256": "993b3684d6956a7411046f82ae4a966441ab184eee2997684750aa1e3e9d31cb"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-20261020.csv.meta.txt",
+    "sha256": "0d421f4b650607a403c56db4143778671119fdea858e0da797ea62c4b96708cf"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-20261020.csv.windows.csv",
+    "sha256": "72464d2b47f4300119236ba6f96d0785dd8986bb320dfe27326be161b8de7714"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-42.csv",
+    "sha256": "5d711c91229b97a3f7ef2fceba721e99c1c3dfcc80da99ef9518b21cba884e31"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-42.csv.bitwise.csv",
+    "sha256": "67b2eba65dd031ecff267c4da34c56bdc3d4145b6e73ef3f2138cfdd7a2a4861"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-42.csv.checks.csv",
+    "sha256": "cb0ae7495a3c9698edbd01fa071589647e95b67af0d8316bf582fe158fdf7278"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-42.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-42.csv.inputs.csv",
+    "sha256": "4e7fae298232d0175714d1d57fd6f09318616b5414491420cecaf91003000dab"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-42.csv.meta.txt",
+    "sha256": "ec2f5b89966fe50acc7c889e3c797cf4cc15b16c155a40cd3c39b55258eb1f45"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-1\\timings-4096-42.csv.windows.csv",
+    "sha256": "a2c66e82c0ff4e06f84272bd5f808086949f0558ba502270e42197a1597fb858"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\process.csv",
+    "sha256": "666da8aad3b64cc869e33c802058027a392e27ada491b4cced350bf1c8f40f2c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-12345.csv",
+    "sha256": "1bba18e015c61a4a62b08fc430be03460822c7700bec5d80eb24c36f6ecc5e59"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-12345.csv.bitwise.csv",
+    "sha256": "c3d22c43ebdda5e020919fe0c93e2f3032839867f72f1434c51170fc8fd3aa87"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-12345.csv.checks.csv",
+    "sha256": "6e821d2a26197151d9750712138af1e5fa04d6081fad90d77d72eb8a5c134a9f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-12345.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-12345.csv.inputs.csv",
+    "sha256": "f123284535fdabb2e2e93346e62a0f4a071db39bc0f1d8be5923d768c60a68ce"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-12345.csv.meta.txt",
+    "sha256": "a2e2ed7a3aaba1cbf0f68f496a4c8df1f791f7fc93e159bfc20a43fecb1b6a99"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-12345.csv.windows.csv",
+    "sha256": "0c6ba05456be0d01c57f29e4d0b46820955c781761b76ec1fbf8d2c98cc1d966"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-20261020.csv",
+    "sha256": "8d713999316ceb026e560c5546118c93dcfc5833d9974ee466ad880cf3220a71"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-20261020.csv.bitwise.csv",
+    "sha256": "1918c2a4f66e2b0bbcc61d8fd33396e150ba8357108ce3f0b126fe9eb7cf8967"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-20261020.csv.checks.csv",
+    "sha256": "6d7662e8d72e304cbb0b55653fd88256556fd9466058c63fc63f365497dc4795"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-20261020.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-20261020.csv.inputs.csv",
+    "sha256": "db0846dd7822d4d563265a20298a0c7f7b42017615998167a8253083555bbf10"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-20261020.csv.meta.txt",
+    "sha256": "b8df2ca6520e0a819083844100d91fc4406f20d6612d924e37bbf31fab791b53"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-20261020.csv.windows.csv",
+    "sha256": "3ae7cd9c1a9f02ff78b23cd3994b0724d38ecc5b0946e39cd1df2d3dd65fbbab"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-42.csv",
+    "sha256": "885da989cf2de450fdf0f27b7d111ba0ba1b2c9889baee7060fa11febd0d2bd4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-42.csv.bitwise.csv",
+    "sha256": "8353bf9100b18f2c6e6f56e0aa7f7fc19d48ca36316e7033b84569ce3631de92"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-42.csv.checks.csv",
+    "sha256": "01dbddfc329fd5f1b4a23d677f4024850005bba485caed744044de1d1d0ba718"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-42.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-42.csv.inputs.csv",
+    "sha256": "eb089d290d5cb00d81a411de7568de73e11daa150ee3568793638e1c51c51e43"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-42.csv.meta.txt",
+    "sha256": "07466ea784ecc207200c70a3694e4ea49bf0dbe17b6c7f3460fdfb3591f242a4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-1024-42.csv.windows.csv",
+    "sha256": "d7c712178d73cfb5200cdb3cdaa25ec3c65548ac5a063015a761f7dde304eaa6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-12345.csv",
+    "sha256": "cd540993ffd9e60cc95f02e580db1363588d915140fb8f9073a76d72a3c0cadf"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-12345.csv.bitwise.csv",
+    "sha256": "c9b8d8d2e2dd7a09ca0f33ce4956299b792736e48eaf533239d2ec6b0de2d732"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-12345.csv.checks.csv",
+    "sha256": "63598b3939e9f3de2e28c1c7ce31cf381866f27f9a08d03b2fb8256261fa21ba"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-12345.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-12345.csv.inputs.csv",
+    "sha256": "0a369573f100b7ff4e3f80c4bc713e9053c816a177f148bacacfaffc90543b8a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-12345.csv.meta.txt",
+    "sha256": "c5a8cb59286dc57a7b2a22eb92815c960a88c57dd0c3f3410d7ebc72cd46234f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-12345.csv.windows.csv",
+    "sha256": "08b0fd667a601359b949a59e0b46f59abc195da60dbba9324718264945f59ce9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-20261020.csv",
+    "sha256": "10880c0d0e0f07936075c11db915e4bb54ab2314555fa5adaea6ade40a10a822"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-20261020.csv.bitwise.csv",
+    "sha256": "a52a242a905acaaa2d228045ff1b23aa21e9fa1e2cc373ef3f36a8a48adfbb4f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-20261020.csv.checks.csv",
+    "sha256": "3f7afadc8950bcee7bfdaf7ca3510d16d0e63a8ff8f5b9c3aed3de7a1697ec5f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-20261020.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-20261020.csv.inputs.csv",
+    "sha256": "628079e6a405b17f60fab4bcdf07aced5eb577951b02f21f1a9d7b33044bf2d1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-20261020.csv.meta.txt",
+    "sha256": "0cd6d343f64357262c45374076b946265a95224a55a6818b9e594932ca8b6bcb"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-20261020.csv.windows.csv",
+    "sha256": "f5d8c42308b0f53867f719584112745c2daaddb856e8895f4bfd9c4ac73cfbcb"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-42.csv",
+    "sha256": "feac2cb8b2aeab9f93f60ef2156a3980ea875fc440866a8cde051ebfd5cdfe45"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-42.csv.bitwise.csv",
+    "sha256": "7e2b1553b83168d4eee0202198c0ecf811a8ed3001b0d661ebe03003ef57b083"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-42.csv.checks.csv",
+    "sha256": "f7a1bbd5c30c3c2a38baaa029883964c5e9a6b6bb1379e0c546d13864ccf1de3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-42.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-42.csv.inputs.csv",
+    "sha256": "5c301b999ed1fec181b6e8684901d2644a61e0bbee8caf430322c566a24f8fb8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-42.csv.meta.txt",
+    "sha256": "cd4ef59a70ccacb3ea5a8e3a8c91cad8141ca83913a4169bc0fdcfb8e24b4f1c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-2048-42.csv.windows.csv",
+    "sha256": "490a877f380ecfe3c0e7a12d5c52f6ddabd2504e5837100f78f786f74ac68348"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-12345.csv",
+    "sha256": "8bc0bd9ac87912f2cc5e2a799727393674f04c00385c0b439d9c0324a9a329e4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-12345.csv.bitwise.csv",
+    "sha256": "cf4ae7fbe8d7674b52db276a47a8bfab959c326b3b5440c94725aa4f74aa53e9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-12345.csv.checks.csv",
+    "sha256": "ec8950bb8312e055b19e51898bd8aaaa11319c9c3a44080c4af598f5a509b951"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-12345.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-12345.csv.inputs.csv",
+    "sha256": "40fad051fb658ba705934b423f6697c6e89d5279bb92f435c0e4369a0e1a3fa6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-12345.csv.meta.txt",
+    "sha256": "126f3748942420cc423683ad4a8ba460f8200425941c6f8a84e439afa3b22d3b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-12345.csv.windows.csv",
+    "sha256": "e1e256f0b4280511fe079548e55736ffe4ecaf03a3794df6702e5944e2514158"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-20261020.csv",
+    "sha256": "388209ccf8ae2e6ff6203441bf0457d4c3202c69e3488ad7c80f2ebd847b4f41"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-20261020.csv.bitwise.csv",
+    "sha256": "ce579eaa054841b9d65143c84ccf9e6b9e0f00591144c7b6d23110364a8fdcda"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-20261020.csv.checks.csv",
+    "sha256": "fa5649bf3466bb0d055bf153bc14ca80859d7e779f307c288121c807512d9184"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-20261020.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-20261020.csv.inputs.csv",
+    "sha256": "f7f30159c041e78e7321d4373681c9f347122f2b96396ce961a645791aa6eb37"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-20261020.csv.meta.txt",
+    "sha256": "012899887311b5bac39e4fc08ae36b525e4feaacc1495d8f5581322db13dbbb8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-20261020.csv.windows.csv",
+    "sha256": "992da951497da9e3a01c73838de09f93fb35aa395a7832fa9771f4fc9bf66dc1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-42.csv",
+    "sha256": "664268824a115ba8f8b037fe71230478f032535eef8c742b523173f3d4b2e66a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-42.csv.bitwise.csv",
+    "sha256": "35048a7ec7e56e030acedf9c01dd34c81a3a306888f70c64b01b86f820e84939"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-42.csv.checks.csv",
+    "sha256": "eee690c9067c6b57cf88bc3c92f079f05c97c94346724d4ae27844236b1f2ba0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-42.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-42.csv.inputs.csv",
+    "sha256": "6ecf416ea34d3b851d6d8b925ffa7ee67169650045c9166d34f3265c296a4fc8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-42.csv.meta.txt",
+    "sha256": "e134473b297343cb18bcec7e777aaa2f75e4ddd1d8f4900e8ab904e2572e79ff"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-3072-42.csv.windows.csv",
+    "sha256": "1f400b6204cd88567b97b203116b64a76e8bd569e949804500f4b00c95120e9f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-12345.csv",
+    "sha256": "6ebdef3608519925824e97a8806934973e6faa0e941c93d3c49c19f7db527b10"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-12345.csv.bitwise.csv",
+    "sha256": "639333cbecae35d97af97685f9b47cbec041e8f9f48602015f16ce1174b4cd50"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-12345.csv.checks.csv",
+    "sha256": "94cebba156e9edffc1ec8e23ae2be7a850e2b564381cb91f13821ab1aebdcb80"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-12345.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-12345.csv.inputs.csv",
+    "sha256": "16deae308e355080a0d388cb2d560ec3403e165a85fb1a799a9ca8ee738c786a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-12345.csv.meta.txt",
+    "sha256": "b552c3240552d37d8ac96f3f5f2ba8a0ef68027891a4ee8bef14a03909820efe"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-12345.csv.windows.csv",
+    "sha256": "dbc01caf94c1c01540422237220a43169543fcb034b0387a22dc7ba948d52d8e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-20261020.csv",
+    "sha256": "7466699032c7acdb44c1905479f6c4f84637b94aff2b299ccb6554791f97de83"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-20261020.csv.bitwise.csv",
+    "sha256": "c2472b6313d21b8985ace164978a1e376dc935a5291fb38720aaac5b375a38a8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-20261020.csv.checks.csv",
+    "sha256": "e1a51c38d621a36b8375965e95f23a17e06ca954dd519fe5e2c7abf65b7ec05f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-20261020.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-20261020.csv.inputs.csv",
+    "sha256": "c6fa12ef974c823376c622f0755581402afa2119665b3faf7a4ecc6e70e03602"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-20261020.csv.meta.txt",
+    "sha256": "8f801e4e31d16f9337e280a4a2c3200c3dcfca57fb863ea474b82e03dac99cc6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-20261020.csv.windows.csv",
+    "sha256": "e1d0abeafaadb2c14c7cde05cb267c177daf54f4ece03b4062f072f3cf955a43"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-42.csv",
+    "sha256": "299676aff37dcc0bdc3fd9b75bfdbe97051e6ecb30f39009701af38791df921e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-42.csv.bitwise.csv",
+    "sha256": "0808831b7c15d760913d0b7b33fa0c340032aca3c7da1c36f739049b6ff739b5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-42.csv.checks.csv",
+    "sha256": "a3d35274b47cb0c40568a557a524e6bc07791aa5539dde261e0997494dce0ab3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-42.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-42.csv.inputs.csv",
+    "sha256": "edeefe591c2b9877a0a4f64e2e3b7e4be2775457a14adeba7f53e19e25adadcb"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-42.csv.meta.txt",
+    "sha256": "f798a8c2e161a69fc04af6c310592878cad31e29d5a95a1512b021bcf679aac9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-2\\timings-4096-42.csv.windows.csv",
+    "sha256": "d6b84959471cb5d92b988ebc2047165634d78f974287db87786ab6f9661916b9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\process.csv",
+    "sha256": "035ecd954392d9dbb99a7c5477e7e9a7d77d0b8d2bdd40c0dd0ff4c4ebef6721"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-12345.csv",
+    "sha256": "34c722939697223e567730c35362cb9d43cf40eb9a86c958440f80704239e1d7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-12345.csv.bitwise.csv",
+    "sha256": "d4f8bca79601e456200db974180fff1d81c1510b9cb36d5469d6de0d5ad230ab"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-12345.csv.checks.csv",
+    "sha256": "e4655f3c06c087f89bf6df3374efcb2cdb99d85bf4e6ed44af1b384aeea6f643"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-12345.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-12345.csv.inputs.csv",
+    "sha256": "15f4e98be8bb2438e03df88be043e1d0d07bb65c71ed427b9d8789bcfff7399e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-12345.csv.meta.txt",
+    "sha256": "4acd674beb16f5ef0391fe9f683e1df0e8d4782b8a488fa2be2ba280718ef7e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-12345.csv.windows.csv",
+    "sha256": "7bfaa9eee4220b7f64dc7108fb4fc1bc80315610a13301baff99fc718aa36d8f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-20261020.csv",
+    "sha256": "8ff4c62d0374577b86f539887bd580f125dbd4704fafe9140ffb5580b46b27bd"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-20261020.csv.bitwise.csv",
+    "sha256": "54aa23fe85effd77de5f406487a537ae42969dcd451de6b748c3c0945f0bc7d6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-20261020.csv.checks.csv",
+    "sha256": "1f3df82ca48ffc0f2d205f503fe25f20075d5cc24877288a5fc6cf748427405c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-20261020.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-20261020.csv.inputs.csv",
+    "sha256": "1e2ce543e40d577d58b295310fe6797bd9be7fd0205f0427f787f51e135dea40"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-20261020.csv.meta.txt",
+    "sha256": "2b8998a29443e6b2a3579b3a096d8d6904fe161364ab3b70a1d2e43b3a26871d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-20261020.csv.windows.csv",
+    "sha256": "eeee439df5c6c1873209fcb5eac340cdbc68a18fc7353ac39a06b6018313699f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-42.csv",
+    "sha256": "016f426c978d274399b13d0e3b8d91cb9284e85a682ed5e8220d5a81e41d433d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-42.csv.bitwise.csv",
+    "sha256": "aba3dbb26b3ec0aff990f0fdcfd44529559a92c0ca2e3dc0831485f9dcefe47d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-42.csv.checks.csv",
+    "sha256": "dfac5a02e74579170c57dd48e3831a8bfc9daaf2c6bc7934af74cc18199e8bf7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-42.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-42.csv.inputs.csv",
+    "sha256": "c9309a7eecbba3ac842724756f4dd6f6ba5742cc92632bb0ea6450636fbabf9e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-42.csv.meta.txt",
+    "sha256": "b5a41f8a140adab6450e9c456e38eec1107e35a55a5dfb5c7f502be5daa8253e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-1024-42.csv.windows.csv",
+    "sha256": "a8e62e69bc529bcd04d915c0fb0e7c55ff5230d3324205a23b6448229e6d8e6c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-12345.csv",
+    "sha256": "23c8644ab8a471a12f9db6c890cec9ff5d33023294123ad8c911a33902343c95"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-12345.csv.bitwise.csv",
+    "sha256": "a0ebf026c7e1f762293481fb6944c723e30cbc971dce8e6b9cb0b16ace536baf"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-12345.csv.checks.csv",
+    "sha256": "0f5bcdcebb64da7aec71294c514d4c9ae729bc0696bbb17267baaa6bcc91a160"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-12345.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-12345.csv.inputs.csv",
+    "sha256": "01f1a96f6beb782ca371a10b27517b50c8d47d89239e6893da2e109edced8a52"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-12345.csv.meta.txt",
+    "sha256": "f84224ba1b721aa6b1a21ff0a28acf2450d48d446743ef754fe62d30ebc9e634"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-12345.csv.windows.csv",
+    "sha256": "6b8728da0f8be69cc35562145799c0b6f0593ed4e02ab8c423d84788ae909038"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-20261020.csv",
+    "sha256": "47e6eaeb924d4546ac95cb582503b5837dab61292fe2af43197c3e0f43856bac"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-20261020.csv.bitwise.csv",
+    "sha256": "89507f7115c5f7f4eb90777fc118ac7fab4b959f0b3e2d9e8f4116bcad84996a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-20261020.csv.checks.csv",
+    "sha256": "0064a30b00589039765b99a297e65c87a6a540722f1d926a231ad1f37237441c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-20261020.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-20261020.csv.inputs.csv",
+    "sha256": "5f20960f226668e1d94718409630f315c4449058853b4de1fe27c301aee0b288"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-20261020.csv.meta.txt",
+    "sha256": "02ab28d627e7e2918ce3565564a05714ba4845a81091c18058b2c4648bbbe88b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-20261020.csv.windows.csv",
+    "sha256": "8013570fd5092331e5c5f5b83545ace8d74b681e027d0364db6b6022ecba885b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-42.csv",
+    "sha256": "9149d1202101af2c144ff1577d94530655885c14d09b557f7a28dfcdc2feb337"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-42.csv.bitwise.csv",
+    "sha256": "cc9ed2cfddfb6a26a897f4e070b39091014df99925ed95197e68bccc8f015ce1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-42.csv.checks.csv",
+    "sha256": "7c2b8d337eac839178cabb1d595a9becde7a2076abbed2a37193ec483384baf2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-42.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-42.csv.inputs.csv",
+    "sha256": "b6fd0c3b416ab0740bf03f674853eec389439e66e9ed0da7d280e5f4215d0fca"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-42.csv.meta.txt",
+    "sha256": "815c6539b5ed1dfcb2d8e3c3c96f4a12f5c2e15057fe49752cffa330128b264b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-2048-42.csv.windows.csv",
+    "sha256": "411d95cb8576fd22519860dd9475699b2076574077be9250b30ac5bc2200ac32"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-12345.csv",
+    "sha256": "c8e32e7b118a23e3465ccc568c3301280b67f0743d5ebf78eec53b9dc684c8ee"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-12345.csv.bitwise.csv",
+    "sha256": "709ca07cff6a59c9b7a0e1d297134e5393c6615a575cf9fdfd615e0631073d58"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-12345.csv.checks.csv",
+    "sha256": "60e2cfc96fb35a052d1f03d688488aa96ef02147b136cfa850210172ed2f9f29"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-12345.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-12345.csv.inputs.csv",
+    "sha256": "4c681542fcddff0b532185d8b55553b20ebd102cade02e79fe952c83a1855514"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-12345.csv.meta.txt",
+    "sha256": "f56df0dbfde96fb4da44907fd1de72becad58f93b6cca0fd1ad358604e05694b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-12345.csv.windows.csv",
+    "sha256": "e021a96c0b15ebf6af126589eb8f02a3594b5b4ff45e44d69e90cf2427313c98"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-20261020.csv",
+    "sha256": "a1a02fde425891e2f66a876e8afa6402b717f8f06a30a1d5ba8f949b993ce952"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-20261020.csv.bitwise.csv",
+    "sha256": "a932e62756e0a70d619e074ae05a1bf8b7e61057c7225164418fcf54b3d51029"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-20261020.csv.checks.csv",
+    "sha256": "0a17d3fc8de108e75ac4c80ebe8b94ebd30ce48a28aa8406b44dad2cab0244d2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-20261020.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-20261020.csv.inputs.csv",
+    "sha256": "ea013425f3311fd76791836b4807ce74b85280f96d8485bb0df61c9a5829ec55"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-20261020.csv.meta.txt",
+    "sha256": "26e3df5048121b9024a0a4eee739727151f5e52ae774faaac1f563e3a643674d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-20261020.csv.windows.csv",
+    "sha256": "c354ebaa9bbd6c325ccae6b46631ad8d82e4fd8fed58c00eb2f8c41e568dc87d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-42.csv",
+    "sha256": "bf9af1baf4fad8fcac169722184aa7e7a2f2f1beaa9aa3ff3af5a8ce828509c7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-42.csv.bitwise.csv",
+    "sha256": "e46a4fafb1c7419f519d770770ac1403e5947f36272f6105e207e44af6cb2fd7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-42.csv.checks.csv",
+    "sha256": "7af1d14892f8c61db8f1663f29d35df0966da222f8adca2bf2db0ff183eeea74"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-42.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-42.csv.inputs.csv",
+    "sha256": "1ffc5f76faeb2606def124eb5d2e7e3b89d464c04c3c5ae5057ea7d21e5acc6e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-42.csv.meta.txt",
+    "sha256": "802b4ba67234a97c919fcca0d039224bc01327cecfd3086a47a701ed1a623a21"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-3072-42.csv.windows.csv",
+    "sha256": "a401eee358278d930aad21e8e068f28039c6333e2608189059926b30fae9fdf6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-12345.csv",
+    "sha256": "e08259006a55ab2e23bc16159575a5e7d732025f89a168f46a7276343c7e1180"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-12345.csv.bitwise.csv",
+    "sha256": "dafd0b8df2109e75039c13f94834b7a1a3e444e77b6d55ccbcceb908e81ff532"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-12345.csv.checks.csv",
+    "sha256": "0db4f8114b98c6149d2358134f522dd934d25a0ffdb51194fefabf4081700b69"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-12345.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-12345.csv.inputs.csv",
+    "sha256": "4379bf059c4b0ccbc1b6c2772d3d62ed8e7e5346558865c98cd0a17e6edcb93f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-12345.csv.meta.txt",
+    "sha256": "6838c757360acc7d3c270fb4ef2f5a66b6c7044065346a40c583de591bdb7f78"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-12345.csv.windows.csv",
+    "sha256": "83770c6b6aed9f9e5ce139552a8461d1ac6360c27fb3651cbbc80ce9999d6653"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-20261020.csv",
+    "sha256": "436c6cacad0e7a97db3744b3ef75d03a6371f0a919b8106598180814b2b02c59"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-20261020.csv.bitwise.csv",
+    "sha256": "641f09551dc7a5ffbdc113c3a8f0c60b2851053a986eab42c7382ad00751ac83"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-20261020.csv.checks.csv",
+    "sha256": "5b65e0df8ee79875fd6d48283322afee5156bed8a8e2144dbf57bdb36e62d70b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-20261020.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-20261020.csv.inputs.csv",
+    "sha256": "9899139f17f1b89374e90378323068807ece5c43d5dd9b29e3aa0fd25bfdd59d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-20261020.csv.meta.txt",
+    "sha256": "df25daf58837e68bf21d53066e3bad74d2b22a24e92aea0ab3e64f5aba2c1758"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-20261020.csv.windows.csv",
+    "sha256": "3c0cfef2f17b512771e555fdb7ac6f0ee2990795fc1c7e350703a6edca8d7d05"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-42.csv",
+    "sha256": "ef6fac57a8871c447759857ebd9ebfa043080c129bb6d3aff2a35a9f0e1c08f2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-42.csv.bitwise.csv",
+    "sha256": "475abe1518afef8f4c46b889004075d8209ea7a7139021d892304a0c2f947638"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-42.csv.checks.csv",
+    "sha256": "2f2b526a80bc41a17e58d44fc8872bb5150973f1308eec968bb792c400b6a437"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-42.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-42.csv.inputs.csv",
+    "sha256": "2adb5c780e438679688bcb23867b4f96841cc4fe168f647cc8a930874338f9f8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-42.csv.meta.txt",
+    "sha256": "fc96a9c73edda0e169d32710ef8218dceb75d3335926d13ad79662d751bfeb4d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\fp32-batch-3\\timings-4096-42.csv.windows.csv",
+    "sha256": "28e85046531b4a80ed03f604a9786083812081c114711adf87f1d98535e5f6f5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\plan-fp32.csv",
+    "sha256": "6a0c957f97419bee78c1d93b1804f320ed6ccc74e75e54aba4a1200e5c1169c3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\plan-tf32.csv",
+    "sha256": "61afd3340b0eb877b3ef2bb7b880384c307a9012792be4600a8b2edd09a4079c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\fp32-small-32.csv.checks.csv",
+    "sha256": "acc776aade59dc14b623f96f24b68e060f5c10ab56ad8f381d9fd414e8108da2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\fp32-small-32.csv.cpu-indices.csv",
+    "sha256": "a1335fd420f6321cd130b8e17d7fe3d059025ab83b1e2665cea8bc7306404883"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\fp32-small-64.csv.checks.csv",
+    "sha256": "d062a70e54fee8c41ca12df4c0ab468432cadbebbaca0b8a5a9d76863b43318e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\fp32-small-64.csv.cpu-indices.csv",
+    "sha256": "a1335fd420f6321cd130b8e17d7fe3d059025ab83b1e2665cea8bc7306404883"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\fp32-small-96.csv.checks.csv",
+    "sha256": "165de4fde5dc6b80489cabe45cd16eb120ed6c80d061194f03e66dfc85008d3c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\fp32-small-96.csv.cpu-indices.csv",
+    "sha256": "a1335fd420f6321cd130b8e17d7fe3d059025ab83b1e2665cea8bc7306404883"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\tf32-small-32.csv.checks.csv",
+    "sha256": "90a5104d4d67a805a9b36c4952c026bccb3060c3f90d36f44f5f202fc627cb68"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\tf32-small-32.csv.cpu-indices.csv",
+    "sha256": "a1335fd420f6321cd130b8e17d7fe3d059025ab83b1e2665cea8bc7306404883"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\tf32-small-64.csv.checks.csv",
+    "sha256": "fbced6844ce9182e56733f0131489b8feee79f88959fdc78ea48b24b318e88fe"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\tf32-small-64.csv.cpu-indices.csv",
+    "sha256": "a1335fd420f6321cd130b8e17d7fe3d059025ab83b1e2665cea8bc7306404883"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\tf32-small-96.csv.checks.csv",
+    "sha256": "3f86f2507f64894a1672e80437d23308df39f75cf55d547f6d960e8b02a84f5a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\tf32-small-96.csv.cpu-indices.csv",
+    "sha256": "a1335fd420f6321cd130b8e17d7fe3d059025ab83b1e2665cea8bc7306404883"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\process.csv",
+    "sha256": "15fa039660e019deabc247432c2c857f7efd87d2fbda571d55ff3e42fb30efc0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-12345.csv",
+    "sha256": "69b8dc2a8e9fdce6e942924c6ff6c39dc636411b91dc0a6034174a5ccd16bcc0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-12345.csv.bitwise.csv",
+    "sha256": "b9e9c7325811855392b593dc952fd80a7e17bbaa30cd2311bd6839be9541bb37"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-12345.csv.checks.csv",
+    "sha256": "39cec613d3366f32a915c51e74facd10e66f73dfc5d2d9ddb3a4198981d5275a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-12345.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-12345.csv.inputs.csv",
+    "sha256": "61d85971f9ec45f8e4b9b5bf8980c4bc722161da4bb10ec1b5d7da3fac1025de"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-12345.csv.meta.txt",
+    "sha256": "5e609b4043f2453f92a4d674f100c77203bee9ac3ab16314cf05834104d4ecb2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-12345.csv.windows.csv",
+    "sha256": "de00444ef4bc1385ee9746d9447e1acd0efe84f5b0a5f806a3e744bd49226b94"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-20261020.csv",
+    "sha256": "b5d12a3da929455e42ae2a7ed009eed0736e1c743a7f4920d2283946e4f3fee9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-20261020.csv.bitwise.csv",
+    "sha256": "f5ec77eb5fe79cf8479ae0278b09f45ed035783e6ac1385476d5c9828669259a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-20261020.csv.checks.csv",
+    "sha256": "35245a9cebc99607984cffc3c8337582d74010046b9f70566928bd3a5437de4b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-20261020.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-20261020.csv.inputs.csv",
+    "sha256": "646bbdae97fb9fafe468fc1519bea2cbd7a4dab90624c6de78e497f59273901e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-20261020.csv.meta.txt",
+    "sha256": "5680177acb586d6899970928d2c827b848d628a7b5795d4df88f7277a99621a8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-20261020.csv.windows.csv",
+    "sha256": "ff223b497401edda68334095a5e0a789fdc055b9dc7dfd29cb0ee7fb4990700c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-42.csv",
+    "sha256": "b1905cea337809ef83cacc7a27dbd17f63452b697d34bff641eca0f4c8da7e76"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-42.csv.bitwise.csv",
+    "sha256": "5d83c1fdafc52929c739551427f18fb5b45357023a36f78ba391b1efdde4d67c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-42.csv.checks.csv",
+    "sha256": "772f2eff89085e681a1ec450cffd014fcd66fc0e962e05bb04bad16f62b62b72"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-42.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-42.csv.inputs.csv",
+    "sha256": "6364cc39ded27f2922091257441d46d53a229f71c05f8d8d372678ddfed6d562"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-42.csv.meta.txt",
+    "sha256": "e6926191c92456e41d80c32b21fcd8405a36b96a844c574dc18cdbcd0ead783a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-1024-42.csv.windows.csv",
+    "sha256": "b432448ca6b7715e99bce072a05a21f7fd79d2d0bf85fd044ca44fa502c3c729"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-12345.csv",
+    "sha256": "c7e542715622002589b1e77085bcb45f2d2f8b753f4347efb466a3193cbde82f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-12345.csv.bitwise.csv",
+    "sha256": "685906b0e82e232e6243052d2962b0cd25264a3d9e1e24e16553c20fc0036d33"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-12345.csv.checks.csv",
+    "sha256": "456f9c608ee86350041a8063596bd47bd1fb23d92ab68e3b0cf487ee9579087a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-12345.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-12345.csv.inputs.csv",
+    "sha256": "ae006d2eac296bc374e2d735f8648eee436b2ddecc103f8e400b24170a20a96a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-12345.csv.meta.txt",
+    "sha256": "d10b23dee852136b7520567aa154f7bc9266d5adceee1cb682d5b0cdbed6e754"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-12345.csv.windows.csv",
+    "sha256": "27bb72ce4fec6260382765e743457bbb7ce832a40b84a8c0569fa7ceaf89e244"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-20261020.csv",
+    "sha256": "2bd159c4888743259168a1f0e519bcb5a02a6c34ea659896b73a84d9d137c186"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-20261020.csv.bitwise.csv",
+    "sha256": "98811985a45529d2fc9d2d42842519fff35ec85de8c82c2e1527ecd867ff95d1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-20261020.csv.checks.csv",
+    "sha256": "ed60b0067c046b83ff0f4e5884a3b378baba26704d73f09c696be7186edb15b6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-20261020.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-20261020.csv.inputs.csv",
+    "sha256": "1bc8cd85f0a360ca434e4185b21d20eef8f7f06da0c36e7efd0aab4b41cd20e6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-20261020.csv.meta.txt",
+    "sha256": "79adc61acfe3d4ba6c2607dac53edd5d10c69fb421cd026c95681ee9d1ca589a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-20261020.csv.windows.csv",
+    "sha256": "22ba069b1a7941ead409f8e6ceca60c2aa7f5f5285ac82bf61cb1462894c1d11"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-42.csv",
+    "sha256": "799740245e0cb101d42161de24f6cfa9fb1079a5c89fc659a1fd36ea4a46a3c1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-42.csv.bitwise.csv",
+    "sha256": "84b44cd01e0a21e9d2aaad83d589dd4c8788b5dab4fb4cc9a9cff0ba0e2f2541"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-42.csv.checks.csv",
+    "sha256": "fd05063d21a47acab0e7d4b39b416f0d2eaccb97dbeb61582879614116b6edcb"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-42.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-42.csv.inputs.csv",
+    "sha256": "b9916e353665a03dbbad40cc2b777534921bd7e0fe06e10c3da42ae02eba59a2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-42.csv.meta.txt",
+    "sha256": "85878ccde9e66b7bd757cb7e06c196134a220aa8ae72547c48ccf0496a57c3e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-2048-42.csv.windows.csv",
+    "sha256": "c1ec286f0b5290ad75a7aa26b0d24a4b30a6c2cef9382065cb142938c0f35c54"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-12345.csv",
+    "sha256": "eef06089049410ac7d0a05f894786c9d2c6c642434bbfbcaadc414e69643f9cc"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-12345.csv.bitwise.csv",
+    "sha256": "4bdd8b345bc885d5220f3eabde60f5fa4939e42f18e7cd2408bce5c94e82567c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-12345.csv.checks.csv",
+    "sha256": "e08419c55e315add6ab37b141bc25e708f500b629ddb33f1d86b19caf3603bce"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-12345.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-12345.csv.inputs.csv",
+    "sha256": "e1cd6cd364893a2dab736fd2082b50478a5587a4c1113bede434b0c466863bc0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-12345.csv.meta.txt",
+    "sha256": "11d614827b0261cb174852b475bee2389a8a0eaa2f89d99947ebb6dd53095146"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-12345.csv.windows.csv",
+    "sha256": "2df8214c7cf0522dabe6fbc7f5fbd7062d8eb0dffb668934218a9e8fa2919217"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-20261020.csv",
+    "sha256": "7fc2681350ea92823c85dee1e375763a4529f8ea731df2bdd376c59225c01fb4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-20261020.csv.bitwise.csv",
+    "sha256": "7b63c94c28c4a1526fc466701ef6baf8de016343dfbdc05c1ee3dcf6bde54a73"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-20261020.csv.checks.csv",
+    "sha256": "62cd806a276df1383512e18aa2dfefbbdef82eb2e7b6933ec39b9c853cb2ba08"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-20261020.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-20261020.csv.inputs.csv",
+    "sha256": "2845d1dc5de789646a23516c3356fea9ef0e51ef4d4a8cb93c725ef6fb17a5f7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-20261020.csv.meta.txt",
+    "sha256": "6d11a17219c70b250a46758bb30d76843e31b3ee3f205c16fd8cf6a26c292584"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-20261020.csv.windows.csv",
+    "sha256": "8b6ad4263053e3479155894b07c06566eb2a75cadd2d323055e20049667d3bd3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-42.csv",
+    "sha256": "1e28afbd80b4f7e0490c7ba1f1b337c354f2f7c6a292629a08ab29965ab5952f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-42.csv.bitwise.csv",
+    "sha256": "46dffc179e5642a702e68ca75469fe61ab535b785f9c1e02ee28e4141b6bee1e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-42.csv.checks.csv",
+    "sha256": "8078be23236690ac9df2806006accfed6cc88e35b9cb67080385635fc4e4ddaa"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-42.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-42.csv.inputs.csv",
+    "sha256": "76bdafc9254d9d796502a6368398d39af1cba1c8530a4459fb6453a29fd12c2f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-42.csv.meta.txt",
+    "sha256": "9809ba1c8dc2dde6febd7efb70c7b48b05830e6bb39f58b3b93cfbbd71123628"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-3072-42.csv.windows.csv",
+    "sha256": "8732833e27e6728415d9a25309cac4ae07b7ece32ec959658cbed983f8d1cd9b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-12345.csv",
+    "sha256": "32bd7414486ac96a85362df36f1e4b2a16b7080cb7d1779a311dcdf9e0d32af0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-12345.csv.bitwise.csv",
+    "sha256": "6b73a635ce4790761919363e4ddce2da0548254fca7f789b592647b439802264"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-12345.csv.checks.csv",
+    "sha256": "1ec11653428905289a496cde1cbaeae9870e7e5b15d9aaa78ab74db5928922bd"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-12345.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-12345.csv.inputs.csv",
+    "sha256": "b74fbd94a655d52326229fd927a3914139ad37c5ebc706516b235cafe66e4bdc"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-12345.csv.meta.txt",
+    "sha256": "23b85ae17e24cacf91530311ab4537f9b86733e5bfa2cc30c08e73a9e3f29677"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-12345.csv.windows.csv",
+    "sha256": "7ac4b1b920665970ef6d6aa9c0feb07ce2a8aa73f071891e11088ae05cbe82a0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-20261020.csv",
+    "sha256": "2bc544015df3d350bbc99936cbf45b1e976aab0f4b91964af7eb9037a7c38577"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-20261020.csv.bitwise.csv",
+    "sha256": "ae5e711f091fcf730750740024de51f1800661131ac1b91be6cad0499f721d7b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-20261020.csv.checks.csv",
+    "sha256": "454ad12611de825473b5254c32409b599fa4ae3079cb2d15ac5116e6eb9a4e3e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-20261020.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-20261020.csv.inputs.csv",
+    "sha256": "fc974ace308d92f078c71ec4d406c89f7d4fa3964c1d978001c49cafce97c661"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-20261020.csv.meta.txt",
+    "sha256": "9e9db50a9694454ac0723c7d3750b6158f5ef6647fd9a6bb50d8188ff710a1cb"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-20261020.csv.windows.csv",
+    "sha256": "6f78784935bbc75e99712a17be326438c6110f0bbcd13aaaf885b9b31e994923"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-42.csv",
+    "sha256": "0f66256dc530c93d8dfe46968e59cac62a21d715e60a4fa553457f67437cc50c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-42.csv.bitwise.csv",
+    "sha256": "df2659a00a4a8bf2498fa52b123355d7fa3b2d872cef4aecd1af452b94195104"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-42.csv.checks.csv",
+    "sha256": "dda4d2ea71734e35902bec6ed8553671dfdd471822b9ef4ce2d6d32b6c5f1664"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-42.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-42.csv.inputs.csv",
+    "sha256": "114d4edb96c035e71a47ba81b1a3bd35149a218b0e60b252f66f51a1f13726d4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-42.csv.meta.txt",
+    "sha256": "2910d6eb6147ad1abcbb888418f4ea91c602e144234fd704512973ac16846ccd"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-1\\timings-4096-42.csv.windows.csv",
+    "sha256": "8f574adac3732905cc703afff062f125b39b66a279105713e1c536c6ee825243"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\process.csv",
+    "sha256": "fbb1d217d977cb9641cb47b0859c527643ec9760a174bb02c77780ff71462537"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-12345.csv",
+    "sha256": "946c1d5ea76cfb2a118cbd70af2accf51c9707a29d4e7d341b258ee931a1c362"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-12345.csv.bitwise.csv",
+    "sha256": "0865be87af805f76d1ad82449a96a40427ab58eadb5a3b6303daf12cdb6c459c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-12345.csv.checks.csv",
+    "sha256": "d0367e529b52794920b7ddba52d603c62770822c12eaadc1344e1f01bb69e6b2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-12345.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-12345.csv.inputs.csv",
+    "sha256": "9eb889d3ebb7cc1cfce6595c628ec2e6f199852e173afe17362b77fff0a3dd88"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-12345.csv.meta.txt",
+    "sha256": "578b33ad4efcdf6db20d2eb7de57a79c533ded0116adc9b30dbb1dff7e11b153"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-12345.csv.windows.csv",
+    "sha256": "3d9c8f3884ce0737bf0f220a517105c3c1a6756248331ad99a935935c8fdd5c6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-20261020.csv",
+    "sha256": "b2199a23faee66e65d4ed590cdfd4c813c18ed637f96aba2b690f133da963841"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-20261020.csv.bitwise.csv",
+    "sha256": "f9ac0ec228ec4bc9137c243569e4f4090c70403fda23b375a0a2847e1ed8a825"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-20261020.csv.checks.csv",
+    "sha256": "dc3a02bd8e00f70415bb41e29a76250d148a41dc75d9d738f80e44e3b38f2083"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-20261020.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-20261020.csv.inputs.csv",
+    "sha256": "f34d08f5e94d1d7aefcc2d294d0c9b22326ec38e897d661c9d738ad93a09f3ac"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-20261020.csv.meta.txt",
+    "sha256": "9b8dda773c845991cd31e5d3f8348fd53b5db5f7efdda6cc4abf9af267c74a4e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-20261020.csv.windows.csv",
+    "sha256": "62952bafc983f138b639452f1b8171f86af73734435360bb0cd84b097002a729"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-42.csv",
+    "sha256": "1c56cc192b889b7ebdb5641e02ad15936c52c4996ea4352ab76bfb153a9b27c7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-42.csv.bitwise.csv",
+    "sha256": "759ec5353c85529b5c09224ea50fb81b31eb64189eb7ef07940fadee9f3dd1fb"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-42.csv.checks.csv",
+    "sha256": "1a2c960c841d1193e99c9fd08af13edb790fad68e9c5a034c1a8b6b2a6c252e1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-42.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-42.csv.inputs.csv",
+    "sha256": "6fde4c03cb8ce6b924fda3da3ddfd554df04092e85e943a8fcac8d59daca2648"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-42.csv.meta.txt",
+    "sha256": "b647efa82fec46aaf8939a1cb92babea9324111eba227f3020eb65e37c741119"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-1024-42.csv.windows.csv",
+    "sha256": "d079cc7cf128fd606b0a7832cf54c2783cdbeb80df8d8fc4f1271b4e0ee53aa5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-12345.csv",
+    "sha256": "16301a888343b2301eaf1fce26a2559bf32ef9d9f2ad7ff1b815deb0cda83644"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-12345.csv.bitwise.csv",
+    "sha256": "491b9726a9c4464875008c541dd7a9307f74ae001326d8b885483289f97e5475"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-12345.csv.checks.csv",
+    "sha256": "8475b8373d6a5b22a1b1a608093b43fda41b710e3c0b70efdf738e7e634305c6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-12345.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-12345.csv.inputs.csv",
+    "sha256": "55aecd68696c10cc91f8f0c9df1c8ebca5130f6ceef270a0afb3987dcf251d93"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-12345.csv.meta.txt",
+    "sha256": "66e99b06dda47adb72d980acb6df1c4f71c185fabf9b8a77b81d06602c97f9fc"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-12345.csv.windows.csv",
+    "sha256": "6324fb062cdd3735b343245bd7534c1d1650c3fa0d1575032860b90608773e54"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-20261020.csv",
+    "sha256": "e1d951c1bb3e29aa053378a53c2214b5616162524719529ee9baa9a1fbc5acbf"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-20261020.csv.bitwise.csv",
+    "sha256": "c93be804f8abaf6cc119db28f78eb34d0ea378d5acb498b3cc57bf5fb4817761"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-20261020.csv.checks.csv",
+    "sha256": "d0c6dc00c7e4e71b3a44988d0ec7469ecb99b1ac328123473684e07e6aa5516a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-20261020.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-20261020.csv.inputs.csv",
+    "sha256": "6e8f1e78f734e8c6b09755717366715b8b0bb17ba41bf34164a7623ca864c03f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-20261020.csv.meta.txt",
+    "sha256": "d9db8bfe926c02d498a55502fdaaeb2003c757ab1cf996143c090fef16c36699"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-20261020.csv.windows.csv",
+    "sha256": "01672d8f2aac29c778f91ae5c1912a6c1ffde11d2d3a1cda96ccb3c7c2e1ba21"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-42.csv",
+    "sha256": "701eb977e35c76290b368079b56516332090d2b8c6173ed93fc521db95ecd913"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-42.csv.bitwise.csv",
+    "sha256": "b024bda50a7b8b9e433d1f405948b144f51c45ed1a09fd479d691ad04b6c6964"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-42.csv.checks.csv",
+    "sha256": "3c5965f6dece1764aebfa0ae2c3ab32ab7eab74c2f0234925107fa48e296cd6c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-42.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-42.csv.inputs.csv",
+    "sha256": "5845340c0b4a687795fe887d25922e890f27a27c8c7ff39786b933d97c731dfe"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-42.csv.meta.txt",
+    "sha256": "804a5ff102f4e9b70537ee7c309a385b91548dc70ab580248da3517673af0467"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-2048-42.csv.windows.csv",
+    "sha256": "efb64e3885a5b1478d921c0653e6b8ea3d224306d90670701072aab8f6d7fc79"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-12345.csv",
+    "sha256": "7953f5ed149daf0a845832141cfc356b49914a1a91029bb0a8d298ab46be9bf0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-12345.csv.bitwise.csv",
+    "sha256": "1e14a63ea50d184b540e2e973fc68d213ef0c6cd3079daa090dd322d5d6aada9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-12345.csv.checks.csv",
+    "sha256": "2107a0b2b6eee70d3d6673890ab64f45bdf537783094e70f9505d2ae3b6e80e4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-12345.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-12345.csv.inputs.csv",
+    "sha256": "faa87502ab91a155b5fcd37d01d160ae8cb67dd1f745721d0426d34e294cfcf7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-12345.csv.meta.txt",
+    "sha256": "1f0beddc382dca910af4e382018f93513a5410db7a5e7f88e7e3455618edc06e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-12345.csv.windows.csv",
+    "sha256": "61afd9b4d8af853db77d9fb622b169aa487d448bc2e6c06dafff69d4371a3196"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-20261020.csv",
+    "sha256": "58b8abd8712876cddd59f41d9508f8ec71bce631a5dc21f2785602baabc40b35"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-20261020.csv.bitwise.csv",
+    "sha256": "6487ad56dfd85f0cfa3f62e5943291065329be8313896aff61fedaaabb269a8b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-20261020.csv.checks.csv",
+    "sha256": "fa25e760a873acfcf9a4850dc7ce469cec974bf44d49f250c4ec3dc1f0e742d6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-20261020.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-20261020.csv.inputs.csv",
+    "sha256": "ce90b9ec58216407894bf89e992e247297467333d72e9e29a535f72311ae99a2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-20261020.csv.meta.txt",
+    "sha256": "7513f09e6a71f18894060ddf114082d1862dcb34c510e68345762abf4e712277"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-20261020.csv.windows.csv",
+    "sha256": "922c14ce90e0f26034615b89b0ead65c29dd6cfdfaaddaf9a593cb7a4ba67bfe"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-42.csv",
+    "sha256": "9e939b8cf80c3770b4b47c4209a680474573470a95a7e27e25ae981d604a665e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-42.csv.bitwise.csv",
+    "sha256": "e0ab34b408e681ef0c1b111eb8706d3f855b54f9fe34f83e40d5ffc8bde6197f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-42.csv.checks.csv",
+    "sha256": "a67064fa568a4a93b490ba16fa9e2e47b8256142123b89deee6b877f42e2ed05"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-42.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-42.csv.inputs.csv",
+    "sha256": "c3144ccd99e78c1069caccbf862b67ec51badca26d87b16d6b77fe971052f3df"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-42.csv.meta.txt",
+    "sha256": "d059537a74d6daf0ff58359656b5a10558b86c6b4b58d952a6a81b7ccfa2e6fd"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-3072-42.csv.windows.csv",
+    "sha256": "e956b52bd497d7c0aec34bf94a2b010350db10a410ff4e3594ac46dab8fc15d0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-12345.csv",
+    "sha256": "4c2c202e29f697801b05411868dd1bb53de339388990e87b18d59ed50231528a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-12345.csv.bitwise.csv",
+    "sha256": "4845cd90b1722d5382ca0127cd124b098bd35ceb4c6eefa97289f18a53ce9a42"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-12345.csv.checks.csv",
+    "sha256": "1436f23948801ef5a8ac91398f9b32e0a8e390e6fd442e3ef7cfdc331e2eb5e0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-12345.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-12345.csv.inputs.csv",
+    "sha256": "577e57253a987ebe180207a1ce5967cc06d182ed4ce033cc144b0f7594c24a0e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-12345.csv.meta.txt",
+    "sha256": "2478af5fcebbaaca4640614cbf025fd3ec56d0cd126338054ef86593e9edc333"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-12345.csv.windows.csv",
+    "sha256": "c114ddcc82c6af5b3f0f903e8951692e9d5552b3b4e5414d5f57e1a316b755df"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-20261020.csv",
+    "sha256": "01f8be59ce56fe1a06bb16c301498459b25e6cdd999855549b9a16b2ec8ed035"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-20261020.csv.bitwise.csv",
+    "sha256": "dc59e68641e2979d7716a54269538e2c8f63bcf50183c0206d8ced940aeb436e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-20261020.csv.checks.csv",
+    "sha256": "1ff98918f2c888857fe8737ff3cacef85f315071a384fe001adbc8865c779e4e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-20261020.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-20261020.csv.inputs.csv",
+    "sha256": "7bcf93206783d0a2cf8a955912fe4a8f26e1f26ad4eebdf527f1cf5a0c8c5af2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-20261020.csv.meta.txt",
+    "sha256": "cfe4712e72816f89e51ef77a17c776a1eb08255e00d375bc3a5090c9e837a4ca"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-20261020.csv.windows.csv",
+    "sha256": "6edb633f7be0937c721e528d68ea4d07f2ed6dd3d8163df1d4847549429ceb24"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-42.csv",
+    "sha256": "73eea191f9da9610e5c145a65528624d7ca467c160c50f6e556a721fc93b13b4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-42.csv.bitwise.csv",
+    "sha256": "5f1bc2f9b7afcf67de9383ee3a991f047d52f2c6c04007714af695fe2bcefe6e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-42.csv.checks.csv",
+    "sha256": "ca7cd80cea3bb772c8b2b657e68515e6daa2a5641b01d1f5246b7d242608dc99"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-42.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-42.csv.inputs.csv",
+    "sha256": "9daf1284e1c3e8bc223cc5114390e1448662d22bcedea3293d2de867a2f41a0c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-42.csv.meta.txt",
+    "sha256": "60d104c860dcb836851b9f453b4085743f208254f4951789fcb3f619a7001e79"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-2\\timings-4096-42.csv.windows.csv",
+    "sha256": "ea356126127a5fee27b6f190ebb37f1093b7da9537730c6c22c97f084f4c8f61"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\process.csv",
+    "sha256": "51fe8d238f26512e93a050f1d39f988aa580dab17e8c2b537cfbd30dcbcaa8db"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-12345.csv",
+    "sha256": "e295e6a2e487746e93e0c17e74fa4a5439bde96ceeecd4366ca7454d0e0c257d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-12345.csv.bitwise.csv",
+    "sha256": "5b9855b3af13de0280201b83188b877699aded120b01d3703293523bfe4aa471"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-12345.csv.checks.csv",
+    "sha256": "8eb93552e15d8df250494e14194f19bea60f52dedd3e892dcc9dc1714adcf01b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-12345.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-12345.csv.inputs.csv",
+    "sha256": "91cfa32abe3bc44a0b6f58efb25352d2c5aede3267b93758ea3550ff356d265e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-12345.csv.meta.txt",
+    "sha256": "a28b7a397fb7b0ed73a2d168ab7fc2316e74437434c5d309dad3816e334da9ed"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-12345.csv.windows.csv",
+    "sha256": "d32aaa1bce6bf959d771ab50a926d5644360890d4e253c8d45a63c906aeca481"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-20261020.csv",
+    "sha256": "dde323ee511f08b8d9dbfd21842ccb0b7876172366a493d2012303b6a0b4e7e5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-20261020.csv.bitwise.csv",
+    "sha256": "b3a509fc4312e16c339b51a77eeec62f4e701301093ca57e69564f345b4b24b8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-20261020.csv.checks.csv",
+    "sha256": "0474c0edf3d88049df43e8df9fb38c78f2f5765f3a429cac65b7d5eff2d29034"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-20261020.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-20261020.csv.inputs.csv",
+    "sha256": "a2aa5273beb879d66cbfedfc5f1a4e3d903f752c6431f146b32f3f7a55b384a9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-20261020.csv.meta.txt",
+    "sha256": "5ee83e92b5495b50a32b6b9e362702e4ae53b2b1a965596b47c5959dbe8c1e9b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-20261020.csv.windows.csv",
+    "sha256": "daa1e7d0403605f1bf84c6ca5b9141304a4046116f8f1ad240527f58344ec243"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-42.csv",
+    "sha256": "df390d710c84b8857ba758d6fa93be47a71130a8e701bcb15f21a3dda1f15944"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-42.csv.bitwise.csv",
+    "sha256": "d2dedc5f2c32f3873a24a0769e1af77346972e3c65070969f74bc74418043a59"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-42.csv.checks.csv",
+    "sha256": "74e8e79dc273f09fd58cfcc56931682bc02e49cad05eeff47820679c4893a619"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-42.csv.cpu-indices.csv",
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-42.csv.inputs.csv",
+    "sha256": "d30e8645e7beeffcbedf1c9ca679fa93316aac7782cde327c4cdc07fd6f27a97"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-42.csv.meta.txt",
+    "sha256": "95b305087c41211e030b357a0be20f233f281956f10dcf8c3ce1d94fa7975b1c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-1024-42.csv.windows.csv",
+    "sha256": "8b3d53f83d59dfaa3b8195195fff256fce8dcd472f174869bbc8e589fceab46c"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-12345.csv",
+    "sha256": "28b3e67327f09a5d765f65e8469f24bffb4168dc23345ebe3d7eef3d3ea58388"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-12345.csv.bitwise.csv",
+    "sha256": "928f754d69013250e4573331448292413084faf155364c0aca0c17a2b321c881"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-12345.csv.checks.csv",
+    "sha256": "4780325dd35af6e15640025aa7d982561f7d231a6ed642b54cee97b6d5104fee"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-12345.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-12345.csv.inputs.csv",
+    "sha256": "df75261104c6790ed5d597e79e9c54af2c8213944e9f25bd023ee33ba1f68c98"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-12345.csv.meta.txt",
+    "sha256": "f737f995e5b75b12fac27f6031c76414f3c83eac40862f902cd0f218a0b22de1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-12345.csv.windows.csv",
+    "sha256": "d3e41738a2327a552f6703aca48fe227a4258f85344c2e26ea1a99ec6b1c0f98"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-20261020.csv",
+    "sha256": "3c14ef43de5b20238084d3fbab9998181c147b072f2dad42a1627e7f2edada24"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-20261020.csv.bitwise.csv",
+    "sha256": "367574c693921c304c014552c103712cbbdd5d8aecbb1bff2a40b8dd664e192e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-20261020.csv.checks.csv",
+    "sha256": "e90660b6d0aa55cfa0f7251538b9cfc89cacd5838e3e0c9f99a8f78386cb000b"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-20261020.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-20261020.csv.inputs.csv",
+    "sha256": "7dbf18dfc6d6ba2c419db30aaa57148ed1a4497fd3f3dcbc07e92a49cbe68093"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-20261020.csv.meta.txt",
+    "sha256": "5d437c1c80152e4a2ce500f58d5c3e2a26337d7c46f241fce754cf4eeffcf263"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-20261020.csv.windows.csv",
+    "sha256": "e2ed1cb4f6fd3542a022e8552446b039edd0a63e093020dbf77411cf1fbcb91e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-42.csv",
+    "sha256": "44b7bace3fba706a5d1b5b7e18f8b4869e386d4569bb0f0d0c410088377fc288"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-42.csv.bitwise.csv",
+    "sha256": "802f5486a34570c429ca14b08324c6815460124b41cd767383e9a669fbb54581"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-42.csv.checks.csv",
+    "sha256": "81f94b25fbd699677721cbc27027b956fc96c531f5bc1eb8124066d754a782ec"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-42.csv.cpu-indices.csv",
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-42.csv.inputs.csv",
+    "sha256": "d26c0f58cd27c949a11084073a08f5e485c890b8d6bd248c1bb724e27f11b58a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-42.csv.meta.txt",
+    "sha256": "d6fecc6fb9dc38816a52915f113fb592a8c248b9f7adc8d4f3bcfdf63930b52e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-2048-42.csv.windows.csv",
+    "sha256": "49ffbfc1562adfe43ad40adfa8126ba95b0061ad4bb3c70032ff0b96d3b71749"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-12345.csv",
+    "sha256": "a1d818602554027b9e6be1c3a1d947244c8611b34363282a2b875ebd67310098"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-12345.csv.bitwise.csv",
+    "sha256": "2aa85283f9a3f874e3a353f9d9652de93410b33f3c2da0cc97a802ed11d77d69"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-12345.csv.checks.csv",
+    "sha256": "c4bbb0a34ac6722eef640cc3374ea788be1fb0d8664759eb9531322f599bb816"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-12345.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-12345.csv.inputs.csv",
+    "sha256": "a7398608b2024f45a33fe723734e154161d8f60d776ed10c83ea0852877e24ed"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-12345.csv.meta.txt",
+    "sha256": "50a9367c76bb8c7805267abb520d35849cda5404b4037cffc785a03654a5d039"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-12345.csv.windows.csv",
+    "sha256": "8a4ed3920e93941b9d8660e528b8d8e42e1417ac715658428b75a4eaad24e826"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-20261020.csv",
+    "sha256": "32f338ee55db778de143108d83402a892962bdda5e7332fa785e6124a7037ae5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-20261020.csv.bitwise.csv",
+    "sha256": "646ce70f86c09e29121152d6e2fd13ed2013ed8cd000b2ff6ff797f99a369341"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-20261020.csv.checks.csv",
+    "sha256": "eff8eb782ad5e5a39d95a110286cbdcbe9fd5dd0b3ca524ffadccd454ce3d274"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-20261020.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-20261020.csv.inputs.csv",
+    "sha256": "1c673917b3b4069c06e30b35af61e5dcfe14f6367167bb9d5966a8f1769a1054"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-20261020.csv.meta.txt",
+    "sha256": "05bce5f628260ae07495dea573751e1e8d915b98d1504e51d85cfef7a88f88e6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-20261020.csv.windows.csv",
+    "sha256": "fcc88dbc33f731d9c542ab9b3e3aba963daf3c912e29280495341465e530ebc5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-42.csv",
+    "sha256": "ba28e96fe1aa51107e7f22492d957205b1aa70aa031df02ef27d94940bc56c46"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-42.csv.bitwise.csv",
+    "sha256": "81943f9757ed94e81bd9d500e9aa9d4b40726ee08a125687d389762d841fb639"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-42.csv.checks.csv",
+    "sha256": "73bdd4b2ee361805bf8c489422be42f5705d3643fecbb41f377a35e9b8b5bd9f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-42.csv.cpu-indices.csv",
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-42.csv.inputs.csv",
+    "sha256": "880e9cf4f739ce9cb5b0b2b2c781bac51f685db5293d254cbdf1197e5b3b1082"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-42.csv.meta.txt",
+    "sha256": "bf3e10714b3f3b91d3669dd64b101dbf267ef2005b5a2870188a0c648b1d3886"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-3072-42.csv.windows.csv",
+    "sha256": "773cf7d7355931ee0c60b0e07920f19be1f044b9a58f10b2f98b25541a2db39a"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-12345.csv",
+    "sha256": "bc250955c2b7ed385ec722c2dbce78abe8e9d2daf151ab366fff678f074eb83d"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-12345.csv.bitwise.csv",
+    "sha256": "8af46531deeb3e2ba0272b2c3bf6479368710c6c652e88e2aca02acbc84fe961"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-12345.csv.checks.csv",
+    "sha256": "9a7cf2d33f9dd8c408bf908a988408526975f081b27ac947340d8e0f3e265c94"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-12345.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-12345.csv.inputs.csv",
+    "sha256": "2eefc04a27bac52b3efc9fb42e120fe9e4854e5dddbdecc41655da9d787d9782"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-12345.csv.meta.txt",
+    "sha256": "258212af1fcedab758d05c684d053c603e7d45050d4c613f196d69c4d62c47df"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-12345.csv.windows.csv",
+    "sha256": "e8aefb08d0bd91b2b2cc0de41aeac5e6a701aec56bad3f081c94549763c7a82e"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-20261020.csv",
+    "sha256": "1ba8f506bcdad4851bf36e4a60f51329353a25a301fb063d20421df8495e3562"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-20261020.csv.bitwise.csv",
+    "sha256": "5295a88b556b086404a9beeed2b8ae737c5d964d5b7ee6ed77c990a2f8128fb5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-20261020.csv.checks.csv",
+    "sha256": "fea3bf9cd02ef516ea32d29cde00f1a33662c8b05248fea5a1162e51a53156b3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-20261020.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-20261020.csv.inputs.csv",
+    "sha256": "ad465785e0d7c073b117ba8a0c085eb93e74e5ecf235615c2bd56d0ed378a107"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-20261020.csv.meta.txt",
+    "sha256": "8ee4662be1ed5e8f7da54f7ceb0dc04421d4d36b2b7644ab48518b888ef3ff83"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-20261020.csv.windows.csv",
+    "sha256": "5eb1f82d42c5f0607465f2a0bea054af68ed913bbd1db00c4bab984dda2814bd"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-42.csv",
+    "sha256": "f5a575e7cf33d70e8e4e57a6d1504df4d514e59ec2946bad9bca99c423164945"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-42.csv.bitwise.csv",
+    "sha256": "06a53672e605ad145f4d4f867472b25c83bafa9ae6ed4bddff6c32b473413168"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-42.csv.checks.csv",
+    "sha256": "0e53f80873ede8e04ce044d0c137082e787c95b7e2ddd830b0afd41f5d8f25af"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-42.csv.cpu-indices.csv",
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-42.csv.inputs.csv",
+    "sha256": "2c1543aacfc14d0a2e8dc9c8f56365c8b5bb83bc1510a9f0812e510beac26da4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-42.csv.meta.txt",
+    "sha256": "8e5f02a088db874f2270d3610baaf4890ca536d892a92461926125e541f86064"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\tf32-batch-3\\timings-4096-42.csv.windows.csv",
+    "sha256": "9ffde77011682420d23eae1fa9752e668c031d9808f787083d5d2b9eeec30a19"
+  }
+]

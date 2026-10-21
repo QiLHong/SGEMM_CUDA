@@ -18,6 +18,7 @@
 | K分块实验 | 仅TF32，原版/动态BK16/BK32 | [ktile](20261021-tensorcore-ktile/README.md) | [30](../../docs/zh/30-TensorCore-K分块实验与资源代价.md) |
 | BN64实验 | 仅TF32，原版/父BK32/BN64 | [bn64](20261021-tensorcore-bn64/README.md) | [31](../../docs/zh/31-TensorCore-BN64优化与尺寸效应.md)、[32](../../docs/zh/32-RTX4090D-TensorCore优化学习指南.md) |
 | BN64稳健性验证 | 仅TF32，原版/BN64/cuBLAS；多seed、三批独立进程，含3072 | [robustness](20261021-tensorcore-bn64-robustness/README.md) | [33](../../docs/zh/33-TensorCore-BN64稳健性与尺寸适用范围.md) |
+| CUTLASS公平对照 | 官方3.5.1；TF32五实现、strict FP32四实现分表；68040 events | [cutlass](20261022-cutlass-rtx4090d/README.md) | [34](../../docs/zh/34-CUTLASS与BN64的4090D公平对照.md) |
 
 表格不是跨批排行榜。比如 BN64 与父 BK32 的四项比较必须使用 BN64 的 `run01`，不能从两份报告各取最大值相除。
 TF32/FP16的输入转换在kernel计时之外，原始FP32误差失败照常保存；同精度库的局部胜出不是strict FP32或端到端结论。

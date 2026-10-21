@@ -1,0 +1,8 @@
+implementation,loop_id,start,end,instructions,HMMA,FFMA,LDGSTS,LDGDEPBAR,DEPBAR,BAR,LDG,LDS,STS,LDSM,LDL,STL,BRA,WARPSYNC,last_async_copy,first_wait_after_last_copy,hmma_between_last_copy_and_wait,note
+tf32_bn64_bk32,tf32_bn64_bk32_0xc00_0x1330,0xc00,0x1330,116,32,0,6,1,1,1,0,16,0,16,0,0,1,0,0xe10,0x12c0,27,"Static backward-BRA interval, not a dynamic schedule or overlap measurement"
+vitamin_tf32_dbf,vitamin_tf32_dbf_0xe30_0x1510,0xe30,0x1510,111,32,0,4,1,1,1,0,16,0,8,0,0,1,0,0xfe0,0x14b0,28,"Static backward-BRA interval, not a dynamic schedule or overlap measurement"
+cutlass_simt_256x128,cutlass_simt_256x128_0x22d0_0x6d20,0x22d0,0x6d20,1190,0,1024,12,1,1,1,0,48,0,0,0,0,1,0,0x6340,0x6500,0,"Static backward-BRA interval, not a dynamic schedule or overlap measurement"
+cutlass_tf32_128x64_bk16,cutlass_tf32_128x64_bk16_0x1840_0x1fe0,0x1840,0x1fe0,123,32,0,6,1,1,1,0,16,0,8,0,0,1,0,0x1d20,0x1d90,4,"Static backward-BRA interval, not a dynamic schedule or overlap measurement"
+cutlass_tf32_128x128,cutlass_tf32_128x128_0x2480_0x3930,0x2480,0x3930,332,128,0,16,1,1,1,0,64,0,16,0,0,1,0,0x3580,0x3630,4,"Static backward-BRA interval, not a dynamic schedule or overlap measurement"
+k30_fp32,k30_fp32_0xcf0_0x97f0,0xcf0,0x97f0,2225,0,2048,0,0,0,1,8,96,20,0,0,0,3,0,,,,"Static backward-BRA interval, not a dynamic schedule or overlap measurement"
+k10_fp32,k10_fp32_0x570_0x9080,0x570,0x9080,2226,0,2048,0,0,0,2,8,96,20,0,0,0,1,0,,,,"Static backward-BRA interval, not a dynamic schedule or overlap measurement"

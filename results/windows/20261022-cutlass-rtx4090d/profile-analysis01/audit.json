@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "profiles": 10,
+  "raw_sha256": [
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\2048-cutlass_tf32_128x128.csv",
+      "sha256": "55515993960ecfda08a8587a5b24aeb8fb92ddebe15dc99effcf3d3281be24f2"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\2048-cutlass_tf32_128x64_bk16.csv",
+      "sha256": "e9fbf334606007f83e305f8783ccf968976b72ad46c11237672d80d817ced53a"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\2048-tf32_bn64_bk32.csv",
+      "sha256": "5c9aaa636d6e32459229e4cf78ede9c724fc8cb99d37238b33945ca323f713c4"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\2048-cutlass_simt_256x128.csv",
+      "sha256": "c43ccc0ec0f178ae66ce862a77eb09dc44e27ea5e52f0f11c3b47d669b2f1ee2"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\2048-k30_fp32.csv",
+      "sha256": "a4212f360b4bac622d01d2e483eccfad0ac174f4eede159d48831613e08c71c8"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\4096-cutlass_tf32_128x128.csv",
+      "sha256": "02f646550e1e351fe047bbd2f9eead8ba447a08f11229d174ce8c5d69b2bba57"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\4096-cutlass_tf32_128x64_bk16.csv",
+      "sha256": "549b21fc972a07db4f86f37be090e2773b569311c305210907c9ae4ec7a79744"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\4096-tf32_bn64_bk32.csv",
+      "sha256": "c9f599ad5d815c46a67be8c4d7cffcf10ccedea1b978c434bd21fb8b13cca398"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\4096-cutlass_simt_256x128.csv",
+      "sha256": "0b25150138fd9c8690b270b96e368fa699f0090fd652d826eaef548308821d85"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\profile01\\4096-k30_fp32.csv",
+      "sha256": "2e9c2c72db2c77440f1dd7f351220dac5efad4a48b8ccc7719615fd88af0d2a9"
+    }
+  ],
+  "limits": [
+    "One profiled launch per implementation/size, seed20261020; replay, uncontrolled caches/clocks.",
+    "NCU profile duration is separate from uninstrumented CUDA event comparison.",
+    "NCU shared memory may include driver allocation beyond user dynamic shared storage.",
+    "Counter correlations do not establish a single-factor cause."
+  ]
+}

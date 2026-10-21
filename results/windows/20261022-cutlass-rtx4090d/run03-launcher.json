@@ -1,0 +1,14 @@
+{
+  "pid": 36556,
+  "utc": "2026-10-21T17:30:25.6825996+00:00",
+  "exe": "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+  "arguments": [
+    "-NoProfile",
+    "-File",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Resume-Cutlass4090D.ps1",
+    "-ResumeFrom",
+    "results/windows/20261022-cutlass-rtx4090d/run02",
+    "-OutputDir",
+    "results/windows/20261022-cutlass-rtx4090d/run03"
+  ]
+}

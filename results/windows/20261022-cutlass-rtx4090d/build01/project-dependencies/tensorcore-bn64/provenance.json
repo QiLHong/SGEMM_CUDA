@@ -1,0 +1,25 @@
+{
+  "author": "QiLHong / vitamin-cuda",
+  "upstream_commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "upstream_path": "kernels/sgemm/sgemm_tf32.cu",
+  "function": "sgemm_tf32_swizzle_bcf_dbf_kernel",
+  "parent_path": "experiments/tensorcore-ktile/tf32_ktile.cuh",
+  "parent_sha256": "eaf4f8ae008b00129508b52fcd775e147977ab20b3b5240b6221561324aa3d00",
+  "candidate_sha256": "c56448fc0d93de9dc8635657a5169fb923ca57dfbcd230297ac8977a209bc6d2",
+  "changes": [
+    "BN128 -> BN64",
+    "B rows tid/16, columns (tid%16)*4, one copy/slab",
+    "warp N extent32 -> 16, N fragments4 -> 2",
+    "48KiB dynamic shared",
+    "remove disabled BN128 C-staging comment"
+  ],
+  "unchanged": [
+    "BM128 BK32",
+    "256 threads, 2x4 warps",
+    "W8 grid formula",
+    "A layout/copy, slab swizzles",
+    "MMA K order",
+    "commit/wait/barrier protocol",
+    "TF32 precision"
+  ]
+}

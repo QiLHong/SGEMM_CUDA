@@ -1,0 +1,2854 @@
+[
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\cutlass-rtx4090d\\benchmark.cu",
+    "sha256": "49C226A1CFE3CA9E6EF751038F2B363453C013999382C11D88E30C4084A66A2B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\cutlass-rtx4090d\\CMakeLists.txt",
+    "sha256": "E7C31FE454E476075E8DA314D25A29353F250B5DDB4ADD54ED6B59475054678C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\cutlass-rtx4090d\\cutlass_adapter.cuh",
+    "sha256": "7B76F142943124DEE043A3688552EDEEB30899902B1A52CAE99E43D5C0DED19D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\cutlass-rtx4090d\\CUTLASS-LICENSE.txt",
+    "sha256": "9D4896A295F5A425B1F10542D69788C3D0189AFA497145B4CA2271ECAB9ECEBE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\cutlass-rtx4090d\\CUTLASS-PROVENANCE.md",
+    "sha256": "A7C150E06094027AAE148BEE42B2D4E1F479946E0F9EADFA6D0C253F7AFA28C6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\benchmark.cu",
+    "sha256": "898205BD2D7B39086BEBEB56F17646818EA26A5C732D6F44EA8704F2955EA68D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\CMakeLists.txt",
+    "sha256": "9E148A65A4D303D25C73FD318515AB1CCB765A150026A7A3DF1EC283155F8CDA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\README.md",
+    "sha256": "8067C23E77CB04B3B537D08D9D72E56428AB14A0F43CD659C907AFD9E4680654"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\LICENSE",
+    "sha256": "9646CCBEE1CAAEA25C5471662CAD3DD9D4E1708E9A3A14B5BE184F317192B639"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\pack.cuh",
+    "sha256": "D39CE985B39EAC0BE2AB90D5C3A9E19FB7E23E69D006F2E7F86218AF0DD18FEC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\provenance.json",
+    "sha256": "7EB316C5325DF8449A7B4BBD7491B7978328B30F34DA1BA33B7B0BE1EC6D2074"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\vitamin_fp16.cuh",
+    "sha256": "C9661F65077D1214CF379081C03D326AB2A7F8660330A72BA01EEBE4016F1E04"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\vitamin_tf32.cuh",
+    "sha256": "BB4123A52F6325F9514EE78E3535008BA3EDA284EF418D285720AB38F2497D81"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\benchmark.cu",
+    "sha256": "FA990CE3C6664D66F01999A3213AAA1E68DF87B010786B23111A44CBCD2CC4C0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\CMakeLists.txt",
+    "sha256": "6FF22BD7580E9707D7D0CCF5AADEC1CDA58A74605E04537AEA33C84FA0B7DAB3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\derive_benchmark.py",
+    "sha256": "7C6FD836F3464A5EE1727E53DFFE6C083ED20E82EFB5DE5341F3D1AA461555BA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\fp16_grid.cuh",
+    "sha256": "50A5FB12240D94FBD12A9AE56F0BA23F006A8FA314A35CE7FEFBA76ADA6CCE25"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\fp16-device.diff",
+    "sha256": "A37091AA9A9F0F569BC69C346A90DFB9FF8CDE03C03D4E7AC67DF4F75B1D7AE6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\host-harness.diff",
+    "sha256": "445C66BF474B280B170F376CE1953B1081B2271B1B5FBA5D95B45C7317628FDE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\provenance.json",
+    "sha256": "6E94800653FB3C13B937515762C742ECAF20EA148FE7FFEDB6C11BBE297B99B3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\README.md",
+    "sha256": "3FEBE11D8558F4A3656D1413144EA0BD2891AFECB83BE0C3A39887C8FE3468B5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\tf32_grid.cuh",
+    "sha256": "97C1733734F3C20C3D145FF7E0E1B88008E8D2CAE2CC4FC58DD6F8F76028EBBA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\tf32-device.diff",
+    "sha256": "3AC642BFDF5BBA87F0C1CF898E6B7CCE56DA707364E9AFFE74B039F684496164"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\benchmark.cu",
+    "sha256": "542040F989F9707AE75F5C58F12F788B2A8AE8EE397570A7538A5A4888BDDF8A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\CMakeLists.txt",
+    "sha256": "AFE5717E42486CEBE632820B0379288243832D1304A2AB66969D1C598A9D1905"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\derive_benchmark.py",
+    "sha256": "12CA02E1AE72895EE848BEDD7DF3553F70230B9ACFB89270AE016D909D24C368"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\derive_support.py",
+    "sha256": "508C76B088428FE34E75DAEB44A4740DD1D82742C1A79DA4DB2ACDE98662F5C1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\device.diff",
+    "sha256": "5AA568AEA340F0C74735EF4D5C21547A75A59A521929DAFA22C06BB2B107C64A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\host-harness.diff",
+    "sha256": "4728242AEA8D43460F18DB5FAA093C5164DA78F437CADA0A45659FF49891643A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\provenance.json",
+    "sha256": "056528BD770071FA94B03D2CF77EAF9DBDB19AC8277539BAEE1BB9ECBD1BC2D2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\README.md",
+    "sha256": "489AD1A74162C95ECE933EFBFF5931F73C121D4124170FEB14AFB2EAB78E4BAB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\tf32_ktile.cuh",
+    "sha256": "EAF4F8AE008B00129508B52FCD775E147977AB20B3B5240B6221561324AA3D00"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\benchmark.cu",
+    "sha256": "B5102755328315AA9B1C5B109C56E54EFD54DAA6A1E95D1B322C2AE820D4BD22"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\CMakeLists.txt",
+    "sha256": "7153BC303E080C949107AC719107BE3F36E5DB4EA6ED6B10AB22C98AE4AFA16A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\device.diff",
+    "sha256": "948C2FB58CE55CDB69DC99D06ADC0AEB8DFEA73F1A786FC09417B22097E316EF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\host-harness.diff",
+    "sha256": "C39BAF745C373720C6D93EAFD7928A7E488ECE27E3E7A367AFB405BA494AC8A2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\provenance.json",
+    "sha256": "57963416B2B103144CDA8401CD0CC9F709650565DCCB2D0C7034A9A055203E72"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\README.md",
+    "sha256": "E39B76AF7F2EC52AAD55E67925E1FE589D5BDC463B3939347850DD6C51A44F18"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\tf32_bn64.cuh",
+    "sha256": "C56448FC0D93DE9DC8635657A5169FB923CA57DFBCD230297AC8977A209BC6D2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\1_naive.cuh",
+    "sha256": "0A519C90450B718ECEEABF62B7004E35C387CB0A1D3DFCB6EBD6620A17C4D773"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\10_kernel_warptiling.cuh",
+    "sha256": "233313C753BA1EFC0599AE4A570059F1A515B0AB1040B62DF03E81A2AF53F9B3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\11_kernel_double_buffering.cuh",
+    "sha256": "CD11113A2815F8E7101EF6AA39A69CFF89B10396143A5CFB42948488C1A7C4F6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\12_kernel_double_buffering.cuh",
+    "sha256": "FA290C984A6FFE65AEB9CE47A732542F26B18DC2E6D1017818637894BCB18EFE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\15_kernel_grouped_swizzle.cuh",
+    "sha256": "E39D2E3FA0C9622A5E2EA7B412C4C02CAB1F563691D5E59A100E1BC9E17F828B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\16_kernel_smem_xor_swizzle.cuh",
+    "sha256": "571DA8903BF97D41DDD0B119DBEB9101C54E4224148E8A5495A744BAFE8F2FD1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\17_kernel_b_async_pipeline.cuh",
+    "sha256": "EAB9808C710C61E3EFDAE52D26CB17F977CD6C25D4DBF1FAD89985605802E722"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\18_kernel_warp_fragment_layout.cuh",
+    "sha256": "ABD96E9F7C442EFE1C75DE300D8918A5E474798C197C810377746DC7BFD5BB91"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\19_kernel_fragment_register_prefetch.cuh",
+    "sha256": "189CDCE749CBFE75B02F981B3BE1C047116743199C35020F04522F9552041F69"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\2_kernel_global_mem_coalesce.cuh",
+    "sha256": "0C55C81600BE7BD67CFF90A4C2CAB7F935F562DA1682E403CD3B4356FBC24B2F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\20_kernel_simt_256x128.cuh",
+    "sha256": "5C5E333703FA251578183CCCB726C9FCFEA3605A601D666C0DD2BAD0E3AC389A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\21_kernel_cutlass_style_skeleton.cuh",
+    "sha256": "4BDFD6452525ABA4E2B1DEB9BA408F505208241A45FDFA984E6EE305B16CFD49"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\22_kernel_multistage_pipeline.cuh",
+    "sha256": "327F9E5065C5E1CA1AF6148EEDD647942949C4108841148AD3AE8403394ABD0B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\23_kernel_shared_fragment_iterator.cuh",
+    "sha256": "069C146671107F4CB5F358D6019305F9B317BAC800750A64B9355C09AF06AA56"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\3_kernel_shared_mem_blocking.cuh",
+    "sha256": "4C9271D2109F3939F2387504B94849DC02DCF5812101912BE2C76DAE0B7AF1CE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\30_kernel_mini_simt.cuh",
+    "sha256": "BED81AB2F52DF0061AF3C7E814FF43B66C851C634CFDB4FED5F22031ECABC4C4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\31_kernel_mini_simt_refine.cuh",
+    "sha256": "8694EA735F0DAC64D79F6801AF434F1ED55D4F4C27DF31E20501F0B94CFCCF7A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\32_kernel_warp_specialized.cuh",
+    "sha256": "EA4CF2767FB26143BFA2ED6AF44F0A093E17F46E75592F9C296F8EB5BFDF45A1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\4_kernel_1D_blocktiling.cuh",
+    "sha256": "803A0392872F96E6BBF9446D52A7D634A7993781E5200C39C9A44D373E09AD7F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\5_kernel_2D_blocktiling.cuh",
+    "sha256": "D6BF6CDCC00904049560CD38519F1DB404C72E2DB6629EDA1336F9A53AD515C9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\6_kernel_vectorize.cuh",
+    "sha256": "E0EA209156475C614C8FC3833E73ABE0D9B6DD658BF62CD81FA1B189514E74DD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\7_kernel_resolve_bank_conflicts.cuh",
+    "sha256": "F54DBCDB143B7D147F1DF82031F260EEAE7252A554A9773BEF5190889C77D229"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\8_kernel_bank_extra_col.cuh",
+    "sha256": "26B2B273341CCB9FB1CEFA22BEDCB4D297D19C99FA3CCD5A52EE815056A540AE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\9_kernel_autotuned.cuh",
+    "sha256": "2D7A7BFAF51FCC2BAB750E7657D9ABBED0D30F9D0F88B09D0976D32C17093097"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\provenance.json",
+    "sha256": "EAE5A83920D55D14385863EAAE4B91C1AB46B883FD8F12EFCA34E9E08D5AE644"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\README.md",
+    "sha256": "378D18B6D3FF88309ADF7E21DAB98FF622911D67BEB73C65055A395C7C773BEF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\vitamin_sgemm.cuh",
+    "sha256": "12599B00536355E2C49120073F86DF72DE854EF083459312A25B1E034AE0DAA2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\vitamin-LICENSE",
+    "sha256": "9646CCBEE1CAAEA25C5471662CAD3DD9D4E1708E9A3A14B5BE184F317192B639"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\config.hpp",
+    "sha256": "58C5E4617B69E70C9C2B0A3A294B3257A526248D18BA8F994334C54B10206799"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\int_tuple.hpp",
+    "sha256": "D2116BDB9F7C3E90B3EAD9CD5851320E18FF20B9351C24F0A5C6F00308DCEC2D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\layout_composed.hpp",
+    "sha256": "87DF48D4BB0C2D38374CAA37244A65CF36F1772C9D5DE3E4CDF839852B19A258"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\layout.hpp",
+    "sha256": "FA106B3E4FC04189C5837CC07FA7F2CE482BBF182C7C4E97BC2B06194ECB5CC9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\pointer_base.hpp",
+    "sha256": "B8B5917EC6F3837C20C08C5ECB3F5DD18EA9C3BB0BCDAB9AA6CA8EBED7BA6C12"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\pointer_flagged.hpp",
+    "sha256": "0E6A00C306C1D2772AA620F8655C067092BED10AA4F03A26D44B4666930431B7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\pointer_swizzle.hpp",
+    "sha256": "051D5FC4248A9A8CA852D43AD866AC26307F7BB39BCD0A81A32EF94B8F93141B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\pointer.hpp",
+    "sha256": "FF9FB0F7A61ECC7F8D4F91BAADDB0B3BAC2754AAD210FC9E007546398DB7A173"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\stride.hpp",
+    "sha256": "EEB8B7C1B788D668814438F9BA35283BE9CEBE320D88AFF7462BDBBA2F6CBBDD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\swizzle_layout.hpp",
+    "sha256": "2DA69D0E029FB65ACD19B15F31F3A4C5A7665EE2E6FE2BB0B47497A5FB820CB5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\swizzle.hpp",
+    "sha256": "37F518AAD34311D0F81EA84B48FE3162CD50717DF335ABB98DD9542809B4DF88"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\tensor_impl.hpp",
+    "sha256": "376C43E8D32BC1BC9CFEB06F2CA0A6E6449C0C46CD2EE287A6A3E4968132BA54"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\tensor_predicate.hpp",
+    "sha256": "866F678FC70AF19B4CF346009F214542B89226CE4F3B8FFCB526CE8E491EE6E6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\tensor.hpp",
+    "sha256": "22FF4DAB3851422AF04028424F58ACF51C148413A404EBA844B1D8E1F5B4A162"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\underscore.hpp",
+    "sha256": "ACB083EAE211298D6F4347B9C558819F0E358CF108E19FA717FEDEEA62D87904"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\axpby.hpp",
+    "sha256": "BB448497F9334BF40D4FD8382B415640B793387C523FB3ECFE6AF868B322D595"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\clear.hpp",
+    "sha256": "80F52BB94CBE3D7DF7C07284DFEADA3BFD5110D0BD3E4DBE9850370BD2E952D4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\cooperative_copy.hpp",
+    "sha256": "44C6613AB50FE7DAA48589A27A52A3D39F77B191FEB78D40C64D0AF3C7433883"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\cooperative_gemm.hpp",
+    "sha256": "D8C1850036E3BF1040953C9ED5B475D5A95A2049E65E1715A7B3CBD51F6E092A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\copy.hpp",
+    "sha256": "8136B4B8DF9021F151E48FA3006AAF6815641AB022F8123755A01AEF6F379B4F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\fill.hpp",
+    "sha256": "6953361D0FCC0BCAC88F74D802B56CF9D0C331438B7B54615A0644F82954582C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\functional.hpp",
+    "sha256": "0039E42C0A0AD69B6210493EBCBDCB1E08E67B86C07E6BACD01C7766EF592B6C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\gemm.hpp",
+    "sha256": "4C11543CCD2339C7D036A60C2CF57A01C751C9F9521EB803256424F1AE9E79A5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\prefer.hpp",
+    "sha256": "855286FC292C6F8D0136595BC5934D60728C7EBF65FDD3C0DEB4BD17A8E66E94"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\prefetch.hpp",
+    "sha256": "D9EECD043E974D79D45A368B30B408033BCB61C2AA239876F8FBED26BF4AF491"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\tensor_algorithms.hpp",
+    "sha256": "77F62FE14312CF088C94E68857F2995D48F33E0B0227B91DBC80066EBD08CFE8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\algorithm\\tuple_algorithms.hpp",
+    "sha256": "474F85CBFB5C53E33F3F02D12D9BCA07955765B732725237C8E3DFFB2C2793D4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\cluster_sm90.hpp",
+    "sha256": "B3080331971022986725953AC167184A3C51B0BE41515998907F9DD47516C17E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\copy_sm50.hpp",
+    "sha256": "759A4D2388A96BA42801C67C3113CB565AC9703232635423C52D196CB95D41A3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\copy_sm75.hpp",
+    "sha256": "8FFCEC5F24059C61A7B6044F2D666DAF0E44EFD4990EB238072649E542FC6361"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\copy_sm80.hpp",
+    "sha256": "E76D3D62E5D9DFD7F763D899502F8D25BA2BAD7032B2522D690C76EC7BB5A4F5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\copy_sm90_desc.hpp",
+    "sha256": "828E87558F39750432DBB3044916B4C4C69F03A3BCBFCB36F09F9989062108ED"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\copy_sm90_tma.hpp",
+    "sha256": "E2B7F6BE31F7263BEC85FAC3FCE6D664B860C320A50651D73BAA406F1F5D9445"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\copy_sm90.hpp",
+    "sha256": "7D36ED4626C54E64754E560CFF4B47D14420D96B9E54031D707240C8F257BEF7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\copy.hpp",
+    "sha256": "61018E61756377EE6183C2934EF8BC5BA3C3D31B600F2447E0D2250032699A3A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\mma_sm61.hpp",
+    "sha256": "988159BCE88BFEB46208364620F9AE1A0DF0B672B02446E2AEABA79AAE643C6F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\mma_sm70.hpp",
+    "sha256": "50446090F34E1A8F52576CA506ABEBEA3205B23C67248485EAFE19341FCB15CB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\mma_sm75.hpp",
+    "sha256": "E34273477A49B1C0198D205F90B898BDBD3C09C93D19B26BE6441E09C98D9FE3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\mma_sm80.hpp",
+    "sha256": "D4A7C4256E1BD462EAEE23D7422996F88307079EE8336FB1707B36944FDD5275"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\mma_sm90_desc.hpp",
+    "sha256": "1916D06497CD2BC2CD6E21017DAECCDF30E183083A129143E3D4CF7A4F47FD56"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\mma_sm90_gmma.hpp",
+    "sha256": "A902E35054DA0E447249E45493DBE00CB9ACF923C0DADF307B3F96EB7BA79CCF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\mma_sm90.hpp",
+    "sha256": "460D59C424C915DED072A373BC945A1FE8190E8A20AF58D7BAE089F7288A6988"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\mma.hpp",
+    "sha256": "B3F767C78FF9F8ED9B537B565DA753B38194F0F4C599B06CAD39EEAA221E65CF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\arch\\util.hpp",
+    "sha256": "30E38190F9445BD0CD1FF7CEC504A3CC6C6120ED515849A29861888DE286D736"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\copy_atom.hpp",
+    "sha256": "614C83E76F5DB430DB268C8E44F5695C8D1DA7F1F8302525ECFAACE1B687E835"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\copy_traits_sm50.hpp",
+    "sha256": "8E2B3FF8881591EB3529403CE29EE042381282378B9A112B6DD8D7CC1DF42D42"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\copy_traits_sm75.hpp",
+    "sha256": "65549F2A5FA1A9D4952DCCE4C811466D8DBAA66E231DB51B8B494FAD7DE33318"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\copy_traits_sm80.hpp",
+    "sha256": "B91AD1E2F1537F853B253A3E8CB71E97B7727FFF569FF078B018768167461F37"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\copy_traits_sm90_im2col.hpp",
+    "sha256": "601A7478EA6F64E030EC51E17CF967D52C3430928628B20E5086E1E131F33652"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\copy_traits_sm90_tma_swizzle.hpp",
+    "sha256": "B7498A4936B074316D21EC3EA90DD36463194851951B0AC9C0F44E484B178BB0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\copy_traits_sm90_tma.hpp",
+    "sha256": "BE713DF0866D4B5FB706DD3CA73EE3433A8EC75ADF8D879E206AFE2825A644FF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\copy_traits_sm90.hpp",
+    "sha256": "19820D22BAE6B5DBD3261CEABC2A9201BDEA0E099BB7FE0C4ABBED09D737E389"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\copy_traits.hpp",
+    "sha256": "55F1A7DEECEEFA1497108E3B5C3465CFE2FCF1271CA4BC5870B29046BAD02025"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\mma_atom.hpp",
+    "sha256": "CB624251863EC3F35C07712A6EDB6F108A11F801D668A25DD7CDE28EAF63BBF5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\mma_traits_sm61.hpp",
+    "sha256": "2CFBD98C0EDD7AC1B30D8875DB6EA8EB22E810811CE66582FCD854973D142E20"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\mma_traits_sm70.hpp",
+    "sha256": "3A7B35D82DD723744A8A0623B96FA25A0D174F9C137C2BE1A8CAA7EE7D9358E8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\mma_traits_sm75.hpp",
+    "sha256": "80F0E2EC77F01071AEF419201F334A309CEC040A2B6C6ECBDABE33FB2344AC06"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\mma_traits_sm80.hpp",
+    "sha256": "F6D12AF2EE3215A27602311E1F4E3179F4C2234368C51825C6ED17B8EBC7F698"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\mma_traits_sm90_gmma.hpp",
+    "sha256": "CC5F9DA9DC6F52ECDE92A88679191A6928A11972A92FD02336C44F0AFBC9F12F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\mma_traits_sm90.hpp",
+    "sha256": "B94BECCEDED1A532442E5C068244F75231E0A2956DD65D386118313F8360B17A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\atom\\mma_traits.hpp",
+    "sha256": "E4664D1F51DDB592DF9F78DE7B2ED71B0208C14DA3E94C109813AA02DBAA180D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\container\\alignment.hpp",
+    "sha256": "988744FE41738A1A25EF125D02A2A72DC1B2A233D5081E09F61476644B1169D0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\container\\array_aligned.hpp",
+    "sha256": "BC97B77780A368408FCBE1FBFBE5D191D7A30A1FAE6839CF813ACBBC24E5D575"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\container\\array_subbyte.hpp",
+    "sha256": "5DEF22FA599738F3F60641004241EAF33C3C62BF3A8C5D61FE58224150B650D4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\container\\array.hpp",
+    "sha256": "D86AC80AC62ABCD09B0DE1B4375ED736BD90C3E0D4BA1CA446CF49E7F3255AB2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\container\\bit_field.hpp",
+    "sha256": "CF7D4EA81F7B4E0435953187D2B96E148F8C7A5CA335FF260620AA4CD0F1FF1D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\container\\cuda_types.hpp",
+    "sha256": "EAA99101202D8DA0EEEAAC62926F88AB37F188D57208EE02C2B956741AE4EB62"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\container\\packed_tuple.hpp",
+    "sha256": "DBA1A94289326A9102334C5D3C7369041C624C458AF9FFB46BA7438B6F2511BD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\container\\tuple.hpp",
+    "sha256": "8901848EF8A1C358F614D3AC6E4410A2CB965F4324DC51086E1D6B4F7644C7E3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\container\\type_list.hpp",
+    "sha256": "BDC203D796912D2BA9665996FA4F4BC213D83D1551D5F57F033784FB643A460C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\numeric\\arithmetic_tuple.hpp",
+    "sha256": "F55F92232F9A8272634F562ECC2AAC0BADF404D703B85CEEF551650591D93261"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\numeric\\complex.hpp",
+    "sha256": "61DE938D13BDE8520295395D6119FADCB100CEE330292895DD8D9403153BEF10"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\numeric\\int.hpp",
+    "sha256": "9831F44E7385E68C68B653FF32B912B8A83E9811C11C8C64C7F2BA6C2CC79BF9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\numeric\\integer_sequence.hpp",
+    "sha256": "1E5E60F449B0FFB21637AE8FFE63A47A82C174B720CE49D4964D231BA79D92E4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\numeric\\integral_constant.hpp",
+    "sha256": "4995C54DD4B8352475311D92899A6DD6C67F7603E6BD288A00A535C091AED3F1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\numeric\\integral_ratio.hpp",
+    "sha256": "63B6E0583522983319935D70066CD1AE5554D4B6E2CD5F717621C9F4067C00B1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\numeric\\math.hpp",
+    "sha256": "A77C511E5B9DB68AE3674C166DCC4821DAD110A956A1AE97D1D29F721CE6A473"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\numeric\\numeric_types.hpp",
+    "sha256": "9D9AA5D1E418D77D1745DDA064FA323037C1670F68184192A5A80AF03F2B324F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\numeric\\real.hpp",
+    "sha256": "F8D0C236D73A5AC3F35F56EC15AD671A9CD5056D08324EF4C3761A8A3A019066"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\util\\debug.hpp",
+    "sha256": "905A02D5C522242A8FD65A98A992658863C874D777BD7959204D15A75F3F14AF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\util\\print.hpp",
+    "sha256": "F87E4726CBDD491DB115FBA3DC47491FE7081BE5AD2909940022C10402002A66"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cute\\util\\type_traits.hpp",
+    "sha256": "C3EA1CBAA4C532301AD532AC13DE47BCEC869A8E3D9A8DE9653EC41928B852A5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\aligned_buffer.h",
+    "sha256": "0A248A9C9771AE451816303E501EEFA1235837E3F756AA2A85D57B5AA59F3E33"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\array_planar_complex.h",
+    "sha256": "29EC9C5A6D415C83974FC781B85E1A7A11D805E071BB186E668B2BF33727698A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\array_subbyte.h",
+    "sha256": "07678B8C399F764CB0E02A00D54C041BBB9A24F7547935109B04E4B0DCB38F1E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\array.h",
+    "sha256": "6933E1ECDEC732A88EC46CFCBEB783331610F5EBDED9A8199B888F4F70E7CA0C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\barrier.h",
+    "sha256": "AF9DEC2B4C76C8167392BB933CE718895640235F009AB548D75D7F2343456666"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\bfloat16.h",
+    "sha256": "BB252B3EB2518B5E8E26A14B0AD7895D89E7F1148169738D39BB0A2D4A4C81A5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\blas3_types.h",
+    "sha256": "D9C390EAC591F8E4D524CE32344D48B0F225C62FF102F7EC5EDEFA7689488867"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\blas3.h",
+    "sha256": "0A7ECF0DF519AB1EB71057D14A0CD60734A0337CC43A3733FABF43AC2915BEAF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\block_striped.h",
+    "sha256": "793B86A0F89CC03646F095295E7F209B6B3EE9C83D4763CA9EA6379ED8E920F0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\cluster_launch.hpp",
+    "sha256": "301E5D494F97BBA0DE7278DA0D58DA1375D9A7AD89CB0DAE1F49B7BB98E7AAAA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\complex.h",
+    "sha256": "51AD19B7CBE0D8E1CC13137FA97042A103F727FB3EDD75416F0DDF1F36896284"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\constants.h",
+    "sha256": "5DC3FF2830C4118BD62298F8ACFCDAD8B556EFA9BE391735426302E5704D00D0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\coord.h",
+    "sha256": "42038A085D616E6D6FDC8FFD06E19776E1B660106B99867BCABCCE28C1C43D14"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\core_io.h",
+    "sha256": "4B227AC5FBC73E7BEEC5E50A257F6301FFDD286155DF095706A7D0D3F7060030"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\cuda_host_adapter.hpp",
+    "sha256": "4D88605EE2C03F3E63F2A7E1EF7B46A9B457BE1B717E84B2A5FC589BE331CAA5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\cutlass.h",
+    "sha256": "B158D7254F4A46E35C6264BF1022A13D76B9ADAA6EDF7606D06491F80D65A475"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\device_kernel.h",
+    "sha256": "2B3D40FCC2D8A3982AABFE956B8B665CC06EC7728FB916E44B4C7A9F92C0F601"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\fast_math.h",
+    "sha256": "2AD91D15F8A46179C17FB127750EE7B20DAEAD2150B5E598DFD35E214415EC0A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\float8.h",
+    "sha256": "1EEA230B1C04804DEF3017E2380A0AB7BC988D9631B6693A76E6AF7FB9BE0B8E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\floating_point_nvrtc.h",
+    "sha256": "97F0985C74C568AF00A44CB4D6A581F344795BD13C7882CC1C651CB4A6DB3D27"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\functional.h",
+    "sha256": "6D5EDA887713FA7330431BDB99D46D64AE5B8470A8C6A123F73F4E7A14615A2D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm_coord.h",
+    "sha256": "007AD719D6E5BCB84580DF29392C3186278608043D5D8D92F794B12A8A9FE17C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm_coord.hpp",
+    "sha256": "E82BCA21187BC5133CB021E892E5021CA75D557D9E0B2F9C0440706D16205BE0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\half.h",
+    "sha256": "74D60F32445256E879FDCC70ACEA7C94E7E9D203E2D63124BDC4EDAE225ED86D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\integer_subbyte.h",
+    "sha256": "9ADB0569434CB4B176E708ABD04C30B5E8BEBBFD19E026F7CFFDB1324AB40122"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\kernel_hardware_info.h",
+    "sha256": "6BA2201B9C29D2C5FD725B779CD0AE4CEA137888BC1DA06323ED72AB041F7436"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\kernel_hardware_info.hpp",
+    "sha256": "457E961C5D188BC12DCAAD40CDE3644103E353074DD7A0038A429A9102F68224"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\kernel_launch.h",
+    "sha256": "8EFE320C6BAE5C66D42CFC9B6D0D8C1F87F06B2AA09F46C0A967323D2473E9D1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\matrix_coord.h",
+    "sha256": "40789B31E8A275361C5959019B81FE4E70EB359B545A9A755E40FEFBA62AF6BE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\matrix_shape.h",
+    "sha256": "1C3E7B51FEF5749237590156AF64718D875F48D048A5B2DCE9D4C33C39CDA9DE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\matrix.h",
+    "sha256": "56656FDDEA32904CDFB527695C027C015B1633393FBFCB7C2BE67C9C340312EC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\numeric_conversion.h",
+    "sha256": "85E5D640D5FCE8B165DA71BD9B7B3CACCA5A05B485E6FB051D4271CDA7E4E9DA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\numeric_size.h",
+    "sha256": "5AED55D24417EC79283369ECF5B57A26EC0932B8F75DF62A040DFED678FE3020"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\numeric_types.h",
+    "sha256": "8834BC5966546DD30FF119328E4317940B849CCB85CA631640E2D845BEBC73C3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\pitch_linear_coord.h",
+    "sha256": "FCFC5F3388664D497F87573031216CCA8EB2BC7D7069E2D4996B330DCF4523F3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\predicate_vector.h",
+    "sha256": "1BAFF1FC282D23D665D5EDF836C8D667884CAAC79A7DC732F120289A167E38A0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\quaternion.h",
+    "sha256": "1E12E75259E21A203F76E564780DAEEF553D1D457017DA7DC403B44ABF00D213"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\real.h",
+    "sha256": "E4FB21372E1EE00EFE8E185E8DB5A5F1F52F9161A3DF6DD930DB8A5983F61879"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\relatively_equal.h",
+    "sha256": "0FB2CBA1F92DFE8ACF0D06AB24D8A11F985A06BA13EAA595145E5B2A058CAF51"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\semaphore.h",
+    "sha256": "7B119FF70100E083B5F914526B6ED5C6CD141EBDE979D94B056E9858C32A5B6F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\subbyte_reference.h",
+    "sha256": "B6025861DB481CB6CD5270A8627FB5A03687B37AAC3F2BB893DAC27C81174413"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\tensor_coord.h",
+    "sha256": "07F0BAB1F3C940CD172898FDA03A12F789031EF44374DC593319548F572018BF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\tensor_ref_planar_complex.h",
+    "sha256": "9437B41AFBB9C5B30898DD994C1E221C3CECA399CE659AE266DA372B5D712BD3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\tensor_ref.h",
+    "sha256": "A5D069CB6A1BB85656C89C779B8ABDFFC5CD3F43CF6DC7C912ECD9A830B1AF2A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\tensor_view_planar_complex.h",
+    "sha256": "7EC72B95DA8A7F2CC6BBFEAD0C42751908C93D14000FB6FF1C7538F07BFBCFAE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\tensor_view.h",
+    "sha256": "B7067512E18F6811593390D94DDEAEAD75BBC871C76DEA50B7F9A5A9FD56DC8E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\tfloat32.h",
+    "sha256": "A89A477748F6B82422D21C12ACC05014E18FCB2C075E61B5395D87C8CD356E32"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\trace.h",
+    "sha256": "3FE41C6CE1C0E237E05ED1502A19F1434E6AE642A86C5944938EDDDFCCE2B478"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\uint128.h",
+    "sha256": "743EB411FC0D125E952EFF863EC58985E02F0781466903AA8541116E0431FBD4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\version.h",
+    "sha256": "6F0C2AC0934FDF01C0FA7C8437E69E3CBF60E0A39B815C9F29EB0B0960052D4A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\wmma_array.h",
+    "sha256": "16DFFB849BDB6845B86BC3EAA236DDBB0218B58EC965AC899FD38DEDEE3036B4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\workspace.h",
+    "sha256": "EB181F8C7848868A204CC65015D6BE6615A9FE02E18899750A6CA31B4FD74FF0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\arch.h",
+    "sha256": "0EB6FEA420B557F457500FAB2A7D6488364C7FA60EAEF0F8A1C5185F1A034033"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\barrier.h",
+    "sha256": "EFF51DDAAAB0CEBCB19358C1D4F55B707EE2875E8C685FDEF8D134F96DF66A3B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\cache_operation.h",
+    "sha256": "65FCA98BC014E59140E0A687ABAC82F5C15116EE27561329489EFCE4C7B91DFE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\memory_sm75.h",
+    "sha256": "E02C12B29BC339199B7F6A102A6244AEBD66334E8BF2A6EBDE8745FFA6F117CB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\memory_sm80.h",
+    "sha256": "E7FFC87817AE071FB3C46997FC63757344BF8B7EB6395A0E653D5B3C58FED688"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\memory.h",
+    "sha256": "D01A30F53BEEE3215C988EDF31307959ED82F596F13F3F0C5002DEAE8C064A5F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sm50.h",
+    "sha256": "A6A8EF8233A9ABA5CD9298755CA9A6B6A2F55347F36E5CD58AA8EB97D1ABEAEF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sm60.h",
+    "sha256": "AD935C5BB61300F01530D88D0C7A1AB4341EE78593F3A0BBCF8F3D3A160988AA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sm61.h",
+    "sha256": "10E5CC4969114158E70FDFC7D93B116C12D0A8F7A99646DB720CDCB3A5342ED7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sm70.h",
+    "sha256": "3A6C72EDC5630514A8AB69A903F5371D0DE5A5CA1CADE4C97C02EA15C3A838AF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sm75.h",
+    "sha256": "B36E6C62322F0D682EC228C27E493B1A1EC6228C7420B643BCD157F03BA2EBB1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sm80.h",
+    "sha256": "973659EA8E7A64DBE606EEBB78B462183B59DFA2B6C43F0366BFBE4E4A953A6A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sm89.h",
+    "sha256": "732FAC016A4336E2FE80D74A1715385177186F150F1552D3C67208C7B36A5B75"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sm90.h",
+    "sha256": "003BF43DC8A025770A105198064635DD9A5ABB7616315A7B52C1FB82A2FC4D12"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sparse_sm80.h",
+    "sha256": "1DA6D2CA7EEF93E3B6A5CF1667534A6B770A40682491744A49F23680BE679B6B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma_sparse_sm89.h",
+    "sha256": "FA464F27AC0A3C31F4E1FB56135C3306FD0023728E1B729DAD0D21B3FEF297C7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\mma.h",
+    "sha256": "231F550CF99244B0AC10F609BEE70C913562384ED3F3EA9C21FB10DAEDE3DEAD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\reg_reconfig.h",
+    "sha256": "DE5BCB695FDD45E23BF74545B23BF1DC92AEC193F0DD36C7318FA6F093EAAF09"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\simd_sm60.h",
+    "sha256": "329311FBF4935AF17FF2CBA2034A26F9E19E5A218041D004332192CD336D756F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\simd_sm61.h",
+    "sha256": "1C4166C59FC5F8089EFF9ADC9C5CA9688B7959358D51F27D524E159C17B94F71"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\simd.h",
+    "sha256": "B7E1F82EFD94E2CFFC5467E57C6DAB8A260B78E155801BCAD8A0FC8F2C461279"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\wmma_sm70.h",
+    "sha256": "5AC2681F6072C73918A7E76931E9D6B5B4E218B31191A5D24E95BAFB2B11B7CF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\wmma_sm72.h",
+    "sha256": "8C2E43AEDC77CA8B1A9494257A74760FFD1740D5947D752F5E15E407927EB7BA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\wmma_sm75.h",
+    "sha256": "F868D0327A81A2A85BC048D62B38E49DA3577E96556ABD3ADAF778D10B118B78"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\arch\\wmma.h",
+    "sha256": "A64FFFBFD291099974CE7318D1D98142B364DB2842EC80DBF9BA29EA68C1D59E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\conv2d_problem_size.h",
+    "sha256": "3D014996A510FAB65EBB25FF4BED426130C3CCA4BF6C5299C73ADA815BF907A3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\conv3d_problem_size.h",
+    "sha256": "3A2CD5835D1A024F3AB241F67DF7B3187DAA97BDC67E90FFF8C7BDA0EC8657BE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\convnd_problem_shape.hpp",
+    "sha256": "C9940C2038C2300F1A844DB1F2E1502EF7C6BF345810EDAE2B7760AEA9094AF2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\convolution.h",
+    "sha256": "C4926CF189D0BCBDA18BCDE5354C16AF535B9D3A935D5700626DB298539DBB83"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\dispatch_policy.hpp",
+    "sha256": "10E756B2755CBBFEA19A53A195A2ACA38D408EC0CA375258FAD8DCCAB775A3DB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\collective\\collective_builder.hpp",
+    "sha256": "7DEBFB0CC3701B051F8E37810E9759E3146306610624BB9C9DFA3793DA92ABD2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\collective\\collective_conv.hpp",
+    "sha256": "5A0E940E1514EBACAA424540F382B70BA228381FBDE76B3FF91350432D526C23"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\collective\\detail.hpp",
+    "sha256": "AE381A5CCD8A08616CF8A03673C54635A213436304D1FD98DF548CE8FDA4290F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\collective\\sm90_implicit_gemm_gmma_ss_warpspecialized.hpp",
+    "sha256": "5D1C3CA4C6D57B55C603F3E01C29278CE79B5D42EDFDBF222F5C7860DA4A0433"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\collective\\builders\\sm90_common.inl",
+    "sha256": "F3903BDF1C943752315A9FACE5C8A75345FFD53C277609B56BE7763B374B43F2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\collective\\builders\\sm90_gmma_builder.inl",
+    "sha256": "E6E8CBD70B81B568B6701DD94C827919ECA66EC9B0D5F1C21B459C8F54E13504"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\device\\conv_universal_adapter.hpp",
+    "sha256": "90B21F4EC3F8F91BC36E6AA23D6636E0BF50C3E17040022A34DF94195FEC58C2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\device\\direct_convolution.h",
+    "sha256": "414E50C6430FAC25F5B11F2E54388FE325144D8FEFEAFFD37B5ED85855954614"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\device\\implicit_gemm_convolution_fusion.h",
+    "sha256": "AA2636E3099976BF7C62B4AF65F21B75F84FECCE645AED660C511A3138169E08"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\device\\implicit_gemm_convolution.h",
+    "sha256": "861664B364F309077AA4B379087F1187284889D2714CF0D63ED267B51E10E7D3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\conv_universal.hpp",
+    "sha256": "818899CFD4384191100450290FA8B55A8D2638A998D9531AE1410B29E41216B6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d_dgrad.h",
+    "sha256": "AD9788CCA45E4FBCD6772A4C235302E6CF43597F75A7AD08E88F6F252B2C83FD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d_fprop_fusion.h",
+    "sha256": "43C1AF4EB28CB436B8FCB95C56AAD3CF1A98F102B9197E8507664B2BC7CD8B7F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d_fprop_with_absmax.h",
+    "sha256": "EF8370EB823387482BC4EB0B7C54D030CF07E6C7613299679D56BC6C63F95594"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d_fprop_with_broadcast.h",
+    "sha256": "051F3D22049F242BF37D63EFC4F49078FBE2F604EFABAF9EE09FC34BB98ADB89"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d_fprop_with_reduction.h",
+    "sha256": "3392B8BED17166E94E89297DF1E7BF05A6CFD7122CBE409CC931748F9C87D350"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d_fprop.h",
+    "sha256": "337F2A71442CD1A125F6DDDDB7F45EF5255736D3F10DE94882CB971119D8EA74"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d_group_fprop.h",
+    "sha256": "A497A6B1A25CC244084DC53BA4174EB03C54910AFD603A8B22B1D039309781CE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d_wgrad_fusion.h",
+    "sha256": "169E4009CCA246D0B80A261C7988C497E69EB8479009B5D799CE42BF0E58FAA4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d_wgrad.h",
+    "sha256": "C2993566C3B14873A524E2120AAA21583D707A0EAEAD8F4CCA7BBBC59FB7EAAC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv2d.h",
+    "sha256": "8E749EBF337647DA05B2FFC5D6DDB44BFAED6A3E9EDC613002975CD97726F211"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv3d_dgrad.h",
+    "sha256": "F12E74D22E42DE319F82D22AF2D855D0DC2EA40A72687067D71FF5778C4EB914"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv3d_fprop_fusion.h",
+    "sha256": "CC214942D52FDE252D3760BEA16F386AA6035DA87D980741102B55D6D6934016"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv3d_fprop_with_broadcast.h",
+    "sha256": "BFF1D56B9E95F55B32C4D3F07A2D38539839C50B348B76EFE1E603E48FB5542A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv3d_fprop.h",
+    "sha256": "41CBD5EC425983A9B45181F6D6A8BF81F0F00AC12CBC1DAD8797927F6707A829"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_conv3d_wgrad.h",
+    "sha256": "42E6622E5E3701E0099CC696689CAEC7811186EB51832C7961B2E9604F6E608D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_deconv2d_with_broadcast.h",
+    "sha256": "1C1FC5CD88CA559FFEB46BE3D9CFEE22DA4CA814A9E94FAEE8C40C7ABB995B90"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_deconv2d.h",
+    "sha256": "382A9EA5B2226E545C8EA199D2A3787614CD2B65F98B89F3136276EE9595CE87"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_deconv3d_with_broadcast.h",
+    "sha256": "2E4C62FD462D64FA42B1A2E0D82898807CA98947D9A3DD998995B99F69E2BC5C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_deconv3d.h",
+    "sha256": "103C68FD4CE1962B037690F0C0ABAC9DACC1883A1C3109CE15B93E86E45187C1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\default_depthwise_fprop.h",
+    "sha256": "B25C4CEE83F8D02E2172CDBF1A1500BC9F79BC8F45D45CC5DEF215436D9E2F1C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\direct_convolution.h",
+    "sha256": "A16F51C72A212742328858DE2E49A539323F9CF762C448002C6DE48E6429BC5E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\implicit_gemm_convolution_fusion.h",
+    "sha256": "7B2815C172646EA9468E4F0E8D5A09726532AA412550363A8C937DA3F80E7FDB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\implicit_gemm_convolution_strided_dgrad.h",
+    "sha256": "9A79C55BE3A82901CCDA5BA290F5985CE0B7C2DCAEB5AE9ACAE4C3B676A9E42E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\implicit_gemm_convolution_with_absmax.h",
+    "sha256": "20B2FAEBA5D561B485A796AC68E82013BD5CDCAB2ABAE81623C03E535CA66552"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\implicit_gemm_convolution_with_fused_epilogue.h",
+    "sha256": "F6808BC9C5A79B4409EAF1AC299FCB6B9129CF2975ED394C36DEC1F8EADDA451"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\implicit_gemm_convolution.h",
+    "sha256": "05DF481E42CFF543CAB3FA043CD3BB3B72867D961D1DD0C8DD290C9AB035A269"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\kernel\\sm90_implicit_gemm_tma_warpspecialized.hpp",
+    "sha256": "DE4159C2326F4305CB4B71FD68645963D325479A0A8E0EB9EFD80C7159E5D215"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\thread\\depthwise_mma.h",
+    "sha256": "5E0D977413D9DA846B826A2DCA9F55F5B5D4333DE94073C1162C7F53A99C6EAB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_dgrad_filter_tile_access_iterator_analytic.h",
+    "sha256": "43846459B043627450489ABD78A9E611D380000D723977546FFDA4354B9A1D0E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_dgrad_filter_tile_access_iterator_optimized.h",
+    "sha256": "4BEB6208A5CC24F5F7FE373FE9363F17C64D9E1BDE495699106FC6BCE2A043F8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_dgrad_output_gradient_tile_access_iterator_analytic.h",
+    "sha256": "8F6F68D94A60BB1D23DD64CEA035D8283373AA6A28E0B7BA032A072DA1EDBB33"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_dgrad_output_gradient_tile_access_iterator_optimized.h",
+    "sha256": "638F58E648CBCCDE578C44C149AA10E1CA666DA8F8B7C117314C5F1702DCB4C2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_fprop_activation_tile_access_iterator_analytic.h",
+    "sha256": "0253887628E330F5A39EC285B93A59977369A050D1FD3AFD225CB5874B4ACFC4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_fprop_activation_tile_access_iterator_few_channels.h",
+    "sha256": "516878658160D3A156A6DA13B40EF7ADA4EBD3ABCF322080B973AC7C49E2A3E7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_fprop_activation_tile_access_iterator_fixed_channels.h",
+    "sha256": "F935373DAA9D6A51B1E686E3F2C34D569938C6BCD79810A817BC6EB64C4C4736"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_fprop_activation_tile_access_iterator_optimized.h",
+    "sha256": "5CD1E0D646E868CBFB34C6A7A0A7CAE87B607212F6B358E04410CBBD3BDC61C0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_fprop_filter_tile_access_iterator_analytic.h",
+    "sha256": "E1DFA5A99F364DAD75D678621E11F1558A83A42910ECE591EE9D56366CAD28B6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_fprop_filter_tile_access_iterator_few_channels.h",
+    "sha256": "6E1929212F68E34E6519CDEBD96F41E5F4EB9E47DA9D4DEF8355F12B4B5F38F0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_fprop_filter_tile_access_iterator_fixed_channels.h",
+    "sha256": "83B9FC1F5E48813C06F64D815B2FAF6463D237D71A5AB4C82D5365816B2AF969"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_fprop_filter_tile_access_iterator_optimized.h",
+    "sha256": "E7FE162936594DC651656C44B8F1D8B7D34101FCA71B96677405AA7E3850CF4F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_params.h",
+    "sha256": "B485489DA165DFA0434A8ABBC6197FBAA73309975C47EC93B494BFE79CD39E42"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_tile_iterator.h",
+    "sha256": "CED908E3871152AEBE398613622817112F20F26E760616ACBADF34BFDD48C008"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_wgrad_activation_tile_access_iterator_analytic.h",
+    "sha256": "99360D3E427D5249EB4228CBAFE2EC71801BC27052E698FE0C74F6C790D846D0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_wgrad_activation_tile_access_iterator_optimized.h",
+    "sha256": "F18B9F8D6D0E8AEFD53999D2A656AFCF9A3BE3D20013ED1AA1DF56767FA63359"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_wgrad_output_gradient_tile_access_iterator_analytic.h",
+    "sha256": "E5C5F73BC8C9CBB6DFC7648BCBAC0001F72405E83B21640480F1B512E36159DB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv2d_wgrad_output_gradient_tile_access_iterator_optimized.h",
+    "sha256": "21BAF6C309C7648C8EFA5DBA6846F36CBE88BDC4E259E0BB87667AAC4EFCD966"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_dgrad_filter_tile_access_iterator_analytic.h",
+    "sha256": "A98041DEDEF83685C02AF5D53270CCBEDFE9D960FDC5B022556FEFD30E35F160"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_dgrad_filter_tile_access_iterator_optimized.h",
+    "sha256": "D7D2B3823C3E8F9BF668BA760BB0CD18EB0E0F3ECB720DEAE795477FBC580460"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_dgrad_output_gradient_tile_access_iterator_analytic.h",
+    "sha256": "C0693ACDEEB1EB5891EAC24E1AC39CBA884D5CE929846AB550C50414A1987529"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_dgrad_output_gradient_tile_access_iterator_optimized.h",
+    "sha256": "96A7A3BB8659F6A9DD367C3E5EFCD9E46A4709A42BB08C9F8DB4E3C92BBA1A09"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_fprop_activation_tile_access_iterator_analytic.h",
+    "sha256": "13E84F6512C5C97789616BA81972D58840013CBAF091BE5910A476300F6EE0B7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_fprop_activation_tile_access_iterator_optimized.h",
+    "sha256": "1933408074E20462720B14586DB15F0011153399D89EEDAB14FC7A6415836ADD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_fprop_filter_tile_access_iterator_analytic.h",
+    "sha256": "7FDA1AC5D6F19BE7D18BB3743D71607A6CF3C451BED69C1038121A54F37B6401"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_fprop_filter_tile_access_iterator_optimized.h",
+    "sha256": "AC25FA2ECD3457C93A4FE1492CD3FC882CBC8B15F2D676EDBEA274040A99B431"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_params.h",
+    "sha256": "6F31E5E2B05BCD9FC372E594C62927D71F17956223DDC1869559F4B8A4D73EB4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_wgrad_activation_tile_access_iterator_analytic.h",
+    "sha256": "8393A9E8494B388545A2627BC87A288FC6784323CB51D292C2AB82C18F92B33C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_wgrad_activation_tile_access_iterator_optimized.h",
+    "sha256": "C597AF41CA1E7CB6F0616930D6718C6CF0D072FB6B6716F44B5D0D39AECC9409"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_wgrad_output_gradient_tile_access_iterator_analytic.h",
+    "sha256": "D684CC9E4FBCBCC85887729B774C75ACA0BE0E4AD9ABBDEF2A413C57C03C1CE9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\conv3d_wgrad_output_gradient_tile_access_iterator_optimized.h",
+    "sha256": "BDDB475A5FE058F786C7DC842554F0A4C9434060CAB8F7E289C9782D5EACB38E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\depthwise_direct_conv_params.h",
+    "sha256": "471795F8C865B052C0BCAAE315B1432ED57B906035C156A1828805344FE6F281"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\depthwise_fprop_activation_tile_access_iterator_direct_conv_fixed_stride_dilation.h",
+    "sha256": "6FEC5B5ABC6D2AA1656A23F090332BB805134D0E5CB091257A0C630F73C11F59"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\depthwise_fprop_activation_tile_access_iterator_direct_conv_optimized.h",
+    "sha256": "3F9A2E080EA8D199A383D14492173041969774DA6A6D7D446DC4CC7CD85ADBAB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\depthwise_fprop_direct_conv_multistage.h",
+    "sha256": "72179909139A672061D9B563516A44DFB13CCA13F0612C9E074C59F0BDBC7A54"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\depthwise_fprop_filter_tile_access_iterator_direct_conv_optimized.h",
+    "sha256": "54B8338DEE5E7DE0A55BA5941AC178C90AC4BC447392BCD7571E044EB65605DB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\depthwise_fprop_pipelined.h",
+    "sha256": "AE91F7FC565C709275D1506E3B8EDBA62E5721BB9A6057049763A21B6E720722"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\depthwise_mma_base.h",
+    "sha256": "944D5FB2E32FA6FC8A4F56FBD1E0FF448DB60A12FBD25517EA0D5247EDCFCD15"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\depthwise_mma_core_with_lane_access_size.h",
+    "sha256": "BF1847FE36169E45292165666840E6CAFD1C7C506136C2267A8E4E255A486594"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\implicit_gemm_fprop_fusion_multistage.h",
+    "sha256": "45097AF75A52865BB2B9DAE2ED6E8BF3ABA5911E1B3DB439689CB465262D7E4D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\implicit_gemm_multistage.h",
+    "sha256": "B3F49A48EBEDEDF59A305D00A0401911833B008DF5AE1678D1F05FE437919190"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\implicit_gemm_pipelined.h",
+    "sha256": "917902D798CDC8CCCB7E39F97BD6294878E9E7C13D8B9F3F2151E34A301C62FE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\implicit_gemm_wgrad_fusion_multistage.h",
+    "sha256": "B01BF31D9C20AA2E3922C42AB9F1130B5389514DA87EAAA583C7F3B2F690318E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\predicated_scale_bias_vector_access_iterator.h",
+    "sha256": "BFD22C7434F1FA646D26C35BEB028BE7A904CCFC22CD1597AECF880B08FA5445"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\predicated_scale_bias_vector_iterator.h",
+    "sha256": "15ED9F6300ADB0A91430CE7B6C6081B8FC07B12156F9247AFE2487C9466D4548"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\threadblock\\threadblock_swizzle.h",
+    "sha256": "E94D5E9BB775A096C99DDEA51A1258C0C83C1FF0515184DA302A8C656FEB2CA4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\warp\\mma_depthwise_simt_tile_iterator.h",
+    "sha256": "EAC15D0DAC00658A4A1BC283B7B7376C7688D024C4F145BD01B80B14052F123B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\warp\\mma_depthwise_simt.h",
+    "sha256": "A2DEEB7F5155D302F677FF7C188CC67C4B58F0FF46810A7573FD632EE79BDEAF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\conv\\warp\\scale_bias_relu_transform.h",
+    "sha256": "5BD89CB6224A027E4BEF92ACD061711A7BA541345B6E835D1C99443547EDE5B5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\detail\\collective.hpp",
+    "sha256": "F48F93E4527A730BDCA4319CE1605FB12D574464AE1699DEE49A573DDB029F1B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\detail\\dependent_false.hpp",
+    "sha256": "7263373FE0DE9CCB9C0F71A45C06929849EF7D400C6CAA3EC9B2D27CD9120FE3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\detail\\helper_macros.hpp",
+    "sha256": "8822B4FE0963CF209644BFFBE9EDE74893867B2249AA4F62CBE5185CC8DB089B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\detail\\layout.hpp",
+    "sha256": "3FE176AC44E1C7C1F7DEC5B8109656FC9E15681582EC6D7E8ED8D7B96244B3C4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\detail\\mma.hpp",
+    "sha256": "0603053C5CB71AF7980D70CB82C6FB12EBE17A4417385E7AE426602E95D1479F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\dispatch_policy.hpp",
+    "sha256": "2850DF4CFA5ABC590345B6067DC8026B6C64F8F1B39EFD33221DB4828ED5D79F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\collective_builder.hpp",
+    "sha256": "7A6CB8BBC06253EB383CB2780C5BD3B330CDB43BBED1D4492FD2EA665A1BF85A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\collective_epilogue.hpp",
+    "sha256": "66E72F15C0236894BABECDBB46103DD9A2A5294511CF0F6A77C1B552A2B51F0A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\default_epilogue_array.hpp",
+    "sha256": "1D2D4C9159AE3087063EA0D58214B57B2C7B0AA63C98C5EDFA7F205FA33311EE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\default_epilogue.hpp",
+    "sha256": "438390C3B2802F19E4C35EFA65BC62052ED11B34B00E12A8B2DD004A777BC6ED"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\detail.hpp",
+    "sha256": "F9C02215DE1038D3F15642F540F1F1439D5AF3C032C2740449A1D690A61353BE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\epilogue_tensor_broadcast.hpp",
+    "sha256": "BCC849DEC7AF8AF17CB778955BBD776F159BA27D32CB6C3AA51491C4BF71B237"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\sm70_epilogue_vectorized.hpp",
+    "sha256": "08D04BF487C0ACB13CB2CE0E225749115F42F7B2614907FCC63651C56A3EB593"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\sm90_epilogue_array_tma_warpspecialized.hpp",
+    "sha256": "5E1C77E77C77FC04967E9895E4E1B0F0A9850E0B6B63D7C989765A9C38B94050"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\sm90_epilogue_tma_warpspecialized_bias_elementwise.hpp",
+    "sha256": "9CCEDD1D828A94CA6DBD75682184F1E0FA72BBEC9CE82679FE589A89A15B119A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\sm90_epilogue_tma_warpspecialized.hpp",
+    "sha256": "D9C2E6958AA5156D4EFA540D05633F08A3B520AEF3F7DEC57E4D16BAB31E5AB0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\builders\\sm90_builder.inl",
+    "sha256": "A8407FE546F9B930B7F51DD71E037FCFB3E4F1C87DCC47E0399410F2BB2BAF1A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\collective\\builders\\sm90_common.inl",
+    "sha256": "790B5BAA9EE89C0A7ABB113097AE5B48A371C5D8096FFCE9562B08F18D089FD9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\fusion\\callbacks.hpp",
+    "sha256": "5B574F0AA9179B796A8FBEDF35D3CA2F4C73E26EF61E597FC0FA75C30BBFBB00"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\fusion\\operations.hpp",
+    "sha256": "5E28C52F5D083FCAAE41CEF7F3AA21A01CCD7F229DA8456564BA366A78C69ABD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\fusion\\sm90_callbacks_tma_warpspecialized.hpp",
+    "sha256": "BB18538317FEDE4B22D608CEAD86319962A245A1B49E2A582BF476C840561BDA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\fusion\\sm90_visitor_compute_tma_warpspecialized.hpp",
+    "sha256": "0E74AAEE7D3E2FCEA2C1C378B717D34186B963F14AE0C7367149320A4D93BB22"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\fusion\\sm90_visitor_load_tma_warpspecialized.hpp",
+    "sha256": "53FB862B2C6D179E75B13D12F7D0F58C6914AC24F1F0CF6E0E545DD3BCA6396E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\fusion\\sm90_visitor_store_tma_warpspecialized.hpp",
+    "sha256": "9FB7D255C8C82FD59B55246C50A36FB701DEE3A7B9D868820291082A5BCC4577"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\fusion\\sm90_visitor_tma_warpspecialized.hpp",
+    "sha256": "379740AE67BEA70A767E1D1FF48B3C0705F392BFA4A8C071D913A65D827939CB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\activation.h",
+    "sha256": "DF99CB97B70A081D60B9C936F07D1946DE8586CC00EEC1D92390F22EA9165D01"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\conversion_op.h",
+    "sha256": "AF233F506C1B58130C7EE3FEDB10E7C270A88F7A8A772EBAD9A3508C31E43669"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\detail.hpp",
+    "sha256": "0985F408ACB74038D15B5E923A9CE22C7330F5E63C79DDD98D358BEA4763A85D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_bias_elementwise.h",
+    "sha256": "D608C2F3209DDFD98B2CBD1C350816AE8BC1FD27777AF20A914B1F315A3B93A8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_bias_relu.h",
+    "sha256": "560B188B5C94EA3AFCF9BAAEC4C2BCC8D029135EF93C31F8459261A720708187"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_clamp.h",
+    "sha256": "1B43F1177A652612CB5D033C692B2E622201231EDC8A73EC6E19223951D3B058"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_dgelu.h",
+    "sha256": "B9ED8796A5ADD3A605226FD39109201149C9C105B79E29AFF989CA50DDB0549D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_drelu.h",
+    "sha256": "4E0125ACD8B6FD839DC8A31CA4F9B72D3FE1232AD23DDE4FF4C1E26F78AECA31"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_gelu.h",
+    "sha256": "EF9BCF508D0D89FD1E3A003845FD376187D3BA5F94DCCD8B12C0085B0297B6F5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_generic_with_scaling.h",
+    "sha256": "81B88CA1C5FEFB466E1132059A229079008F83D8581F9C1FA3ECFD2F5BFB8515"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_generic.h",
+    "sha256": "9A05CC6519BE9ED2C632DC263E6E653ECBD180E8C214C452E4F0A7CBB7F78796"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_hardswish.h",
+    "sha256": "BB3C97570C3C318A75E4851FC454DE810956791AA8E6EB64F4E0F317F5C231B6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_leaky_relu.h",
+    "sha256": "7B8CE815A33FBC31A03323AE2B230C4369FEF7DCF037E93B91370D0B15F5F080"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_params.h",
+    "sha256": "75198051DA4B453BF0A927B3A903577B4789E2693C3AC3B647BE3D6DEF3A18FE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_planar_complex.h",
+    "sha256": "1F45A6FC290923AD2E28E4AAE41AC7C7351F20901C161976215FA1192092EC61"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_relu.h",
+    "sha256": "BD70F4F3650ACA8C20F43678967C319AD08D6E4A1C573FB06F976984922F94A5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_relu0.h",
+    "sha256": "309F1BA64BB7E71F2F41BF7658F7E695D95EC21ECA3AE73EAF76CC3BC26A09EB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_residual_block.h",
+    "sha256": "07ABE5F4E6086FB98D916E223D21CA5F938354269FE274D3D75DD399237D32C7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_sigmoid.h",
+    "sha256": "8903D07704ABAB8CA1AC0E546D80EA7D587C263B7512953CEB0C50747234AA5F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_silu.h",
+    "sha256": "7D1563D2258AA82D62652C633C0354C63C6E581EC339DA4E3C7BECD2D24124E3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_tensor_broadcast.hpp",
+    "sha256": "C08096034411C4A5B4222035D26D93283E143D3832BE1E832D507C014B4AA18F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination_with_elementwise.h",
+    "sha256": "C11D3D6A2B2D9A99EA4DAC5AAEE2ABC1FDF86C5A58123D5A8D3F8036113D3AE7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\linear_combination.h",
+    "sha256": "A8641BC1BCEF7598A5E69D437BF208D9301A6678C8D0B09F377C5AE16F36BCA5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\reduction_op.h",
+    "sha256": "E1777F1982FEB83195FF0034B447820529AE189C5D5545D858BBDFC67FDA0CE9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\thread\\scale_type.h",
+    "sha256": "622B208C9354112D9B50992FE44E7FD5729D9E81EEC3E8E62D17BCC7979A673D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_complex_tensor_op_blas3.h",
+    "sha256": "5FCEEBC32762CF82E62EB2935F09B0ADD64B4DB7DCB62DC27A1EED686AA30A4E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_complex_tensor_op.h",
+    "sha256": "CD2323FDFC1C0706EBD3BB65CEEA2C6164F0E3459FD08580D73C41CE0A241AB8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_direct_store.h",
+    "sha256": "EA50C0CFB6138B8CC2A9848F19884A02E5C81395E5DF1B00C87D796C91CA666F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_planar_complex.h",
+    "sha256": "B4C6E3E69467923980695A3202A9612439144A9780E47B83DDC1CC3351EF8615"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_simt.h",
+    "sha256": "E5DB72554D4FA4957C3A8B92800A7ACE1E637828E057A6ED53871CF61EDB79BD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_tensor_op_blas3.h",
+    "sha256": "169FDE199156A121E91AE17BDCC3DEC5CF3D36BA5F5FCF00DADE6BECD1E64E8B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_tensor_op.h",
+    "sha256": "0A4AE901F4E53DC92826C64B2B9A705200DA102742A4F6CDC1BCB12112E68C61"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_volta_tensor_op.h",
+    "sha256": "B4BC02D57240E7240B4F8954F7FD5417C29C9AB9A8996967C1041FFB3251D4F5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_with_absmax.h",
+    "sha256": "072E23F731CAB480F2FED511B0A4C5ED427915F91E5A98449CFB67A2920B8A04"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_with_broadcast.h",
+    "sha256": "7581C53A148AD2C77BC032332ACC4B01598B88C072E8447E5E64C2284AF7263E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_with_reduction.h",
+    "sha256": "C99A58AFBFF335EBA9CA883F7DCF47A1BB68043FABF7165DBC2B23C635DB4D6C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_epilogue_wmma_tensor_op.h",
+    "sha256": "930AC372DC62E64B8B593B41A85B3AD93612D268DF6FB7DF4ADA83ED3C43E208"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_thread_map_simt.h",
+    "sha256": "B51AA46F2A872FCE2180875150C3B06D99CD00AC87815850271A2F7EE3F35E16"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_thread_map_tensor_op.h",
+    "sha256": "601F36501CD1D26C5252EC82F70263F92EB4B69C597DD5C7C38FAFF88EB2ADD0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_thread_map_volta_tensor_op.h",
+    "sha256": "BA7F5BE7AB3C12B9468BD505BA19159CE8C5816009351C029C8E7A074B82EBE9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\default_thread_map_wmma_tensor_op.h",
+    "sha256": "EC9F8096AE7F77B39C4B210B2175F03B39ACA1D533E99D51B99E7A977612522B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\direct_store_epilogue_iterator.h",
+    "sha256": "EBDFC4DBB3156861B916AADE42EFAFC12B9420852B8E2265EB0757BCBF31C5B8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_base_streamk.h",
+    "sha256": "0D45DCA0A87A3C3BA1216954F51EDEDB0BA53E5BF219CA90DC652649F89C9E00"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_base.h",
+    "sha256": "0586D9D3299D1890BF6436ACF693E3C6CB3025E044A2E8B862111C4BD28A3E81"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_depthwise.h",
+    "sha256": "FDC7989E9D764CB1FBC2C780F86C9714EC84123E73018AE338F5F2AD5263507D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_direct_store.h",
+    "sha256": "BA0C985CC34E4723A503E976A8261DF527E9400F3B297655627868CB913D66F7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_gemm_k_reduction.h",
+    "sha256": "FF664B76C6BB9F70C674BD396299759223DE1C6FB6EF7F583A6B4333A2541BBB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_planar_complex.h",
+    "sha256": "017291ED4834EDEB299D6402ABD0FED3B5B1F525BA5697A7B0F62391E0AEA0D8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_smem_accumulator.h",
+    "sha256": "DCCE8839DCC5D12863263E1157D62AA87AA359E5E44337C10A2B3338B304A983"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_streamk_with_broadcast.h",
+    "sha256": "CFE0004C9E650D5C006A460725F1C55452AAFFBC5AD0B8931B0FC08C1F03D06B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_visitor_with_softmax.h",
+    "sha256": "500EFB7E89337E5CC05B6F1405C9CCAF898D0038B3D4146154454317F7A28DE1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_with_absmax.h",
+    "sha256": "6723B8104BD1DA5F14A35A460342877F213BFE0731F8DA8F1919087CF0AFC6C5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_with_broadcast.h",
+    "sha256": "760A10E8754E1D1CADB4205B15512B60F2775689B79FBD2EC8486E8AE8F8C2F3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_with_reduction.h",
+    "sha256": "493C5C611448ADA678E21A5659DE708D96534B7367E29BF7A624496847E777E1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_with_visitor_callbacks.h",
+    "sha256": "A569753F4E96F623A89A0E12D89879F7ECB0F8FFDC0C6FE92BE0CD2CE4082FC4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_with_visitor.h",
+    "sha256": "31C98AAD4B7B045B01711093A3714E796F03AAB70A09A7E57B1F152AB2A7104F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue_workspace.h",
+    "sha256": "B1E4B4465B4EE1A63FDC99ABA67C311CAA494BD1ECB44954602A031688015F6F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\epilogue.h",
+    "sha256": "7CE8A1A4C16968DA0391A152D0FE792FECE706E7F6BD8BC9C6EFE82979EB1EC2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\interleaved_epilogue.h",
+    "sha256": "2E8987F574821F2DE18E6D46C39E6852C0A1B5B5FBD7B5DD8ACD3B2F09D6FB74"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\output_iterator_parameter.h",
+    "sha256": "AE3183D542FA8111D99876F0FC6DFD695579DF91CBECAB36E4CC96421CF5DCA2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\output_tile_thread_map.h",
+    "sha256": "AEDD98EDA67C856660756620542AE2CFD18D496869EB4EB4B0906ACDBE46F1EE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\predicated_tile_iterator_affine_layout_params.h",
+    "sha256": "BA319CD5C7C339264E1D69AC51F91E73E0E47050BAA3EFC195FDC53042CA4ADF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\predicated_tile_iterator_affine.h",
+    "sha256": "9708A757938F78E222C64FD3596B846BBC5857E3342EB6CD0DA3FF295D2E67F5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\predicated_tile_iterator_blas3.h",
+    "sha256": "F22B23B2C8F529D0612024F2B648A88E09DF95C9A4608DBCFBC9AA978E625D10"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\predicated_tile_iterator_conv.h",
+    "sha256": "BF44163967AE8C32F04C0E636A197B0B240D60EAA81D2165EDE5CC5141E719AB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\predicated_tile_iterator_direct_conv.h",
+    "sha256": "A15023A376E0BDE541AC91E93CE726A8D5FBF41E112FC72C3D4EB635DCB281EF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\predicated_tile_iterator_params.h",
+    "sha256": "06A29A070F86C1F11BB90196BBCD0C9362792F447214A61BE12560F049EF26C8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\predicated_tile_iterator_predicates.h",
+    "sha256": "6F13C6E09550A1000CBB8F2433AE0D43AF93743C8C056B7B0437D424D7E7425A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\predicated_tile_iterator_strided_dgrad.h",
+    "sha256": "90B97CE7C651952121A996CD69A83678977C8A73078EBC795CB02620F57FBB32"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\predicated_tile_iterator.h",
+    "sha256": "50AF93A5624F798D0382378857D669F98DB9CE6C4DDF135DEF4C886A4EF4A395"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\shared_load_iterator_mixed.h",
+    "sha256": "E2F18EC9EEA44471EC5E7416D641407DA28C90520BA161D989B36FFD405AC909"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\shared_load_iterator_pitch_linear.h",
+    "sha256": "9968CC2C795AA0F4E7855CE2EC4C3C152E3A98132AD6A3CC3CF6B69A205B5EA9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\shared_load_iterator.h",
+    "sha256": "0B8C3C473AF969B6526F7166D965ED9DCF3FD9264A61984C4E9AFCEE88E65726"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\fusion\\visitor_2x.hpp",
+    "sha256": "27EE583DE1748029BFEBBA68BA4F2D63154770F89EA9717E70B3729AE7BF3275"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\fusion\\visitor_compute.hpp",
+    "sha256": "AAFAD288B765680AA1FC719D63F5E526C8F2BB08F8B8D006BC286E441885C983"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\fusion\\visitor_load.hpp",
+    "sha256": "5A57B74DE462173DDDB4EBFD665B0D2D2B6284E863194DDF7B9FDA453B02FC7B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\fusion\\visitor_store.hpp",
+    "sha256": "CA68B672F4471F289706C4992C87BB63C4E9146BBBBBF74D7E92E907E5F498EB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\threadblock\\fusion\\visitors.hpp",
+    "sha256": "B77CE28466DD1C2E54401E37086941752CC5D17E52E4F71C34A82DA96485A409"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\fragment_iterator_complex_tensor_op.h",
+    "sha256": "371929FA432E0D8723C7206CC77C1B0E887BDDE1A611356E9DB8390FAF8405DE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\fragment_iterator_gaussian_complex_tensor_op.h",
+    "sha256": "C89570FA0DEBA7B53A430807A8B0E065C3CFFA44E3340F60480A249D15119235"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\fragment_iterator_simt.h",
+    "sha256": "87085DFE400B32005DA1FDAA727C9E59EF11913086BE1AB188FB6B8FD1187BDB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\fragment_iterator_tensor_op.h",
+    "sha256": "B7E196D08962362779D5879BEC53872D3E26C9143593F25AFDA52B41F6EBB999"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\fragment_iterator_volta_tensor_op.h",
+    "sha256": "72F4C243D1BB83E520A606C62AD36CFE17F3DAB55437DCFB7FD1B8DFAD4D531B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\fragment_iterator_wmma_tensor_op.h",
+    "sha256": "CE15BC926D181BB39695EA40E60197CD6B621170D596A128007EFE8ED747714E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\simt_policy.h",
+    "sha256": "1C00C42DAD36B91C0A0F9D7650EBE74CEBF4AECA2F36174C640E009BA607519A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\tensor_op_policy.h",
+    "sha256": "4501FBF8C5B46AA65431D1C3DA89F7D0C2CB8CB07E2CE43A1222D93DDA56B4A1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\tile_iterator_simt.h",
+    "sha256": "B5BEBD7CEE2C05E340E7F0F34A5AA9132F00A67F00B64F62DE3B592604A55703"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\tile_iterator_tensor_op_mixed.h",
+    "sha256": "E2B7F5845C43CA876C3B51A31A0F570A9A3C1352D546C35D2544BC69E5360AB5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\tile_iterator_tensor_op.h",
+    "sha256": "E970058A85E159CEDF8AA41B01759AE1783FE1010264DEB6952420144005C09F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\tile_iterator_volta_tensor_op.h",
+    "sha256": "13CD8D097BD600EF64CFE00CC4B0434496C1E34505492BD9DC130B9AB4FC223C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\tile_iterator_wmma_tensor_op.h",
+    "sha256": "FE31FB4BE2C7E6F98CE1D5E049CF53B2688CC7DB51DC6D6272A81DC4A1DD9B13"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\volta_tensor_op_policy.h",
+    "sha256": "F62D58DF1B0BAB97B1F1F02B524F09BC2F2DC3D7270437274AB1842E7AACEAC5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\epilogue\\warp\\wmma_tensor_op_policy.h",
+    "sha256": "2EEF15E5784651C58405F69AE3E07DD688B1771E132225DE569280EACB7B8D7F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\dispatch_policy.hpp",
+    "sha256": "1D9023C2F4ACD87D014CAEC0F939135E2E465DC34946DE56C000048F207295D4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\gemm_enumerated_types.h",
+    "sha256": "D69868FE49C53895AB3368DFD17C1DE9403989C7E4DF41781818CE4A9F15FFC1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\gemm.h",
+    "sha256": "0EF5BDAF80480172E5B6290786C454B625CB179DE57E31B86B86A1CFF8E7AA1F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\group_array_problem_shape.hpp",
+    "sha256": "0FF13BA56B4448C12A694B70F687E25A6F8DAA6E351A1EBBE8F2DA47879CBBE8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\collective_builder_decl.hpp",
+    "sha256": "5F46BA141840A1E205D2D57909DAD37A970C29D21494A730D40D50F6839BDA23"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\collective_builder.hpp",
+    "sha256": "DEE4644F804121441DEDF4E896B85F05C201D22593F014BA17E510A70E38A8C3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\collective_mma_decl.hpp",
+    "sha256": "F0B3350AFA380D15F7FC56CD3E65A94662BF062D988D67E4BC3EE86B731CCE1E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\collective_mma.hpp",
+    "sha256": "3E23B7D5A81485DFBA44E3FF20D2B66C3518F4D543810BEE1548F011CD79568C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\fp8_accumulation.hpp",
+    "sha256": "29167A0B87076F7A86450D14557997127B89C85375C13C454FB893B37F09F51D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm70_mma_twostage.hpp",
+    "sha256": "094F6A06DC4855E3D3F2318EDE4BEDE18560A9632E169C20CD7E261AF960BDCF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm80_mma_multistage.hpp",
+    "sha256": "D0962F1474DB766C41E52017D459A433E26350CCA58C5AFACC30D9A2B5AC80ED"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm90_mma_array_tma_gmma_ss_warpspecialized.hpp",
+    "sha256": "2A697A5C01108CD64F17101F023517C29AD9B2144A92C447E7F1A9278B448B2F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm90_mma_multistage_gmma_rs_warpspecialized.hpp",
+    "sha256": "856403E22CE8173B7F5B42EC7FA383B22EAF8E5736B07A8971A0C21F4F2D9AE2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm90_mma_multistage_gmma_ss_warpspecialized.hpp",
+    "sha256": "F122C86F3A5A2035BE1F0A0E953CF85682EABA186A57276A89AF311F3E8306E1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm90_mma_tma_gmma_rs_warpspecialized_mixed_input.hpp",
+    "sha256": "CA714E44BE10C39D51F6B8363F9EAB6CFBD61C07E6F99EDDEC7772BC986BAD7D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm90_mma_tma_gmma_rs_warpspecialized.hpp",
+    "sha256": "EED6E8D0012840A1598DE6145D4EBD59E4F2BC53294D1F6586E422F71ECA5A58"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm90_mma_tma_gmma_ss_warpspecialized_fp8.hpp",
+    "sha256": "8CF0EB9279871A263D5CA2868E9F9D23BCECFDA43FD3D87D233A42B4012D0B4C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm90_mma_tma_gmma_ss_warpspecialized.hpp",
+    "sha256": "6164E142EAC8AB55FAD079C25C29145306F99EB4C2641E75989A03B19C683DEE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\sm90_mma_tma_gmma_ss.hpp",
+    "sha256": "1D462F1B38E4FA3A830249DD3DBF2FFEDF6F09FEC29A1649938697AD3DE39B9F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\builders\\sm90_common.inl",
+    "sha256": "7BEED287D48C3094F8D70CB087E70E74087372F2FE2BC0D0C8EB78E0572372D1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\collective\\builders\\sm90_gmma_builder.inl",
+    "sha256": "BE7DB874740BCA24842FA344211A3EFA84E27F8569D346E45E67B09CC2DBBA6E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\base_grouped.h",
+    "sha256": "A3B27C2E00D2340093E0A3871310CC71C174722EA36C14468A9B46667504FF3E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\default_gemm_configuration.h",
+    "sha256": "55DFAA91F5CC7C4F216EECC7DDE261A9F2743E132BDABD316064F2BC02A1949A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\ell_gemm.h",
+    "sha256": "03F4C6C5D5603B787B4B575D59D6D88D1E48FC680D9CDF00570109B896E66A8F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_array.h",
+    "sha256": "7A83DA42582CD04CA696F150DA6B85272EA1646A7D1FC680CBD78A570F5E1C02"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_batched.h",
+    "sha256": "7E3098E95C3C7F29AB4444D58D04F524DD1542BFCA3AB8D5428D0953C9D08BC1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_complex.h",
+    "sha256": "4BE1A2D86D1CD96E0B93A461D5CF9D1C1B937580E177590D4D67D73C623D9A16"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_grouped.h",
+    "sha256": "22CD5628657F823E99F0ACD7E8CDA5C8DC29A436DF2CF63516D37B8046DED63F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_layernorm_mainloop_fusion.h",
+    "sha256": "EC6C9F5EBCC5D3C4EDA6B9928A4F3BBCB4E807424DA122CC1CF37DB4DE53F12C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_sparse_universal_with_absmax.h",
+    "sha256": "8AB96AB3D6EF902FF193660816C85C0B042598F41D67479FE9F10C773AFC70AF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_sparse_universal.h",
+    "sha256": "143E021A85F7962E7D46936EBEFA66640F4EDC67D49A13FF3C4CF61F3A452ECC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_sparse_with_absmax.h",
+    "sha256": "F35C05F3DA75397DD5CE9679FE2802E3E28D8B46748406A5C24DC7DB8D962A57"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_sparse_with_visitor.h",
+    "sha256": "B07B23013560E66DCFB85CD71B02D2C75E6BAEA82BC46FD7E192A1B675D88C4D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_sparse.h",
+    "sha256": "DE1D57B104AB73DE007EFD3AAE0CCEF99B8614F432C412171D1844F8806808A3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_splitk_parallel.h",
+    "sha256": "2D6EC7B017BED403D02882FCC6BC999D4367C0A8C139ECC9A020B5107C1C1D95"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_universal_adapter.h",
+    "sha256": "5B6B2BCBB0EC24E1E000C5F582FA2A5AA1E08CF38684307893CD421EF55B1986"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_universal_base.h",
+    "sha256": "29933742A972F1CCE946A50ED6B76B19963AC075F0103E84602A88BB2E170763"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_universal_streamk_with_broadcast.h",
+    "sha256": "F2C995D5EBFCD4DE7EB062596D89FA844D64C363E58D355073E7543163A10049"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_universal_with_absmax.h",
+    "sha256": "ED9AA77D7CDD8779F7F8BA093B0692B9E11D58298B4DF1B2B346DE8F87A0CEE6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_universal_with_broadcast.h",
+    "sha256": "30A97AA1BDFDF35DB8E34BB660476B8CD56972511FE3F5B2625DFD805FB933C8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_universal.h",
+    "sha256": "8EB509653D75F4839A7118FF446A2729BEAAA1F4FA1C2A96236F135DB1BF3398"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm_with_k_reduction.h",
+    "sha256": "8368AA83CF6D7D4213FFF129AEED7999C2126FB310F739DF881AB1B64D43902C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemm.h",
+    "sha256": "0F13CCBE706DF139C37CB242BDF9770024F2BB4C84F8EFB2BE6653C9A8C218DE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\gemv.h",
+    "sha256": "4E7EACC08BB5F19025152E7A41452F8677D1199D9E8CABF731DD865837D08157"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\rank_2k_grouped.h",
+    "sha256": "6FEAF267E1BE41529F2F5822C984D1990180A2B0363933A219A808A6270714C0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\rank_2k.h",
+    "sha256": "32FD8BE311710C49B856F2F6FB6FCB0206F0655E9FFEA9ADF368BD31619A1BA0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\rank_k.h",
+    "sha256": "558E0032DA7201555241D3B56E1F8CFC7A7D55D18F910B8200A6E297A4025CCA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\symm.h",
+    "sha256": "B6F5C2ECD8C2A8BFCE1A9E871830A71B290EF7FDA807FAB16801F7C17AF960E5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\device\\trmm.h",
+    "sha256": "54E4FEFD0EBE1EE49B8A17BFD95D0CA3FA19E38BC31560905166A8551EAE45E1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_ell_gemm.h",
+    "sha256": "0BB399C2C374939141E9755F411716B33DC50CDC803875270A582EC26CE8DFAD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_complex.h",
+    "sha256": "14E024A04DD5A099C05628854018AD6F2AD5B9E323338BB7D04A21B1A0341059"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_grouped_softmax_mainloop_fusion.h",
+    "sha256": "E73577B3274E7FD22B221A6AA93722DE7B4BD2DB2BECB98863DD2854B54CA0CD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_grouped.h",
+    "sha256": "BC5D74B2330DE46F8CB863A85976F611EA1E53440775B2E8FCD3407F24B829C1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_layernorm_mainloop_fusion.h",
+    "sha256": "AB4898ADF47B75474EB9D7EB3FC81FF5BBF12A219EBBF6A671BFB426A99077CD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_planar_complex_universal.h",
+    "sha256": "D78C052E5B4A5ADF6F0ACBCC40D31F6ABCF10CD83034B92B6C4E38076D7B31A3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_sparse_universal_with_absmax.h",
+    "sha256": "E499A825DD61F7688D7F3E8F286CCEDD3938522FBCAB8DBC4454AB6512D304C9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_sparse_universal.h",
+    "sha256": "90753A4353E549D249D70DE1C2C3009EAFCFE965C485AA0B220248DE1E8A2AE0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_sparse_with_absmax.h",
+    "sha256": "4C8CA4246C0BB150CE8139DC174CACF267201F86A8047EE232943433C8735C7F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_sparse_with_visitor.h",
+    "sha256": "1A27810C8991386704A57B26788B5936369916894AC102D8DF7681E9F43B128F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_sparse.h",
+    "sha256": "86B277F71066D1BA574FA3FE1B3A7E3B88EB15E505103FD623A336C105794289"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_splitk_parallel.h",
+    "sha256": "F5116980BDA4D8577AABB8A28A195038C35E863BCA65E17D9190B915A790208F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_streamk_with_broadcast.h",
+    "sha256": "1714D09EE7B3BA0379155903104601307140905CABB82D6F01ED56CC64BEC8C6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_universal_with_visitor.h",
+    "sha256": "03DB439544BF397A170E42A89BE6070D92DD630734331E6191B8F7890DB69A1C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_universal.h",
+    "sha256": "09003617F6DC39ECCEA200F4E50CACB855CD4A120733B9B69134CE97B981BB07"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_with_absmax.h",
+    "sha256": "FA9774FB92B74EC15CAEB526B6C4A1E165F8041BBDB2CE62C15C59417D8F7841"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_with_broadcast.h",
+    "sha256": "FFAEFC2E07BADDB14A7963CACEEF303739ED0B2F562357E867989F8D534E8F64"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_with_k_reduction.h",
+    "sha256": "BB2B2D3F3E56DD5F410F3752262A5BD06E5D8D6D638BD30583331A82326ACF50"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm_with_reduction.h",
+    "sha256": "C9251F6160C7A0D1848BFA73A82C324226845581462CA87D9AA9CB0143479909"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemm.h",
+    "sha256": "9368EF287E5BDEF7748E044214A0FE710908BF7504B42218C0E8432BE3D4EC8C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_gemv.h",
+    "sha256": "F2D5498650DC4BAC6FC80EC70F1ADD7946A5B4EBB02A2C71A963A481AF43966C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_rank_2k_complex.h",
+    "sha256": "7A7DAEBB60FB44D1583DAC0F429679A58A73C8A1A63C9457B6551AD0ECE7CD8D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_rank_2k_grouped.h",
+    "sha256": "C4B7C363886DBE24CD01B119D2483B69B1D6A01ABDF1F740770677564F4C8E07"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_rank_2k_universal.h",
+    "sha256": "CD1614A9D5942C80A631388D5A9DAA453AF7DDA9F2B04F95630A2E046C459F3F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_rank_2k.h",
+    "sha256": "599AE9B7A7B36D6135B63E9EF47750EB8C4BE4595E4A637E266F8DD4B8C16C19"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_rank_k_complex.h",
+    "sha256": "C1F45E9EF4D2C9479B91AD02356EB7659617B6F5B3DAB69ED237D8E46DC98F26"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_rank_k_universal.h",
+    "sha256": "4EB14576E5A0D1173C55E2645E77DBFF19193A0E20AEC811A9FBA8762F419B2B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_rank_k.h",
+    "sha256": "07BE25B37472E90C6793DEBD2DCE3729ED262004FB299A7422A4FD40B775AE0B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_symm_complex.h",
+    "sha256": "5CE761841AB8941B70F8BAA2C13F463D23278CC086B38A02638A1BD8DD9625C4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_symm_universal.h",
+    "sha256": "608831CFD9C2F09B886F6496D231659D094884B9490AD11618A4C041533E1BFF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_symm.h",
+    "sha256": "3D11D57AD75ACB3FBA8A23C7EDF0311964C7565A40A0547A5A6F4D3D30859F9E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_trmm_complex.h",
+    "sha256": "0AED12F8891153F77D2CE118375E375CCBBA24490391D1F02C45A4CBEB41074B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_trmm_universal.h",
+    "sha256": "554DC289E6F6DD9A632AF57833D7CD086B4EF851AB8EF8F4C470D46EB1D0E673"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\default_trmm.h",
+    "sha256": "ECD88303BA8BBF7DF2230D0EC7413FCFD51053EACD1E4B0C68DBB6E954503E21"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\ell_gemm.h",
+    "sha256": "17C9BBF0A3D6FA59430F4187BAC20F48B1749EA496EE58C719CA0167C064AA4F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_array.h",
+    "sha256": "12C55A7F32636D84979A47A44EF638FFFD784B8FBA86AAECD0168A963B8829B8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_batched.h",
+    "sha256": "A786D994311C0E0B89BD744BC8A8D6AC38528A65808B7591CACF3543C4D0A24F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_grouped_problem_visitor.h",
+    "sha256": "73C184116733C48CFF4EECA0894B3B99AD12B516559514E38BA68925B6124FED"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_grouped_softmax_mainloop_fusion.h",
+    "sha256": "1FD272F4B5807E560935B07686D0739E7820F1AC6E64908C7DE26014ED62412D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_grouped.h",
+    "sha256": "9F851EEEF076F8A2B34FC81E5A9FB6B77E0C55D5F58778C0FD1EF9E1A06BAC67"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_layernorm_mainloop_fusion.h",
+    "sha256": "BD0B3D3E200EF46EB2E82C328A93BE406EFD539BE8AB80DA0C055E666200F070"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_params.h",
+    "sha256": "EC4A4B46D6224FBBA9D2F9576153D7984EE4120DE720AE30847F2798C603DED4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_pipelined.h",
+    "sha256": "A31953DD21F1397C84B7F23C4D634138EA5AD2F034E9F3EC9009BF23B21A166E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_planar_complex_array.h",
+    "sha256": "F8D83B2209F7469E30B7A0F08B7DE9D788DF78BDB2419C27F21B2682AFFEA7DA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_planar_complex.h",
+    "sha256": "BB6C2DE9A85188B4DE9FA38DA8F7E2EDAB335914A676F7C423359AEF351DC7E4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_sparse_universal_with_absmax.h",
+    "sha256": "08A64820C7F2A6BC78D4D26FA21498FA68C24893D4A900F762D6403D513D11BF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_sparse_universal.h",
+    "sha256": "5FF42804B94E6B73313A54E13041EA705030BFC97C7DD6ED41E5DC3F5E2748A2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_splitk_parallel.h",
+    "sha256": "7EE68E3F9C5D0A95D3AF9B9D1BA177F714E2AA580E38656E9D50A397DCCF5C81"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_streamk_with_fused_epilogue.h",
+    "sha256": "3D4F2E911627D2563C08076CDB10F31726FD63F7B4FA3DCD1BDF6968B1D78DFA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_transpose_operands.h",
+    "sha256": "DACD78A48EE42AFD6C51BA9714E36E76E08F079FB03CF1D4FDDBA4AA982DDC50"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_universal_decl.h",
+    "sha256": "C0ECCFE404EEECD918492AFF67AB69F49B7472846D661AF5AB952FFD678935EB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_universal_streamk.h",
+    "sha256": "C6490F9F9E839A89354DEDA00B455A1731CE580C83E2B57F5532B213B749D227"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_universal_with_visitor_streamk.h",
+    "sha256": "48CF4523BA4FE2979FC6093DFD0F474D6020B8EAD24EA6C001FB57C236067738"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_universal_with_visitor.h",
+    "sha256": "18A507B90A7B19C72ADAC2B9847259220F0A2D2495E1BB19006A2D93669E711D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_universal.h",
+    "sha256": "5B547D7E93F614278298BA9774DA862D557DEB07ADA5D3A483495869B04F40A3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_universal.hpp",
+    "sha256": "9524484893DBBEB2CC3C0479F7C00C08B42488FF28D4AF6978AB14A7E4B14C1E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_with_absmax.h",
+    "sha256": "8A88D3DA469A1D6ADF02F3448C8E0F3627A8382256E9F55C2908A08DAF6F76FC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_with_fused_epilogue.h",
+    "sha256": "E2B992AD1692C42A7D0EEA6A5925A4025B1F5BBCDD792C514CEB92F3A7917F5F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm_with_k_reduction.h",
+    "sha256": "F26F7AA1CD1A073E42509D321CA32F9B0F8AF155C1056E539675A3B0A1ACD247"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemm.h",
+    "sha256": "15B5993FAA5BEB1BD942DF3B882ED2D5059576F15EE12388D54FA66798E1629D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemv_batched_strided.h",
+    "sha256": "87E6BFE2BB8FB71DA6C2140134A46421009E543F24F3CD1C20BDAA36457F443F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\gemv.h",
+    "sha256": "367A02D04A7982CAEAE0FD401D23E85A6D41D4FF739587F31411B6C713FDBFB5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\grouped_problem_visitor.h",
+    "sha256": "D31C8E62A678491526A66CE4DE4C061BE15742222F05C0F172D8B4D32CF331FC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\params_sparse_base.h",
+    "sha256": "E726A19DE907C177564B916E702AF1322294323BF79CF985479195EA0800DB01"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\params_universal_base.h",
+    "sha256": "F473CF4FCBD748AC78FFE96B4A269802D12019A06B81EEC78F84557D83EA50BB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\rank_2k_grouped_problem_visitor.h",
+    "sha256": "2A5479892D2A67E6C1F11453B0A66CE3C10B0D02175B44A40FE5599A149EF8A5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\rank_2k_grouped.h",
+    "sha256": "001ADE672D0E2AF6F9A2BBE190756A95F3CFA5632D9739C114150F4760F740C3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\rank_2k_transpose_operands.h",
+    "sha256": "9D3F273EFD47BFBE4570CEE174FE592C71D0344D12C25A958D58AF2A8050CBC9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\rank_2k_universal.h",
+    "sha256": "77AAF9F820137030D06E151AC980E847027D2EB6815F654D4B78F719801F3CFD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\rank_k_universal.h",
+    "sha256": "76E860DC74A0640460C728D07F0ADE491EE9F38F7B249950CECB57F083BF2FFD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm70_gemm.hpp",
+    "sha256": "D28B087CC7431A3A4EB4C558499B57E330E309D9D600C00CDA8C14CCD862B70A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_gemm_array_tma_warpspecialized_cooperative.hpp",
+    "sha256": "6EDCEDA35B0E7E9810847F2DAE7EF1A44218F56B7C7548F450AAB306E72965AE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_gemm_tma_warpspecialized_cooperative.hpp",
+    "sha256": "994F180B70750B2904919A2338B74B0130D1BBA9ED3A3B79AE8F9AD7E054D05E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_gemm_tma_warpspecialized_pingpong.hpp",
+    "sha256": "8849E5C032F547866837561AF2827057E2FE6B578C03E43192C820FC4148A8D5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_gemm_tma_warpspecialized.hpp",
+    "sha256": "5013D796ED111B480C9C830D256BBC65F7B37CBB5AE00812436D77E1498A66A3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_gemm_tma.hpp",
+    "sha256": "522A0AB4F43C188A8D5280B64D3184AA222211FB21CFCFF071E00D9207AC82F9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_gemm_warpspecialized_cooperative.hpp",
+    "sha256": "291DB9BA8D960DF389B9984E3651FC4767C93CD561A1F92244B6ED692A99DA84"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_gemm_warpspecialized_pingpong.hpp",
+    "sha256": "FF2B93EE7B561CB66CB06531B39A1AF7DF03085EA11DDC945BB070257BF17E3D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_gemm_warpspecialized.hpp",
+    "sha256": "421A5356D9D505814F0F386BD9DDDFC82621E2C76EE568ABE28DBB2ABE362059"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_tile_scheduler_group.hpp",
+    "sha256": "EE885202192FA35EC1A86E4B54036D0337DF63ACED907C0A2E7793D0FA3279A6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_tile_scheduler_stream_k.hpp",
+    "sha256": "5FCDF55DC67E716551A436C21A6C3C4C50FC4C49FB25C13D576B313F4A6ABFBC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sm90_tile_scheduler.hpp",
+    "sha256": "0706008D74E2BBBCD0F36CF9D245EDAB617783771E351F35E6A58F354A61F9F0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sparse_gemm_with_absmax.h",
+    "sha256": "87B5842C4AF0969EFD3C409A2EDEB8379EF3A9AA21220B9A180C5CD6B5B73033"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sparse_gemm_with_visitor.h",
+    "sha256": "0C1BCC12009FF131FE1655CE6A20EE61A443A8F3000055D4A21B5CFCA3BED95C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\sparse_gemm.h",
+    "sha256": "E391082219E817C7A292F560A35D53498C50097C4D173300C48670E3AB4002DE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\static_tile_scheduler.hpp",
+    "sha256": "454A1C10025B4875E4FA435CEFA5BB0827F6697CB03BFE3B9F5E99D8B408D942"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\symm_universal.h",
+    "sha256": "870A88F29E31F420BDEFC2B1396E2EBF59144BE9828A8D5C110D77BFBB2E8137"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\tile_scheduler_params.h",
+    "sha256": "1B66E36386EABD0201FDA01324140F84DBCF3F45A6DC214CE5BB778245035F55"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\tile_scheduler.hpp",
+    "sha256": "056BAC4D64563C688AEC722771E469C8578940F8C30D3533451D55F6F35D1E4E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\kernel\\trmm_universal.h",
+    "sha256": "86EBDED34ECBD3733356DE97A0297A4670E03FD2AF228B13956E75B9FFA250A2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\thread\\mma_sm50.h",
+    "sha256": "742258AB28D4425DC2880BA82D49C60E455729FF8926038F797BBCEC86669B26"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\thread\\mma_sm60.h",
+    "sha256": "4B21CB0703AAD741F456DB4143A9F5C7F2F15116F982479E4975F00BB5D03250"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\thread\\mma_sm61.h",
+    "sha256": "DEAAF3DD07E5D15EED94889A7ABE778C6A5361E206F0CA9D72F43B879AF731AF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\thread\\mma.h",
+    "sha256": "44A19C8B68FAE8E023B4A78A9E11F05F6C4C911FEA7C91824EFD086FBE373520"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_ell_mma.h",
+    "sha256": "A9A4395F8091625009276D3FC91BC43D9B3CA77FA8F1C5E0D174D9505E0ED3D3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_gemv_core.h",
+    "sha256": "09207166B3A2EF131A889C7FDB4D63CBCC236CBE8064874AB7ABB5B8BA1EC0AC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_core_simt.h",
+    "sha256": "6B9B6D9B12AE6F6DFBB22E936A15D9970AF77E25DDAEB0A18EA47C690F6CD596"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_core_sm70.h",
+    "sha256": "54A777DA0C468689254D0A1AD7BFC858CD863B36417E5B3A77D2947451CCCBCF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_core_sm75.h",
+    "sha256": "B808487D15479D13CDDDE7D140B0D04B0F8CABE97A96954052A1FE42385007D5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_core_sm80.h",
+    "sha256": "71EA72AF14338020DDC787FEA0B5B910C01BD76027E22C638D27DE95F6AE8616"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_core_sparse_sm80.h",
+    "sha256": "91AFB85A82F9BEF67885A937A8961D14E9190D6BDA3DC1191F4E807E75AAB780"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_core_with_access_size.h",
+    "sha256": "21A322D6D04B6C2ACEC3D96D899EC36F6CF75B75661A74C476B16D040FFBE79A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_core_with_reduction.h",
+    "sha256": "149164319DCC893240C5766C3F32C0C9F7C3409A6AA4A1233A478A872AE44C07"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_core_wmma.h",
+    "sha256": "3D5872B6BBF83E06229DD5800FFB742E70FD18BAE409EECAAA8C312C55CB2C85"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_core.h",
+    "sha256": "D230FD3D590DD3F32B23CEE559FACD96533B7A33F8D6F9A0B0C7C3F803602A22"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_layernorm_mainloop_fusion.h",
+    "sha256": "71DB855DEAB768CA435E7BE6291D7C6AE5AC8C1932F98B5284DB35014745002E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_planar_complex_multistage.h",
+    "sha256": "A6D4BC1924398DC6661E71140600000040F08164FECD5541149396A3612E703A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_planar_complex_pipelined.h",
+    "sha256": "EA8C153CF5413EF4311E169C8E49A94960759EC8874B53122608DD0BF8CC6763"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_softmax_mainloop_fusion.h",
+    "sha256": "C41C19941801902748D333018733C5249BCA58BBAAB17B618BA2D50F6E4250F4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma_with_reduction.h",
+    "sha256": "27E5F1FA9BFFB1B497E19B6BC83646D118724844C61F11E9F713FBF43FA51780"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_mma.h",
+    "sha256": "67C1749FB996E7101AB241845135368A9C9DE033EBD2725AC5699109CBFFB32A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_multistage_mma_complex_core_sm80.h",
+    "sha256": "867CE2FE3BC2CBA44A5F492AA19912A4BE202FF9D80E599E1666AEEEE1D17F4B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_multistage_mma_complex_core.h",
+    "sha256": "6DA86627D89B1EA102C810A430D0411B4C4CD1B4582B30A219C6E7F3B3B4C849"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_multistage_mma_complex.h",
+    "sha256": "D2B501FAC41484F4207E3697E9AF0E9AB970CE0B2ED950C097094FA02FA5B133"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_multistage_trmm_complex.h",
+    "sha256": "185E51DE3CB74D641D7C34467D849E53E744D4C428ECB32B19F4BB4EE4471098"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_sparse_mma.h",
+    "sha256": "E063C18618C9BF596940BF9F344E660876BBE7591740F72C366B514C4F900AE0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\default_trmm.h",
+    "sha256": "B75D1FFFA3B9031B1616C382ADD1A175C55A2CDDC89626BB2B854CD4B9BF35A8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\ell_mma_multistage.h",
+    "sha256": "8BA99C33FAD5D95461BDC96D442EA6C67ADE6A51EAFF78B676E67DEBD77C65FB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\ell_mma_pipelined.h",
+    "sha256": "178105AF1C1F3D027B898816F16E05E7B30B3FD91E8462ABD87A83CE96E9F8AA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\gemv.h",
+    "sha256": "0746972E3561F7FC029132BDDA538A3A7FB61C5192675EDCBC7D799DF4520818"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\index_remat.h",
+    "sha256": "581E1A5339A2CC019AB295847A3577E75AD0DE68FF703C26A4F3F08EEE597A2A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_base.h",
+    "sha256": "84A224849AB9A1E00268816651F096600E4F86D1C1AE5A89D919D9A82EFECB22"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_blas3_multistage.h",
+    "sha256": "9F281B8169C38F3B7C521E3FACC75EAF29FAD4485DAF375EDB2644AE88D277E4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_layernorm_mainloop_fusion_multistage.h",
+    "sha256": "5A49837D180E9B659501D6C4E6479E9962034B3CABE4F782E9A0B0099AEA45EA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_multistage.h",
+    "sha256": "F479C7CD5283E17496DF87DB8FA4C1264A117C50FE88559FDEE5AE363C948256"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_pipelined.h",
+    "sha256": "9A5957FC8714C7FFD7D3A59328059B0EBC3AEC7971FF03FB159A53E53E6E19D5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_planar_complex_base.h",
+    "sha256": "9F9120555241FAE2FA82245FC66C3E48BBD73B5E168F31F3F70BCD73C3D7D48F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_planar_complex_multistage.h",
+    "sha256": "608F48D3402D6C14A6A7CAB785CAE98B2896721AD334B293CC1D38AF29FE292F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_planar_complex_pipelined.h",
+    "sha256": "3B14EAF96B6C6C51831CC915262C10F6D1CB7A066A55E3F7187CC1CFF929FC7E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_singlestage.h",
+    "sha256": "2E5637EFE04887D212565AAEE05E300D76B6CCFBB21F702BFB4BF51EDAC50073"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_softmax_mainloop_fusion_multistage.h",
+    "sha256": "11EC5BB1AC342104599837B21E0EE46581D6EF8D0424C2E7289D02F62911D1D2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_sparse_base.h",
+    "sha256": "05203F06FD7CFE8EE7415807E51A0397A6D8905AA9520532828668ADAD93FC5E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_sparse_multistage.h",
+    "sha256": "FD27415B8C0AC302CE15F525C128672321C66C2C0CF34CD122DAA31A881C095E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\mma_with_reduction_multistage.h",
+    "sha256": "C272E01BA53FE138B7DD96A72AA85D1D5FEE7A540C3C22EAC7EA885370FB87B4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\threadblock_swizzle_streamk.h",
+    "sha256": "00CFF3842313D961E57B756A28962495FFC160F4B61D6AF004A87C79D6F50450"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\threadblock\\threadblock_swizzle.h",
+    "sha256": "651A68325C4BA354CFF4DDBA3619BA2710CF8C28A7DA5E8FC6449D157C9EA8A9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\default_mma_complex_tensor_op.h",
+    "sha256": "907C188D7AF5DB6E71F49D492692937C015D2C1F0855B7F54B1346EDEED37591"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\default_mma_sparse_tensor_op.h",
+    "sha256": "05ED1F14144531A8F57980625695550854D70CBC7810870C2D0DEDC0F157C174"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\default_mma_tensor_op_sm80.h",
+    "sha256": "6605CC68B76D889119C31296A519CD7CE19FD2286F816673271CBA96B7A512C8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\default_mma_tensor_op.h",
+    "sha256": "CF5004D1C9A376340AB059CBB658E3A3628825B2899C99AE93114521A1FDD787"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\default_mma_with_reduction_tensor_op.h",
+    "sha256": "7C7CF0DCC254BAB382DEE6EA0C30EB6018C4DBE092D1C2F8745F0E99F5DC357C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\default_mma_wmma_tensor_op.h",
+    "sha256": "4EB8055F9DFFD67383A88C6B49C9A597D4A2576CF0BECA27F6FEB8F98F89B3C9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\layernorm_scale_bias_transform.h",
+    "sha256": "B9025363DA1316ADD82C7C9DF7F74521E3730756A2B938720B035A28C1B21E94"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_complex_tensor_op_fast_f32.h",
+    "sha256": "D270AE6A914C61976A05EF802CDFC5532E494F0633255ED6312FE98E91E331BB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_complex_tensor_op_tile_iterator_sm80.h",
+    "sha256": "40CDCA7C03E76AFB3621B321CB65AF322FDFBCB31DD9247971C2F0B42584C2CF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_complex_tensor_op.h",
+    "sha256": "D54B0594B57B61B710CF0F71F28D171503871BD05E1A7FA1B537BF053533C2DB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_gaussian_complex_tensor_op_tile_iterator_sm80.h",
+    "sha256": "6F96E7AE557B79537D4A1EB1AC173B14A6046249ADE8ED08483FE78E1FDBECD7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_gaussian_complex_tensor_op.h",
+    "sha256": "293304C5024C0582A8269ADF6FFAA4CFBC7A6DA14E270FC17AD43E65BA118928"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_mixed_input_tensor_op.h",
+    "sha256": "6A7F553ABFB89142A3DDF61DC4575B106C554D42655C7E5754E13318471DB34D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_planar_complex.h",
+    "sha256": "20D6E0A43BCCEE634949791D49E0CA30CE4E5E91A5810F2330BE58243C0DBACD"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_simt_policy.h",
+    "sha256": "E6784DC672635BD56E66666EB034CC4286C187B1E6B0A80B00A644BC6C142014"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_simt_tile_iterator.h",
+    "sha256": "31A406727A4F5AECBDBAA71FC9A95A741821F41147ABF167FD5BAC9CCE5BDE6F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_simt.h",
+    "sha256": "FE076F63FE3A24E9BF8E223E06B4084116F0F3F3C16FA7006578121AD7276E67"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_sparse_tensor_op.h",
+    "sha256": "EC9C0D40817D2B2A5989CACCD59AA7A8D413DAD6C790BEA22A61D8B9596AAD5A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_fast_f32.h",
+    "sha256": "6B6C8E6BC7811B069E7A2C5F5743A2AB822DF4C7B239A5AD974133D68AE9233E"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_fragment_iterator.h",
+    "sha256": "1D836353D6AD11EAB1CA82FAE1720857F2137DC8C77D8560286A072AC3BFA80A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_policy.h",
+    "sha256": "8675FE681092C19646CC2F74A18FCCC834AE3C60893A69E53C7B6DE4908E8890"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_sm70.h",
+    "sha256": "1DD8FC2A1D143B050973596ED394D51230B2457FAD0CD283067F52013D4BE7F5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_tile_access_iterator.h",
+    "sha256": "E19AEA3F6C1BA845A78F1591A64F99188D7E257A18E643BBCE8C9059B36ECDB7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_tile_iterator_sm70.h",
+    "sha256": "F125C36D3E1DDD3CF75585D9619216D3FF24D5AF724378151A8EA22524DA9A41"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_tile_iterator_sm80.h",
+    "sha256": "ACDDC8D135419550C9F1C961178B5E67A09DF36F15446DC7465910FB2CA7A179"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_tile_iterator_sparse.h",
+    "sha256": "EEC54E63B49D87F1C1B3E5C25BF3FCD40C7914C93F7750CEB33AD1E970D76687"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_tile_iterator_wmma.h",
+    "sha256": "C243E1926A35B446EADA447B58ACB81392A298D89275BC38506D19E51C04D987"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_tile_iterator.h",
+    "sha256": "6097B8B56BC8E113403BCFBA49E2DCD05F3705324212EFED4FD6F9DEE23DE8AF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op_wmma.h",
+    "sha256": "85495D52862E6271EE9708B8109CB0AA8C14EE789F4F6D8D45C47C5C80B52C92"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_tensor_op.h",
+    "sha256": "BF99728F7F5523E154E457F21691F93718D89EBD8B8E0DE2B15BD0DC1EB46B09"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma_with_reduction_tensor_op.h",
+    "sha256": "96C458F88AF9ED65851E432AEF6282BC6606B7EDB171FF8943EC09E4C2C3F5FC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\mma.h",
+    "sha256": "0373ECD3C1F2BF185E00E0B992B20D0482E1B65A9EFF411DCE9E30A48B69CCB5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\scale_bias_tile_iterator.h",
+    "sha256": "2BD42FE5C5D4527EA85795154D520A9FBA7AA8572C96E83427BCEF790AF927F8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\softmax_scale_bias_transform.h",
+    "sha256": "29766BAD135DD388E65C8726567B929AA755DBDC419D74518DB26D8D96FEF84F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\gemm\\warp\\tile_iterator_planar_complex.h",
+    "sha256": "5C7D8456ED3054D355B2243B9049D2F7AEF8B37CB05265F0D6002B88FAC8D9DA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\layout\\layout.h",
+    "sha256": "E424646060CE1EEDBF56A68D248BC43E61091E5D20D657ADAC2A3DB69AA7CC22"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\layout\\matrix.h",
+    "sha256": "CAB8D1C279078AC5A4A29D926055B252926DE63A0B5236D2357641A3FAC3EC49"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\layout\\permute.h",
+    "sha256": "FF243EE58D96C6061374F2DFE6F44F24DD46893EB9B53595EFAF295475D24A84"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\layout\\pitch_linear.h",
+    "sha256": "04A42F6AAF8716766021ED5E146C7C827432ACE437BA2146D879BEFF7D30B7CF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\layout\\tensor_op_multiplicand_sm70.h",
+    "sha256": "5782B3D636F5CC72D0D74ABE1C0052DD27E5E5FD6E820DE00EC674BC7E6C18FE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\layout\\tensor_op_multiplicand_sm75.h",
+    "sha256": "3C51C17ADB38468ACAF73B998F8794025ED638FF66CE4848AEEE53B976C43B43"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\layout\\tensor_op_multiplicand_sm80.h",
+    "sha256": "CC76856F5B24FE0865BD11049F4E052085F6C15ACE772478CC69CDB7CB081EE5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\layout\\tensor.h",
+    "sha256": "7F4A2BBB70789D224ED45E1EC1599E6384E18374E4A9C6CDFC584CE3FDD2305C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\layout\\vector.h",
+    "sha256": "C8C5A8ECE22BE35F4E9830009954D28FB56CE4FF8B07183D8D365ECA3578E6EF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\pipeline\\pipeline.hpp",
+    "sha256": "1821DC9634A339676505A6A3D6732B5839EBBEE5DB43D4B25D7483314675F793"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\pipeline\\sm90_pipeline.hpp",
+    "sha256": "D4CC39F71183C281B48AB248CEA14AC8C24BAE1CBFC697CF3FFCC4BEB6E5131C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\platform\\platform.h",
+    "sha256": "7518775B0374E20BD5BF17E9E4E306AD5E7C718089E7787CCBCF31520E839985"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\threadblock_swizzle.h",
+    "sha256": "40CD17670F7A2C2A88A3C849FB9409EEFD1855000E4CFB7996D64C13F3216D25"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\device\\reduce_split_k.h",
+    "sha256": "3457B033B29DB7FF94976091068D0D679CA6492D254A280B2240BF384FB2BA2B"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\device\\tensor_reduce_affine_contiguous.h",
+    "sha256": "B721AB5030D3D2B8565C89823D149A526AF6C7A86CC20B8C9C1777B9AB951E54"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\device\\tensor_reduce_affine_strided.h",
+    "sha256": "8185CBA34B5C87E35AE9FC9E2EA8C9ED171E00ECCA193248835181FCD7E8CF99"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\device\\tensor_reduce.h",
+    "sha256": "1521207B5DD74F3BC7AD1EFEBBEACC0EEE17EC2C04C1225CAD9DB0C762A1D1DC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\kernel\\reduce_softmax_final.h",
+    "sha256": "2F55217CE9538A2FD54A777C3C9CA270270A44C6C891C2198069F218BC6120A3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\kernel\\reduce_split_k.h",
+    "sha256": "AAF1EEAA431B53244A66D587B0D088CC23223A49510CCC0413EF08591A18DFA3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\kernel\\tensor_reduce_affine_contiguous.h",
+    "sha256": "21E6FCB519040ABBF8137AE40EE27DF6904A6ECCC4E505FFA31F06C9E563CB37"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\kernel\\tensor_reduce_affine_strided.h",
+    "sha256": "5534926053818E857FEC0392A85BECCF8CA2EA451A453A680ABFFD20D57483B8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\thread\\reduce.h",
+    "sha256": "C7A05CC862CBED63DBA8FB9524D45A925EA4B26637524A9A72D06D12956E14E3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\reduction\\thread\\reduction_operators.h",
+    "sha256": "38185EE5357332934065C9438D5FEE651EA1B721BE1459FD12A045FF27F369B1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\thread\\matrix.h",
+    "sha256": "4BA374C8F230A1103097B6874369EC3D4B3546DD97BE14FAD8DEC26B4CB9B6A7"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\pitch_linear_thread_map.h",
+    "sha256": "1DEE03DCE2B6BC583B1076F3DC144D3455789224DBCC427AA6AAA053325D11B3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\collective\\sm90_wgmma_transpose.hpp",
+    "sha256": "43F55670EF5DD55C80BD488F50B715A3139B7F6B42A1447FCCB247497D134AB3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\device\\transform_universal_adapter.hpp",
+    "sha256": "70E2EF29044512390CFE1137DADF65FA6E2B1A7F3A010F425C066F05ED7D8193"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\kernel\\filter_format_transformer.hpp",
+    "sha256": "993FEB41C9D5B904B368F61A71E32B52D6189483112568E64A04E105363706D6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\thread\\transpose.h",
+    "sha256": "ABA245C8323D1DDC1B17A5CBB4C86F3D598537220BC54264CA7E0D8592C203A2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\thread\\unary_op.h",
+    "sha256": "F288255FB2AED32E53D6B1D659C42B9B9915AA40E206417518C2B080FFEAF271"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\ell_iterator.h",
+    "sha256": "7A4046AD6BF8186779E098C751AC8AEBD3D381EA7A587443AADF770E4C4D06D4"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\ell_predicated_tile_access_iterator.h",
+    "sha256": "B342870D6103089011090FE65B4D1BC02EAEBC64F7D7988A79CACEDDE688E3A9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\ell_predicated_tile_iterator.h",
+    "sha256": "19643346B510E786B5F65AD666CB1F0E24C831F432AE87583F9F7EE078221452"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_scale_bias_vector_access_iterator.h",
+    "sha256": "359964D8F2550F2B9581254297D28F0143A84772B4D88CF6D1B500CFDE9FC22F"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_scale_bias_vector_iterator.h",
+    "sha256": "67345744FFF38818775011440B2136FA7CEAE8654E3D0D64DEB82B5D091DA9B9"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_tile_access_iterator_2dthreadtile.h",
+    "sha256": "72E77E100374A9B1AB8B306E73ADB809C9E83C44DE6949B1A371E77B1100A16C"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_tile_access_iterator_params.h",
+    "sha256": "6F764CAEC0CFEA83C39A8429700DF3348560495BF2ADFF0367ACFBFDCE402CD1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_tile_access_iterator_triangular_matrix.h",
+    "sha256": "C31E1278EB64358224E62E0C7EFB84A793CC010FA6F7F945FE2D24BEC6D2F053"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_tile_access_iterator.h",
+    "sha256": "12B9746AB3F766EFB972DAC839EEB096287C8332C9B47A34EF5FA7FFD61531D8"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_tile_iterator_2dthreadtile.h",
+    "sha256": "5C8ABC5BBFF46D35809AB755F31EB41E1D532105A6093A4C8076CD1E61C74DDA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_tile_iterator_triangular_matrix.h",
+    "sha256": "9AF8C67EA1B6BB8A35B9F81BC726E3AE85E5D48AED3CE2B987AEF5109CD7518A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_tile_iterator.h",
+    "sha256": "AB64AB30E10F951F7C72F62CD6BC1816A4A0BAE3933AE12596E0444F5431CB35"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\predicated_vector_access_iterator.h",
+    "sha256": "844129B4A76918394174B21F317E989E16D4432C8250CA6658323EB78A26D492"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_scale_bias_vector_access_iterator.h",
+    "sha256": "AF1F32017D676182808A41D566CF5CB9EC6C3583C99C58A6489AD8FFC3378AFA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_access_iterator_pitch_linear_direct_conv.h",
+    "sha256": "7851BE5B18BB7FF46E1E95AD19B3D78496076E2C1BA2B348D09787CCAFCA11CF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_access_iterator_pitch_linear.h",
+    "sha256": "988054B7F965357C1259AB4F5942BDA23185DE21E5F9101B0D4D89824B05ED44"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_access_iterator_tensor_op_sm80.h",
+    "sha256": "97E5A9509181DB582FFB10AD68E475EF6883F6E679EF3822BE6FD13E678E7635"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_access_iterator_tensor_op.h",
+    "sha256": "00DDC755629539C8F9E4A29A8E2A474A6879EE14EA2D6059326980E826F8C984"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_access_iterator.h",
+    "sha256": "038E53B4C0ED3A7C8DAAA2D642FB189128645FB43C1767310C9644C856ABDD3A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_iterator_pitch_linear_2dthreadtile.h",
+    "sha256": "15581C11071C014353086EA852A278C20F473BE3484A4F646274D5746501AB08"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_iterator_pitch_linear.h",
+    "sha256": "6F64B75CD0F9B05FCA34033BECDFCB72DFF124580AC18ED0A0CCDBB20C72C094"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_iterator_tensor_op_sm70.h",
+    "sha256": "B1D1A59822951BED0159ACEF92F78C71F03ECEC1141C3BCF532BB2935B61F1A1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_iterator_tensor_op.h",
+    "sha256": "A059C52C145CD1206BC0F7E430FD8EBA57DC8054EC90C2ACCD97E75C9F8D7237"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\regular_tile_iterator.h",
+    "sha256": "55505F14927F711401E81730F0ECFA02AE81CD7CDDA00AF334873CC1EB7399C1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\threadblock\\vector_iterator.h",
+    "sha256": "C8200199A202C2A49892A851B940DE00D3BABEEB59DE8190CA21E7E9AFE020AF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include\\cutlass\\transform\\warp\\vector_fragment_iterator.h",
+    "sha256": "55799EE6826B7338FD3E002A50F1C717163C4484CE34FAB98DC7C92117C0A17D"
+  }
+]

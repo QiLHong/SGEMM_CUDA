@@ -1,0 +1,50 @@
+group=tf32
+batch=2
+seed=42
+case_index=0
+pid=53528
+case_start_utc_ms=1792603806841
+gpu=NVIDIA GeForce RTX 4090 D
+sm_count=114
+cuBLAS_version=120405
+tensor_compute=CUBLAS_COMPUTE_32F_FAST_TF32
+math_mode=CUBLAS_MATH_DISALLOW_REDUCED_PRECISION_REDUCTION
+atomics=CUBLAS_ATOMICS_NOT_ALLOWED
+algorithm=CUBLAS_GEMM_DEFAULT
+strict_compute=CUBLAS_COMPUTE_32F_PEDANTIC
+strict_math=CUBLAS_PEDANTIC_MATH
+alpha=1
+beta=0
+stream=default
+shared_input_pointers_within_group=true
+rounds=7
+repeats=30
+warmup=10
+input_tf32_preparation_ms=0.10956799983978271
+reset=zero C0 D2D before every invocation on same stream outside events
+conversion=GPU __float_to_tf32 outside GEMM events; no FP16 side product in this new harness
+hash=FNV1a64 over actual little-endian float32 bytes; non-cryptographic
+allclose=abs(got-ref)<=eps+eps*abs(got); TF32 eps=0.1; SIMT eps=0.001
+relative_error=abs(got-ref)/max(abs(ref),1e-12)
+tf32_gate=represented-input native allclose; original FP32 failures are recorded
+fp32_abs_gate=abs<=0.01 against all references and CPU samples; SIMT allclose eps=0.001 is separately judged and may FAIL
+bitwise_gate=author and BN64 against author only; other implementations recorded, not required
+event_boundary=public launch API only; includes GPU-visible host enqueue gaps; excludes workspace and initialize
+cutlass_tf32_128x128=CUTLASS3.5.1;TF32x1;RRR;CTA=128x128x32;warp=64x64x32;inst=16x8x8;stages=3;alignmentAB=4;epilogue=4;swizzle=1;splitK=1;Sm80_compiled_sm89
+cutlass_tf32_128x64=CUTLASS3.5.1;TF32x1;RRR;CTA=128x64x16;warp=64x32x16;inst=16x8x8;stages=4;alignmentAB=4;epilogue=4;swizzle=1;splitK=1;Sm80_compiled_sm89
+cutlass_simt_256x128=CUTLASS3.5.1;SIMT_FP32;RRR;CTA=256x128x8;warp=64x64x8;inst=1x1x1;stages=4;alignmentAB=1;epilogue=1;swizzle=1;splitK=1;Sm80_compiled_sm89
+cutlass_threads_128=128
+cutlass_threads_64=128
+cutlass_threads_simt=256
+cutlass_shared_128=98304
+cutlass_shared_64=49152
+cutlass_shared_simt=49152
+cutlass_workspace_128=0
+cutlass_workspace_64=0
+cutlass_workspace_simt=0
+cpu_double_positions=256/4194304
+cpu_index_seed=20261020
+case_end_utc_ms=1792603809875
+cumulative_cuda_calls_checked_success=7123
+cumulative_cublas_calls_checked_success=297
+CASE_COMPLETE=true

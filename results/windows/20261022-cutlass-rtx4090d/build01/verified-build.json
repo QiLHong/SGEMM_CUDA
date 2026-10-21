@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-21T17:20:27.8185671+00:00",
+  "compile_command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1\\include -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\cutlass-rtx4090d\\benchmark.cu -o CMakeFiles\\windows_cutlass_4090d_benchmark.dir\\benchmark.cu.obj -Xcompiler=-FdCMakeFiles\\windows_cutlass_4090d_benchmark.dir\\,-FS",
+  "binary_sha256": "E31EDFCE6C957B4630C18C062D3AEB5FDB347F0F01E231454665E2A19E497E3B",
+  "source_sha256": "49C226A1CFE3CA9E6EF751038F2B363453C013999382C11D88E30C4084A66A2B",
+  "architecture": "sm_89",
+  "fast_math": false,
+  "cutlass_commit": "f7b19de32c5d1f3cedfc735c2849f12b537522ee",
+  "cutlass_dir": "D:\\CUDA-Lab\\cuda-learning\\deps\\cutlass-v3.5.1",
+  "cutlass_headers_zip_sha256": "E6F72A93E823BF530B3928A9F7F5C32C257CAB71F49E4F38520EDE630FE5AB7B",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Thu_Mar_28_02:30:10_Pacific_Daylight_Time_2024\nCuda compilation tools, release 12.4, V12.4.131\nBuild cuda_12.4.r12.4/compiler.34097967_0",
+  "host_compiler": "D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+  "sgemm_commit": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "evidence_dir": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\build01"
+}

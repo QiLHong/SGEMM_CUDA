@@ -39,3 +39,7 @@ docs/zh/25-* -text
 docs/zh/26-* -text
 docs/zh/27-* -text
 docs/zh/33-* -text
+results/windows/20261022-cutlass-rtx4090d/** -text
+experiments/cutlass-rtx4090d/** -text
+scripts/*cutlass_4090d*.py -text
+docs/zh/34-* -text

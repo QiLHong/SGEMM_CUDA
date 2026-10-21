@@ -1,0 +1,10 @@
+implementation,group
+vitamin_tf32_dbf,tf32
+tf32_bn64_bk32,tf32
+cutlass_tf32_128x128,tf32
+cutlass_tf32_128x64_bk16,tf32
+cublas_tf32,tf32
+k10_fp32,fp32
+k30_fp32,fp32
+cutlass_simt_256x128,fp32
+cublas_strict_fp32,fp32

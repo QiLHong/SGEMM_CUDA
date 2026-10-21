@@ -1,0 +1,13 @@
+--- upstream/hgemm_bcf_dbf_rw_kernel
++++ grid/hgemm_bcf_dbf_rw_kernel
+@@ -1,8 +1,8 @@
+-template <const int BM = 128, const int BN = 128, const int BK = 32, typename T>
++template <const int GRID_W, const int BM = 128, const int BN = 128, const int BK = 32, typename T>
+ __global__ void hgemm_bcf_dbf_rw_kernel(T *a, T *b, T *c, int m, int n, int k) {
+     // grid swizzling
+     int linear_id = blockIdx.y * gridDim.x + blockIdx.x;
+-    const int SWIZZLE_W = 8; // swizzle / logical width = 8
++    const int SWIZZLE_W = GRID_W; // swizzle / logical width = 8
+ 
+     int bx = (linear_id % SWIZZLE_W) + (linear_id / (SWIZZLE_W * gridDim.y)) * SWIZZLE_W;
+     int by = (linear_id / SWIZZLE_W) % gridDim.y;

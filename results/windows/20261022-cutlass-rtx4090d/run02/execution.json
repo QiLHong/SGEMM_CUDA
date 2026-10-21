@@ -1,0 +1,66 @@
+[
+  {
+    "group": "tf32",
+    "batch": 1,
+    "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-cutlass-4090d-sm89-final03\\windows_cutlass_4090d_benchmark.exe",
+    "binary_sha256": "F971E74DA275F5787583ABD9AA81535AC175001991AD6D77F2495131E93E1D8C",
+    "arguments": [
+      "--batch",
+      "tf32",
+      "1",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\plan-tf32.csv",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\tf32-batch-1"
+    ],
+    "utc_start": "2026-10-21T17:26:35.6881464+00:00",
+    "utc_end": "2026-10-21T17:27:51.5186330+00:00",
+    "exit_code": 0
+  },
+  {
+    "group": "fp32",
+    "batch": 1,
+    "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-cutlass-4090d-sm89-final03\\windows_cutlass_4090d_benchmark.exe",
+    "binary_sha256": "F971E74DA275F5787583ABD9AA81535AC175001991AD6D77F2495131E93E1D8C",
+    "arguments": [
+      "--batch",
+      "fp32",
+      "1",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\plan-fp32.csv",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\fp32-batch-1"
+    ],
+    "utc_start": "2026-10-21T17:27:51.5369235+00:00",
+    "utc_end": "2026-10-21T17:28:59.1039161+00:00",
+    "exit_code": 0
+  },
+  {
+    "group": "fp32",
+    "batch": 2,
+    "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-cutlass-4090d-sm89-final03\\windows_cutlass_4090d_benchmark.exe",
+    "binary_sha256": "F971E74DA275F5787583ABD9AA81535AC175001991AD6D77F2495131E93E1D8C",
+    "arguments": [
+      "--batch",
+      "fp32",
+      "2",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\plan-fp32.csv",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\fp32-batch-2"
+    ],
+    "utc_start": "2026-10-21T17:28:59.1138766+00:00",
+    "utc_end": "2026-10-21T17:30:06.4377740+00:00",
+    "exit_code": 0
+  },
+  {
+    "group": "tf32",
+    "batch": 2,
+    "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-cutlass-4090d-sm89-final03\\windows_cutlass_4090d_benchmark.exe",
+    "binary_sha256": "F971E74DA275F5787583ABD9AA81535AC175001991AD6D77F2495131E93E1D8C",
+    "arguments": [
+      "--batch",
+      "tf32",
+      "2",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\plan-tf32.csv",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run02\\tf32-batch-2"
+    ],
+    "utc_start": "2026-10-21T17:30:06.4482922+00:00",
+    "utc_end": "2026-10-21T17:31:31.3807515+00:00",
+    "exit_code": 0
+  }
+]

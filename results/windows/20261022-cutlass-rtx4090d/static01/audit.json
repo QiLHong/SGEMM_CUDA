@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "target": "sm_89",
+  "function_count": 8,
+  "precision_evidence": {
+    "tf32_bn64_bk32": {
+      "sass_tensor_instructions": {
+        "HMMA.1688.F32.TF32": 64
+      },
+      "ptx_mma_instructions": {
+        "mma.sync.aligned.m16n8k8.row.col.f32.tf32.tf32.f32": 64
+      },
+      "ptx_async_instructions": {
+        "cp.async.cg.shared.global.": 12,
+        "cp.async.commit_group": 2,
+        "cp.async.wait_group": 2
+      },
+      "tma_wgmma_tcgen05_instructions": {}
+    },
+    "vitamin_tf32_dbf": {
+      "sass_tensor_instructions": {
+        "HMMA.1688.F32.TF32": 64
+      },
+      "ptx_mma_instructions": {
+        "mma.sync.aligned.m16n8k8.row.col.f32.tf32.tf32.f32": 64
+      },
+      "ptx_async_instructions": {
+        "cp.async.cg.shared.global.": 8,
+        "cp.async.commit_group": 2,
+        "cp.async.wait_group": 2
+      },
+      "tma_wgmma_tcgen05_instructions": {}
+    },
+    "cutlass_simt_256x128": {
+      "sass_tensor_instructions": {},
+      "ptx_mma_instructions": {},
+      "ptx_async_instructions": {
+        "cp.async.ca.shared.global.": 36,
+        "cp.async.commit_group": 5,
+        "cp.async.wait_group": 2,
+        "cp.async.wait_all": 1
+      },
+      "tma_wgmma_tcgen05_instructions": {}
+    },
+    "cutlass_tf32_128x64_bk16": {
+      "sass_tensor_instructions": {
+        "HMMA.1688.F32.TF32": 32
+      },
+      "ptx_mma_instructions": {
+        "mma.sync.aligned.m16n8k8.row.col.f32.tf32.tf32.f32": 32
+      },
+      "ptx_async_instructions": {
+        "cp.async.cg.shared.global.": 18,
+        "cp.async.commit_group": 5,
+        "cp.async.wait_group": 2,
+        "cp.async.wait_all": 1
+      },
+      "tma_wgmma_tcgen05_instructions": {}
+    },
+    "cutlass_tf32_128x128": {
+      "sass_tensor_instructions": {
+        "HMMA.1688.F32.TF32": 128
+      },
+      "ptx_mma_instructions": {
+        "mma.sync.aligned.m16n8k8.row.col.f32.tf32.tf32.f32": 128
+      },
+      "ptx_async_instructions": {
+        "cp.async.cg.shared.global.": 32,
+        "cp.async.commit_group": 4,
+        "cp.async.wait_group": 2,
+        "cp.async.wait_all": 1
+      },
+      "tma_wgmma_tcgen05_instructions": {}
+    },
+    "k30_fp32": {
+      "sass_tensor_instructions": {},
+      "ptx_mma_instructions": {},
+      "ptx_async_instructions": {},
+      "tma_wgmma_tcgen05_instructions": {}
+    },
+    "k10_fp32": {
+      "sass_tensor_instructions": {},
+      "ptx_mma_instructions": {},
+      "ptx_async_instructions": {},
+      "tma_wgmma_tcgen05_instructions": {}
+    },
+    "prepare_inputs_helper": {
+      "sass_tensor_instructions": {},
+      "ptx_mma_instructions": {},
+      "ptx_async_instructions": {},
+      "tma_wgmma_tcgen05_instructions": {}
+    }
+  },
+  "input_sha256": [
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\build03\\binary.sass",
+      "bytes": 3720002,
+      "sha256": "ea2160d91f01a4296ce96de024c64eb309d49cb10a25042e9badbec846526df1"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\build03\\binary.ptx",
+      "bytes": 1841578,
+      "sha256": "531c3a4e008e716708a19ff7cc3f9fbad24d81c773035cf46cc5c1cacfe1e0db"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\build03\\resources.txt",
+      "bytes": 6190,
+      "sha256": "e5a9e4e297ccc455dbefa06e80def83de2c052d0f3daa842a21ce949205b7f3a"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\build03\\build.log",
+      "bytes": 15132,
+      "sha256": "90fa194b94f417659b241d03769e58e996fcd639cc67dcb7f7873afe85d7fdb5"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261022-cutlass-rtx4090d\\run04\\smoke\\tf32-small-32.csv.meta.txt",
+      "bytes": 2242,
+      "sha256": "89b711897238d8cd54fb5553b9986b9f0887a5c23ac0dde928a394ac011a1653"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\analyze_cutlass_4090d_static.py",
+      "bytes": 13485,
+      "sha256": "6a86d2e3eefa66b5e4be972993491e124259b3b9314c07c961f7b5c9fe52f3bd"
+    }
+  ],
+  "runtime_metadata_included": true,
+  "limits": [
+    "Static counts include all code paths, constant-false instructions reported separately.",
+    "Source tfloat32_t + OpMultiplyAdd proves the selected single-TF32 configuration; SASS verifies TF32 HMMA, but opcode alone cannot distinguish a hypothetical TF32x3 algorithm.",
+    "Static LDGSTS/HMMA/DEPBAR ordering demonstrates scheduling opportunity, not measured overlap or saved cycles.",
+    "The three CUTLASS configurations differ in multiple factors and are not a single-factor experiment or a library-wide optimum.",
+    "cuBLAS kernels live in the library and are not present in this executable dump.",
+    "SHARED=0 in cuobjdump does not mean zero shared memory when dynamic allocation is used."
+  ]
+}
