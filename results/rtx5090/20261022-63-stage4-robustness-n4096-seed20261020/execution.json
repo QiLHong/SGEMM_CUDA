@@ -1,0 +1,20 @@
+[
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/robustness",
+      "--case",
+      "4096",
+      "4096",
+      "4096",
+      "20261020",
+      "7",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-63-stage4-robustness-n4096-seed20261020/events.csv"
+    ],
+    "binary_sha256": "3a83da2139a4ac2211557aecf00910d4f171c5e112c7373ded68b3be3da7457a",
+    "begin_unix": 1792620919.4910672,
+    "end_unix": 1792620929.5271852,
+    "exit_code": 0
+  }
+]
