@@ -1,0 +1,62 @@
+[
+  {
+    "implementation": "strict",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.0117173033333335,
+    "mean_round_mean_ms": 2.013021097904762,
+    "round_mean_stddev_ms": 0.007318751987091749,
+    "tflops": 68.31921823422668,
+    "median_paired_gain_vs_strict_pct": 0.0,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k10",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.573550924,
+    "mean_round_mean_ms": 2.575555198809524,
+    "round_mean_stddev_ms": 0.015753421027847065,
+    "tflops": 53.40440408242724,
+    "median_paired_gain_vs_strict_pct": -21.759941009094675,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k22-v1",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.637858137333333,
+    "mean_round_mean_ms": 2.636887922857143,
+    "round_mean_stddev_ms": 0.020387990835646165,
+    "tflops": 52.102480996548195,
+    "median_paired_gain_vs_strict_pct": -23.40210478625442,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k22-v2",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.6735615803333332,
+    "mean_round_mean_ms": 2.6703873405714287,
+    "round_mean_stddev_ms": 0.00833551098100395,
+    "tflops": 51.40669079141407,
+    "median_paired_gain_vs_strict_pct": -24.590418944132374,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k22-v3",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.644990929,
+    "mean_round_mean_ms": 2.646884411809524,
+    "round_mean_stddev_ms": 0.011997150736628444,
+    "tflops": 51.96197535692948,
+    "median_paired_gain_vs_strict_pct": -23.859039338389763,
+    "inputs_equal_across_group": true
+  }
+]
