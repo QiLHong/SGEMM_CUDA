@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/root/miniconda3/bin/python",
+    "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/experiments/rtx5090/strict-fp32/summarize_batch.py",
+    "--csv",
+    "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-24-strict-ab-4096/events.csv",
+    "--out",
+    "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-24-strict-ab-4096/analysis",
+    "--selection",
+    "paired",
+    "--rounds",
+    "7",
+    "--repeats",
+    "30"
+  ]
+}

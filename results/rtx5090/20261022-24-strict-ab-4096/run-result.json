@@ -1,0 +1,20 @@
+{
+  "exit_code": 0,
+  "timeout": false,
+  "numeric_acceptance_pass": true,
+  "independent_summary_verified": true,
+  "formal_events": 1050,
+  "wall_seconds": 7.073871679021977,
+  "events_sha256": "f9368ab15fcdeeb287f2d01476b9027c689de78e204c66c7cf5be0cdaaa12adb",
+  "analysis_exit_code": 0,
+  "source_files_changed_during_run": [],
+  "binary_changed_during_run": false,
+  "status": "COMPLETE",
+  "telemetry_exited_before_stop": false,
+  "telemetry_exit_code": 0,
+  "telemetry_rows": 29,
+  "telemetry_status": "SAMPLED",
+  "utc_end": "2026-10-21T17:38:26.371198+00:00",
+  "wrapper_exit_code": 0,
+  "closed": true
+}
