@@ -1,0 +1,7 @@
+round,order_position,implementation,sample,milliseconds,M,N,K,seed,dtype
+0,0,hgemm_bcf_dbf_rw,0,0.016863999888300896,128,1024,384,42,bf16
+0,1,hgemm_k_stages,0,0.017311999574303627,128,1024,384,42,bf16
+0,2,hgemm_tma_r_k_stages_64,0,0.016383999958634377,128,1024,384,42,bf16
+0,3,hgemm_tma_r_k_stages_32,0,0.017343999817967415,128,1024,384,42,bf16
+0,4,hgemm_cublas,0,0.015296000055968761,128,1024,384,42,bf16
+0,5,hgemm_cublas_no_reduced_reduction,0,0.012927999719977379,128,1024,384,42,bf16

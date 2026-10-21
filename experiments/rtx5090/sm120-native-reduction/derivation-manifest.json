@@ -1,0 +1,18 @@
+{
+  "source_directory": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/experiments/rtx5090/sm120-native",
+  "created_sibling": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/experiments/rtx5090/sm120-native-reduction",
+  "source_sha256": {
+    "native_host.inc": "4d0cbff36825d63140feead1cb31ec694ea7f1da20856accbc0af78fc27fcbfc",
+    "build_native.py": "6fb9acad84f4a297e9aa6e15e8633a5a4178102177cb4afe5c00e3d8e60cdb49",
+    "run_native.py": "f4e0839f053931ca83535587ef8424854c1e2415a72de7d14931e70ecefe2118"
+  },
+  "derived_sha256": {
+    "native_host.inc": "f80035ec98e74442ca8c1f72502e2b6d3e7967289fef5e81737cf07c8e8924b8",
+    "build_native.py": "dcb3af419735acb824f537d15436d90bfca152ba876fb02534109ba877a0ada8",
+    "run_native.py": "5d123adf0d6b694d9187e3710fa72564ce142cfeac3b9f197a06a6ac7a9bfdc4"
+  },
+  "original_unchanged": true,
+  "formal_events": 1260,
+  "gpu_run_by_derivation": false,
+  "change": "variant5 adds DISALLOW_REDUCED_PRECISION_REDUCTION only; defaultvariant4 unchanged; thresholds unchanged; old baseline frozen; independent refs determine validity"
+}

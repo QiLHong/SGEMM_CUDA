@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "status": "COMPLETE",
+  "independent_summary_verified": true,
+  "scope": "build and two 6-event smoke checks only, no performance claim",
+  "numeric_acceptance_pass": true
+}

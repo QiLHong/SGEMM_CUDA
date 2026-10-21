@@ -1,0 +1,101 @@
+--- original/run_native.py
++++ reduction/run_native.py
+@@ -13,7 +13,7 @@
+ import traceback
+ from build_native import build
+ 
+-NAMES=['hgemm_bcf_dbf_rw','hgemm_k_stages','hgemm_tma_r_k_stages_64','hgemm_tma_r_k_stages_32','hgemm_cublas']
++NAMES=['hgemm_bcf_dbf_rw','hgemm_k_stages','hgemm_tma_r_k_stages_64','hgemm_tma_r_k_stages_32','hgemm_cublas','hgemm_cublas_no_reduced_reduction']
+ 
+ def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+ 
+@@ -51,7 +51,7 @@
+             M=N=K=args.size
+             rounds,warmup,repeat=7,10,30
+         if M<=0 or M%128 or N<=0 or N%1024 or K<128 or K%64: raise ValueError('illegal common shape')
+-        meta.update(shape=[M,N,K],rounds=rounds,warmup=warmup,repeat=repeat,expected_events=rounds*repeat*5,
++        meta.update(shape=[M,N,K],rounds=rounds,warmup=warmup,repeat=repeat,expected_events=rounds*repeat*len(NAMES),
+                     torch=torch.__version__,cuda=torch.version.cuda)
+         lib,source=build(args.upstream,args.build_root)
+         save('source-manifest.json',source)
+@@ -75,10 +75,17 @@
+         save('inputs.json',{'A':fp(a),'B':fp(b),'C0':fp(c0),'raw_FP32_A':fp(raw_a),'raw_FP32_B':fp(raw_b)})
+         lib.audit_pedantic(a.float(),b.float(),represented)
+         lib.audit_pedantic(raw_a.cuda(),raw_b.cuda(),original)
+-        lib.audit_measure(a,b,same,c0,4,1,1)
++        default_ref=torch.empty_like(c0)
++        lib.audit_measure(a,b,default_ref,c0,4,1,1)
++        lib.audit_measure(a,b,same,c0,5,1,1)
+         torch.cuda.synchronize()
+         # Freeze references outside all measured intervals.
+         same_cpu=same.cpu()
++        default_cpu=default_ref.cpu()
++        meta['same_precision_reference']='CUBLAS_COMPUTE_32F + CUBLAS_MATH_DISALLOW_REDUCED_PRECISION_REDUCTION, identical input/output dtype'
++        meta['performance_baseline']='hgemm_cublas_no_reduced_reduction'
++        meta['original_default_cublas_preserved']=True
++        meta['controlled_change']='sixth comparator adds only per-handle disallow-reduced-reduction flag; restored after each call; original default row unchanged' 
+         represented_cpu=represented.cpu().to(dtype)
+         original_cpu=original.cpu()
+         if args.mode=='smoke':
+@@ -114,12 +121,13 @@
+             return result
+         orders=[]
+         for r in range(rounds):
+-            order=list(range(5))[r%5:]+list(range(5))[:r%5]
++            order=list(range(len(NAMES)))[r%len(NAMES):]+list(range(len(NAMES)))[:r%len(NAMES)]
+             if r%2: order.reverse()
+             orders.append(order)
+         save('order.json',[[NAMES[i] for i in row] for row in orders])
+         save('PARTIAL.json',meta)
+         all_pass=True
++        per_impl_valid={name:True for name in NAMES}
+         with (out/'events.csv').open('w',newline='',encoding='utf-8') as f:
+             writer=csv.DictWriter(f,fieldnames=['round','order_position','implementation','sample','milliseconds','M','N','K','seed','dtype'])
+             writer.writeheader()
+@@ -137,29 +145,38 @@
+                     candidate=c.cpu()
+                     # Untimed original exported host path, same bytes and same device function.
+                     upstream_output=torch.empty_like(c)
+-                    getattr(lib,NAMES[variant])(a,b,upstream_output)
++                    getattr(lib,NAMES[variant] if variant<5 else NAMES[4])(a,b,upstream_output)
+                     torch.cuda.synchronize()
+                     upstream_cpu=upstream_output.cpu()
+                     differing=int((candidate.view(torch.int16)!=upstream_cpu.view(torch.int16)).sum())
+-                    bitwise.append({'round':r,'implementation':NAMES[variant],'different_output_elements':differing,'exact_bitwise_equal':differing==0})
++                    bitwise.append({'round':r,'implementation':NAMES[variant],'different_output_elements':differing,'exact_bitwise_equal':differing==0,'required_equal_to_original':variant<5,'comparison':'same original variant' if variant<5 else 'new reduction-controlled comparator vs original default cuBLAS; diagnostic only'})
+                     save('upstream_bitwise.json',bitwise)
+-                    all_pass &= differing==0
+-                    check_same=metrics(same_cpu,candidate,NAMES[variant],'full_same_dtype_cublas_COMPUTE_32F',r)
++                    if variant<5:
++                        all_pass &= differing==0
++                        per_impl_valid[NAMES[variant]] &= differing==0
++                    check_same=metrics(same_cpu,candidate,NAMES[variant],'full_same_dtype_cublas_COMPUTE_32F_DISALLOW_REDUCED_PRECISION_REDUCTION',r)
++                    metrics(default_cpu,candidate,NAMES[variant],'diagnostic_original_default_cublas_COMPUTE_32F_unchanged',r)
+                     check_represented=metrics(represented_cpu,candidate,NAMES[variant],'full_PEDANTIC_FP32_actual_inputs_then_output_rounding',r)
+                     metrics(original_cpu,candidate,NAMES[variant],'full_PEDANTIC_FP32_original_FP32_inputs_no_output_rounding',r)
+                     sampled=candidate if sample_rows is None else candidate[sample_rows,sample_cols]
+                     check_cpu=metrics(cpu_reference,sampled,NAMES[variant],cpu_reference_name,r)
+-                    all_pass &= check_same['author_allclose'] and check_represented['author_allclose'] and check_cpu['author_allclose']
++                    valid=bool(check_same['author_allclose'] and check_represented['author_allclose'] and check_cpu['author_allclose'])
++                    per_impl_valid[NAMES[variant]] &= valid
++                    all_pass &= valid
++                    save('per_implementation_validity.json',[{'implementation':name,'valid_fp32_accum_comparison':bool(per_impl_valid[name]),'status_scope':'all completed rounds so far','acceptance_threshold':'unchanged author .016/.016; represented PEDANTIC and CPU double; same dtype disallow-reduction cuBLAS; original bitwise required for variants0..4'} for name in NAMES])
+                     print(json.dumps({'round':r,'implementation':NAMES[variant],'mean_ms':statistics.mean(values),'author_same_dtype_pass':check_same['author_allclose'],'cpu_double_pass':check_cpu['author_allclose']}),flush=True)
+         with (out/'events.csv').open(newline='',encoding='utf-8') as f: rows=list(csv.DictReader(f))
+         if len(rows)!=meta['expected_events']: raise RuntimeError('closed CSV event count mismatch')
+         means={name:[statistics.mean(float(x['milliseconds']) for x in rows if x['implementation']==name and int(x['round'])==r) for r in range(rounds)] for name in NAMES}
+         summary=[]
+         for name in NAMES:
+-            median=statistics.median(means[name]);paired=[means[NAMES[4]][r]/means[name][r]-1 for r in range(rounds)]
+-            summary.append({'implementation':name,'round_mean_ms':means[name],'median_round_mean_ms':median,'tflops':2*M*N*K/(median*1e9),'paired_speedup_vs_cublas':paired,'median_paired_speedup_vs_cublas':statistics.median(paired)})
++            median=statistics.median(means[name]);paired=[means[NAMES[5]][r]/means[name][r]-1 for r in range(rounds)]
++            summary.append({'implementation':name,'round_mean_ms':means[name],'median_round_mean_ms':median,'tflops':2*M*N*K/(median*1e9),'baseline':NAMES[5],'valid_fp32_accum_comparison':bool(per_impl_valid[name]),'paired_speedup_vs_cublas_no_reduced_reduction':paired,'median_paired_speedup_vs_cublas_no_reduced_reduction':statistics.median(paired)})
+         save('summary.json',summary)
+-        meta.update(complete=True,acceptance_pass=bool(all_pass),actual_events=len(rows),events_sha256=sha(out/'events.csv'))
++        meta.update(complete=True,acceptance_pass=bool(all_pass),actual_events=len(rows),events_sha256=sha(out/'events.csv'),
++                    valid_fp32_accum_comparison_by_implementation={name:bool(per_impl_valid[name]) for name in NAMES},
++                    primary_fp32_accum_comparison_pass=all(per_impl_valid[name] for i,name in enumerate(NAMES) if i!=4),
++                    default_cublas_numerical_failures_retained=not per_impl_valid[NAMES[4]])
+         save('COMPLETED.json',meta)
+         return 0 if all_pass else 2
+     except Exception:

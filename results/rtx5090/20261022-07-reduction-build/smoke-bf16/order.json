@@ -1,0 +1,10 @@
+[
+  [
+    "hgemm_bcf_dbf_rw",
+    "hgemm_k_stages",
+    "hgemm_tma_r_k_stages_64",
+    "hgemm_tma_r_k_stages_32",
+    "hgemm_cublas",
+    "hgemm_cublas_no_reduced_reduction"
+  ]
+]

@@ -1,0 +1,7 @@
+ninja: no work to do.
+{"round": 0, "implementation": "hgemm_bcf_dbf_rw", "mean_ms": 0.01692800037562847, "author_same_dtype_pass": true, "cpu_double_pass": true}
+{"round": 0, "implementation": "hgemm_k_stages", "mean_ms": 0.016704000532627106, "author_same_dtype_pass": true, "cpu_double_pass": true}
+{"round": 0, "implementation": "hgemm_tma_r_k_stages_64", "mean_ms": 0.018112000077962875, "author_same_dtype_pass": true, "cpu_double_pass": true}
+{"round": 0, "implementation": "hgemm_tma_r_k_stages_32", "mean_ms": 0.016224000602960587, "author_same_dtype_pass": true, "cpu_double_pass": true}
+{"round": 0, "implementation": "hgemm_cublas", "mean_ms": 0.013120000250637531, "author_same_dtype_pass": true, "cpu_double_pass": true}
+{"round": 0, "implementation": "hgemm_cublas_no_reduced_reduction", "mean_ms": 0.012512000277638435, "author_same_dtype_pass": true, "cpu_double_pass": true}

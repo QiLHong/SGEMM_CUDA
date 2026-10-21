@@ -4,3 +4,4 @@
 {"commit": "b19d265989bebbfb05b6b05684b93bfae631e5b9", "verified": true, "push_exit": 0, "readback_paths": ["docs/zh/rtx5090/reproduction-matrix.csv", "results/rtx5090/20261022-03-inventory/independent-summary.json"]}
 {"commit": "9e0f5fb5ad178ecfaa533e1d9b96dd306f3d9074", "verified": true, "push_exit": 0, "readback_paths": ["results/rtx5090/20261022-04-author-bf16-4096/original-wallclock.csv", "results/rtx5090/20261022-04-author-bf16-4096/data/inputs.json"]}
 {"commit": "b043714225bb5cff7947565a7d6c915dae88fd1a", "verified": true, "push_exit": 0, "readback_paths": ["experiments/rtx5090/sm120-native/native_host.inc", "results/rtx5090/20261022-05-sm120-native-build-smoke/BATCH_COMPLETE.json"]}
+{"commit": "f14dc4aadb7d5d0d79f07fb2fc58a29a697314a0", "verified": true, "push_exit": 0, "readback_paths": ["results/rtx5090/20261022-06-native-bf16-1024/data/events.csv", "results/rtx5090/20261022-06-native-bf16-1024/data/correctness.json"]}
