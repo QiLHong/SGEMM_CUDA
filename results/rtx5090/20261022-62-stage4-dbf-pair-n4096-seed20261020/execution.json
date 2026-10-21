@@ -1,0 +1,212 @@
+[
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_default",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair1-1-dbf_default.csv",
+      "all"
+    ],
+    "binary_sha256": "5b6e68a6a34771c6431fc686bdaeb2ccac3ef931b9b93985a08e96b4a80889c2",
+    "begin_unix": 1792620819.3314164,
+    "end_unix": 1792620821.1029267,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_maxr128",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair1-2-dbf_maxr128.csv",
+      "all"
+    ],
+    "binary_sha256": "c1f5e487fbf742223109f0946e9e7ecdd5dc2be758445d073666a513316cc774",
+    "begin_unix": 1792620821.1035237,
+    "end_unix": 1792620822.825343,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_maxr128",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair2-1-dbf_maxr128.csv",
+      "all"
+    ],
+    "binary_sha256": "c1f5e487fbf742223109f0946e9e7ecdd5dc2be758445d073666a513316cc774",
+    "begin_unix": 1792620822.8262613,
+    "end_unix": 1792620824.5467818,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_default",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair2-2-dbf_default.csv",
+      "all"
+    ],
+    "binary_sha256": "5b6e68a6a34771c6431fc686bdaeb2ccac3ef931b9b93985a08e96b4a80889c2",
+    "begin_unix": 1792620824.5477326,
+    "end_unix": 1792620826.2181456,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_default",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair3-1-dbf_default.csv",
+      "all"
+    ],
+    "binary_sha256": "5b6e68a6a34771c6431fc686bdaeb2ccac3ef931b9b93985a08e96b4a80889c2",
+    "begin_unix": 1792620826.218944,
+    "end_unix": 1792620827.889406,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_maxr128",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair3-2-dbf_maxr128.csv",
+      "all"
+    ],
+    "binary_sha256": "c1f5e487fbf742223109f0946e9e7ecdd5dc2be758445d073666a513316cc774",
+    "begin_unix": 1792620827.8904576,
+    "end_unix": 1792620829.560956,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_maxr128",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair4-1-dbf_maxr128.csv",
+      "all"
+    ],
+    "binary_sha256": "c1f5e487fbf742223109f0946e9e7ecdd5dc2be758445d073666a513316cc774",
+    "begin_unix": 1792620829.5621502,
+    "end_unix": 1792620831.2324889,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_default",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair4-2-dbf_default.csv",
+      "all"
+    ],
+    "binary_sha256": "5b6e68a6a34771c6431fc686bdaeb2ccac3ef931b9b93985a08e96b4a80889c2",
+    "begin_unix": 1792620831.233341,
+    "end_unix": 1792620832.9038725,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_default",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair5-1-dbf_default.csv",
+      "all"
+    ],
+    "binary_sha256": "5b6e68a6a34771c6431fc686bdaeb2ccac3ef931b9b93985a08e96b4a80889c2",
+    "begin_unix": 1792620832.904939,
+    "end_unix": 1792620834.5752854,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_maxr128",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair5-2-dbf_maxr128.csv",
+      "all"
+    ],
+    "binary_sha256": "c1f5e487fbf742223109f0946e9e7ecdd5dc2be758445d073666a513316cc774",
+    "begin_unix": 1792620834.5763667,
+    "end_unix": 1792620836.1968477,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_maxr128",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair6-1-dbf_maxr128.csv",
+      "all"
+    ],
+    "binary_sha256": "c1f5e487fbf742223109f0946e9e7ecdd5dc2be758445d073666a513316cc774",
+    "begin_unix": 1792620836.1978366,
+    "end_unix": 1792620837.918181,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_default",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair6-2-dbf_default.csv",
+      "all"
+    ],
+    "binary_sha256": "5b6e68a6a34771c6431fc686bdaeb2ccac3ef931b9b93985a08e96b4a80889c2",
+    "begin_unix": 1792620837.919145,
+    "end_unix": 1792620839.5896387,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_default",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair7-1-dbf_default.csv",
+      "all"
+    ],
+    "binary_sha256": "5b6e68a6a34771c6431fc686bdaeb2ccac3ef931b9b93985a08e96b4a80889c2",
+    "begin_unix": 1792620839.5908182,
+    "end_unix": 1792620841.2114384,
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/dbf_maxr128",
+      "4096",
+      "1",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-62-stage4-dbf-pair-n4096-seed20261020/events-pair7-2-dbf_maxr128.csv",
+      "all"
+    ],
+    "binary_sha256": "c1f5e487fbf742223109f0946e9e7ecdd5dc2be758445d073666a513316cc774",
+    "begin_unix": 1792620841.212451,
+    "end_unix": 1792620842.9329076,
+    "exit_code": 0
+  }
+]

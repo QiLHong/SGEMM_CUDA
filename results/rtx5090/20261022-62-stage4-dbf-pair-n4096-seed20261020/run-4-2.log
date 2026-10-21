@@ -1,0 +1,13 @@
+DEVICE,name=NVIDIA GeForce RTX 5090,compute=12.0,SMs=170,global_bytes=33670758400,runtime=12080,driver_api=13020
+KERNEL_RESOURCE,register_limit=0,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_default,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120804,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000841329104,max_rel=3.20170134e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0.00610351562,max_rel=51.6875,failures=0,nonfinite=0,upstream_allclose_failures=27,upstream_allclose=FAIL,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=2.386946138,median_sample_ms=2.437119961,gflops=57579.411,max_abs=0.00610351562,failures=0,nonfinite=0,upstream_allclose_failures=27,upstream_allclose=FAIL,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=4096,rounds=1,median_round_ms=2.386946138,min_round_ms=2.386946138,max_round_ms=2.386946138,range_over_median_pct=0.0000,median_gflops=57579.411,abs_status=PASS,upstream_allclose=FAIL
