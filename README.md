@@ -24,6 +24,21 @@
 并区分“只读分析”“需要 GPU”“会改源码或覆盖结果”的入口。各文件顶部和关键流程旁
 都有中文解释，K30 还包含 lane 0/1/2 的具体坐标例子；本轮注释整理不改变算法或历史数据。
 
+## RTX 4090 D：Tensor Core 复现与优化（Windows，2026-10-21）
+
+新增[Tensor Core 优化学习指南](docs/zh/32-RTX4090D-TensorCore优化学习指南.md)，
+把作者原版、BK32 和 BN64 串成一条代码阅读路线，包含线程坐标手算、shared 数据流、同步时序、复跑命令与带答案练习。
+
+BN64 在 2048 方阵的独立确认中为 **57.998 TFLOPS**，对同批作者原版的逐轮配对提升中位数为 **19.56%**，
+对同输入 **TF32 cuBLAS** 为 **11.57%**；4096 未观察到稳定优于作者原版的提升。
+这是 TF32 输入、FP32 累加及输出，原始严格 FP32 的误差标准仍失败。
+成绩仅属于本机 Windows RTX 4090 D，不与下方 A6000 / RTX 3080 历史表合并。
+
+详细实验记录：[第 30 章：BK32 的资源代价](docs/zh/30-TensorCore-K分块实验与资源代价.md)、
+[第 31 章：BN64 与尺寸效应](docs/zh/31-TensorCore-BN64优化与尺寸效应.md)；
+原始数据独立保存在 [BK32 归档](results/windows/20261021-tensorcore-ktile/README.md)
+和 [BN64 归档](results/windows/20261021-tensorcore-bn64/README.md)。
+
 ## 概览
 
 以下是**原作者在 NVIDIA A6000（Ampere）上的历史结果**，不是本分支在你的 RTX 3080 上重新测得的数据：
