@@ -1,0 +1,23 @@
+{
+  "status": "COMPLETE",
+  "family": "simt_strict",
+  "shape": [
+    4096,
+    4096,
+    4096
+  ],
+  "seed": 20261020,
+  "rounds": 7,
+  "repeats": 30,
+  "warmup": 10,
+  "selection": "all",
+  "input_contract": "original harness, C=AB alpha1 beta0, xorshift bounded input; original FNV fingerprints retained",
+  "inherited_NVIDIA_TF32_OVERRIDE": null,
+  "effective_NVIDIA_TF32_OVERRIDE": "0",
+  "runner_sha256": "ac2966c25a73dde34130623e692d0cff71a0db59f7e95bd08cbe70c1f6b61338",
+  "expected_events": 1680,
+  "actual_events": 1680,
+  "exit_codes": [
+    0
+  ]
+}

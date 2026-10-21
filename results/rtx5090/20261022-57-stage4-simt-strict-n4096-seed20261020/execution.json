@@ -1,0 +1,17 @@
+[
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/simt_strict",
+      "4096",
+      "7",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-57-stage4-simt-strict-n4096-seed20261020/events.csv",
+      "all"
+    ],
+    "binary_sha256": "e333e580be54b9341625d8acd6650d25d9e2da28a59c498623b6139ded563598",
+    "begin_unix": 1792612141.568439,
+    "end_unix": 1792612151.7549043,
+    "exit_code": 0
+  }
+]
