@@ -1,0 +1,80 @@
+{
+  "source_csv": "events.csv",
+  "sha256": "477976ad329849bee1a5b095be2e7e29d4bd554fe3257fcab3e24e57c53d8202",
+  "rows": 1050,
+  "group_counts": {
+    "hgemm_bcf_dbf_rw/round0": 30,
+    "hgemm_k_stages/round0": 30,
+    "hgemm_tma_r_k_stages_64/round0": 30,
+    "hgemm_tma_r_k_stages_32/round0": 30,
+    "hgemm_cublas/round0": 30,
+    "hgemm_bcf_dbf_rw/round1": 30,
+    "hgemm_cublas/round1": 30,
+    "hgemm_tma_r_k_stages_32/round1": 30,
+    "hgemm_tma_r_k_stages_64/round1": 30,
+    "hgemm_k_stages/round1": 30,
+    "hgemm_tma_r_k_stages_64/round2": 30,
+    "hgemm_tma_r_k_stages_32/round2": 30,
+    "hgemm_cublas/round2": 30,
+    "hgemm_bcf_dbf_rw/round2": 30,
+    "hgemm_k_stages/round2": 30,
+    "hgemm_tma_r_k_stages_64/round3": 30,
+    "hgemm_k_stages/round3": 30,
+    "hgemm_bcf_dbf_rw/round3": 30,
+    "hgemm_cublas/round3": 30,
+    "hgemm_tma_r_k_stages_32/round3": 30,
+    "hgemm_cublas/round4": 30,
+    "hgemm_bcf_dbf_rw/round4": 30,
+    "hgemm_k_stages/round4": 30,
+    "hgemm_tma_r_k_stages_64/round4": 30,
+    "hgemm_tma_r_k_stages_32/round4": 30,
+    "hgemm_cublas/round5": 30,
+    "hgemm_tma_r_k_stages_32/round5": 30,
+    "hgemm_tma_r_k_stages_64/round5": 30,
+    "hgemm_k_stages/round5": 30,
+    "hgemm_bcf_dbf_rw/round5": 30,
+    "hgemm_k_stages/round6": 30,
+    "hgemm_tma_r_k_stages_64/round6": 30,
+    "hgemm_tma_r_k_stages_32/round6": 30,
+    "hgemm_cublas/round6": 30,
+    "hgemm_bcf_dbf_rw/round6": 30
+  },
+  "shape": [
+    1024,
+    1024,
+    1024
+  ],
+  "summary": [
+    {
+      "implementation": "hgemm_bcf_dbf_rw",
+      "median_round_mean_ms": 0.030022400431334972,
+      "tflops": 71.52937863551473,
+      "median_paired_speedup_vs_cublas": -0.14364760947855149
+    },
+    {
+      "implementation": "hgemm_cublas",
+      "median_round_mean_ms": 0.025639466444651284,
+      "tflops": 83.75695542010752,
+      "median_paired_speedup_vs_cublas": 0.0
+    },
+    {
+      "implementation": "hgemm_k_stages",
+      "median_round_mean_ms": 0.029985067062079908,
+      "tflops": 71.61843738931563,
+      "median_paired_speedup_vs_cublas": -0.14395101556435808
+    },
+    {
+      "implementation": "hgemm_tma_r_k_stages_32",
+      "median_round_mean_ms": 0.03158506626884142,
+      "tflops": 67.99047466677271,
+      "median_paired_speedup_vs_cublas": -0.18865157612531147
+    },
+    {
+      "implementation": "hgemm_tma_r_k_stages_64",
+      "median_round_mean_ms": 0.02999040043602387,
+      "tflops": 71.60570105027627,
+      "median_paired_speedup_vs_cublas": -0.1421173168812364
+    }
+  ]
+}
+

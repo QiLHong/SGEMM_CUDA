@@ -1,0 +1,212 @@
+[
+  {
+    "round": 0,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 0,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 0,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 0,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 0,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true
+  }
+]
