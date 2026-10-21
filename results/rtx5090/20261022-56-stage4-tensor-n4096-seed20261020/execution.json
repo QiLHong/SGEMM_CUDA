@@ -1,0 +1,19 @@
+[
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/tensor",
+      "4096",
+      "4096",
+      "4096",
+      "7",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-56-stage4-tensor-n4096-seed20261020/events.csv",
+      "all"
+    ],
+    "binary_sha256": "e9ae669eaa254d139e0434e82cd7cf2733bf92505c733cdca2e884be450c8dcc",
+    "begin_unix": 1792611987.2421691,
+    "end_unix": 1792611991.368,
+    "exit_code": 1
+  }
+]
