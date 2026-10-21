@@ -1,0 +1,158 @@
+--- upstream/BK16
++++ experimental/BK16-or-32
+@@ -1,5 +1,7 @@
+ template <const int BM = 128, const int BN = 128, const int BK = 16>
+ __global__ void sgemm_tf32_swizzle_bcf_dbf_kernel(float *a, float *b, float *c, int m, int n, int k) {
++    static_assert(BM == 128 && BN == 128 && (BK == 16 || BK == 32));
++    constexpr int Slices = BK / 16;
+     // grid swizzling
+     int linear_id = blockIdx.y * gridDim.x + blockIdx.x;
+     const int SWIZZLE_W = 8; // grid swizzle tile width
+@@ -18,8 +20,12 @@
+     int load_b_col = (tid % WARP_SIZE) * 4;
+ 
+     // double buffer
+-    __shared__ float As[2][BM][BK];
+-    __shared__ float Bs[2][BK][BM];
++    // BK32 requires opt-in dynamic shared memory. Each 16-wide slab keeps
++    // the original A row stride and XOR mapping; do not use A[128][32].
++    extern __shared__ __align__(16) unsigned char shared_bytes[];
++    auto As = reinterpret_cast<float (*)[Slices][BM][16]>(shared_bytes);
++    auto Bs = reinterpret_cast<float (*)[Slices][16][BN]>(
++        shared_bytes + 2 * Slices * BM * 16 * sizeof(float));
+ 
+     // 2x4 warp tiling
+     int warp_id_m = warp_id / 4;
+@@ -27,27 +33,34 @@
+ 
+     float sum[4][4][4] = {0.f};
+     // ------------------------------------------- Prefetch first tile
++    auto copy_tile = [&](int slot, int kk) {
++#pragma unroll
++        for (int slab = 0; slab < Slices; ++slab) {
+     int a_swizzle_col_0 = SWIZZLE_A(load_a_row, load_a_col);
+     int a_swizzle_col_1 = SWIZZLE_A(load_a_row + 64, load_a_col);
+ 
+-    uint32_t smem_a0 = static_cast<uint32_t>(__cvta_generic_to_shared(&As[0][load_a_row][a_swizzle_col_0]));
+-    uint32_t smem_a1 = static_cast<uint32_t>(__cvta_generic_to_shared(&As[0][load_a_row + 64][a_swizzle_col_1]));
+-
+-    float *global_a0 = &a[(by * BM + load_a_row) * k + 0 + load_a_col];
+-    float *global_a1 = &a[(by * BM + load_a_row + 64) * k + 0 + load_a_col];
++    uint32_t smem_a0 = static_cast<uint32_t>(__cvta_generic_to_shared(&As[slot][slab][load_a_row][a_swizzle_col_0]));
++    uint32_t smem_a1 = static_cast<uint32_t>(__cvta_generic_to_shared(&As[slot][slab][load_a_row + 64][a_swizzle_col_1]));
++
++    float *global_a0 = &a[(by * BM + load_a_row) * k + kk + slab * 16 + load_a_col];
++    float *global_a1 = &a[(by * BM + load_a_row + 64) * k + kk + slab * 16 + load_a_col];
+     CP_ASYNC_CG(smem_a0, global_a0);
+     CP_ASYNC_CG(smem_a1, global_a1);
+ 
+     uint32_t smem_b0 =
+-        static_cast<uint32_t>(__cvta_generic_to_shared(&Bs[0][load_b_row][SWIZZLE_B_F2(load_b_row, load_b_col)]));
++        static_cast<uint32_t>(__cvta_generic_to_shared(&Bs[slot][slab][load_b_row][SWIZZLE_B_F2(load_b_row, load_b_col)]));
+     uint32_t smem_b1 = static_cast<uint32_t>(
+-        __cvta_generic_to_shared(&Bs[0][load_b_row + 8][SWIZZLE_B_F2(load_b_row + 8, load_b_col)]));
+-
+-    float *global_b0 = &b[(0 + load_b_row) * n + bx * BN + load_b_col];
+-    float *global_b1 = &b[(0 + load_b_row + 8) * n + bx * BN + load_b_col];
++        __cvta_generic_to_shared(&Bs[slot][slab][load_b_row + 8][SWIZZLE_B_F2(load_b_row + 8, load_b_col)]));
++
++    float *global_b0 = &b[(kk + slab * 16 + load_b_row) * n + bx * BN + load_b_col];
++    float *global_b1 = &b[(kk + slab * 16 + load_b_row + 8) * n + bx * BN + load_b_col];
+ 
+     CP_ASYNC_CG(smem_b0, global_b0);
+     CP_ASYNC_CG(smem_b1, global_b1);
++
++        }
++    };
++    copy_tile(0, 0);
+ 
+     CP_ASYNC_COMMIT_GROUP();
+     CP_ASYNC_WAIT_GROUP_0();
+@@ -59,31 +72,14 @@
+     // main loop
+     for (int bk = BK; bk < k; bk += BK) {
+ 
+-        // 1. Issue async prefetch of next A tile into write_idx buffer
+-        smem_a0 = static_cast<uint32_t>(__cvta_generic_to_shared(&As[write_idx][load_a_row][a_swizzle_col_0]));
+-        smem_a1 = static_cast<uint32_t>(__cvta_generic_to_shared(&As[write_idx][load_a_row + 64][a_swizzle_col_1]));
+-        global_a0 = &a[(by * BM + load_a_row) * k + bk + load_a_col];
+-        global_a1 = &a[(by * BM + load_a_row + 64) * k + bk + load_a_col];
+-        CP_ASYNC_CG(smem_a0, global_a0);
+-        CP_ASYNC_CG(smem_a1, global_a1);
+-
+-        // cp.async load B
+-        uint32_t smem_b0 = static_cast<uint32_t>(
+-            __cvta_generic_to_shared(&Bs[write_idx][load_b_row][SWIZZLE_B_F2(load_b_row, load_b_col)]));
+-        uint32_t smem_b1 = static_cast<uint32_t>(
+-            __cvta_generic_to_shared(&Bs[write_idx][load_b_row + 8][SWIZZLE_B_F2(load_b_row + 8, load_b_col)]));
+-
+-        float *global_b0 = &b[(bk + load_b_row) * n + bx * BN + load_b_col];
+-        float *global_b1 = &b[(bk + load_b_row + 8) * n + bx * BN + load_b_col];
+-
+-        CP_ASYNC_CG(smem_b0, global_b0);
+-        CP_ASYNC_CG(smem_b1, global_b1);
++        copy_tile(write_idx, bk);
+         CP_ASYNC_COMMIT_GROUP();
+ 
+         // 2. Tensor Core compute using current read_idx buffer
+ #pragma unroll
+-        for (int k_step = 0; k_step < 2; ++k_step) {
+-            int k_offset = k_step * 8;
++        for (int k_step = 0; k_step < BK / 8; ++k_step) {
++            int slab = k_step / 2;
++        int k_offset = (k_step % 2) * 8;
+             uint32_t reg_a[4][4];
+             uint32_t reg_b[4][2];
+ 
+@@ -93,7 +89,7 @@
+                 int a_row = warp_id_m * 64 + m_idx * 16 + (lane_id % 16);
+                 int a_col = k_offset + (lane_id / 16) * 4;
+                 uint32_t smem_addr =
+-                    static_cast<uint32_t>(__cvta_generic_to_shared(&As[read_idx][a_row][SWIZZLE_A(a_row, a_col)]));
++                    static_cast<uint32_t>(__cvta_generic_to_shared(&As[read_idx][slab][a_row][SWIZZLE_A(a_row, a_col)]));
+                 LDMATRIX_X4(reg_a[m_idx][0], reg_a[m_idx][1], reg_a[m_idx][2], reg_a[m_idx][3], smem_addr);
+             }
+ 
+@@ -104,8 +100,8 @@
+                 int b_row_0 = k_offset + (lane_id % 4);
+                 int b_row_1 = k_offset + (lane_id % 4) + 4;
+ 
+-                reg_b[n_idx][0] = __float_as_uint(Bs[read_idx][b_row_0][SWIZZLE_B_F2(b_row_0, b_col)]);
+-                reg_b[n_idx][1] = __float_as_uint(Bs[read_idx][b_row_1][SWIZZLE_B_F2(b_row_1, b_col)]);
++                reg_b[n_idx][0] = __float_as_uint(Bs[read_idx][slab][b_row_0][SWIZZLE_B_F2(b_row_0, b_col)]);
++                reg_b[n_idx][1] = __float_as_uint(Bs[read_idx][slab][b_row_1][SWIZZLE_B_F2(b_row_1, b_col)]);
+             }
+ 
+ #pragma unroll
+@@ -136,8 +132,9 @@
+     }
+     // Process last prefetched tile
+ #pragma unroll
+-    for (int k_step = 0; k_step < 2; ++k_step) {
+-        int k_offset = k_step * 8;
++    for (int k_step = 0; k_step < BK / 8; ++k_step) {
++        int slab = k_step / 2;
++        int k_offset = (k_step % 2) * 8;
+         uint32_t reg_a[4][4];
+         uint32_t reg_b[4][2];
+ 
+@@ -146,7 +143,7 @@
+             int a_row = warp_id_m * 64 + m_idx * 16 + (lane_id % 16);
+             int a_col = k_offset + (lane_id / 16) * 4;
+             uint32_t smem_addr =
+-                static_cast<uint32_t>(__cvta_generic_to_shared(&As[read_idx][a_row][SWIZZLE_A(a_row, a_col)]));
++                static_cast<uint32_t>(__cvta_generic_to_shared(&As[read_idx][slab][a_row][SWIZZLE_A(a_row, a_col)]));
+             LDMATRIX_X4(reg_a[m_idx][0], reg_a[m_idx][1], reg_a[m_idx][2], reg_a[m_idx][3], smem_addr);
+         }
+ 
+@@ -157,8 +154,8 @@
+             int b_row_0 = k_offset + (lane_id % 4);
+             int b_row_1 = k_offset + (lane_id % 4) + 4;
+ 
+-            reg_b[n_idx][0] = __float_as_uint(Bs[read_idx][b_row_0][SWIZZLE_B_F2(b_row_0, b_col)]);
+-            reg_b[n_idx][1] = __float_as_uint(Bs[read_idx][b_row_1][SWIZZLE_B_F2(b_row_1, b_col)]);
++            reg_b[n_idx][0] = __float_as_uint(Bs[read_idx][slab][b_row_0][SWIZZLE_B_F2(b_row_0, b_col)]);
++            reg_b[n_idx][1] = __float_as_uint(Bs[read_idx][slab][b_row_1][SWIZZLE_B_F2(b_row_1, b_col)]);
+         }
+ 
+ #pragma unroll

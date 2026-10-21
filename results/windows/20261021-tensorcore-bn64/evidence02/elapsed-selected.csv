@@ -1,0 +1,7 @@
+file,sm_active_elapsed_pct,tensor_active_pct,tensor_elapsed_pct
+2048-tf32_bn64_bk32.csv,89.49,44.49,39.82
+2048-tf32_dynamic_bk32.csv,74.89,42.29,31.67
+2048-vitamin_tf32_dbf.csv,75.17,44.25,33.26
+4096-tf32_bn64_bk32.csv,99.47,45.85,45.61
+4096-tf32_dynamic_bk32.csv,99.51,42.93,42.72
+4096-vitamin_tf32_dbf.csv,99.37,45.88,45.59

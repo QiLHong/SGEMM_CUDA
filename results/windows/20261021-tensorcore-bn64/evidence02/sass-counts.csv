@@ -1,0 +1,5 @@
+implementation,function,instructions,non_nop_instructions,HMMA,LDGSTS,LDSM,BAR,DEPBAR,LDL,STL
+bn64,_ZN9bn64_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi64ELi32EEEvPfS1_S1_iii,456,443,64,12,32,2,2,0,0
+dynamic32,_ZN10ktile_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi32EEEvPfS1_S1_iii,632,619,128,16,32,2,2,0,0
+dynamic16,_ZN10ktile_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii,504,493,64,8,16,2,2,0,0
+original16,_ZN12vitamin_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii,504,494,64,8,16,2,2,0,0

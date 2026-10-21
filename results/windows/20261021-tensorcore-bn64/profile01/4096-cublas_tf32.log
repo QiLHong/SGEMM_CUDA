@@ -1,0 +1,5 @@
+GPU=NVIDIA GeForce RTX 4090 D sm=89
+cuBLAS=120405 seed=20261020 alpha=1 beta=0
+maxSharedOptin=101376 CTA_per_SM(original/dynamic16/dynamic32)=2/2/1
+BN64_CTA_per_SM=2
+PROFILE_COMPLETE cublas_tf32

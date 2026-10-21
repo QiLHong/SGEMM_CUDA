@@ -1,0 +1,124 @@
+--- tensorcore-ktile/benchmark.cu
++++ tensorcore-bn64/benchmark.cu
+@@ -1,9 +1,9 @@
+-// TF32 K-tile experiment; derived from the preserved Tensor Core event harness.
+-// Compare original static BK16, dynamic BK16 control, dynamic BK32 and TF32 cuBLAS.
+-// All: dynamic pair adjacent, order swapped; confirm: original/BK32 adjacent.
++// TF32 BN64 experiment; derived from the preserved K-tile event harness.
++// Compare original BK16, BN128/BK32, BN64/BK32 and same-input TF32 cuBLAS.
++// All: BK32 BN128/BN64 adjacent and swapped; confirm: original/BN64 adjacent.
+ // Precision and event protocol retained; additionally require baseline bitwise equality.
+ // C=AB；TF32输入提前显式转换，FP16输入/输出 + FP32累加；转换不在GEMM事件内。
+-// CLI: M N K rounds repeats warmup new.csv [all|implementation|tensor_pairs]
++// CLI: M N K rounds repeats warmup new.csv [all|confirm|implementation]
+ //      --profile implementation N （只在cudaProfilerStart/Stop区间采一个GEMM）
+ #include <cuda_runtime.h>
+ #include <cuda_profiler_api.h>
+@@ -28,7 +28,8 @@
+ #include "../tensorcore/vendor/vitamin_tf32.cuh"
+ #include "../tensorcore/vendor/vitamin_fp16.cuh"
+ 
+-#include "tf32_ktile.cuh"
++#include "../tensorcore-ktile/tf32_ktile.cuh"
++#include "tf32_bn64.cuh"
+ 
+ void ck(cudaError_t s) { if(s != cudaSuccess) throw std::runtime_error(cudaGetErrorString(s)); }
+ void bk(cublasStatus_t s) { if(s != CUBLAS_STATUS_SUCCESS) throw std::runtime_error("cuBLAS "+std::to_string(s)); }
+@@ -82,13 +83,13 @@
+   size_t i=blockIdx.x*size_t(blockDim.x)+threadIdx.x;
+   if(i<n){tf[i]=nvcuda::wmma::__float_to_tf32(x[i]);half h=__float2half_rn(x[i]);fp16[i]=h;fp16AsFloat[i]=__half2float(h);}
+ }
+-enum Impl {K30,Strict,TFSingle,TFDouble,TFBlas,HSingle,HDouble,HBlas,TFK16,TFK32};
+-const std::array<const char*,10> Names={{
++enum Impl {K30,Strict,TFSingle,TFDouble,TFBlas,HSingle,HDouble,HBlas,TFK16,TFK32,TFBN64};
++const std::array<const char*,11> Names={{
+     "k30_fp32","cublas_strict_fp32","vitamin_tf32_single","vitamin_tf32_dbf","cublas_tf32",
+     "vitamin_fp16_single","vitamin_fp16_dbf_rw","cublas_fp16",
+-    "tf32_dynamic_bk16","tf32_dynamic_bk32"}};
++    "tf32_dynamic_bk16","tf32_dynamic_bk32","tf32_bn64_bk32"}};
+ int findImpl(const std::string& s){
+-  for(int i=0;i<10;++i) if(s==Names[i])return i;
++  for(int i=0;i<11;++i) if(s==Names[i])return i;
+   throw std::runtime_error("Unknown implementation: "+s);
+ }
+ int precision(int impl){return impl<8?(impl<2?0:(impl<5?1:2)):1;}
+@@ -115,6 +116,8 @@
+                            cudaFuncAttributeMaxDynamicSharedMemorySize,32768));
+     ck(cudaFuncSetAttribute(ktile_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<128,128,32>,
+                            cudaFuncAttributeMaxDynamicSharedMemorySize,65536));
++    ck(cudaFuncSetAttribute(bn64_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<128,64,32>,
++                           cudaFuncAttributeMaxDynamicSharedMemorySize,49152));
+     ck(cudaMemset(c0.p,0,cc*4));ck(cudaMemset(hc0.p,0,cc*2));
+   }
+   void reset(int impl){
+@@ -124,6 +127,8 @@
+   void launch(int impl){
+     dim3 grid(n/128,m/128);
+     switch(impl){
++      case TFBN64:bn64_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<128,64,32>
++          <<<dim3(n/64,m/128),256,49152>>>(ta.f(),tb.f(),c.f(),m,n,k);break;
+       case TFK16:ktile_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<128,128,16>
+           <<<grid,256,32768>>>(ta.f(),tb.f(),c.f(),m,n,k);break;
+       case TFK32:ktile_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<128,128,32>
+@@ -182,7 +187,7 @@
+ }
+ int main(int argc,char** argv)try{
+   bool profile=argc==4&&std::string(argv[1])=="--profile";
+-  if(!profile&&(argc<8||argc>9))throw std::runtime_error("Usage: M N K rounds repeats warmup new.csv [all|implementation]");
++  if(!profile&&(argc<8||argc>9))throw std::runtime_error("Usage: M N K rounds repeats warmup new.csv [all|confirm|implementation]");
+   int m,n,k,rounds=1,repeats=1,warm=0,selected=-1;
+   std::string path;
+   if(profile){m=n=k=std::stoi(argv[3]);selected=findImpl(argv[2]);}
+@@ -203,7 +208,7 @@
+   std::cout<<"GPU="<<prop.name<<" sm="<<prop.major<<prop.minor<<'\n';
+   Data d(m,n,k);int version=0;bk(cublasGetVersion(d.tensor.h,&version));
+   std::cout<<"cuBLAS="<<version<<" seed="<<Seed<<" alpha=1 beta=0\n";
+-  int occOriginal=0,occ16=0,occ32=0;
++  int occOriginal=0,occ16=0,occ32=0,occBn64=0;
+   ck(cudaOccupancyMaxActiveBlocksPerMultiprocessor(&occOriginal,
+      vitamin_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<128,128,16>,256,0));
+   ck(cudaOccupancyMaxActiveBlocksPerMultiprocessor(&occ16,
+@@ -212,6 +217,9 @@
+      ktile_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<128,128,32>,256,65536));
+   std::cout<<"maxSharedOptin="<<prop.sharedMemPerBlockOptin
+            <<" CTA_per_SM(original/dynamic16/dynamic32)="<<occOriginal<<'/'<<occ16<<'/'<<occ32<<'\n';
++  ck(cudaOccupancyMaxActiveBlocksPerMultiprocessor(&occBn64,
++     bn64_tf32::sgemm_tf32_swizzle_bcf_dbf_kernel<128,64,32>,256,49152));
++  std::cout<<"BN64_CTA_per_SM="<<occBn64<<'\n';
+   Event start,stop;
+   ck(cudaEventRecord(start.e));
+   prepareInputs<<<(d.ac+255)/256,256>>>(d.a.f(),d.ta.f(),d.ha.h(),d.haf.f(),d.ac);
+@@ -236,6 +244,7 @@
+   std::array<std::vector<float>,3> bb={d.hostB,copyFloat(d.tb,d.bc),copyFloat(d.hbf,d.bc)};
+   meta<<"max_shared_optin_bytes="<<prop.sharedMemPerBlockOptin<<"\nctas_per_sm_original="<<occOriginal
+       <<"\nctas_per_sm_dynamic16="<<occ16<<"\nctas_per_sm_dynamic32="<<occ32<<'\n';
++  meta<<"ctas_per_sm_bn64="<<occBn64<<'\n';
+   meta<<"seed="<<Seed<<"\ncombined_tf32_fp16_preparation_ms="<<prepMs<<"\ncuBLAS_version="<<version
+       <<"\nreset=zero C0 D2D, same stream, before every warmup/timed invocation, outside events"
+       <<"\ninput_conversion=GPU __float_to_tf32 and __float2half_rn, outside GEMM events"
+@@ -273,7 +282,7 @@
+     d.reset(impl);d.launch(impl);baseline[p]=d.output(impl);}
+   auto chosen=[&](int impl){
+     if(selected>=0)return selected==impl;
+-    return impl==TFDouble||impl==TFBlas||impl==TFK32||(selected!=-2&&impl==TFK16);
++    return impl==TFDouble||impl==TFBlas||impl==TFBN64||(selected!=-2&&impl==TFK32);
+   };
+   auto validate=[&](int impl,int round){
+     auto actual=d.output(impl);int p=precision(impl);
+@@ -310,13 +319,13 @@
+     checks.flush();
+   };
+   // 每个候选先检查，验证失败不进入正式计时。
+-  for(int impl=0;impl<10;++impl)if(chosen(impl)){d.reset(impl);d.launch(impl);validate(impl,-1);}
++  for(int impl=0;impl<11;++impl)if(chosen(impl)){d.reset(impl);d.launch(impl);validate(impl,-1);}
+   if(failed)throw std::runtime_error("Preflight numerical validation failed; evidence retained");
+   for(int r=0;r<rounds;++r){
+-    std::vector<int> pair=r%2?std::vector<int>{TFK32,TFK16}:std::vector<int>{TFK16,TFK32};
++    std::vector<int> pair=r%2?std::vector<int>{TFK32,TFK16}:std::vector<int>{TFK16,TFK32,TFBN64};
+     std::array<std::vector<int>,3> groups;
+     if(selected==-2){
+-      groups={r%2?std::vector<int>{TFK32,TFDouble}:std::vector<int>{TFDouble,TFK32},
++      groups={r%2?std::vector<int>{TFBN64,TFDouble}:std::vector<int>{TFDouble,TFBN64},
+               std::vector<int>{TFBlas},std::vector<int>{}};
+     }else{
+       groups={pair,std::vector<int>{TFDouble},std::vector<int>{TFBlas}};

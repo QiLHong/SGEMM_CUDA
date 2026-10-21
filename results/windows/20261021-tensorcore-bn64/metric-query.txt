@@ -1,0 +1,257 @@
+==WARNING== Could not deploy stock section files to "C:\Users\Administrator\Documents/NVIDIA Nsight Compute/2024.1.1/Sections".
+Set the HOME environment variable to a writable directory.
+==WARNING== Using "C:\Program Files\NVIDIA Corporation\Nsight Compute 2024.1.1\target\windows-desktop-win7-x64\..\..\sections" instead.
+==WARNING== See https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#faq.
+Device NVIDIA GeForce RTX 4090 D (AD102)
+--------------------------------------------------------------------------- --------------- --------------- ----------------------------------------------------------------------
+Metric Name                                                                 Metric Type     Metric Unit     Metric Description                                                    
+--------------------------------------------------------------------------- --------------- --------------- ----------------------------------------------------------------------
+sm__cycles_active.avg                                                       Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg across all sub-unit instances)                     
+sm__cycles_active.avg.peak_sustained                                        Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg peak sustained rate across all sub-unit instances) 
+sm__cycles_active.avg.peak_sustained_active                                 Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__cycles_active.avg.peak_sustained_active.per_second                      Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__cycles_active.avg.peak_sustained_elapsed                                Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__cycles_active.avg.peak_sustained_elapsed.per_second                     Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__cycles_active.avg.per_cycle_active                                      Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg of the number of operations per unit active cycle  
+                                                                                                            across all sub-unit instances)                                        
+sm__cycles_active.avg.per_cycle_elapsed                                     Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg of the number of operations per elapsed cycle      
+                                                                                                            across all sub-unit instances)                                        
+sm__cycles_active.avg.per_second                                            Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg of the number of operations per second across all  
+                                                                                                            sub-unit instances)                                                   
+sm__cycles_active.avg.pct_of_peak_sustained_active                          Counter         %               # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all sub-unit instances)              
+sm__cycles_active.avg.pct_of_peak_sustained_elapsed                         Counter         %               # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the avg percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all sub-unit instances)                  
+sm__cycles_active.max                                                       Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max across all sub-unit instances)                     
+sm__cycles_active.max.peak_sustained                                        Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max peak sustained rate across all sub-unit instances) 
+sm__cycles_active.max.peak_sustained_active                                 Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__cycles_active.max.peak_sustained_active.per_second                      Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__cycles_active.max.peak_sustained_elapsed                                Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__cycles_active.max.peak_sustained_elapsed.per_second                     Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__cycles_active.max.per_cycle_active                                      Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max of the number of operations per unit active cycle  
+                                                                                                            across all sub-unit instances)                                        
+sm__cycles_active.max.per_cycle_elapsed                                     Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max of the number of operations per elapsed cycle      
+                                                                                                            across all sub-unit instances)                                        
+sm__cycles_active.max.per_second                                            Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max of the number of operations per second across all  
+                                                                                                            sub-unit instances)                                                   
+sm__cycles_active.max.pct_of_peak_sustained_active                          Counter         %               # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all sub-unit instances)              
+sm__cycles_active.max.pct_of_peak_sustained_elapsed                         Counter         %               # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the max percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all sub-unit instances)                  
+sm__cycles_active.min                                                       Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min across all sub-unit instances)                     
+sm__cycles_active.min.peak_sustained                                        Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min peak sustained rate across all sub-unit instances) 
+sm__cycles_active.min.peak_sustained_active                                 Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__cycles_active.min.peak_sustained_active.per_second                      Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__cycles_active.min.peak_sustained_elapsed                                Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__cycles_active.min.peak_sustained_elapsed.per_second                     Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__cycles_active.min.per_cycle_active                                      Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min of the number of operations per unit active cycle  
+                                                                                                            across all sub-unit instances)                                        
+sm__cycles_active.min.per_cycle_elapsed                                     Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min of the number of operations per elapsed cycle      
+                                                                                                            across all sub-unit instances)                                        
+sm__cycles_active.min.per_second                                            Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min of the number of operations per second across all  
+                                                                                                            sub-unit instances)                                                   
+sm__cycles_active.min.pct_of_peak_sustained_active                          Counter         %               # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all sub-unit instances)              
+sm__cycles_active.min.pct_of_peak_sustained_elapsed                         Counter         %               # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the min percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all sub-unit instances)                  
+sm__cycles_active.sum                                                       Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum across all sub-unit instances)                     
+sm__cycles_active.sum.peak_sustained                                        Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum peak sustained rate across all sub-unit instances) 
+sm__cycles_active.sum.peak_sustained_active                                 Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__cycles_active.sum.peak_sustained_active.per_second                      Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__cycles_active.sum.peak_sustained_elapsed                                Counter         cycle           # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__cycles_active.sum.peak_sustained_elapsed.per_second                     Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__cycles_active.sum.per_cycle_active                                      Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum of the number of operations per unit active cycle  
+                                                                                                            across all sub-unit instances)                                        
+sm__cycles_active.sum.per_cycle_elapsed                                     Counter                         # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum of the number of operations per elapsed cycle      
+                                                                                                            across all sub-unit instances)                                        
+sm__cycles_active.sum.per_second                                            Counter         cycle/second    # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum of the number of operations per second across all  
+                                                                                                            sub-unit instances)                                                   
+sm__cycles_active.sum.pct_of_peak_sustained_active                          Counter         %               # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all sub-unit instances)              
+sm__cycles_active.sum.pct_of_peak_sustained_elapsed                         Counter         %               # of cycles with at least one warp in flight (This counter metric     
+                                                                                                            represents the sum percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all sub-unit instances)                  
+sm__pipe_tensor_cycles_active.avg                                           Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg across all sub-unit instances)                     
+sm__pipe_tensor_cycles_active.avg.peak_sustained                            Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg peak sustained rate across all sub-unit instances) 
+sm__pipe_tensor_cycles_active.avg.peak_sustained_active                     Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__pipe_tensor_cycles_active.avg.peak_sustained_active.per_second          Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__pipe_tensor_cycles_active.avg.peak_sustained_elapsed                    Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__pipe_tensor_cycles_active.avg.peak_sustained_elapsed.per_second         Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__pipe_tensor_cycles_active.avg.per_cycle_active                          Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg of the number of operations per unit active cycle  
+                                                                                                            across all sub-unit instances)                                        
+sm__pipe_tensor_cycles_active.avg.per_cycle_elapsed                         Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg of the number of operations per elapsed cycle      
+                                                                                                            across all sub-unit instances)                                        
+sm__pipe_tensor_cycles_active.avg.per_second                                Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg of the number of operations per second across all  
+                                                                                                            sub-unit instances)                                                   
+sm__pipe_tensor_cycles_active.avg.pct_of_peak_sustained_active              Counter         %               # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all sub-unit instances)              
+sm__pipe_tensor_cycles_active.avg.pct_of_peak_sustained_elapsed             Counter         %               # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the avg percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all sub-unit instances)                  
+sm__pipe_tensor_cycles_active.max                                           Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max across all sub-unit instances)                     
+sm__pipe_tensor_cycles_active.max.peak_sustained                            Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max peak sustained rate across all sub-unit instances) 
+sm__pipe_tensor_cycles_active.max.peak_sustained_active                     Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__pipe_tensor_cycles_active.max.peak_sustained_active.per_second          Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__pipe_tensor_cycles_active.max.peak_sustained_elapsed                    Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__pipe_tensor_cycles_active.max.peak_sustained_elapsed.per_second         Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__pipe_tensor_cycles_active.max.per_cycle_active                          Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max of the number of operations per unit active cycle  
+                                                                                                            across all sub-unit instances)                                        
+sm__pipe_tensor_cycles_active.max.per_cycle_elapsed                         Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max of the number of operations per elapsed cycle      
+                                                                                                            across all sub-unit instances)                                        
+sm__pipe_tensor_cycles_active.max.per_second                                Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max of the number of operations per second across all  
+                                                                                                            sub-unit instances)                                                   
+sm__pipe_tensor_cycles_active.max.pct_of_peak_sustained_active              Counter         %               # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all sub-unit instances)              
+sm__pipe_tensor_cycles_active.max.pct_of_peak_sustained_elapsed             Counter         %               # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the max percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all sub-unit instances)                  
+sm__pipe_tensor_cycles_active.min                                           Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min across all sub-unit instances)                     
+sm__pipe_tensor_cycles_active.min.peak_sustained                            Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min peak sustained rate across all sub-unit instances) 
+sm__pipe_tensor_cycles_active.min.peak_sustained_active                     Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__pipe_tensor_cycles_active.min.peak_sustained_active.per_second          Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__pipe_tensor_cycles_active.min.peak_sustained_elapsed                    Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__pipe_tensor_cycles_active.min.peak_sustained_elapsed.per_second         Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__pipe_tensor_cycles_active.min.per_cycle_active                          Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min of the number of operations per unit active cycle  
+                                                                                                            across all sub-unit instances)                                        
+sm__pipe_tensor_cycles_active.min.per_cycle_elapsed                         Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min of the number of operations per elapsed cycle      
+                                                                                                            across all sub-unit instances)                                        
+sm__pipe_tensor_cycles_active.min.per_second                                Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min of the number of operations per second across all  
+                                                                                                            sub-unit instances)                                                   
+sm__pipe_tensor_cycles_active.min.pct_of_peak_sustained_active              Counter         %               # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all sub-unit instances)              
+sm__pipe_tensor_cycles_active.min.pct_of_peak_sustained_elapsed             Counter         %               # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the min percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all sub-unit instances)                  
+sm__pipe_tensor_cycles_active.sum                                           Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum across all sub-unit instances)                     
+sm__pipe_tensor_cycles_active.sum.peak_sustained                            Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum peak sustained rate across all sub-unit instances) 
+sm__pipe_tensor_cycles_active.sum.peak_sustained_active                     Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum peak sustained rate achieved during unit active    
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__pipe_tensor_cycles_active.sum.peak_sustained_active.per_second          Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__pipe_tensor_cycles_active.sum.peak_sustained_elapsed                    Counter         cycle           # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all sub-unit instances)                                 
+sm__pipe_tensor_cycles_active.sum.peak_sustained_elapsed.per_second         Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all sub-unit instances)                      
+sm__pipe_tensor_cycles_active.sum.per_cycle_active                          Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum of the number of operations per unit active cycle  
+                                                                                                            across all sub-unit instances)                                        
+sm__pipe_tensor_cycles_active.sum.per_cycle_elapsed                         Counter                         # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum of the number of operations per elapsed cycle      
+                                                                                                            across all sub-unit instances)                                        
+sm__pipe_tensor_cycles_active.sum.per_second                                Counter         cycle/second    # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum of the number of operations per second across all  
+                                                                                                            sub-unit instances)                                                   
+sm__pipe_tensor_cycles_active.sum.pct_of_peak_sustained_active              Counter         %               # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all sub-unit instances)              
+sm__pipe_tensor_cycles_active.sum.pct_of_peak_sustained_elapsed             Counter         %               # of cycles where tensor pipe was active (This counter metric         
+                                                                                                            represents the sum percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all sub-unit instances)                  
+

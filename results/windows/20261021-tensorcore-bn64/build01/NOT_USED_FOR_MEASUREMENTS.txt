@@ -1,0 +1,1 @@
+Build01 compiled successfully but was not run: pre-run source review found an enum replacement also modified a measurement-order vector. Device kernel unchanged. Repaired scoped replacement and assertion; build02 is the measurement build. Initial generator Python quoting error also fixed before build01; no GPU run was affected.

@@ -14,3 +14,7 @@ results/windows/20261021-tensorcore-ktile/** -text
 experiments/tensorcore-ktile/** -text
 scripts/windows/*-TensorKTile.ps1 -text
 docs/zh/30-* -text
+results/windows/20261021-tensorcore-bn64/** -text
+experiments/tensorcore-bn64/** -text
+scripts/windows/*-TensorBN64*.ps1 -text
+docs/zh/31-* -text

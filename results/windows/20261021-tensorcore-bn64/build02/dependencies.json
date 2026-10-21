@@ -1,0 +1,134 @@
+[
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\benchmark.cu",
+    "sha256": "B5102755328315AA9B1C5B109C56E54EFD54DAA6A1E95D1B322C2AE820D4BD22"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\CMakeLists.txt",
+    "sha256": "7153BC303E080C949107AC719107BE3F36E5DB4EA6ED6B10AB22C98AE4AFA16A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\device.diff",
+    "sha256": "948C2FB58CE55CDB69DC99D06ADC0AEB8DFEA73F1A786FC09417B22097E316EF"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\host-harness.diff",
+    "sha256": "C39BAF745C373720C6D93EAFD7928A7E488ECE27E3E7A367AFB405BA494AC8A2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\provenance.json",
+    "sha256": "57963416B2B103144CDA8401CD0CC9F709650565DCCB2D0C7034A9A055203E72"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-bn64\\tf32_bn64.cuh",
+    "sha256": "C56448FC0D93DE9DC8635657A5169FB923CA57DFBCD230297AC8977A209BC6D2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\benchmark.cu",
+    "sha256": "898205BD2D7B39086BEBEB56F17646818EA26A5C732D6F44EA8704F2955EA68D"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\CMakeLists.txt",
+    "sha256": "9E148A65A4D303D25C73FD318515AB1CCB765A150026A7A3DF1EC283155F8CDA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\README.md",
+    "sha256": "8067C23E77CB04B3B537D08D9D72E56428AB14A0F43CD659C907AFD9E4680654"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\LICENSE",
+    "sha256": "9646CCBEE1CAAEA25C5471662CAD3DD9D4E1708E9A3A14B5BE184F317192B639"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\pack.cuh",
+    "sha256": "D39CE985B39EAC0BE2AB90D5C3A9E19FB7E23E69D006F2E7F86218AF0DD18FEC"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\provenance.json",
+    "sha256": "7EB316C5325DF8449A7B4BBD7491B7978328B30F34DA1BA33B7B0BE1EC6D2074"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\vitamin_fp16.cuh",
+    "sha256": "C9661F65077D1214CF379081C03D326AB2A7F8660330A72BA01EEBE4016F1E04"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore\\vendor\\vitamin_tf32.cuh",
+    "sha256": "BB4123A52F6325F9514EE78E3535008BA3EDA284EF418D285720AB38F2497D81"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\benchmark.cu",
+    "sha256": "FA990CE3C6664D66F01999A3213AAA1E68DF87B010786B23111A44CBCD2CC4C0"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\CMakeLists.txt",
+    "sha256": "6FF22BD7580E9707D7D0CCF5AADEC1CDA58A74605E04537AEA33C84FA0B7DAB3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\derive_benchmark.py",
+    "sha256": "7C6FD836F3464A5EE1727E53DFFE6C083ED20E82EFB5DE5341F3D1AA461555BA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\fp16_grid.cuh",
+    "sha256": "50A5FB12240D94FBD12A9AE56F0BA23F006A8FA314A35CE7FEFBA76ADA6CCE25"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\fp16-device.diff",
+    "sha256": "A37091AA9A9F0F569BC69C346A90DFB9FF8CDE03C03D4E7AC67DF4F75B1D7AE6"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\host-harness.diff",
+    "sha256": "445C66BF474B280B170F376CE1953B1081B2271B1B5FBA5D95B45C7317628FDE"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\provenance.json",
+    "sha256": "6E94800653FB3C13B937515762C742ECAF20EA148FE7FFEDB6C11BBE297B99B3"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\README.md",
+    "sha256": "3FEBE11D8558F4A3656D1413144EA0BD2891AFECB83BE0C3A39887C8FE3468B5"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\tf32_grid.cuh",
+    "sha256": "97C1733734F3C20C3D145FF7E0E1B88008E8D2CAE2CC4FC58DD6F8F76028EBBA"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-grid\\tf32-device.diff",
+    "sha256": "3AC642BFDF5BBA87F0C1CF898E6B7CCE56DA707364E9AFFE74B039F684496164"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\benchmark.cu",
+    "sha256": "542040F989F9707AE75F5C58F12F788B2A8AE8EE397570A7538A5A4888BDDF8A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\CMakeLists.txt",
+    "sha256": "AFE5717E42486CEBE632820B0379288243832D1304A2AB66969D1C598A9D1905"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\derive_benchmark.py",
+    "sha256": "12CA02E1AE72895EE848BEDD7DF3553F70230B9ACFB89270AE016D909D24C368"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\derive_support.py",
+    "sha256": "508C76B088428FE34E75DAEB44A4740DD1D82742C1A79DA4DB2ACDE98662F5C1"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\device.diff",
+    "sha256": "5AA568AEA340F0C74735EF4D5C21547A75A59A521929DAFA22C06BB2B107C64A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\host-harness.diff",
+    "sha256": "4728242AEA8D43460F18DB5FAA093C5164DA78F437CADA0A45659FF49891643A"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\provenance.json",
+    "sha256": "056528BD770071FA94B03D2CF77EAF9DBDB19AC8277539BAEE1BB9ECBD1BC2D2"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\README.md",
+    "sha256": "489AD1A74162C95ECE933EFBFF5931F73C121D4124170FEB14AFB2EAB78E4BAB"
+  },
+  {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\tf32_ktile.cuh",
+    "sha256": "EAF4F8AE008B00129508B52FCD775E147977AB20B3B5240B6221561324AA3D00"
+  }
+]

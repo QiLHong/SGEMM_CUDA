@@ -1,0 +1,14 @@
+{
+  "head": "b718c7bfe3577822e3335b215e386d2c57c420eb",
+  "old_tracked_diff_equal": true,
+  "upstream_unchanged": true,
+  "python_syntax_files": 5,
+  "checked_doc_links": 11,
+  "sources_in_zip": 443,
+  "formal_events": 4410,
+  "bitwise_checks": 156,
+  "binary_hash_verified": true,
+  "historical_hashes_verified": true,
+  "ncu_launches": 18,
+  "no_commit_or_push": true
+}
