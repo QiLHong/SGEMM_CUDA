@@ -1,0 +1,338 @@
+[
+  {
+    "round": 0,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 0,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 0,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 0,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 0,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 0,
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "different_output_elements": 391950,
+    "exact_bitwise_equal": false,
+    "required_equal_to_original": false,
+    "comparison": "new reduction-controlled comparator vs original default cuBLAS; diagnostic only"
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "different_output_elements": 391950,
+    "exact_bitwise_equal": false,
+    "required_equal_to_original": false,
+    "comparison": "new reduction-controlled comparator vs original default cuBLAS; diagnostic only"
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 1,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "different_output_elements": 391950,
+    "exact_bitwise_equal": false,
+    "required_equal_to_original": false,
+    "comparison": "new reduction-controlled comparator vs original default cuBLAS; diagnostic only"
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 2,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "different_output_elements": 391950,
+    "exact_bitwise_equal": false,
+    "required_equal_to_original": false,
+    "comparison": "new reduction-controlled comparator vs original default cuBLAS; diagnostic only"
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 3,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "different_output_elements": 391950,
+    "exact_bitwise_equal": false,
+    "required_equal_to_original": false,
+    "comparison": "new reduction-controlled comparator vs original default cuBLAS; diagnostic only"
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 4,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 5,
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "different_output_elements": 391950,
+    "exact_bitwise_equal": false,
+    "required_equal_to_original": false,
+    "comparison": "new reduction-controlled comparator vs original default cuBLAS; diagnostic only"
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_bcf_dbf_rw",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_k_stages",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_cublas",
+    "different_output_elements": 0,
+    "exact_bitwise_equal": true,
+    "required_equal_to_original": true,
+    "comparison": "same original variant"
+  },
+  {
+    "round": 6,
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "different_output_elements": 391950,
+    "exact_bitwise_equal": false,
+    "required_equal_to_original": false,
+    "comparison": "new reduction-controlled comparator vs original default cuBLAS; diagnostic only"
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "implementation": "hgemm_bcf_dbf_rw",
+    "round_mean_ms": [
+      0.030107733669380347,
+      0.030080000249048073,
+      0.03010453376919031,
+      0.029988267086446287,
+      0.029846400457123914,
+      0.03029440026730299,
+      0.029708800464868547
+    ],
+    "median_round_mean_ms": 0.030080000249048073,
+    "tflops": 71.39240791954316,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      -0.132749974592148,
+      -0.12957448972084196,
+      -0.1297523588173185,
+      -0.12975744385216015,
+      -0.12422718493183937,
+      -0.1421781181912437,
+      -0.12656185643095297
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": -0.1297523588173185,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_k_stages",
+    "round_mean_ms": [
+      0.03014080027739207,
+      0.03030186699082454,
+      0.030309333590169747,
+      0.030019200406968594,
+      0.029976533725857735,
+      0.030080000373224416,
+      0.029972266964614393
+    ],
+    "median_round_mean_ms": 0.030080000373224416,
+    "tflops": 71.39240762482082,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      -0.13370140973568756,
+      -0.13594764395530656,
+      -0.13563261219180356,
+      -0.13065418632219683,
+      -0.12802906476675602,
+      -0.1360638589387141,
+      -0.13423967708770645
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": -0.13423967708770645,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "round_mean_ms": [
+      0.029936000518500806,
+      0.030051200464367867,
+      0.029988267086446287,
+      0.029954133679469426,
+      0.02980266691495975,
+      0.030249600174526374,
+      0.029691733606159686
+    ],
+    "median_round_mean_ms": 0.029954133679469426,
+    "tflops": 71.6923971489079,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      -0.12777484174594134,
+      -0.12874031115596496,
+      -0.12637834570364126,
+      -0.128765782946342,
+      -0.12294204332208669,
+      -0.14090767165082274,
+      -0.1260598027083596
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": -0.12777484174594134,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "round_mean_ms": [
+      0.03202133290469646,
+      0.031969066336750986,
+      0.032087466369072594,
+      0.03161706613997618,
+      0.031718399624029794,
+      0.03136959945162137,
+      0.03153813282648722
+    ],
+    "median_round_mean_ms": 0.031718399624029794,
+    "tflops": 67.70466585499071,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      -0.18457695476151326,
+      -0.18100831315564203,
+      -0.18353168803650088,
+      -0.17458925226599753,
+      -0.17591472275339992,
+      -0.17158013172455833,
+      -0.1772246103325118
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": -0.1772246103325118,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_cublas",
+    "round_mean_ms": [
+      0.02589653351654609,
+      0.025454933196306227,
+      0.025356799984971683,
+      0.02572159959624211,
+      0.025645866120855013,
+      0.025681066264708837,
+      0.025683199490110078
+    ],
+    "median_round_mean_ms": 0.025681066264708837,
+    "tflops": 83.62128059110584,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      0.008279072295906742,
+      0.02857860062167461,
+      0.033190288879880736,
+      0.01459732728153873,
+      0.019215573566895072,
+      0.011920579064016446,
+      0.010341392071895994
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": 0.01459732728153873,
+    "valid_fp32_accum_comparison": false,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "round_mean_ms": [
+      0.026110932789742948,
+      0.02618239956597487,
+      0.02619839950154225,
+      0.026097066203753152,
+      0.026138666147987048,
+      0.025987199445565542,
+      0.025948799525698025
+    ],
+    "median_round_mean_ms": 0.026110932789742948,
+    "tflops": 82.24461627979784,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": 0.0,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": false
+  }
+]

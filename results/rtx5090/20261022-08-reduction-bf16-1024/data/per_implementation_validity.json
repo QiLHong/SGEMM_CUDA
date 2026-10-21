@@ -1,0 +1,38 @@
+[
+  {
+    "implementation": "hgemm_bcf_dbf_rw",
+    "valid_fp32_accum_comparison": true,
+    "status_scope": "all completed rounds so far",
+    "acceptance_threshold": "unchanged author .016/.016; represented PEDANTIC and CPU double; same dtype disallow-reduction cuBLAS; original bitwise required for variants0..4"
+  },
+  {
+    "implementation": "hgemm_k_stages",
+    "valid_fp32_accum_comparison": true,
+    "status_scope": "all completed rounds so far",
+    "acceptance_threshold": "unchanged author .016/.016; represented PEDANTIC and CPU double; same dtype disallow-reduction cuBLAS; original bitwise required for variants0..4"
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "valid_fp32_accum_comparison": true,
+    "status_scope": "all completed rounds so far",
+    "acceptance_threshold": "unchanged author .016/.016; represented PEDANTIC and CPU double; same dtype disallow-reduction cuBLAS; original bitwise required for variants0..4"
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "valid_fp32_accum_comparison": true,
+    "status_scope": "all completed rounds so far",
+    "acceptance_threshold": "unchanged author .016/.016; represented PEDANTIC and CPU double; same dtype disallow-reduction cuBLAS; original bitwise required for variants0..4"
+  },
+  {
+    "implementation": "hgemm_cublas",
+    "valid_fp32_accum_comparison": false,
+    "status_scope": "all completed rounds so far",
+    "acceptance_threshold": "unchanged author .016/.016; represented PEDANTIC and CPU double; same dtype disallow-reduction cuBLAS; original bitwise required for variants0..4"
+  },
+  {
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "valid_fp32_accum_comparison": true,
+    "status_scope": "all completed rounds so far",
+    "acceptance_threshold": "unchanged author .016/.016; represented PEDANTIC and CPU double; same dtype disallow-reduction cuBLAS; original bitwise required for variants0..4"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "formal_event_count": 1260,
+  "expected_count": 1260,
+  "round_groups": 42,
+  "closed_csv_sha256": "ab16ce992c96b5180992ea5862b9f28de0919b10d35a6c3ff193be0500a2920e",
+  "valid_fp32_accum_comparison_by_implementation": {
+    "hgemm_bcf_dbf_rw": true,
+    "hgemm_k_stages": true,
+    "hgemm_tma_r_k_stages_64": true,
+    "hgemm_tma_r_k_stages_32": true,
+    "hgemm_cublas": false,
+    "hgemm_cublas_no_reduced_reduction": true
+  },
+  "primary_fp32_accum_comparison_pass": true,
+  "aggregate_all_six_pass": false,
+  "original_default_cublas_fails_independent_checks": true,
+  "math_mode_restoration_all_calls_verified": true,
+  "interpretation": "Default comparator remains a measured row; if invalid it is excluded from valid FP32-accumulation performance conclusions. Exact cause beyond the controlled reduction flag requires measured followup; no threshold was changed."
+}
