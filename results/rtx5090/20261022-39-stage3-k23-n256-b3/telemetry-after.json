@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/usr/bin/nvidia-smi",
+    "--query-gpu=timestamp,name,temperature.gpu,clocks.sm,clocks.mem,power.draw,utilization.gpu,memory.used",
+    "--format=csv"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.06451058387756348
+}

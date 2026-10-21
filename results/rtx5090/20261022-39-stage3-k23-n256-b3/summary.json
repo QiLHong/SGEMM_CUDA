@@ -1,0 +1,74 @@
+[
+  {
+    "implementation": "strict",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.012237866673333334,
+    "mean_round_mean_ms": 0.012502247669523809,
+    "round_mean_stddev_ms": 0.0009530315602686776,
+    "tflops": 2.741853044788932,
+    "median_paired_gain_vs_strict_pct": 0.0,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k10",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03558933374666667,
+    "mean_round_mean_ms": 0.03544472435142857,
+    "round_mean_stddev_ms": 0.0002805839207874364,
+    "tflops": 0.9428227074675918,
+    "median_paired_gain_vs_strict_pct": -65.61881972114003,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k23-v1",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03334400009,
+    "mean_round_mean_ms": 0.03367497144142857,
+    "round_mean_stddev_ms": 0.000738812442522688,
+    "tflops": 1.00631093778287,
+    "median_paired_gain_vs_strict_pct": -63.62858217703844,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k23-v2",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.033425066616666665,
+    "mean_round_mean_ms": 0.03432198101285714,
+    "round_mean_stddev_ms": 0.001227383711312751,
+    "tflops": 1.003870310411553,
+    "median_paired_gain_vs_strict_pct": -64.04454902714411,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k23-v3",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03345813342,
+    "mean_round_mean_ms": 0.03376594294285714,
+    "round_mean_stddev_ms": 0.0008642310187470609,
+    "tflops": 1.0028781814810517,
+    "median_paired_gain_vs_strict_pct": -63.21341552515496,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k23-v4",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03364266691666667,
+    "mean_round_mean_ms": 0.03418758107428571,
+    "round_mean_stddev_ms": 0.0011326032559543732,
+    "tflops": 0.9973772912568072,
+    "median_paired_gain_vs_strict_pct": -63.30141880033571,
+    "inputs_equal_across_group": true
+  }
+]
