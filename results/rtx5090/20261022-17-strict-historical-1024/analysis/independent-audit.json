@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "formal_events": 1050,
+  "round_checks": 35,
+  "selection": "paired",
+  "n": 1024,
+  "alpha": 0.5,
+  "beta": 3.0,
+  "seed": 20261020,
+  "rounds": 7,
+  "events_per_round": 30,
+  "input_fingerprints": {
+    "algorithm": "FNV1a64_float32_bytes",
+    "a": "13516797206394986137",
+    "b": "16156175791465964020",
+    "c0": "1488143871368926687"
+  },
+  "cpu_double_elements_per_check": 256,
+  "reference_policy": "full GPU PEDANTIC FP32; CPU double checks actual candidate and GPU reference",
+  "raw_sha256": "a2de587dc2a782ecdb625e3b902d62e7688da4a6756e45d7707af4ce023a58ca",
+  "order_sha256": "6619ed9488bc4842be765a0e683f943d7fb1a44705bbd0571915e950f89307bb",
+  "statistic": "median of per-round arithmetic mean event_ms; paired ratios calculated separately",
+  "sample_scope": "round-end output checked; other per-call events are not independently validated"
+}
