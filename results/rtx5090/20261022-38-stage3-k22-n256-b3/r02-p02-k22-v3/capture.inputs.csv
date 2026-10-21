@@ -1,0 +1,4 @@
+matrix,bytes,fnv1a64,algorithm,layout,stride_floats
+A,262144,d3ad7f9a416af316,FNV1a64_noncryptographic,row_major,256
+B,262144,4058b7c596dfa85d,FNV1a64_noncryptographic,row_major,256
+C0,262144,6848ad5417edd7bf,FNV1a64_noncryptographic,row_major,256
