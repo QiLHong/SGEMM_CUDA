@@ -1,0 +1,42 @@
+{
+  "experiments/rtx5090/strict-fp32/benchmark.cu": {
+    "path": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/experiments/rtx5090/strict-fp32/benchmark.cu",
+    "bytes": 24884,
+    "sha256": "45ed613fb8da130cc6d1e2290bd64676c358438fa6034d372d91b93a75223b55"
+  },
+  "experiments/rtx5090/strict-fp32/derive_benchmark.py": {
+    "path": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/experiments/rtx5090/strict-fp32/derive_benchmark.py",
+    "bytes": 11340,
+    "sha256": "b3edea124f8cd1d903e2120e23e848c30fe4cc690bb282e7a96e1c78602949d5"
+  },
+  "experiments/rtx5090/strict-fp32/summarize_batch.py": {
+    "path": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/experiments/rtx5090/strict-fp32/summarize_batch.py",
+    "bytes": 9891,
+    "sha256": "798f964ca5d6a1b0aa0920aaa058ab1fb35cc73859592065f2b51a30167df51e"
+  },
+  "experiments/rtx5090/strict-fp32/provenance.json": {
+    "path": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/experiments/rtx5090/strict-fp32/provenance.json",
+    "bytes": 1759,
+    "sha256": "6510c784e48d8c262283275babb5c57672dc597b3d95ecb317df697f50ca19cb"
+  },
+  "experiments/rtx5090/strict-fp32/CMakeLists.txt": {
+    "path": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/experiments/rtx5090/strict-fp32/CMakeLists.txt",
+    "bytes": 667,
+    "sha256": "c14ff29feecbf3a603bd2df4dd7c727e3097c7bce551615f6a702995d38bcaba"
+  },
+  "experiments/rtx5090/strict-fp32/run_closed_batch.py": {
+    "path": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/experiments/rtx5090/strict-fp32/run_closed_batch.py",
+    "bytes": 11798,
+    "sha256": "e17381e1eea219db236060ca82d266da802262ec4e626c8886141aac83d08704"
+  },
+  "src/kernels/10_kernel_warptiling.cuh": {
+    "path": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/src/kernels/10_kernel_warptiling.cuh",
+    "bytes": 14093,
+    "sha256": "053eb62df551563168ae6f644b87c4daea45535737bee1d0de9dcfa43be23d13"
+  },
+  "src/kernels/30_kernel_mini_simt.cuh": {
+    "path": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/src/kernels/30_kernel_mini_simt.cuh",
+    "bytes": 13651,
+    "sha256": "e437badfd59c602ec3c8d4985c91bcfb30f0bc873eabd31f4027acf0d89499ac"
+  }
+}

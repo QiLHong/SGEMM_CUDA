@@ -1,0 +1,25 @@
+{
+  "binary": {
+    "path": "/root/autodl-tmp/build-rtx5090-strict-paired/rtx5090_strict_fp32",
+    "bytes": 1720056,
+    "sha256": "3e66db9a504672bf2d5a1a230e072aa3af6c9307b7f28391dbc5e8c08cc18b9f"
+  },
+  "build_metadata": {
+    "compile_commands.json": {
+      "path": "/root/autodl-tmp/build-rtx5090-strict-paired/compile_commands.json",
+      "bytes": 581,
+      "sha256": "8aa9b26332afe9ef84755875282cf5bb0ae6a72c5279bac4b2bd2414d5c6c863"
+    },
+    "CMakeCache.txt": {
+      "path": "/root/autodl-tmp/build-rtx5090-strict-paired/CMakeCache.txt",
+      "bytes": 24274,
+      "sha256": "cac307d9e1af1b814cf412c7975251570b6c289f1bfafd6b9b48c8672b7b7565"
+    },
+    "build.ninja": {
+      "path": "/root/autodl-tmp/build-rtx5090-strict-paired/build.ninja",
+      "bytes": 17830,
+      "sha256": "0c349a8b775e77e6c01a30ba61823e7b466bf42e6ad5a21437fcd21f0857335f"
+    }
+  },
+  "build_metadata_missing": []
+}

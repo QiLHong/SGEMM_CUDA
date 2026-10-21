@@ -1,0 +1,10 @@
+{
+  "closed": true,
+  "status": "COMPLETE",
+  "independent_summary_verified": true,
+  "numeric_acceptance_pass": true,
+  "exit_code": 0,
+  "timeout": false,
+  "expected_events": 1050,
+  "formal_events": 1050
+}
