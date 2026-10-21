@@ -1,0 +1,2 @@
+ELF file    1: gemm_smoke.sm_120.cubin
+ELF file    2: gemm_smoke.sm_120.cubin

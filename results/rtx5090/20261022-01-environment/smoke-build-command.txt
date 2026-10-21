@@ -1,0 +1,1 @@
+/usr/local/cuda/bin/nvcc -O3 -std=c++17 -arch=sm_120 -lineinfo -Xptxas=-v scripts/rtx5090/gemm_smoke.cu -lcublas -lcuda -o build-rtx5090-stage0-release/gemm_smoke

@@ -1,0 +1,2 @@
+name, uuid, compute_cap, memory.total [MiB], memory.used [MiB], driver_version, power.draw [W], power.limit [W], clocks.current.sm [MHz], clocks.current.memory [MHz], temperature.gpu, utilization.gpu [%]
+NVIDIA GeForce RTX 5090, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, 12.0, 32607 MiB, 2 MiB, 595.71.05, 11.12 W, 575.00 W, 180 MHz, 405 MHz, 34, 0 %

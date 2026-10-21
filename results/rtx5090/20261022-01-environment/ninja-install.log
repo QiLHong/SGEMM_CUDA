@@ -1,0 +1,7 @@
+Looking in indexes: http://mirrors.aliyun.com/pypi/simple
+Collecting ninja
+  Downloading http://mirrors.aliyun.com/pypi/packages/6e/53/ebfed7b689c338dd8ebeec9c0730c8d56821292f14e2536e5f3ef1a05744/ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (183 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 183.4/183.4 kB 46.9 MB/s eta 0:00:00
+Installing collected packages: ninja
+Successfully installed ninja-1.13.2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv

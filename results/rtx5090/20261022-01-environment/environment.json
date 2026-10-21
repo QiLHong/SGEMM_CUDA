@@ -1,0 +1,146 @@
+{
+  "os": {
+    "command": [
+      "cat",
+      "/etc/os-release"
+    ],
+    "exit_code": 0
+  },
+  "cpu": {
+    "command": [
+      "lscpu"
+    ],
+    "exit_code": 0
+  },
+  "memory": {
+    "command": [
+      "free",
+      "-b"
+    ],
+    "exit_code": 0
+  },
+  "disk": {
+    "command": [
+      "df",
+      "-B1",
+      "/root/autodl-tmp"
+    ],
+    "exit_code": 0
+  },
+  "gpu": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=name,uuid,compute_cap,memory.total,memory.used,driver_version,power.draw,power.limit,clocks.sm,clocks.mem,temperature.gpu,utilization.gpu",
+      "--format=csv"
+    ],
+    "exit_code": 0
+  },
+  "nvcc": {
+    "command": [
+      "/usr/local/cuda/bin/nvcc",
+      "--version"
+    ],
+    "exit_code": 0
+  },
+  "nvcc_targets": {
+    "command": [
+      "/usr/local/cuda/bin/nvcc",
+      "--list-gpu-code"
+    ],
+    "exit_code": 0
+  },
+  "compiler": {
+    "command": [
+      "/usr/bin/g++",
+      "--version"
+    ],
+    "exit_code": 0
+  },
+  "cmake": {
+    "command": [
+      "/usr/bin/cmake",
+      "--version"
+    ],
+    "exit_code": 0
+  },
+  "ninja": {
+    "command": [
+      "/root/autodl-tmp/rtx5090-tools/bin/ninja",
+      "--version"
+    ],
+    "exit_code": 0
+  },
+  "ncu": {
+    "command": [
+      "/usr/local/cuda/bin/ncu",
+      "--version"
+    ],
+    "exit_code": 0
+  },
+  "ncu_permission": {
+    "command": [
+      "/usr/local/cuda/bin/ncu",
+      "--query-metrics"
+    ],
+    "exit_code": 0,
+    "diagnostic_status": "tool_limited_ERR_NVGPUCTRPERM",
+    "note": "exit0 does not override explicit diagnostic error"
+  },
+  "cuobjdump": {
+    "command": [
+      "/usr/local/cuda/bin/cuobjdump",
+      "--version"
+    ],
+    "exit_code": 0
+  },
+  "nvdisasm": {
+    "command": [
+      "/usr/local/cuda/bin/nvdisasm",
+      "--version"
+    ],
+    "exit_code": 0
+  },
+  "sanitizer": {
+    "command": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--version"
+    ],
+    "exit_code": 0
+  },
+  "driver_symbols": {
+    "command": [
+      "nm",
+      "-D",
+      "/usr/lib/x86_64-linux-gnu/libcuda.so.1"
+    ],
+    "exit_code": 0
+  },
+  "other_gpu_processes": {
+    "count": 0,
+    "used_memory_MiB": [],
+    "names_and_pids": "omitted"
+  },
+  "timestamp_utc": "2026-10-21T16:37:51.662048+00:00",
+  "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+  "python_executable": "/root/miniconda3/bin/python",
+  "torch": "2.8.0+cu128",
+  "torch_build_cuda": "12.8",
+  "device": "_CudaDeviceProperties(name='NVIDIA GeForce RTX 5090', major=12, minor=0, total_memory=32110MB, multi_processor_count=170, uuid=dac1d6f8-f28c-0ab2-5164-613391003e2e, pci_bus_id=56, pci_device_id=0, pci_domain_id=0, L2_cache_size=96MB)",
+  "arch_list": [
+    "sm_70",
+    "sm_75",
+    "sm_80",
+    "sm_86",
+    "sm_90",
+    "sm_100",
+    "sm_120"
+  ],
+  "server_expiry": "not available; unknown",
+  "source_commit": "e8e64f1927161e947db9d44d40d0f82eae12b63d",
+  "loaded_torch_cuda_libraries": [
+    "/root/miniconda3/lib/python3.12/site-packages/nvidia/cublas/lib/libcublas.so.12",
+    "/root/miniconda3/lib/python3.12/site-packages/nvidia/cublas/lib/libcublasLt.so.12",
+    "/root/miniconda3/lib/python3.12/site-packages/nvidia/cuda_runtime/lib/libcudart.so.12",
+    "/usr/lib/x86_64-linux-gnu/libcuda.so.595.71.05"
+  ]
+}

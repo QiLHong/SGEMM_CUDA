@@ -1,0 +1,13 @@
+uid=0(root) gid=0(root) groups=0(root)
+CapInh:	0000000000000000
+CapPrm:	00000000a80425fb
+CapEff:	00000000a80425fb
+CapBnd:	00000000a80425fb
+CapAmb:	0000000000000000
+RmProfilingAdminOnly: 1
+0x00000000a80425fb=cap_chown,cap_dac_override,cap_fowner,cap_fsetid,cap_kill,cap_setgid,cap_setuid,cap_setpcap,cap_net_bind_service,cap_net_raw,cap_sys_chroot,cap_mknod,cap_audit_write,cap_setfcap
+Unable to set capabilities [--caps=cap_sys_admin+ep]
+cap_sys_admin_exit=1
+Unable to set capabilities [--caps=cap_perfmon+ep]
+cap_perfmon_exit=1
+sysfs on /sys type sysfs (ro,nosuid,nodev,noexec,relatime)

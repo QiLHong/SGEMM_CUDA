@@ -1,0 +1,23 @@
+========= COMPUTE-SANITIZER
+GPU=NVIDIA GeForce RTX 5090 capability=12.0 SM=170 runtime=12080 driver=13020 shared_per_sm=102400 shared_optin=101376 regs_per_sm=65536
+cublas_version=120804
+GEMM_SMOKE PASS full_CPU_double=256 max_abs=0
+smoke_active_blocks_per_sm=6
+loaded=/usr/lib/x86_64-linux-gnu/libcuda.so.595.71.05
+loaded=/usr/lib/x86_64-linux-gnu/libcuda.so.595.71.05
+loaded=/usr/lib/x86_64-linux-gnu/libcuda.so.595.71.05
+loaded=/usr/lib/x86_64-linux-gnu/libcuda.so.595.71.05
+loaded=/usr/lib/x86_64-linux-gnu/libcuda.so.595.71.05
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublas.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublas.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublas.so.12.8.4.1
+loaded=/usr/local/cuda-12.8/targets/x86_64-linux/lib/libcublas.so.12.8.4.1
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)

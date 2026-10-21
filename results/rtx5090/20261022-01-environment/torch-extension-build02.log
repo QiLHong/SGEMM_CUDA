@@ -1,0 +1,44 @@
+[1/2] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output hgemm_sm120.cuda.o.d -DTORCH_EXTENSION_NAME=hgemm_sm120_lib -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1018\" -isystem /root/miniconda3/lib/python3.12/site-packages/torch/include -isystem /root/miniconda3/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /root/miniconda3/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_120,code=sm_120 --compiler-options '-fPIC' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math -Xptxas -v -c /root/autodl-tmp/vitamin-cuda-rtx5090/kernels/hgemm_sm120/hgemm_sm120.cu -o hgemm_sm120.cuda.o 
+ptxas info    : 11 bytes gmem
+ptxas info    : Compiling entry function '_Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi32ELi3E13__nv_bfloat16Ev14CUtensorMap_stS1_PT3_iii' for 'sm_120'
+ptxas info    : Function properties for _Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi32ELi3E13__nv_bfloat16Ev14CUtensorMap_stS1_PT3_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 99 registers, used 1 barriers
+ptxas info    : Compile time = 38.548 ms
+ptxas info    : Compiling entry function '_Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi32ELi3E6__halfEv14CUtensorMap_stS1_PT3_iii' for 'sm_120'
+ptxas info    : Function properties for _Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi32ELi3E6__halfEv14CUtensorMap_stS1_PT3_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 99 registers, used 1 barriers
+ptxas info    : Compile time = 36.165 ms
+ptxas info    : Compiling entry function '_Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi64ELi3E13__nv_bfloat16Ev14CUtensorMap_stS1_PT3_iii' for 'sm_120'
+ptxas info    : Function properties for _Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi64ELi3E13__nv_bfloat16Ev14CUtensorMap_stS1_PT3_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 124 registers, used 1 barriers
+ptxas info    : Compile time = 49.501 ms
+ptxas info    : Compiling entry function '_Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi64ELi3E6__halfEv14CUtensorMap_stS1_PT3_iii' for 'sm_120'
+ptxas info    : Function properties for _Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi64ELi3E6__halfEv14CUtensorMap_stS1_PT3_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 124 registers, used 1 barriers
+ptxas info    : Compile time = 48.609 ms
+ptxas info    : Compiling entry function '_Z21hgemm_k_stages_kernelILi128ELi128ELi32ELi3E13__nv_bfloat16EvPT3_S2_S2_iii' for 'sm_120'
+ptxas info    : Function properties for _Z21hgemm_k_stages_kernelILi128ELi128ELi32ELi3E13__nv_bfloat16EvPT3_S2_S2_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, used 1 barriers, 49152 bytes smem
+ptxas info    : Compile time = 42.208 ms
+ptxas info    : Compiling entry function '_Z21hgemm_k_stages_kernelILi128ELi128ELi32ELi3E6__halfEvPT3_S2_S2_iii' for 'sm_120'
+ptxas info    : Function properties for _Z21hgemm_k_stages_kernelILi128ELi128ELi32ELi3E6__halfEvPT3_S2_S2_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, used 1 barriers, 49152 bytes smem
+ptxas info    : Compile time = 42.516 ms
+ptxas info    : Compiling entry function '_Z23hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E13__nv_bfloat16EvPT2_S2_S2_iii' for 'sm_120'
+ptxas info    : Function properties for _Z23hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E13__nv_bfloat16EvPT2_S2_S2_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, used 1 barriers, 32768 bytes smem
+ptxas info    : Compile time = 37.426 ms
+ptxas info    : Compiling entry function '_Z23hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E6__halfEvPT2_S2_S2_iii' for 'sm_120'
+ptxas info    : Function properties for _Z23hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E6__halfEvPT2_S2_S2_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, used 1 barriers, 32768 bytes smem
+ptxas info    : Compile time = 34.825 ms
+[2/2] c++ hgemm_sm120.cuda.o cublas.cuda.o -shared -L/usr/local/cuda/lib64/stubs -lcuda -L/root/miniconda3/lib/python3.12/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/usr/local/cuda/lib64 -lcudart -o hgemm_sm120_lib.so
+EXPORTED ['hgemm_bcf_dbf_rw', 'hgemm_cublas', 'hgemm_k_stages', 'hgemm_tma_r_k_stages_32', 'hgemm_tma_r_k_stages_64']

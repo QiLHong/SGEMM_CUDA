@@ -1,0 +1,14 @@
+{
+  "native_full_cpu_double_elements": 256,
+  "max_abs": 0,
+  "sm_120_elf_confirmed": true,
+  "sanitizer": {
+    "memcheck": "PASS",
+    "racecheck": "PASS",
+    "synccheck": "PASS"
+  },
+  "upstream_extension_build01": "FAIL_missing_sparse_header",
+  "upstream_extension_build02": "PASS",
+  "ncu": "TOOL_LIMITED",
+  "timing_events": 0
+}
