@@ -1,0 +1,1766 @@
+[
+  {
+    "round": 0,
+    "position": 0,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p00-strict",
+    "round_mean_ms": 0.0119914668,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 0,
+    "position": 1,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p01-k10",
+    "round_mean_ms": 0.035345067216666665,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 0,
+    "position": 2,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p02-k30",
+    "round_mean_ms": 0.030058666933333332,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 0,
+    "position": 3,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p03-serial",
+    "round_mean_ms": 0.037724801046666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 0,
+    "position": 4,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p04-overlap",
+    "round_mean_ms": 0.028613333393333332,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 0,
+    "position": 5,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p05-single",
+    "round_mean_ms": 0.028363733476666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 1,
+    "position": 0,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p00-k10",
+    "round_mean_ms": 0.03553280061333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 1,
+    "position": 1,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p01-k30",
+    "round_mean_ms": 0.02969706691,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 1,
+    "position": 2,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p02-serial",
+    "round_mean_ms": 0.037873067606666665,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 1,
+    "position": 3,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p03-overlap",
+    "round_mean_ms": 0.02819946674666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 1,
+    "position": 4,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p04-single",
+    "round_mean_ms": 0.028583466686666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 1,
+    "position": 5,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p05-strict",
+    "round_mean_ms": 0.01194133348,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 2,
+    "position": 0,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p00-k30",
+    "round_mean_ms": 0.029646933563333335,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 2,
+    "position": 1,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p01-serial",
+    "round_mean_ms": 0.03765653461,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 2,
+    "position": 2,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p02-overlap",
+    "round_mean_ms": 0.028635733436666668,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 2,
+    "position": 3,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p03-single",
+    "round_mean_ms": 0.02843093349,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 2,
+    "position": 4,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p04-strict",
+    "round_mean_ms": 0.0118122668,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 2,
+    "position": 5,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p05-k10",
+    "round_mean_ms": 0.035281067220000004,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 3,
+    "position": 0,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p00-serial",
+    "round_mean_ms": 0.03775040112,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 3,
+    "position": 1,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p01-overlap",
+    "round_mean_ms": 0.028549333463333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 3,
+    "position": 2,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p02-single",
+    "round_mean_ms": 0.02888426686,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 3,
+    "position": 3,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p03-strict",
+    "round_mean_ms": 0.01209813344,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 3,
+    "position": 4,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p04-k10",
+    "round_mean_ms": 0.03533973396666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 3,
+    "position": 5,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p05-k30",
+    "round_mean_ms": 0.029981866956666665,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 4,
+    "position": 0,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p00-overlap",
+    "round_mean_ms": 0.02888213352,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 4,
+    "position": 1,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p01-single",
+    "round_mean_ms": 0.028394666793333332,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 4,
+    "position": 2,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p02-strict",
+    "round_mean_ms": 0.012055466693333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 4,
+    "position": 3,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p03-k10",
+    "round_mean_ms": 0.035497600723333335,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 4,
+    "position": 4,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p04-k30",
+    "round_mean_ms": 0.02984960022,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 4,
+    "position": 5,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p05-serial",
+    "round_mean_ms": 0.03776000106666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 5,
+    "position": 0,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p00-single",
+    "round_mean_ms": 0.028712533463333332,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 5,
+    "position": 1,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p01-strict",
+    "round_mean_ms": 0.012257066716666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 5,
+    "position": 2,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p02-k10",
+    "round_mean_ms": 0.0353194674,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 5,
+    "position": 3,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p03-k30",
+    "round_mean_ms": 0.029976533533333332,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 5,
+    "position": 4,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p04-serial",
+    "round_mean_ms": 0.03777920121666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 5,
+    "position": 5,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p05-overlap",
+    "round_mean_ms": 0.0281834668,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 6,
+    "position": 0,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p00-strict",
+    "round_mean_ms": 0.011979733436666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 6,
+    "position": 1,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p01-k10",
+    "round_mean_ms": 0.035413334033333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 6,
+    "position": 2,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p02-k30",
+    "round_mean_ms": 0.02984426697,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 6,
+    "position": 3,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p03-serial",
+    "round_mean_ms": 0.037366401423333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 6,
+    "position": 4,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p04-overlap",
+    "round_mean_ms": 0.028684800233333335,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  },
+  {
+    "round": 6,
+    "position": 5,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p05-single",
+    "round_mean_ms": 0.028228266766666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "3ff9834a7716e2ab",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "cadbbc1afde3c50",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "66842c360b89fd35",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false
+  }
+]
