@@ -1,0 +1,170 @@
+[
+  {
+    "implementation": "hgemm_bcf_dbf_rw",
+    "round_mean_ms": [
+      0.03052053345988194,
+      0.03020266698052486,
+      0.030289066955447197,
+      0.030166400223970415,
+      0.030115200330813725,
+      0.030247466700772444,
+      0.029943466869493326
+    ],
+    "median_round_mean_ms": 0.03020266698052486,
+    "tflops": 71.10245096516576,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      -0.3111173423779706,
+      -0.3156630979762213,
+      -0.3158895823067408,
+      -0.30819279829409996,
+      -0.3158006828692701,
+      -0.3240117258477839,
+      -0.31372899935277576
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": -0.3156630979762213,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_k_stages",
+    "round_mean_ms": [
+      0.030182400221625962,
+      0.03024320024996996,
+      0.030444800357023873,
+      0.03023573352644841,
+      0.029963733442127705,
+      0.029790933802723886,
+      0.030002133796612422
+    ],
+    "median_round_mean_ms": 0.030182400221625962,
+    "tflops": 71.1501945581289,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      -0.30339979433375575,
+      -0.3165802764431721,
+      -0.3193889924244633,
+      -0.3097791754835395,
+      -0.3123420503858698,
+      -0.3136525042171636,
+      -0.31507095093034876
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": -0.3136525042171636,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "round_mean_ms": [
+      0.03018133354683717,
+      0.030074666999280453,
+      0.029907200609644254,
+      0.030092800346513588,
+      0.029729066913326583,
+      0.029845333471894265,
+      0.02981333372493585
+    ],
+    "median_round_mean_ms": 0.029907200609644254,
+    "tflops": 71.80490330838572,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      -0.30337517494852884,
+      -0.3127505100953316,
+      -0.3071546041073433,
+      -0.30650080138178193,
+      -0.30691401914261174,
+      -0.3149035231324545,
+      -0.31073347378838256
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": -0.3071546041073433,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "round_mean_ms": [
+      0.03219413297871749,
+      0.03211306631565094,
+      0.03225386639436086,
+      0.032061866298317906,
+      0.031666132931907974,
+      0.031625599538286524,
+      0.03152959942817688
+    ],
+    "median_round_mean_ms": 0.032061866298317906,
+    "tflops": 66.97937131977453,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      -0.3469286402033396,
+      -0.3563741515323653,
+      -0.35756333851333666,
+      -0.349091761212288,
+      -0.34931115378361477,
+      -0.35346892672253183,
+      -0.3482526469077185
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": -0.34931115378361477,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_cublas",
+    "round_mean_ms": [
+      0.020737066181997457,
+      0.020613332837820054,
+      0.020732799482842287,
+      0.02074879960467418,
+      0.02064426615834236,
+      0.020571732831497987,
+      0.02018346612652143
+    ],
+    "median_round_mean_ms": 0.02064426615834236,
+    "tflops": 104.02324943539834,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      0.013888175760277344,
+      0.002690817488108177,
+      -0.0005659262957672384,
+      0.005809170752407056,
+      -0.0019117490755916622,
+      -0.006066577861399858,
+      0.018127057194205598
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": 0.002690817488108177,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": true
+  },
+  {
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "round_mean_ms": [
+      0.02102506620188554,
+      0.020668799554308257,
+      0.020721066246430078,
+      0.020869332924485208,
+      0.02060479950159788,
+      0.02044693281253179,
+      0.020549332971374193
+    ],
+    "median_round_mean_ms": 0.020668799554308257,
+    "tflops": 103.89977619926034,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "paired_speedup_vs_strict_reduction_control": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "median_paired_speedup_vs_strict_reduction_control": 0.0,
+    "valid_fp32_accum_comparison": true,
+    "independent_correctness_records": 21,
+    "same_original_variant_bitwise_required": false
+  }
+]
