@@ -1,0 +1,7 @@
+implementation,M,N,K,dtype,warmup,repeat,printed_mean_ms,printed_tflops,protocol
+torch,4096,4096,4096,BF16,10,200,0.750992,183.01,original Python wallclock single batch; rounded upstream stdout
+hgemm_cublas,4096,4096,4096,BF16,10,200,0.751548,tflops:,original Python wallclock single batch; rounded upstream stdout
+hgemm_bcf_dbf_rw,4096,4096,4096,BF16,10,200,0.670394,tflops:,original Python wallclock single batch; rounded upstream stdout
+hgemm_k_stages,4096,4096,4096,BF16,10,200,0.673971,tflops:,original Python wallclock single batch; rounded upstream stdout
+hgemm_tma_r_k_stages_64,4096,4096,4096,BF16,10,200,0.709032,tflops:,original Python wallclock single batch; rounded upstream stdout
+hgemm_tma_r_k_stages_32,4096,4096,4096,BF16,10,200,0.677734,tflops:,original Python wallclock single batch; rounded upstream stdout

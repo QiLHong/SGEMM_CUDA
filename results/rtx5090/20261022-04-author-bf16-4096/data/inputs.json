@@ -1,0 +1,40 @@
+[
+  {
+    "A": {
+      "shape": [
+        4096,
+        4096
+      ],
+      "stride": [
+        4096,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "sha256": "a1bf140bbee950cb64241b148c1b7075ff87944abcd6cc5562fe5f7aabdc3d8b"
+    },
+    "B": {
+      "shape": [
+        4096,
+        4096
+      ],
+      "stride": [
+        4096,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "sha256": "1e60a5c92e56326456778031e99414dc1257bd1dc88b99b59f21c21406eb475d"
+    },
+    "C0": {
+      "shape": [
+        4096,
+        4096
+      ],
+      "stride": [
+        4096,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "sha256": "83ee47245398adee79bd9c0a8bc57b821e92aba10f5f9ade8a5d1fae4d8c4302"
+    }
+  }
+]

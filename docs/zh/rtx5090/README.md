@@ -1,6 +1,6 @@
 # RTX 5090 GEMM 分阶段复现
 
-日期：2026-10-22（Asia/Shanghai）。阶段0已完成：环境、sm_120构建、最小GEMM、SM120双精度小形状校验及244项历史配置清单。**尚无正式性能测量结果**。
+日期：2026-10-22（Asia/Shanghai）。阶段0已完成：环境、sm_120构建、最小GEMM、SM120双精度小形状校验及244项历史配置清单。作者BF16/4096原墙钟入口已完成；七轮统一CUDA event正式对照待完成。
 
 唯一发布分支：`results/rtx5090-gemm-reproduction-20261022`。
 启动 GitHub HEAD：`a2b23dabadc79440bf9cbf63f0b566f7eec429ba`。参考 vitamin-cuda：`520f97093a2abc239977be83d244b327d0e2e2ef`，只读。
@@ -30,3 +30,5 @@
 - [244项复现清单](reproduction-matrix.csv)
 - [机器可读进度](progress.json)
 - [历史入口说明](../../../results/rtx5090/20261022-03-inventory/entrypoint-notes.md)
+
+- [BF16/4096作者原协议](../../../results/rtx5090/20261022-04-author-bf16-4096/original-wallclock.csv)：单批10warmup/200repeat，含host包装和descriptor准备，非纯kernel计时。全部五项作者低精度检查通过。

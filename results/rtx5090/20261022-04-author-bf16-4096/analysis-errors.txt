@@ -1,0 +1,1 @@
+First close attempt failed parsing original stdout with regex; no GPU rerun and no raw data changes. Second analysis uses explicit mean-time token splitting and verifies six rows.

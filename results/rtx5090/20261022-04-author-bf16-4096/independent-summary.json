@@ -1,0 +1,81 @@
+{
+  "rows": 6,
+  "correctness_checks": 5,
+  "all_author_pass": true,
+  "raw_timing_source": "run.log original printed rounded mean, not single-call CUDA events",
+  "formal_event_count": 0,
+  "results": [
+    {
+      "implementation": "torch",
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "dtype": "BF16",
+      "warmup": 10,
+      "repeat": 200,
+      "printed_mean_ms": "0.750992",
+      "printed_tflops": "183.01",
+      "protocol": "original Python wallclock single batch; rounded upstream stdout"
+    },
+    {
+      "implementation": "hgemm_cublas",
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "dtype": "BF16",
+      "warmup": 10,
+      "repeat": 200,
+      "printed_mean_ms": "0.751548",
+      "printed_tflops": "tflops:",
+      "protocol": "original Python wallclock single batch; rounded upstream stdout"
+    },
+    {
+      "implementation": "hgemm_bcf_dbf_rw",
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "dtype": "BF16",
+      "warmup": 10,
+      "repeat": 200,
+      "printed_mean_ms": "0.670394",
+      "printed_tflops": "tflops:",
+      "protocol": "original Python wallclock single batch; rounded upstream stdout"
+    },
+    {
+      "implementation": "hgemm_k_stages",
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "dtype": "BF16",
+      "warmup": 10,
+      "repeat": 200,
+      "printed_mean_ms": "0.673971",
+      "printed_tflops": "tflops:",
+      "protocol": "original Python wallclock single batch; rounded upstream stdout"
+    },
+    {
+      "implementation": "hgemm_tma_r_k_stages_64",
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "dtype": "BF16",
+      "warmup": 10,
+      "repeat": 200,
+      "printed_mean_ms": "0.709032",
+      "printed_tflops": "tflops:",
+      "protocol": "original Python wallclock single batch; rounded upstream stdout"
+    },
+    {
+      "implementation": "hgemm_tma_r_k_stages_32",
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "dtype": "BF16",
+      "warmup": 10,
+      "repeat": 200,
+      "printed_mean_ms": "0.677734",
+      "printed_tflops": "tflops:",
+      "protocol": "original Python wallclock single batch; rounded upstream stdout"
+    }
+  ]
+}

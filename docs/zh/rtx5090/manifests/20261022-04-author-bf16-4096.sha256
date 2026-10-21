@@ -1,0 +1,12 @@
+d29cc60f9ace66a3c2933c7c61dcb50b59a896f0ffb43fcd79b00a00b0f61b77  docs/zh/rtx5090/README.md
+b2acf1ea23ac0873726cb8c54cf50f6b9a27de191887854948695e3880aba29e  docs/zh/rtx5090/publication-log.jsonl
+1c7d2da7ad589affb192f66d8acbe4db911e98b7d4359e478a6c43132f8047a4  results/rtx5090/20261022-04-author-bf16-4096/BATCH_COMPLETE.json
+24dfb73e15720b3bd3ca144cbef60a03a8d25fc834a5baf5e0a533faad6b3ecc  results/rtx5090/20261022-04-author-bf16-4096/analysis-errors.txt
+eee176b15654144ca152fb678e7f6aed3132179dd2b215387051f1af827d6310  results/rtx5090/20261022-04-author-bf16-4096/data/COMPLETED.json
+29eceb8bf42e6159ac5834aae3f938d1f7782a8d4cdef2e7164276f240414fa8  results/rtx5090/20261022-04-author-bf16-4096/data/PARTIAL.json
+06864e6687e94f7f113faa4e9b19e66276d29b4b66e85828cbb287e3c5605c20  results/rtx5090/20261022-04-author-bf16-4096/data/correctness.json
+2186b6f8f5bf1d2a98a97ad908b14b468ccbb553233a7a45be42b0f511709ea2  results/rtx5090/20261022-04-author-bf16-4096/data/inputs.json
+41fa58cedd44ef9722649f84fc75c20debbf6b2d73b7289ac9bea23777f902c8  results/rtx5090/20261022-04-author-bf16-4096/independent-summary.json
+a8ec56b7cc511154f9eac3b7f80f7e737ccf425177fa2ee2605b11f70c29fded  results/rtx5090/20261022-04-author-bf16-4096/original-wallclock.csv
+9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa  results/rtx5090/20261022-04-author-bf16-4096/run.exit
+ee152a6b8285d45ce326cbe89237ceba3933a97c31d2b488cb1ee48ea12bc772  results/rtx5090/20261022-04-author-bf16-4096/run.log

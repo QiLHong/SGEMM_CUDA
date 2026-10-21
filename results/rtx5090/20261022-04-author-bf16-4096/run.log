@@ -1,0 +1,14 @@
+ninja: no work to do.
+####################################################################################################
+n: 4096, m: 4096, k: 4096
+torch                                    mean time: 0.750992 ms, 183.01 tflops
+hgemm_cublas                             mean time: 0.751548 ms, speedup: 1.00, tflops: 182.87
+{"kernel": "hgemm_cublas", "reference": "upstream_torch_matmul_same_dtype", "elements": 16777216, "max_abs": 0.0, "max_rel_ref_denominator_floor_1e_30": 0.0, "relative_l2": 0.0, "nonfinite_elements": 0, "candidate_nan": 0, "candidate_inf": 0, "author_failed_elements": 0, "strict_abs_001_failed_elements": 0, "author_allclose": true, "strict_abs_001_pass": true, "exact_equal_elements": 16777216}
+hgemm_bcf_dbf_rw                         mean time: 0.670394 ms, speedup: 1.12, tflops: 205.01
+{"kernel": "hgemm_bcf_dbf_rw", "reference": "upstream_torch_matmul_same_dtype", "elements": 16777216, "max_abs": 0.0, "max_rel_ref_denominator_floor_1e_30": 0.0, "relative_l2": 0.0, "nonfinite_elements": 0, "candidate_nan": 0, "candidate_inf": 0, "author_failed_elements": 0, "strict_abs_001_failed_elements": 0, "author_allclose": true, "strict_abs_001_pass": true, "exact_equal_elements": 16777216}
+hgemm_k_stages                           mean time: 0.673971 ms, speedup: 1.11, tflops: 203.92
+{"kernel": "hgemm_k_stages", "reference": "upstream_torch_matmul_same_dtype", "elements": 16777216, "max_abs": 0.0, "max_rel_ref_denominator_floor_1e_30": 0.0, "relative_l2": 0.0, "nonfinite_elements": 0, "candidate_nan": 0, "candidate_inf": 0, "author_failed_elements": 0, "strict_abs_001_failed_elements": 0, "author_allclose": true, "strict_abs_001_pass": true, "exact_equal_elements": 16777216}
+hgemm_tma_r_k_stages_64                  mean time: 0.709032 ms, speedup: 1.06, tflops: 193.84
+{"kernel": "hgemm_tma_r_k_stages_64", "reference": "upstream_torch_matmul_same_dtype", "elements": 16777216, "max_abs": 0.0, "max_rel_ref_denominator_floor_1e_30": 0.0, "relative_l2": 0.0, "nonfinite_elements": 0, "candidate_nan": 0, "candidate_inf": 0, "author_failed_elements": 0, "strict_abs_001_failed_elements": 0, "author_allclose": true, "strict_abs_001_pass": true, "exact_equal_elements": 16777216}
+hgemm_tma_r_k_stages_32                  mean time: 0.677734 ms, speedup: 1.11, tflops: 202.79
+{"kernel": "hgemm_tma_r_k_stages_32", "reference": "upstream_torch_matmul_same_dtype", "elements": 16777216, "max_abs": 0.0, "max_rel_ref_denominator_floor_1e_30": 0.0, "relative_l2": 0.0, "nonfinite_elements": 0, "candidate_nan": 0, "candidate_inf": 0, "author_failed_elements": 0, "strict_abs_001_failed_elements": 0, "author_allclose": true, "strict_abs_001_pass": true, "exact_equal_elements": 16777216}
