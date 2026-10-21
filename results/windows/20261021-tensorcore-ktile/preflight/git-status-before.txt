@@ -1,0 +1,69 @@
+ M .gitignore
+ M CMakeLists.txt
+ M README.md
+ M "docs/zh/00-\351\230\205\350\257\273\350\267\257\347\272\277.md"
+ M "docs/zh/23-\344\273\243\347\240\201\344\270\216\350\204\232\346\234\254\344\275\277\347\224\250\347\264\242\345\274\225.md"
+ M scripts/README.md
+ M scripts/build_cutlass_reference.sh
+ M scripts/build_k30_audit.sh
+ M scripts/build_k31_audit.sh
+ M scripts/build_k32_audit.sh
+ M scripts/k30_audit.cu
+ M scripts/k31_audit.cu
+ M scripts/k32_audit.cu
+ M scripts/summarize_cutlass_reference.py
+ M scripts/summarize_k30_audit.py
+ M scripts/summarize_k31_audit.py
+ M scripts/summarize_k32_audit.py
+ M sgemm.cu
+ M simplest_kernel.cu
+ M src/kernels/10_kernel_warptiling.cuh
+ M src/runner.cu
+ M src/runner.cuh
+?? "docs/zh/24-Windows\345\216\237\347\224\237\346\236\204\345\273\272\344\270\2164090D\345\256\236\351\252\214.md"
+?? "docs/zh/25-K30\345\220\214\346\255\245\346\234\272\345\210\266\344\270\2164090D\346\200\247\350\203\275\345\210\206\346\236\220.md"
+?? "docs/zh/26-vitamin-SIMT\345\244\215\347\216\260\344\270\216K30\345\205\254\345\271\263\345\257\271\347\205\247.md"
+?? "docs/zh/27-vitamin\345\216\237\345\205\245\345\217\243\345\244\215\350\267\221\344\270\216\345\257\204\345\255\230\345\231\250\344\270\212\351\231\220\345\256\236\351\252\214.md"
+?? experiments/vitamin-dbf-register/
+?? results/windows/20261020-rtx4090d-profile-script/
+?? results/windows/20261020-rtx4090d-run01/
+?? results/windows/20261021-vitamin-followup/
+?? results/windows/20261021-vitamin-simt-stage3/
+?? results/windows/README.md
+?? results/windows/delivery-sha256.csv
+?? results/windows/delivery-source.zip
+?? scripts/analyze_dbf_register_evidence.py
+?? scripts/analyze_vitamin_evidence.py
+?? scripts/analyze_vitamin_mapping.py
+?? scripts/analyze_windows_k30_evidence.py
+?? scripts/analyze_windows_k30_mapping.py
+?? scripts/analyze_windows_k30_sass.py
+?? scripts/cuda_smoke.cu
+?? scripts/extract_vitamin_simt.py
+?? scripts/nvtx_compat.h
+?? scripts/summarize_dbf_register_results.py
+?? scripts/summarize_vitamin_results.py
+?? scripts/verify_vitamin_results.py
+?? scripts/vitamin_author_source.py
+?? scripts/vitamin_python_probe.py
+?? scripts/windows/Build-DbfRegister.ps1
+?? scripts/windows/Build-Vitamin.ps1
+?? scripts/windows/Build.ps1
+?? scripts/windows/Profile-DbfRegister.ps1
+?? scripts/windows/Profile-Experiment.ps1
+?? scripts/windows/Profile-K30Sync.ps1
+?? scripts/windows/Profile-Vitamin.ps1
+?? scripts/windows/Run-Benchmarks.ps1
+?? scripts/windows/Run-DbfRegister.ps1
+?? scripts/windows/Run-K30Sync.ps1
+?? scripts/windows/Run-Vitamin.ps1
+?? scripts/windows/Run-VitaminAuthorSource.ps1
+?? scripts/windows/Run-VitaminPython.ps1
+?? scripts/windows/Summarize-Results.ps1
+?? scripts/windows/Summarize-Telemetry.ps1
+?? scripts/windows/Summarize-Vitamin.ps1
+?? scripts/windows/Verify-K30SyncResults.ps1
+?? scripts/windows_benchmark.cu
+?? scripts/windows_dbf_register_benchmark.cu
+?? scripts/windows_vitamin_benchmark.cu
+?? src/kernels/vendor/

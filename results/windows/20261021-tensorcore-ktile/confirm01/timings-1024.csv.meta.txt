@@ -1,0 +1,17 @@
+max_shared_optin_bytes=101376
+ctas_per_sm_original=2
+ctas_per_sm_dynamic16=2
+ctas_per_sm_dynamic32=1
+seed=20261020
+combined_tf32_fp16_preparation_ms=0.086015999317169189
+cuBLAS_version=120405
+reset=zero C0 D2D, same stream, before every warmup/timed invocation, outside events
+input_conversion=GPU __float_to_tf32 and __float2half_rn, outside GEMM events
+fp16_reduction=FP32 (DISALLOW_REDUCED_PRECISION_REDUCTION)
+input_0_a_fnv1a64=bb954f71b42a5e99
+input_0_b_fnv1a64=e0364448831821f4
+input_1_a_fnv1a64=c60b90210ed7f186
+input_1_b_fnv1a64=49a3f592b1542e7a
+input_2_a_fnv1a64=c60b90210ed7f186
+input_2_b_fnv1a64=49a3f592b1542e7a
+cpu_double_positions=256/1048576

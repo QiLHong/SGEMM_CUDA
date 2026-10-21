@@ -1,0 +1,4 @@
+implementation,start,end,instructions,last_copy,wait,copies,hmma,hmma_between_last_copy_and_wait
+dynamic32,0xe80,0x1930,172,0x1120,0x1790,8,64,40
+dynamic16,0xe30,0x1510,111,0xfe0,0x14b0,4,32,28
+original16,0xe30,0x1510,111,0xfe0,0x14b0,4,32,28

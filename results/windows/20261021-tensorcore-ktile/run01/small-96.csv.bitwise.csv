@@ -1,0 +1,7 @@
+implementation,round,count,bitwise_mismatches
+vitamin_tf32_dbf,-1,131072,0
+tf32_dynamic_bk16,-1,131072,0
+tf32_dynamic_bk32,-1,131072,0
+tf32_dynamic_bk16,0,131072,0
+tf32_dynamic_bk32,0,131072,0
+vitamin_tf32_dbf,0,131072,0

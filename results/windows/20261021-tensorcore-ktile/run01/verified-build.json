@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-20T21:26:39.1707777+00:00",
+  "compile_command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\tensorcore-ktile\\benchmark.cu -o CMakeFiles\\windows_tensor_ktile_benchmark.dir\\benchmark.cu.obj -Xcompiler=-FdCMakeFiles\\windows_tensor_ktile_benchmark.dir\\,-FS",
+  "binary_sha256": "2930652590F8900649C5030589BD6DB8FDD1E3FA0DFFDA711589C682FD74140E",
+  "source_sha256": "542040F989F9707AE75F5C58F12F788B2A8AE8EE397570A7538A5A4888BDDF8A",
+  "architecture": "sm_89",
+  "fast_math": false,
+  "upstream_commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Thu_Mar_28_02:30:10_Pacific_Daylight_Time_2024\nCuda compilation tools, release 12.4, V12.4.131\nBuild cuda_12.4.r12.4/compiler.34097967_0",
+  "host_compiler": "D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+  "evidence_dir": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-ktile\\build01"
+}

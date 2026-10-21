@@ -1,0 +1,25 @@
+{
+  "copy_checks": [
+    {
+      "bk": 16,
+      "shared_bytes": 32768,
+      "copy_elements": 8192,
+      "duplicate_addresses": 0,
+      "omissions": 0,
+      "out_of_bounds": 0
+    },
+    {
+      "bk": 32,
+      "shared_bytes": 65536,
+      "copy_elements": 16384,
+      "duplicate_addresses": 0,
+      "omissions": 0,
+      "out_of_bounds": 0
+    }
+  ],
+  "output_elements": 16384,
+  "output_mapping": "original-mapping/output-fragments.csv",
+  "mma_k_order_equal": true,
+  "bank_mapping_preserved": true,
+  "caveat": "CPU address/coverage proof; actual shared wavefronts/conflicts require NCU; race sanitizer not run"
+}

@@ -1,0 +1,1 @@
+Audit-only failure: NCU launch__func_cache_config=CachePreferNone is categorical. No raw measurements changed. Parser repaired; final output in evidence03.

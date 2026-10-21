@@ -1,0 +1,17 @@
+{
+  "source-before": {
+    "count": 408,
+    "changed": []
+  },
+  "history-before": {
+    "count": 1364,
+    "changed": []
+  },
+  "original_sass_unchanged": true,
+  "run01_adjacent_and_swapping": true,
+  "confirm01_adjacent_and_swapping": true,
+  "input_fingerprints_equal": true,
+  "ncu_launches": 12,
+  "static_functions": 3,
+  "k_loops": 3
+}

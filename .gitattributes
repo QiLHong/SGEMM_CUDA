@@ -10,3 +10,7 @@ scripts/windows/*-TensorGrid.ps1 -text
 scripts/windows/Initialize-Toolchain.ps1 -text
 docs/zh/28-* -text
 docs/zh/29-* -text
+results/windows/20261021-tensorcore-ktile/** -text
+experiments/tensorcore-ktile/** -text
+scripts/windows/*-TensorKTile.ps1 -text
+docs/zh/30-* -text

@@ -1,0 +1,38 @@
+
+Fatbin ptx code:
+================
+arch = sm_89
+code version = [8,4]
+host = windows
+compile_size = 64bit
+compressed
+identifier = D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/experiments/tensorcore-ktile/benchmark.cu
+ptxasOptions = -v --generate-line-info 
+
+Fatbin elf code:
+================
+arch = sm_89
+code version = [1,7]
+host = windows
+compile_size = 64bit
+identifier = D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/experiments/tensorcore-ktile/benchmark.cu
+
+Resource usage:
+ Common:
+  GLOBAL:0
+ Function _ZN10ktile_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi32EEEvPfS1_S1_iii:
+  REG:170 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:388 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _ZN10ktile_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii:
+  REG:127 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:388 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _ZN12vitamin_fp1623hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii:
+  REG:128 STACK:0 SHARED:32768 LOCAL:0 CONSTANT[0]:388 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _ZN12vitamin_fp1616hgemm_bcf_kernelILi128ELi128ELi32E6__halfEEvPT2_S3_S3_iii:
+  REG:124 STACK:0 SHARED:16384 LOCAL:0 CONSTANT[0]:388 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _ZN12vitamin_tf3233sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii:
+  REG:127 STACK:0 SHARED:32768 LOCAL:0 CONSTANT[0]:388 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _ZN12vitamin_tf3229sgemm_tf32_swizzle_bcf_kernelILi128ELi128ELi16EEEvPfS1_S1_iii:
+  REG:126 STACK:0 SHARED:16384 LOCAL:0 CONSTANT[0]:388 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf:
+  REG:235 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:400 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z13prepareInputsPKfPfP6__halfS1_y:
+  REG:16 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:392 TEXTURE:0 SURFACE:0 SAMPLER:0

@@ -1,0 +1,22 @@
+{
+  "author": "QiLHong / vitamin-cuda",
+  "commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "source": "kernels/sgemm/sgemm_tf32.cu",
+  "function": "sgemm_tf32_swizzle_bcf_dbf_kernel",
+  "original_function_sha256": "7a86f5558e67dbe5e6244a9028f9fef623b52a60ec5335af46ee8c4399584cf7",
+  "experiment_sha256": "eaf4f8ae008b00129508b52fcd775e147977ab20b3b5240b6221561324aa3d00",
+  "changes": [
+    "dynamic shared memory for both controls",
+    "BK/16 slabs preserving 16-wide layout",
+    "four original copies per slab",
+    "BK/8 ordered MMA steps",
+    "static shape constraints"
+  ],
+  "unchanged": [
+    "W8 grid mapping",
+    "CTA/warp/output mapping",
+    "TF32/FP32 contract",
+    "MMA fragment body",
+    "double-buffer commit/wait/barrier protocol"
+  ]
+}
