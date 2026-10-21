@@ -1,0 +1,19 @@
+[
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/ktile",
+      "4096",
+      "4096",
+      "4096",
+      "7",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-59-stage4-ktile-n4096-seed20261020/events.csv",
+      "all"
+    ],
+    "binary_sha256": "fdc26215dcb716222b6c5c16f2ff9144cdd9b2f83302e2ffa62c3601fed39e0a",
+    "begin_unix": 1792614269.331601,
+    "end_unix": 1792614279.864021,
+    "exit_code": 0
+  }
+]
