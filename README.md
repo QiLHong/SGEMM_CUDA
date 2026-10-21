@@ -6,27 +6,29 @@
 
 原项目：[siboehm/SGEMM_CUDA](https://github.com/siboehm/SGEMM_CUDA)。原作者：Simon Boehm。中文内容属于 AI 辅助翻译与学习补充，并非原作者审校版，也不是原博客的完整译文。`【学习补充】` 表示新增解释，`【注释辨析】` 表示原注释与实际表达式之间需要注意的区别；没有把这些问题偷偷改成另一套实现。
 
-**阶段收尾（2026-10-13）：暂停继续调优。** 最佳研究基线保留 K30 V2，默认教学入口
+**RTX 3080 / strict FP32 阶段收尾（2026-10-13）：该阶段暂停继续调优。** 最佳研究基线保留 K30 V2，默认教学入口
 保留 K10；K31/K32 未产生可靠替代版本。求职阅读建议依次看
 [完整优化故事](docs/zh/06-RTX3080-K10优化故事.md)、
 [复现与简历讲述](docs/zh/20-项目复现与简历讲述.md)、
-[35 题模拟面试 QA](docs/zh/21-SGEMM模拟面试QA.md)。
+[35 题 SIMT 与 Tensor Core 补充 QA](docs/zh/21-SGEMM模拟面试QA.md)。
 核心成果限定为 RTX 3080、4096³ strict FP32：约 20.8 TFLOPS、96.3% 同口径 cuBLAS，
 不代表通用 GEMM 或 GPU 理论峰值比例。
 
 想从基础系统学起，可读[微教材 从矩阵乘法到 CUDA 微内核](docs/zh/微教材/README.md)：
-8 章连续讲解、24 道带答案练习，以及不依赖 GPU 的 Python 验证脚本。
+前 8 章讲解 SIMT，含 24 道带答案练习及 CPU 验证脚本；新增
+[第 9 章：从 SIMT 到 Tensor Core 矩阵指令](docs/zh/微教材/09-TensorCore从SIMT到矩阵指令.md)，衔接混合精度、warp 级 MMA、fragment 和异步搬运。
 源码精读版按 K1/K2 → K3/K5 → K30 逐个线程推导地址与数据流，并完整拆解
 [第 7 章的验证与计时调用链](docs/zh/微教材/07-验证与性能分析.md)。
 
 如果不知道一堆脚本各自做什么，先读[代码与脚本使用索引](docs/zh/23-代码与脚本使用索引.md)。
-它按初学者视角解释全部 122 个代码/脚本/构建配置文件，给出最小 K30 运行路线，
+它按初学者视角解释此前整理的 122 个代码/脚本/构建配置文件，并补充 Windows 入口，给出最小 K30 运行路线，
 并区分“只读分析”“需要 GPU”“会改源码或覆盖结果”的入口。各文件顶部和关键流程旁
 都有中文解释，K30 还包含 lane 0/1/2 的具体坐标例子；本轮注释整理不改变算法或历史数据。
 
 ## RTX 4090 D：Tensor Core 复现与优化（Windows，2026-10-21）
 
-新增[Tensor Core 优化学习指南](docs/zh/32-RTX4090D-TensorCore优化学习指南.md)，
+先用[微教材第 9 章](docs/zh/微教材/09-TensorCore从SIMT到矩阵指令.md)理解 Tensor Core，再读
+[Tensor Core 优化学习指南](docs/zh/32-RTX4090D-TensorCore优化学习指南.md)，
 把作者原版、BK32 和 BN64 串成一条代码阅读路线，包含线程坐标手算、shared 数据流、同步时序、复跑命令与带答案练习。
 
 BN64 在 2048 方阵的独立确认中为 **57.998 TFLOPS**，对同批作者原版的逐轮配对提升中位数为 **19.56%**，
@@ -38,6 +40,19 @@ BN64 在 2048 方阵的独立确认中为 **57.998 TFLOPS**，对同批作者原
 [第 31 章：BN64 与尺寸效应](docs/zh/31-TensorCore-BN64优化与尺寸效应.md)；
 原始数据独立保存在 [BK32 归档](results/windows/20261021-tensorcore-ktile/README.md)
 和 [BN64 归档](results/windows/20261021-tensorcore-bn64/README.md)。
+
+Tensor Core 阅读路线：
+
+| 想解决的问题 | 文档 |
+|---|---|
+| Tensor Core 与普通 FP32 FMA 有何不同？ | [微教材第 9 章](docs/zh/微教材/09-TensorCore从SIMT到矩阵指令.md) |
+| TF32、FP16 怎样复现，误差如何比较？ | [第 28 章：初体验与实测](docs/zh/28-TensorCore初体验与4090D实测.md) |
+| 改 grid 为什么可能不提速？ | [第 29 章：分组与反例](docs/zh/29-TensorCore网格分组优化与反例.md) |
+| 怎样把代码、性能和证据连起来？ | [第 32 章：BK32 / BN64 学习指南](docs/zh/32-RTX4090D-TensorCore优化学习指南.md) |
+| 从哪个脚本构建、计时、复算？ | [脚本说明](scripts/README.md#tensor-core四组独立实验)与[结果索引](results/windows/README.md) |
+
+这里记录的是原生 CUDA 路线；本轮 Tensor Core 没有执行上游 PyTorch 默认入口、BF16 或新架构 TMA 路线。
+K30 仍是独立的 strict FP32 学习基线；两种精度路线并存，不把较低精度的 TFLOPS 放进旧 SGEMM 排名。
 
 ## 概览
 
@@ -136,6 +151,21 @@ iterator/pipeline 与 fragment 调度的整体协同，而不是单个 accumulat
 
 ## 环境与构建
 
+**Windows 原生 / RTX 4090 D：** 先读新增的
+[Windows 构建与受控实验教程](docs/zh/24-Windows原生构建与4090D实验.md)。
+继续学习见[第二阶段：K30 同步机制与 4090 D 性能分析](docs/zh/25-K30同步机制与4090D性能分析.md)：
+完整 CTA 映射验证、V1/V2 同步生命周期、七轮交替测量，以及本次 sm_89 的 PTX/SASS 和 Nsight Compute 证据。
+在 PowerShell 的仓库根目录运行：
+
+```powershell
+.\scripts\windows\Build.ps1 -WithExperiment
+.\scripts\windows\Run-Benchmarks.ps1
+```
+
+脚本只在当前进程加载已安装的 CUDA 12.4、MSVC 14.37 和 VS 附带 Ninja，
+默认 Release / sm_89。结果写入新的 `results/windows/时间戳/`，
+保留原始事件时间、误差和工具链信息；Linux 入口继续见下文。
+
 上游列出的依赖为 CUDA Toolkit 12、Python（以及 Seaborn）、CMake 和 Ninja，辅助 Python 环境见 [environment.yml](environment.yml)。
 
 **学习补充：** 编译并运行 `sgemm` 主要需要 CUDA Toolkit / cuBLAS、C++ 编译器和 CMake。Python 用于画图等辅助工具，Ninja 或 Make 则是构建后端。`environment.yml` 不是完整且锁定的 CUDA 工具链；`nvidia-smi` 中的 CUDA 版本也不能替代 `nvcc --version` 检查。
@@ -143,10 +173,11 @@ iterator/pipeline 与 fragment 调度的整体协同，而不是单个 accumulat
 检查 GPU 的 [compute capability](https://developer.nvidia.com/cuda-gpus)，再设置 `CMakeLists.txt`。原英文 README 的 `80` 是示例；当前源码实际设置为：
 
 ```cmake
-set(CUDA_COMPUTE_CAPABILITY 86)
+set(CMAKE_CUDA_ARCHITECTURES 86 CACHE STRING "CUDA target architectures")
 ```
 
-这与 RTX 3080 的目标架构匹配。这里填的是计算能力，不是 CUDA 的 `12.4` 版本号。
+这与 RTX 3080 的目标架构匹配。配置时可传入 `-DCMAKE_CUDA_ARCHITECTURES=89`
+用于 RTX 4090 D，所有 target 共用该参数。这里填的是计算能力，不是 CUDA 的 `12.4` 版本号。
 
 上游构建方式为 `mkdir build && cd build && cmake .. && cmake --build .`。为了区分调试与性能测试，中文学习示例明确使用 Release，并使用与仓库 Makefile / autotuner 一致的 Makefiles 生成器：
 
@@ -168,7 +199,7 @@ DEVICE=0 ./build/sgemm 1
 DEVICE=0 ./build/sgemm 2
 ```
 
-如果已有 `build/` 是 Ninja 生成的，不要在同一目录混用生成器。可以另选构建目录；使用原 `make profile` 或 autotuner 前，则需检查它们固定依赖的 `build/` 和 `make`。Debug 会使用 `-G`，不适合拿来比较吞吐率。当前 CMake 仍使用上游 `find_package(CUDA)`，这里没有顺带升级构建系统；新版本 CMake 的兼容问题应独立处理。
+如果已有 `build/` 是 Ninja 生成的，不要在同一目录混用生成器。可以另选构建目录；使用原 `make profile` 或 autotuner 前，则需检查它们固定依赖的 `build/` 和 `make`。Debug 会使用 `-G`，不适合拿来比较吞吐率。本次 Windows 适配将已弃用的 `find_package(CUDA)` 替换为 `find_package(CUDAToolkit)` 与导入库目标，保留 Linux 构建入口；本次未在 Linux 上复测。
 
 在构建目录内，运行格式是 `DEVICE=<设备编号> ./sgemm <kernel编号>`。1–12 是原有
 自写 kernel，15 是独立的 K10 grouped-grid 实验，16 是 A shared XOR 实验，17 是
@@ -231,6 +262,10 @@ make profile KERNEL=2 PREFIX=learning_
 24. [22：CUDA 与 SGEMM 基础复习](docs/zh/22-CUDA与SGEMM基础复习.md)：矩阵与索引、执行层次、内存与同步、tiling、资源与测量；含 36 个基础问题、8 道练习及答案。
 25. [微教材：从矩阵乘法到 CUDA 微内核](docs/zh/微教材/README.md)：通过连续推导，从一个点积走到 K30；包含真实源码精读、线程/fragment 追踪、验证与 CSV 调用链、练习与答案。
 26. [23：代码与脚本使用索引](docs/zh/23-代码与脚本使用索引.md)：逐文件用途、术语解释、调用链、初学者运行路线、输出读法与历史工具风险。
+27. [24：Windows 原生构建与 4090 D 实验](docs/zh/24-Windows原生构建与4090D实验.md)：兼容工具链、sm_89、K10 线程坐标、七轮严格 FP32 基线、PAD8 反例及 Nsight 证据。
+28. [25：K30 同步机制与 4090 D 性能分析](docs/zh/25-K30同步机制与4090D性能分析.md)：完整 CTA 映射、单槽/双槽同步、V1/V2 严格 FP32 对照、编译后的预取顺序和五道练习。
+29. [26：vitamin SIMT 复现与 K30 公平对照](docs/zh/26-vitamin-SIMT复现与K30公平对照.md)：RTX 4090 D / Windows 独立跨库实验，五个原始 device kernel、原始/严格两配置、统一 C=AB 的七轮计时与 NCU/SASS 证据。数据单独存放在 [第三阶段归档](results/windows/20261021-vitamin-simt-stage3)，不与其他 GPU 或旧 alpha/beta 成绩混用。
+30. [27：vitamin 原入口复跑与寄存器上限实验](docs/zh/27-vitamin原入口复跑与寄存器上限实验.md)：直接调用作者的 SIMT 测试函数，区分 RTX 5060 移动版原日志与本机墙钟结果；独立检验 DBF 寄存器上限128对资源、正确性和性能的影响。
 
 源码中的 1–12 号 kernel 和独立实验 K15–K23、K30/K31/K32，以及主程序、构建、分析、验证和调优脚本均有中文导读。函数名、变量名、CUDA/PTX API、日志字符串和图表程序的英文标签刻意保留，便于对照原文，也避免破坏自动解析。原图和 MIT 许可证不作替换。
 

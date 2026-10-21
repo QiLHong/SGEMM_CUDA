@@ -1,5 +1,7 @@
 # 29. 从作者 Tensor Core 原核出发：CTA 分组优化与反例
 
+> 维护说明：本章是 W 分组实验的历史报告。其后 BK32、BN64 已分别完成，见[第 30 章](30-TensorCore-K分块实验与资源代价.md)、[第 31 章](31-TensorCore-BN64优化与尺寸效应.md)。完整 Tensor Core 原理见[微教材第 9 章](微教材/09-TensorCore从SIMT到矩阵指令.md)，不要把这里的 W1 收益叠加到后续默认 W8 结果。
+
 日期：2026-10-21。仅 RTX 4090 D / Windows 原生实测；没有 RTX 3080 数据。
 
 本轮结论：**已经做了代码优化实验，但没有获得通用的大幅提速。**
@@ -21,8 +23,8 @@ tile、线程归属、shared 布局、MMA 与同步算法没有改。
 - [FP16 原源码](https://github.com/QiLHong/vitamin-cuda/blob/520f97093a2abc239977be83d244b327d0e2e2ef/kernels/hgemm/hgemm.cu)：
   `hgemm_bcf_dbf_rw_kernel`。
 - 原核、原函数名、[许可证](../../experiments/tensorcore/vendor/LICENSE)均保留。
-- SGEMM_CUDA 当前提交 `545fb01a576ae38d84d00df6359e084eb14c94c2`，
-  工作分支 `results/rtx4090d-k30-stage2-20261021`；所有本轮成果仍未提交。
+- SGEMM_CUDA 实验开始时提交 `545fb01a576ae38d84d00df6359e084eb14c94c2`，
+  工作分支 `results/rtx4090d-k30-stage2-20261021`；该时点本轮成果尚未提交；随后发布为 `b718c7b`。
 - 两仓库均检查了状态和适用 AGENTS.md；未找到 AGENTS.md；vitamin 工作区保持干净。
 
 ## 2. 优化假设、改动边界与代码
@@ -273,7 +275,7 @@ TF32 1024有两批约1%的小收益，其他情况不能证明通用改进。
 下一轮更值得独立验证的假设：**TF32把K tile从16加到32，能否摊薄每段等待与地址计算成本？**
 这要求同步审计搬运覆盖与尾部，64 KiB双buffer可能使CTA驻留数下降，
 还需用动态shared opt-in。因此它可能更慢，不能只改一个模板数值就直接运行。
-本轮没有实现或测量这个假设。
+本轮当时没有实现或测量这个假设；后续[第30章](30-TensorCore-K分块实验与资源代价.md)已完成：BK32在1024小幅受益，在2048/4096回退，不能把减少同步次数直接等同于提速。
 
 ## 10. 实际可复跑命令
 

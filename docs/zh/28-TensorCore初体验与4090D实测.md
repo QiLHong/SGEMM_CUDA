@@ -1,5 +1,7 @@
 # Tensor Core 初体验：TF32、FP16 与 RTX 4090 D 实测
 
+> 阅读衔接：原理先看[微教材第 9 章](微教材/09-TensorCore从SIMT到矩阵指令.md)，优化演进看[第 32 章](32-RTX4090D-TensorCore优化学习指南.md)。本章保存首次 TF32 / FP16 原生复现的测量口径，后续成绩不覆盖本表；文中的“本次”和 Git 起点均指当时实验。
+
 本章承接[第26章](26-vitamin-SIMT复现与K30公平对照.md)和[第27章](27-vitamin原入口复跑与寄存器上限实验.md)。本次真正运行了 Tensor Core：原生 CUDA 移植 vitamin-cuda 的四个 device kernel，分别对照同精度 cuBLAS，重新测量 K30 和严格 FP32 cuBLAS。**所有成绩只属于 RTX 4090 D，没有运行 RTX 3080。**
 
 4096 上，两次实验都观察到作者实现相对同精度 cuBLAS 的小幅中位数优势；1024、2048 上 cuBLAS 更快。Tensor Core 结果不满足原始 FP32 的精度标准，因此不能称为“保持严格 FP32 精度的加速”。
@@ -57,9 +59,10 @@ Tensor handle设置`CUBLAS_MATH_DISALLOW_REDUCED_PRECISION_REDUCTION`，避免ha
 
 小矩形`M=128,N=1024,K=32/64`全量检查131072个输出；大方阵每个实现检查256个固定位置。CPU double的大尺寸检查是抽样，不能描述为全量。
 
-每种参考均记录max abs/max rel、相对L2误差、NaN/Inf、`abs<=0.01`、SIMT `atol=rtol=.001`、该精度的上游allclose。TF32上游eps为`.1`，HGEMM为`.016`；它们不是严格FP32的替代标准。max rel分母至少为1e-12，接近零时可能很大。
+每种参考均记录max abs/max rel、相对L2误差、NaN/Inf、`abs<=0.01`、SIMT `atol=rtol=.001`、该精度的上游allclose。TF32上游eps为`.1`，HGEMM为`.016`；它们不是严格FP32的替代标准。max rel按`abs(got-ref)/max(abs(ref),1e-12)`计算，接近零时可能很大。
+注意allclose沿用入口的`abs(got-ref)<=atol+rtol*abs(got)`，相对项用`got`，与max rel的分母不是一回事。
 
-**实际结果：**全部作者核与各自同精度cuBLAS在已检查的完整输出上数值一致，max abs为0；NaN/Inf为0。同表示参考的上游精度判据与CPU double检查通过。相对原始FP32，三档大方阵的Tensor实现均未通过0.01、SIMT allclose，甚至相应eps的逐元素allclose也存在失败。
+**实际结果：**全部作者核与各自同精度cuBLAS在已检查的完整输出上数值一致，max abs为0；NaN/Inf为0。对同表示参考和CPU double参考，按相应TF32/FP16原生容差判据通过；这不代表绝对0.01或SIMT判据通过，量化输入TF32在2048/4096的这两项严格标准仍有失败。相对原始FP32，三档大方阵的Tensor实现均未通过0.01、SIMT allclose，甚至相应eps的逐元素allclose也存在失败。
 
 | 尺寸 | TF32相对原始FP32 max abs | FP16相对原始FP32 max abs | TF32相对L2 | FP16相对L2 |
 |---|---:|---:|---:|---:|
@@ -137,6 +140,11 @@ FP16: mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32
 
 它们分别计算一个16×8输出片段，K方向覆盖8或16。每个lane保存其中4个FP32累加元素，32×4=128；不能理解为每个线程各算一个完整16×8矩阵。所有参与lane必须遵守warp级指令的协作要求，不能任意让部分lane跳过MMA。
 
+`mma.sync` 是 warp 级的矩阵乘加约定；后缀 `.sync` 不能代替 CTA 的 `__syncthreads()`，也不能代替异步 copy 的完成等待。
+`m16n8k8` 按一次乘、一次加各算一 FLOP，代表 `2*16*8*8=2048` 个数学 FLOP；它不是“一线程 2048 FLOP”，也不是“一条指令一个周期”的性能保证。
+本项目使用 inline PTX 显式组织 operand 寄存器，未通过 `wmma::fragment` 容器调用 MMA；不能把这里的 lane 公式直接套到 WMMA opaque fragment。
+层次关系及官方依据见[微教材第 9 章](微教材/09-TensorCore从SIMT到矩阵指令.md)。
+
 ### 4.2 CTA、warp、lane与输出公式
 
 CTA有256线程、8个warp，负责128×128输出。`warp=tid/32`、`lane=tid%32`；`warp_m=warp/4`、`warp_n=warp%4`，因此warp按2×4排布，每warp负责64×32。
@@ -201,7 +209,7 @@ cp.async(A/B) -> commit -> wait_group0 -> CTA同步
 
 `wait_group0`等待本线程提交的异步copy；`__syncthreads()`建立整个CTA的共享数据可见性，并保护旧buffer的读者。不能用其中一个无条件替代另一个。
 
-FP16 DBF+RW最后把As/Bs存储区复用为Cs：先同步确保所有warp已读完A/B，再各线程把half累加结果写入swizzled Cs，再同步确保Cs完整，最后按每线程8个连续half搬回global。此时**最终搬运线程不一定是计算该元素的线程**，详见[写回映射](../../results/windows/20261021-tensorcore/mapping/fp16-rw-shared-to-global.csv)。
+FP16 DBF+RW最后把As/Bs存储区复用为Cs：先同步确保所有warp已读完A/B，再各线程把FP32累加结果转换为half并写入swizzled Cs，再同步确保Cs完整，最后按每线程8个连续half搬回global。此时**最终搬运线程不一定是计算该元素的线程**，详见[写回映射](../../results/windows/20261021-tensorcore/mapping/fp16-rw-shared-to-global.csv)。
 
 ### 4.4 尺寸限制必须由入口守住
 
@@ -252,7 +260,7 @@ FP16 DBF+RW最后把As/Bs存储区复用为Cs：先同步确保所有warp已读�
 
 尚未验证：3080表现、BF16、sm120/TMA、默认Python入口、Sanitizer、所有矩形/尾块、其他seed/分布/动态范围、跨日稳定性、cuBLASLt最佳算法、单独转换开销和端到端性能。现有误差结果不支持将Tensor输出当作原严格FP32任务的等价替换。没有锁频或绕过WDDM权限；NCU使用安装目录内现有section文件完成采样。
 
-下一项具体实验：**只修改TF32 DBF的`SWIZZLE_W`网格分组宽度8→4，保持tile、MMA、shared布局和精度不变，测试2048/4096的L2局部性与性能。** 先在CPU证明网格仍为双射，再交替测试。当前数据不足以断言它会提速；这是一个比同时更改tile、stage数、精度更容易归因的假设。
+当时提出的下一项实验（后续已由[第29章](29-TensorCore网格分组优化与反例.md)扩展为W=1/2/4扫描）：**只修改TF32 DBF的`SWIZZLE_W`网格分组宽度8→4，保持tile、MMA、shared布局和精度不变，测试2048/4096的L2局部性与性能。** 先在CPU证明网格仍为双射，再交替测试。当前数据不足以断言它会提速；这是一个比同时更改tile、stage数、精度更容易归因的假设。
 
 ## 7. 文件与复跑
 
@@ -285,12 +293,12 @@ $out = "results\windows\$tag-rtx4090d-tensorcore"
 & 'D:\Anaconda\Anaconda\python.exe' .\scripts\extract_vitamin_tensor.py --verify
 ```
 
-重新核验本次固定归档（输出也需新目录）：
+仅在需要审计当时固定快照时使用以下入口。它会检查历史源码哈希，当前文档或源码合法更新后可能失败；通用复算使用上面的统计脚本，不修改旧清单来消除差异。输出应放在冻结树之外：
 
 ```powershell
 & 'D:\Anaconda\Anaconda\python.exe' .\scripts\audit_tensor_evidence.py `
   --root .\results\windows\20261021-tensorcore `
-  --output ".\results\windows\20261021-tensorcore\audit-$tag" `
+  --output "$out\saved-evidence-audit" `
   --telemetry-offset-minutes 480
 ```
 

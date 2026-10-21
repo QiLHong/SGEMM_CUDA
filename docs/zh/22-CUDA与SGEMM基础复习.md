@@ -1,12 +1,13 @@
 # CUDA 与 SGEMM 基础复习
 
 如果希望连续学习而不是逐题查阅，先读[微教材 从矩阵乘法到 CUDA 微内核](微教材/README.md)。
-它有八章推导和可运行 CPU 练习，本篇保留为知识点速查。
+它保留原八章 SIMT 推导与 CPU 练习，并新增第 9 章 Tensor Core 衔接；本篇保留为知识点速查。
 
 这篇从基础概念出发，帮助你看懂代码、解释实验，再准备项目面试。建议先读本篇，
 再读[优化故事](06-RTX3080-K10优化故事.md)和[项目面试 QA](21-SGEMM模拟面试QA.md)。
 不要求一次记住全部指标：先回答“算什么、谁来算、数据在哪、什么时候能用”，
-最后才回答“为什么快”。本文不新增 kernel 或性能实验，项目仍处于暂停调优状态。
+最后才回答“为什么快”。本文不新增 kernel 或性能实验。B1–B36 保留原 SIMT 基础，
+新增 B37–B46 连接 RTX 4090 D Tensor Core 路线；早期暂停调优的表述只属于 RTX 3080 阶段。
 
 ## 一 先看懂矩阵乘法
 
@@ -436,3 +437,132 @@ CUDA 源码是你表达算法的层；PTX 是虚拟指令表示；ptxas 负责�
 [K30](../../src/kernels/30_kernel_mini_simt.cuh)。
 现有 [01 索引教程](01-矩阵索引与线程映射.md)和
 [02 分块与流水线](02-分块与流水线.md)可作为逐行源码配套，不必从最复杂的版本开始背。
+
+## 九 从 SIMT 衔接 Tensor Core
+
+以下以本仓库的 [BN64 TF32 kernel](../../experiments/tensorcore-bn64/tf32_bn64.cuh)为例。
+先理解代码中的操作与数据，再查[第 32 章](32-RTX4090D-TensorCore优化学习指南.md)的实测；
+若希望连续推导，转到[微教材第 9 章](微教材/09-TensorCore从SIMT到矩阵指令.md)。
+
+### B37 Tensor Core 与普通 FP32 SIMT 的分工有何不同
+
+K30 的主计算由每线程标量 accumulator 执行 FFMA，lane 分工由自己的循环与索引决定。
+BN64 则把一组寄存器 operand 送入 warp 级 `mma.sync`，本例每次协作推进一个
+16×8 输出的 8 宽 K 片段。两者仍需安排 thread、warp、shared 和寄存器，
+Tensor Core 没有自动替程序解决数据搬运、输出覆盖或同步。
+
+### B38 float 存储、TF32 乘数、FP32 累加怎样同时成立
+
+“占几个字节”和“算术保留多少精度”不能混为一谈。本次 TF32 路线先显式量化原始
+FP32 输入，仍用 float 存放量化后的位模式，随后执行 TF32 乘数、FP32 累加和输出。
+`__float_to_tf32` 的输入输出类型均为 float，数值契约却改变；官方说明见
+[CUDA 12.4 alternate floating point](https://docs.nvidia.com/cuda/archive/12.4.1/cuda-c-programming-guide/index.html#alternate-floating-point)。
+
+| 本项目路线 | 实际输入 | 累加 | 输出 | 能否替代原始 FP32 精度结论 |
+|---|---|---|---|---|
+| strict FP32 / K30 | 原 FP32 | FP32 | FP32 | 仍需按原阈值检查 |
+| TF32 Tensor | 显式 TF32 量化、float 存储 | FP32 | FP32 | 不能；本批原严格阈值失败 |
+| 第 28 章 FP16 Tensor | half | FP32 | half | 不能；还有最终 half 舍入 |
+
+BF16 没有本轮正式复现成绩，不能从 FP16 数据推断其精度或速度。FP32 累加也不会
+恢复已经丢失的输入信息；低精度结果与同精度库一致，不等于与原始数学输入一致。
+
+### B39 WMMA、内联 PTX MMA 和 SASS 分别在哪一层
+
+WMMA 是 CUDA C++ 层的矩阵协作接口；本实验直接用内联 PTX 写出
+`mma.sync.aligned.m16n8k8.row.col.f32.tf32.tf32.f32`，再由编译器生成 sm_89 SASS。
+当前二进制观察到 HMMA。不要把一个源码调用、一条 PTX、某个静态 SASS 数量和
+一次完整 GEMM 混为一谈；指令数还受展开与循环动态次数影响。
+
+WMMA 的 fragment 元素映射不由其 C++ 接口公开保证，不能把本 kernel 的内联 PTX
+写回公式直接套到任意 `wmma::fragment::x` 上。语义界限见
+[CUDA WMMA 描述](https://docs.nvidia.com/cuda/archive/12.4.1/cuda-c-programming-guide/index.html#wmma)。
+
+### B40 一次 m16n8k8 为什么不是一个线程的 2048 FLOP
+
+按本项目统一口径，一次 warp 级矩阵乘加对应 `2*16*8*8=2048 FLOP`，这是整个 warp
+的总工作量；不能再乘 32。128 个输出分布在 32 个 lane 的 accumulator 中，每 lane
+持有 4 个值。本 BN64 的每个 warp 组合 `4*2` 个输出 fragment，形成 64×16 输出。
+MMA 的 warp 协作要求见 [PTX MMA](https://docs.nvidia.com/cuda/archive/12.4.1/parallel-thread-execution/index.html#warp-level-matrix-instructions-mma)。
+
+### B41 fragment 是连续的小矩形吗
+
+不是必须。本 kernel 的一个 `sum[mi][ni][0..3]`，在 warp0、lane0、mi=ni=0 时对应
+(0,0)、(0,1)、(8,0)、(8,1)，在行方向分成两组。`sum` 的数组下标只是本线程
+寄存器的编号；矩阵坐标必须经过写回公式求出。把 fragment 误画成四个连续列，
+后续对 shared 布局或写回的推导都会错。
+
+### B42 ldmatrix、cp.async 和 MMA 各自做什么
+
+可以顺着代码分为搬到 shared、装入 operand、执行乘加三步：
+
+```text
+global A/B --cp.async--> shared 双 slot
+shared A --ldmatrix--> reg_a
+shared B --shared load--> reg_b
+reg_a / reg_b --mma.sync--> FP32 sum --float2 store--> global C
+```
+
+本实现中 `.b16` 描述 ldmatrix 的加载组织，不能据此把随后的 TF32 数学称为 FP16。
+`cp.async` 无需显式中间数据寄存器，但地址仍占寄存器；`float2` 写回一次两个结果，
+也没有把两个 FP32 值变成一种新的计算精度。
+
+### B43 wait、barrier 与双 slot 怎样合作
+
+先给 slot0 发出 copy，commit、wait 后由 CTA barrier 发布；循环中向另一个 slot
+预取下一 tile，同时从当前 slot 装载 operand、计算。末尾等待新 copy，再让全 CTA
+会合，随后交换读写角色。wait 不是“所有线程都已读完旧 tile”的声明，barrier 也不是
+异步 copy 自动完成的声明；必须按这份协议把两种条件都满足。末尾只计算最后一个已加载
+tile，不再预取越界数据。[等待指令语义](https://docs.nvidia.com/cuda/archive/12.4.1/parallel-thread-execution/index.html#data-movement-and-conversion-instructions-cp-async-wait-group-cp-async-wait-all)解释了 wait 的作用范围。
+
+### B44 为什么 BK、BN 不能只改模板数字
+
+BK16→32 必须多搬一倍 K 数据并多做 K8 步；本实验使用两个 16 宽 slab 来保留原
+swizzle 的行跨度。BN128→64 则同时改变 warp 的 N 跨度、B 的搬运分工、N fragment
+循环上界和 C 写回。漏改一个环节，可能发生未加载读取、漏算或输出重叠。
+
+检查顺序是先枚举映射与地址，再小尺寸数值验证，最后计时。合法 grid 不等于有
+边界保护；本入口明确拒绝不满足尺寸限制的形状，不用向上取整掩盖尾块越界。
+
+### B45 看 Tensor kernel 的 profiler 要换哪些问题
+
+先用 ptxas 和 SASS 确认资源、spill 与实际 MMA 路径，再看 Tensor 管线和对应的
+issue、eligible、barrier、scoreboard、shared wavefront、L2/DRAM 数据。K30 的
+FP32 FFMA 活跃度不能直接当 Tensor kernel 主计算的利用率。
+
+尤其检查分母：BN64 在 2048 上 Tensor active 44.25%→44.49% 变化不大，
+Tensor elapsed 却从 33.26%→39.82%。更多 SM 在更多经过周期内有任务，可与更高吞吐
+同时发生。单个 stall 降低或 L2 命中率升高都不等于总耗时下降；仍以公平 event 为准。
+
+### B46 哪些证据组合起来才算复现成功
+
+先说明复现的是作者原生 device 实现还是派生优化，再逐项核对：输入字节/指纹、
+计算语义、精度、形状约束、误差标准、计时边界、编译架构和原始 event。
+本轮相对作者基线逐位一致、无 NaN/Inf，支持指定测试集的实现一致性；不替代原始
+FP32 精度要求。GPU 参考全量，CPU double 大尺寸只抽样 256 点，Sanitizer 未执行，
+这三种范围必须分别写清。
+
+## 十 Tensor Core 补充练习
+
+1. 本实现的一个 warp 每个 K8 步做 `4*2` 次 m16n8k8，完成多少 FLOP？一个 BK32
+   tile 含几步？8 warp 的 CTA 完成多少 FLOP？
+2. BN64 的 warp0、lane1、mi=1、ni=1 对应哪四个 CTA 内输出？
+3. `BM=128,BN=64,BK=32` 的双 buffer 用户 shared 有多少字节？能否仅凭此数保证
+   每个 SM 运行期间始终有两个 CTA？
+4. 相对原版每 CTA barrier 减半、CTA 数翻倍，能写“全 GEMM 同步调用减少一半”吗？
+5. 同精度 cuBLAS 的 max abs 为 0，原始 FP32 max abs 为 0.503967285，应该如何报告？
+
+### 补充练习答案
+
+1. 每 warp 每步 `8*2048=16384 FLOP`；BK32 有 4 个 K8 步；CTA 共
+   `8*4*16384=524288 FLOP`，等于 `2*128*64*32`。不要把 warp 工作再乘一次 32。
+2. (16,10)、(16,11)、(24,10)、(24,11)。在 lane1 第一 fragment 坐标上加 `(16,8)`。
+3. `2*(128*32+32*64)*4=49152` 字节。还要检查寄存器、线程、driver 开销和实际
+   shared 配置；理论允许驻留也不是运行全过程的占用保证。
+4. 不能。两项相乘后总调用数保持不变；等待时间可能变化，但需要单独观测，不能
+   从调用计数直接推导耗时减半。
+5. 实现与该同精度参考在已测输出上一致，但相对原始 FP32 仍有量化/累加误差，
+   绝对 0.01 标准失败；不能把前一个 PASS 当成后一个 PASS。
+
+练完后再进入 [Q36–Q47](21-SGEMM模拟面试QA.md#九-rtx-4090-d-tensor-core-补充面试题)，
+用实际 CSV 而不是记忆中的最好成绩解释每个结论。

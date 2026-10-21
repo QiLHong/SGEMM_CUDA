@@ -1,16 +1,17 @@
-# RTX 3080 SGEMM 模拟面试 QA
+# SGEMM 模拟面试 QA：RTX 3080 SIMT 与 RTX 4090 D Tensor Core
 
 适用方向：CUDA 性能优化、GPU 算子开发、推理引擎与高性能计算岗位。
-项目当前停在 K30 V2 最佳研究基线，K31/K32 为未接受的精修与角色分工实验。
-回答以 RTX 3080、SM86、CUDA 12.4、4096³ strict FP32 的已测范围为准。
+Q1–Q35 保留 2026-10-13 的 RTX 3080 阶段：K30 V2 为该阶段最佳研究基线，K31/K32 为未接受的后续实验。
+这 35 题回答以 RTX 3080、SM86、CUDA 12.4、4096³ strict FP32 的已测范围为准。
 这是练习用答案，不是个人经历证明；开源、AI 辅助和自己的实际贡献要分别说明。
 
-还不习惯直接回答面试题时，可先顺序读[八章微教材](微教材/README.md)，
+还不习惯直接回答面试题时，可先顺序读[微教材的 SIMT 基础八章](微教材/README.md)，
 把地址、映射和同步亲手推一遍，再回到本页练习表达。
 
 若想先复习基础，读[CUDA 与 SGEMM 基础复习](22-CUDA与SGEMM基础复习.md)：
-36 个基础问题、地址/线程/bank 小例子及 8 道手算题，从矩阵乘法讲到性能测量。
-本页保留 35 道项目深挖题，两篇不混用题号。
+原 36 个基础问题、地址/线程/bank 小例子及 8 道手算题，从矩阵乘法讲到性能测量；
+另增 B37–B46 的 Tensor Core 知识和 5 道练习。
+本页保留原 35 道项目深挖题，另增 Q36–Q47 的 RTX 4090 D Tensor Core 部分；两篇不混用题号。
 
 基础读完后，再读[优化故事](06-RTX3080-K10优化故事.md)，并按
 [复现手册](20-项目复现与简历讲述.md)实际运行。练习时先不看答案，控制每题
@@ -308,3 +309,107 @@ Eligible 是具备发射条件的 warp 数量，不保证每个都能同时发�
 自测不要只给自己打“回答过”的勾。至少完成三件事：不用文档画一次 mapping；
 从原始 CSV 手算一次提升；解释一次失败实验为何不能永久排除整个方向。
 如果只能背出 96.3%，还没有准备好把这个项目作为简历的主要技术亮点。
+
+## 九 RTX 4090 D Tensor Core 补充面试题
+
+以下回答限定为 Windows / sm_89 的原生 CUDA 复现与 BK32、BN64 实验。
+先读[第 32 章](32-RTX4090D-TensorCore优化学习指南.md)和
+[微教材第 9 章](微教材/09-TensorCore从SIMT到矩阵指令.md)。Q1–Q35 的旧测量和
+Sanitizer 结论不能直接套到这些新 kernel 上。
+
+### Q36 输入输出都是 float 为什么还叫混合精度
+
+要分别描述存储、乘数精度、累加和输出。TF32 路线把量化后的输入放在 float 存储中，
+`mma...f32.tf32.tf32.f32` 使用 TF32 乘数，FP32 累加及输出。FP32 累加不会补回输入
+量化时丢失的信息。严格 FP32 结果另作参考；本次 Tensor 实现相对原始 FP32 的
+绝对 0.01 和 SIMT allclose 均失败，不能把性能优势写成保持原精度的加速。
+
+### Q37 Tensor Core 指令是每线程算一个 16×8 矩阵吗
+
+不是。本实现的 `m16n8k8` 是整个 warp 协作的矩阵乘加；每 lane 持有其中的 operand
+与 accumulator fragment。一个 16×8 输出有 128 个元素，32 lane 每 lane 持有 4 个。
+这是一次 warp 级运算的输出分工，不是 32 份独立的 16×8 结果。warp 参与要求以
+[PTX MMA 语义](https://docs.nvidia.com/cuda/archive/12.4.1/parallel-thread-execution/index.html#warp-level-matrix-instructions-mma)为准。
+
+### Q38 请手算 BN64 中一个 lane 的输出
+
+CTA 为 128×64，8 warp 按 2×4 排列。设 `w=tid/32,l=tid%32`，
+`mi=0..3,ni=0..1,r=0..3`，CTA 内坐标为：
+
+```text
+row = (w/4)*64 + mi*16 + l/4 + (r/2)*8
+col = (w%4)*16 + ni*8 + (l%4)*2 + r%2
+```
+
+warp0、lane1、mi=ni=0 的四个输出是 (0,2)、(0,3)、(8,2)、(8,3)。
+全部 fragment 共 `4*2*4=32` 个结果；256 线程覆盖 8192 个输出。
+数量相等不证明无重叠，还要用 CPU 枚举查重复、遗漏和越界。
+
+### Q39 ldmatrix.b16 是不是说明 kernel 实际用了 FP16
+
+不能这样判断。在此代码中，`ldmatrix.x4.b16` 按半字组织搬运 A 的位模式，
+随后接的是 TF32 MMA；B 则从 shared 加载到位模式寄存器。输入转换、加载组织方式、
+数学乘法类型是三个环节。判断精度应检查转换及 MMA 类型，判断真实计算路径还要
+看最终 SASS；这里已保存 HMMA 与 LDGSTS 证据，不只看文件名含不含 Tensor。
+
+### Q40 有 cp.async.wait_group 为什么还需要 __syncthreads
+
+等待异步组完成和协调全 CTA 是不同责任。BN64 先为当前线程的 copy 等待完成，
+再通过 CTA barrier 让跨线程消费者安全使用新 tile，并保证旧槽所有读者退出后
+才复用。两个 buffer 只隔开当前读地址与下一次写地址，不能自动实现发布与回收。
+等待指令的作用范围见 [PTX cp.async.wait_group](https://docs.nvidia.com/cuda/archive/12.4.1/parallel-thread-execution/index.html#data-movement-and-conversion-instructions-cp-async-wait-group-cp-async-wait-all)。
+
+### Q41 BK32 减少同步为什么在 2048 和 4096 反而慢
+
+原版每 CTA 的 barrier 为 K/16，BK32 为 K/32，但 shared 32→64 KiB、
+寄存器 127→170，理论 CTA/SM 2→1。独立确认相对原版配对中位数分别为
+−4.75%、−6.45%。计数器显示 eligible warp 和 Tensor 活跃指标下降，支持资源
+代价抵消控制开销收益的解释；不能把几种同时变化的因素精确分解成耗时占比。
+
+### Q42 BN64 快起来是不是只因为 occupancy 增大
+
+不能说“只因为”。相对父 BK32，BN64 将 shared 降到 48 KiB、寄存器降到 102，
+恢复理论 2 CTA/SM；相对作者 BK16，理论 CTA/SM 本来就是 2。BN64 同时减半
+每 CTA 输出、翻倍 CTA 数、改 B 搬运及 fragment、增加 A 的重复请求。
+2048 的同批确认是 57.998 TFLOPS，相对原版 +19.56%，是这一组合的实测结果。
+
+### Q43 Tensor active 几乎不变为什么仍能明显加速
+
+先问分母。2048 的原版→BN64，Tensor active 为 44.25%→44.49%，
+但 SM 活跃周期占经过周期从 75.17%→89.49%，Tensor elapsed 从 33.26%→39.82%。
+更细的 CTA 任务分配减少部分空闲，是与这些指标一致的解释；没有逐 SM 调度轨迹，
+不能证明全部收益都来自尾波。4096 的活跃时间比例原本已约 99%，可改善空间不同。
+
+### Q44 为什么 4096 的 L2 命中率更高却没有继续变快
+
+命中率不是总流量。BN64 使逻辑 A 请求翻倍，B 请求不变；两者合计约 1.5 倍。
+4096 L2 命中率 94.72%→95.65%，DRAM 读取仍从 364268160→493347456 字节。
+同批确认对原版配对中位数 −0.43%，仅 2/7 轮胜出，没有稳定提高的证据。
+这既不能证明 L2 毫无价值，也不能把更高命中率直接换算成加速。
+
+### Q45 SASS 中 copy 与 HMMA 交错就证明完全隐藏访存了吗
+
+没有。BN64 主循环最后一次 `LDGSTS` 与完成等待 `DEPBAR.LE` 之间有 27 条 HMMA，
+说明编译后的指令确实交错；静态间隔不是实际延迟，也不表示等待必为零。
+还要结合依赖、动态 stall 和最终耗时。`LDGDEPBAR` 是提交相关指令，不能因名字
+含 DEPBAR 就当成完成等待；profile duration 也不能放进公平 event 成绩表。
+
+### Q46 “超过 cuBLAS”必须附带哪些条件
+
+本例只能说：在 Windows RTX 4090 D、2048 方阵、同一显式 TF32 输入、FP32 累加及
+输出、C=AB 的七轮确认中，BN64 相对 **TF32 cuBLAS** 的配对提升中位数为 11.57%，
+7/7 轮胜出。每轮10次预热、30次 event；输入转换与同 stream 的 C0 恢复均在 event 外。
+1024 仍落后库，不能省掉尺寸；原始 FP32 阈值失败，不能省掉精度；不能用 profiler 时间替代。
+
+### Q47 逐位一致、CPU 枚举、double 参考分别证明了什么
+
+相对作者原版的 156 次全量逐位比较零差异，说明这些已测输出相同；CPU 枚举证明
+映射公式的覆盖，未模拟所有硬件竞争。double 参考在小矩形全量、大方阵只检查固定
+256 点。它们互相补充，但不能代替 Sanitizer；本轮 Sanitizer 未执行。
+相对量化输入的严格参考，在 2048/4096 仍有绝对 0.01 和 SIMT 判据失败，不能省略。
+
+### Tensor Core 方向的现场自检
+
+用五分钟完成：手算 Q38 的一个 lane；从 [paired-rounds.csv](../../results/windows/20261021-tensorcore-bn64/confirm-analysis02/paired-rounds.csv)
+重算 2048 同轮提升；对照 [elapsed-selected.csv](../../results/windows/20261021-tensorcore-bn64/evidence02/elapsed-selected.csv)
+解释 Q43；最后说明 Q47 中未验证的部分。所有历史数字以各自同批 CSV 为准，不做跨 GPU 拼表。
