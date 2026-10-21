@@ -1,0 +1,78 @@
+[
+  {
+    "A": {
+      "shape": [
+        128,
+        384
+      ],
+      "stride": [
+        384,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "sha256": "10dbe381307eea0d24b849ab91b1779db8136db9a4f7e311e5732dbb91b58d11"
+    },
+    "B": {
+      "shape": [
+        384,
+        1024
+      ],
+      "stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "sha256": "0237435bb1da6c8c92ed24d1e5acbee6735448fd2b429d4fdc6c3ae22e65dea0"
+    },
+    "C0": {
+      "shape": [
+        128,
+        1024
+      ],
+      "stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "sha256": "8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90"
+    }
+  },
+  {
+    "A": {
+      "shape": [
+        128,
+        384
+      ],
+      "stride": [
+        384,
+        1
+      ],
+      "dtype": "torch.float16",
+      "sha256": "85d2fd8a27b557964e972753f82853588c2413e45a54a1538e9cb33dfb406bfa"
+    },
+    "B": {
+      "shape": [
+        384,
+        1024
+      ],
+      "stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.float16",
+      "sha256": "0ebdfa8f3f6e16504f05566b82c49e3fd4f53046fbc6cf60b451205711c0b61a"
+    },
+    "C0": {
+      "shape": [
+        128,
+        1024
+      ],
+      "stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.float16",
+      "sha256": "8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90"
+    }
+  }
+]

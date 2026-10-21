@@ -1,0 +1,20 @@
+{
+  "mode": "smoke",
+  "seed": 42,
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "source_files": {
+    "test.py": "033d0cfaaab0b1c70e51eeb4b0b14bbe825c19103468b32ebd3b5c39a618c3a5",
+    "hgemm_sm120.cu": "95f4a1f17cb25dc9b9afdff3bb8f5675cb65b64bdfa0e56fd58c09482f766797",
+    "cublas.cu": "f7407705703b534261f66779fb4c574331032ed1b349e52d3d311ab8b95afebc"
+  },
+  "wrapper_sha256": "8228407908b10826a2c692f9676be027e6ab42d7be1b145f806973b1f2060ca2",
+  "complete": true,
+  "input_generator": "torch CPU randn FP32, then CPU cast to BF16/FP16, then CUDA copy",
+  "alpha": 1.0,
+  "beta": 0.0,
+  "input_layout": "row-major contiguous",
+  "author_criterion": "abs(ref-candidate)<=0.016+0.016*abs(candidate), torch.allclose(ref,candidate)",
+  "strict_diagnostic": "abs(ref-candidate)<=0.01 (separate, never relabeled as low-precision acceptance)",
+  "acceptance_pass": true
+}

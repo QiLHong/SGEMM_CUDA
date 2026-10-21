@@ -1,1 +1,2 @@
 {"commit": "e8e64f1927161e947db9d44d40d0f82eae12b63d", "push_exit": 0, "ls_remote_match": true, "readback_path": "docs/zh/rtx5090/README.md", "sha256": "9502493d88f619283a67894e7174d76921cad1d791dbb02d2abe572cd8338a84", "method": "fixed GitHub raw commit compared byte-for-byte with remote working file"}
+{"commit": "c77162320631e4ea366d3800624313c2593282f0", "push_exit": 0, "ls_remote_match": true, "readback_paths": ["docs/zh/rtx5090/stage0-environment.md", "results/rtx5090/20261022-01-environment/independent-verification.json"], "verified": true}

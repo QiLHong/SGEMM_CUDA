@@ -1,0 +1,37 @@
+{
+  "data": {
+    "reference_checks": 20,
+    "elements_per_check": 131072,
+    "author_all_pass": true,
+    "strict_abs_001_failed_rows": 10,
+    "max_abs_CPUdouble": 0.0625
+  },
+  "phase-wrap-k384": {
+    "reference_checks": 20,
+    "elements_per_check": 131072,
+    "author_all_pass": true,
+    "strict_abs_001_failed_rows": 10,
+    "max_abs_CPUdouble": 0.125
+  },
+  "sanitizer-memcheck": {
+    "reference_checks": 10,
+    "elements_per_check": 131072,
+    "author_all_pass": true,
+    "strict_abs_001_failed_rows": 5,
+    "max_abs_CPUdouble": 0.125
+  },
+  "sanitizer-racecheck": {
+    "reference_checks": 10,
+    "elements_per_check": 131072,
+    "author_all_pass": true,
+    "strict_abs_001_failed_rows": 5,
+    "max_abs_CPUdouble": 0.125
+  },
+  "sanitizer-synccheck": {
+    "reference_checks": 10,
+    "elements_per_check": 131072,
+    "author_all_pass": true,
+    "strict_abs_001_failed_rows": 5,
+    "max_abs_CPUdouble": 0.125
+  }
+}
