@@ -1,0 +1,5 @@
+implementation,round,count,bitwise_mismatches,batch,seed,case_index
+vitamin_tf32_dbf,-1,131072,0,0,20261020,0
+tf32_bn64_bk32,-1,131072,0,0,20261020,0
+vitamin_tf32_dbf,0,131072,0,0,20261020,0
+tf32_bn64_bk32,0,131072,0,0,20261020,0

@@ -1,0 +1,5 @@
+{
+  "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64-robustness\\smoke",
+  "marker_sha256": "996B845F0A1AE05B29B5AAC0734A5E8058339A11E72375B973065B95533B643E",
+  "note": "External smoke supplied explicitly by operator; binary association must also be retained in smoke launcher log"
+}

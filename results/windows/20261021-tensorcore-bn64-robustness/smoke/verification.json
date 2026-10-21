@@ -1,0 +1,10 @@
+{
+  "cases": 3,
+  "auxiliary_events": 9,
+  "checks": 90,
+  "bitwise_checks": 12,
+  "cpu_scope": "All 131072 outputs per small case",
+  "nonfinite": 0,
+  "bitwise_mismatches": 0,
+  "original_fp32_failures_retained": true
+}

@@ -1,0 +1,118 @@
+[
+  {
+    "metric": "sm__cycles_active.avg.pct_of_peak_sustained_elapsed",
+    "source": "current metric query"
+  },
+  {
+    "metric": "sm__pipe_tensor_cycles_active.avg.pct_of_peak_sustained_elapsed",
+    "source": "current metric query"
+  },
+  {
+    "metric": "sm__pipe_tensor_cycles_active.avg.pct_of_peak_sustained_active",
+    "source": "current metric query"
+  },
+  {
+    "metric": "sm__throughput.avg.pct_of_peak_sustained_active",
+    "source": "current metric query"
+  },
+  {
+    "metric": "sm__throughput.avg.pct_of_peak_sustained_elapsed",
+    "source": "current metric query"
+  },
+  {
+    "metric": "sm__warps_active.avg.pct_of_peak_sustained_active",
+    "source": "current metric query"
+  },
+  {
+    "metric": "smsp__warps_eligible.avg.per_cycle_active",
+    "source": "current metric query"
+  },
+  {
+    "metric": "smsp__issue_active.avg.pct_of_peak_sustained_active",
+    "source": "current metric query"
+  },
+  {
+    "metric": "smsp__warps_issue_stalled_barrier.avg.per_cycle_active",
+    "source": "current metric query"
+  },
+  {
+    "metric": "smsp__warps_issue_stalled_long_scoreboard.avg.per_cycle_active",
+    "source": "current metric query"
+  },
+  {
+    "metric": "smsp__warps_issue_stalled_short_scoreboard.avg.per_cycle_active",
+    "source": "current metric query"
+  },
+  {
+    "metric": "lts__t_sectors_op_read.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "lts__t_sector_hit_rate.pct",
+    "source": "current metric query"
+  },
+  {
+    "metric": "dram__bytes_read.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "dram__bytes_write.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_ld.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_st.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_st.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "l1tex__t_sectors_pipe_lsu_mem_local_op_ld.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "l1tex__t_sectors_pipe_lsu_mem_local_op_st.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "gpu__time_duration.sum",
+    "source": "current metric query"
+  },
+  {
+    "metric": "launch__registers_per_thread",
+    "source": "previous NCU launch attributes"
+  },
+  {
+    "metric": "launch__shared_mem_per_block",
+    "source": "previous NCU launch attributes"
+  },
+  {
+    "metric": "launch__shared_mem_config_size",
+    "source": "previous NCU launch attributes"
+  },
+  {
+    "metric": "launch__grid_size",
+    "source": "previous NCU launch attributes"
+  },
+  {
+    "metric": "launch__waves_per_multiprocessor",
+    "source": "previous NCU launch attributes"
+  },
+  {
+    "metric": "launch__occupancy_limit_registers",
+    "source": "previous NCU launch attributes"
+  },
+  {
+    "metric": "launch__occupancy_limit_shared_mem",
+    "source": "previous NCU launch attributes"
+  }
+]

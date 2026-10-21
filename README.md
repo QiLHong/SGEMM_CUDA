@@ -31,7 +31,7 @@
 [Tensor Core 优化学习指南](docs/zh/32-RTX4090D-TensorCore优化学习指南.md)，
 把作者原版、BK32 和 BN64 串成一条代码阅读路线，包含线程坐标手算、shared 数据流、同步时序、复跑命令与带答案练习。
 
-BN64 在 2048 方阵的独立确认中为 **57.998 TFLOPS**，对同批作者原版的逐轮配对提升中位数为 **19.56%**，
+第 31 章的历史单 seed 确认中，BN64 在 2048 方阵为 **57.998 TFLOPS**，对同批作者原版的逐轮配对提升中位数为 **19.56%**，
 对同输入 **TF32 cuBLAS** 为 **11.57%**；4096 未观察到稳定优于作者原版的提升。
 这是 TF32 输入、FP32 累加及输出，原始严格 FP32 的误差标准仍失败。
 成绩仅属于本机 Windows RTX 4090 D，不与下方 A6000 / RTX 3080 历史表合并。
@@ -41,6 +41,10 @@ BN64 在 2048 方阵的独立确认中为 **57.998 TFLOPS**，对同批作者原
 原始数据独立保存在 [BK32 归档](results/windows/20261021-tensorcore-ktile/README.md)
 和 [BN64 归档](results/windows/20261021-tensorcore-bn64/README.md)。
 
+后续多 seed、三批独立进程及新增 3072 的验证，见
+[第 33 章：BN64 稳健性与尺寸适用范围](docs/zh/33-TensorCore-BN64稳健性与尺寸适用范围.md)
+和[本轮独立归档](results/windows/20261021-tensorcore-bn64-robustness/README.md)。该报告使用重新测量的数据，不复用上面的历史数值。
+
 Tensor Core 阅读路线：
 
 | 想解决的问题 | 文档 |
@@ -49,7 +53,10 @@ Tensor Core 阅读路线：
 | TF32、FP16 怎样复现，误差如何比较？ | [第 28 章：初体验与实测](docs/zh/28-TensorCore初体验与4090D实测.md) |
 | 改 grid 为什么可能不提速？ | [第 29 章：分组与反例](docs/zh/29-TensorCore网格分组优化与反例.md) |
 | 怎样把代码、性能和证据连起来？ | [第 32 章：BK32 / BN64 学习指南](docs/zh/32-RTX4090D-TensorCore优化学习指南.md) |
+| 换 seed、重启进程和新增 3072 后，收益是否仍成立？ | [第 33 章：稳健性与尺寸适用范围](docs/zh/33-TensorCore-BN64稳健性与尺寸适用范围.md) |
 | 从哪个脚本构建、计时、复算？ | [脚本说明](scripts/README.md#tensor-core四组独立实验)与[结果索引](results/windows/README.md) |
+
+导航发布记录：2026-10-21 核对时，第 24～27 章、SIMT `stage3` / `followup` 归档与 Windows 结果索引已在本机存在，但未随 `a54435d` 发布。2026-10-22 按用户要求，将这些材料、Windows 构建与实验脚本，以及第 33 章和 BN64 稳健性完整归档一并纳入版本控制。测量时的源码快照、哈希清单和原始结果保持原字节；归档内的“未提交/未推送”描述记录的是实验结束时的状态。
 
 这里记录的是原生 CUDA 路线；本轮 Tensor Core 没有执行上游 PyTorch 默认入口、BF16 或新架构 TMA 路线。
 K30 仍是独立的 strict FP32 学习基线；两种精度路线并存，不把较低精度的 TFLOPS 放进旧 SGEMM 排名。

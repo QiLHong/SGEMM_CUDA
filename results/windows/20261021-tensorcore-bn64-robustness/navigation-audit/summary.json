@@ -1,0 +1,10 @@
+{
+  "local_links": 229,
+  "missing_paths": 0,
+  "anchor_checks": 2,
+  "missing_anchors": 0,
+  "links_to_untracked_targets": 107,
+  "external_urls_not_fetched": 29,
+  "scope": "Local path existence and Markdown heading anchors, with separate Git membership; no remote fetch",
+  "status": "PASS"
+}

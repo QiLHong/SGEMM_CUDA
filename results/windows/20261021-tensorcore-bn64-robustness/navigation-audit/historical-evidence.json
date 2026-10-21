@@ -1,0 +1,178 @@
+{
+  "scope": "Historical evidence only; these are not measurements from the robustness run",
+  "source_hashes": [
+    {
+      "path": "results/windows/20261021-tensorcore-bn64/evidence02/ncu-selected.csv",
+      "sha256": "e765657940f7b614313cdf91ceac0e84d1e5dff0f2aa8ce30a848d2bad211d2c"
+    },
+    {
+      "path": "results/windows/20261021-tensorcore-bn64/evidence02/elapsed-selected.csv",
+      "sha256": "6c171612d5bef78655c5582dd255c2cf038dada29103f82b4a21c65a86d06198"
+    },
+    {
+      "path": "results/windows/20261021-tensorcore-bn64/build02/resources.txt",
+      "sha256": "022fd6a16fb2a3102fcf8e044b5cb7c01712e4695264623fcde3d66d59ddc31b"
+    },
+    {
+      "path": "results/windows/20261021-tensorcore-bn64/evidence02/audit.json",
+      "sha256": "a0de679fdd8ffa4648036c30bd796926b3cfb5da8eb1f6e2d00a7f6f2ece004b"
+    }
+  ],
+  "historical_selected": [
+    {
+      "file": "1024-tf32_bn64_bk32.csv",
+      "launch__registers_per_thread": "102.0",
+      "launch__shared_mem_per_block": "50176.0",
+      "launch__shared_mem_per_block_dynamic": "49152.0",
+      "launch__shared_mem_per_block_static": "0.0",
+      "launch__shared_mem_config_size": "102400.0",
+      "launch__occupancy_limit_registers": "2.0",
+      "launch__occupancy_limit_shared_mem": "2.0",
+      "launch__grid_size": "128.0",
+      "launch__waves_per_multiprocessor": "0.56",
+      "lts__t_sectors_op_read.sum": "3149597.0",
+      "dram__bytes_read.sum": "9472.0",
+      "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_ld.sum": "2622284.0",
+      "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum": "803.0",
+      "smsp__warps_eligible.avg.per_cycle_active": "0.14",
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": "9.47"
+    },
+    {
+      "file": "1024-vitamin_tf32_dbf.csv",
+      "launch__registers_per_thread": "127.0",
+      "launch__shared_mem_per_block": "33792.0",
+      "launch__shared_mem_per_block_dynamic": "0.0",
+      "launch__shared_mem_per_block_static": "32768.0",
+      "launch__shared_mem_config_size": "102400.0",
+      "launch__occupancy_limit_registers": "2.0",
+      "launch__occupancy_limit_shared_mem": "3.0",
+      "launch__grid_size": "64.0",
+      "launch__waves_per_multiprocessor": "0.28",
+      "lts__t_sectors_op_read.sum": "2102393.0",
+      "dram__bytes_read.sum": "45056.0",
+      "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_ld.sum": "1572864.0",
+      "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum": "0.0",
+      "smsp__warps_eligible.avg.per_cycle_active": "0.13",
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": "9.2"
+    },
+    {
+      "file": "2048-tf32_bn64_bk32.csv",
+      "launch__registers_per_thread": "102.0",
+      "launch__shared_mem_per_block": "50176.0",
+      "launch__shared_mem_per_block_dynamic": "49152.0",
+      "launch__shared_mem_per_block_static": "0.0",
+      "launch__shared_mem_config_size": "102400.0",
+      "launch__occupancy_limit_registers": "2.0",
+      "launch__occupancy_limit_shared_mem": "2.0",
+      "launch__grid_size": "512.0",
+      "launch__waves_per_multiprocessor": "2.25",
+      "lts__t_sectors_op_read.sum": "25171158.0",
+      "dram__bytes_read.sum": "33564032.0",
+      "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_ld.sum": "20989254.0",
+      "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum": "15850.0",
+      "smsp__warps_eligible.avg.per_cycle_active": "0.19",
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": "10.37"
+    },
+    {
+      "file": "2048-vitamin_tf32_dbf.csv",
+      "launch__registers_per_thread": "127.0",
+      "launch__shared_mem_per_block": "33792.0",
+      "launch__shared_mem_per_block_dynamic": "0.0",
+      "launch__shared_mem_per_block_static": "32768.0",
+      "launch__shared_mem_config_size": "102400.0",
+      "launch__occupancy_limit_registers": "2.0",
+      "launch__occupancy_limit_shared_mem": "3.0",
+      "launch__grid_size": "256.0",
+      "launch__waves_per_multiprocessor": "1.12",
+      "lts__t_sectors_op_read.sum": "16788669.0",
+      "dram__bytes_read.sum": "33739264.0",
+      "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_ld.sum": "12590523.0",
+      "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum": "7415.0",
+      "smsp__warps_eligible.avg.per_cycle_active": "0.17",
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": "9.78"
+    },
+    {
+      "file": "4096-tf32_bn64_bk32.csv",
+      "launch__registers_per_thread": "102.0",
+      "launch__shared_mem_per_block": "50176.0",
+      "launch__shared_mem_per_block_dynamic": "49152.0",
+      "launch__shared_mem_per_block_static": "0.0",
+      "launch__shared_mem_config_size": "102400.0",
+      "launch__occupancy_limit_registers": "2.0",
+      "launch__occupancy_limit_shared_mem": "2.0",
+      "launch__grid_size": "2048.0",
+      "launch__waves_per_multiprocessor": "8.98",
+      "lts__t_sectors_op_read.sum": "201378869.0",
+      "dram__bytes_read.sum": "493347456.0",
+      "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_ld.sum": "167885069.0",
+      "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum": "102079.0",
+      "smsp__warps_eligible.avg.per_cycle_active": "0.2",
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": "10.5"
+    },
+    {
+      "file": "4096-vitamin_tf32_dbf.csv",
+      "launch__registers_per_thread": "127.0",
+      "launch__shared_mem_per_block": "33792.0",
+      "launch__shared_mem_per_block_dynamic": "0.0",
+      "launch__shared_mem_per_block_static": "32768.0",
+      "launch__shared_mem_config_size": "102400.0",
+      "launch__occupancy_limit_registers": "2.0",
+      "launch__occupancy_limit_shared_mem": "3.0",
+      "launch__grid_size": "1024.0",
+      "launch__waves_per_multiprocessor": "4.49",
+      "lts__t_sectors_op_read.sum": "134272033.0",
+      "dram__bytes_read.sum": "364268160.0",
+      "l1tex__data_pipe_lsu_wavefronts_mem_shared_op_ld.sum": "100764090.0",
+      "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum": "97901.0",
+      "smsp__warps_eligible.avg.per_cycle_active": "0.19",
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": "10.02"
+    }
+  ],
+  "historical_elapsed": [
+    {
+      "file": "2048-tf32_bn64_bk32.csv",
+      "sm_active_elapsed_pct": "89.49",
+      "tensor_active_pct": "44.49",
+      "tensor_elapsed_pct": "39.82"
+    },
+    {
+      "file": "2048-tf32_dynamic_bk32.csv",
+      "sm_active_elapsed_pct": "74.89",
+      "tensor_active_pct": "42.29",
+      "tensor_elapsed_pct": "31.67"
+    },
+    {
+      "file": "2048-vitamin_tf32_dbf.csv",
+      "sm_active_elapsed_pct": "75.17",
+      "tensor_active_pct": "44.25",
+      "tensor_elapsed_pct": "33.26"
+    },
+    {
+      "file": "4096-tf32_bn64_bk32.csv",
+      "sm_active_elapsed_pct": "99.47",
+      "tensor_active_pct": "45.85",
+      "tensor_elapsed_pct": "45.61"
+    },
+    {
+      "file": "4096-tf32_dynamic_bk32.csv",
+      "sm_active_elapsed_pct": "99.51",
+      "tensor_active_pct": "42.93",
+      "tensor_elapsed_pct": "42.72"
+    },
+    {
+      "file": "4096-vitamin_tf32_dbf.csv",
+      "sm_active_elapsed_pct": "99.37",
+      "tensor_active_pct": "45.88",
+      "tensor_elapsed_pct": "45.59"
+    }
+  ],
+  "unmeasured_3072_geometric_expectation": {
+    "original_ctas": 576,
+    "bn64_ctas": 1152,
+    "original_nominal_waves_if_two_ctas_per_sm": 2.526315789473684,
+    "bn64_nominal_waves_if_two_ctas_per_sm": 5.052631578947368,
+    "ab_mib": 72.0,
+    "c_mib": 36.0,
+    "caveat": "A+B equals 72 MiB but output/reset/other traffic compete for cache; capacity alone cannot predict DRAM traffic or benefit"
+  }
+}

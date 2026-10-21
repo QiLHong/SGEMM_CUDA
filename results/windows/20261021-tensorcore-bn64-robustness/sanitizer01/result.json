@@ -1,0 +1,32 @@
+{
+  "mode": "memcheck",
+  "shape": "128x1024x32",
+  "seed": 20261020,
+  "arguments": [
+    "--tool",
+    "memcheck",
+    "--launch-timeout",
+    "20",
+    "--target-processes",
+    "application-only",
+    "--error-exitcode",
+    "99",
+    "--log-file",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64-robustness\\sanitizer01\\memcheck.log",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-tensor-bn64-robustness-sm89\\windows_tensor_bn64_robustness_benchmark.exe",
+    "--case",
+    "128",
+    "1024",
+    "32",
+    "20261020",
+    "1",
+    "1",
+    "1",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64-robustness\\sanitizer01\\small.csv"
+  ],
+  "start_utc": "2026-10-21T14:15:10.8309129+00:00",
+  "timeout_seconds": 60,
+  "status": "TIMEOUT_UNVERIFIED",
+  "pid": 37308,
+  "end_utc": "2026-10-21T14:16:10.9229026+00:00"
+}

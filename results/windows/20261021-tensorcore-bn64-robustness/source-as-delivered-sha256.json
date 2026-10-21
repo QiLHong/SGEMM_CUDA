@@ -1,0 +1,202 @@
+[
+  {
+    "path": "docs/zh/33-TensorCore-BN64稳健性与尺寸适用范围.md",
+    "bytes": 25178,
+    "sha256": "ec851427568fc57a7b7929866ba0aa49d1c3e32465820367687d4aa77ced2634"
+  },
+  {
+    "path": "experiments/tensorcore/benchmark.cu",
+    "bytes": 16329,
+    "sha256": "898205bd2d7b39086bebeb56f17646818ea26a5c732d6f44ea8704f2955ea68d"
+  },
+  {
+    "path": "experiments/tensorcore/CMakeLists.txt",
+    "bytes": 846,
+    "sha256": "9e148a65a4d303d25c73fd318515ab1ccb765a150026a7a3df1ec283155f8cda"
+  },
+  {
+    "path": "experiments/tensorcore/README.md",
+    "bytes": 614,
+    "sha256": "8067c23e77cb04b3b537d08d9d72e56428ab14a0f43cd659c907afd9e4680654"
+  },
+  {
+    "path": "experiments/tensorcore/vendor/LICENSE",
+    "bytes": 1086,
+    "sha256": "9646ccbee1caaea25c5471662cad3dd9d4e1708e9a3a14b5be184f317192b639"
+  },
+  {
+    "path": "experiments/tensorcore/vendor/pack.cuh",
+    "bytes": 3006,
+    "sha256": "d39ce985b39eac0be2ab90d5c3a9e19fb7e23e69d006f2e7f86218af0dd18fec"
+  },
+  {
+    "path": "experiments/tensorcore/vendor/provenance.json",
+    "bytes": 1236,
+    "sha256": "7eb316c5325df8449a7b4bbd7491b7978328b30f34da1ba33b7b0be1ec6d2074"
+  },
+  {
+    "path": "experiments/tensorcore/vendor/vitamin_fp16.cuh",
+    "bytes": 37449,
+    "sha256": "c9661f65077d1214cf379081c03d326ab2a7f8660330a72ba01eebe4016f1e04"
+  },
+  {
+    "path": "experiments/tensorcore/vendor/vitamin_tf32.cuh",
+    "bytes": 36310,
+    "sha256": "bb4123a52f6325f9514ee78e3535008ba3eda284ef418d285720ab38f2497d81"
+  },
+  {
+    "path": "experiments/tensorcore-bn64/benchmark.cu",
+    "bytes": 19167,
+    "sha256": "b5102755328315aa9b1c5b109c56e54efd54daa6a1e95d1b322c2ae820d4bd22"
+  },
+  {
+    "path": "experiments/tensorcore-bn64/CMakeLists.txt",
+    "bytes": 875,
+    "sha256": "7153bc303e080c949107ac719107be3f36e5db4ea6ed6b10ab22c98ae4afa16a"
+  },
+  {
+    "path": "experiments/tensorcore-bn64/device.diff",
+    "bytes": 7024,
+    "sha256": "948c2fb58ce55cdb69dc99d06adc0aeb8dfea73f1a786fc09417b22097e316ef"
+  },
+  {
+    "path": "experiments/tensorcore-bn64/host-harness.diff",
+    "bytes": 7203,
+    "sha256": "c39baf745c373720c6d93eafd7928a7e488ece27e3e7a367afb405ba494ac8a2"
+  },
+  {
+    "path": "experiments/tensorcore-bn64/provenance.json",
+    "bytes": 872,
+    "sha256": "57963416b2b103144cda8401cd0cc9f709650565dccb2d0c7034a9a055203e72"
+  },
+  {
+    "path": "experiments/tensorcore-bn64/README.md",
+    "bytes": 2004,
+    "sha256": "e39b76af7f2ec52aad55e67925e1fe589d5bdc463b3939347850dd6c51a44f18"
+  },
+  {
+    "path": "experiments/tensorcore-bn64/tf32_bn64.cuh",
+    "bytes": 10188,
+    "sha256": "c56448fc0d93de9dc8635657a5169fb923ca57dfbcd230297ac8977a209bc6d2"
+  },
+  {
+    "path": "experiments/tensorcore-bn64-robustness/benchmark.cu",
+    "bytes": 25257,
+    "sha256": "e19a5f264ff4dd6f0f7a81139502431de3aab4ce311c5f8cf36b5f84fa0b5f41"
+  },
+  {
+    "path": "experiments/tensorcore-bn64-robustness/CMakeLists.txt",
+    "bytes": 932,
+    "sha256": "bf46fb819d21d10217e68a983fccfa5a18ba03bc371ac6ed93618869198f7465"
+  },
+  {
+    "path": "experiments/tensorcore-ktile/benchmark.cu",
+    "bytes": 18553,
+    "sha256": "542040f989f9707ae75f5c58f12f788b2a8ae8ee397570a7538a5a4888bddf8a"
+  },
+  {
+    "path": "experiments/tensorcore-ktile/CMakeLists.txt",
+    "bytes": 881,
+    "sha256": "afe5717e42486cebe632820b0379288243832d1304a2ab66969d1c598a9d1905"
+  },
+  {
+    "path": "experiments/tensorcore-ktile/derive_benchmark.py",
+    "bytes": 4585,
+    "sha256": "12ca02e1ae72895ee848bedd7df3553f70230b9acfb89270ae016d909d24c368"
+  },
+  {
+    "path": "experiments/tensorcore-ktile/derive_support.py",
+    "bytes": 3598,
+    "sha256": "508c76b088428fe34e75daeb44a4740dd1d82742c1a79da4db2acde98662f5c1"
+  },
+  {
+    "path": "experiments/tensorcore-ktile/device.diff",
+    "bytes": 7708,
+    "sha256": "5aa568aea340f0c74735ef4d5c21547a75a59a521929dafa22c06bb2b107c64a"
+  },
+  {
+    "path": "experiments/tensorcore-ktile/host-harness.diff",
+    "bytes": 9157,
+    "sha256": "4728242aea8d43460f18db5faa093c5164da78f437cada0a45659ff49891643a"
+  },
+  {
+    "path": "experiments/tensorcore-ktile/provenance.json",
+    "bytes": 766,
+    "sha256": "056528bd770071fa94b03d2cf77eaf9dbdb19ac8277539baee1bb9ecbd1bc2d2"
+  },
+  {
+    "path": "experiments/tensorcore-ktile/README.md",
+    "bytes": 3167,
+    "sha256": "489ad1a74162c95ece933efbff5931f73c121d4124170feb14afb2eab78e4bab"
+  },
+  {
+    "path": "experiments/tensorcore-ktile/tf32_ktile.cuh",
+    "bytes": 11667,
+    "sha256": "eaf4f8ae008b00129508b52fcd775e147977ab20b3b5240b6221561324aa3d00"
+  },
+  {
+    "path": "scripts/analyze_tensor_bn64_mapping.py",
+    "bytes": 5373,
+    "sha256": "110a8638e53ed78c02415d39a911f25223fec54d713a197111228010f495514b"
+  },
+  {
+    "path": "scripts/audit_tensor_bn64_robustness_evidence.py",
+    "bytes": 5874,
+    "sha256": "5c101590d5100055e1d411dec7426465522a1810141f664b9d620e5ffb3ec99e"
+  },
+  {
+    "path": "scripts/extract_vitamin_tensor.py",
+    "bytes": 3437,
+    "sha256": "1b3f719b0bd5ab64c9f6b16fab3ed1b4b1d452d7ec46ee148c3d39008916745f"
+  },
+  {
+    "path": "scripts/finalize_tensor_bn64_robustness.py",
+    "bytes": 5625,
+    "sha256": "dd1b87b5bc0e484926b757fe0e4b2e54f4d010edef801a94ef95a8ee7787dae5"
+  },
+  {
+    "path": "scripts/prepare_tensor_bn64.py",
+    "bytes": 9212,
+    "sha256": "e233bde793a09f1123ac990c19c416ac3ded95b0a974a594fceb9726d60ad6f8"
+  },
+  {
+    "path": "scripts/summarize_tensor_bn64_robustness.py",
+    "bytes": 20752,
+    "sha256": "ddce3a9c0e0f26c68a4f414a16e18037335f67eee6c9aec39f85324b2bef8795"
+  },
+  {
+    "path": "scripts/verify_tensor_bn64_robustness.py",
+    "bytes": 17575,
+    "sha256": "0cad192b837806df7150c4ef9610c2acad70663570a5d73126fb2514572d338f"
+  },
+  {
+    "path": "scripts/windows/Build-TensorBN64Robustness.ps1",
+    "bytes": 4965,
+    "sha256": "9cfa225ec56cfee8e2a478a6bb90318a0875362b18fde7580edcbe8d667da829"
+  },
+  {
+    "path": "scripts/windows/Initialize-Toolchain.ps1",
+    "bytes": 2691,
+    "sha256": "25f14d925ddb904d1b3bd7bc2566c9f7451ab5a10fd61d7f1087ac620ddf0428"
+  },
+  {
+    "path": "scripts/windows/Profile-TensorBN64Robustness.ps1",
+    "bytes": 4622,
+    "sha256": "193d8340d1375132857910ec1d112714fda3ee441bbd9fdecd44f34042a16f9a"
+  },
+  {
+    "path": "scripts/windows/Run-TensorBN64Robustness.ps1",
+    "bytes": 10301,
+    "sha256": "9b8342a423c1b71473a4b267d35a661b6cdb8d81328f13d1d6b43fe0dd65ae5e"
+  },
+  {
+    "path": "scripts/windows/Test-TensorBN64RobustnessSanitizer.ps1",
+    "bytes": 2451,
+    "sha256": "49397ced8d4008ff1a2ffd2f42b6df9d31e1f653ee0f67e9ca7b5fbd78969fa5"
+  },
+  {
+    "path": "src/kernels/30_kernel_mini_simt.cuh",
+    "bytes": 13897,
+    "sha256": "bed81ab2f52df0061af3c7e814ff43b66c851c634cfdb4fed5f22031ecabc4c4"
+  }
+]

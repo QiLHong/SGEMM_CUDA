@@ -1,0 +1,1991 @@
+[
+  {
+    "source": "README.md",
+    "line": 5,
+    "label": "初次调优",
+    "target": "docs/zh/04-RTX3080-K10调优.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\04-RTX3080-K10调优.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 5,
+    "label": "FP32 基线与瓶颈审计",
+    "target": "docs/zh/05-RTX3080-FP32基线与瓶颈审计.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\05-RTX3080-FP32基线与瓶颈审计.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 5,
+    "label": "README.en.md",
+    "target": "README.en.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\README.en.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 11,
+    "label": "完整优化故事",
+    "target": "docs/zh/06-RTX3080-K10优化故事.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\06-RTX3080-K10优化故事.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 12,
+    "label": "复现与简历讲述",
+    "target": "docs/zh/20-项目复现与简历讲述.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\20-项目复现与简历讲述.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 13,
+    "label": "35 题 SIMT 与 Tensor Core 补充 QA",
+    "target": "docs/zh/21-SGEMM模拟面试QA.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\21-SGEMM模拟面试QA.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 17,
+    "label": "微教材 从矩阵乘法到 CUDA 微内核",
+    "target": "docs/zh/微教材/README.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\微教材\\README.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 19,
+    "label": "第 9 章：从 SIMT 到 Tensor Core 矩阵指令",
+    "target": "docs/zh/微教材/09-TensorCore从SIMT到矩阵指令.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\微教材\\09-TensorCore从SIMT到矩阵指令.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 21,
+    "label": "第 7 章的验证与计时调用链",
+    "target": "docs/zh/微教材/07-验证与性能分析.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\微教材\\07-验证与性能分析.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 23,
+    "label": "代码与脚本使用索引",
+    "target": "docs/zh/23-代码与脚本使用索引.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\23-代码与脚本使用索引.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 30,
+    "label": "微教材第 9 章",
+    "target": "docs/zh/微教材/09-TensorCore从SIMT到矩阵指令.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\微教材\\09-TensorCore从SIMT到矩阵指令.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 31,
+    "label": "Tensor Core 优化学习指南",
+    "target": "docs/zh/32-RTX4090D-TensorCore优化学习指南.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\32-RTX4090D-TensorCore优化学习指南.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 39,
+    "label": "第 30 章：BK32 的资源代价",
+    "target": "docs/zh/30-TensorCore-K分块实验与资源代价.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\30-TensorCore-K分块实验与资源代价.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 40,
+    "label": "第 31 章：BN64 与尺寸效应",
+    "target": "docs/zh/31-TensorCore-BN64优化与尺寸效应.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\31-TensorCore-BN64优化与尺寸效应.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 41,
+    "label": "BK32 归档",
+    "target": "results/windows/20261021-tensorcore-ktile/README.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-ktile\\README.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 42,
+    "label": "BN64 归档",
+    "target": "results/windows/20261021-tensorcore-bn64/README.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64\\README.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 48,
+    "label": "微教材第 9 章",
+    "target": "docs/zh/微教材/09-TensorCore从SIMT到矩阵指令.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\微教材\\09-TensorCore从SIMT到矩阵指令.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 49,
+    "label": "第 28 章：初体验与实测",
+    "target": "docs/zh/28-TensorCore初体验与4090D实测.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\28-TensorCore初体验与4090D实测.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 50,
+    "label": "第 29 章：分组与反例",
+    "target": "docs/zh/29-TensorCore网格分组优化与反例.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\29-TensorCore网格分组优化与反例.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 51,
+    "label": "第 32 章：BK32 / BN64 学习指南",
+    "target": "docs/zh/32-RTX4090D-TensorCore优化学习指南.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\32-RTX4090D-TensorCore优化学习指南.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 52,
+    "label": "脚本说明",
+    "target": "scripts/README.md#tensor-core四组独立实验",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\README.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 52,
+    "label": "结果索引",
+    "target": "results/windows/README.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\README.md",
+    "tracked_target": false
+  },
+  {
+    "source": "README.md",
+    "line": 85,
+    "label": "RTX 3080 Kernel 10 调优记录",
+    "target": "docs/zh/04-RTX3080-K10调优.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\04-RTX3080-K10调优.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 93,
+    "label": "K30 架构、指标与限制",
+    "target": "docs/zh/17-K30-Mini-SIMT微内核.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\17-K30-Mini-SIMT微内核.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 100,
+    "label": "K31 精修与因果审计",
+    "target": "docs/zh/18-K31-微内核精修与因果审计.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\18-K31-微内核精修与因果审计.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 101,
+    "label": "优化故事",
+    "target": "docs/zh/06-RTX3080-K10优化故事.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\06-RTX3080-K10优化故事.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 109,
+    "label": "K32 Warp 角色分工与同步代价",
+    "target": "docs/zh/19-K32-Warp角色分工与同步代价.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\19-K32-Warp角色分工与同步代价.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 120,
+    "label": "Grid Swizzle 调优实验",
+    "target": "docs/zh/05-K10-Grid-Swizzle调优.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\05-K10-Grid-Swizzle调优.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 128,
+    "label": "Shared XOR 与 B-only 异步流水实验",
+    "target": "docs/zh/07-K10-Shared布局与B异步流水.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\07-K10-Shared布局与B异步流水.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 135,
+    "label": "Warp Fragment Layout 受控实验",
+    "target": "docs/zh/08-K10-Warp-Fragment-Layout调优.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\08-K10-Warp-Fragment-Layout调优.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 142,
+    "label": "Fragment Register Prefetch 受控实验",
+    "target": "docs/zh/09-K10-Fragment寄存器预取调优.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\09-K10-Fragment寄存器预取调优.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 150,
+    "label": "K10 微内核与 cuBLAS 差距分析",
+    "target": "docs/zh/10-K10-微内核与cuBLAS差距分析.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\10-K10-微内核与cuBLAS差距分析.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 155,
+    "label": "Windows 构建与受控实验教程",
+    "target": "docs/zh/24-Windows原生构建与4090D实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\24-Windows原生构建与4090D实验.md",
+    "tracked_target": false
+  },
+  {
+    "source": "README.md",
+    "line": 156,
+    "label": "第二阶段：K30 同步机制与 4090 D 性能分析",
+    "target": "docs/zh/25-K30同步机制与4090D性能分析.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\25-K30同步机制与4090D性能分析.md",
+    "tracked_target": false
+  },
+  {
+    "source": "README.md",
+    "line": 169,
+    "label": "environment.yml",
+    "target": "environment.yml",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\environment.yml",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 236,
+    "label": "CUDA 与 SGEMM 基础复习",
+    "target": "docs/zh/22-CUDA与SGEMM基础复习.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\22-CUDA与SGEMM基础复习.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 239,
+    "label": "00：阅读路线",
+    "target": "docs/zh/00-阅读路线.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\00-阅读路线.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 240,
+    "label": "01：矩阵索引与线程映射",
+    "target": "docs/zh/01-矩阵索引与线程映射.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\01-矩阵索引与线程映射.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 241,
+    "label": "02：分块与流水线",
+    "target": "docs/zh/02-分块与流水线.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\02-分块与流水线.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 242,
+    "label": "03：原版限制与验证",
+    "target": "docs/zh/03-原版限制与验证.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\03-原版限制与验证.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 243,
+    "label": "04：RTX 3080 Kernel 10 调优",
+    "target": "docs/zh/04-RTX3080-K10调优.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\04-RTX3080-K10调优.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 244,
+    "label": "05：RTX 3080 FP32 基线与瓶颈审计",
+    "target": "docs/zh/05-RTX3080-FP32基线与瓶颈审计.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\05-RTX3080-FP32基线与瓶颈审计.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 245,
+    "label": "05：K10 Grid Swizzle 调优",
+    "target": "docs/zh/05-K10-Grid-Swizzle调优.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\05-K10-Grid-Swizzle调优.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 246,
+    "label": "06：RTX 3080 K10 优化故事",
+    "target": "docs/zh/06-RTX3080-K10优化故事.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\06-RTX3080-K10优化故事.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 247,
+    "label": "07：K10 Shared 布局与 B 异步流水",
+    "target": "docs/zh/07-K10-Shared布局与B异步流水.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\07-K10-Shared布局与B异步流水.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 248,
+    "label": "08：K10 Warp Fragment Layout",
+    "target": "docs/zh/08-K10-Warp-Fragment-Layout调优.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\08-K10-Warp-Fragment-Layout调优.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 249,
+    "label": "09：K10 Fragment Register Prefetch",
+    "target": "docs/zh/09-K10-Fragment寄存器预取调优.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\09-K10-Fragment寄存器预取调优.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 250,
+    "label": "10：K10 微内核与 cuBLAS 差距",
+    "target": "docs/zh/10-K10-微内核与cuBLAS差距分析.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\10-K10-微内核与cuBLAS差距分析.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 251,
+    "label": "11：K10 SASS 微结构指标",
+    "target": "docs/zh/11-K10-SASS微结构指标报告.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\11-K10-SASS微结构指标报告.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 252,
+    "label": "12：K20 256-thread SIMT 微内核",
+    "target": "docs/zh/12-K20-256线程SIMT微内核.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\12-K20-256线程SIMT微内核.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 253,
+    "label": "13：K21 CUTLASS-style SIMT 微内核骨架",
+    "target": "docs/zh/13-K21-CUTLASS风格SIMT微内核骨架.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\13-K21-CUTLASS风格SIMT微内核骨架.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 254,
+    "label": "14：K22 128-thread 多阶段流水",
+    "target": "docs/zh/14-K22-128线程多阶段流水实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\14-K22-128线程多阶段流水实验.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 255,
+    "label": "15：K23 Shared 布局与 Fragment Iterator",
+    "target": "docs/zh/15-K23-Shared布局与Fragment-Iterator实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\15-K23-Shared布局与Fragment-Iterator实验.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 256,
+    "label": "16：公开 CUTLASS 对照与主循环成本审计",
+    "target": "docs/zh/16-公开CUTLASS对照与主循环成本审计.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\16-公开CUTLASS对照与主循环成本审计.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 257,
+    "label": "17：K30 Mini-SIMT 微内核",
+    "target": "docs/zh/17-K30-Mini-SIMT微内核.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\17-K30-Mini-SIMT微内核.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 258,
+    "label": "18：K31 微内核精修与因果审计",
+    "target": "docs/zh/18-K31-微内核精修与因果审计.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\18-K31-微内核精修与因果审计.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 259,
+    "label": "19：K32 Warp 角色分工与同步代价",
+    "target": "docs/zh/19-K32-Warp角色分工与同步代价.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\19-K32-Warp角色分工与同步代价.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 260,
+    "label": "20：项目复现与简历讲述",
+    "target": "docs/zh/20-项目复现与简历讲述.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\20-项目复现与简历讲述.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 261,
+    "label": "21：SGEMM 模拟面试 QA",
+    "target": "docs/zh/21-SGEMM模拟面试QA.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\21-SGEMM模拟面试QA.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 262,
+    "label": "22：CUDA 与 SGEMM 基础复习",
+    "target": "docs/zh/22-CUDA与SGEMM基础复习.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\22-CUDA与SGEMM基础复习.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 263,
+    "label": "微教材：从矩阵乘法到 CUDA 微内核",
+    "target": "docs/zh/微教材/README.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\微教材\\README.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 264,
+    "label": "23：代码与脚本使用索引",
+    "target": "docs/zh/23-代码与脚本使用索引.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\23-代码与脚本使用索引.md",
+    "tracked_target": true
+  },
+  {
+    "source": "README.md",
+    "line": 265,
+    "label": "24：Windows 原生构建与 4090 D 实验",
+    "target": "docs/zh/24-Windows原生构建与4090D实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\24-Windows原生构建与4090D实验.md",
+    "tracked_target": false
+  },
+  {
+    "source": "README.md",
+    "line": 266,
+    "label": "25：K30 同步机制与 4090 D 性能分析",
+    "target": "docs/zh/25-K30同步机制与4090D性能分析.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\25-K30同步机制与4090D性能分析.md",
+    "tracked_target": false
+  },
+  {
+    "source": "README.md",
+    "line": 267,
+    "label": "26：vitamin SIMT 复现与 K30 公平对照",
+    "target": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\26-vitamin-SIMT复现与K30公平对照.md",
+    "tracked_target": false
+  },
+  {
+    "source": "README.md",
+    "line": 267,
+    "label": "第三阶段归档",
+    "target": "results/windows/20261021-vitamin-simt-stage3",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3",
+    "tracked_target": false
+  },
+  {
+    "source": "README.md",
+    "line": 268,
+    "label": "27：vitamin 原入口复跑与寄存器上限实验",
+    "target": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\27-vitamin原入口复跑与寄存器上限实验.md",
+    "tracked_target": false
+  },
+  {
+    "source": "README.md",
+    "line": 282,
+    "label": "MIT LICENSE",
+    "target": "LICENSE",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\LICENSE",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 5,
+    "label": "SIMT 与 Tensor Core 微教材",
+    "target": "微教材/README.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\微教材\\README.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 8,
+    "label": "第 24 章：构建与 RTX 4090 D 实验",
+    "target": "24-Windows原生构建与4090D实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\24-Windows原生构建与4090D实验.md",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 10,
+    "label": "第 25 章：K30 同步机制与 4090 D 性能分析",
+    "target": "25-K30同步机制与4090D性能分析.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\25-K30同步机制与4090D性能分析.md",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 12,
+    "label": "第 26 章：vitamin SIMT 复现与 K30 公平对照",
+    "target": "26-vitamin-SIMT复现与K30公平对照.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\26-vitamin-SIMT复现与K30公平对照.md",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 14,
+    "label": "第 27 章：原入口复跑与寄存器上限实验",
+    "target": "27-vitamin原入口复跑与寄存器上限实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\27-vitamin原入口复跑与寄存器上限实验.md",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 19,
+    "label": "微教材第 9 章：从 SIMT 到矩阵指令",
+    "target": "微教材/09-TensorCore从SIMT到矩阵指令.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\微教材\\09-TensorCore从SIMT到矩阵指令.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 20,
+    "label": "第 32 章综合指南",
+    "target": "32-RTX4090D-TensorCore优化学习指南.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\32-RTX4090D-TensorCore优化学习指南.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 24,
+    "label": "第 28 章",
+    "target": "28-TensorCore初体验与4090D实测.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\28-TensorCore初体验与4090D实测.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 25,
+    "label": "第 29 章",
+    "target": "29-TensorCore网格分组优化与反例.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\29-TensorCore网格分组优化与反例.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 26,
+    "label": "第 30 章",
+    "target": "30-TensorCore-K分块实验与资源代价.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\30-TensorCore-K分块实验与资源代价.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 27,
+    "label": "第 31 章",
+    "target": "31-TensorCore-BN64优化与尺寸效应.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\31-TensorCore-BN64优化与尺寸效应.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 28,
+    "label": "第 32 章练习",
+    "target": "32-RTX4090D-TensorCore优化学习指南.md#3210-五个练习与答案",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\32-RTX4090D-TensorCore优化学习指南.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 33,
+    "label": "代码与脚本使用索引",
+    "target": "23-代码与脚本使用索引.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\23-代码与脚本使用索引.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 38,
+    "label": "CUDA 与 SGEMM 基础复习",
+    "target": "22-CUDA与SGEMM基础复习.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\22-CUDA与SGEMM基础复习.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 48,
+    "label": "完整故事",
+    "target": "06-RTX3080-K10优化故事.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\06-RTX3080-K10优化故事.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 49,
+    "label": "复现与简历讲述",
+    "target": "20-项目复现与简历讲述.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\20-项目复现与简历讲述.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 50,
+    "label": "模拟面试 QA",
+    "target": "21-SGEMM模拟面试QA.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\21-SGEMM模拟面试QA.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 52,
+    "label": "K32 Warp 角色分工与同步代价",
+    "target": "19-K32-Warp角色分工与同步代价.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\19-K32-Warp角色分工与同步代价.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 55,
+    "label": "优化故事",
+    "target": "06-RTX3080-K10优化故事.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\06-RTX3080-K10优化故事.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 56,
+    "label": "公开 CUTLASS 逐 PC 审计",
+    "target": "16-公开CUTLASS对照与主循环成本审计.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\16-公开CUTLASS对照与主循环成本审计.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 78,
+    "label": "simplest_kernel.cu",
+    "target": "../../simplest_kernel.cu",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\simplest_kernel.cu",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 79,
+    "label": "sgemm.cu",
+    "target": "../../sgemm.cu",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\sgemm.cu",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 79,
+    "label": "runner.cu",
+    "target": "../../src/runner.cu",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\runner.cu",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 80,
+    "label": "1_naive.cuh",
+    "target": "../../src/kernels/1_naive.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\1_naive.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 81,
+    "label": "2_kernel_global_mem_coalesce.cuh",
+    "target": "../../src/kernels/2_kernel_global_mem_coalesce.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\2_kernel_global_mem_coalesce.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 82,
+    "label": "3_kernel_shared_mem_blocking.cuh",
+    "target": "../../src/kernels/3_kernel_shared_mem_blocking.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\3_kernel_shared_mem_blocking.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 83,
+    "label": "4_kernel_1D_blocktiling.cuh",
+    "target": "../../src/kernels/4_kernel_1D_blocktiling.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\4_kernel_1D_blocktiling.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 83,
+    "label": "5_kernel_2D_blocktiling.cuh",
+    "target": "../../src/kernels/5_kernel_2D_blocktiling.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\5_kernel_2D_blocktiling.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 84,
+    "label": "6_kernel_vectorize.cuh",
+    "target": "../../src/kernels/6_kernel_vectorize.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\6_kernel_vectorize.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 85,
+    "label": "9_kernel_autotuned.cuh",
+    "target": "../../src/kernels/9_kernel_autotuned.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\9_kernel_autotuned.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 85,
+    "label": "10_kernel_warptiling.cuh",
+    "target": "../../src/kernels/10_kernel_warptiling.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\10_kernel_warptiling.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 86,
+    "label": "11_kernel_double_buffering.cuh",
+    "target": "../../src/kernels/11_kernel_double_buffering.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\11_kernel_double_buffering.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 86,
+    "label": "12_kernel_double_buffering.cuh",
+    "target": "../../src/kernels/12_kernel_double_buffering.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\12_kernel_double_buffering.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 87,
+    "label": "K15",
+    "target": "../../src/kernels/15_kernel_grouped_swizzle.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\15_kernel_grouped_swizzle.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 87,
+    "label": "K16",
+    "target": "../../src/kernels/16_kernel_smem_xor_swizzle.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\16_kernel_smem_xor_swizzle.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 87,
+    "label": "K17",
+    "target": "../../src/kernels/17_kernel_b_async_pipeline.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\17_kernel_b_async_pipeline.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 87,
+    "label": "K18",
+    "target": "../../src/kernels/18_kernel_warp_fragment_layout.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\18_kernel_warp_fragment_layout.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 87,
+    "label": "K19",
+    "target": "../../src/kernels/19_kernel_fragment_register_prefetch.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\19_kernel_fragment_register_prefetch.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 88,
+    "label": "K10 与 cuBLAS 差距",
+    "target": "10-K10-微内核与cuBLAS差距分析.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\10-K10-微内核与cuBLAS差距分析.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 89,
+    "label": "K20",
+    "target": "../../src/kernels/20_kernel_simt_256x128.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\20_kernel_simt_256x128.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 89,
+    "label": "K20 报告",
+    "target": "12-K20-256线程SIMT微内核.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\12-K20-256线程SIMT微内核.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 90,
+    "label": "K21",
+    "target": "../../src/kernels/21_kernel_cutlass_style_skeleton.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\21_kernel_cutlass_style_skeleton.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 90,
+    "label": "K21 报告",
+    "target": "13-K21-CUTLASS风格SIMT微内核骨架.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\13-K21-CUTLASS风格SIMT微内核骨架.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 91,
+    "label": "K22",
+    "target": "../../src/kernels/22_kernel_multistage_pipeline.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\22_kernel_multistage_pipeline.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 91,
+    "label": "K22 报告",
+    "target": "14-K22-128线程多阶段流水实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\14-K22-128线程多阶段流水实验.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 92,
+    "label": "K23",
+    "target": "../../src/kernels/23_kernel_shared_fragment_iterator.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\23_kernel_shared_fragment_iterator.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 92,
+    "label": "K23 报告",
+    "target": "15-K23-Shared布局与Fragment-Iterator实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\15-K23-Shared布局与Fragment-Iterator实验.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 93,
+    "label": "K30",
+    "target": "../../src/kernels/30_kernel_mini_simt.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\30_kernel_mini_simt.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 93,
+    "label": "K30 报告",
+    "target": "17-K30-Mini-SIMT微内核.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\17-K30-Mini-SIMT微内核.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 94,
+    "label": "K31",
+    "target": "../../src/kernels/31_kernel_mini_simt_refine.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\31_kernel_mini_simt_refine.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 94,
+    "label": "K31 报告",
+    "target": "18-K31-微内核精修与因果审计.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\18-K31-微内核精修与因果审计.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 95,
+    "label": "K32",
+    "target": "../../src/kernels/32_kernel_warp_specialized.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\32_kernel_warp_specialized.cuh",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 95,
+    "label": "K32 报告",
+    "target": "19-K32-Warp角色分工与同步代价.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\19-K32-Warp角色分工与同步代价.md",
+    "tracked_target": true
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "line": 128,
+    "label": "原版限制",
+    "target": "03-原版限制与验证.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\03-原版限制与验证.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 10,
+    "label": "run01",
+    "target": "20261020-rtx4090d-run01/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01",
+    "tracked_target": false
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 10,
+    "label": "24",
+    "target": "../../docs/zh/24-Windows原生构建与4090D实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\24-Windows原生构建与4090D实验.md",
+    "tracked_target": false
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 11,
+    "label": "stage2",
+    "target": "20261021-k30-stage2/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-k30-stage2",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 11,
+    "label": "25",
+    "target": "../../docs/zh/25-K30同步机制与4090D性能分析.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\25-K30同步机制与4090D性能分析.md",
+    "tracked_target": false
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 12,
+    "label": "stage3",
+    "target": "20261021-vitamin-simt-stage3/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3",
+    "tracked_target": false
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 12,
+    "label": "26",
+    "target": "../../docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\26-vitamin-SIMT复现与K30公平对照.md",
+    "tracked_target": false
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 13,
+    "label": "followup",
+    "target": "20261021-vitamin-followup/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup",
+    "tracked_target": false
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 13,
+    "label": "27",
+    "target": "../../docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\27-vitamin原入口复跑与寄存器上限实验.md",
+    "tracked_target": false
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 14,
+    "label": "tensorcore",
+    "target": "20261021-tensorcore/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 14,
+    "label": "28",
+    "target": "../../docs/zh/28-TensorCore初体验与4090D实测.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\28-TensorCore初体验与4090D实测.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 15,
+    "label": "grid",
+    "target": "20261021-tensorcore-grid/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-grid",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 15,
+    "label": "29",
+    "target": "../../docs/zh/29-TensorCore网格分组优化与反例.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\29-TensorCore网格分组优化与反例.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 16,
+    "label": "ktile",
+    "target": "20261021-tensorcore-ktile/README.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-ktile\\README.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 16,
+    "label": "30",
+    "target": "../../docs/zh/30-TensorCore-K分块实验与资源代价.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\30-TensorCore-K分块实验与资源代价.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 17,
+    "label": "bn64",
+    "target": "20261021-tensorcore-bn64/README.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64\\README.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 17,
+    "label": "31",
+    "target": "../../docs/zh/31-TensorCore-BN64优化与尺寸效应.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\31-TensorCore-BN64优化与尺寸效应.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 17,
+    "label": "32",
+    "target": "../../docs/zh/32-RTX4090D-TensorCore优化学习指南.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\32-RTX4090D-TensorCore优化学习指南.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 31,
+    "label": "微教材第9章",
+    "target": "../../docs/zh/微教材/09-TensorCore从SIMT到矩阵指令.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\微教材\\09-TensorCore从SIMT到矩阵指令.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 31,
+    "label": "第32章",
+    "target": "../../docs/zh/32-RTX4090D-TensorCore优化学习指南.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\32-RTX4090D-TensorCore优化学习指南.md",
+    "tracked_target": true
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 35,
+    "label": "`20261020-rtx4090d-run01`",
+    "target": "20261020-rtx4090d-run01/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-run01",
+    "tracked_target": false
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 36,
+    "label": "`20261020-rtx4090d-profile-script`",
+    "target": "20261020-rtx4090d-profile-script/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261020-rtx4090d-profile-script",
+    "tracked_target": false
+  },
+  {
+    "source": "results/windows/README.md",
+    "line": 37,
+    "label": "第 24 章",
+    "target": "../../docs/zh/24-Windows原生构建与4090D实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\24-Windows原生构建与4090D实验.md",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 15,
+    "label": "`vitamin_sgemm.cuh`",
+    "target": "../../src/kernels/vendor/vitamin_sgemm.cuh",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\vitamin_sgemm.cuh",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 15,
+    "label": "`provenance.json`",
+    "target": "../../src/kernels/vendor/provenance.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\provenance.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 17,
+    "label": "完整副本",
+    "target": "../../src/kernels/vendor/vitamin-LICENSE",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\vitamin-LICENSE",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 85,
+    "label": "`analyze_vitamin_mapping.py`",
+    "target": "../../scripts/analyze_vitamin_mapping.py",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\analyze_vitamin_mapping.py",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 95,
+    "label": "`mapping/summary.json`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/mapping/summary.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\mapping\\summary.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 97,
+    "label": "`mapping-k30/summary.json`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/mapping-k30/summary.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\mapping-k30\\summary.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 99,
+    "label": "`mapping`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/mapping/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\mapping",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 251,
+    "label": "`run01/environment.json`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/environment.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\environment.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 251,
+    "label": "`run01/run.log`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/run.log",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\run.log",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 262,
+    "label": "`analysis/audit.json`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/analysis/audit.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\analysis\\audit.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 262,
+    "label": "`correctness-all.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/analysis/correctness-all.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\analysis\\correctness-all.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 264,
+    "label": "`verification/independent-event-audit.json`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/verification/independent-event-audit.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\verification\\independent-event-audit.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 268,
+    "label": "`rounds.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/analysis/rounds.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\analysis\\rounds.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 268,
+    "label": "`summary.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/analysis/summary.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\analysis\\summary.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 311,
+    "label": "`paired-rounds.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/analysis/paired-rounds.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\analysis\\paired-rounds.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 311,
+    "label": "`paired-summary.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/analysis/paired-summary.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\analysis\\paired-summary.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 328,
+    "label": "`telemetry.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/telemetry.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\telemetry.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 328,
+    "label": "`round-telemetry.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/run01/analysis/round-telemetry.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\run01\\analysis\\round-telemetry.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 332,
+    "label": "`static/A`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/static/A/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\A",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 332,
+    "label": "`static/B`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/static/B/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\B",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 332,
+    "label": "全函数比较",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/static/config-comparison.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\config-comparison.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 348,
+    "label": "`sass-summary.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/static/B/analysis/sass-summary.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\B\\analysis\\sass-summary.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 348,
+    "label": "`ptx-summary.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/static/B/analysis/ptx-summary.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\B\\analysis\\ptx-summary.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 352,
+    "label": "`profile01/ncu-summary.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/profile01/ncu-summary.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\profile01\\ncu-summary.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 352,
+    "label": "`profile-cublas-B/ncu-summary.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/profile-cublas-B/ncu-summary.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\profile-cublas-B\\ncu-summary.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 385,
+    "label": "`static/profile-analysis/profile-ranges.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/static/profile-analysis/profile-ranges.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\profile-analysis\\profile-ranges.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 385,
+    "label": "`static/cublas-profile-analysis/profile-ranges.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/static/cublas-profile-analysis/profile-ranges.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\cublas-profile-analysis\\profile-ranges.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 395,
+    "label": "`preflight/pytorch-env-runtime-audit.json`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/preflight/pytorch-env-runtime-audit.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\preflight\\pytorch-env-runtime-audit.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 395,
+    "label": "`python04/python-environment.json`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/python04/python-environment.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python04\\python-environment.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 397,
+    "label": "`vitamin_python_probe.py`",
+    "target": "../../scripts/vitamin_python_probe.py",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_python_probe.py",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 399,
+    "label": "`python04/build-attempts.json`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/python04/build-attempts.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python04\\build-attempts.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 401,
+    "label": "`python01`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/python01/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python01",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 401,
+    "label": "`python02`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/python02/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python02",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 401,
+    "label": "`python03`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/python03/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python03",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 401,
+    "label": "`python04`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/python04/",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python04",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 417,
+    "label": "`python04/wallclock-results.csv`",
+    "target": "../../results/windows/20261021-vitamin-simt-stage3/python04/wallclock-results.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python04\\wallclock-results.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 443,
+    "label": "`Build-Vitamin.ps1`",
+    "target": "../../scripts/windows/Build-Vitamin.ps1",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Build-Vitamin.ps1",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 443,
+    "label": "`Run-Vitamin.ps1`",
+    "target": "../../scripts/windows/Run-Vitamin.ps1",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Run-Vitamin.ps1",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 443,
+    "label": "`Summarize-Vitamin.ps1`",
+    "target": "../../scripts/windows/Summarize-Vitamin.ps1",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Summarize-Vitamin.ps1",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 452,
+    "label": "`Profile-Vitamin.ps1`",
+    "target": "../../scripts/windows/Profile-Vitamin.ps1",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Profile-Vitamin.ps1",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 471,
+    "label": "`verify_vitamin_results.py`",
+    "target": "../../scripts/verify_vitamin_results.py",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\verify_vitamin_results.py",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 471,
+    "label": "`analyze_vitamin_evidence.py`",
+    "target": "../../scripts/analyze_vitamin_evidence.py",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\analyze_vitamin_evidence.py",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 480,
+    "label": "`Run-VitaminPython.ps1`",
+    "target": "../../scripts/windows/Run-VitaminPython.ps1",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Run-VitaminPython.ps1",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 482,
+    "label": "`windows_vitamin_benchmark.cu`",
+    "target": "../../scripts/windows_vitamin_benchmark.cu",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_vitamin_benchmark.cu",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 508,
+    "label": "第 24 章",
+    "target": "24-Windows原生构建与4090D实验.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\24-Windows原生构建与4090D实验.md",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+    "line": 508,
+    "label": "第 25 章",
+    "target": "25-K30同步机制与4090D性能分析.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\25-K30同步机制与4090D性能分析.md",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 3,
+    "label": "第26章",
+    "target": "26-vitamin-SIMT复现与K30公平对照.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\docs\\zh\\26-vitamin-SIMT复现与K30公平对照.md",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 93,
+    "label": "`Run-VitaminAuthorSource.ps1`",
+    "target": "../../scripts/windows/Run-VitaminAuthorSource.ps1",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Run-VitaminAuthorSource.ps1",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 93,
+    "label": "`vitamin_author_source.py`",
+    "target": "../../scripts/vitamin_author_source.py",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 93,
+    "label": "完整控制台日志",
+    "target": "../../results/windows/20261021-vitamin-followup/author-source/complete-console.log",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\complete-console.log",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 93,
+    "label": "result.json",
+    "target": "../../results/windows/20261021-vitamin-followup/author-source/result.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\result.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 95,
+    "label": "environment.json",
+    "target": "../../results/windows/20261021-vitamin-followup/author-source/environment.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\environment.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 97,
+    "label": "build-attempts.json",
+    "target": "../../results/windows/20261021-vitamin-followup/author-source/build-attempts.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\build-attempts.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 103,
+    "label": "wallclock-batches.csv",
+    "target": "../../results/windows/20261021-vitamin-followup/author-source/wallclock-batches.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\wallclock-batches.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 103,
+    "label": "wallclock-summary.csv",
+    "target": "../../results/windows/20261021-vitamin-followup/author-source/wallclock-summary.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\wallclock-summary.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 115,
+    "label": "独立CPU统计核验",
+    "target": "../../results/windows/20261021-vitamin-followup/author-source/independent-statistical-audit.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\independent-statistical-audit.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 135,
+    "label": "batch-evidence.json",
+    "target": "../../results/windows/20261021-vitamin-followup/author-source/batch-evidence.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\batch-evidence.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 141,
+    "label": "`experiments/vitamin-dbf-register/CMakeLists.txt`",
+    "target": "../../experiments/vitamin-dbf-register/CMakeLists.txt",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\vitamin-dbf-register\\CMakeLists.txt",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 141,
+    "label": "`windows_dbf_register_benchmark.cu`",
+    "target": "../../scripts/windows_dbf_register_benchmark.cu",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 143,
+    "label": "verified-build.json",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/build01/verified-build.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01\\verified-build.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 143,
+    "label": "build.log",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/build01/build.log",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01\\build.log",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 143,
+    "label": "静态比较JSON",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/static/comparison-summary.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\static\\comparison-summary.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 156,
+    "label": "源码一致性审计",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/profile-analysis/source-consistency.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\profile-analysis\\source-consistency.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 160,
+    "label": "`Run-DbfRegister.ps1`",
+    "target": "../../scripts/windows/Run-DbfRegister.ps1",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Run-DbfRegister.ps1",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 160,
+    "label": "environment.json",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/run01/environment.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01\\environment.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 162,
+    "label": "summary.csv",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/run01/analysis02/summary.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01\\analysis02\\summary.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 170,
+    "label": "paired.csv",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/run01/analysis02/paired.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01\\analysis02\\paired.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 170,
+    "label": "paired-summary.csv",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/run01/analysis02/paired-summary.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01\\analysis02\\paired-summary.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 180,
+    "label": "correctness-all.csv",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/run01/analysis02/correctness-all.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01\\analysis02\\correctness-all.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 180,
+    "label": "audit.json",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/run01/analysis02/audit.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01\\analysis02\\audit.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 182,
+    "label": "独立CPU复算",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/run01/independent-statistical-audit.json",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01\\independent-statistical-audit.json",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 186,
+    "label": "analysis/INCOMPLETE.txt",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/run01/analysis/INCOMPLETE.txt",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01\\analysis\\INCOMPLETE.txt",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 190,
+    "label": "profile01",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/profile01",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\profile01",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 190,
+    "label": "profile-comparison.csv",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/profile-analysis/profile-comparison.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\profile-analysis\\profile-comparison.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 190,
+    "label": "profile-ranges.csv",
+    "target": "../../results/windows/20261021-vitamin-followup/register-limit/profile-analysis/profile-ranges.csv",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\profile-analysis\\profile-ranges.csv",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 230,
+    "label": "本轮归档目录",
+    "target": "../../results/windows/20261021-vitamin-followup/README.md",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\README.md",
+    "tracked_target": false
+  },
+  {
+    "source": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+    "line": 255,
+    "label": "`Build-DbfRegister.ps1`",
+    "target": "../../scripts/windows/Build-DbfRegister.ps1",
+    "exists": true,
+    "resolved": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Build-DbfRegister.ps1",
+    "tracked_target": false
+  }
+]

@@ -1,0 +1,9 @@
+n,reference,independent_processes,seeds_per_process,case_combinations,median_of_case_paired_medians_pct,min_case_paired_median_pct,max_case_paired_median_pct,positive_case_medians,negative_case_medians,positive_rounds,negative_rounds,total_rounds,scope
+1024,vitamin_tf32_dbf,3,3,9,4.107210953922258,3.573047289077236,4.545611940026606,9,0,58,5,63,descriptive case summary; 63 rounds are nested in 3 processes; no IID-event inference
+1024,cublas_tf32,3,3,9,-8.187571677756445,-8.425631811101741,-5.9462488578173485,0,9,1,62,63,descriptive case summary; 63 rounds are nested in 3 processes; no IID-event inference
+2048,vitamin_tf32_dbf,3,3,9,19.576729486321454,19.48525875252447,19.611811123778832,9,0,63,0,63,descriptive case summary; 63 rounds are nested in 3 processes; no IID-event inference
+2048,cublas_tf32,3,3,9,11.541455612584128,11.370103548127219,11.738744558001436,9,0,63,0,63,descriptive case summary; 63 rounds are nested in 3 processes; no IID-event inference
+3072,vitamin_tf32_dbf,3,3,9,7.896864457978547,7.454570215067791,9.330491882288916,9,0,63,0,63,descriptive case summary; 63 rounds are nested in 3 processes; no IID-event inference
+3072,cublas_tf32,3,3,9,1.5378205744730256,0.4583130296984761,2.246681192752109,9,0,51,12,63,descriptive case summary; 63 rounds are nested in 3 processes; no IID-event inference
+4096,vitamin_tf32_dbf,3,3,9,-0.7766076980205483,-1.7158533704610401,0.2135663057869941,1,8,19,44,63,descriptive case summary; 63 rounds are nested in 3 processes; no IID-event inference
+4096,cublas_tf32,3,3,9,3.4924993359462864,2.2065484181892137,4.165344840574625,9,0,59,4,63,descriptive case summary; 63 rounds are nested in 3 processes; no IID-event inference

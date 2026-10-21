@@ -1,0 +1,38 @@
+{
+  "outputs": 8192,
+  "output_elements_per_thread": 32,
+  "shared_bytes": 49152,
+  "copy_elements": 12288,
+  "duplicates": 0,
+  "omissions": 0,
+  "out_of_bounds": 0,
+  "copy_16byte_alignment": true,
+  "operand_packet_coverage": true,
+  "grids": [
+    {
+      "m": 128,
+      "n": 1024,
+      "ctas": 16,
+      "status": "PASS"
+    },
+    {
+      "m": 1024,
+      "n": 1024,
+      "ctas": 128,
+      "status": "PASS"
+    },
+    {
+      "m": 2048,
+      "n": 2048,
+      "ctas": 512,
+      "status": "PASS"
+    },
+    {
+      "m": 4096,
+      "n": 4096,
+      "ctas": 2048,
+      "status": "PASS"
+    }
+  ],
+  "caveat": "CPU formula audit; hardware race sanitizer remains unverified"
+}

@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "events": 22680,
+  "rounds": 756,
+  "cases": 36,
+  "implementation_summaries": 108,
+  "paired_rounds": 504,
+  "paired_summaries": 72,
+  "full_and_sample_check_records": 4320,
+  "baseline_bitwise_checks": 576,
+  "input_fingerprint_records": 288,
+  "historical_fingerprint_comparisons": [
+    {
+      "n": 1024,
+      "representation": "original_fp32",
+      "matrix": "A",
+      "fnv1a64": "bb954f71b42a5e99",
+      "match": true
+    },
+    {
+      "n": 1024,
+      "representation": "original_fp32",
+      "matrix": "B",
+      "fnv1a64": "e0364448831821f4",
+      "match": true
+    },
+    {
+      "n": 1024,
+      "representation": "tf32",
+      "matrix": "A",
+      "fnv1a64": "c60b90210ed7f186",
+      "match": true
+    },
+    {
+      "n": 1024,
+      "representation": "tf32",
+      "matrix": "B",
+      "fnv1a64": "49a3f592b1542e7a",
+      "match": true
+    },
+    {
+      "n": 2048,
+      "representation": "original_fp32",
+      "matrix": "A",
+      "fnv1a64": "2a1175f818071bc8",
+      "match": true
+    },
+    {
+      "n": 2048,
+      "representation": "original_fp32",
+      "matrix": "B",
+      "fnv1a64": "5874d0e8291c4a77",
+      "match": true
+    },
+    {
+      "n": 2048,
+      "representation": "tf32",
+      "matrix": "A",
+      "fnv1a64": "eb4bfdd9fc5d6847",
+      "match": true
+    },
+    {
+      "n": 2048,
+      "representation": "tf32",
+      "matrix": "B",
+      "fnv1a64": "c5790dfb2a98745c",
+      "match": true
+    },
+    {
+      "n": 4096,
+      "representation": "original_fp32",
+      "matrix": "A",
+      "fnv1a64": "b258acf71a3296ed",
+      "match": true
+    },
+    {
+      "n": 4096,
+      "representation": "original_fp32",
+      "matrix": "B",
+      "fnv1a64": "3ec8479c9bfce8a1",
+      "match": true
+    },
+    {
+      "n": 4096,
+      "representation": "tf32",
+      "matrix": "A",
+      "fnv1a64": "9c324fa7fe9f39e4",
+      "match": true
+    },
+    {
+      "n": 4096,
+      "representation": "tf32",
+      "matrix": "B",
+      "fnv1a64": "56fc1306653ce489",
+      "match": true
+    }
+  ],
+  "process_ids": [
+    39360,
+    41760,
+    39264
+  ],
+  "cpu_sample_position_files": 36,
+  "original_fp32_abs_001_failed_checks": 864,
+  "method": "Independent raw CSV parse, math.fsum round means, explicit sorted median; no summarizer imports",
+  "uncertainty": "descriptive only; no event-level IID assumptions or confidence intervals",
+  "excluded": "smoke, shape rejection, sanitizer and profiler data excluded from 22680 formal events"
+}

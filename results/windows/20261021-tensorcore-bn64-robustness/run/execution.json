@@ -1,0 +1,44 @@
+[
+  {
+    "batch": 1,
+    "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-tensor-bn64-robustness-sm89\\windows_tensor_bn64_robustness_benchmark.exe",
+    "binary_sha256": "9440FFA182BA2906D4767F5C5BF323C6FEDD0E006639786A630D08165A11EFEF",
+    "arguments": [
+      "--batch",
+      "1",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64-robustness\\run\\plan.csv",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64-robustness\\run\\batch-1"
+    ],
+    "utc_start": "2026-10-21T14:16:27.8859399+00:00",
+    "utc_end": "2026-10-21T14:17:15.7594323+00:00",
+    "exit_code": 0
+  },
+  {
+    "batch": 2,
+    "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-tensor-bn64-robustness-sm89\\windows_tensor_bn64_robustness_benchmark.exe",
+    "binary_sha256": "9440FFA182BA2906D4767F5C5BF323C6FEDD0E006639786A630D08165A11EFEF",
+    "arguments": [
+      "--batch",
+      "2",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64-robustness\\run\\plan.csv",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64-robustness\\run\\batch-2"
+    ],
+    "utc_start": "2026-10-21T14:17:15.8661511+00:00",
+    "utc_end": "2026-10-21T14:18:03.0832791+00:00",
+    "exit_code": 0
+  },
+  {
+    "batch": 3,
+    "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-tensor-bn64-robustness-sm89\\windows_tensor_bn64_robustness_benchmark.exe",
+    "binary_sha256": "9440FFA182BA2906D4767F5C5BF323C6FEDD0E006639786A630D08165A11EFEF",
+    "arguments": [
+      "--batch",
+      "3",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64-robustness\\run\\plan.csv",
+      "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-tensorcore-bn64-robustness\\run\\batch-3"
+    ],
+    "utc_start": "2026-10-21T14:18:03.1806375+00:00",
+    "utc_end": "2026-10-21T14:18:50.4230664+00:00",
+    "exit_code": 0
+  }
+]

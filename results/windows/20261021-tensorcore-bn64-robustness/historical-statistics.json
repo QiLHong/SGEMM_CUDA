@@ -1,0 +1,86 @@
+{
+  "scope": "Historical confirmation only; never inserted into this round tables",
+  "formal_events": 1890,
+  "recomputed": [
+    {
+      "n": 1024,
+      "tflops": {
+        "vitamin_tf32_dbf": 31.36319004931399,
+        "tf32_bn64_bk32": 32.59874547472444,
+        "cublas_tf32": 35.64564208643859
+      },
+      "bn64_paired_gain_pct": {
+        "vitamin_tf32_dbf": {
+          "median": 4.109412461857276,
+          "min": 3.5193755494626,
+          "max": 20.675530070106475,
+          "wins": 7
+        },
+        "cublas_tf32": {
+          "median": -8.445319952137066,
+          "min": -9.064263523467432,
+          "max": -7.65116311145142,
+          "wins": 0
+        }
+      }
+    },
+    {
+      "n": 2048,
+      "tflops": {
+        "vitamin_tf32_dbf": 48.50264434003911,
+        "tf32_bn64_bk32": 57.9982992885772,
+        "cublas_tf32": 51.97318884757617
+      },
+      "bn64_paired_gain_pct": {
+        "vitamin_tf32_dbf": {
+          "median": 19.564999502847446,
+          "min": 19.324459958211726,
+          "max": 19.87927957276703,
+          "wins": 7
+        },
+        "cublas_tf32": {
+          "median": 11.568962385694736,
+          "min": 11.455862453741972,
+          "max": 11.67597361429924,
+          "wins": 7
+        }
+      }
+    },
+    {
+      "n": 4096,
+      "tflops": {
+        "vitamin_tf32_dbf": 71.50417259740767,
+        "tf32_bn64_bk32": 71.15577508371244,
+        "cublas_tf32": 69.22245513466173
+      },
+      "bn64_paired_gain_pct": {
+        "vitamin_tf32_dbf": {
+          "median": -0.4313348874395828,
+          "min": -1.0070542468103794,
+          "max": 6.4013282564377105,
+          "wins": 2
+        },
+        "cublas_tf32": {
+          "median": 2.7860055315562793,
+          "min": 2.002946418071483,
+          "max": 3.7054107684950655,
+          "wins": 7
+        }
+      }
+    }
+  ],
+  "read_files": [
+    {
+      "path": "results\\windows\\20261021-tensorcore-bn64\\confirm01\\timings-1024.csv",
+      "sha256": "5727b428cb5bd9b924fd654eff95acdfb7b34d7f592780f9fcb94be7788b6bf1"
+    },
+    {
+      "path": "results\\windows\\20261021-tensorcore-bn64\\confirm01\\timings-2048.csv",
+      "sha256": "c3092dcd58621ad8f095b5dbdb14ee18f11a09dca8cef097678fdf80e7ce258d"
+    },
+    {
+      "path": "results\\windows\\20261021-tensorcore-bn64\\confirm01\\timings-4096.csv",
+      "sha256": "a4ef3ac7688d4ff2552b7cabe9cc97ab673ea169ee09d732d5c2a57b5f92f6ea"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scope": "prespecified plan only; not measured results",
+  "planned_groups": 756,
+  "planned_events": 22680,
+  "planned_cases": 36,
+  "six_permutations_per_case": true,
+  "extra_permutation_rotates_across_batches": true,
+  "plan_sha256": "6ef115852c82e250eb887f9af5b4a5c82179a4bc71df5f174e3663debc7c0a4c"
+}

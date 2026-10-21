@@ -1,0 +1,10 @@
+{
+  "existing_experiment_files": 35,
+  "existing_experiments_unchanged": true,
+  "old_binary_sha256": "faeb5091b2e20ca5e309239e24574207f98f48552c92de534b237d2924df5e43",
+  "new_binary_sha256": "9440ffa182ba2906d4767f5c5bf323c6fedd0e006639786a630d08165a11efef",
+  "raw_sass_file_equal": false,
+  "all_selected_normalized_equal": true,
+  "all_selected_encoded_equal": true,
+  "ncu_launches": 6
+}

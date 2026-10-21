@@ -1,0 +1,9 @@
+CUDA: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe
+MSVC: D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe
+Windows SDK: D:\Windows Kits\10\ 10.0.26100.0\
+PROFILE COMPLETE 2048-vitamin_tf32_dbf (excluded from benchmark TFLOPS)
+PROFILE COMPLETE 2048-tf32_bn64_bk32 (excluded from benchmark TFLOPS)
+PROFILE COMPLETE 3072-vitamin_tf32_dbf (excluded from benchmark TFLOPS)
+PROFILE COMPLETE 3072-tf32_bn64_bk32 (excluded from benchmark TFLOPS)
+PROFILE COMPLETE 4096-vitamin_tf32_dbf (excluded from benchmark TFLOPS)
+PROFILE COMPLETE 4096-tf32_bn64_bk32 (excluded from benchmark TFLOPS)

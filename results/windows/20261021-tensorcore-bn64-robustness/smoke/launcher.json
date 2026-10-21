@@ -1,0 +1,10 @@
+{
+  "exe": "build-windows-tensor-bn64-robustness-sm89/windows_tensor_bn64_robustness_benchmark.exe",
+  "binary_sha256": "9440ffa182ba2906d4767f5c5bf323c6fedd0e006639786a630d08165a11efef",
+  "arguments": [
+    "--smoke",
+    "results/windows/20261021-tensorcore-bn64-robustness/smoke"
+  ],
+  "exit_code": 0,
+  "note": "Launcher log smoke.log; three cases completed before formal measurements"
+}

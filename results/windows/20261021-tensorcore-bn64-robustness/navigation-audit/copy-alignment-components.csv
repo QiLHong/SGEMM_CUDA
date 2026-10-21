@@ -1,0 +1,9 @@
+implementation,n,lda,ldb,local_vectors_per_cta_ktile,k_tiles,all_cta_origins_aligned_16bytes,all_ktile_origins_aligned_16bytes,all_local_vector_offsets_aligned_16bytes,local_vector_bounds,full_tile_bounds
+vitamin_tf32_dbf,1024,1024,1024,1024,64,True,True,True,True,True
+vitamin_tf32_dbf,2048,2048,2048,1024,128,True,True,True,True,True
+vitamin_tf32_dbf,3072,3072,3072,1024,192,True,True,True,True,True
+vitamin_tf32_dbf,4096,4096,4096,1024,256,True,True,True,True,True
+tf32_bn64_bk32,1024,1024,1024,1536,32,True,True,True,True,True
+tf32_bn64_bk32,2048,2048,2048,1536,64,True,True,True,True,True
+tf32_bn64_bk32,3072,3072,3072,1536,96,True,True,True,True,True
+tf32_bn64_bk32,4096,4096,4096,1536,128,True,True,True,True,True

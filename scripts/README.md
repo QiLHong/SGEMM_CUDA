@@ -147,3 +147,22 @@ RTX 3080 / strict FP32 阶段的最佳研究基线 K30 V2：从 [build_k30_audit
 - 输出目录已存在时换新名字，不删除旧结果。
 - 只看到 GFLOPS 不等于实验成功；还要看 PASS、工具摘要、测试范围与日志是否齐全。
 - 先串行验证，再计时；不要同时跑 profiler 与 benchmark。
+
+## TF32 BN64 稳健性收尾（RTX 4090 D）
+
+四尺寸 × 三 seed × 三个独立进程的验证入口见[第33章](../docs/zh/33-TensorCore-BN64稳健性与尺寸适用范围.md)，
+本轮 22680 个正式 event 及失败记录见[独立归档](../results/windows/20261021-tensorcore-bn64-robustness/README.md)。
+保持作者与 BN64 device 算法不变；与前面的单 seed 调优批次分开。
+
+| 入口 | 用途 |
+|---|---|
+| [Build-TensorBN64Robustness.ps1](windows/Build-TensorBN64Robustness.ps1) | 独立 Release/sm89 构建，检查参数，保存二进制/源码/资源/PTX/SASS |
+| [Run-TensorBN64Robustness.ps1](windows/Run-TensorBN64Robustness.ps1) | `-PrepareOnly` 冻结计划；`-ExecutePrepared` 按原计划串行三进程；默认包含小矩形检查 |
+| [Test-TensorBN64RobustnessSanitizer.ps1](windows/Test-TensorBN64RobustnessSanitizer.ps1) | 单小案例、有时限memcheck；读取result.json，不能把退出或超时等同通过 |
+| [Profile-TensorBN64Robustness.ps1](windows/Profile-TensorBN64Robustness.ps1) | 正常计时完成后，固定seed对2048/3072/4096两核定点NCU |
+| [summarize_tensor_bn64_robustness.py](summarize_tensor_bn64_robustness.py) | 每例七轮均值中位数、逐轮配对、完整36组合及精度/遥测统计 |
+| [verify_tensor_bn64_robustness.py](verify_tensor_bn64_robustness.py) | 从raw独立重算，检查事件/计划/输入/数值记录/三个进程 |
+| [audit_tensor_bn64_robustness_evidence.py](audit_tensor_bn64_robustness_evidence.py) | 区分完整文件哈希、规范化SASS和编码字，整理NCU证据 |
+
+输出目录必须全新。若需要重新统计旧CSV，使用新的analysis/verification目录，不重写原统计。
+本轮Sanitizer附加超时，仍为未验证；六次NCU成功。完整命令与结论边界均在第33章。

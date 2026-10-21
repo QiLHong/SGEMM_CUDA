@@ -1,0 +1,14 @@
+[
+  {
+    "source": "README.md",
+    "target": "scripts/README.md#tensor-core四组独立实验",
+    "anchor_exists": true,
+    "headings": []
+  },
+  {
+    "source": "docs/zh/00-阅读路线.md",
+    "target": "32-RTX4090D-TensorCore优化学习指南.md#3210-五个练习与答案",
+    "anchor_exists": true,
+    "headings": []
+  }
+]

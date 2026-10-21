@@ -1,0 +1,1297 @@
+[
+  {
+    "path": "batch-1\\process.csv",
+    "bytes": 116,
+    "sha256": "575a995b433238b4507defb978b5a98d83974998a7cd31a33d2f0d0a503888bd"
+  },
+  {
+    "path": "batch-1\\timings-1024-12345.csv",
+    "bytes": 57531,
+    "sha256": "d1ef2fc1cdf15b7ff85f5bc20764899275fc10ac2d962d045ed705ac14f4f249"
+  },
+  {
+    "path": "batch-1\\timings-1024-12345.csv.bitwise.csv",
+    "bytes": 695,
+    "sha256": "d7af1a51955bb48d8a92af620eeca60718a3dfefef4b5ec806a32bd5998095cd"
+  },
+  {
+    "path": "batch-1\\timings-1024-12345.csv.checks.csv",
+    "bytes": 17519,
+    "sha256": "edeb4db28002e0666a0c541e5cdd61cb8141f5c7b65b4097fd8441a0fe086245"
+  },
+  {
+    "path": "batch-1\\timings-1024-12345.csv.cpu-indices.csv",
+    "bytes": 4968,
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "batch-1\\timings-1024-12345.csv.inputs.csv",
+    "bytes": 701,
+    "sha256": "adbdd6446d21db6a6c7269fa9985520cea43144be7c5cc1d1b2c893aa3171ce9"
+  },
+  {
+    "path": "batch-1\\timings-1024-12345.csv.meta.txt",
+    "bytes": 1299,
+    "sha256": "9cea00efa8d5fc45fca555296f9129de1174b70207350b4c65223c3273a693dc"
+  },
+  {
+    "path": "batch-1\\timings-1024-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "c65db0c9c98784665749a2660c5a4e52f044a1239a812999c1663b0bbf2eb79b"
+  },
+  {
+    "path": "batch-1\\timings-1024-20261020.csv",
+    "bytes": 59409,
+    "sha256": "5ef05372b03b7b30207b0535b2830449d72a82e1200a0eb10671d1155eab696a"
+  },
+  {
+    "path": "batch-1\\timings-1024-20261020.csv.bitwise.csv",
+    "bytes": 743,
+    "sha256": "14e894314e8f5c3eec728fb7ef669ae9f0038cee05434e473b64279e667f9c56"
+  },
+  {
+    "path": "batch-1\\timings-1024-20261020.csv.checks.csv",
+    "bytes": 17519,
+    "sha256": "f8b469f2df3d042008eaf74468a3c0247afadb0bcc6cca39e42c8f3175b5cb0d"
+  },
+  {
+    "path": "batch-1\\timings-1024-20261020.csv.cpu-indices.csv",
+    "bytes": 4968,
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "batch-1\\timings-1024-20261020.csv.inputs.csv",
+    "bytes": 725,
+    "sha256": "316dc6d0a51af63c8d86f277a2ed207c67b6f5352200fb439b5187df9e1f7df5"
+  },
+  {
+    "path": "batch-1\\timings-1024-20261020.csv.meta.txt",
+    "bytes": 1301,
+    "sha256": "2ded19e751749928d5d6b6688a3d8eadd02d0f20ebb608a10b7ef52e1b7fbc53"
+  },
+  {
+    "path": "batch-1\\timings-1024-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "78206c21e19d8bceda7307d8ebd9df5b9e09ad82c49bfbce9288b425b1119808"
+  },
+  {
+    "path": "batch-1\\timings-1024-42.csv",
+    "bytes": 55648,
+    "sha256": "23e51e57b9cf11ca471589d542a450b8b90b26d010ca33592e23f5cc67d5acef"
+  },
+  {
+    "path": "batch-1\\timings-1024-42.csv.bitwise.csv",
+    "bytes": 647,
+    "sha256": "9e860ac893ba89e44b98a648c954284150959634f65488d492cc8794a9723e02"
+  },
+  {
+    "path": "batch-1\\timings-1024-42.csv.checks.csv",
+    "bytes": 16919,
+    "sha256": "9d274b12089c87e534e91330fc37a27173ffaa751c7cf14a638daec7eb018e9f"
+  },
+  {
+    "path": "batch-1\\timings-1024-42.csv.cpu-indices.csv",
+    "bytes": 4968,
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "batch-1\\timings-1024-42.csv.inputs.csv",
+    "bytes": 677,
+    "sha256": "830c7faedd5baf82ef5158cc121fc59a2d541c75288e7ab7d1f689a113385bc7"
+  },
+  {
+    "path": "batch-1\\timings-1024-42.csv.meta.txt",
+    "bytes": 1295,
+    "sha256": "92c2f19ada93634f44154c129de69ae3a7c37272b72bb1f2d21f3d4b13d42768"
+  },
+  {
+    "path": "batch-1\\timings-1024-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "cfcd76aab2d91481b7c9ce7a02481fff576951508a11c420d243003cdf325f65"
+  },
+  {
+    "path": "batch-1\\timings-2048-12345.csv",
+    "bytes": 56720,
+    "sha256": "6a2a715a9faec1a9fee0b0ee48936d3adc8bbba03f3dd525fe197b33d9d9a76a"
+  },
+  {
+    "path": "batch-1\\timings-2048-12345.csv.bitwise.csv",
+    "bytes": 695,
+    "sha256": "14b9beb5ce740b814efd9152d259741fdb3aa3d6c61a56fda37aeb98b0a8edba"
+  },
+  {
+    "path": "batch-1\\timings-2048-12345.csv.checks.csv",
+    "bytes": 17567,
+    "sha256": "f8983e53b620767bcaae337524d2d9ab5efe5def9c0f9b840bb0b70dfffc2adf"
+  },
+  {
+    "path": "batch-1\\timings-2048-12345.csv.cpu-indices.csv",
+    "bytes": 5444,
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "batch-1\\timings-2048-12345.csv.inputs.csv",
+    "bytes": 709,
+    "sha256": "8595c009b7e3e8ec655ef72007f01b5971692d9555dedeace0fb12c8dba6d56f"
+  },
+  {
+    "path": "batch-1\\timings-2048-12345.csv.meta.txt",
+    "bytes": 1298,
+    "sha256": "44d51e2dc2c6fb6323ccb594543fe4d3455078f4a386cf8db57f428366c145aa"
+  },
+  {
+    "path": "batch-1\\timings-2048-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "193b17db555c9216c819e6d7168ae0497b99fe800edca4fb0e0a1a009b7c8521"
+  },
+  {
+    "path": "batch-1\\timings-2048-20261020.csv",
+    "bytes": 58628,
+    "sha256": "bb37c655d9bfc9b7ae8af19699571972ad95ed1e186d05f13ff62211fecb0b81"
+  },
+  {
+    "path": "batch-1\\timings-2048-20261020.csv.bitwise.csv",
+    "bytes": 743,
+    "sha256": "ef553edec319ae9a8742e929b05b89462d1df71648a11c07f1b3f2e02454f081"
+  },
+  {
+    "path": "batch-1\\timings-2048-20261020.csv.checks.csv",
+    "bytes": 17783,
+    "sha256": "38a38930206054604ccb4a809d616ab6cb52b294ac0d5ec737dcc16590ef884b"
+  },
+  {
+    "path": "batch-1\\timings-2048-20261020.csv.cpu-indices.csv",
+    "bytes": 5444,
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "batch-1\\timings-2048-20261020.csv.inputs.csv",
+    "bytes": 733,
+    "sha256": "4b16b2270b519ad2e65959aee6f7574a205a7bf27e27c5715219efcbd9c89e68"
+  },
+  {
+    "path": "batch-1\\timings-2048-20261020.csv.meta.txt",
+    "bytes": 1302,
+    "sha256": "a09f82e8bf0f30e61d64dccf34bef3387a71f9e6991a9a75bd4a9f8fb608f056"
+  },
+  {
+    "path": "batch-1\\timings-2048-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "a9b61b57b9d03defb405244f17384b3d04ad36dff9b437e7c418758dd9bd2b3d"
+  },
+  {
+    "path": "batch-1\\timings-2048-42.csv",
+    "bytes": 54820,
+    "sha256": "3725aa2f632c496dae16df75e62487725a4716bdb92e6a532259e434be7c0345"
+  },
+  {
+    "path": "batch-1\\timings-2048-42.csv.bitwise.csv",
+    "bytes": 647,
+    "sha256": "e6fee688cd65c7995ddb1e1154dbddd51c95643438890ccdf2d8f0f54f72a7f4"
+  },
+  {
+    "path": "batch-1\\timings-2048-42.csv.checks.csv",
+    "bytes": 17183,
+    "sha256": "969fd1f4477e48c7e9670b732c9361e77d76588146352b278b1fd9a409518d72"
+  },
+  {
+    "path": "batch-1\\timings-2048-42.csv.cpu-indices.csv",
+    "bytes": 5444,
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "batch-1\\timings-2048-42.csv.inputs.csv",
+    "bytes": 681,
+    "sha256": "f72ea2bb8f41bb88c40b4ae4464c99c4cc0ce428b14da0250e963fbede2f43d4"
+  },
+  {
+    "path": "batch-1\\timings-2048-42.csv.meta.txt",
+    "bytes": 1296,
+    "sha256": "49e684e134d5088cb48d24c88f11e32a23c7dc34d6ba5137bd91b32ad8a0956f"
+  },
+  {
+    "path": "batch-1\\timings-2048-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "151fd127ec1e551f2ac17577afa3154633418252985cbf23ae8fd445482dbc79"
+  },
+  {
+    "path": "batch-1\\timings-3072-12345.csv",
+    "bytes": 56634,
+    "sha256": "95db37e21e5bf7b2dd09541091d7cdafa8c977d6062c823cb49a925ada242b26"
+  },
+  {
+    "path": "batch-1\\timings-3072-12345.csv.bitwise.csv",
+    "bytes": 695,
+    "sha256": "4780476bdade7e76ac77016c80dbc377ab8b01b9be6c4d482fa7b53d493c0de2"
+  },
+  {
+    "path": "batch-1\\timings-3072-12345.csv.checks.csv",
+    "bytes": 17447,
+    "sha256": "3ef6560f74fa2af7679668eb852f4968da1c2225fa347f61e5e3e34908a0a7f0"
+  },
+  {
+    "path": "batch-1\\timings-3072-12345.csv.cpu-indices.csv",
+    "bytes": 5592,
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "batch-1\\timings-3072-12345.csv.inputs.csv",
+    "bytes": 707,
+    "sha256": "bf91b758566007bd1b562d1ab13b5fa0e70e5bb1df03a9bfb97cdc1ce4cd26b4"
+  },
+  {
+    "path": "batch-1\\timings-3072-12345.csv.meta.txt",
+    "bytes": 1299,
+    "sha256": "16543d8071ea6201d96d1c6e41299275e88a0e59e766b40d6bf32cfb505e579e"
+  },
+  {
+    "path": "batch-1\\timings-3072-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "e2d8b6abb0217eeb8f24962a215f0c8be16a524e615403686554901608a4ffd7"
+  },
+  {
+    "path": "batch-1\\timings-3072-20261020.csv",
+    "bytes": 58519,
+    "sha256": "59349c4e027f0e17881e9817d761896f88d404e8df686f18e718d20a7f70e494"
+  },
+  {
+    "path": "batch-1\\timings-3072-20261020.csv.bitwise.csv",
+    "bytes": 743,
+    "sha256": "6ba25478dc57e1429ace851ca8c1db4193ad6107a101d22ed94586310f4aaf9a"
+  },
+  {
+    "path": "batch-1\\timings-3072-20261020.csv.checks.csv",
+    "bytes": 17831,
+    "sha256": "947d7e27181e484d29c4b16abafe0dcd6ddd61e7a5ccf74d939e62ad7b00ddc6"
+  },
+  {
+    "path": "batch-1\\timings-3072-20261020.csv.cpu-indices.csv",
+    "bytes": 5592,
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "batch-1\\timings-3072-20261020.csv.inputs.csv",
+    "bytes": 733,
+    "sha256": "0d96675200bd113a51ec7142b977e9d08633c99413e940d0da14053de10b18b0"
+  },
+  {
+    "path": "batch-1\\timings-3072-20261020.csv.meta.txt",
+    "bytes": 1302,
+    "sha256": "6e9965fe2f3b24e7d8c9ef34e61f824fa51c7cb94169c248d2639057205fa9ac"
+  },
+  {
+    "path": "batch-1\\timings-3072-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "fd959889ea23885e3d00072773a8c0574e11171cb9f44b273ac051cb9be2cdc6"
+  },
+  {
+    "path": "batch-1\\timings-3072-42.csv",
+    "bytes": 54754,
+    "sha256": "898b9250bf9d089081d6058ae6b1e8765d81e2866bb08ce42db585f1cebcb8bc"
+  },
+  {
+    "path": "batch-1\\timings-3072-42.csv.bitwise.csv",
+    "bytes": 647,
+    "sha256": "e03bdaa50a73bcc10c16ea24e0b72fcb5a0f0611a788f4fbf1757e046584ae23"
+  },
+  {
+    "path": "batch-1\\timings-3072-42.csv.checks.csv",
+    "bytes": 17303,
+    "sha256": "4958ec5c0f192d183f0ddbd32bdb2fc9ccdd8f61960b34822391658180dda74d"
+  },
+  {
+    "path": "batch-1\\timings-3072-42.csv.cpu-indices.csv",
+    "bytes": 5592,
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "batch-1\\timings-3072-42.csv.inputs.csv",
+    "bytes": 685,
+    "sha256": "0b80d650a51ba1d1d1c3d48cc1c0b85f69531c50a8d2dc8e05a7862f78381b08"
+  },
+  {
+    "path": "batch-1\\timings-3072-42.csv.meta.txt",
+    "bytes": 1296,
+    "sha256": "0901231d7bab4b85ec389f3406315b4e0c9f7ffe966a867d18d56ae9a04f6930"
+  },
+  {
+    "path": "batch-1\\timings-3072-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "ac2bb666bf01f4f944e90d2dc1ac964e125ef54cde574a3d25573cd99aeb050f"
+  },
+  {
+    "path": "batch-1\\timings-4096-12345.csv",
+    "bytes": 56914,
+    "sha256": "2240a5429e601afa01e083e8609f6a78704a344e04262018d7472b8fd73deff9"
+  },
+  {
+    "path": "batch-1\\timings-4096-12345.csv.bitwise.csv",
+    "bytes": 727,
+    "sha256": "36a24b48a91701fddd0d36de8ec0fa18bc6e816fa8228757dd4e78fd97674eb7"
+  },
+  {
+    "path": "batch-1\\timings-4096-12345.csv.checks.csv",
+    "bytes": 17543,
+    "sha256": "5c0b6f90225ad442d4d8abeffd7aac3b6c76e2cfafa44b8ae0b5844ea8a70a58"
+  },
+  {
+    "path": "batch-1\\timings-4096-12345.csv.cpu-indices.csv",
+    "bytes": 5752,
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "batch-1\\timings-4096-12345.csv.inputs.csv",
+    "bytes": 725,
+    "sha256": "02fd1369173bad2bd0729427765870258b73df2019b036910254383d7eba190e"
+  },
+  {
+    "path": "batch-1\\timings-4096-12345.csv.meta.txt",
+    "bytes": 1301,
+    "sha256": "77d456d2d67dcd5babcc1467149cd4d938121188af495613926487b39bd3ae78"
+  },
+  {
+    "path": "batch-1\\timings-4096-12345.csv.windows.csv",
+    "bytes": 1258,
+    "sha256": "7ce411050221874753aefc7eed2aa4b397bc7a5c74ecce7dd8f86da7b2ec3dd5"
+  },
+  {
+    "path": "batch-1\\timings-4096-20261020.csv",
+    "bytes": 58091,
+    "sha256": "6c535749a45a81e0fb92c4e719447e55dc8999618321fdf519dbd61c3a43ea47"
+  },
+  {
+    "path": "batch-1\\timings-4096-20261020.csv.bitwise.csv",
+    "bytes": 759,
+    "sha256": "b0d49f2730a5ef2e2f0f6c1d2e076a5c8283cab109eb50a93baa6b1abf94a275"
+  },
+  {
+    "path": "batch-1\\timings-4096-20261020.csv.checks.csv",
+    "bytes": 18239,
+    "sha256": "2108e2d74dfe078c185a0318f4a46f7c7128888cbb6fb4baaf9ba36eaf13b20a"
+  },
+  {
+    "path": "batch-1\\timings-4096-20261020.csv.cpu-indices.csv",
+    "bytes": 5752,
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "batch-1\\timings-4096-20261020.csv.inputs.csv",
+    "bytes": 741,
+    "sha256": "7ba9ee5f6ab38b6c0d91c4c44150e12d8705a795ff3e3955b621ba0c25d5b0ab"
+  },
+  {
+    "path": "batch-1\\timings-4096-20261020.csv.meta.txt",
+    "bytes": 1303,
+    "sha256": "7460bc18c7ef16a194b24004bb52a160697be6f16d8129b17a2bfbe1ee13a253"
+  },
+  {
+    "path": "batch-1\\timings-4096-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "4852b66d1456a421362e51428f61701c3d65e17de056275d7a274a51c0e36314"
+  },
+  {
+    "path": "batch-1\\timings-4096-42.csv",
+    "bytes": 54975,
+    "sha256": "593609380ddcb928d8165bfa1721e6672b102cfdfb3fcbc53bd04008c5d0688f"
+  },
+  {
+    "path": "batch-1\\timings-4096-42.csv.bitwise.csv",
+    "bytes": 679,
+    "sha256": "1b19a677368ffadd9c90ef2a32811044a7f93fe4a0226331dadd815b58d110fb"
+  },
+  {
+    "path": "batch-1\\timings-4096-42.csv.checks.csv",
+    "bytes": 17615,
+    "sha256": "df9cd82861571341339dec25558086a6d624c30ffcf85cfc7023aa3a000304ee"
+  },
+  {
+    "path": "batch-1\\timings-4096-42.csv.cpu-indices.csv",
+    "bytes": 5752,
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "batch-1\\timings-4096-42.csv.inputs.csv",
+    "bytes": 701,
+    "sha256": "3251f64b553a368a52aea1f1d8fed7bac433d78124ce5a8bdc309f7c89d75c23"
+  },
+  {
+    "path": "batch-1\\timings-4096-42.csv.meta.txt",
+    "bytes": 1298,
+    "sha256": "00a00e57e07d5eca1fd6a863cd2984c75addc34cdf03c24975859e38068115b5"
+  },
+  {
+    "path": "batch-1\\timings-4096-42.csv.windows.csv",
+    "bytes": 1195,
+    "sha256": "da6d048034517f32b9fb6a629c8369d2c0faeb0af759c2aba2201493894d33d1"
+  },
+  {
+    "path": "batch-2\\process.csv",
+    "bytes": 116,
+    "sha256": "24717bf179009688cfae7f0d1e360a5a54c9edfa057efd5a95781af819bbba3b"
+  },
+  {
+    "path": "batch-2\\timings-1024-12345.csv",
+    "bytes": 57821,
+    "sha256": "53a0180a2a87288341db93417af70c7304db2fd6d800c4e95507f4e6a919c696"
+  },
+  {
+    "path": "batch-2\\timings-1024-12345.csv.bitwise.csv",
+    "bytes": 711,
+    "sha256": "f7e1e17ab12b2c4f9854b80de9b677b271bcff7cda451d23519268a8027ceca6"
+  },
+  {
+    "path": "batch-2\\timings-1024-12345.csv.checks.csv",
+    "bytes": 17639,
+    "sha256": "468e2e8e41b93b46de1ce0e846a784cf98f38cd35297e32ef17568c08747799a"
+  },
+  {
+    "path": "batch-2\\timings-1024-12345.csv.cpu-indices.csv",
+    "bytes": 4968,
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "batch-2\\timings-1024-12345.csv.inputs.csv",
+    "bytes": 709,
+    "sha256": "4b2865852983a33cc8edd95ab5ef8a4034b491b90473a34a77663b21f44b2002"
+  },
+  {
+    "path": "batch-2\\timings-1024-12345.csv.meta.txt",
+    "bytes": 1301,
+    "sha256": "698994de391046dee9f5c62ffb39ece6aebd65cb2565d62e51163f1500efe029"
+  },
+  {
+    "path": "batch-2\\timings-1024-12345.csv.windows.csv",
+    "bytes": 1258,
+    "sha256": "725467e56120c0bf6a6d82cd737b22c430878d07abd8ee772f701ff4f01c2791"
+  },
+  {
+    "path": "batch-2\\timings-1024-20261020.csv",
+    "bytes": 60058,
+    "sha256": "25186eb2016eb0adae502c15c6ac81d37215cbab2d2946650708582fc5319e66"
+  },
+  {
+    "path": "batch-2\\timings-1024-20261020.csv.bitwise.csv",
+    "bytes": 759,
+    "sha256": "44bf513227600f34362e4360f13da69e0381f0f40dbdf26d8f5bcc09c2d05cf9"
+  },
+  {
+    "path": "batch-2\\timings-1024-20261020.csv.checks.csv",
+    "bytes": 17639,
+    "sha256": "b40aa37c2b97a50581c0e3f4756deaf41397b93be669f7425936f9653016d0b4"
+  },
+  {
+    "path": "batch-2\\timings-1024-20261020.csv.cpu-indices.csv",
+    "bytes": 4968,
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "batch-2\\timings-1024-20261020.csv.inputs.csv",
+    "bytes": 733,
+    "sha256": "8d0979984c35654f36a7e46c9ad07a74cebbd02ddaf034faf7c2ad6820cae272"
+  },
+  {
+    "path": "batch-2\\timings-1024-20261020.csv.meta.txt",
+    "bytes": 1304,
+    "sha256": "99bf5668e72e7cc26b056cb83c99bff135518e7816d819355e488332f1c847fd"
+  },
+  {
+    "path": "batch-2\\timings-1024-20261020.csv.windows.csv",
+    "bytes": 1321,
+    "sha256": "f0a107a919516f117362330b540b795147ae7defb8cf343e3bb04a6068cbccc6"
+  },
+  {
+    "path": "batch-2\\timings-1024-42.csv",
+    "bytes": 55327,
+    "sha256": "8600c51dc0285c1ea8bbb8f3585bfb5c5d54c03b119e651411bf901b36fcb2f2"
+  },
+  {
+    "path": "batch-2\\timings-1024-42.csv.bitwise.csv",
+    "bytes": 647,
+    "sha256": "6d972cd6edfa5be229fc049da70c3b3cbdbf5f9553249960a76150ea64c1888d"
+  },
+  {
+    "path": "batch-2\\timings-1024-42.csv.checks.csv",
+    "bytes": 16919,
+    "sha256": "f5a38d8fad23cf5eec6b88218cd5d9e647105f35a0be40fd31907a938cade246"
+  },
+  {
+    "path": "batch-2\\timings-1024-42.csv.cpu-indices.csv",
+    "bytes": 4968,
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "batch-2\\timings-1024-42.csv.inputs.csv",
+    "bytes": 677,
+    "sha256": "9d491218e444a020cfa004e74def259a94453410a335c67cca557408bd380cf7"
+  },
+  {
+    "path": "batch-2\\timings-1024-42.csv.meta.txt",
+    "bytes": 1297,
+    "sha256": "3ed858292097a4decaa728e18202cdd9e04d69306f51f6bd2f7ed0f8da758a60"
+  },
+  {
+    "path": "batch-2\\timings-1024-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "02253614a7e0448b81bb15e8d33700dcdf3c305a78b23465571b20a74c4ab11a"
+  },
+  {
+    "path": "batch-2\\timings-2048-12345.csv",
+    "bytes": 56729,
+    "sha256": "ed96f32c465355cdca050c20b3e56dc5bd90164c43e044469e4e7c3922790aa3"
+  },
+  {
+    "path": "batch-2\\timings-2048-12345.csv.bitwise.csv",
+    "bytes": 695,
+    "sha256": "01e31ababb3e0f4e51adf69ab6052ceda3207ce53e574efd13e206c11c8a61bd"
+  },
+  {
+    "path": "batch-2\\timings-2048-12345.csv.checks.csv",
+    "bytes": 17567,
+    "sha256": "09c8c963725e5ce54ba9e3aefe92d7f5bd9f2f599c0183a0149fd2d509cdac0a"
+  },
+  {
+    "path": "batch-2\\timings-2048-12345.csv.cpu-indices.csv",
+    "bytes": 5444,
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "batch-2\\timings-2048-12345.csv.inputs.csv",
+    "bytes": 709,
+    "sha256": "78cf46e96c44d464ea09bdc04a5a9b690222df60c8abfde3e03c2bb523c10157"
+  },
+  {
+    "path": "batch-2\\timings-2048-12345.csv.meta.txt",
+    "bytes": 1296,
+    "sha256": "a57d1c53ad25e70e02899e4a4f01c08fe6f2e76e8c0b1b6a01193d850bddfdd3"
+  },
+  {
+    "path": "batch-2\\timings-2048-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "b66de6ec5a46af7a5e11b60c4bdfc625acb2325968a8666d77e27b86a6d88888"
+  },
+  {
+    "path": "batch-2\\timings-2048-20261020.csv",
+    "bytes": 58619,
+    "sha256": "8874399b893c5422f171cd15cd5f5e93374d721f1a97a200b8c6dddd8abe5663"
+  },
+  {
+    "path": "batch-2\\timings-2048-20261020.csv.bitwise.csv",
+    "bytes": 743,
+    "sha256": "25ae65bed183700b243f5c5c10fecabc4117cf878a39963caabf2323354ae637"
+  },
+  {
+    "path": "batch-2\\timings-2048-20261020.csv.checks.csv",
+    "bytes": 17783,
+    "sha256": "82fe941b316096d796d49f7fd84c523ebbffb935c6894481c4db3c53a817bd94"
+  },
+  {
+    "path": "batch-2\\timings-2048-20261020.csv.cpu-indices.csv",
+    "bytes": 5444,
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "batch-2\\timings-2048-20261020.csv.inputs.csv",
+    "bytes": 733,
+    "sha256": "9cacef4dcf0df9f79e7b7d55c4124bdd37281899d1b5f01ad93656815c920e8f"
+  },
+  {
+    "path": "batch-2\\timings-2048-20261020.csv.meta.txt",
+    "bytes": 1300,
+    "sha256": "3054dfe4d2d6c44e807d50a0af563bd7854fc6f24b3d5686d7e3a31d42031d96"
+  },
+  {
+    "path": "batch-2\\timings-2048-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "bbd0de68ac6f658e58f91511b9e32f285170da23731cfb9913d771d4178b6756"
+  },
+  {
+    "path": "batch-2\\timings-2048-42.csv",
+    "bytes": 54870,
+    "sha256": "fd337945bc086a86578f62309b06aed6a8d071f1a3ac0fb1a55a3d04acf7de29"
+  },
+  {
+    "path": "batch-2\\timings-2048-42.csv.bitwise.csv",
+    "bytes": 647,
+    "sha256": "4ab4235d8969980ee2813b3ae47bbd1b918b7c733d67f6c6e3f4a460c653eb1a"
+  },
+  {
+    "path": "batch-2\\timings-2048-42.csv.checks.csv",
+    "bytes": 17183,
+    "sha256": "69d25299f83f0f318b205872a0c0821e34198640b778769d5d9392aaedcb619d"
+  },
+  {
+    "path": "batch-2\\timings-2048-42.csv.cpu-indices.csv",
+    "bytes": 5444,
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "batch-2\\timings-2048-42.csv.inputs.csv",
+    "bytes": 681,
+    "sha256": "034bea587ca7d34e0a82c5e21d00e49053389f4f488de0861ae6fbb639183594"
+  },
+  {
+    "path": "batch-2\\timings-2048-42.csv.meta.txt",
+    "bytes": 1294,
+    "sha256": "ccb7c98c1cd043d42a8d27920d29a6965baf35a597c89b64e5789d3f3b27811a"
+  },
+  {
+    "path": "batch-2\\timings-2048-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "45c4537b74f5dd7b4c8b9b72e76ea8c96f22a4fa929683f77784e9385d71d7cb"
+  },
+  {
+    "path": "batch-2\\timings-3072-12345.csv",
+    "bytes": 56652,
+    "sha256": "a25afa01b6f8a4b29eaf6989f1d986ac20ca353a9be5120a3776b9798bcb3dc6"
+  },
+  {
+    "path": "batch-2\\timings-3072-12345.csv.bitwise.csv",
+    "bytes": 695,
+    "sha256": "e51b70b4d4c4cc8203b3f4db877fbf75fe38bc8d667b0c5d89ebfdc216f89495"
+  },
+  {
+    "path": "batch-2\\timings-3072-12345.csv.checks.csv",
+    "bytes": 17447,
+    "sha256": "de777b0e9db222282488ca3af92c800ddab50fcaff5237a96541a7b0f582e085"
+  },
+  {
+    "path": "batch-2\\timings-3072-12345.csv.cpu-indices.csv",
+    "bytes": 5592,
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "batch-2\\timings-3072-12345.csv.inputs.csv",
+    "bytes": 707,
+    "sha256": "0979f202c2c3bd18c0c6351450feffe2d7c9fa05973919fa876f5fa804e266e7"
+  },
+  {
+    "path": "batch-2\\timings-3072-12345.csv.meta.txt",
+    "bytes": 1299,
+    "sha256": "9647dbc5c512aa687a8721fb653a61a121f7a9b646bee2be37dd98b1bc48a193"
+  },
+  {
+    "path": "batch-2\\timings-3072-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "086cb6d41fbabef2d8cb99b221da820cde828252837741a56cec31373c2ef910"
+  },
+  {
+    "path": "batch-2\\timings-3072-20261020.csv",
+    "bytes": 58540,
+    "sha256": "27c376db3fe0e46e3096a336cba6b5904d79c3107cf8efa129b3af3f073fe985"
+  },
+  {
+    "path": "batch-2\\timings-3072-20261020.csv.bitwise.csv",
+    "bytes": 743,
+    "sha256": "7385c19a9e35935ee44a8edcf98c7e11e37ec0374ea3b12c8167dcdd56447976"
+  },
+  {
+    "path": "batch-2\\timings-3072-20261020.csv.checks.csv",
+    "bytes": 17831,
+    "sha256": "6a2b4ce6a318557f1795508ab17e5372a969a73e6502b0d6221cd1e75052f564"
+  },
+  {
+    "path": "batch-2\\timings-3072-20261020.csv.cpu-indices.csv",
+    "bytes": 5592,
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "batch-2\\timings-3072-20261020.csv.inputs.csv",
+    "bytes": 733,
+    "sha256": "3ba53e7c3686bb9332b316c5dbe68e31d06e56a4897f2b5cafc8d20faa75b1dc"
+  },
+  {
+    "path": "batch-2\\timings-3072-20261020.csv.meta.txt",
+    "bytes": 1302,
+    "sha256": "0b445aeeb8fe1478904554c6012264c0ea3b772366cbaa44b061c157e362dc12"
+  },
+  {
+    "path": "batch-2\\timings-3072-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "c57c3b74ec11a300600dcd2f8221671b46825a18fc17484fe6f6e45ac4556021"
+  },
+  {
+    "path": "batch-2\\timings-3072-42.csv",
+    "bytes": 54762,
+    "sha256": "e0c5874b7467807c55d79d9129590611608a353f0f58720ad2de53cc64120f31"
+  },
+  {
+    "path": "batch-2\\timings-3072-42.csv.bitwise.csv",
+    "bytes": 647,
+    "sha256": "fedfcf36732a9ab3b8533fb521f0eed241e8b4b0895c72e8e76e5fa10a7e01c3"
+  },
+  {
+    "path": "batch-2\\timings-3072-42.csv.checks.csv",
+    "bytes": 17303,
+    "sha256": "9ba8cbd35d1f4da15d9f3407c95772f7f85a5d51831afecaede6d32fbd366b88"
+  },
+  {
+    "path": "batch-2\\timings-3072-42.csv.cpu-indices.csv",
+    "bytes": 5592,
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "batch-2\\timings-3072-42.csv.inputs.csv",
+    "bytes": 685,
+    "sha256": "631fe4625974e9d12a87a471091956848c3e02fdc366ad5b32766f23da35f430"
+  },
+  {
+    "path": "batch-2\\timings-3072-42.csv.meta.txt",
+    "bytes": 1296,
+    "sha256": "e3152c59148c37e4534ca40a58d8c19f8497e630c5d28635290c24f2488685f6"
+  },
+  {
+    "path": "batch-2\\timings-3072-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "9b61a2a10557b005a21c1324ec95302db000487b16194a6806044772f87347ef"
+  },
+  {
+    "path": "batch-2\\timings-4096-12345.csv",
+    "bytes": 56293,
+    "sha256": "47f21256103c3a9fff1d57c72be7fbf7d10e7806dffeacdf1703f758d1ab6e92"
+  },
+  {
+    "path": "batch-2\\timings-4096-12345.csv.bitwise.csv",
+    "bytes": 711,
+    "sha256": "61259fe1fe5b8b15117f58cb5ddeb37165203a14a5e4bc2b5967c4cc623bcf09"
+  },
+  {
+    "path": "batch-2\\timings-4096-12345.csv.checks.csv",
+    "bytes": 17423,
+    "sha256": "2580731bbe1430d18a5f3260289701b10dc3654dbd4295211f310bcbad535929"
+  },
+  {
+    "path": "batch-2\\timings-4096-12345.csv.cpu-indices.csv",
+    "bytes": 5752,
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "batch-2\\timings-4096-12345.csv.inputs.csv",
+    "bytes": 717,
+    "sha256": "66d8370cd264510b91ba9218b381b2aedb40e8aaec41c495c362c96318c303a4"
+  },
+  {
+    "path": "batch-2\\timings-4096-12345.csv.meta.txt",
+    "bytes": 1300,
+    "sha256": "cbde778b1c8075e17c2b373d0d2f7652717ee07448676b0b2a05b5674ff37077"
+  },
+  {
+    "path": "batch-2\\timings-4096-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "edf8e90396e5c57a771953566ac97217ed1880e8441477413bf492dc3109b63c"
+  },
+  {
+    "path": "batch-2\\timings-4096-20261020.csv",
+    "bytes": 58191,
+    "sha256": "6e9889b7727768388fda451fc361ca687085333e07cf77d319cdf26ccd2d62e5"
+  },
+  {
+    "path": "batch-2\\timings-4096-20261020.csv.bitwise.csv",
+    "bytes": 759,
+    "sha256": "2837d1bdc2b6515bb96f3b4f7f41eec7dc99ce7de9578e48e8ff0a1a2694ff01"
+  },
+  {
+    "path": "batch-2\\timings-4096-20261020.csv.checks.csv",
+    "bytes": 18239,
+    "sha256": "c4362f85cc4e34d79336694ba339b4d7ba2893610bcdb421fb0716f20bec270a"
+  },
+  {
+    "path": "batch-2\\timings-4096-20261020.csv.cpu-indices.csv",
+    "bytes": 5752,
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "batch-2\\timings-4096-20261020.csv.inputs.csv",
+    "bytes": 741,
+    "sha256": "47b731a236bac2f1ed2cc3d924f45522cd9d9c2bbab54ca6c47ef0088facdb39"
+  },
+  {
+    "path": "batch-2\\timings-4096-20261020.csv.meta.txt",
+    "bytes": 1303,
+    "sha256": "4f28793aff41e0c571a9e6b2173b22a6c3dd94dd8c390d1ce37e9e0077de1bd3"
+  },
+  {
+    "path": "batch-2\\timings-4096-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "4f557dc1b5dc844cd41633586fdde1c64de3cf4a8ab1cc626850b14e9e2e6833"
+  },
+  {
+    "path": "batch-2\\timings-4096-42.csv",
+    "bytes": 54390,
+    "sha256": "8a91f141d311d8fd3234a491ba8c74cd711727cfe26b18222b8c183f833380cb"
+  },
+  {
+    "path": "batch-2\\timings-4096-42.csv.bitwise.csv",
+    "bytes": 663,
+    "sha256": "bdb1c47207d9962ffd8de51ad0d33395ad16522849a61d7a3efadf8248e04926"
+  },
+  {
+    "path": "batch-2\\timings-4096-42.csv.checks.csv",
+    "bytes": 17495,
+    "sha256": "fa3d076bac994b3896950cad10fd249d8d815bbe2def65db3c1a2117f7b1060e"
+  },
+  {
+    "path": "batch-2\\timings-4096-42.csv.cpu-indices.csv",
+    "bytes": 5752,
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "batch-2\\timings-4096-42.csv.inputs.csv",
+    "bytes": 693,
+    "sha256": "e609193fc9611d83b609228eb86f64f067f763024bcb58aeadb7c8d966abe03b"
+  },
+  {
+    "path": "batch-2\\timings-4096-42.csv.meta.txt",
+    "bytes": 1297,
+    "sha256": "99813aae384c553e865a531833712287d0a62e225eeead3898844753a55c1d01"
+  },
+  {
+    "path": "batch-2\\timings-4096-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "3aa470709058559719154499f9e8c7688e2dfbe2d91a8c4b4741b3e474aaa188"
+  },
+  {
+    "path": "batch-3\\process.csv",
+    "bytes": 116,
+    "sha256": "605415198f8da25fa16dece73d6fed525f58d797308143890d4d58e31d7c1251"
+  },
+  {
+    "path": "batch-3\\timings-1024-12345.csv",
+    "bytes": 57209,
+    "sha256": "05b7b9cdf443f8ca881807a7a3e59f0b25ae2b33edccee44b0d0cc8092ed31e6"
+  },
+  {
+    "path": "batch-3\\timings-1024-12345.csv.bitwise.csv",
+    "bytes": 695,
+    "sha256": "70178816ec7888f6d30c2d2450d7af2ef08b6dbf2ce77073a8fe83c192f01fca"
+  },
+  {
+    "path": "batch-3\\timings-1024-12345.csv.checks.csv",
+    "bytes": 17519,
+    "sha256": "8ffe70400fcddd7a963708e482026fbae7683626d1f28420f5c09bdfc187f31e"
+  },
+  {
+    "path": "batch-3\\timings-1024-12345.csv.cpu-indices.csv",
+    "bytes": 4968,
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "batch-3\\timings-1024-12345.csv.inputs.csv",
+    "bytes": 701,
+    "sha256": "5a9f7f52db896af9f967718f80339aa5971777f91cd4f1c06468db12c9251c06"
+  },
+  {
+    "path": "batch-3\\timings-1024-12345.csv.meta.txt",
+    "bytes": 1300,
+    "sha256": "89d5d2c9d1f8b0d506518231547228d414d1895b1694263935280c7db113c0a5"
+  },
+  {
+    "path": "batch-3\\timings-1024-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "581045e0f1c302d609c0ec6320731032868b69040fa20068bfbf6befd93a632d"
+  },
+  {
+    "path": "batch-3\\timings-1024-20261020.csv",
+    "bytes": 59106,
+    "sha256": "62a726e062eb465b5c92d487e9ca054a6831a7a15b91946c0f5d19e5d687da72"
+  },
+  {
+    "path": "batch-3\\timings-1024-20261020.csv.bitwise.csv",
+    "bytes": 743,
+    "sha256": "6cd78b51295456489c55d1c493d0809e436e3f6cb00797223487989d42ac77c5"
+  },
+  {
+    "path": "batch-3\\timings-1024-20261020.csv.checks.csv",
+    "bytes": 17519,
+    "sha256": "f13ef8f38d7c87676ed7618130dac1a3511999a8e48d3ecb32738132db03a339"
+  },
+  {
+    "path": "batch-3\\timings-1024-20261020.csv.cpu-indices.csv",
+    "bytes": 4968,
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "batch-3\\timings-1024-20261020.csv.inputs.csv",
+    "bytes": 725,
+    "sha256": "87616d583647c13a98dfa6ea9ab30219d556f173ab6c307db92d8d3a751cd856"
+  },
+  {
+    "path": "batch-3\\timings-1024-20261020.csv.meta.txt",
+    "bytes": 1303,
+    "sha256": "f7dc68e6b5b8d47e1e8a5d7148e648982fecdb1a2796a870a81876503b625227"
+  },
+  {
+    "path": "batch-3\\timings-1024-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "def71c312810d758d2d722925e1cb60ed9a8927d97817bf41db9addc3c45973d"
+  },
+  {
+    "path": "batch-3\\timings-1024-42.csv",
+    "bytes": 55517,
+    "sha256": "7787e15f806de79ca5657869bf43f5c2defb394a67af3ea3b7fbd9370c9429b6"
+  },
+  {
+    "path": "batch-3\\timings-1024-42.csv.bitwise.csv",
+    "bytes": 647,
+    "sha256": "561420be6903bb0c88acb62056a3e57b4d7b5bbddd423353d77193657163ca41"
+  },
+  {
+    "path": "batch-3\\timings-1024-42.csv.checks.csv",
+    "bytes": 16919,
+    "sha256": "7e4c2d29282b223431d094b68505cdf923bb954ce79e4403ce3bd0b46dd825cd"
+  },
+  {
+    "path": "batch-3\\timings-1024-42.csv.cpu-indices.csv",
+    "bytes": 4968,
+    "sha256": "95d3b1a95c4b4a5f8342123a0f784ad6b04b3805f5c01f135cbeb7a1c7a28c2a"
+  },
+  {
+    "path": "batch-3\\timings-1024-42.csv.inputs.csv",
+    "bytes": 677,
+    "sha256": "492b9843cdd7ec68302139bb2c5b095a49bdeb25e1404f6abb1f4e9182bdc43d"
+  },
+  {
+    "path": "batch-3\\timings-1024-42.csv.meta.txt",
+    "bytes": 1297,
+    "sha256": "9f2a5d9c6c4c6f71b21dc8d210d70da4554afb83732ee147c18c2d5b6c36ba6b"
+  },
+  {
+    "path": "batch-3\\timings-1024-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "f3e4c25cc3b98fc558a4370938272cec9d48c231af9ed4eb101592c7f90d6395"
+  },
+  {
+    "path": "batch-3\\timings-2048-12345.csv",
+    "bytes": 56708,
+    "sha256": "055cc490b6cc488c841366346b8499402a519515f46e1cd44d66ec2af970a7b3"
+  },
+  {
+    "path": "batch-3\\timings-2048-12345.csv.bitwise.csv",
+    "bytes": 695,
+    "sha256": "e5ac747daf9708217a7a1fcbd5609c8591528a87929dde0e92aad4dd47c1f7ed"
+  },
+  {
+    "path": "batch-3\\timings-2048-12345.csv.checks.csv",
+    "bytes": 17567,
+    "sha256": "8557bd8df772833914d79ef741bfa1eb89e242f2ba2a8cf909701519a431e366"
+  },
+  {
+    "path": "batch-3\\timings-2048-12345.csv.cpu-indices.csv",
+    "bytes": 5444,
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "batch-3\\timings-2048-12345.csv.inputs.csv",
+    "bytes": 709,
+    "sha256": "113db6c8fff6b0d7acbd0dd077565a479d9c00fc17f185f65ec61a8a5aa5c027"
+  },
+  {
+    "path": "batch-3\\timings-2048-12345.csv.meta.txt",
+    "bytes": 1298,
+    "sha256": "d5465f1bf4ccb5a4a2fb85a619cd7e015df1f7272a95195e9d962ed24854a77c"
+  },
+  {
+    "path": "batch-3\\timings-2048-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "07822a122e47405732d011e01c81279bfe38d3d6cc97db6760acffdfe1bec76f"
+  },
+  {
+    "path": "batch-3\\timings-2048-20261020.csv",
+    "bytes": 59255,
+    "sha256": "6c1dae90dd5effef46b0d3214e9532b200f390e315a96b25cff41193ec7e5cb5"
+  },
+  {
+    "path": "batch-3\\timings-2048-20261020.csv.bitwise.csv",
+    "bytes": 759,
+    "sha256": "128ddad3b5ffb9b296752312a021ce335687b9cc0716dbb10e2e4fe9f9a20061"
+  },
+  {
+    "path": "batch-3\\timings-2048-20261020.csv.checks.csv",
+    "bytes": 17903,
+    "sha256": "a29c37f5cc08d44036d749213e3024e020a5112429a0b6a4f074a9784abb52e2"
+  },
+  {
+    "path": "batch-3\\timings-2048-20261020.csv.cpu-indices.csv",
+    "bytes": 5444,
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "batch-3\\timings-2048-20261020.csv.inputs.csv",
+    "bytes": 741,
+    "sha256": "b61fe2965ebe990bf1dd341a979692e292635840ecb61475e35e8a4db6cf3c40"
+  },
+  {
+    "path": "batch-3\\timings-2048-20261020.csv.meta.txt",
+    "bytes": 1303,
+    "sha256": "f861c51663c86696be04638ebd0f811798df17c34627435514909c419c4a68b5"
+  },
+  {
+    "path": "batch-3\\timings-2048-20261020.csv.windows.csv",
+    "bytes": 1321,
+    "sha256": "86d8f3180aeeb82faf04edcd492e204f41742e6577035dbb354a7368e1190ea1"
+  },
+  {
+    "path": "batch-3\\timings-2048-42.csv",
+    "bytes": 55473,
+    "sha256": "34831294386291103dbee9b180cc7e1aa60a0f83125a0d5c572f976440f832f9"
+  },
+  {
+    "path": "batch-3\\timings-2048-42.csv.bitwise.csv",
+    "bytes": 663,
+    "sha256": "2860bfb49c832502aece7161ddf407705a611e186ea9eca5a9f218f1909bcd3b"
+  },
+  {
+    "path": "batch-3\\timings-2048-42.csv.checks.csv",
+    "bytes": 17303,
+    "sha256": "ed5ab574d3dc7601f1fdbe8354e8189e95eac6267a83154694d9699971452dae"
+  },
+  {
+    "path": "batch-3\\timings-2048-42.csv.cpu-indices.csv",
+    "bytes": 5444,
+    "sha256": "e677c2ea88470fa57dc6773ce9566f20287165a4468bac2d2a92d69d5c02f1e7"
+  },
+  {
+    "path": "batch-3\\timings-2048-42.csv.inputs.csv",
+    "bytes": 689,
+    "sha256": "36341559c01fc52bfc9c7bfba41c455ad993a7303f4983ed9ba379c4902c28ed"
+  },
+  {
+    "path": "batch-3\\timings-2048-42.csv.meta.txt",
+    "bytes": 1297,
+    "sha256": "1f940875180ec2ba2f263876d6501a71c52b20d0a600eef8a4be72063ad337e7"
+  },
+  {
+    "path": "batch-3\\timings-2048-42.csv.windows.csv",
+    "bytes": 1195,
+    "sha256": "23d7b5fd1eebe32c7a04e515db390f0a0287f0da2b20474b91b2a4ce6a2ff859"
+  },
+  {
+    "path": "batch-3\\timings-3072-12345.csv",
+    "bytes": 56664,
+    "sha256": "4e41af4b3e4f845d501a41770160ae5e05149e0e0dfc6c2a4fa236bf3fdefbdb"
+  },
+  {
+    "path": "batch-3\\timings-3072-12345.csv.bitwise.csv",
+    "bytes": 695,
+    "sha256": "122f142d0295458c6c75fd7e4a3e77cd5a3eed11262c4c48480c68e1e64b1cd2"
+  },
+  {
+    "path": "batch-3\\timings-3072-12345.csv.checks.csv",
+    "bytes": 17447,
+    "sha256": "8ad474cd107d9f6332f4fc258f5e01d7f893119bed5d8642e37bf6eee68c3f73"
+  },
+  {
+    "path": "batch-3\\timings-3072-12345.csv.cpu-indices.csv",
+    "bytes": 5592,
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "batch-3\\timings-3072-12345.csv.inputs.csv",
+    "bytes": 707,
+    "sha256": "a188550c7f47a0dd549643e8003c92a60e95026845ba92a6b0f852d4a551d513"
+  },
+  {
+    "path": "batch-3\\timings-3072-12345.csv.meta.txt",
+    "bytes": 1297,
+    "sha256": "d3273d9bb2c0210170fa965f32f0e0f7f60ccce944c90262764659f769d4338f"
+  },
+  {
+    "path": "batch-3\\timings-3072-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "fd29355ba88bf3436c98cb74ac357e1f2480829f8b42f13cce6813db2a632a66"
+  },
+  {
+    "path": "batch-3\\timings-3072-20261020.csv",
+    "bytes": 58532,
+    "sha256": "263a9a3c8eac8eb4a64e82f43bf395783c437c6bbcc6346d0f4ed732f8b486d3"
+  },
+  {
+    "path": "batch-3\\timings-3072-20261020.csv.bitwise.csv",
+    "bytes": 743,
+    "sha256": "05a4d80cabde9cd166e8a2ec91c299413bbd35b303dbe34c6933a248288e4369"
+  },
+  {
+    "path": "batch-3\\timings-3072-20261020.csv.checks.csv",
+    "bytes": 17831,
+    "sha256": "c30af743af923997b4babed413a2535c413361a14a3b4f6d025413dc559fb841"
+  },
+  {
+    "path": "batch-3\\timings-3072-20261020.csv.cpu-indices.csv",
+    "bytes": 5592,
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "batch-3\\timings-3072-20261020.csv.inputs.csv",
+    "bytes": 733,
+    "sha256": "0f86a1ae2d3b230439afc614d9c05d0678e725113652770b3b3cd8eeb40edd1a"
+  },
+  {
+    "path": "batch-3\\timings-3072-20261020.csv.meta.txt",
+    "bytes": 1300,
+    "sha256": "b60de794577a5b1a038102482a14f122c76459dc063e910106c646e1c841dd21"
+  },
+  {
+    "path": "batch-3\\timings-3072-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "9bf39cbe6a9493eacc4ff717b98973a4117e7e0a7c3092c90a698d5b0d3ffd43"
+  },
+  {
+    "path": "batch-3\\timings-3072-42.csv",
+    "bytes": 54751,
+    "sha256": "a25e96439705928c7a656a893176714231b63fe6b860487b2aa37a9bda293066"
+  },
+  {
+    "path": "batch-3\\timings-3072-42.csv.bitwise.csv",
+    "bytes": 647,
+    "sha256": "549b5c7f5f8b97b2a11e839bff603eeb9fcd7a4cecc84e64714841940f668798"
+  },
+  {
+    "path": "batch-3\\timings-3072-42.csv.checks.csv",
+    "bytes": 17303,
+    "sha256": "fb803a4f3ee968f835e968223854c038399ef67fa70ea397f26ef59ab4ccbe95"
+  },
+  {
+    "path": "batch-3\\timings-3072-42.csv.cpu-indices.csv",
+    "bytes": 5592,
+    "sha256": "4713c79758663aafb42098bdae7d86d698b73981cf880bd08eff4caddde7621f"
+  },
+  {
+    "path": "batch-3\\timings-3072-42.csv.inputs.csv",
+    "bytes": 685,
+    "sha256": "dc0c0a5a68c946f5c9ef79d8f905ce04942b99c8f2a0214fe73ac3a2608ec48b"
+  },
+  {
+    "path": "batch-3\\timings-3072-42.csv.meta.txt",
+    "bytes": 1295,
+    "sha256": "639ce05589e0f9f60c0a9ba2df7c534c431db9f4b9bd068c2fa750706da0babf"
+  },
+  {
+    "path": "batch-3\\timings-3072-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "88dd2c8af4ebeee88fb430ae8a869da28475de28ecc56bfaf05edfe9dec60e7c"
+  },
+  {
+    "path": "batch-3\\timings-4096-12345.csv",
+    "bytes": 56292,
+    "sha256": "2ab0cf87941b5d1259dbb737e6aac30a8e90337faf2ba0ca962bd819dac8c96f"
+  },
+  {
+    "path": "batch-3\\timings-4096-12345.csv.bitwise.csv",
+    "bytes": 711,
+    "sha256": "f8e788f13d1494c621772b1320db4557789d5b3aa2cc1d6acd8e9a8af0e96b58"
+  },
+  {
+    "path": "batch-3\\timings-4096-12345.csv.checks.csv",
+    "bytes": 17423,
+    "sha256": "74654986145562949e13645e9ef9d9a4ef8493383cd9a9821a286ded54931e2c"
+  },
+  {
+    "path": "batch-3\\timings-4096-12345.csv.cpu-indices.csv",
+    "bytes": 5752,
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "batch-3\\timings-4096-12345.csv.inputs.csv",
+    "bytes": 717,
+    "sha256": "a44ed05457bcf62cef9734727f8abbad504cb287a5054bc192df0de2bd83f172"
+  },
+  {
+    "path": "batch-3\\timings-4096-12345.csv.meta.txt",
+    "bytes": 1300,
+    "sha256": "ab74528aef510f1bae2e76f091d7ff9042aa804311468f35fa180932a28dad3e"
+  },
+  {
+    "path": "batch-3\\timings-4096-12345.csv.windows.csv",
+    "bytes": 1237,
+    "sha256": "6dbed7a92ccb386b0ab34d0eb5ecf396de1cc3d54ed1d9db71d6df704916f699"
+  },
+  {
+    "path": "batch-3\\timings-4096-20261020.csv",
+    "bytes": 58181,
+    "sha256": "e0d763500e27713cc6533be13d3c3ddc2efecc003fc5dca6ade9c0d5f281a947"
+  },
+  {
+    "path": "batch-3\\timings-4096-20261020.csv.bitwise.csv",
+    "bytes": 759,
+    "sha256": "4e5ddaf62d831c3cee0d969527305cb5aa3c3dbcaf988fac85b6e9de7319c410"
+  },
+  {
+    "path": "batch-3\\timings-4096-20261020.csv.checks.csv",
+    "bytes": 18239,
+    "sha256": "8c3e8c93566869fff069ef735bccdcd1bd3774525c7b15e13b2ea91bd110e40e"
+  },
+  {
+    "path": "batch-3\\timings-4096-20261020.csv.cpu-indices.csv",
+    "bytes": 5752,
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "batch-3\\timings-4096-20261020.csv.inputs.csv",
+    "bytes": 741,
+    "sha256": "71683e7914eadc8a24baedc69cefea6b8d03f8981a38970171da97ede0237125"
+  },
+  {
+    "path": "batch-3\\timings-4096-20261020.csv.meta.txt",
+    "bytes": 1303,
+    "sha256": "015249bc82ed26f5ab88f7ce56439f8d5c4ece7a7a45e165f8d0b4def2ee946e"
+  },
+  {
+    "path": "batch-3\\timings-4096-20261020.csv.windows.csv",
+    "bytes": 1300,
+    "sha256": "f6dd9007869fcef455082e19e5ebafbb74bcc200547b89faa24e06836552489b"
+  },
+  {
+    "path": "batch-3\\timings-4096-42.csv",
+    "bytes": 54399,
+    "sha256": "0998b3b80eb3b47bdbd978c688437eb2fe1edd10b3295e767e91467cc39f71e4"
+  },
+  {
+    "path": "batch-3\\timings-4096-42.csv.bitwise.csv",
+    "bytes": 663,
+    "sha256": "ffb8dfacda429e549a222017300bf2e547de85a4c261d8a2c0d6cb57f8d2b093"
+  },
+  {
+    "path": "batch-3\\timings-4096-42.csv.checks.csv",
+    "bytes": 17495,
+    "sha256": "08f9d772c3252ac876010962564cb17daa686d9f945449b02e743ecd6d6d3a43"
+  },
+  {
+    "path": "batch-3\\timings-4096-42.csv.cpu-indices.csv",
+    "bytes": 5752,
+    "sha256": "affda35b44d8fddd0a6b1b26d822c7a8f145ad083765a3945ee0499dd64320e7"
+  },
+  {
+    "path": "batch-3\\timings-4096-42.csv.inputs.csv",
+    "bytes": 693,
+    "sha256": "a56406b9489875f071c4ee55927491d7e342677be5ea9b89f5d65c4e95992929"
+  },
+  {
+    "path": "batch-3\\timings-4096-42.csv.meta.txt",
+    "bytes": 1297,
+    "sha256": "2cb039279fcfd9fd47c6609de1a30319bb1e17851d18f48716872a9849a44a58"
+  },
+  {
+    "path": "batch-3\\timings-4096-42.csv.windows.csv",
+    "bytes": 1174,
+    "sha256": "127802d97af73407fdc2d1047f617c169198828e496478915b3f0bfebcbd5458"
+  },
+  {
+    "path": "plan.csv",
+    "bytes": 33950,
+    "sha256": "6ef115852c82e250eb887f9af5b4a5c82179a4bc71df5f174e3663debc7c0a4c"
+  },
+  {
+    "path": "telemetry-batch-1.csv",
+    "bytes": 17012,
+    "sha256": "096126261fd5fb6d4d26aade99c14a39e11311c2aac729e970ece9125ce4c811"
+  },
+  {
+    "path": "telemetry-batch-2.csv",
+    "bytes": 18007,
+    "sha256": "32d996e7fd1fcbd9cb6ec51e1c9446709bcfb78e7aeba6bf7e95e79944f53566"
+  },
+  {
+    "path": "telemetry-batch-3.csv",
+    "bytes": 17841,
+    "sha256": "cc324c7e2bafef796d82da4e0edd462132d0dc662ab59eaa32478dfafec3a8c0"
+  }
+]

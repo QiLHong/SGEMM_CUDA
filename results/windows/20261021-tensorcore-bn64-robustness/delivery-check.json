@@ -1,0 +1,44 @@
+{
+  "previous_files_actually_read_and_hashed": 2487,
+  "allowed_navigation_changes": [
+    {
+      "path": "README.md",
+      "before": "ca12c9860b037735c39fa23bbceeefeefb56a7bde418a4a7fabb3a353ae60241",
+      "after": "1d85101646f3bcf3217d722c322e0e5a22106b1f5f8773366b48d74f27e7b6dc"
+    },
+    {
+      "path": "docs/zh/00-阅读路线.md",
+      "before": "6f8d67f0e72c5c586bff242f5d100966d3940dd397bebd7db9753dab3ede72d9",
+      "after": "6eee3ff23c838cc2109355cd7656a2838515bf41f1553a3d51799a82c2f86b96"
+    },
+    {
+      "path": "docs/zh/26-vitamin-SIMT复现与K30公平对照.md",
+      "before": "ad6f2bffb7ba7f99d57a931e71601b5ecefad205ada0bca0203df54884c7f1e2",
+      "after": "124469f8be8f46fc258427040e497e197b28bb32283365e439e07b62daa048d2"
+    },
+    {
+      "path": "docs/zh/27-vitamin原入口复跑与寄存器上限实验.md",
+      "before": "ec0a76465c721698f3774a72317bf1676201c203c9e135f582d1bdb144fe8acf",
+      "after": "ee971d165cd366c82015eac99dc74c61cfa9235c50d20e140c43f5cb8d77c508"
+    },
+    {
+      "path": "results/windows/README.md",
+      "before": "9ca4507f49a95bc56c8407bcf7c933b4c4e778bacf0de5b385b44f994ca6d4cf",
+      "after": "1a2b0dcd0aadd89809a87973e7226b2618ea0a69ebbd02d680272f5f2400d283"
+    },
+    {
+      "path": "scripts/README.md",
+      "before": "08bc5ca9ccfa42e010389a90a0babd8c541831458f8ca097ac08c29bcff8f698",
+      "after": "6f94ec6daa7803cc9600f58860bf9cf8fee52cbcf9b4dd5f2e04e73474eaf5ca"
+    }
+  ],
+  "all_other_preexisting_files_unchanged": true,
+  "git_heads_and_index_unchanged": true,
+  "source_snapshot_files": 40,
+  "formal_events": 22680,
+  "ncu_launches": 6,
+  "device_normalized_and_encoded_sass_equal": true,
+  "binary_sha256": "9440FFA182BA2906D4767F5C5BF323C6FEDD0E006639786A630D08165A11EFEF",
+  "sanitizer": "TIMEOUT_UNVERIFIED",
+  "no_commit_push_merge": true
+}

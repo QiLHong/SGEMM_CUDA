@@ -1,0 +1,2 @@
+batch,pid,start_utc_ms,end_utc_ms,cases,formal_events,status
+2,41760,1792592236054,1792592283027,12,7560,COMPLETE

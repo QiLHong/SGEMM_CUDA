@@ -1,0 +1,1 @@
+7560 formal single-GEMM CUDA events; original FP32 failures retained

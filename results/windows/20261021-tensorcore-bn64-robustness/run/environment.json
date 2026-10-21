@@ -1,0 +1,49 @@
+{
+  "utc_prepared": "2026-10-21T14:14:47.1037210+00:00",
+  "gpu": "NVIDIA GeForce RTX 4090 D; sm_89; Windows WDDM",
+  "binary_sha256": "9440FFA182BA2906D4767F5C5BF323C6FEDD0E006639786A630D08165A11EFEF",
+  "plan_sha256": "6EF115852C82E250EB887F9AF5B4A5C82179A4BC71DF5F174E3663DEBC7C0A4C",
+  "source_sha256": "E19A5F264FF4DD6F0F7A81139502431DE3AAB4CE311C5F8CF36B5F84FA0B5F41",
+  "build_dir": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-tensor-bn64-robustness-sm89",
+  "batches": 3,
+  "cases_per_batch": 12,
+  "sizes": [
+    1024,
+    2048,
+    3072,
+    4096
+  ],
+  "seeds": [
+    20261020,
+    42,
+    12345
+  ],
+  "implementations": [
+    "vitamin_tf32_dbf",
+    "tf32_bn64_bk32",
+    "cublas_tf32"
+  ],
+  "rounds": 7,
+  "repeats": 30,
+  "warmup": 10,
+  "expected_formal_events": 22680,
+  "alpha": 1,
+  "beta": 0,
+  "independent_unit": "Three consecutive independent benchmark processes / CUDA contexts; not cross-day or cross-reboot validation",
+  "input": "Preserved xorshift generator; identical distribution and range; actual original and explicit TF32 bytes fingerprinted before/after",
+  "input_hash": "FNV1a64, non-cryptographic, over GPU-read-back little-endian float32 bytes",
+  "input_sharing": "Each implementation receives the same ta/tb allocation in a case; not merely matching seeds",
+  "order": "All six permutations once per case; seventh permutation changes across batches. Size and seed loops rotate across batches.",
+  "timing": "CUDA events per single GEMM; C0 zero D2D restore on same default stream before every warmup and timed call, outside events",
+  "cache_caveat": "Identical 4-byte-per-output C0 restore can alter cache residency; checks between groups also affect cache before next warmup",
+  "precision": "Explicit TF32 represented input; FP32 accumulation/output; original FP32 precision failures retained",
+  "conversion": "Preserved GPU __float_to_tf32 preparation (+ unused FP16 side product), outside GEMM events; not end-to-end timing",
+  "cublas": "CUBLAS_COMPUTE_32F_FAST_TF32; CUBLAS_MATH_DISALLOW_REDUCED_PRECISION_REDUCTION; CUBLAS_ATOMICS_NOT_ALLOWED; CUBLAS_GEMM_DEFAULT; actual version in each case meta",
+  "reference": "PEDANTIC FP32 on original and TF32 represented input; TF32 cuBLAS; original vitamin TF32; CPU double on actual TF32 input",
+  "thresholds": "abs<=0.01; SIMT abs(got-ref)<=0.001+0.001*abs(got); native TF32 <=0.1+0.1*abs(got), separately reported",
+  "cpu_double": "Full 131072 outputs on 128x1024 K32/64/96; 256 fixed unique positions incl four corners on formal squares, index seed20261020 independent of input seed",
+  "telemetry": "nvidia-smi every200ms; no locked clocks or changed power limit; not per-event constant-frequency evidence",
+  "profiler": "Separate after fair benchmark, excluded from formal event table",
+  "sgmm_commit": "a54435d9abfdb673b2ef8bca147350a7820046cf",
+  "vitamin_commit": "520f97093a2abc239977be83d244b327d0e2e2ef"
+}

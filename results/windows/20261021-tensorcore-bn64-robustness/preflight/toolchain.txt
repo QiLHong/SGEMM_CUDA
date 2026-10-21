@@ -1,0 +1,37 @@
+CUDA: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe
+MSVC: D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe
+Windows SDK: D:\Windows Kits\10\ 10.0.26100.0\
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Thu_Mar_28_02:30:10_Pacific_Daylight_Time_2024
+Cuda compilation tools, release 12.4, V12.4.131
+Build cuda_12.4.r12.4/compiler.34097967_0
+用法: cl [ 选项... ] 文件名... [ /link 链接选项... ]
+用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.37.32826.1 版
+版权所有(C) Microsoft Corporation。保留所有权利。
+
+cmake version 3.31.6-msvc6
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+1.12.1
+git version 2.53.0.windows.2
+Wed Oct 21 22:05:28 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.60                 KMD Version: 610.60        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4090 D    WDDM  |   00000000:01:00.0  On |                  Off |
+| 31%   43C    P0             63W /  425W |    1374MiB /  24564MiB |      2%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+

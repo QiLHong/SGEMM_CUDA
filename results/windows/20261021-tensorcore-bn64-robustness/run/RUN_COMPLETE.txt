@@ -1,0 +1,1 @@
+COMPLETE: 3 independent process batches, 22680 formal CUDA events; original FP32 failures remain in checks.

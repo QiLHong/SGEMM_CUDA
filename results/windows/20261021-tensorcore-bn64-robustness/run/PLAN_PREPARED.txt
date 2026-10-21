@@ -1,0 +1,1 @@
+Plan frozen before any smoke or formal CUDA call from this script.
