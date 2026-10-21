@@ -1,0 +1,1850 @@
+[
+  {
+    "round": 0,
+    "position": 0,
+    "implementation": "strict",
+    "build": "k30",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p00-strict",
+    "round_mean_ms": 1.9908597306666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.048198201823718485,
+    "raw_sha256": "84f0a82fb215cd1e2e193099b451fcd4966c3184ab9bba91976cf42b42eecdfb"
+  },
+  {
+    "round": 0,
+    "position": 1,
+    "implementation": "k10",
+    "build": "k30",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p01-k10",
+    "round_mean_ms": 2.562970662666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.08867879867736074,
+    "raw_sha256": "997b4afe073a1c945dce208e28881bca76bd0df4a74ff8a26b022d069cba4937"
+  },
+  {
+    "round": 0,
+    "position": 2,
+    "implementation": "v1",
+    "build": "k30",
+    "cli": "v1",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p02-v1",
+    "round_mean_ms": 2.4070485353333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.06801517395863375,
+    "raw_sha256": "e8fccf6c26cdcf70d569fd6b9420752d1730d26ef42631dc805f8588a3eb3cd2"
+  },
+  {
+    "round": 0,
+    "position": 3,
+    "implementation": "v2",
+    "build": "k30",
+    "cli": "v2",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p03-v2",
+    "round_mean_ms": 2.3208960293333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.08270356286555496,
+    "raw_sha256": "c04733421cf84c0426c46d8a5c9720f9c0875bc205019ce57b72ea07a562bdd2"
+  },
+  {
+    "round": 0,
+    "position": 4,
+    "implementation": "v3",
+    "build": "k30",
+    "cli": "v3",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p04-v3",
+    "round_mean_ms": 2.523511441666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.01281371441409154,
+    "raw_sha256": "6a7f6cd44c50302bd9d46dfbb2f05ca03ce0c0eab468b866d7beca69a4ea770a"
+  },
+  {
+    "round": 0,
+    "position": 5,
+    "implementation": "v4",
+    "build": "k30",
+    "cli": "v4",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p05-v4",
+    "round_mean_ms": 2.7346261416666664,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.007811206713418795,
+    "raw_sha256": "86134fb5a60278c76d30163381aef10f023cb5bc66f50c17b41ed5778495e6f9"
+  },
+  {
+    "round": 1,
+    "position": 0,
+    "implementation": "k10",
+    "build": "k30",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p00-k10",
+    "round_mean_ms": 2.5437887986666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09591937805967868,
+    "raw_sha256": "29098d7c78abc72136585948608458f33ca28ef39958889ecaad0fab815875ec"
+  },
+  {
+    "round": 1,
+    "position": 1,
+    "implementation": "v1",
+    "build": "k30",
+    "cli": "v1",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p01-v1",
+    "round_mean_ms": 2.3988565286666668,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.08060449763956236,
+    "raw_sha256": "cae88938790b5f1a2691defe1d36cc50a8916fc46f585ff784bdcf6a74d3fccc"
+  },
+  {
+    "round": 1,
+    "position": 2,
+    "implementation": "v2",
+    "build": "k30",
+    "cli": "v2",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p02-v2",
+    "round_mean_ms": 2.279562679666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09538174443741844,
+    "raw_sha256": "96b8689281dc4d2a497e18ba7fa26e330585d11dfaaf6bff257e3c1e98410b5d"
+  },
+  {
+    "round": 1,
+    "position": 3,
+    "implementation": "v3",
+    "build": "k30",
+    "cli": "v3",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p03-v3",
+    "round_mean_ms": 2.525525331,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.014776513827498363,
+    "raw_sha256": "dc30b2a08e277bc99c59f3e6faf1e37e8fe74fc583ff73cf965afa24ed55db5a"
+  },
+  {
+    "round": 1,
+    "position": 4,
+    "implementation": "v4",
+    "build": "k30",
+    "cli": "v4",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p04-v4",
+    "round_mean_ms": 2.7355488226666664,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.008452604756167928,
+    "raw_sha256": "5fd49362e1c58ec0775cc7fed50d1b18f43a169f38cb50e5d87d940432ecbe1f"
+  },
+  {
+    "round": 1,
+    "position": 5,
+    "implementation": "strict",
+    "build": "k30",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p05-strict",
+    "round_mean_ms": 2.0117877323333335,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.04173678331319854,
+    "raw_sha256": "fbddc2deeb8ae85b336ce0ac4acd16d63a39773648ecffee95f2b43ebe03ee6f"
+  },
+  {
+    "round": 2,
+    "position": 0,
+    "implementation": "v1",
+    "build": "k30",
+    "cli": "v1",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p00-v1",
+    "round_mean_ms": 2.415992531,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.07118351013173525,
+    "raw_sha256": "9fab14ecce25fe9b3416da50ab9e5be9e8f2e225beb78e19f4406b5d31557036"
+  },
+  {
+    "round": 2,
+    "position": 1,
+    "implementation": "v2",
+    "build": "k30",
+    "cli": "v2",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p01-v2",
+    "round_mean_ms": 2.3206570946666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09873312503596189,
+    "raw_sha256": "070dd9198c224df39ebd87ddf4eaecaae103fd4b9bf9879a0aecef0df3f4ed5d"
+  },
+  {
+    "round": 2,
+    "position": 2,
+    "implementation": "v3",
+    "build": "k30",
+    "cli": "v3",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p02-v3",
+    "round_mean_ms": 2.522761567,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.013103752887987041,
+    "raw_sha256": "828fd17da36a475970bec81783a48b92641cdc8c76d91c7f1266d2c62924bf24"
+  },
+  {
+    "round": 2,
+    "position": 3,
+    "implementation": "v4",
+    "build": "k30",
+    "cli": "v4",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p03-v4",
+    "round_mean_ms": 2.734890676,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.008627636070041404,
+    "raw_sha256": "719f1feef92278ebfbe7e7a90a9ec84aa1c46fc1c591303c783a87d4b0f63bca"
+  },
+  {
+    "round": 2,
+    "position": 4,
+    "implementation": "strict",
+    "build": "k30",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p04-strict",
+    "round_mean_ms": 2.0082698706666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.04507931479859125,
+    "raw_sha256": "61e51cf5815d1a2e2b77d8e551eef2f063877e22d1809f3f759284203daf3a86"
+  },
+  {
+    "round": 2,
+    "position": 5,
+    "implementation": "k10",
+    "build": "k30",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p05-k10",
+    "round_mean_ms": 2.5643328106666665,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.08364657431196203,
+    "raw_sha256": "e2d4096d1bd9dcd71226586b88a79482bb47057d896f22d6e1dcec6097160b96"
+  },
+  {
+    "round": 3,
+    "position": 0,
+    "implementation": "v2",
+    "build": "k30",
+    "cli": "v2",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p00-v2",
+    "round_mean_ms": 2.3031467036666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.10092007764687065,
+    "raw_sha256": "9f66d09cfce26ff0875530e0f7aa59d9f92160ae6dfaf20517c9159b8513f3a3"
+  },
+  {
+    "round": 3,
+    "position": 1,
+    "implementation": "v3",
+    "build": "k30",
+    "cli": "v3",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p01-v3",
+    "round_mean_ms": 2.523784463,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.006315124032741131,
+    "raw_sha256": "2f69dde063b5a9ac0a89f94eed928b9081b77ea3e4b2c261d1ae4e17ecc8f818"
+  },
+  {
+    "round": 3,
+    "position": 2,
+    "implementation": "v4",
+    "build": "k30",
+    "cli": "v4",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p02-v4",
+    "round_mean_ms": 2.7359232266666664,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.005906324888116867,
+    "raw_sha256": "5fccf7d918ff11abeea0092e0beb75d00df0c617e6b9073ae7d7ea757297fee4"
+  },
+  {
+    "round": 3,
+    "position": 3,
+    "implementation": "strict",
+    "build": "k30",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p03-strict",
+    "round_mean_ms": 2.0093311910000002,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.055588337925817105,
+    "raw_sha256": "fc2b0dd821538377ba743052e1a5c8c6a39e8fdd3e5c79f4151522bb7c687c29"
+  },
+  {
+    "round": 3,
+    "position": 4,
+    "implementation": "k10",
+    "build": "k30",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p04-k10",
+    "round_mean_ms": 2.545766409,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09953810555004715,
+    "raw_sha256": "9713c8b331bc2047e792122c38e1c73c1d13b333f0854926ec960f1c5ccf29ce"
+  },
+  {
+    "round": 3,
+    "position": 5,
+    "implementation": "v1",
+    "build": "k30",
+    "cli": "v1",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p05-v1",
+    "round_mean_ms": 2.3927114879999998,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09078124752101029,
+    "raw_sha256": "9a07026c7e5b1906236d1fe7a0b1f07fabe20fd045ce345294c3e585b4bfc2aa"
+  },
+  {
+    "round": 4,
+    "position": 0,
+    "implementation": "v3",
+    "build": "k30",
+    "cli": "v3",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p00-v3",
+    "round_mean_ms": 2.525115697,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.015538900617944865,
+    "raw_sha256": "989b664718573940d90dd3ca37fbe8d6b230a35c04ac52d558dc11c4f5c28cd6"
+  },
+  {
+    "round": 4,
+    "position": 1,
+    "implementation": "v4",
+    "build": "k30",
+    "cli": "v4",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p01-v4",
+    "round_mean_ms": 2.7380053446666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.007812797893162096,
+    "raw_sha256": "ca03b9f961f52ac70cd47360594e89779e39fb7531d9e8711ba1fd56e960d64c"
+  },
+  {
+    "round": 4,
+    "position": 2,
+    "implementation": "strict",
+    "build": "k30",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p02-strict",
+    "round_mean_ms": 1.9869354443333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.05119917899749224,
+    "raw_sha256": "477d0fba0f3ed82e39b885d170f5c2df76776d867c8ab781d724fb8abecd8e10"
+  },
+  {
+    "round": 4,
+    "position": 3,
+    "implementation": "k10",
+    "build": "k30",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p03-k10",
+    "round_mean_ms": 2.5399658923333335,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.10684842023556917,
+    "raw_sha256": "1cebf6cbacf866c903a87c2be53574c655dc4dba5b01d61551a2802cd5dc8dc0"
+  },
+  {
+    "round": 4,
+    "position": 4,
+    "implementation": "v1",
+    "build": "k30",
+    "cli": "v1",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p04-v1",
+    "round_mean_ms": 2.414729596,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0655633426973626,
+    "raw_sha256": "d0a389a96a91aca00dc5bbbfa376fefb63fe9810b2f4d574dfd68eb83a7fdf7a"
+  },
+  {
+    "round": 4,
+    "position": 5,
+    "implementation": "v2",
+    "build": "k30",
+    "cli": "v2",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p05-v2",
+    "round_mean_ms": 2.339839999,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.07911559493644581,
+    "raw_sha256": "09ab6248f8564139015d8e86840f1b65cf0640b0c0d4c8b20e8f6b96fe721772"
+  },
+  {
+    "round": 5,
+    "position": 0,
+    "implementation": "v4",
+    "build": "k30",
+    "cli": "v4",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p00-v4",
+    "round_mean_ms": 2.737665081333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.006949224285426162,
+    "raw_sha256": "99835830f92e9e62df94f73b2f155d970ba9eb8e1433e33d8d25e79e9aef0e6f"
+  },
+  {
+    "round": 5,
+    "position": 1,
+    "implementation": "strict",
+    "build": "k30",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p01-strict",
+    "round_mean_ms": 2.0215487683333335,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.04117633692932739,
+    "raw_sha256": "dd12edeb574b4938ccf8820bb0b64be4ce5616c2e06b5e091b9cb23cc2d92287"
+  },
+  {
+    "round": 5,
+    "position": 2,
+    "implementation": "k10",
+    "build": "k30",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p02-k10",
+    "round_mean_ms": 2.5604778923333336,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09851728222473627,
+    "raw_sha256": "d523a76930755413221ad17565b979e2830824bb4361b52850d4ba15a5ab9681"
+  },
+  {
+    "round": 5,
+    "position": 3,
+    "implementation": "v1",
+    "build": "k30",
+    "cli": "v1",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p03-v1",
+    "round_mean_ms": 2.4297130753333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.06870288921592368,
+    "raw_sha256": "afe6462adc849cfeaee507c6adc4f9eb5828e3d1ef88f5718bc26a88d5b0ad8f"
+  },
+  {
+    "round": 5,
+    "position": 4,
+    "implementation": "v2",
+    "build": "k30",
+    "cli": "v2",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p04-v2",
+    "round_mean_ms": 2.325010157,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09312241633157217,
+    "raw_sha256": "a5b16e996ada4c0148271db2fdcc2b2082dbda0548ed1bb8fcd5c97dd50a1134"
+  },
+  {
+    "round": 5,
+    "position": 5,
+    "implementation": "v3",
+    "build": "k30",
+    "cli": "v3",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p05-v3",
+    "round_mean_ms": 2.5257994503333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.015044481364867203,
+    "raw_sha256": "ef09d69f05caa2989251722c3e6bb6f0f0d7034ca30d9c340636333f990a3f0b"
+  },
+  {
+    "round": 6,
+    "position": 0,
+    "implementation": "strict",
+    "build": "k30",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p00-strict",
+    "round_mean_ms": 2.023761106,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.028157712269093627,
+    "raw_sha256": "c24c8a848453ebc03f056249f441a27ea82281ab25b2913d8e8b44764882409d"
+  },
+  {
+    "round": 6,
+    "position": 1,
+    "implementation": "k10",
+    "build": "k30",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p01-k10",
+    "round_mean_ms": 2.5751562596666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09758038967016779,
+    "raw_sha256": "95edfb54b458452bf573a29ba35b8d16d3f090f1bd92a6e9cef4375510eead24"
+  },
+  {
+    "round": 6,
+    "position": 2,
+    "implementation": "v1",
+    "build": "k30",
+    "cli": "v1",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p02-v1",
+    "round_mean_ms": 2.414045867,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.06946963915936195,
+    "raw_sha256": "6df61733b89eaef65131073c019665f151ddf4bee9f72ecc7f277ef2273e45cc"
+  },
+  {
+    "round": 6,
+    "position": 3,
+    "implementation": "v2",
+    "build": "k30",
+    "cli": "v2",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p03-v2",
+    "round_mean_ms": 2.321990426,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.07015931275243746,
+    "raw_sha256": "eaac805f6f77ecad6a5d16e887ce4ee71baa83210104dd7bb13a1347fa39bed4"
+  },
+  {
+    "round": 6,
+    "position": 4,
+    "implementation": "v3",
+    "build": "k30",
+    "cli": "v3",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p04-v3",
+    "round_mean_ms": 2.526685849,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.01864603100442173,
+    "raw_sha256": "b25c5bc0c7e064f1e00bce4a37e478d9c99df5cc586d5bb5d2982c5681ddd3de"
+  },
+  {
+    "round": 6,
+    "position": 5,
+    "implementation": "v4",
+    "build": "k30",
+    "cli": "v4",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p05-v4",
+    "round_mean_ms": 2.7414517573333335,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.010039072419426436,
+    "raw_sha256": "35446943d0084f42c2f15a253aa4a4026722ae3c5e5492b4a8adcea26326d65b"
+  }
+]
