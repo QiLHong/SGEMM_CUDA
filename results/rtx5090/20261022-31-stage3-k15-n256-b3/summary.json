@@ -1,0 +1,86 @@
+[
+  {
+    "implementation": "strict",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.012263466656666666,
+    "mean_round_mean_ms": 0.01252952384904762,
+    "round_mean_stddev_ms": 0.000948367433690609,
+    "tflops": 2.7361294272985313,
+    "median_paired_gain_vs_strict_pct": 0.0,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k10",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03576853349333333,
+    "mean_round_mean_ms": 0.03587200033142857,
+    "round_mean_stddev_ms": 0.0006158647472929927,
+    "tflops": 0.9380991816802888,
+    "median_paired_gain_vs_strict_pct": -65.88873761428347,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k15-g1",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03450133379333333,
+    "mean_round_mean_ms": 0.03445912420904762,
+    "round_mean_stddev_ms": 0.0002216998893790856,
+    "tflops": 0.9725546322642084,
+    "median_paired_gain_vs_strict_pct": -64.73529290660908,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k15-g2",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03460693385666667,
+    "mean_round_mean_ms": 0.034862171705238094,
+    "round_mean_stddev_ms": 0.0007974580145150799,
+    "tflops": 0.9695869659812721,
+    "median_paired_gain_vs_strict_pct": -64.54506276838795,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k15-g4",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03442240034333333,
+    "mean_round_mean_ms": 0.035464990726666666,
+    "round_mean_stddev_ms": 0.002392173494868341,
+    "tflops": 0.9747847815760636,
+    "median_paired_gain_vs_strict_pct": -64.51612923124077,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k15-g8",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03474133387,
+    "mean_round_mean_ms": 0.03503893365809524,
+    "round_mean_stddev_ms": 0.0007305543529924369,
+    "tflops": 0.9658360305208396,
+    "median_paired_gain_vs_strict_pct": -64.68222342130048,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k15-g16",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03460586705,
+    "mean_round_mean_ms": 0.03483245752857143,
+    "round_mean_stddev_ms": 0.0007334421120191202,
+    "tflops": 0.9696168557637684,
+    "median_paired_gain_vs_strict_pct": -64.54396978715012,
+    "inputs_equal_across_group": true
+  }
+]
