@@ -1,0 +1,9 @@
+timestamp, index, uuid, pstate, temperature.gpu, clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W], power.limit [W], utilization.gpu [%], memory.used [MiB]
+2026/10/22 01:34:31.368, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P8, 36, 180 MHz, 405 MHz, 11.15 W, 575.00 W, 0 %, 2 MiB
+2026/10/22 01:34:31.631, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P8, 36, 180 MHz, 405 MHz, 11.15 W, 575.00 W, 0 %, 508 MiB
+2026/10/22 01:34:31.883, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P8, 36, 180 MHz, 405 MHz, 11.15 W, 575.00 W, 0 %, 600 MiB
+2026/10/22 01:34:32.133, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P1, 37, 2017 MHz, 13801 MHz, 27.95 W, 575.00 W, 1 %, 600 MiB
+2026/10/22 01:34:32.384, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P1, 37, 2017 MHz, 13801 MHz, 27.95 W, 575.00 W, 1 %, 600 MiB
+2026/10/22 01:34:32.634, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P1, 47, 2595 MHz, 13801 MHz, 89.62 W, 575.00 W, 40 %, 600 MiB
+2026/10/22 01:34:32.884, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P1, 47, 2595 MHz, 13801 MHz, 89.62 W, 575.00 W, 40 %, 600 MiB
+2026/10/22 01:34:33.135, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P1, 49, 2820 MHz, 13801 MHz, 263.29 W, 575.00 W, 49 %, 2 MiB
