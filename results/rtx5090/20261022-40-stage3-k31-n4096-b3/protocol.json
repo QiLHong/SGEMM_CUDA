@@ -1,0 +1,131 @@
+{
+  "series": {
+    "candidates": [
+      {
+        "id": "strict",
+        "build": "k31",
+        "cli": "strict",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k10",
+        "build": "k31",
+        "cli": "k10",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k30",
+        "build": "k31",
+        "cli": "k30",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "control",
+        "build": "k31",
+        "cli": "control",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "late",
+        "build": "k31",
+        "cli": "late",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "vectors",
+        "build": "k31",
+        "cli": "vectors",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "stage3",
+        "build": "k31",
+        "cli": "stage3",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "stage4",
+        "build": "k31",
+        "cli": "stage4",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "cta256",
+        "build": "k31",
+        "cli": "cta256",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "r220",
+        "build": "k31",
+        "cli": "r220",
+        "min_n": 128,
+        "notes": "Historical r220 spill 8 B; no automatic resource gate"
+      },
+      {
+        "id": "r225",
+        "build": "k31",
+        "cli": "r225",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "r230",
+        "build": "k31",
+        "cli": "r230",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "r235",
+        "build": "k31",
+        "cli": "r235",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "r240",
+        "build": "k31",
+        "cli": "r240",
+        "min_n": 128,
+        "notes": ""
+      }
+    ],
+    "seed": 20261013,
+    "alpha": 0.5,
+    "beta": 3,
+    "original_rounds": 7,
+    "original_repeats": 50,
+    "original_warmup": 10,
+    "event_capture_rounds": 7,
+    "event_capture_repeats": 30,
+    "event_capture_warmup": 10,
+    "sizes": [
+      128,
+      256,
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "notes": "Independent original audit. Resource gates are historical rules, not current-hardware capability."
+  },
+  "protocol": "events7",
+  "source_key": "8c39a48aab9603aa87590488944ed7044790c5f6ff1c04232f923bb74913d4a6",
+  "source_commit": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "timing": "Original single-call event boundaries and independent-process launches retained; host capture adds raw events. This is not same-context unified benchmarking. Each implementation uses the default stream within its own process. Actual input fingerprints are checked across processes. events7 uses 7 rounds x 30 events and 10 warmups. historical-counts only selects archived repeat counts: changed group composition, one-size input allocation, smoke order, and absence of the archived 4096 thermal prelude prevent an exact historical replay claim. Main unified comparisons need a separate harness.",
+  "timeout_seconds": 180,
+  "batch_budget_seconds": 2400,
+  "expected_groups": 98,
+  "expected_events": 2940,
+  "scope": "one series/one shape/one beta; smoke separate; all files closed before BATCH_CLOSED"
+}
