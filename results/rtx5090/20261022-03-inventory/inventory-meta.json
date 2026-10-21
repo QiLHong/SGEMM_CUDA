@@ -1,0 +1,10 @@
+{
+  "status": "source inventory complete; execution statuses all pending except explicit unsupported/unrecoverable-history items",
+  "rows": 244,
+  "historical_manifest_files": 251,
+  "sgemm_snapshot": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "vitamin_snapshot": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "gpu_executed": false,
+  "source_rule": "source_snapshot_commit pins inspected source, not a claim every historical GPU run used that commit",
+  "unknown_historical_details": "Six K10 option families lack exact values in archived report; retained as tool/evidence limited. Broad upstream tuner grids are definitions, not asserted measured historical runs."
+}

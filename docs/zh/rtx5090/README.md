@@ -1,10 +1,10 @@
 # RTX 5090 GEMM 分阶段复现
 
-日期：2026-10-22（Asia/Shanghai）。这是启动检查点，**尚无 RTX 5090 GEMM 实测结果**。
+日期：2026-10-22（Asia/Shanghai）。阶段0已完成：环境、sm_120构建、最小GEMM、SM120双精度小形状校验及244项历史配置清单。**尚无正式性能测量结果**。
 
 唯一发布分支：`results/rtx5090-gemm-reproduction-20261022`。
 启动 GitHub HEAD：`a2b23dabadc79440bf9cbf63f0b566f7eec429ba`。参考 vitamin-cuda：`520f97093a2abc239977be83d244b327d0e2e2ef`，只读。
-已确认 Ubuntu22.04.5 / RTX5090 / SM120 / 170SM / CUDA12.8.93 / PyTorch2.8.0+cu128。完整环境、最小编译测试、Sanitizer和NCU仍待完成。
+已确认 Ubuntu22.04.5 / RTX5090 / SM120 / 170SM / CUDA12.8.93 / PyTorch2.8.0+cu128。最小编译测试和BF16小形状三类Sanitizer已通过；NCU受宿主机权限限制。
 
 ## 阶段顺序
 
@@ -22,3 +22,11 @@
 
 服务器Git网络操作仅在当前shell加载 `/etc/network_turbo`。服务器无GitHub登录，采用已有本机Git认证中转：SSH读取远端相同提交到独立发布仓库，然后只推送指定5090分支。不复制凭据、不改全局代理。不改已有4090D工作区。
 启动证据位于 `results/rtx5090/20261022-00-bootstrap/`。已核验提交回执写入后续检查点。
+
+## 当前证据导航
+
+- [环境与构建](stage0-environment.md)
+- [SM120源码与教程适用性](sm120-source-audit.md)
+- [244项复现清单](reproduction-matrix.csv)
+- [机器可读进度](progress.json)
+- [历史入口说明](../../../results/rtx5090/20261022-03-inventory/entrypoint-notes.md)

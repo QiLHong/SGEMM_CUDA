@@ -3,11 +3,12 @@
   "stages": [
     {
       "stage": 0,
-      "status": "in_progress"
+      "status": "passed",
+      "notes": "环境、sm120构建、小GEMM/SM120绑定正确性和244项历史清单完成；NCU权限受限已保留"
     },
     {
       "stage": 1,
-      "status": "not_run"
+      "status": "in_progress"
     },
     {
       "stage": 2,
@@ -30,6 +31,6 @@
       "status": "not_run"
     }
   ],
-  "bootstrap_publication": "pending",
+  "bootstrap_publication": "verified",
   "tcgen05_TMEM_2CTA": "hardware_unsupported"
 }
