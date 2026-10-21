@@ -1,0 +1,158 @@
+[
+  {
+    "implementation": "hgemm_bcf_dbf_rw",
+    "round_mean_ms": [
+      0.10236586406826972,
+      0.10235839759310086,
+      0.10259519740939141,
+      0.1027541309595108,
+      0.10287039751807849,
+      0.10211839725573858,
+      0.10266346434752147
+    ],
+    "median_round_mean_ms": 0.10259519740939141,
+    "tflops": 167.4529570370258,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "valid_fp32_accum_comparison": true,
+    "paired_speedup_vs_cublas_no_reduced_reduction": [
+      0.01867289775907799,
+      0.01050426994853404,
+      0.013713447602654805,
+      0.013360051866041056,
+      0.012059191648904122,
+      0.01549052451290911,
+      0.007605431882649949
+    ],
+    "median_paired_speedup_vs_cublas_no_reduced_reduction": 0.013360051866041056
+  },
+  {
+    "implementation": "hgemm_k_stages",
+    "round_mean_ms": [
+      0.10265493094921112,
+      0.10258879736065865,
+      0.10280319775144259,
+      0.10262399762868882,
+      0.10271679759025573,
+      0.10298773099978765,
+      0.1026581309735775
+    ],
+    "median_round_mean_ms": 0.1026581309735775,
+    "tflops": 167.35030163779052,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "valid_fp32_accum_comparison": true,
+    "paired_speedup_vs_cublas_no_reduced_reduction": [
+      0.01580440820351603,
+      0.008234821871335063,
+      0.011662414673182964,
+      0.014645052664279179,
+      0.013572597658792818,
+      0.006918627927256837,
+      0.007657779772731743
+    ],
+    "median_paired_speedup_vs_cublas_no_reduced_reduction": 0.011662414673182964
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "round_mean_ms": [
+      0.10663359885414442,
+      0.10728319908181826,
+      0.1074229322373867,
+      0.10741653243700663,
+      0.10728639910618464,
+      0.1073258658250173,
+      0.10712213243047396
+    ],
+    "median_round_mean_ms": 0.10728639910618464,
+    "tflops": 160.1309143295653,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "valid_fp32_accum_comparison": true,
+    "paired_speedup_vs_cublas_no_reduced_reduction": [
+      -0.022096857814310145,
+      -0.035882610528459646,
+      -0.03184423374776413,
+      -0.03062471747871731,
+      -0.029598045753160496,
+      -0.033781241879574764,
+      -0.03433341004864343
+    ],
+    "median_paired_speedup_vs_cublas_no_reduced_reduction": -0.03184423374776413
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "round_mean_ms": [
+      0.10479786495367686,
+      0.10512319852908453,
+      0.10512319828073184,
+      0.10510186503330866,
+      0.10501333152254423,
+      0.1048565315703551,
+      0.10510933175683021
+    ],
+    "median_round_mean_ms": 0.10510186503330866,
+    "tflops": 163.45922290299407,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "valid_fp32_accum_comparison": true,
+    "paired_speedup_vs_cublas_no_reduced_reduction": [
+      -0.004967024584620505,
+      -0.016072576936468463,
+      -0.010664316018895281,
+      -0.009276082345635372,
+      -0.00859319624197008,
+      -0.011027131656855205,
+      -0.01584129017420577
+    ],
+    "median_paired_speedup_vs_cublas_no_reduced_reduction": -0.010664316018895281
+  },
+  {
+    "implementation": "hgemm_cublas",
+    "round_mean_ms": [
+      0.10393919795751572,
+      0.10363413120309511,
+      0.10394986470540364,
+      0.103797331204017,
+      0.10382293139894803,
+      0.10381759802500407,
+      0.1037791979809602
+    ],
+    "median_round_mean_ms": 0.10381759802500407,
+    "tflops": 165.48128169814038,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "valid_fp32_accum_comparison": true,
+    "paired_speedup_vs_cublas_no_reduced_reduction": [
+      0.0032531848538863706,
+      -0.0019350127978972065,
+      0.0005028055408595744,
+      0.003175421475095419,
+      0.002773953248278449,
+      -0.001130186361354757,
+      -0.0032273678639166414
+    ],
+    "median_paired_speedup_vs_cublas_no_reduced_reduction": 0.0005028055408595744
+  },
+  {
+    "implementation": "hgemm_cublas_no_reduced_reduction",
+    "round_mean_ms": [
+      0.10427733138203621,
+      0.10343359783291817,
+      0.10400213127334913,
+      0.10412693147857983,
+      0.10411093135674794,
+      0.1037002647916476,
+      0.1034442643324534
+    ],
+    "median_round_mean_ms": 0.10400213127334913,
+    "tflops": 165.18766465319922,
+    "baseline": "hgemm_cublas_no_reduced_reduction",
+    "valid_fp32_accum_comparison": true,
+    "paired_speedup_vs_cublas_no_reduced_reduction": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "median_paired_speedup_vs_cublas_no_reduced_reduction": 0.0
+  }
+]
