@@ -1,0 +1,19 @@
+[
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/tensor",
+      "128",
+      "1024",
+      "32",
+      "1",
+      "1",
+      "1",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/events.csv",
+      "all"
+    ],
+    "binary_sha256": "e9ae669eaa254d139e0434e82cd7cf2733bf92505c733cdca2e884be450c8dcc",
+    "begin_unix": 1792609746.6664054,
+    "end_unix": 1792609747.4377306,
+    "exit_code": 0
+  }
+]

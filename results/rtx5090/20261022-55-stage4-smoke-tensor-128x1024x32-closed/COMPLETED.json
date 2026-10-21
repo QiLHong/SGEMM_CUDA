@@ -1,0 +1,23 @@
+{
+  "status": "COMPLETE",
+  "family": "tensor",
+  "shape": [
+    128,
+    1024,
+    32
+  ],
+  "seed": 20261020,
+  "rounds": 1,
+  "repeats": 1,
+  "warmup": 1,
+  "selection": "all",
+  "input_contract": "original harness, C=AB alpha1 beta0, xorshift bounded input; original FNV fingerprints retained",
+  "inherited_NVIDIA_TF32_OVERRIDE": null,
+  "effective_NVIDIA_TF32_OVERRIDE": null,
+  "runner_sha256": "ac2966c25a73dde34130623e692d0cff71a0db59f7e95bd08cbe70c1f6b61338",
+  "expected_events": 8,
+  "actual_events": 8,
+  "exit_codes": [
+    0
+  ]
+}

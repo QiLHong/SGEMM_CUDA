@@ -1,0 +1,19 @@
+GPU=NVIDIA GeForce RTX 5090 sm=120
+cuBLAS=120804 seed=20261020 alpha=1 beta=0
+k30_fp32 round=-1 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=PASS
+cublas_strict_fp32 round=-1 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=PASS
+vitamin_tf32_single round=-1 original_max_abs=0.0556488 represented_max_abs=3.8147e-05 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_tf32_dbf round=-1 original_max_abs=0.0556488 represented_max_abs=3.8147e-05 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=-1 original_max_abs=0.0556488 represented_max_abs=3.8147e-05 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_fp16_single round=-1 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_fp16_dbf_rw round=-1 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_fp16 round=-1 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+k30_fp32 round=0 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=PASS
+cublas_strict_fp32 round=0 original_max_abs=0 represented_max_abs=0 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=PASS
+vitamin_tf32_single round=0 original_max_abs=0.0556488 represented_max_abs=3.8147e-05 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_tf32_dbf round=0 original_max_abs=0.0556488 represented_max_abs=3.8147e-05 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=0 original_max_abs=0.0556488 represented_max_abs=3.8147e-05 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_fp16_single round=0 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_fp16_dbf_rw round=0 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_fp16 round=0 original_max_abs=0.0830994 represented_max_abs=0.03125 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+COMPLETE raw events retained; original-FP32 failures are reported separately

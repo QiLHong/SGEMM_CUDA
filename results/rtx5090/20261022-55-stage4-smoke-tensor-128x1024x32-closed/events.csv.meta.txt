@@ -1,0 +1,13 @@
+seed=20261020
+combined_tf32_fp16_preparation_ms=0.40710398554801941
+cuBLAS_version=120804
+reset=zero C0 D2D, same stream, before every warmup/timed invocation, outside events
+input_conversion=GPU __float_to_tf32 and __float2half_rn, outside GEMM events
+fp16_reduction=FP32 (DISALLOW_REDUCED_PRECISION_REDUCTION)
+input_0_a_fnv1a64=42d04e807a1237d9
+input_0_b_fnv1a64=6574deb7f79bf30f
+input_1_a_fnv1a64=b3ad9ba1983729d0
+input_1_b_fnv1a64=b16e8cf66d0ef547
+input_2_a_fnv1a64=b3ad9ba1983729d0
+input_2_b_fnv1a64=b16e8cf66d0ef547
+cpu_double_positions=131072/131072

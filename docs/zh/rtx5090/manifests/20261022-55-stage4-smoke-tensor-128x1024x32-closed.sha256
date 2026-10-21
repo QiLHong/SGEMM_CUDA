@@ -1,0 +1,10 @@
+41cf1cac3071d9a009d1bc3ba1a65c2e87f8b94311a28d165aeba530b91afd84  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/BATCH_COMPLETE.json
+a1ab3789ebfdb19d8a093d2293d4ceac1c047e0f2714b5a5b8e7909cdf8f958d  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/COMPLETED.json
+c7415aeb908b808408fb2aa8713d7c75ecf4084dff9f85918ac50fe9b0ecc109  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/SHA256.json
+76e6784b76d37c8002f0babc457f86059ec5ac8fc34dd54829016b46f583c82c  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/events.csv
+883789d0f4b0ec0e81914a19cc32f942da184583f42fff4e0f6c0936e8f4cea7  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/events.csv.checks.csv
+4cdfde3d1fe827fcf35e6bc0083960c34acfb24572b192c8fafa48f50d1b1501  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/events.csv.meta.txt
+bfd6ae344a9b5c08abce6f010383c2b224040286ce28dbbfc3a7c2ad16452e66  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/events.csv.windows.csv
+2e02bfa66440e2b4407db624e950861bc117f1fa532d605e064e6a52d8fb29b2  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/execution.json
+db181b0246a07df31e6302b7b89e0149b9bf501dc8aea92a018e89f51271377c  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/recomputed-summary.json
+2836192c82e22c917b9237041e623524b8db2b8ac7671ba0e14b4c35aee12c09  results/rtx5090/20261022-55-stage4-smoke-tensor-128x1024x32-closed/run-0.log

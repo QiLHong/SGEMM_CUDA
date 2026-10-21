@@ -1,0 +1,74 @@
+[
+  {
+    "configuration": "",
+    "implementation": "cublas_fp16",
+    "round_mean_ms": [
+      0.0081599997356534
+    ],
+    "median_round_mean_ms": 0.0081599997356534,
+    "tflops": 1.0280157195775073
+  },
+  {
+    "configuration": "",
+    "implementation": "cublas_strict_fp32",
+    "round_mean_ms": [
+      0.013311999849975109
+    ],
+    "median_round_mean_ms": 0.013311999849975109,
+    "tflops": 0.6301538532556162
+  },
+  {
+    "configuration": "",
+    "implementation": "cublas_tf32",
+    "round_mean_ms": [
+      0.009216000325977802
+    ],
+    "median_round_mean_ms": 0.009216000325977802,
+    "tflops": 0.9102221900268849
+  },
+  {
+    "configuration": "",
+    "implementation": "k30_fp32",
+    "round_mean_ms": [
+      0.010432000271975994
+    ],
+    "median_round_mean_ms": 0.010432000271975994,
+    "tflops": 0.8041226784219646
+  },
+  {
+    "configuration": "",
+    "implementation": "vitamin_fp16_dbf_rw",
+    "round_mean_ms": [
+      0.0071680000983178616
+    ],
+    "median_round_mean_ms": 0.0071680000983178616,
+    "tflops": 1.1702856982338188
+  },
+  {
+    "configuration": "",
+    "implementation": "vitamin_fp16_single",
+    "round_mean_ms": [
+      0.006175999995321035
+    ],
+    "median_round_mean_ms": 0.006175999995321035,
+    "tflops": 1.3582590683865359
+  },
+  {
+    "configuration": "",
+    "implementation": "vitamin_tf32_dbf",
+    "round_mean_ms": [
+      0.009824000298976898
+    ],
+    "median_round_mean_ms": 0.009824000298976898,
+    "tflops": 0.8538892248276515
+  },
+  {
+    "configuration": "",
+    "implementation": "vitamin_tf32_single",
+    "round_mean_ms": [
+      0.011296000331640244
+    ],
+    "median_round_mean_ms": 0.011296000331640244,
+    "tflops": 0.742617541936804
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "status": "COMPLETE",
+  "independent_summary_verified": true,
+  "formal_events": 8,
+  "scope": "stage4 tensor SM120 host-path smoke 128x1024x32"
+}
