@@ -1,0 +1,27 @@
+{
+  "command": [
+    "python",
+    "experiments/rtx5090/sm120-native-reduction/run_native.py",
+    "--upstream",
+    "/root/autodl-tmp/vitamin-cuda-rtx5090/kernels/hgemm_sm120",
+    "--build-root",
+    "/root/autodl-tmp/rtx5090-native-sm120-reduction-build",
+    "--output",
+    "results/rtx5090/20261022-10-reduction-bf16-4096/data",
+    "--mode",
+    "events",
+    "--dtype",
+    "bf16",
+    "--size",
+    "4096",
+    "--seed",
+    "42",
+    "--distribution",
+    "uniform"
+  ],
+  "cwd": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022",
+  "source_commit": "9ae0f7fff847021f6dc21efec4063af1d1b1b971",
+  "start_utc": "2026-10-21T17:13:00.631947+00:00",
+  "timeout_seconds": 420,
+  "telemetry_note": "1-second snapshots; does not establish per-event clocks or constancy"
+}
