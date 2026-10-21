@@ -1,0 +1,1850 @@
+[
+  {
+    "round": 0,
+    "position": 0,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p00-strict",
+    "round_mean_ms": 2.018820274,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.04163361903263973,
+    "raw_sha256": "5f5875dde5d5a7bf70299d2a03340ec64557ff2abee86e1cbeead6a403177ad3"
+  },
+  {
+    "round": 0,
+    "position": 1,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p01-k10",
+    "round_mean_ms": 2.5672362656666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.07403969763865298,
+    "raw_sha256": "a9c2c9f715c457129f4c51e88a56752e149f52a6ea72862b8f848ab332c1c5d2"
+  },
+  {
+    "round": 0,
+    "position": 2,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p02-k30",
+    "round_mean_ms": 2.329906146,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09545133025584986,
+    "raw_sha256": "055b303f54995007458ca1a5fb6f5c5bdfc722cba79460ca68d3136ec7082ce3"
+  },
+  {
+    "round": 0,
+    "position": 3,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p03-serial",
+    "round_mean_ms": 3.685411135,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.004407335862267896,
+    "raw_sha256": "8cceff996f21331ed16d59086ad01945eccabe53e466d7e7a87d2af464aa7945"
+  },
+  {
+    "round": 0,
+    "position": 4,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p04-overlap",
+    "round_mean_ms": 2.480332827333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.015243963464383123,
+    "raw_sha256": "5505d14615424e4bc0ae26077a05a5250773efd8c620086864549ad26e18a99b"
+  },
+  {
+    "round": 0,
+    "position": 5,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p05-single",
+    "round_mean_ms": 2.485760005,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.012442211862562131,
+    "raw_sha256": "0d1752eeaa4caa3cc69abcd3b3f1b7b50042672896d4c8b94064de630775729c"
+  },
+  {
+    "round": 1,
+    "position": 0,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p00-k10",
+    "round_mean_ms": 2.530986659,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.10294197419555008,
+    "raw_sha256": "d0718ac8eaae4f04b3e698c71b8ae0dc86b0940f093bf71979618ed35a584eb9"
+  },
+  {
+    "round": 1,
+    "position": 1,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p01-k30",
+    "round_mean_ms": 2.286658144,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09997524161801329,
+    "raw_sha256": "486ca419290f7cb7e6bdccc7024ca8af75189d7bf116e6b905b07b61e811ceed"
+  },
+  {
+    "round": 1,
+    "position": 2,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p02-serial",
+    "round_mean_ms": 3.682372228333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.005976528945440142,
+    "raw_sha256": "111985eac9ecbd5cd03e7db6f4ef7c179652a6cf589e241040493ab6bf84d579"
+  },
+  {
+    "round": 1,
+    "position": 3,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p03-overlap",
+    "round_mean_ms": 2.4767146586666664,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.016202717420078522,
+    "raw_sha256": "a5c8b125a54faa8ff69f2f69d4a68f927517c69c849019e8c6fd325e8b0b073a"
+  },
+  {
+    "round": 1,
+    "position": 4,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p04-single",
+    "round_mean_ms": 2.487295984,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.012238390369059762,
+    "raw_sha256": "87347fd5faaadf563b6e76cee1c2e3e3bb94d84ec8a40c7ba3e11506bffdb93a"
+  },
+  {
+    "round": 1,
+    "position": 5,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p05-strict",
+    "round_mean_ms": 2.015640529666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.05882158681925062,
+    "raw_sha256": "6d21d2571187e98007ee85e29df34ed8f39c3f1256960ae7ef0308126c72bab1"
+  },
+  {
+    "round": 2,
+    "position": 0,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p00-k30",
+    "round_mean_ms": 2.335197894,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.08358939749197732,
+    "raw_sha256": "bc7698957c2c31805d751cb834dd1be3038c7742db55f69b25b6a87f7176eaae"
+  },
+  {
+    "round": 2,
+    "position": 1,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p01-serial",
+    "round_mean_ms": 3.6862282273333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0069928647860066605,
+    "raw_sha256": "7c12df5c6bb0df332503989377ac2853f009db7c2bc40bd183f5e618b328bcaf"
+  },
+  {
+    "round": 2,
+    "position": 2,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p02-overlap",
+    "round_mean_ms": 2.4804693536666664,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.006045106697398101,
+    "raw_sha256": "26bde6fcf5a5b23dc3436631a3d2bf81616dc16d61778dbcd4955ded9b985284"
+  },
+  {
+    "round": 2,
+    "position": 3,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p03-single",
+    "round_mean_ms": 2.4867498230000002,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.016214758207837996,
+    "raw_sha256": "4d5fb58df4c3cf4a50b5c1e9d88cc07d65a9c3c8090a42c317e91af1234e27b5"
+  },
+  {
+    "round": 2,
+    "position": 4,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p04-strict",
+    "round_mean_ms": 2.0081695996666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.05214996926282321,
+    "raw_sha256": "a64ef21cd4817a74e99144ff82bd5751ed5ed319536237b12a6ca5668f34f397"
+  },
+  {
+    "round": 2,
+    "position": 5,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p05-k10",
+    "round_mean_ms": 2.577750364,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0839640816576538,
+    "raw_sha256": "4b9662060cac8e66219b04348bb6b5b9d7484c26f144f9bf26f13a03fb84c650"
+  },
+  {
+    "round": 3,
+    "position": 0,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p00-serial",
+    "round_mean_ms": 3.6908394413333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0061601669668195375,
+    "raw_sha256": "a4e3bb91377a511892f40f0b95b674620e74f925b2c70296f091b6e4d15442bb"
+  },
+  {
+    "round": 3,
+    "position": 1,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p01-overlap",
+    "round_mean_ms": 2.481561605,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.011870689917801382,
+    "raw_sha256": "c7ee7688b0c4a173dd24bb70867198a74b079c98a252a5244af1782160765c80"
+  },
+  {
+    "round": 3,
+    "position": 2,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p02-single",
+    "round_mean_ms": 2.4911178103333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.013279974317413812,
+    "raw_sha256": "3b427e20628c1da35db426abd5cc950f30cd727f89497c0e3aa505217f324988"
+  },
+  {
+    "round": 3,
+    "position": 3,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p03-strict",
+    "round_mean_ms": 2.0087487933333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.04559152857647237,
+    "raw_sha256": "c41e35f4e6f5c42015a9bd013ad2668c1ed33c74ee4f2b39034566da7c5b430f"
+  },
+  {
+    "round": 3,
+    "position": 4,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p04-k10",
+    "round_mean_ms": 2.5575776103333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09485530009576151,
+    "raw_sha256": "d614f32e8cd116b79edff62d7f094b2cb35a0f5a71daf8edbe59cede30b0b39c"
+  },
+  {
+    "round": 3,
+    "position": 5,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p05-k30",
+    "round_mean_ms": 2.296866155,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.08402244084263266,
+    "raw_sha256": "e61d0fe3e083548d9d8ba8453d7cbfee1287cfa5183b59ca143b2075ee9aa645"
+  },
+  {
+    "round": 4,
+    "position": 0,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p00-overlap",
+    "round_mean_ms": 2.481220278,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.012273055368436135,
+    "raw_sha256": "2c6df1b454dac85c91086a59e7db084010a55c055eca28556cb16367ca5f562f"
+  },
+  {
+    "round": 4,
+    "position": 1,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p01-single",
+    "round_mean_ms": 2.490436268,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.016038105269015113,
+    "raw_sha256": "678fc31c8f083ddb8fde3415b8747a6220d17848860e2b63014c5c313cf7ed62"
+  },
+  {
+    "round": 4,
+    "position": 2,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p02-strict",
+    "round_mean_ms": 2.010897056666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.04466563947475119,
+    "raw_sha256": "4800592aadfe396849ea730c3cdb54ea48c3e7a3cbbff4d2ca46e06967048aed"
+  },
+  {
+    "round": 4,
+    "position": 3,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p03-k10",
+    "round_mean_ms": 2.5648149326666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.09502004187132708,
+    "raw_sha256": "b0923e9df8e059bd19abd3329652463326b7b4a0f801bf9da1277b27946a08c0"
+  },
+  {
+    "round": 4,
+    "position": 4,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p04-k30",
+    "round_mean_ms": 2.3112715003333335,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0912039968894697,
+    "raw_sha256": "f0510fd26b0a979f4ee7a3040f862a4fafa083852d91519eeeea4a8abebcf9e3"
+  },
+  {
+    "round": 4,
+    "position": 5,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p05-serial",
+    "round_mean_ms": 3.6873226236666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.004989770320586252,
+    "raw_sha256": "50529a867a1420de6c4b3a2f72331a1c18e67c063648b81df7217e547220dc25"
+  },
+  {
+    "round": 5,
+    "position": 0,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p00-single",
+    "round_mean_ms": 2.490335934,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.012480304685132863,
+    "raw_sha256": "da6579c5522a9bb486bc3db9d79c4913044bc2aaeee096279f0d1e8a4855a7a0"
+  },
+  {
+    "round": 5,
+    "position": 1,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p01-strict",
+    "round_mean_ms": 2.020044803333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.03745460245626146,
+    "raw_sha256": "57d84171ce879b0c45cadab57ac813ade1c1173d8e2b0cdc9c4a26487b86ab0f"
+  },
+  {
+    "round": 5,
+    "position": 2,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p02-k10",
+    "round_mean_ms": 2.5802741293333336,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.08858088057347278,
+    "raw_sha256": "f0e794e897c356b1ca461b59f67f5e16aeef34def018728c038d0b23d06842f7"
+  },
+  {
+    "round": 5,
+    "position": 3,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p03-k30",
+    "round_mean_ms": 2.344788265,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.08365663305607868,
+    "raw_sha256": "3e3532c251c006b2d6c78de6ee179b7eb269bfb62ae11b10ddf54a233d7c90cd"
+  },
+  {
+    "round": 5,
+    "position": 4,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p04-serial",
+    "round_mean_ms": 3.68325967,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0051160039352361065,
+    "raw_sha256": "03a7541411aadb18dbd058f9837867d3b3f09237d6383afb0876f9f1dc216e90"
+  },
+  {
+    "round": 5,
+    "position": 5,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p05-overlap",
+    "round_mean_ms": 2.4806400376666664,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.011800876977181404,
+    "raw_sha256": "9b0cc32a267e628c038930ec1dff3d0ac48e6c451553698b5f06dc56b701cb02"
+  },
+  {
+    "round": 6,
+    "position": 0,
+    "implementation": "strict",
+    "build": "k32",
+    "cli": "strict",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p00-strict",
+    "round_mean_ms": 2.0080650446666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.03741838080027632,
+    "raw_sha256": "d2a151f50c5fc1cb5af27f98540e1dc3bd717ca72406b5d54d370a64a53c2923"
+  },
+  {
+    "round": 6,
+    "position": 1,
+    "implementation": "k10",
+    "build": "k32",
+    "cli": "k10",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p01-k10",
+    "round_mean_ms": 2.5583626666666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.10386357066599476,
+    "raw_sha256": "3e952cec0f45bd088508c77b047c1ae430a6cc3358111bc41092ee24881585e0"
+  },
+  {
+    "round": 6,
+    "position": 2,
+    "implementation": "k30",
+    "build": "k32",
+    "cli": "k30",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p02-k30",
+    "round_mean_ms": 2.345676819,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.07600192391603566,
+    "raw_sha256": "2c81d2f71a0df67ecf8dde5a1b1b1837550add834486afb7cf3102be0b6b3a4b"
+  },
+  {
+    "round": 6,
+    "position": 3,
+    "implementation": "serial",
+    "build": "k32",
+    "cli": "serial",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p03-serial",
+    "round_mean_ms": 3.684078868333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.004649479844693863,
+    "raw_sha256": "81bcf380e1ace5a0bcd748a88b50f3301c208751dd29c8c9c5d6ea6d9683584f"
+  },
+  {
+    "round": 6,
+    "position": 4,
+    "implementation": "overlap",
+    "build": "k32",
+    "cli": "overlap",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p04-overlap",
+    "round_mean_ms": 2.4824490863333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.012014016130467257,
+    "raw_sha256": "923b12268cad9f973cb1d3ea0f8c0a15641ed1aa52c0cde60094b6fdf2f13665"
+  },
+  {
+    "round": 6,
+    "position": 5,
+    "implementation": "single",
+    "build": "k32",
+    "cli": "single",
+    "n": 4096,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p05-single",
+    "round_mean_ms": 2.489855941,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "67108864",
+        "fnv1a64": "aa5ef2a70a5d2d16",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "B",
+        "bytes": "67108864",
+        "fnv1a64": "eb462cf224fe6ce",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "67108864",
+        "fnv1a64": "b5b4054a80fb96cd",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "4096"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.014016552305361961,
+    "raw_sha256": "e6ebc02ce9c2db03c471febf28b0bba54f15c4050ffcd235d86bcd755d763f53"
+  }
+]

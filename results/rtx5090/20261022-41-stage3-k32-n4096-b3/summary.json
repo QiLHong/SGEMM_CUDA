@@ -1,0 +1,74 @@
+[
+  {
+    "implementation": "strict",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.010897056666667,
+    "mean_round_mean_ms": 2.012912300190476,
+    "round_mean_stddev_ms": 0.005173733047375202,
+    "tflops": 68.34708570304619,
+    "median_paired_gain_vs_strict_pct": 0.0,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k10",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.5648149326666667,
+    "mean_round_mean_ms": 2.562428946809524,
+    "round_mean_stddev_ms": 0.016384378584695537,
+    "tflops": 53.58630430660477,
+    "median_paired_gain_vs_strict_pct": -21.509758142186776,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k30",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.329906146,
+    "mean_round_mean_ms": 2.3214807033333336,
+    "round_mean_stddev_ms": 0.023489566131185014,
+    "tflops": 58.98905142937032,
+    "median_paired_gain_vs_strict_pct": -13.351862800743053,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "serial",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 3.685411135,
+    "mean_round_mean_ms": 3.685644599142857,
+    "round_mean_stddev_ms": 0.002859052574908461,
+    "tflops": 37.29270587119991,
+    "median_paired_gain_vs_strict_pct": -45.46457519719187,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "overlap",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.4806400376666664,
+    "mean_round_mean_ms": 2.480483978095238,
+    "round_mean_stddev_ms": 0.001817518989090459,
+    "tflops": 55.40463404004294,
+    "median_paired_gain_vs_strict_pct": -18.955319102600576,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "single",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 2.489855941,
+    "mean_round_mean_ms": 2.4887931093333333,
+    "round_mean_stddev_ms": 0.0021303461943843163,
+    "tflops": 55.19956042790188,
+    "median_paired_gain_vs_strict_pct": -19.245209908408768,
+    "inputs_equal_across_group": true
+  }
+]
