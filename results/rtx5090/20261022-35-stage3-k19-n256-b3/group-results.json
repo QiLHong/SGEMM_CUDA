@@ -1,0 +1,1542 @@
+[
+  {
+    "round": 0,
+    "position": 0,
+    "implementation": "strict",
+    "build": "stock",
+    "cli": "13",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p00-strict",
+    "round_mean_ms": 0.01247146672,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0009230949797355263,
+    "raw_sha256": "0a6ee9fd5cbe82553a645560509a36e3a9ff3a55271d14ea657920e0434a2983"
+  },
+  {
+    "round": 0,
+    "position": 1,
+    "implementation": "k10",
+    "build": "stock",
+    "cli": "10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p01-k10",
+    "round_mean_ms": 0.03581866697,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0008601015085993221,
+    "raw_sha256": "e38a6e13c62804a60bfd078e53cf2289da7a8a492ada5919e16b64b41240e230"
+  },
+  {
+    "round": 0,
+    "position": 2,
+    "implementation": "k19-v1",
+    "build": "k19-v1",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p02-k19-v1",
+    "round_mean_ms": 0.03557226670666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0006031008990342424,
+    "raw_sha256": "93b173537371d956a55862e9670defc68bbada38cbdc3a6723bf0444f4b23bed"
+  },
+  {
+    "round": 0,
+    "position": 3,
+    "implementation": "k19-v2",
+    "build": "k19-v2",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p03-k19-v2",
+    "round_mean_ms": 0.03381973356666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0009184088850947448,
+    "raw_sha256": "dd98950b4fb4369e7b3b20ca3d658c7fcb422acb67f0172839136ff082d4b6ec"
+  },
+  {
+    "round": 0,
+    "position": 4,
+    "implementation": "k19-v3",
+    "build": "k19-v3",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r00-p04-k19-v3",
+    "round_mean_ms": 0.033841066813333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0008980757803768636,
+    "raw_sha256": "ecee49862b8c08977d3a524bf4f55658d1d540c754c0dfeef5af20a27a1b23e9"
+  },
+  {
+    "round": 1,
+    "position": 0,
+    "implementation": "k10",
+    "build": "stock",
+    "cli": "10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p00-k10",
+    "round_mean_ms": 0.03546026722,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0008620865454958937,
+    "raw_sha256": "9184b74f6cd4c4f89bbb98f37ddfb588813d381e0cd45c55db25fbd6d7097859"
+  },
+  {
+    "round": 1,
+    "position": 1,
+    "implementation": "k19-v1",
+    "build": "k19-v1",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p01-k19-v1",
+    "round_mean_ms": 0.03371946675333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.000988985277541924,
+    "raw_sha256": "3048451fb0f1dc84f040ec9818079887905699219183024bf3bb16a10892b38e"
+  },
+  {
+    "round": 1,
+    "position": 2,
+    "implementation": "k19-v2",
+    "build": "k19-v2",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p02-k19-v2",
+    "round_mean_ms": 0.033767466749999996,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0008597467137304749,
+    "raw_sha256": "8dc73149b6ad59a902e9dfcd8cb02bc66ef2fd9113595e43cf58968e8aafd545"
+  },
+  {
+    "round": 1,
+    "position": 3,
+    "implementation": "k19-v3",
+    "build": "k19-v3",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p03-k19-v3",
+    "round_mean_ms": 0.03396160019333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0008391061813507502,
+    "raw_sha256": "266d13f4746718eef3b1e83ef39c3d7934878e3aa973739d1118a41907bc924e"
+  },
+  {
+    "round": 1,
+    "position": 4,
+    "implementation": "strict",
+    "build": "stock",
+    "cli": "13",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r01-p04-strict",
+    "round_mean_ms": 0.01211733342,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0009183933037522981,
+    "raw_sha256": "4877f631ce41fd289c9ae161bcd1a7e0d25eb694eb2c8b57b5c1f7eea7b5125b"
+  },
+  {
+    "round": 2,
+    "position": 0,
+    "implementation": "k19-v1",
+    "build": "k19-v1",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p00-k19-v1",
+    "round_mean_ms": 0.033840000136666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0010043196088072312,
+    "raw_sha256": "be87d8af59424f5d63d433163acc0132257fa8707335b5c64e761352c37db605"
+  },
+  {
+    "round": 2,
+    "position": 1,
+    "implementation": "k19-v2",
+    "build": "k19-v2",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p01-k19-v2",
+    "round_mean_ms": 0.04377493287,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.010924043484523504,
+    "raw_sha256": "8e1197066dd3a2f66eb5430e13ea250aa022a854f083dff29164c66d61b62fd4"
+  },
+  {
+    "round": 2,
+    "position": 2,
+    "implementation": "k19-v3",
+    "build": "k19-v3",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p02-k19-v3",
+    "round_mean_ms": 0.03414186699333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0011723547677436781,
+    "raw_sha256": "6f889c5eb687daef2c665d1ff3ca37ed2854c20d8e327cd599ed0eacd4b81f20"
+  },
+  {
+    "round": 2,
+    "position": 3,
+    "implementation": "strict",
+    "build": "stock",
+    "cli": "13",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p03-strict",
+    "round_mean_ms": 0.01870506661,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0006583164101182568,
+    "raw_sha256": "8b12ba454a7b64f851b8e69cbbf5ae47c150fafbb4d1c5daff2764f2be2edae6"
+  },
+  {
+    "round": 2,
+    "position": 4,
+    "implementation": "k10",
+    "build": "stock",
+    "cli": "10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r02-p04-k10",
+    "round_mean_ms": 0.03546986716666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0009584422326390865,
+    "raw_sha256": "d1b599e3290cd577b420609ce4f3dd4651066ae05a40d91b00e1e5cc18c8528e"
+  },
+  {
+    "round": 3,
+    "position": 0,
+    "implementation": "k19-v2",
+    "build": "k19-v2",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p00-k19-v2",
+    "round_mean_ms": 0.03363733354666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0007127277672291635,
+    "raw_sha256": "4fa097c1d97eb7a6a945a85bb853d11c21d5109211010a56a96d29ee7cc63894"
+  },
+  {
+    "round": 3,
+    "position": 1,
+    "implementation": "k19-v3",
+    "build": "k19-v3",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p01-k19-v3",
+    "round_mean_ms": 0.03393813372,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0008400539089347133,
+    "raw_sha256": "842743516ed89b00fa89a22346bfa8fb050e387770fe2adfe3d3dea542ee2658"
+  },
+  {
+    "round": 3,
+    "position": 2,
+    "implementation": "strict",
+    "build": "stock",
+    "cli": "13",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p02-strict",
+    "round_mean_ms": 0.014742400056666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0006182882384801192,
+    "raw_sha256": "72373817849989d2bbba319f049447cd2a7058075045d5a7cc57aa42714333a6"
+  },
+  {
+    "round": 3,
+    "position": 3,
+    "implementation": "k10",
+    "build": "stock",
+    "cli": "10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p03-k10",
+    "round_mean_ms": 0.035598933693333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0009771967681592086,
+    "raw_sha256": "14e21cdfd804fbef5b582c6acf23e939d45025936eb54509d035a19529fd2790"
+  },
+  {
+    "round": 3,
+    "position": 4,
+    "implementation": "k19-v1",
+    "build": "k19-v1",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r03-p04-k19-v1",
+    "round_mean_ms": 0.03405333348333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0010137796371495718,
+    "raw_sha256": "43e0fd87a8187c40980b2208d114ee3866956a97437bb7fc20658190f341d0d1"
+  },
+  {
+    "round": 4,
+    "position": 0,
+    "implementation": "k19-v3",
+    "build": "k19-v3",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p00-k19-v3",
+    "round_mean_ms": 0.033715199923333335,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0009436623856591146,
+    "raw_sha256": "159932bedf04952dc8f701dfd5a14acffc9b16b4afbd3c725dad53a9fae813a2"
+  },
+  {
+    "round": 4,
+    "position": 1,
+    "implementation": "strict",
+    "build": "stock",
+    "cli": "13",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p01-strict",
+    "round_mean_ms": 0.012335999926666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0009127013939305799,
+    "raw_sha256": "6136c19636baa3fb8292626f7928993fb463d30e50cbb95c4a715375ecdd980c"
+  },
+  {
+    "round": 4,
+    "position": 2,
+    "implementation": "k10",
+    "build": "stock",
+    "cli": "10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p02-k10",
+    "round_mean_ms": 0.03510080055333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0008010519714649159,
+    "raw_sha256": "1a5588a99f970b4fbd730c62848d20e8a7c3943047afc402e3a0b8aba6e85710"
+  },
+  {
+    "round": 4,
+    "position": 3,
+    "implementation": "k19-v1",
+    "build": "k19-v1",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p03-k19-v1",
+    "round_mean_ms": 0.034187733756666665,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0010193512860274512,
+    "raw_sha256": "bdb80d3ac5a3a4232f6ba7c6f5dae22688bdca7c487bdc7ba75f7927af6f27c6"
+  },
+  {
+    "round": 4,
+    "position": 4,
+    "implementation": "k19-v2",
+    "build": "k19-v2",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r04-p04-k19-v2",
+    "round_mean_ms": 0.033878400313333334,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.001060859491773453,
+    "raw_sha256": "af9ee4e0b20dddb6900a754553c9effbb84862acf1820d5cd7b0ac00a4cb96b1"
+  },
+  {
+    "round": 5,
+    "position": 0,
+    "implementation": "strict",
+    "build": "stock",
+    "cli": "13",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p00-strict",
+    "round_mean_ms": 0.012146133393333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0010483209282201834,
+    "raw_sha256": "459ef2f907d66b54349695fda2859aa92b07e35825ed344d0eb1dd700f203740"
+  },
+  {
+    "round": 5,
+    "position": 1,
+    "implementation": "k10",
+    "build": "stock",
+    "cli": "10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p01-k10",
+    "round_mean_ms": 0.03711040019666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0007699353731523561,
+    "raw_sha256": "244e90a3bf64ca27d0729d7e00dbe21648c403802274537508065d5203826aab"
+  },
+  {
+    "round": 5,
+    "position": 2,
+    "implementation": "k19-v1",
+    "build": "k19-v1",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p02-k19-v1",
+    "round_mean_ms": 0.03387200026,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0009361924252543475,
+    "raw_sha256": "f70f56282ffda7161afdaace23704ed4e3c21414ae9503e9efd836de085c2977"
+  },
+  {
+    "round": 5,
+    "position": 3,
+    "implementation": "k19-v2",
+    "build": "k19-v2",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p03-k19-v2",
+    "round_mean_ms": 0.03543680001,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0007455853724780345,
+    "raw_sha256": "e5712e8a89ff07c0ab5c144ac055f0feb39d49598e0c9793b0c7e0012ac98104"
+  },
+  {
+    "round": 5,
+    "position": 4,
+    "implementation": "k19-v3",
+    "build": "k19-v3",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r05-p04-k19-v3",
+    "round_mean_ms": 0.03392533337333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.001692093400840543,
+    "raw_sha256": "e9b8b00fe032d4fc77394494a2fca6fa7e18fcfce15bffc579980f132e02d408"
+  },
+  {
+    "round": 6,
+    "position": 0,
+    "implementation": "k10",
+    "build": "stock",
+    "cli": "10",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p00-k10",
+    "round_mean_ms": 0.035622400426666666,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.000919087663662047,
+    "raw_sha256": "faf645aba2c79a6429917419a8e86dfd8f507d276bb50143676099a67e18302c"
+  },
+  {
+    "round": 6,
+    "position": 1,
+    "implementation": "k19-v1",
+    "build": "k19-v1",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p01-k19-v1",
+    "round_mean_ms": 0.03433173373666667,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0012608988395357104,
+    "raw_sha256": "eeb46266dfacff0193ad5f1bb41e4510d257ac79fdb8e78a623f612ac412445c"
+  },
+  {
+    "round": 6,
+    "position": 2,
+    "implementation": "k19-v2",
+    "build": "k19-v2",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p02-k19-v2",
+    "round_mean_ms": 0.03366826686333333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0008640097388723946,
+    "raw_sha256": "12ff8a278321621ed931307edace20deee99221db0a98a1b5b26cb768bc939e5"
+  },
+  {
+    "round": 6,
+    "position": 3,
+    "implementation": "k19-v3",
+    "build": "k19-v3",
+    "cli": "19",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p03-k19-v3",
+    "round_mean_ms": 0.033835733566666665,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.000906402266059287,
+    "raw_sha256": "b6b21f644e9fc56e41234e497de610e00349e15cbca63937d2f8e70dc8cd2ba0"
+  },
+  {
+    "round": 6,
+    "position": 4,
+    "implementation": "strict",
+    "build": "stock",
+    "cli": "13",
+    "n": 256,
+    "beta": 3,
+    "repeats": 30,
+    "warmup": 10,
+    "status": "passed",
+    "events": 30,
+    "path": "r06-p04-strict",
+    "round_mean_ms": 0.01238293333,
+    "input_fingerprints": [
+      {
+        "matrix": "A",
+        "bytes": "262144",
+        "fnv1a64": "6adb02eee1b17c6a",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "B",
+        "bytes": "262144",
+        "fnv1a64": "d650f5beadc9465c",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      },
+      {
+        "matrix": "C0",
+        "bytes": "262144",
+        "fnv1a64": "c55aee3b5de80f59",
+        "algorithm": "FNV1a64_noncryptographic",
+        "layout": "row_major",
+        "stride_floats": "256"
+      }
+    ],
+    "resource_spill_present": false,
+    "round_stddev_ms": 0.0009796780980269185,
+    "raw_sha256": "84ab9a404dbb2c2f6b68b8324d15da55d63f8bdae3a1cd80b2dd549f6e37a71b"
+  }
+]

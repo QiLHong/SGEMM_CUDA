@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/root/autodl-tmp/build-rtx5090-stage3/k19-v3/benchmark",
+    "19"
+  ],
+  "nonsecret_environment": {
+    "STAGE3_CAPTURE_PREFIX": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-35-stage3-k19-n256-b3/r06-p03-k19-v3/capture",
+    "STAGE3_N": "256",
+    "STAGE3_BETA": "3",
+    "STAGE3_OUTPUT_ORDER": "actual_first",
+    "SGEMM_BENCH_SIZE": "256",
+    "SGEMM_REPEAT": "30",
+    "SGEMM_WARMUP": "10",
+    "SGEMM_ALPHA": "0.5",
+    "SGEMM_BETA": "3",
+    "SGEMM_RESET_C_EACH_REPEAT": "1",
+    "SGEMM_SEED": "20261011"
+  },
+  "binary_sha256": "adf9e0e601ce6a2c4362351aafb45ce30db5dd37617ec1ae6d661177512d2655"
+}
