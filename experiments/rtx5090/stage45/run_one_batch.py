@@ -93,6 +93,8 @@ def main():
         save('recomputed-summary.json',summaries)
         meta.update(status='COMPLETE',expected_events=count,actual_events=len(rows),exit_codes=[r['exit_code'] for r in records])
         save('COMPLETED.json',meta)
+        # A closed batch must have exactly one terminal marker.
+        (out/'PARTIAL.json').unlink(missing_ok=True)
         manifest={p.name:sha(p) for p in out.iterdir() if p.is_file() and p.name!='SHA256.json'}
         save('SHA256.json',manifest)
         if a.publish_hook:
