@@ -1,0 +1,9 @@
+Running kernel 16 on device 0.
+Mode: K16 K10 + A shared-memory XOR swizzle
+Max size: 4096
+Timing C policy: reset before every measured call
+Input seed: 20261011
+NVIDIA_TF32_OVERRIDE: unset
+dimensions(m=n=k) 4096, alpha: 0.5, beta: 3
+Correctness vs strict FP32 cuBLAS: PASS
+Average elapsed time: (0.003017) s, performance: (45556.2) GFLOPS. size: (4096).

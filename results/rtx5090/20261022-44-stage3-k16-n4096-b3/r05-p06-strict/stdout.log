@@ -1,0 +1,8 @@
+Running kernel 13 on device 0.
+Mode: cuBLAS strict FP32 (PEDANTIC)
+Max size: 4096
+Timing C policy: reset before every measured call
+Input seed: 20261011
+NVIDIA_TF32_OVERRIDE: unset
+dimensions(m=n=k) 4096, alpha: 0.5, beta: 3
+Average elapsed time: (0.002002) s, performance: (68653.4) GFLOPS. size: (4096).
