@@ -13,7 +13,8 @@
     },
     {
       "stage": 2,
-      "status": "not_run"
+      "status": "passed",
+      "notes": "8批、8400正式event；两数学协议分表；全部独立数值验收通过"
     },
     {
       "stage": 3,

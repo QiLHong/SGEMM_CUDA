@@ -34,3 +34,5 @@
 - [BF16/4096作者原协议](../../../results/rtx5090/20261022-04-author-bf16-4096/original-wallclock.csv)：单批10warmup/200repeat，含host包装和descriptor准备，非纯kernel计时。全部五项作者低精度检查通过。
 
 - [阶段1：SM120 TMA、cp.async、cuBLAS实测与失败证据](stage1-results.md)：六个正式批次共7560个event；原作者墙钟结果另表。
+
+- [阶段2：严格 FP32 核心对照](stage2-results.md)：K10 PAD4/PAD8、K30 V1/V2、PEDANTIC cuBLAS，两协议八批。
