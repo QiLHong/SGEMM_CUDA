@@ -1,0 +1,38 @@
+{
+  "status": "RUNNING",
+  "source_commit": "9c382a88e41b49f656db5ccedbbbcd1b998511a8",
+  "branch": "results/rtx5090-gemm-reproduction-20261022",
+  "utc_start": "2026-10-21T17:33:36.746379+00:00",
+  "mode": "events",
+  "n": 1024,
+  "alpha": 1.0,
+  "beta": 0,
+  "seed": 20261020,
+  "rounds": 7,
+  "repeats": 30,
+  "warmup": 10,
+  "expected_events": 1050,
+  "selection": "paired",
+  "command": [
+    "/root/autodl-tmp/build-rtx5090-strict-paired/rtx5090_strict_fp32",
+    "1024",
+    "0",
+    "7",
+    "30",
+    "10",
+    "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-18-strict-ab-1024/events.csv",
+    "paired",
+    "--alpha",
+    "1"
+  ],
+  "timeout_seconds": 180,
+  "gpu_lock": "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/.git/rtx5090-gpu.lock",
+  "child_environment_override": {
+    "NVIDIA_TF32_OVERRIDE": "0"
+  },
+  "timing": "single-call CUDA event, same default stream; C0 D2D reset before start event",
+  "correctness": "original abs<=0.01; full PEDANTIC GPU reference and direct CPU-double candidate checks",
+  "scope": "one batch only; no commit/push/build/system changes",
+  "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+  "python_executable": "/root/miniconda3/bin/python"
+}

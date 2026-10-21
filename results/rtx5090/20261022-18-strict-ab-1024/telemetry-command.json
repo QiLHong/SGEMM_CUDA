@@ -1,0 +1,10 @@
+{
+  "command": [
+    "nvidia-smi",
+    "--query-gpu=timestamp,index,uuid,pstate,temperature.gpu,clocks.sm,clocks.mem,power.draw,power.limit,utilization.gpu,memory.used",
+    "--format=csv",
+    "--loop-ms=250"
+  ],
+  "scope": "GPU-level NVML snapshots only; no process names/PIDs or other tenant details",
+  "limitation": "250 ms snapshots do not prove constant clock during individual CUDA events"
+}
