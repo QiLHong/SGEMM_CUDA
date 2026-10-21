@@ -1,0 +1,5 @@
+9502493d88f619283a67894e7174d76921cad1d791dbb02d2abe572cd8338a84  docs/zh/rtx5090/README.md
+f4cb5817f7a4d280035f4ceeb8b9e44e804c720729cf60ce48a2810db7fc7ad3  docs/zh/rtx5090/progress.json
+85468e13dabc67480d9de197fc9365ff792cdabfcf5fa284ae43d01c95bff2f1  docs/zh/rtx5090/reproduction-matrix.csv
+92afbb2c72b47892386fc248e3ed44d0a84677e77ced7984b5cbc079ba4d5462  results/rtx5090/20261022-00-bootstrap/preflight.json
+994f58470f12d75c96ef30b9956628078daf2eb123e68e40dda61b1a65a369a7  results/rtx5090/20261022-00-bootstrap/COMPLETE.json

@@ -1,0 +1,18 @@
+{
+  "stage": "bootstrap",
+  "gpu_measurements": false,
+  "head_observed": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "ssh_connection": "passed",
+  "remote_os": "Ubuntu 22.04.5",
+  "gpu": "RTX 5090",
+  "capability": "12.0",
+  "sm_count": 170,
+  "nvcc": "12.8.93",
+  "torch": "2.8.0+cu128",
+  "direct_github_read": "timeout",
+  "autodl_network_turbo_read": "passed",
+  "remote_push_dry_run": "authentication_missing",
+  "publication_mode": "local_existing_auth_relay",
+  "server_expiry": "unknown",
+  "note": "No GEMM performance or correctness claim yet"
+}

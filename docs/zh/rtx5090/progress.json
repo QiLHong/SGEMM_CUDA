@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "stages": [
+    {
+      "stage": 0,
+      "status": "in_progress"
+    },
+    {
+      "stage": 1,
+      "status": "not_run"
+    },
+    {
+      "stage": 2,
+      "status": "not_run"
+    },
+    {
+      "stage": 3,
+      "status": "not_run"
+    },
+    {
+      "stage": 4,
+      "status": "not_run"
+    },
+    {
+      "stage": 5,
+      "status": "not_run"
+    },
+    {
+      "stage": 6,
+      "status": "not_run"
+    }
+  ],
+  "bootstrap_publication": "pending",
+  "tcgen05_TMEM_2CTA": "hardware_unsupported"
+}
