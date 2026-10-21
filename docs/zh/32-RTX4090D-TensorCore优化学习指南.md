@@ -1,4 +1,6 @@
-# 32. RTX 4090 D Tensor Core 优化：从作者原版到 BK32、BN64
+# 32. RTX 4090 D Tensor Core 优化：从作者原版到 BN64 与 CUTLASS 对照
+
+> 更新至 2026-10-22：32.1～32.10 保留 BK32/BN64 的原实验教学，32.11 衔接已发布的稳健性与 CUTLASS 新证据。本次只更新教学文档，没有重新跑 GPU 或更改 kernel。
 
 这篇教程把两轮已经完成的实验连成一条学习路线：先尝试扩大 K 分块、减少每个 CTA 的同步次数；发现资源占用变大后，再缩小 N 分块，重新平衡每个 CTA 的工作量与驻留能力。
 
@@ -297,3 +299,17 @@ if ($LASTEXITCODE) { throw 'elapsed analysis failed' }
 下一项待验证的假设：固定 BN64/BK32、精度、线程映射与同步，只改变 grid 分组宽度 W=1/2/4/8，观察 4096 的额外 A 请求能否更好利用 L2，同时检查 B 复用是否受损。这是后续实验建议，本页没有执行它，也没有预告提速。
 
 后续已完成的公开库对照见[第 34 章](34-CUTLASS与BN64的4090D公平对照.md)：CUTLASS 在同输入 TF32 下的一个固定配置快于 BN64，但 occupancy 更低、bank conflict 更多。新数据支持继续检查 shared operand 读取工作量；本页的旧成绩与未执行假设保持原意，不与新批次混算。
+
+## 32.11 用 CUTLASS 对照校正优化直觉
+
+[第 33 章](33-TensorCore-BN64稳健性与尺寸适用范围.md)回答同一个 BN64 优化能否跨 seed/独立进程保持收益；[第 34 章](34-CUTLASS与BN64的4090D公平对照.md)重新测量官方 CUTLASS，回答当前实现距另一个成熟实现还有多少差距。前者是稳健性复测，后者是整体实现对照，两者都不能取代单因素优化实验。
+
+在第 34 章这一批中，CUTLASS 128×64×16、4-stage 的 TF32 配置在 2048 达到 62.946 TFLOPS，BN64 为 57.939，TF32 cuBLAS 为 51.776；4096 分别为 74.780、69.300、67.287。数字只在这一批同输入 TF32 条件下比较。严格 FP32 的 CUTLASS SIMT 没有超过 K30 或 cuBLAS。
+
+读 NCU 时先问三个问题：做了多少工作，能否供给足够指令，资源是否限制驻留。2048 时，CUTLASS 小配置的 occupancy 约 14.87%，BN64 为 29.87%；前者 load bank conflicts 更多，却有更少的 shared-load wavefront（约1301万对2099万），barrier stall 更低（.05对.38 warp），Tensor elapsed 利用率更高（43.39%对39.86%）。所以提高 occupancy 或清零 bank conflict 都不能单独作为优化目标。
+
+这里的 `stage=4` 也不能直接解释全部收益：CUTLASS 与 BN64 的 BK、warp 数、operand fragment 布局、shared iterator 和 epilogue 都不同。源码/SASS 中看到 copy 与 HMMA 交错，仅表明调度有重叠机会；还没有测出每次 copy 隐藏了多少周期。源码采用普通 `cp.async`，没有 TMA。
+
+精度要保留三条不同的问题：实现之间是否一致；对同一量化输入的更高精度参考误差多大；相对原始 FP32 输入损失多少。该批五个 TF32 实现对作者版逐位相同，native eps=0.1 通过，但同量化输入的绝对误差<=0.01在2048及以上失败；原始 FP32 的误差更大。`DATA_AUDIT_PASS` 只检查证据完整性，不能覆盖这些 FAIL。
+
+此前的 grid 分组建议仍未执行。基于新增 shared 指标，下一轮更值得优先检验的单一假设是：保持 BN64 tile、线程映射、TF32 精度及双缓冲协议，只改 operand fragment 的寄存器复用，减少重复 shared 读取。必须同时看寄存器增长、spill、wavefront 与正常 event 时间；不能以 LDS 减少就提前宣布提速。当前文档没有实现或测量这个候选。

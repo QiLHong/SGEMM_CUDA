@@ -1,5 +1,7 @@
 # Windows 原生实验归档
 
+> CUTLASS 发布补记（2026-10-22）：官方库对照、68040 events、NCU/静态证据和第34章已随 [9225bae](https://github.com/QiLHong/SGEMM_CUDA/commit/9225bae1d8b6ea1038f8be257067d841528e99b9) 上传。后续教学文字在 `docs/zh/` 维护；本目录各冻结归档的“未提交/未推送”说明保留交付时语境，不代表当前远端状态。
+
 ## 先按 GPU、精度和实验批次找结果
 
 本索引中的实测均单独归档为 Windows / RTX 4090 D。项目其他目录仍保留 RTX 3080、A6000、Linux 历史成绩，不能合并为同一排名。

@@ -184,3 +184,11 @@ RTX 3080 / strict FP32 阶段的最佳研究基线 K30 V2：从 [build_k30_audit
 | [analyze_cutlass_4090d_static.py](analyze_cutlass_4090d_static.py) | ptxas、PTX、SASS、加载与 MMA 顺序；静态交错不等于周期重叠证明 |
 
 Run/Resume/Profile 共用独占文件锁，避免这些脚本并发测量。输出目录必须全新；abs、SIMT allclose、TF32 native allclose 分别判定，`DATA_AUDIT_PASS` 不覆盖数值 FAIL。
+
+### CUTLASS 发布后的使用边界
+
+实验已随 `9225bae` 发布。当前源代码与命令入口见[子工程 README](../experiments/cutlass-rtx4090d/README.md)，全部六组 Tensor Core 相关子工程的选择见[代码索引](../docs/zh/23-代码与脚本使用索引.md)。
+
+本次正式数据是 `build03 → run04 → analysis01 → verification02`，NCU 单独在 `profile01`。不要对 `run01` 至 `run04` 的所有 CSV 用通配符合并；前三个目录含失败、重叠和被复用的记录。若只更新教学文字，不运行 `finalize_*` 或重新打包旧快照。重新统计用新的输出目录，不要求重跑 GPU；重新计时按第34章创建新的 build/run 目录。
+
+三种 PASS/FAIL 分开看：进程退出成功、数据完整性通过、数值误差通过。FP32 的 abs<=0.01 通过不覆盖3072的SIMT allclose失败；TF32 native标准通过不覆盖严格绝对误差失败。

@@ -566,3 +566,20 @@ FP32 精度要求。GPU 参考全量，CPU double 大尺寸只抽样 256 点，S
 
 练完后再进入 [Q36–Q47](21-SGEMM模拟面试QA.md#九-rtx-4090-d-tensor-core-补充面试题)，
 用实际 CSV 而不是记忆中的最好成绩解释每个结论。
+
+## 十一 读 CUTLASS 结果前再区分四件事
+
+这里衔接[第34章](34-CUTLASS与BN64的4090D公平对照.md)，不改变前面历史练习的数字。
+
+| 容易混淆的概念 | 本项目应怎样区分 |
+|---|---|
+| CUTLASS 与 Tensor Core | CUTLASS是模板库；本轮同时实例化TF32 TensorOp和严格FP32 SIMT，库名不决定数学精度 |
+| FP32存储与严格FP32乘法 | `tfloat32_t`与float等宽不代表保留了原始FP32乘数精度；先显式量化的输入仍可能相对原始输入有明显误差 |
+| 多阶段异步搬运与TMA | 本轮是普通`cp.async`/LDGSTS，加stage不自动变成TMA；PTX/SASS和目标架构必须一起检查 |
+| 统计完整与所有数值标准通过 | `DATA_AUDIT_PASS`核验数据链；abs、SIMT allclose、native allclose和NaN/Inf仍需各自读结果 |
+
+也要区分“库支持边界”和“统一入口支持边界”：CUTLASS的predicated iterator不能保护同一harness里另一个没有尾块检查的作者kernel，所以共同入口仍需明确拒绝非法形状。
+
+本轮每个实现的结果先由30个event求轮均值，再由7个轮均值求中位数，最后跨3批×3seed呈现范围。逐轮配对收益用`reference_ms/candidate_ms-1`；两个汇总中位数的比值是另一种统计量。九组合的最小值与最大值不是置信区间，更不能删掉慢样本来缩小范围。
+
+学习顺序建议：[微教材第9章](微教材/09-TensorCore从SIMT到矩阵指令.md)理解fragment与同步，再读[第32章32.11](32-RTX4090D-TensorCore优化学习指南.md#3211-用-cutlass-对照校正优化直觉)看性能反例，最后用[第34章练习](34-CUTLASS与BN64的4090D公平对照.md#3410-五道自检题与参考答案)自检。

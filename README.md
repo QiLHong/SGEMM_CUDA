@@ -1,8 +1,10 @@
 # 从零开始优化 CUDA SGEMM：中文学习版
 
+> 当前 Windows / RTX 4090 D 研究发布在 `results/rtx4090d-k30-stage2-20261021`，没有合并到 `zh-cn-learning` 或 `master`。CUTLASS 实验已发布于 [9225bae](https://github.com/QiLHong/SGEMM_CUDA/commit/9225bae1d8b6ea1038f8be257067d841528e99b9)；本次更新只完善文档，不产生新的 GPU 测量。
+
 用 CUDA 逐步优化矩阵乘法。各个 kernel 的原作者讲解见 [Simon Boehm 的 CUDA-MMM 文章](https://siboehm.com/articles/22/CUDA-MMM)。
 
-本分支 `zh-cn-learning` 基于 `5a7dcc513d951ba764d51bc9d587b3163f3a894d`。纯翻译阶段固定为提交 `aadcd8e`；后续 RTX 3080 调优、benchmark 修复和实验工具修复属于独立的真实代码改动，不再冒充“只有注释变化”。2026-10-10 的两轮记录分别见 [初次调优](docs/zh/04-RTX3080-K10调优.md)和 [FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)。原作者英文 README 完整保留在 [README.en.md](README.en.md)，原版继续保留在 `master`。
+中文学习内容起源于 `zh-cn-learning`，基于 `5a7dcc513d951ba764d51bc9d587b3163f3a894d`。纯翻译阶段固定为提交 `aadcd8e`；后续 RTX 3080 调优、benchmark 修复和实验工具修复属于独立的真实代码改动，不再冒充“只有注释变化”。2026-10-10 的两轮记录分别见 [初次调优](docs/zh/04-RTX3080-K10调优.md)和 [FP32 基线与瓶颈审计](docs/zh/05-RTX3080-FP32基线与瓶颈审计.md)。原作者英文 README 完整保留在 [README.en.md](README.en.md)，原版继续保留在 `master`。
 
 原项目：[siboehm/SGEMM_CUDA](https://github.com/siboehm/SGEMM_CUDA)。原作者：Simon Boehm。中文内容属于 AI 辅助翻译与学习补充，并非原作者审校版，也不是原博客的完整译文。`【学习补充】` 表示新增解释，`【注释辨析】` 表示原注释与实际表达式之间需要注意的区别；没有把这些问题偷偷改成另一套实现。
 
@@ -10,7 +12,7 @@
 保留 K10；K31/K32 未产生可靠替代版本。求职阅读建议依次看
 [完整优化故事](docs/zh/06-RTX3080-K10优化故事.md)、
 [复现与简历讲述](docs/zh/20-项目复现与简历讲述.md)、
-[35 题 SIMT 与 Tensor Core 补充 QA](docs/zh/21-SGEMM模拟面试QA.md)。
+[SIMT 与 Tensor Core 面试 QA](docs/zh/21-SGEMM模拟面试QA.md)。
 核心成果限定为 RTX 3080、4096³ strict FP32：约 20.8 TFLOPS、96.3% 同口径 cuBLAS，
 不代表通用 GEMM 或 GPU 理论峰值比例。
 
@@ -25,7 +27,7 @@
 并区分“只读分析”“需要 GPU”“会改源码或覆盖结果”的入口。各文件顶部和关键流程旁
 都有中文解释，K30 还包含 lane 0/1/2 的具体坐标例子；本轮注释整理不改变算法或历史数据。
 
-## RTX 4090 D：Tensor Core 复现与优化（Windows，2026-10-21）
+## RTX 4090 D：Tensor Core 复现、优化与 CUTLASS 对照（更新至 2026-10-22）
 
 先用[微教材第 9 章](docs/zh/微教材/09-TensorCore从SIMT到矩阵指令.md)理解 Tensor Core，再读
 [Tensor Core 优化学习指南](docs/zh/32-RTX4090D-TensorCore优化学习指南.md)，
@@ -45,12 +47,14 @@
 [第 33 章：BN64 稳健性与尺寸适用范围](docs/zh/33-TensorCore-BN64稳健性与尺寸适用范围.md)
 和[本轮独立归档](results/windows/20261021-tensorcore-bn64-robustness/README.md)。该报告使用重新测量的数据，不复用上面的历史数值。
 
-Tensor Core 阅读路线：
+最新公开库对照：
 
 新增 [第 34 章：CUTLASS 与 BN64 的 4090 D 公平对照](docs/zh/34-CUTLASS与BN64的4090D公平对照.md)：
 官方 CUTLASS 3.5.1 原生编译，68040 个新 events，TF32 与 strict FP32 分表。
 固定 128×64×16 TF32 配置在 2048/4096 达到 62.946/74.780 TFLOPS，快于本轮同输入 BN64 和 TF32 cuBLAS；
 CUTLASS SIMT 配置未超过 K30 或 strict FP32 cuBLAS。精度门限失败、恢复记录与 NCU 证据均保留，不能把 TF32 成绩当作严格 FP32 提速。
+
+Tensor Core 阅读路线：
 
 | 想解决的问题 | 文档 |
 |---|---|
@@ -60,7 +64,7 @@ CUTLASS SIMT 配置未超过 K30 或 strict FP32 cuBLAS。精度门限失败、�
 | 怎样把代码、性能和证据连起来？ | [第 32 章：BK32 / BN64 学习指南](docs/zh/32-RTX4090D-TensorCore优化学习指南.md) |
 | 换 seed、重启进程和新增 3072 后，收益是否仍成立？ | [第 33 章：稳健性与尺寸适用范围](docs/zh/33-TensorCore-BN64稳健性与尺寸适用范围.md) |
 | 与官方 CUTLASS 相比如何，occupancy 和 bank conflict 能否单独预测速度？ | [第 34 章：CUTLASS 公平对照](docs/zh/34-CUTLASS与BN64的4090D公平对照.md) |
-| 从哪个脚本构建、计时、复算？ | [脚本说明](scripts/README.md#tensor-core四组独立实验)与[结果索引](results/windows/README.md) |
+| 从哪个脚本构建、计时、复算？ | [完整代码索引](docs/zh/23-代码与脚本使用索引.md)、[脚本说明](scripts/README.md)与[结果索引](results/windows/README.md) |
 
 导航发布记录：2026-10-21 核对时，第 24～27 章、SIMT `stage3` / `followup` 归档与 Windows 结果索引已在本机存在，但未随 `a54435d` 发布。2026-10-22 按用户要求，将这些材料、Windows 构建与实验脚本，以及第 33 章和 BN64 稳健性完整归档一并纳入版本控制。测量时的源码快照、哈希清单和原始结果保持原字节；归档内的“未提交/未推送”描述记录的是实验结束时的状态。
 
@@ -247,7 +251,7 @@ make profile KERNEL=2 PREFIX=learning_
 建议按下面顺序读，每次只解释清楚一个变化：
 
 如果想先系统复习，先读 [CUDA 与 SGEMM 基础复习](docs/zh/22-CUDA与SGEMM基础复习.md)：
-36 个基础问题与 8 道手算题，再进入源码路线和项目面试 QA。
+36 个基础问题与 8 道手算题，以及 Tensor Core / CUTLASS 补充复习，再进入源码路线和项目面试 QA。
 
 1. [00：阅读路线](docs/zh/00-阅读路线.md)：项目调用链、文件职责、每个阶段要回答的问题。
 2. [01：矩阵索引与线程映射](docs/zh/01-矩阵索引与线程映射.md)：`[M,K] × [K,N]`、行主序、thread / block / warp、Kernel 1 与 2。
@@ -271,7 +275,7 @@ make profile KERNEL=2 PREFIX=learning_
 20. [18：K31 微内核精修与因果审计](docs/zh/18-K31-微内核精修与因果审计.md)：同 SASS control、寄存器预算/存活期、2/3/4-stage 与大 CTA 对照；七轮加独立五轮，没有把噪声写成 98%。
 21. [19：K32 Warp 角色分工与同步代价](docs/zh/19-K32-Warp角色分工与同步代价.md)：一个 producer 加四个 consumer；加载等待下降但吞吐持平，解释 barrier、寄存器子分区与驻留容量的相互影响。
 22. [20：项目复现与简历讲述](docs/zh/20-项目复现与简历讲述.md)：从干净环境构建到验证、六轮计时和指标导出；结果口径、失败排查、简历表述与两分钟讲述。
-23. [21：SGEMM 模拟面试 QA](docs/zh/21-SGEMM模拟面试QA.md)：35 个问题覆盖映射、精度、实验可信度、成功与失败、寄存器调度和贡献边界，附二十分钟模拟安排。
+23. [21：SGEMM 模拟面试 QA](docs/zh/21-SGEMM模拟面试QA.md)：35 道 SIMT 主线问题与 15 道 Tensor Core / CUTLASS 追问，覆盖映射、精度、实验可信度和贡献边界，附模拟安排。
 24. [22：CUDA 与 SGEMM 基础复习](docs/zh/22-CUDA与SGEMM基础复习.md)：矩阵与索引、执行层次、内存与同步、tiling、资源与测量；含 36 个基础问题、8 道练习及答案。
 25. [微教材：从矩阵乘法到 CUDA 微内核](docs/zh/微教材/README.md)：通过连续推导，从一个点积走到 K30；包含真实源码精读、线程/fragment 追踪、验证与 CSV 调用链、练习与答案。
 26. [23：代码与脚本使用索引](docs/zh/23-代码与脚本使用索引.md)：逐文件用途、术语解释、调用链、初学者运行路线、输出读法与历史工具风险。

@@ -235,4 +235,17 @@ if ($LASTEXITCODE) { throw 'mapping failed' }
 
 读完后返回[第 32 章](../32-RTX4090D-TensorCore优化学习指南.md)，把本章的指令、fragment 和同步概念用于解释 BK32/BN64 的真实收益与反例。记住自己此时得到的是源码理解与证据阅读能力，新的性能结论仍需要新的公平测量。
 
+
+## 11 从手写 BN64 走向公开 CUTLASS
+
+已发布的[第 34 章](../34-CUTLASS与BN64的4090D公平对照.md)调用官方 CUTLASS 3.5.1 的 `device::Gemm`，没有把本项目 kernel 改名冒充 CUTLASS。128×64×16、4-stage 配置中，四个 warp 各算64×32；它与本章 BN64 的八 warp 设计不同。两者都用 TF32 MMA，但不应将性能差当成“只多了两级 buffer”的因果实验。
+
+理解多阶段搬运时，可把 shared 想成带读写游标的环形槽。`cp.async` 发起拷贝，提交组，等待足够早的组完成，再协调 CTA 消费；写游标回绕之前必须避免覆盖仍在读取的槽。更深的 stage 增加预取距离，也增加 shared 容量和控制成本，实际收益取决于资源与调度。这仍是普通 `cp.async` 路线，不是 TMA。
+
+最新测量有一个反直觉例子：2048时，CUTLASS 小配置约62.946 TFLOPS，BN64约57.939；CUTLASS occupancy更低、bank conflict更多，shared-load wavefront和barrier stall却更少。应据此提出“减少重复operand读取”的待验证假设，而不是认为occupancy或bank conflict从此无用。
+
+另一个重要反例是正确性：五个TF32实现彼此逐位相同，却不满足所有参考误差标准。native allclose通过与绝对误差失败可以同时发生；高精度参考、量化输入和原始输入回答不同问题。完整错误数量、CPU全量/抽样范围和未验证的Sanitizer状态见第34章，新的性能必须与这些限制一起阅读。
+
+继续学习：[第 34 章五道练习](../34-CUTLASS与BN64的4090D公平对照.md#3410-五道自检题与参考答案)。
+
 [上一章](08-用K30串起整个项目.md) · [目录](README.md)

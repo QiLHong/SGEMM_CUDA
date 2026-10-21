@@ -1,5 +1,7 @@
 # Tensor Core 初体验：TF32、FP16 与 RTX 4090 D 实测
 
+> 后续进展（2026-10-22）：本章保留当时实验的参数、数据与局限。多 seed 稳健性验证见[第 33 章](33-TensorCore-BN64稳健性与尺寸适用范围.md)，官方 CUTLASS 对照及其精度失败见[第 34 章](34-CUTLASS与BN64的4090D公平对照.md)。后续批次不填入本章旧表；这里的“本轮”“下一步”按本章实验日期理解。
+
 > 阅读衔接：原理先看[微教材第 9 章](微教材/09-TensorCore从SIMT到矩阵指令.md)，优化演进看[第 32 章](32-RTX4090D-TensorCore优化学习指南.md)。本章保存首次 TF32 / FP16 原生复现的测量口径，后续成绩不覆盖本表；文中的“本次”和 Git 起点均指当时实验。
 
 本章承接[第26章](26-vitamin-SIMT复现与K30公平对照.md)和[第27章](27-vitamin原入口复跑与寄存器上限实验.md)。本次真正运行了 Tensor Core：原生 CUDA 移植 vitamin-cuda 的四个 device kernel，分别对照同精度 cuBLAS，重新测量 K30 和严格 FP32 cuBLAS。**所有成绩只属于 RTX 4090 D，没有运行 RTX 3080。**

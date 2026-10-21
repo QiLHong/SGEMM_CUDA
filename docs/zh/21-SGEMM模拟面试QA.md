@@ -413,3 +413,21 @@ warp0、lane1、mi=ni=0 的四个输出是 (0,2)、(0,3)、(8,2)、(8,3)。
 用五分钟完成：手算 Q38 的一个 lane；从 [paired-rounds.csv](../../results/windows/20261021-tensorcore-bn64/confirm-analysis02/paired-rounds.csv)
 重算 2048 同轮提升；对照 [elapsed-selected.csv](../../results/windows/20261021-tensorcore-bn64/evidence02/elapsed-selected.csv)
 解释 Q43；最后说明 Q47 中未验证的部分。所有历史数字以各自同批 CSV 为准，不做跨 GPU 拼表。
+
+## 十一 CUTLASS 对照后的追加追问（2026-10-22）
+
+以下使用已发布[第34章](34-CUTLASS与BN64的4090D公平对照.md)的数据；Q36–Q47的历史BN64例子保持原批次含义。
+
+### Q48 能说我的 Tensor Core kernel 超过 CUTLASS 和 cuBLAS 吗
+
+不能概括成一个无条件排名。本次官方CUTLASS128×64×16/4-stage在四尺寸快于BN64，2048相对BN64配对提升8.095%～8.803%；相对同输入TF32 cuBLAS提升21.307%～21.762%。这说明当前BN64还有差距，不代表CUTLASS全部模板或所有矩阵都如此。严格FP32组的CUTLASS SIMT未超过K30或cuBLAS；两个精度组不能混算。
+
+### Q49 为什么 occupancy 更低且 bank conflict 更多仍可能更快
+
+性能还取决于需要发射的指令和总shared工作量。2048的CUTLASS小配置occupancy14.87%，BN64为29.87%；前者shared-load wavefront更少、barrier stall更低、Tensor elapsed更高。多个因素同时变化，所以它是相关证据，不是“低occupancy会提速”的证明。下一步应固定BN64配置，只测试operand寄存器复用能否减少实际shared读取，并检查寄存器代价。
+
+### Q50 审计 PASS、误差 FAIL 与成功发布为什么能同时出现
+
+数据审计验证的是记录完整、输入相同、统计正确和恢复链可信；数值检查则有多套独立标准。该批strict FP32的abs<=0.01通过，但3072的SIMT allclose失败；TF32 native标准通过，较大尺寸严格绝对门限失败。发布完整失败证据有助于复现，不等于把失败改成成功。也不能从六进程完整结束推断Sanitizer通过，本轮没有完成该验证。
+
+继续手算见[34.10的五道练习](34-CUTLASS与BN64的4090D公平对照.md#3410-五道自检题与参考答案)，题目覆盖warp分区、异步等待、误差参考与配对统计。

@@ -1,12 +1,14 @@
 # 34：CUTLASS 与 BN64 的 RTX 4090 D 公平对照
 
+> 发布后文档更新（2026-10-22）：实验数据和代码已上传。本页为可继续维护的教学报告，`results/windows/20261022-cutlass-rtx4090d/` 内的源码快照、原始数据和归档说明保留实验交付时的字节；其中“未提交/未推送”属于当时状态。
+
 本轮在 Windows 原生环境实际编译、运行了 NVIDIA CUTLASS 3.5.1，并与作者 TF32、BN64、K10、K30 V2 和 cuBLAS 重新比较。**预先选定的 CUTLASS 128×64×16 TF32 配置在四个尺寸都快于 BN64；公开 SIMT 配置没有超过 K30 或严格 FP32 cuBLAS。** 这是有限配置、固定输入分布和本机测量协议下的结果，不代表 CUTLASS 全库最优。
 
 完整证据入口：[独立归档](../../results/windows/20261022-cutlass-rtx4090d/README.md)、[全部统计与误差表](../../results/windows/20261022-cutlass-rtx4090d/analysis01/README.md)。本章没有复用 RTX 3080 或前一批 BN64 的吞吐填表，也没有修改原有 device kernel。
 
 ## 34.1 来源、环境与真正调用的代码
 
-- SGEMM 起点：`a2b23dabadc79440bf9cbf63f0b566f7eec429ba`；分支 `results/rtx4090d-k30-stage2-20261021`。本轮新增内容尚未提交或推送。
+- SGEMM 起点：`a2b23dabadc79440bf9cbf63f0b566f7eec429ba`；分支 `results/rtx4090d-k30-stage2-20261021`。本轮代码、报告和完整归档已由 [9225bae](https://github.com/QiLHong/SGEMM_CUDA/commit/9225bae1d8b6ea1038f8be257067d841528e99b9) 提交并推送；本章后续文档修订不改写冻结快照。
 - vitamin-cuda 参考提交仍为 `520f97093a2abc239977be83d244b327d0e2e2ef`，没有更新其工作区。
 - CUTLASS：官方 v3.5.1，`f7b19de32c5d1f3cedfc735c2849f12b537522ee`，独立检出到 `D:\CUDA-Lab\cuda-learning\deps\cutlass-v3.5.1`。未修改上游头文件；保留 NVIDIA 版权和 BSD-3-Clause 许可证。
 - GPU：RTX 4090 D，24564 MiB，114 SM；驱动 610.60，WDDM。
@@ -211,3 +213,32 @@ $tag = Get-Date -Format 'yyyyMMdd-HHmmss'
 ## 34.9 下一轮只验证一个假设
 
 建议保持 BN64 的 128×64×32 tile、线程数、TF32 精度和双缓冲协议，**只调整 warp 内 operand fragment 的寄存器复用，减少重复 shared 读取**。假设依据是本次 BN64 的 shared-load wavefront 比 CUT 小配置多约六成，而非“CUTLASS 用了更多 stages 所以更快”。先从 SASS 和 iterator 访问枚举定位可复用的重复读取，再做基线/实验版交替测量；同时监测寄存器、spill、wavefront、barrier 和吞吐。若新增寄存器降低驻留或未减少实际 LDS，假设应被否定。这项修改尚未实施，本轮也未做 TMA、TF32x3、CUTLASS 全库搜索或 cuBLASLt 调优。
+
+## 34.10 五道自检题与参考答案
+
+1. 四个 warp 的逻辑输出区域怎样覆盖 CUTLASS 小配置的 128×64 tile？这能否证明实际 epilogue 每个 lane 的地址都正确？
+2. 五个 TF32 实现逐位相同，为什么仍有 abs<=0.01 的 FAIL？为什么不能写“严格 FP32 超过 cuBLAS”？
+3. CUTLASS occupancy 更低、bank conflicts 更多却更快，是否说明这些指标没有价值？
+4. `cp_async_wait<Stages-2>()`、CTA barrier 和 `mma.sync` 分别解决什么问题？SASS 的 LDGSTS/HMMA 交错能证明什么？
+5. 68040 个 event 怎样算出？一轮中 reference=0.30 ms、candidate=0.25 ms，配对吞吐提升是多少，延迟降低又是多少？
+
+<details>
+<summary>参考答案</summary>
+
+1. warp 0/1/2/3 起点分别是 (0,0)、(64,0)、(0,32)、(64,32)，各负责64×32，逻辑矩形恰好覆盖128×64。它只验证 warp tile 划分；lane fragment、iterator 和 epilogue 的完整地址仍需要源码映射与运行验证，不能凭总元素数证明无重复写。
+2. 实现间一致不等于它们与更高精度参考一致。TF32 截断输入精度，累加顺序也会影响结果。本轮 native allclose、SIMT allclose、绝对门限各自判定，不能用宽松标准替换失败的严格标准。性能对照也是同一量化输入的 TF32 cuBLAS。
+3. 指标仍能帮助定位，但应与总工作量、指令供给、资源和时间一起看。当前是多因素实现对照，只得到相关证据。一个指标改善不保证总吞吐改善，也不能据此盲删同步。
+4. wait 约束本线程异步复制组的完成进度；CTA barrier 协调跨线程消费和槽复用；mma.sync 是 warp 协作矩阵运算，不是整个 CTA 的 shared 生命周期协议。实际 SASS 交错验证了编译后的顺序机会，未直接量出延迟隐藏的周期数。
+5. `3批*3seed*4尺寸*7轮*30次*(5个TF32+4个FP32)=68040`。吞吐提升为`0.30/0.25-1=20%`；延迟降低为`1-0.25/0.30≈16.67%`，二者分母不同。真实表先逐轮配对，再汇总，不删慢样本；九组合范围不是置信区间。
+
+</details>
+
+## 34.11 如何读发布后的文件
+
+- 当前可读入口是本章、[子工程 README](../../experiments/cutlass-rtx4090d/README.md)和 `scripts/windows/*Cutlass4090D.ps1`。
+- `build03/source-as-built` 和 `cutlass-headers-source.zip` 解释实际编译时用了什么；`source-as-delivered.zip` 解释最初交付时脚本/文档的状态。它们不应随着教程修订而重新打包。
+- `run04` 是最终性能数据入口；`run01/02/03` 中保留失败和排除原因。完整恢复链已独立验证，不要把全部目录的 timings 通配拼成一张表。
+- `analysis01` 与 `verification02` 是统计及其独立复算；`profile01` 的 duration 只属于 NCU 采样。检查结果时同时读 correctness 表，不能只找文件名里的 PASS。
+- 旧归档 README 中“本轮不自动提交”是实验完成时记录。当前 GitHub 发布状态由本章发布补记和提交链接说明；更新文档不改变原始数据哈希。
+
+只读与复算不需要重编译；GPU 新测量使用34.8的全新 build/output目录。已有 build 的依赖校验若失败，应先查明工作区变化并按新目录重建，不能删校验或修改旧哈希清单。
