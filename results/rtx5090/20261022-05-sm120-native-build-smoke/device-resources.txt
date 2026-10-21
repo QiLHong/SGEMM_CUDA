@@ -1,0 +1,38 @@
+
+Fatbin elf code:
+================
+arch = sm_120
+code version = [1,8]
+host = linux
+compile_size = 64bit
+
+Resource usage:
+ Common:
+  GLOBAL:11 CONSTANT[4]:88
+ Function _Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi32ELi3E13__nv_bfloat16Ev14CUtensorMap_stS1_PT3_iii:
+  REG:99 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:1172 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi32ELi3E6__halfEv14CUtensorMap_stS1_PT3_iii:
+  REG:99 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:1172 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi64ELi3E13__nv_bfloat16Ev14CUtensorMap_stS1_PT3_iii:
+  REG:124 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:1172 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z27hgemm_tma_r_k_stages_kernelILi128ELi128ELi64ELi3E6__halfEv14CUtensorMap_stS1_PT3_iii:
+  REG:124 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:1172 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z21hgemm_k_stages_kernelILi128ELi128ELi32ELi3E13__nv_bfloat16EvPT3_S2_S2_iii:
+  REG:128 STACK:0 SHARED:50176 LOCAL:0 CONSTANT[0]:932 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z21hgemm_k_stages_kernelILi128ELi128ELi32ELi3E6__halfEvPT3_S2_S2_iii:
+  REG:128 STACK:0 SHARED:50176 LOCAL:0 CONSTANT[0]:932 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z23hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E13__nv_bfloat16EvPT2_S2_S2_iii:
+  REG:128 STACK:0 SHARED:33792 LOCAL:0 CONSTANT[0]:932 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z23hgemm_bcf_dbf_rw_kernelILi128ELi128ELi32E6__halfEvPT2_S2_S2_iii:
+  REG:128 STACK:0 SHARED:33792 LOCAL:0 CONSTANT[0]:932 TEXTURE:0 SURFACE:0 SAMPLER:0
+
+Fatbin elf code:
+================
+arch = sm_120
+code version = [1,8]
+host = linux
+compile_size = 64bit
+
+Resource usage:
+ Common:
+  GLOBAL:11 CONSTANT[4]:88

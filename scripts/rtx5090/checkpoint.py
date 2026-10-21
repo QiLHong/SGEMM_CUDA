@@ -21,7 +21,7 @@ SECRET_RULES = (
     rb"\bAKIA[0-9A-Z]{16}\b",
     rb"(?im)^\s*(?:token|password|secret|access_key|secret_key)\s*[=:]\s*[\"']?[^\s\"']{12,}",
 )
-TEXT_SUFFIXES = {".md", ".txt", ".json", ".jsonl", ".csv", ".tsv", ".py", ".ps1", ".sh", ".cu", ".cuh", ".h", ".hpp", ".cpp", ".cmake", ".log", ".ptx", ".sass", ".sha256", ".yml", ".yaml", ".exit"}
+TEXT_SUFFIXES = {".md", ".txt", ".json", ".jsonl", ".csv", ".tsv", ".py", ".ps1", ".sh", ".cu", ".cuh", ".h", ".hpp", ".cpp", ".cmake", ".log", ".ptx", ".sass", ".sha256", ".yml", ".yaml", ".exit", ".inc", ".diff"}
 
 
 def git(root, *args, binary=False):

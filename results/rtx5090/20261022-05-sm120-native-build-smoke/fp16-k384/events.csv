@@ -1,0 +1,6 @@
+round,order_position,implementation,sample,milliseconds,M,N,K,seed,dtype
+0,0,hgemm_bcf_dbf_rw,0,0.016543999314308167,128,1024,384,42,fp16
+0,1,hgemm_k_stages,0,0.01679999940097332,128,1024,384,42,fp16
+0,2,hgemm_tma_r_k_stages_64,0,0.016736000776290894,128,1024,384,42,fp16
+0,3,hgemm_tma_r_k_stages_32,0,0.01651199907064438,128,1024,384,42,fp16
+0,4,hgemm_cublas,0,0.015424000099301338,128,1024,384,42,fp16

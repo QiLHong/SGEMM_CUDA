@@ -1,0 +1,28 @@
+{
+  "upstream_source_sha256": "95f4a1f17cb25dc9b9afdff3bb8f5675cb65b64bdfa0e56fd58c09482f766797",
+  "upstream_cublas_sha256": "f7407705703b534261f66779fb4c574331032ed1b349e52d3d311ab8b95afebc",
+  "common_header_sha256": "21937cb0333930ce29e9829fe9824c74f0442f6f76365bf2128488ee187568fe",
+  "host_addition_sha256": "23d0bb909691c131ae26091ae73f2afb91102e7c0d40ed8e963bec274b719bb6",
+  "generated_source_sha256": "35249aac0909bcd088571eab56a811b9ef14faaed9a03a971ac83f37d4c571de",
+  "device_region_sha256": "68cdab4c29e3597ce9af4ad5e1c1ae3dfb0a64ce93a5241228379730b0821dc1",
+  "device_region_byte_equal": true,
+  "TORCH_CUDA_ARCH_LIST": "12.0",
+  "extra_cuda_cflags": [
+    "-O3",
+    "-std=c++17",
+    "-U__CUDA_NO_HALF_OPERATORS__",
+    "-U__CUDA_NO_HALF_CONVERSIONS__",
+    "-U__CUDA_NO_HALF2_OPERATORS__",
+    "-U__CUDA_NO_BFLOAT16_CONVERSIONS__",
+    "--expt-relaxed-constexpr",
+    "--expt-extended-lambda",
+    "--use_fast_math",
+    "-Xptxas",
+    "-v"
+  ],
+  "extra_ldflags": [
+    "-L/usr/local/cuda/lib64/stubs",
+    "-lcuda"
+  ],
+  "timing_boundary": "native CUDA event around one launch; descriptor encoding/attribute setup/alloc/conversion/C0 restore outside events"
+}

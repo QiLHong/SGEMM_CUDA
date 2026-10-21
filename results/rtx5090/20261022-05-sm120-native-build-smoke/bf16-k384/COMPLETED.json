@@ -1,0 +1,33 @@
+{
+  "complete": true,
+  "mode": "smoke",
+  "dtype": "bf16",
+  "seed": 42,
+  "distribution": "uniform",
+  "alpha": 1,
+  "beta": 0,
+  "layout": "row-major contiguous",
+  "timing": "native per-call CUDA events, cached descriptor; C0 copy, allocation, input conversion, descriptor encoding, resource setup and validation outside event interval",
+  "generator": "torch CPU float32 RNG; cast CPU to input dtype then upload; actual input SHA saved",
+  "author_criterion": "abs(reference-candidate)<=.016+.016*abs(candidate); torch.allclose(reference,candidate,atol=.016,rtol=.016)",
+  "strict_diagnostic": "abs(reference-candidate)<=.01, independently reported",
+  "driver_sha256": "6740f9a55f4c825f28591be0a09cd52734df98e9f82d68eeb523ef1cfe142bed",
+  "builder_sha256": "6fb9acad84f4a297e9aa6e15e8633a5a4178102177cb4afe5c00e3d8e60cdb49",
+  "native_host_sha256": "4d0cbff36825d63140feead1cb31ec694ea7f1da20856accbc0af78fc27fcbfc",
+  "shape": [
+    128,
+    1024,
+    384
+  ],
+  "rounds": 1,
+  "warmup": 1,
+  "repeat": 1,
+  "expected_events": 5,
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "input_CPU_conversion_ms": 0.24629803374409676,
+  "allocation_and_H2D_wall_ms": 177.06141306553036,
+  "acceptance_pass": true,
+  "actual_events": 5,
+  "events_sha256": "6c55a9811b3b303e21e0e9ab2f36f20c840b299559fdf158b16553cc784e7786"
+}

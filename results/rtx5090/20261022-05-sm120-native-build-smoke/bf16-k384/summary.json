@@ -1,0 +1,62 @@
+[
+  {
+    "implementation": "hgemm_bcf_dbf_rw",
+    "round_mean_ms": [
+      0.016256000846624374
+    ],
+    "median_round_mean_ms": 0.016256000846624374,
+    "tflops": 6.192377630252348,
+    "paired_speedup_vs_cublas": [
+      -0.045275646488852184
+    ],
+    "median_paired_speedup_vs_cublas": -0.045275646488852184
+  },
+  {
+    "implementation": "hgemm_k_stages",
+    "round_mean_ms": [
+      0.015263999812304974
+    ],
+    "median_round_mean_ms": 0.015263999812304974,
+    "tflops": 6.594817691156609,
+    "paired_speedup_vs_cublas": [
+      0.01677149435358216
+    ],
+    "median_paired_speedup_vs_cublas": 0.01677149435358216
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_64",
+    "round_mean_ms": [
+      0.01696000061929226
+    ],
+    "median_round_mean_ms": 0.01696000061929226,
+    "tflops": 5.935335632328572,
+    "paired_speedup_vs_cublas": [
+      -0.08490569974886142
+    ],
+    "median_paired_speedup_vs_cublas": -0.08490569974886142
+  },
+  {
+    "implementation": "hgemm_tma_r_k_stages_32",
+    "round_mean_ms": [
+      0.018303999677300453
+    ],
+    "median_round_mean_ms": 0.018303999677300453,
+    "tflops": 5.499524572481102,
+    "paired_speedup_vs_cublas": [
+      -0.15209789266893836
+    ],
+    "median_paired_speedup_vs_cublas": -0.15209789266893836
+  },
+  {
+    "implementation": "hgemm_cublas",
+    "round_mean_ms": [
+      0.015519999898970127
+    ],
+    "median_round_mean_ms": 0.015519999898970127,
+    "tflops": 6.486037155623937,
+    "paired_speedup_vs_cublas": [
+      0.0
+    ],
+    "median_paired_speedup_vs_cublas": 0.0
+  }
+]
