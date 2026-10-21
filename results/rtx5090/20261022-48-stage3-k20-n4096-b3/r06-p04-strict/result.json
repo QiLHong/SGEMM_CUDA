@@ -1,0 +1,54 @@
+{
+  "command": [
+    "/root/autodl-tmp/build-rtx5090-stage3/stock/benchmark",
+    "13"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 3.469060182571411,
+  "original_result": null,
+  "status": "passed",
+  "events": 30,
+  "expected_events": 30,
+  "checks": [
+    {
+      "reference": "not_available",
+      "scope": "legacy_reference_only_or_failed_before_D2H",
+      "elements": "0",
+      "max_abs": "0",
+      "max_rel_denominator_ref": "0",
+      "relative_l2": "0",
+      "abs001_failures": "0",
+      "nan_inf": "0",
+      "status": "NOT_RUN"
+    }
+  ],
+  "round_mean_ms": 2.0023669196666667,
+  "input_fingerprints": [
+    {
+      "matrix": "A",
+      "bytes": "67108864",
+      "fnv1a64": "2f19f83a8b85d342",
+      "algorithm": "FNV1a64_noncryptographic",
+      "layout": "row_major",
+      "stride_floats": "4096"
+    },
+    {
+      "matrix": "B",
+      "bytes": "67108864",
+      "fnv1a64": "25ca2c3a63f05e33",
+      "algorithm": "FNV1a64_noncryptographic",
+      "layout": "row_major",
+      "stride_floats": "4096"
+    },
+    {
+      "matrix": "C0",
+      "bytes": "67108864",
+      "fnv1a64": "b6adb322e597e40",
+      "algorithm": "FNV1a64_noncryptographic",
+      "layout": "row_major",
+      "stride_floats": "4096"
+    }
+  ],
+  "resource_spill_present": false
+}
