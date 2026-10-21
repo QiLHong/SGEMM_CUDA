@@ -1,0 +1,19 @@
+[
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/bn64",
+      "4096",
+      "4096",
+      "4096",
+      "7",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-60-stage4-bn64-n4096-seed20261020/events.csv",
+      "all"
+    ],
+    "binary_sha256": "a47fd818c3429c279ace24cbe3805dc880a6f98f9761e77b44238601d89e8d56",
+    "begin_unix": 1792614350.9599257,
+    "end_unix": 1792614361.5451443,
+    "exit_code": 0
+  }
+]

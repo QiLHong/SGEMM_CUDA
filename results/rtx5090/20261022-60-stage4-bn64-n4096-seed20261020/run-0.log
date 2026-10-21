@@ -1,0 +1,37 @@
+GPU=NVIDIA GeForce RTX 5090 sm=120
+cuBLAS=120804 seed=20261020 alpha=1 beta=0
+maxSharedOptin=101376 CTA_per_SM(original/dynamic16/dynamic32)=2/2/1
+BN64_CTA_per_SM=2
+vitamin_tf32_dbf round=-1 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=-1 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_dynamic_bk32 round=-1 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_bn64_bk32 round=-1 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_dynamic_bk32 round=0 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_bn64_bk32 round=0 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_tf32_dbf round=0 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=0 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_tf32_dbf round=1 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=1 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_bn64_bk32 round=1 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_dynamic_bk32 round=1 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=2 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_dynamic_bk32 round=2 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_bn64_bk32 round=2 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_tf32_dbf round=2 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_bn64_bk32 round=3 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_dynamic_bk32 round=3 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_tf32_dbf round=3 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=3 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_tf32_dbf round=4 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=4 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_dynamic_bk32 round=4 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_bn64_bk32 round=4 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=5 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_bn64_bk32 round=5 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_dynamic_bk32 round=5 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_tf32_dbf round=5 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_dynamic_bk32 round=6 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+tf32_bn64_bk32 round=6 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+vitamin_tf32_dbf round=6 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+cublas_tf32 round=6 original_max_abs=0.746674 represented_max_abs=0.0219727 same_blas_max_abs=0 dtype_gate=PASS original_fp32_abs_001=FAIL
+COMPLETE raw events retained; original-FP32 failures are reported separately
