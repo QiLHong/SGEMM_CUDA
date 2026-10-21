@@ -1,0 +1,19 @@
+[
+  {
+    "command": [
+      "/root/autodl-tmp/build-stage45-sm120-make-20261022/grid",
+      "4096",
+      "4096",
+      "4096",
+      "7",
+      "30",
+      "10",
+      "/root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/20261022-58-stage4-grid-n4096-seed20261020/events.csv",
+      "all"
+    ],
+    "binary_sha256": "1ca96b9023cc6841318cce94de5d093b7dcce4260d2dd644cee7507cdcf3b605",
+    "begin_unix": 1792614177.1259644,
+    "end_unix": 1792614199.8280709,
+    "exit_code": 0
+  }
+]
