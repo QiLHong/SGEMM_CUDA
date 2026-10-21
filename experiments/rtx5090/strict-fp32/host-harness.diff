@@ -1,0 +1,243 @@
+--- scripts/windows_benchmark.cu
++++ experiments/rtx5090/strict-fp32/benchmark.cu
+@@ -1,3 +1,7 @@
++// RTX5090 unified host audit, derived from scripts/windows_benchmark.cu.
++// Device headers and all/sync execution tables unchanged. Default alpha=0.5.
++// New paired group and --alpha 0.5|1; CPU-double checks candidate outputs directly.
++// Exact provenance and host-only diff accompany this file; no GPU result is implied.
+ // 【文件导读】Windows / Linux 共用的独立 FP32 实验入口，不修改原 K10 或 K30。
+ // 来源：本项目 Simon Boehm K10，以及 zh-cn-learning 的 K30 / k30_audit.cu。
+ // 教学方法参考 vitamin-cuda zh-cn-beginner：先写数据流和瓶颈假设，再单因素验证。
+@@ -6,7 +10,7 @@
+ // 不预设性能改善。原 K10 的算法、默认参数不改，也不新增或占用原项目的算法编号。
+ //
+ // Usage: windows_benchmark n beta rounds repeats warmup new.csv
+-//        [all|sync|k10|k10_pad8|k30_v1|k30_v2|strict]
++//        [all|sync|paired|k10|k10_pad8|k30_v1|k30_v2|strict] [--alpha 0.5|1]
+ // all 保留第一阶段 PAD8 实验；sync 对照 K10/K30 V1/K30 V2/strict，V1/V2 相邻交替。
+ // 附加 UTC epoch 毫秒窗口：每项预热之前到该项完整验证之后，用于关联外部周期遥测。
+ // n=128..4096 且为128倍数，beta=0/1/3；正式测量 rounds>=5，检查可用1。
+@@ -33,12 +37,12 @@
+ #include <stdexcept>
+ #include <string>
+ #include <vector>
+-#include "../src/kernels/30_kernel_mini_simt.cuh"
+-#include "../src/kernels/10_kernel_warptiling.cuh"
++#include "../../../src/kernels/30_kernel_mini_simt.cuh"
++#include "../../../src/kernels/10_kernel_warptiling.cuh"
+ 
+ namespace {
+ constexpr std::uint32_t Seed = 20261020U;
+-constexpr float Alpha = 0.5f;
++float Alpha = 0.5f; // Host-only --alpha override; historical default is unchanged.
+ constexpr double Tolerance = 0.01; // 沿用项目绝对误差标准，不以相对误差替代它。
+ using K30Shape = k30::Shape<128,128,16,64,64,4,4,128>;
+ constexpr int K30SharedV1 = (k30::SharedLayoutA<K30Shape>::Size +
+@@ -229,9 +233,9 @@
+ 
+ int main(int argc, char** argv) {
+   try {
+-    if (argc != 7 && argc != 8) {
++    if (argc < 7) {
+       std::fprintf(stderr, "Usage: %s n beta rounds repeats warmup new.csv "
+-                          "[all|sync|k10|k10_pad8|k30_v1|k30_v2|strict]\n", argv[0]);
++                          "[all|sync|paired|k10|k10_pad8|k30_v1|k30_v2|strict] [--alpha 0.5|1]\n", argv[0]);
+       return 2;
+     }
+     const long nInput = parseInteger(argv[1]), betaInput = parseInteger(argv[2]);
+@@ -246,14 +250,77 @@
+     const int n = int(nInput), rounds = int(roundsInput), repeats = int(repeatsInput);
+     const int warmup = int(warmupInput);
+     const float beta = float(betaInput);
+-    const std::string selection = argc >= 8 ? argv[7] : "all";
++    std::string selection = "all";
++    int nextArg = 7;
++    if (nextArg < argc && std::string(argv[nextArg]).rfind("--",0) != 0)
++      selection = argv[nextArg++];
++    bool alphaExplicit = false;
++    while (nextArg < argc) {
++      const std::string option = argv[nextArg++];
++      if (option != "--alpha" || nextArg >= argc || alphaExplicit)
++        throw std::runtime_error("Expected a single trailing --alpha 0.5|1 option.");
++      const std::string value = argv[nextArg++];
++      size_t end = 0;
++      const float parsed = std::stof(value,&end);
++      if (end != value.size() || !(parsed == 0.5f || parsed == 1.0f))
++        throw std::runtime_error("--alpha must be exactly 0.5 or 1.");
++      Alpha = parsed;
++      alphaExplicit = true;
++    }
+     const bool all = selection == "all";
+     const bool sync = selection == "sync";
+-    const Impl selected = (all || sync) ? Impl::K10 : parseImpl(selection);
++    const bool paired = selection == "paired";
++    const Impl selected = (all || sync || paired) ? Impl::K10 : parseImpl(selection);
+     const std::vector<Impl> implementations = all
+         ? std::vector<Impl>{Impl::K10,Impl::Pad8,Impl::K30,Impl::Strict}
+         : sync ? std::vector<Impl>{Impl::K10,Impl::K30V1,Impl::K30,Impl::Strict}
+-               : std::vector<Impl>{selected};
++        : paired ? std::vector<Impl>{Impl::K10,Impl::Pad8,Impl::K30V1,Impl::K30,Impl::Strict}
++                 : std::vector<Impl>{selected};
++    if (std::ifstream(argv[6]).good())
++      throw std::runtime_error("Output already exists; choose a new CSV path.");
++    // 每4轮覆盖 AB/CD、BA/DC、CD/AB、DC/BA：K10与pad8总是相邻，先后也互换。
++    const std::array<std::array<Impl,4>,4> orders = {{
++      {{Impl::K10,Impl::Pad8,Impl::K30,Impl::Strict}},
++      {{Impl::Pad8,Impl::K10,Impl::Strict,Impl::K30}},
++      {{Impl::K30,Impl::Strict,Impl::K10,Impl::Pad8}},
++      {{Impl::Strict,Impl::K30,Impl::Pad8,Impl::K10}}
++    }};
++    const std::array<std::array<Impl,4>,4> syncOrders = {{
++      {{Impl::K10,Impl::K30V1,Impl::K30,Impl::Strict}},
++      {{Impl::Strict,Impl::K30,Impl::K30V1,Impl::K10}},
++      {{Impl::K30V1,Impl::K30,Impl::Strict,Impl::K10}},
++      {{Impl::K10,Impl::Strict,Impl::K30,Impl::K30V1}}
++    }};
++    const std::array<std::array<Impl,5>,7> pairedOrders = {{
++      {{Impl::K10,Impl::Pad8,Impl::K30V1,Impl::K30,Impl::Strict}},
++      {{Impl::Strict,Impl::K30,Impl::K30V1,Impl::Pad8,Impl::K10}},
++      {{Impl::K30V1,Impl::K30,Impl::Strict,Impl::K10,Impl::Pad8}},
++      {{Impl::Pad8,Impl::K10,Impl::Strict,Impl::K30,Impl::K30V1}},
++      {{Impl::Strict,Impl::K10,Impl::Pad8,Impl::K30V1,Impl::K30}},
++      {{Impl::K30,Impl::K30V1,Impl::Pad8,Impl::K10,Impl::Strict}},
++      {{Impl::K10,Impl::Pad8,Impl::Strict,Impl::K30,Impl::K30V1}}
++    }};
++    std::vector<std::vector<Impl>> plannedOrders;
++    for (int round=0; round<rounds; ++round) {
++      plannedOrders.push_back(all
++          ? std::vector<Impl>(orders[round%4].begin(),orders[round%4].end())
++          : sync ? std::vector<Impl>(syncOrders[round%4].begin(),syncOrders[round%4].end())
++          : paired ? std::vector<Impl>(pairedOrders[round%7].begin(),pairedOrders[round%7].end())
++                   : implementations);
++    }
++    const std::string orderPath = std::string(argv[6])+".order.csv";
++    if (std::ifstream(orderPath).good())
++      throw std::runtime_error("Order table already exists; choose a new output path.");
++    // The full order is flushed and closed before any CUDA work.
++    std::ofstream orderCsv(orderPath,std::ios::out);
++    if (!orderCsv) throw std::runtime_error("Cannot create order CSV.");
++    orderCsv << "n,alpha,beta,seed,round,order,implementation\n";
++    for (int round=0; round<rounds; ++round)
++      for (size_t slot=0; slot<plannedOrders[round].size(); ++slot)
++        orderCsv << n << ',' << Alpha << ',' << beta << ',' << Seed << ','
++                 << round+1 << ',' << slot+1 << ',' << name(plannedOrders[round][slot]) << '\n';
++    orderCsv.close();
++    if (!orderCsv) throw std::runtime_error("Failed closing order CSV.");
+     // 不覆盖旧结果；脚本应为每次测量创建新目录。
+     if (std::ifstream(argv[6]).good())
+       throw std::runtime_error("Output already exists; choose a new CSV path.");
+@@ -265,7 +332,9 @@
+            "round_nonfinite_count,reference_nonfinite_count,cpu_reference_count,"
+            "cpu_reference_max_abs_error,cpu_reference_max_rel_error,"
+            "cpu_reference_failure_count,cpu_reference_nonfinite_count,"
+-           "a_hash,b_hash,c0_hash,status,round_start_unix_ms,round_end_unix_ms\n";
++           "a_hash,b_hash,c0_hash,status,round_start_unix_ms,round_end_unix_ms,"
++           "direct_cpu_count,direct_cpu_max_abs_error,direct_cpu_max_rel_error,"
++           "direct_cpu_failure_count,direct_cpu_nonfinite_count\n";
+ 
+     CUDA_OK(cudaSetDevice(0));
+     cudaDeviceProp device{};
+@@ -281,12 +350,14 @@
+       throw std::runtime_error("This benchmark targets the existing SM80+ teaching kernels.");
+     CUDA_OK(cudaFuncSetAttribute(sgemmK30<K30Shape,2>,
+         cudaFuncAttributeMaxDynamicSharedMemorySize,K30Shared));
+-    if (sync || selected == Impl::K30V1)
++    if (sync || paired || selected == Impl::K30V1)
+       CUDA_OK(cudaFuncSetAttribute(sgemmK30<K30Shape,1>,
+           cudaFuncAttributeMaxDynamicSharedMemorySize,K30SharedV1));
+     std::printf("CONFIG,n=%d,alpha=%g,beta=%g,seed=%u,rounds=%d,repeats=%d,warmup=%d,"
+                 "abs_tolerance=%.2f,precision=strict_fp32,selection=%s\n",
+                 n,Alpha,beta,Seed,rounds,repeats,warmup,Tolerance,selection.c_str());
++    std::printf("HOST_ADAPTATION,alpha_explicit=%d,order_file=%s,input_generator=xorshift32_v1,input_hash=FNV1a64_float32_bytes\n",
++                int(alphaExplicit),orderPath.c_str());
+     std::printf("TIMING,C0_D2D_reset_excluded,events_default_stream,"
+                 "allocation_H2D_D2H_validation_warmup_excluded,"
+                 "final_output_validated_per_round\n");
+@@ -331,41 +402,30 @@
+     auto run = [&](Impl impl) {
+       launch(impl,n,beta,da.ptr,db.ptr,dc.ptr,blas.handle);
+     };
+-    auto validate = [&]() {
++    Errors directCpuErrors;
++    auto validate = [&](Impl impl,int round) {
+       CUDA_OK(cudaMemcpy(actual.data(),dc.ptr,bytes,cudaMemcpyDeviceToHost));
++      directCpuErrors = checkCpuReference(n,beta,a,b,initial,actual,indices);
++      std::printf("CPU_CANDIDATE,%s,round=%d,count=%zu,max_abs=%.9g,max_rel=%.9g,failures=%zu,nonfinite=%zu,%s\n",
++          name(impl),round,indices.size(),directCpuErrors.maxAbs,directCpuErrors.maxRel,
++          directCpuErrors.failures,directCpuErrors.nonfinite,directCpuErrors.failures ? "FAIL" : "PASS");
+       return compare(actual,expected);
+     };
+     for (Impl impl : implementations) {
+       reset(); run(impl);
+       CUDA_OK(cudaDeviceSynchronize());
+-      const Errors errors = validate();
++      const Errors errors = validate(impl,0);
+       std::printf("CHECK,%s,n=%d,beta=%g,max_abs=%.9g,max_rel=%.9g,"
+                   "failures=%zu,nonfinite=%zu,%s\n",name(impl),n,beta,errors.maxAbs,
+                   errors.maxRel,errors.failures,errors.nonfinite,
+-                  errors.failures ? "FAIL" : "PASS");
+-      if (errors.failures) throw std::runtime_error(std::string(name(impl)) + " preflight failed.");
+-    }
+-
+-    // 每4轮覆盖 AB/CD、BA/DC、CD/AB、DC/BA：K10与pad8总是相邻，先后也互换。
+-    const std::array<std::array<Impl,4>,4> orders = {{
+-      {{Impl::K10,Impl::Pad8,Impl::K30,Impl::Strict}},
+-      {{Impl::Pad8,Impl::K10,Impl::Strict,Impl::K30}},
+-      {{Impl::K30,Impl::Strict,Impl::K10,Impl::Pad8}},
+-      {{Impl::Strict,Impl::K30,Impl::Pad8,Impl::K10}}
+-    }};
+-    const std::array<std::array<Impl,4>,4> syncOrders = {{
+-      {{Impl::K10,Impl::K30V1,Impl::K30,Impl::Strict}},
+-      {{Impl::Strict,Impl::K30,Impl::K30V1,Impl::K10}},
+-      {{Impl::K30V1,Impl::K30,Impl::Strict,Impl::K10}},
+-      {{Impl::K10,Impl::Strict,Impl::K30,Impl::K30V1}}
+-    }};
++                  (errors.failures || directCpuErrors.failures) ? "FAIL" : "PASS");
++      if (errors.failures || directCpuErrors.failures) throw std::runtime_error(std::string(name(impl)) + " preflight failed.");
++    }
++
+     Events events;
+     std::array<std::vector<double>,5> roundMeans;
+     for (int round = 0; round < rounds; ++round) {
+-      std::vector<Impl> order = all
+-          ? std::vector<Impl>(orders[round%4].begin(),orders[round%4].end())
+-          : sync ? std::vector<Impl>(syncOrders[round%4].begin(),syncOrders[round%4].end())
+-                 : implementations;
++      const auto& order = plannedOrders[round];
+       for (size_t slot = 0; slot < order.size(); ++slot) {
+         const Impl impl = order[slot];
+         const long long roundStart = unixMilliseconds();
+@@ -386,7 +446,7 @@
+           timings.push_back(ms);
+         }
+         // 回读计时轮的最后一个结果。其余样本仅计时；不把它们误称为逐次验算。
+-        const Errors errors = validate();
++        const Errors errors = validate(impl,round+1);
+         const long long roundEnd = unixMilliseconds();
+         const double mean = std::accumulate(timings.begin(),timings.end(),0.0)/timings.size();
+         const double gflops = 2.0*n*n*n/(mean*1.e6);
+@@ -400,8 +460,10 @@
+               << ',' << errors.nonfinite << ',' << referenceNonfinite << ',' << indices.size()
+               << ',' << cpuErrors.maxAbs << ',' << cpuErrors.maxRel << ',' << cpuErrors.failures
+               << ',' << cpuErrors.nonfinite << ',' << aHash << ',' << bHash << ',' << cHash
+-              << ',' << (errors.failures ? "FAIL" : "PASS")
+-              << ',' << roundStart << ',' << roundEnd << '\n';
++              << ',' << ((errors.failures || directCpuErrors.failures) ? "FAIL" : "PASS")
++              << ',' << roundStart << ',' << roundEnd
++              << ',' << indices.size() << ',' << directCpuErrors.maxAbs << ',' << directCpuErrors.maxRel
++              << ',' << directCpuErrors.failures << ',' << directCpuErrors.nonfinite << '\n';
+         }
+         csv.flush();
+         if (!csv) throw std::runtime_error("Failed writing CSV.");
+@@ -410,9 +472,9 @@
+                     "failures=%zu,nonfinite=%zu,%s\n",
+                     name(impl),n,beta,round+1,slot+1,mean,median(timings),gflops,
+                     errors.maxAbs,errors.failures,errors.nonfinite,
+-                    errors.failures ? "FAIL" : "PASS");
++                    (errors.failures || directCpuErrors.failures) ? "FAIL" : "PASS");
+         std::fflush(stdout);
+-        if (errors.failures)
++        if (errors.failures || directCpuErrors.failures)
+           throw std::runtime_error(std::string(name(impl)) + " timed-round output failed.");
+       }
+     }

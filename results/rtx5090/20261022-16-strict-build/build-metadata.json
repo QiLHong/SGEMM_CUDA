@@ -1,0 +1,13 @@
+{
+  "closed": true,
+  "binary_absolute_path": "/root/autodl-tmp/build-rtx5090-strict-paired/rtx5090_strict_fp32",
+  "binary_sha256": "3e66db9a504672bf2d5a1a230e072aa3af6c9307b7f28391dbc5e8c08cc18b9f",
+  "binary_bytes": 1720056,
+  "device_architecture_evidence": "sm_120 present in ptxas build.log",
+  "source_commit_before_build": "5b32d736a89bebfbefd052b40479bd1056770a1b",
+  "cmake_cache_cuda_flags": [
+    "CMAKE_BUILD_TYPE:STRING=Release",
+    "CMAKE_CUDA_ARCHITECTURES:UNINITIALIZED=120",
+    "CMAKE_CUDA_FLAGS:STRING="
+  ]
+}

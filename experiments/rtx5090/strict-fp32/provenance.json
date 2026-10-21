@@ -1,0 +1,49 @@
+{
+  "base_source_commit": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "source_path": "scripts/windows_benchmark.cu",
+  "source_sha256": "c65c79ccaef024e445fc4f0b6623eac330dd3766d81b581580296f97246196f9",
+  "derived_path": "experiments/rtx5090/strict-fp32/benchmark.cu",
+  "derived_sha256": "45ed613fb8da130cc6d1e2290bd64676c358438fa6034d372d91b93a75223b55",
+  "device_headers_unchanged": {
+    "src/kernels/10_kernel_warptiling.cuh": "053eb62df551563168ae6f644b87c4daea45535737bee1d0de9dcfa43be23d13",
+    "src/kernels/30_kernel_mini_simt.cuh": "e437badfd59c602ec3c8d4985c91bcfb30f0bc873eabd31f4027acf0d89499ac"
+  },
+  "device_headers_windows_worktree_sha256": {
+    "src/kernels/10_kernel_warptiling.cuh": "233313c753ba1efc0599ae4a570059f1a515b0ab1040b62df03e81a2af53f9b3",
+    "src/kernels/30_kernel_mini_simt.cuh": "bed81ab2f52df0061af3c7e814ff43b66c851c634cfdb4fed5f22031ecabc4c4"
+  },
+  "device_headers_git_blob_sha256": {
+    "src/kernels/10_kernel_warptiling.cuh": "053eb62df551563168ae6f644b87c4daea45535737bee1d0de9dcfa43be23d13",
+    "src/kernels/30_kernel_mini_simt.cuh": "e437badfd59c602ec3c8d4985c91bcfb30f0bc873eabd31f4027acf0d89499ac"
+  },
+  "materialized_repo_head": "c6fb28f8edd4762f3df18f53dc9ffc444e7097a2",
+  "default_alpha": 0.5,
+  "allowed_explicit_alpha": [
+    0.5,
+    1
+  ],
+  "beta": [
+    0,
+    1,
+    3
+  ],
+  "seed": 20261020,
+  "original_groups_preserved": [
+    "all",
+    "sync"
+  ],
+  "new_group": [
+    "k10",
+    "k10_pad8",
+    "k30_v1",
+    "k30_v2",
+    "strict"
+  ],
+  "modifications": [
+    "relative header paths for isolated directory",
+    "host alpha option",
+    "five-way paired group and pre-generated order CSV",
+    "direct CPU-double candidate validation"
+  ],
+  "gpu_execution": "NOT_RUN_BY_GENERATOR"
+}

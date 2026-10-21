@@ -1,0 +1,6 @@
+{
+  "closed": true,
+  "status": "COMPLETE",
+  "independent_summary_verified": true,
+  "scope": "SM120 build and two full CPU-double n128 smoke checks; no formal performance claim"
+}

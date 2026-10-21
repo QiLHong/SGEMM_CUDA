@@ -1,0 +1,4 @@
+timestamp, index, uuid, pstate, temperature.gpu, clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W], power.limit [W], utilization.gpu [%], memory.used [MiB]
+2026/10/22 01:31:30.885, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P0, 36, 2400 MHz, 14001 MHz, 32.31 W, 575.00 W, 0 %, 2 MiB
+2026/10/22 01:31:31.142, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P0, 36, 2400 MHz, 14001 MHz, 32.31 W, 575.00 W, 0 %, 520 MiB
+2026/10/22 01:31:31.392, 0, GPU-dac1d6f8-f28c-0ab2-5164-613391003e2e, P0, 36, 2400 MHz, 14001 MHz, 32.31 W, 575.00 W, 0 %, 2 MiB
