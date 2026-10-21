@@ -1,0 +1,356 @@
+{
+  "status": "CPU_VALIDATION_PASS",
+  "cuda_compilation": "NOT_RUN",
+  "gpu_execution": "NOT_RUN",
+  "source_commit": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "source_hashes_verified": 34,
+  "prepared_builds": 80,
+  "series": 54,
+  "prepared": [
+    {
+      "id": "stock",
+      "disabled_host_launchers": 0
+    },
+    {
+      "id": "k30",
+      "disabled_host_launchers": 0
+    },
+    {
+      "id": "k31",
+      "disabled_host_launchers": 0
+    },
+    {
+      "id": "k32",
+      "disabled_host_launchers": 0
+    },
+    {
+      "id": "cutlass",
+      "disabled_host_launchers": 0
+    },
+    {
+      "id": "k15-g1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k15-g2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k15-g4",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k15-g8",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k15-g16",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k16-m1s1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k16-m1s2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k16-m1s3",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k16-m3s1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k16-m3s2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k16-m3s3",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k16-m7s1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k16-m7s2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k16-m7s3",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k17-default",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k18-v0",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k18-v1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k18-v2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k18-v3",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k18-v4",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k18-v5",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k19-v1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k19-v2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k19-v3",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k20-v1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k20-v2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k20-v3",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k21-v1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k21-v2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k22-v1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k22-v2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k22-v3",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k23-v1",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k23-v2",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k23-v3",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k23-v4",
+      "disabled_host_launchers": 19
+    },
+    {
+      "id": "k10-tile-baseline",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-bk8",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-bk32",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-sub_8x4_n2",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-sub_4x8_n2",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-sub_8x8_n1",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-sub_4x4_n4",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-sub_4x4_n2",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-warp_128x32",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-warp_32x128",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-threads256_32x64_bk8",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-threads256_32x64_bk16",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-threads256_32x64_bk32",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-threads256_64x32",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-threads256_4x8",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-threads256_8x4",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-block_128x64_bk8",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-block_128x64_bk16",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-block_64x128_bk8",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-block_64x128_bk16",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-block_128x256_bk8",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-block_128x256_bk16",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-block_256x128_bk8",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-tile-block_256x128_bk16",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-pad0",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-pad1",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-pad2",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-pad3",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-pad4",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-pad8",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-pad12",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-minblocks0",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-minblocks1",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-minblocks2",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-minblocks3",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-minblocks4",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-sub8x4n2-minblocks0",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-sub8x4n2-minblocks1",
+      "disabled_host_launchers": 20
+    },
+    {
+      "id": "k10-sub8x4n2-minblocks2",
+      "disabled_host_launchers": 20
+    }
+  ],
+  "archived_ptxas_records_parsed": 13,
+  "archived_spill_records": 1,
+  "synthetic_closure_cases": [
+    {
+      "case": "complete",
+      "complete": true,
+      "formal_events": 420
+    },
+    {
+      "case": "timeout",
+      "complete": false,
+      "formal_events": 210
+    },
+    {
+      "case": "numerical_failure",
+      "complete": false,
+      "formal_events": 210
+    },
+    {
+      "case": "input_mismatch",
+      "complete": false,
+      "formal_events": 420
+    }
+  ],
+  "warning": "Synthetic validation directories are not benchmark results; do not publish them as GPU measurements."
+}

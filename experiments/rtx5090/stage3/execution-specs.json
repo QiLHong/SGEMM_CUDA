@@ -1,0 +1,3834 @@
+{
+  "schema": 1,
+  "source_commit": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "source_hashes": {
+    "sgemm.cu": "ee18ee0959690e829ed290aad7fb95c88e11df13fabf375de685da0c351cf56a",
+    "src/runner.cu": "8435cd3b549537bbda680b0c555b2234e23f09c5004d6d58804a7ab3403cbca9",
+    "src/runner.cuh": "ba248e43d2f4beb3c992ead9347a4a9bcedcd138124cb64355731ff0ae0ed1a8",
+    "src/kernels.cuh": "ed27214df00639709baac9bd7d5449718dddac291c90bab7d98ee25b02b8550c",
+    "src/kernels/10_kernel_warptiling.cuh": "053eb62df551563168ae6f644b87c4daea45535737bee1d0de9dcfa43be23d13",
+    "src/kernels/11_kernel_double_buffering.cuh": "3827b3e705a9c4847f12e3f22ea26cc07b4b6e7c2a7f908c143cfbcc42095a79",
+    "src/kernels/12_kernel_double_buffering.cuh": "68b88749fba0e284a0d0e4d79196ac1b701fdbd3587199cfe12f684de851d4da",
+    "src/kernels/15_kernel_grouped_swizzle.cuh": "0e0c23f14987b449a1dae5a4b1b077245403d8a54afc3bae63a88658bad021fe",
+    "src/kernels/16_kernel_smem_xor_swizzle.cuh": "fbc5f91511ad45a6d06e730e66d27b6578be1c74208b113032561df8feaec3ab",
+    "src/kernels/17_kernel_b_async_pipeline.cuh": "d62d5ce396baf4248388977f5b2e63a144c607853b6ed4cad8e5493517774f5f",
+    "src/kernels/18_kernel_warp_fragment_layout.cuh": "3dfe8c6a2c6d8b59d670293c2579eaea54bce63fee2c5f0459245c23c82a8bbf",
+    "src/kernels/19_kernel_fragment_register_prefetch.cuh": "fc400b6db9393bcd0f8cb34d3c275cd5169832923ea5073e3da368ed5893de0a",
+    "src/kernels/1_naive.cuh": "cd9d1bffe16055f1fb933fdb2f27d764874434e3eadcaa35a46b8832476e2da9",
+    "src/kernels/20_kernel_simt_256x128.cuh": "49fed85e91f9a3eff3c271c47ea1168b350c7ab56cc04161601e69d727897fb3",
+    "src/kernels/21_kernel_cutlass_style_skeleton.cuh": "1c87923605b702067c1740446c65620a49423023f07d42afc05408076fbe0711",
+    "src/kernels/22_kernel_multistage_pipeline.cuh": "5412fbed7ed82c2454f86bb9b7ad315550d00b9824afc1f1f6355adf51b084de",
+    "src/kernels/23_kernel_shared_fragment_iterator.cuh": "9a4cb5dc23704af2b5b79124b152ed845896b9b7cd61c5f18ba5b70d4c654f12",
+    "src/kernels/2_kernel_global_mem_coalesce.cuh": "ee87138cac4abacad059dfaee5113d4f2a644cee50796840311fb0529a8c640a",
+    "src/kernels/30_kernel_mini_simt.cuh": "e437badfd59c602ec3c8d4985c91bcfb30f0bc873eabd31f4027acf0d89499ac",
+    "src/kernels/31_kernel_mini_simt_refine.cuh": "e1d09e3dac46dc4a4619e51b417293c988bf57d46b9cb959a28d932d1dd76162",
+    "src/kernels/32_kernel_warp_specialized.cuh": "e9a45e56318ee163b7b5f6e3fc08b60c761d6d9cc313cc0d4e5a0f150f8a4208",
+    "src/kernels/3_kernel_shared_mem_blocking.cuh": "0838fbc2bcef63daf6468f3e451ea19a70fd441be6960ec90ee8b081d4a6c371",
+    "src/kernels/4_kernel_1D_blocktiling.cuh": "08430ee80095d259730ec3cf7ee2a4ca3b0ac3ad653e64c22451397a473b16ea",
+    "src/kernels/5_kernel_2D_blocktiling.cuh": "5e22247632c3df7679a6a05681e79502aad268f80d74f90cd6f1378023ce3a05",
+    "src/kernels/6_kernel_vectorize.cuh": "7a416aeebe65ecfc157155f137edbd97ee6a6e47f13dd263ddc826cbe5030a06",
+    "src/kernels/7_kernel_resolve_bank_conflicts.cuh": "9726ad93253b3879e62b7afa623ebc71132a69597ddabfdb503892916b1c274a",
+    "src/kernels/8_kernel_bank_extra_col.cuh": "f3473c4560afd7ee6e31fc6d667e36d5e17c0096b0333d1eb617ace70e3584d5",
+    "src/kernels/9_kernel_autotuned.cuh": "5dd2f33feedfa79f35a777bf1d7d56d21b0c23ed64eeb24d2772d4399876f16f",
+    "src/kernels/vendor/vitamin_sgemm.cuh": "12599b00536355e2c49120073f86df72de854ef083459312a25b1e034ae0daa2",
+    "scripts/k30_audit.cu": "2c0c2891957f8396d2b4e1b34f663f880fdebf6bd557835ddc72528c50040822",
+    "scripts/k31_audit.cu": "69d918c12b51421c43b3ecf0f1edf6a5913ba6c223426485c2fb346c86cdd2cd",
+    "scripts/k32_audit.cu": "d383050e85a7c6bb4441fadbba0776dd65a43e532c91c3753d8a0fe07466571c",
+    "scripts/cutlass_simt_reference.cu": "cd537c3245931ebd61878e8c0d3487c8f3616288096f406166cfa39e062f8d4b",
+    "scripts/nvtx_compat.h": "c222fff3a0df543bae539a33f8ee7a855a60920c665683298fc34271e8737f01"
+  },
+  "source_hash_normalization": "CRLF to LF only; actual build worktree raw hashes recorded separately",
+  "source_raw_preparation_hashes": {
+    "sgemm.cu": "d40285c0cad71f3c79749cb51dd63057844d118910f95b92e0d6a35552ef06f5",
+    "src/runner.cu": "c5df5571ea8cd9a7aa5ea14dd187ea86e4ee2070d11b7c5d90b4799144adb9d9",
+    "src/runner.cuh": "2da86b0bf456fb3d6892521c27ddf7e941ea19202f8981771c7e323260e48cbb",
+    "src/kernels.cuh": "fe47592fe34d001c6d2186235fa5197ba56c54e20f777c5a571f30db164b22cb",
+    "src/kernels/10_kernel_warptiling.cuh": "233313c753ba1efc0599ae4a570059f1a515b0ab1040b62df03e81a2af53f9b3",
+    "src/kernels/11_kernel_double_buffering.cuh": "cd11113a2815f8e7101ef6aa39a69cff89b10396143a5cfb42948488c1a7c4f6",
+    "src/kernels/12_kernel_double_buffering.cuh": "fa290c984a6ffe65aeb9ce47a732542f26b18dc2e6d1017818637894bcb18efe",
+    "src/kernels/15_kernel_grouped_swizzle.cuh": "e39d2e3fa0c9622a5e2ea7b412c4c02cab1f563691d5e59a100e1bc9e17f828b",
+    "src/kernels/16_kernel_smem_xor_swizzle.cuh": "571da8903bf97d41ddd0b119dbeb9101c54e4224148e8a5495a744bafe8f2fd1",
+    "src/kernels/17_kernel_b_async_pipeline.cuh": "eab9808c710c61e3efdae52d26cb17f977cd6c25d4dbf1fad89985605802e722",
+    "src/kernels/18_kernel_warp_fragment_layout.cuh": "abd96e9f7c442efe1c75de300d8918a5e474798c197c810377746dc7bfd5bb91",
+    "src/kernels/19_kernel_fragment_register_prefetch.cuh": "189cdce749cbfe75b02f981b3be1c047116743199c35020f04522f9552041f69",
+    "src/kernels/1_naive.cuh": "0a519c90450b718eceeabf62b7004e35c387cb0a1d3dfcb6ebd6620a17c4d773",
+    "src/kernels/20_kernel_simt_256x128.cuh": "5c5e333703fa251578183cccb726c9fcfea3605a601d666c0dd2bad0e3ac389a",
+    "src/kernels/21_kernel_cutlass_style_skeleton.cuh": "4bdfd6452525aba4e2b1deb9ba408f505208241a45fdfa984e6ee305b16cfd49",
+    "src/kernels/22_kernel_multistage_pipeline.cuh": "327f9e5065c5e1ca1af6148eedd647942949c4108841148ad3ae8403394abd0b",
+    "src/kernels/23_kernel_shared_fragment_iterator.cuh": "069c146671107f4cb5f358d6019305f9b317bac800750a64b9355c09af06aa56",
+    "src/kernels/2_kernel_global_mem_coalesce.cuh": "0c55c81600be7bd67cff90a4c2cab7f935f562da1682e403cd3b4356fbc24b2f",
+    "src/kernels/30_kernel_mini_simt.cuh": "bed81ab2f52df0061af3c7e814ff43b66c851c634cfdb4fed5f22031ecabc4c4",
+    "src/kernels/31_kernel_mini_simt_refine.cuh": "8694ea735f0dac64d79f6801af434f1ed55d4f4c27df31e20501f0b94cfccf7a",
+    "src/kernels/32_kernel_warp_specialized.cuh": "ea4cf2767fb26143bfa2ed6af44f0a093e17f46e75592f9c296f8eb5bfdf45a1",
+    "src/kernels/3_kernel_shared_mem_blocking.cuh": "4c9271d2109f3939f2387504b94849dc02dcf5812101912be2c76dae0b7af1ce",
+    "src/kernels/4_kernel_1D_blocktiling.cuh": "803a0392872f96e6bbf9446d52a7d634a7993781e5200c39c9a44d373e09ad7f",
+    "src/kernels/5_kernel_2D_blocktiling.cuh": "d6bf6cdcc00904049560cd38519f1db404c72e2db6629eda1336f9a53ad515c9",
+    "src/kernels/6_kernel_vectorize.cuh": "e0ea209156475c614c8fc3833e73abe0d9b6dd658bf62cd81fa1b189514e74dd",
+    "src/kernels/7_kernel_resolve_bank_conflicts.cuh": "f54dbcdb143b7d147f1df82031f260eeae7252a554a9773bef5190889c77d229",
+    "src/kernels/8_kernel_bank_extra_col.cuh": "26b2b273341ccb9fb1cefa22bedcb4d297d19c99fa3ccd5a52ee815056a540ae",
+    "src/kernels/9_kernel_autotuned.cuh": "2d7a7bfaf51fcc2bab750e7657d9abbed0d30f9d0f88b09d0976d32c17093097",
+    "src/kernels/vendor/vitamin_sgemm.cuh": "12599b00536355e2c49120073f86df72de854ef083459312a25b1e034ae0daa2",
+    "scripts/k30_audit.cu": "f696e4568bf863a261b768812b0a42d471192c7d1dd8086451a3e51fb53b0102",
+    "scripts/k31_audit.cu": "b3882688b343c9877e78ea0af352d27485515efd6f9b558c90dbb0a92dd352e7",
+    "scripts/k32_audit.cu": "c9076fdd6fe9a70033f7676690e1ee052f31f011b8965587160c5a3b43420b2f",
+    "scripts/cutlass_simt_reference.cu": "f3c7e3293e851981d01312e0fc4e428730c37cfa3b56cfa3463b2ae148d8b359",
+    "scripts/nvtx_compat.h": "c222fff3a0df543bae539a33f8ee7a855a60920c665683298fc34271e8737f01"
+  },
+  "builds": {
+    "stock": {
+      "kind": "stock",
+      "defines": {},
+      "kernel": "all",
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k30": {
+      "kind": "k30",
+      "defines": {},
+      "kernel": null,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k31": {
+      "kind": "k31",
+      "defines": {},
+      "kernel": null,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k32": {
+      "kind": "k32",
+      "defines": {},
+      "kernel": null,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "cutlass": {
+      "kind": "cutlass",
+      "defines": {},
+      "kernel": null,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k15-g1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K15_GROUP_M": 1
+      },
+      "kernel": 15,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k15-g2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K15_GROUP_M": 2
+      },
+      "kernel": 15,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k15-g4": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K15_GROUP_M": 4
+      },
+      "kernel": 15,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k15-g8": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K15_GROUP_M": 8
+      },
+      "kernel": 15,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k15-g16": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K15_GROUP_M": 16
+      },
+      "kernel": 15,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k16-m1s1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K16_XOR_MASK": 1,
+        "SGEMM_K16_XOR_SHIFT": 1
+      },
+      "kernel": 16,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k16-m1s2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K16_XOR_MASK": 1,
+        "SGEMM_K16_XOR_SHIFT": 2
+      },
+      "kernel": 16,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k16-m1s3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K16_XOR_MASK": 1,
+        "SGEMM_K16_XOR_SHIFT": 3
+      },
+      "kernel": 16,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k16-m3s1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K16_XOR_MASK": 3,
+        "SGEMM_K16_XOR_SHIFT": 1
+      },
+      "kernel": 16,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k16-m3s2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K16_XOR_MASK": 3,
+        "SGEMM_K16_XOR_SHIFT": 2
+      },
+      "kernel": 16,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k16-m3s3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K16_XOR_MASK": 3,
+        "SGEMM_K16_XOR_SHIFT": 3
+      },
+      "kernel": 16,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k16-m7s1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K16_XOR_MASK": 7,
+        "SGEMM_K16_XOR_SHIFT": 1
+      },
+      "kernel": 16,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k16-m7s2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K16_XOR_MASK": 7,
+        "SGEMM_K16_XOR_SHIFT": 2
+      },
+      "kernel": 16,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k16-m7s3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K16_XOR_MASK": 7,
+        "SGEMM_K16_XOR_SHIFT": 3
+      },
+      "kernel": 16,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k17-default": {
+      "kind": "stock",
+      "defines": {},
+      "kernel": 17,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k18-v0": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K18_VARIANT": 0
+      },
+      "kernel": 18,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k18-v1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K18_VARIANT": 1
+      },
+      "kernel": 18,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k18-v2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K18_VARIANT": 2
+      },
+      "kernel": 18,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k18-v3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K18_VARIANT": 3
+      },
+      "kernel": 18,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k18-v4": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K18_VARIANT": 4
+      },
+      "kernel": 18,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k18-v5": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K18_VARIANT": 5
+      },
+      "kernel": 18,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k19-v1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K19_VARIANT": 1
+      },
+      "kernel": 19,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k19-v2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K19_VARIANT": 2
+      },
+      "kernel": 19,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k19-v3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K19_VARIANT": 3
+      },
+      "kernel": 19,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k20-v1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K20_VARIANT": 1
+      },
+      "kernel": 20,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k20-v2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K20_VARIANT": 2
+      },
+      "kernel": 20,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k20-v3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K20_VARIANT": 3
+      },
+      "kernel": 20,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k21-v1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K21_VARIANT": 1
+      },
+      "kernel": 21,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k21-v2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K21_VARIANT": 2
+      },
+      "kernel": 21,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k22-v1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K22_VARIANT": 1
+      },
+      "kernel": 22,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k22-v2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K22_VARIANT": 2
+      },
+      "kernel": 22,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k22-v3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K22_VARIANT": 3
+      },
+      "kernel": 22,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k23-v1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K23_VARIANT": 1
+      },
+      "kernel": 23,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k23-v2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K23_VARIANT": 2
+      },
+      "kernel": 23,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k23-v3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K23_VARIANT": 3
+      },
+      "kernel": 23,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k23-v4": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K23_VARIANT": 4
+      },
+      "kernel": 23,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-baseline": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 4,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-bk8": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 8,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 4,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-bk32": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 32,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 4,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-sub_8x4_n2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-sub_4x8_n2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 8,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-sub_8x8_n1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 1,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 8,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-sub_4x4_n4": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 4,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-sub_4x4_n2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-warp_128x32": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 128,
+        "SGEMM_K10_WN": 32,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-warp_32x128": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 32,
+        "SGEMM_K10_WN": 128,
+        "SGEMM_K10_WNITER": 4,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-threads256_32x64_bk8": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 8,
+        "SGEMM_K10_WM": 32,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-threads256_32x64_bk16": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 32,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-threads256_32x64_bk32": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 32,
+        "SGEMM_K10_WM": 32,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-threads256_64x32": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 32,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-threads256_4x8": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 32,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 1,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 8,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-threads256_8x4": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 32,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-block_128x64_bk8": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 64,
+        "SGEMM_K10_BK": 8,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 32,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-block_128x64_bk16": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 64,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 32,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-block_64x128_bk8": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 64,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 8,
+        "SGEMM_K10_WM": 32,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 8,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-block_64x128_bk16": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 64,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 32,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_TM": 4,
+        "SGEMM_K10_TN": 8,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 128
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-block_128x256_bk8": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 256,
+        "SGEMM_K10_BK": 8,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 4,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-block_128x256_bk16": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 128,
+        "SGEMM_K10_BN": 256,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 4,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-block_256x128_bk8": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 256,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 8,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 4,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-tile-block_256x128_bk16": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_BM": 256,
+        "SGEMM_K10_BN": 128,
+        "SGEMM_K10_BK": 16,
+        "SGEMM_K10_WM": 64,
+        "SGEMM_K10_WN": 64,
+        "SGEMM_K10_WNITER": 4,
+        "SGEMM_K10_TM": 8,
+        "SGEMM_K10_TN": 4,
+        "SGEMM_K10_AS_PAD": 4,
+        "SGEMM_K10_MIN_BLOCKS": 2,
+        "SGEMM_K10_NUM_THREADS": 256
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-pad0": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_AS_PAD": 0
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-pad1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_AS_PAD": 1
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-pad2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_AS_PAD": 2
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-pad3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_AS_PAD": 3
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-pad4": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_AS_PAD": 4
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-pad8": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_AS_PAD": 8
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-pad12": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_AS_PAD": 12
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-minblocks0": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_MIN_BLOCKS": 0
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-minblocks1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_MIN_BLOCKS": 1
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-minblocks2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_MIN_BLOCKS": 2
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-minblocks3": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_MIN_BLOCKS": 3
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-minblocks4": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_MIN_BLOCKS": 4
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-sub8x4n2-minblocks0": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_MIN_BLOCKS": 0
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-sub8x4n2-minblocks1": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_MIN_BLOCKS": 1
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    },
+    "k10-sub8x4n2-minblocks2": {
+      "kind": "stock",
+      "defines": {
+        "SGEMM_K10_WNITER": 2,
+        "SGEMM_K10_MIN_BLOCKS": 2
+      },
+      "kernel": 10,
+      "arch": "sm_120",
+      "optimization": "-O3 -DNDEBUG",
+      "status": "not_built"
+    }
+  },
+  "series": {
+    "teaching": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k1",
+          "build": "stock",
+          "cli": "1",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k2",
+          "build": "stock",
+          "cli": "2",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k3",
+          "build": "stock",
+          "cli": "3",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k4",
+          "build": "stock",
+          "cli": "4",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k5",
+          "build": "stock",
+          "cli": "5",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k6",
+          "build": "stock",
+          "cli": "6",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k7",
+          "build": "stock",
+          "cli": "7",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k8",
+          "build": "stock",
+          "cli": "8",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k9",
+          "build": "stock",
+          "cli": "9",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k11",
+          "build": "stock",
+          "cli": "11",
+          "min_n": 256,
+          "notes": "Default K11 BN256 requires N>=256"
+        },
+        {
+          "id": "k12",
+          "build": "stock",
+          "cli": "12",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Budget slow K1-3 explicitly; each size is a separate closed batch. K11 at 128 is an illegal shape, not a numeric failure."
+    },
+    "k15": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k15-g1",
+          "build": "k15-g1",
+          "cli": "15",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k15-g2",
+          "build": "k15-g2",
+          "cli": "15",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k15-g4",
+          "build": "k15-g4",
+          "cli": "15",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k15-g8",
+          "build": "k15-g8",
+          "cli": "15",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k15-g16",
+          "build": "k15-g16",
+          "cli": "15",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k16": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k16-m1s1",
+          "build": "k16-m1s1",
+          "cli": "16",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k16-m1s2",
+          "build": "k16-m1s2",
+          "cli": "16",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k16-m1s3",
+          "build": "k16-m1s3",
+          "cli": "16",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k16-m3s1",
+          "build": "k16-m3s1",
+          "cli": "16",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k16-m3s2",
+          "build": "k16-m3s2",
+          "cli": "16",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k16-m3s3",
+          "build": "k16-m3s3",
+          "cli": "16",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k16-m7s1",
+          "build": "k16-m7s1",
+          "cli": "16",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k16-m7s2",
+          "build": "k16-m7s2",
+          "cli": "16",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k16-m7s3",
+          "build": "k16-m7s3",
+          "cli": "16",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261011,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k17": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k17-default",
+          "build": "k17-default",
+          "cli": "17",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261011,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k18": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k18-v0",
+          "build": "k18-v0",
+          "cli": "18",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k18-v1",
+          "build": "k18-v1",
+          "cli": "18",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k18-v2",
+          "build": "k18-v2",
+          "cli": "18",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k18-v3",
+          "build": "k18-v3",
+          "cli": "18",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k18-v4",
+          "build": "k18-v4",
+          "cli": "18",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k18-v5",
+          "build": "k18-v5",
+          "cli": "18",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261011,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k19": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k19-v1",
+          "build": "k19-v1",
+          "cli": "19",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k19-v2",
+          "build": "k19-v2",
+          "cli": "19",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k19-v3",
+          "build": "k19-v3",
+          "cli": "19",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261011,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k20": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k20-v1",
+          "build": "k20-v1",
+          "cli": "20",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k20-v2",
+          "build": "k20-v2",
+          "cli": "20",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k20-v3",
+          "build": "k20-v3",
+          "cli": "20",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261012,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k21": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k21-v1",
+          "build": "k21-v1",
+          "cli": "21",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k21-v2",
+          "build": "k21-v2",
+          "cli": "21",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261012,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 7,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k22": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k22-v1",
+          "build": "k22-v1",
+          "cli": "22",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k22-v2",
+          "build": "k22-v2",
+          "cli": "22",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k22-v3",
+          "build": "k22-v3",
+          "cli": "22",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261012,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k23": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k23-v1",
+          "build": "k23-v1",
+          "cli": "23",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k23-v2",
+          "build": "k23-v2",
+          "cli": "23",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k23-v3",
+          "build": "k23-v3",
+          "cli": "23",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k23-v4",
+          "build": "k23-v4",
+          "cli": "23",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261013,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "K23 V4 historical addendum used 7 rounds; V1-3 original used 3 rounds. This mixed group is not an exact historical replay."
+    },
+    "k30": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "k30",
+          "cli": "strict",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "k30",
+          "cli": "k10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "v1",
+          "build": "k30",
+          "cli": "v1",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "v2",
+          "build": "k30",
+          "cli": "v2",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "v3",
+          "build": "k30",
+          "cli": "v3",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "v4",
+          "build": "k30",
+          "cli": "v4",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261013,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 7,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Independent original audit. Resource gates are historical rules, not current-hardware capability."
+    },
+    "k31": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "k31",
+          "cli": "strict",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "k31",
+          "cli": "k10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k30",
+          "build": "k31",
+          "cli": "k30",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "control",
+          "build": "k31",
+          "cli": "control",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "late",
+          "build": "k31",
+          "cli": "late",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "vectors",
+          "build": "k31",
+          "cli": "vectors",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "stage3",
+          "build": "k31",
+          "cli": "stage3",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "stage4",
+          "build": "k31",
+          "cli": "stage4",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "cta256",
+          "build": "k31",
+          "cli": "cta256",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "r220",
+          "build": "k31",
+          "cli": "r220",
+          "min_n": 128,
+          "notes": "Historical r220 spill 8 B; no automatic resource gate"
+        },
+        {
+          "id": "r225",
+          "build": "k31",
+          "cli": "r225",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "r230",
+          "build": "k31",
+          "cli": "r230",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "r235",
+          "build": "k31",
+          "cli": "r235",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "r240",
+          "build": "k31",
+          "cli": "r240",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261013,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 7,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Independent original audit. Resource gates are historical rules, not current-hardware capability."
+    },
+    "k32": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "k32",
+          "cli": "strict",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "k32",
+          "cli": "k10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k30",
+          "build": "k32",
+          "cli": "k30",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "serial",
+          "build": "k32",
+          "cli": "serial",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "overlap",
+          "build": "k32",
+          "cli": "overlap",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "single",
+          "build": "k32",
+          "cli": "single",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261013,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 6,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Independent original audit. Resource gates are historical rules, not current-hardware capability."
+    },
+    "cutlass": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "cutlass",
+          "cli": "strict",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "cutlass",
+          "cli": "k10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k21",
+          "build": "cutlass",
+          "cli": "k21",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "cutlass",
+          "build": "cutlass",
+          "cli": "cutlass",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261013,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 7,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "CUTLASS v3.5.1 f7b19de32c5d1f3cedfc735c2849f12b537522ee; needs exact clean dependency."
+    },
+    "k10-tile-baseline": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-baseline",
+          "build": "k10-tile-baseline",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-bk8": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-bk8",
+          "build": "k10-tile-bk8",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-bk32": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-bk32",
+          "build": "k10-tile-bk32",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-sub_8x4_n2": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-sub_8x4_n2",
+          "build": "k10-tile-sub_8x4_n2",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-sub_4x8_n2": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-sub_4x8_n2",
+          "build": "k10-tile-sub_4x8_n2",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-sub_8x8_n1": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-sub_8x8_n1",
+          "build": "k10-tile-sub_8x8_n1",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-sub_4x4_n4": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-sub_4x4_n4",
+          "build": "k10-tile-sub_4x4_n4",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-sub_4x4_n2": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-sub_4x4_n2",
+          "build": "k10-tile-sub_4x4_n2",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-warp_128x32": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-warp_128x32",
+          "build": "k10-tile-warp_128x32",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-warp_32x128": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-warp_32x128",
+          "build": "k10-tile-warp_32x128",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-threads256_32x64_bk8": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-threads256_32x64_bk8",
+          "build": "k10-tile-threads256_32x64_bk8",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-threads256_32x64_bk16": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-threads256_32x64_bk16",
+          "build": "k10-tile-threads256_32x64_bk16",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-threads256_32x64_bk32": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-threads256_32x64_bk32",
+          "build": "k10-tile-threads256_32x64_bk32",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-threads256_64x32": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-threads256_64x32",
+          "build": "k10-tile-threads256_64x32",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-threads256_4x8": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-threads256_4x8",
+          "build": "k10-tile-threads256_4x8",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-threads256_8x4": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-threads256_8x4",
+          "build": "k10-tile-threads256_8x4",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-block_128x64_bk8": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-block_128x64_bk8",
+          "build": "k10-tile-block_128x64_bk8",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-block_128x64_bk16": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-block_128x64_bk16",
+          "build": "k10-tile-block_128x64_bk16",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-block_64x128_bk8": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-block_64x128_bk8",
+          "build": "k10-tile-block_64x128_bk8",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-block_64x128_bk16": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-block_64x128_bk16",
+          "build": "k10-tile-block_64x128_bk16",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-block_128x256_bk8": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-block_128x256_bk8",
+          "build": "k10-tile-block_128x256_bk8",
+          "cli": "10",
+          "min_n": 256,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-block_128x256_bk16": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-block_128x256_bk16",
+          "build": "k10-tile-block_128x256_bk16",
+          "cli": "10",
+          "min_n": 256,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-block_256x128_bk8": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-block_256x128_bk8",
+          "build": "k10-tile-block_256x128_bk8",
+          "cli": "10",
+          "min_n": 256,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-tile-block_256x128_bk16": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-tile-block_256x128_bk16",
+          "build": "k10-tile-block_256x128_bk16",
+          "cli": "10",
+          "min_n": 256,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 15,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Historical frozen search used 15 repeats, winner 50; new 7x30 is a separate protocol. No new parameter search."
+    },
+    "k10-pad0": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-pad0",
+          "build": "k10-pad0",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k10-pad1": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-pad1",
+          "build": "k10-pad1",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k10-pad2": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-pad2",
+          "build": "k10-pad2",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k10-pad3": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-pad3",
+          "build": "k10-pad3",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k10-pad4": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-pad4",
+          "build": "k10-pad4",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k10-pad8": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-pad8",
+          "build": "k10-pad8",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k10-pad12": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-pad12",
+          "build": "k10-pad12",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k10-minblocks0": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-minblocks0",
+          "build": "k10-minblocks0",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "minBlocks4 had historical spills; preserve current resource and numeric status."
+    },
+    "k10-minblocks1": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-minblocks1",
+          "build": "k10-minblocks1",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "minBlocks4 had historical spills; preserve current resource and numeric status."
+    },
+    "k10-minblocks2": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-minblocks2",
+          "build": "k10-minblocks2",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "minBlocks4 had historical spills; preserve current resource and numeric status."
+    },
+    "k10-minblocks3": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-minblocks3",
+          "build": "k10-minblocks3",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "minBlocks4 had historical spills; preserve current resource and numeric status."
+    },
+    "k10-minblocks4": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-minblocks4",
+          "build": "k10-minblocks4",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "minBlocks4 had historical spills; preserve current resource and numeric status."
+    },
+    "k10-sub8x4n2-minblocks0": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-sub8x4n2-minblocks0",
+          "build": "k10-sub8x4n2-minblocks0",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k10-sub8x4n2-minblocks1": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-sub8x4n2-minblocks1",
+          "build": "k10-sub8x4n2-minblocks1",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "k10-sub8x4n2-minblocks2": {
+      "candidates": [
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10",
+          "build": "stock",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "k10-sub8x4n2-minblocks2",
+          "build": "k10-sub8x4n2-minblocks2",
+          "cli": "10",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 1,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": ""
+    },
+    "cublas-math-modes": {
+      "candidates": [
+        {
+          "id": "legacy",
+          "build": "stock",
+          "cli": "0",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "strict",
+          "build": "stock",
+          "cli": "13",
+          "min_n": 128,
+          "notes": ""
+        },
+        {
+          "id": "tf32",
+          "build": "stock",
+          "cli": "14",
+          "min_n": 128,
+          "notes": ""
+        }
+      ],
+      "seed": 20261010,
+      "alpha": 0.5,
+      "beta": 3,
+      "original_rounds": 3,
+      "original_repeats": 50,
+      "original_warmup": 10,
+      "event_capture_rounds": 7,
+      "event_capture_repeats": 30,
+      "event_capture_warmup": 10,
+      "sizes": [
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "notes": "Different precision modes: keep TF32 performance outside the strict FP32 table. NVIDIA_TF32_OVERRIDE is unset."
+    }
+  },
+  "protocol_note": "Original single-call event boundaries and independent-process launches retained; host capture adds raw events. This is not same-context unified benchmarking. Each implementation uses the default stream within its own process. Actual input fingerprints are checked across processes. events7 uses 7 rounds x 30 events and 10 warmups. historical-counts only selects archived repeat counts: changed group composition, one-size input allocation, smoke order, and absence of the archived 4096 thermal prelude prevent an exact historical replay claim. Main unified comparisons need a separate harness.",
+  "excluded_unresolved": [
+    "six K10 compiler option families without archived exact values",
+    "threads256 tile launch-bounds tuple unknown",
+    "broad upstream autotuner grids not proven historically measured"
+  ]
+}
