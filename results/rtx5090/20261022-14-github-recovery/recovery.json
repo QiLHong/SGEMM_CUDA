@@ -1,0 +1,114 @@
+{
+  "status": "RECOVERY_VERIFIED",
+  "source_commit": "f14dc4aadb7d5d0d79f07fb2fc58a29a697314a0",
+  "utc": "2026-10-21T17:08:16.459102+00:00",
+  "runtime": {
+    "python_executable": "D:\\Anaconda\\Anaconda\\python.exe",
+    "version": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]"
+  },
+  "download_origin": "GitHub HTTPS fixed commit; fresh directory",
+  "gpu_used": false,
+  "remote_mutations": false,
+  "git_mutations": false,
+  "files": {
+    "docs/zh/rtx5090/manifests/20261022-05-sm120-native-build-smoke.sha256": {
+      "url": "https://raw.githubusercontent.com/QiLHong/SGEMM_CUDA/f14dc4aadb7d5d0d79f07fb2fc58a29a697314a0/docs/zh/rtx5090/manifests/20261022-05-sm120-native-build-smoke.sha256",
+      "bytes": 6068,
+      "git_blob": "0147de568f80c31891fff5a692ab513af42192ea",
+      "git_blob_verified": true,
+      "sha256": "02f878f1af0cb002a122fe3721d36244799154364f61391c5a57da34917e6e3e"
+    },
+    "docs/zh/rtx5090/manifests/20261022-06-native-bf16-1024.sha256": {
+      "url": "https://raw.githubusercontent.com/QiLHong/SGEMM_CUDA/f14dc4aadb7d5d0d79f07fb2fc58a29a697314a0/docs/zh/rtx5090/manifests/20261022-06-native-bf16-1024.sha256",
+      "bytes": 2726,
+      "git_blob": "366399ccf6c8fc78469f25246be4df1368ddad49",
+      "git_blob_verified": true,
+      "sha256": "614f033087d5b4b7893da8d0b9fa97c917ec75abff3d345f7a5e8c42cf17f210"
+    },
+    "scripts/rtx5090/recompute_results.py": {
+      "url": "https://raw.githubusercontent.com/QiLHong/SGEMM_CUDA/f14dc4aadb7d5d0d79f07fb2fc58a29a697314a0/scripts/rtx5090/recompute_results.py",
+      "bytes": 2189,
+      "git_blob": "42fc77883824ba2b5df2a5d9034c6f96c7047e54",
+      "git_blob_verified": true,
+      "sha256": "639206ada9195a85c95ee251e3254d23a03c1d7cc83a79e38b0097768541bea3",
+      "manifest_verified": "docs/zh/rtx5090/manifests/20261022-05-sm120-native-build-smoke.sha256"
+    },
+    "results/rtx5090/20261022-06-native-bf16-1024/data/events.csv": {
+      "url": "https://raw.githubusercontent.com/QiLHong/SGEMM_CUDA/f14dc4aadb7d5d0d79f07fb2fc58a29a697314a0/results/rtx5090/20261022-06-native-bf16-1024/data/events.csv",
+      "bytes": 73220,
+      "git_blob": "0e45b31666005772b7a970a4de8b73c9e50311a1",
+      "git_blob_verified": true,
+      "sha256": "477976ad329849bee1a5b095be2e7e29d4bd554fe3257fcab3e24e57c53d8202",
+      "manifest_verified": "docs/zh/rtx5090/manifests/20261022-06-native-bf16-1024.sha256"
+    },
+    "results/rtx5090/20261022-06-native-bf16-1024/independent-summary.json": {
+      "url": "https://raw.githubusercontent.com/QiLHong/SGEMM_CUDA/f14dc4aadb7d5d0d79f07fb2fc58a29a697314a0/results/rtx5090/20261022-06-native-bf16-1024/independent-summary.json",
+      "bytes": 2518,
+      "git_blob": "eedade6ec6b64d8df8e80a5f705d11e62bbf0d95",
+      "git_blob_verified": true,
+      "sha256": "67eb466bb338ff66ab78ec97d1aef5dee65e3b98b835958f57049c81cbee3f32",
+      "manifest_verified": "docs/zh/rtx5090/manifests/20261022-06-native-bf16-1024.sha256"
+    },
+    "results/rtx5090/20261022-06-native-bf16-1024/BATCH_COMPLETE.json": {
+      "url": "https://raw.githubusercontent.com/QiLHong/SGEMM_CUDA/f14dc4aadb7d5d0d79f07fb2fc58a29a697314a0/results/rtx5090/20261022-06-native-bf16-1024/BATCH_COMPLETE.json",
+      "bytes": 159,
+      "git_blob": "3d14214d7657a686514bad8900a304c4e24ad2ec",
+      "git_blob_verified": true,
+      "sha256": "662ac077db1c61347e40b35ee838750d9fbed03e83075a8b1472b33986ed1e42",
+      "manifest_verified": "docs/zh/rtx5090/manifests/20261022-06-native-bf16-1024.sha256"
+    }
+  },
+  "recovered_script_exit_code": 0,
+  "recomputed_json_equals_uploaded_summary": true,
+  "events": 1050,
+  "group_counts": {
+    "hgemm_bcf_dbf_rw/round0": 30,
+    "hgemm_k_stages/round0": 30,
+    "hgemm_tma_r_k_stages_64/round0": 30,
+    "hgemm_tma_r_k_stages_32/round0": 30,
+    "hgemm_cublas/round0": 30,
+    "hgemm_bcf_dbf_rw/round1": 30,
+    "hgemm_cublas/round1": 30,
+    "hgemm_tma_r_k_stages_32/round1": 30,
+    "hgemm_tma_r_k_stages_64/round1": 30,
+    "hgemm_k_stages/round1": 30,
+    "hgemm_tma_r_k_stages_64/round2": 30,
+    "hgemm_tma_r_k_stages_32/round2": 30,
+    "hgemm_cublas/round2": 30,
+    "hgemm_bcf_dbf_rw/round2": 30,
+    "hgemm_k_stages/round2": 30,
+    "hgemm_tma_r_k_stages_64/round3": 30,
+    "hgemm_k_stages/round3": 30,
+    "hgemm_bcf_dbf_rw/round3": 30,
+    "hgemm_cublas/round3": 30,
+    "hgemm_tma_r_k_stages_32/round3": 30,
+    "hgemm_cublas/round4": 30,
+    "hgemm_bcf_dbf_rw/round4": 30,
+    "hgemm_k_stages/round4": 30,
+    "hgemm_tma_r_k_stages_64/round4": 30,
+    "hgemm_tma_r_k_stages_32/round4": 30,
+    "hgemm_cublas/round5": 30,
+    "hgemm_tma_r_k_stages_32/round5": 30,
+    "hgemm_tma_r_k_stages_64/round5": 30,
+    "hgemm_k_stages/round5": 30,
+    "hgemm_bcf_dbf_rw/round5": 30,
+    "hgemm_k_stages/round6": 30,
+    "hgemm_tma_r_k_stages_64/round6": 30,
+    "hgemm_tma_r_k_stages_32/round6": 30,
+    "hgemm_cublas/round6": 30,
+    "hgemm_bcf_dbf_rw/round6": 30
+  },
+  "recomputed_summary_sha256": "6d0461f6c75cae0c8cb49952ab2465245e86f856fc8e40aed113c60a28750c36",
+  "numeric_acceptance_pass": false,
+  "original_run_exit_code": 2,
+  "interpretation": "Recovery success verifies uploaded bytes and reproducible statistics, not numerical acceptance. Original numerical failure remains recorded.",
+  "command": [
+    "D:\\Anaconda\\Anaconda\\python.exe",
+    "D:\\CUDA-Lab\\cuda-learning\\rtx5090-execution-20261022\\recovery-f14dc4a-20261022-02\\restored\\scripts\\rtx5090\\recompute_results.py",
+    "D:\\CUDA-Lab\\cuda-learning\\rtx5090-execution-20261022\\recovery-f14dc4a-20261022-02\\restored\\results\\rtx5090\\20261022-06-native-bf16-1024\\data\\events.csv",
+    "--expected-events",
+    "1050",
+    "--output",
+    "D:\\CUDA-Lab\\cuda-learning\\rtx5090-execution-20261022\\recovery-f14dc4a-20261022-02\\recomputed-summary.json"
+  ]
+}

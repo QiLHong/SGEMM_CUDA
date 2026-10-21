@@ -1,0 +1,12 @@
+{
+  "attempt1": {
+    "directory": "recovery-f14dc4a-20261022",
+    "status": "RECOVERY_HELPER_ERROR",
+    "reason": "Initial helper incorrectly required mutable publication-log entries to match across different historical checkpoint manifests; payload Git blobs had verified. No remote data was changed."
+  },
+  "attempt2": {
+    "directory": "recovery-f14dc4a-20261022-02",
+    "status": "RECOVERY_VERIFIED",
+    "fix": "Verify each payload against its owning checkpoint manifest, and both manifests against pinned Git blobs. Redownload all six files into a new directory."
+  }
+}
