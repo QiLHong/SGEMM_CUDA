@@ -1,0 +1,21 @@
+{
+  "python": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\python.exe",
+  "python_version": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+  "scope": "Import/version/CUDA availability and device-property queries only. No tensors, GEMM, benchmark, profiler, installation, or persistent flag changes.",
+  "torch_import": "PASS",
+  "torch_version": "2.5.1",
+  "torch_cuda_build": "12.4",
+  "cuda_available": true,
+  "cuda_device_count": 1,
+  "matmul_allow_tf32": false,
+  "cudnn_allow_tf32": true,
+  "float32_matmul_precision": "highest",
+  "cuda_device_name": "NVIDIA GeForce RTX 4090 D",
+  "cuda_device_capability": [
+    8,
+    9
+  ],
+  "torchvision_import": "PASS",
+  "torchvision_version": "0.20.1",
+  "warnings": []
+}

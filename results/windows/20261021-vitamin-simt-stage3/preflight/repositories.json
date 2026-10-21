@@ -1,0 +1,12 @@
+[
+  {
+    "repo": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA",
+    "commit": "545fb01a576ae38d84d00df6359e084eb14c94c2",
+    "branch": "results/rtx4090d-k30-stage2-20261021"
+  },
+  {
+    "repo": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda",
+    "commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+    "branch": "zh-cn-beginner"
+  }
+]

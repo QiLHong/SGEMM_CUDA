@@ -1,0 +1,12 @@
+[
+  {
+    "loaded_or_build_source": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-python\\vitamin_windows_probe\\vitamin_windows_probe.pyd",
+    "archived": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python04\\extension-vitamin_windows_probe.pyd",
+    "sha256": "6bde70d09b1a7b7668341c7d02f81819fdd4309ef14db730daba1f4cd7202a34"
+  },
+  {
+    "loaded_or_build_source": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-python\\vitamin_windows_probe\\build.ninja",
+    "archived": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python04\\extension-build.ninja",
+    "sha256": "10d86c6fadbe408d8dbbdcc6aefbd99308dfd82cd2bdb0c370a42e8ea9217f3c"
+  }
+]

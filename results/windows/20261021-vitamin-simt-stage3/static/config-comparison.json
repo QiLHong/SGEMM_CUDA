@@ -1,0 +1,409 @@
+{
+  "first": {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\B\\binary.sass",
+    "sha256": "48ec843c64cffd04a6fdfc819b00566296bc560bea7f21592ecbb99dd856dfa3"
+  },
+  "second": {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\A\\binary.sass",
+    "sha256": "24161315da487ccbfa079cca4be96aca31014e09787cb97b74992cb6901da5b2"
+  },
+  "scope": "All parsed SASS instructions in every matched architecture/function; not only main loops.",
+  "normalization": "Remove .FTZ from the opcode token only; retain instruction order, predicates and operands.",
+  "excluded": "cuobjdump headers, source-line comments, instruction PC labels and binary encodings.",
+  "meaning": "Textual normalized equality does not make FTZ arithmetic semantically identical.",
+  "all_functions_normalized_equal": true,
+  "functions": [
+    {
+      "arch": "sm_89",
+      "function": "_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf",
+      "mode": "k10",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 2768,
+      "second_static_instructions": 2768,
+      "raw_different_positions": 2304,
+      "normalized_different_positions": 0,
+      "raw_equal": false,
+      "normalized_equal": true,
+      "raw_first_8_differences": [
+        {
+          "position": 154,
+          "first": "FFMA R139, R68, R64, R139",
+          "second": "FFMA.FTZ R139, R68, R64, R139"
+        },
+        {
+          "position": 155,
+          "first": "FFMA R133, R64.reuse, R69, R133",
+          "second": "FFMA.FTZ R133, R64.reuse, R69, R133"
+        },
+        {
+          "position": 156,
+          "first": "FFMA R127, R64.reuse, R70, R127",
+          "second": "FFMA.FTZ R127, R64.reuse, R70, R127"
+        },
+        {
+          "position": 157,
+          "first": "FFMA R112, R64, R71, R112",
+          "second": "FFMA.FTZ R112, R64, R71, R112"
+        },
+        {
+          "position": 158,
+          "first": "FFMA R119, R72, R64, R119",
+          "second": "FFMA.FTZ R119, R72, R64, R119"
+        },
+        {
+          "position": 159,
+          "first": "FFMA R104, R64.reuse, R73, R104",
+          "second": "FFMA.FTZ R104, R64.reuse, R73, R104"
+        },
+        {
+          "position": 160,
+          "first": "FFMA R111, R64.reuse, R74, R111",
+          "second": "FFMA.FTZ R111, R64.reuse, R74, R111"
+        },
+        {
+          "position": 161,
+          "first": "FFMA R60, R64, R75, R60",
+          "second": "FFMA.FTZ R60, R64, R75, R60"
+        }
+      ],
+      "normalized_first_8_differences": []
+    },
+    {
+      "arch": "sm_89",
+      "function": "_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf",
+      "mode": "k30_v2",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 3360,
+      "second_static_instructions": 3360,
+      "raw_different_positions": 2449,
+      "normalized_different_positions": 0,
+      "raw_equal": false,
+      "normalized_equal": true,
+      "raw_first_8_differences": [
+        {
+          "position": 217,
+          "first": "FFMA R200, R64.reuse, R105, R155",
+          "second": "FFMA.FTZ R200, R64.reuse, R105, R155"
+        },
+        {
+          "position": 218,
+          "first": "FFMA R181, R64, R104.reuse, R181",
+          "second": "FFMA.FTZ R181, R64, R104.reuse, R181"
+        },
+        {
+          "position": 219,
+          "first": "FFMA R196, R65, R104.reuse, R196",
+          "second": "FFMA.FTZ R196, R65, R104.reuse, R196"
+        },
+        {
+          "position": 220,
+          "first": "FFMA R183, R66, R104, R183",
+          "second": "FFMA.FTZ R183, R66, R104, R183"
+        },
+        {
+          "position": 221,
+          "first": "FFMA R155, R106.reuse, R60, R101",
+          "second": "FFMA.FTZ R155, R106.reuse, R60, R101"
+        },
+        {
+          "position": 222,
+          "first": "FFMA R202, R106.reuse, R61, R100",
+          "second": "FFMA.FTZ R202, R106.reuse, R61, R100"
+        },
+        {
+          "position": 223,
+          "first": "FFMA R187, R106.reuse, R62, R103",
+          "second": "FFMA.FTZ R187, R106.reuse, R62, R103"
+        },
+        {
+          "position": 224,
+          "first": "FFMA R204, R106, R63, R102",
+          "second": "FFMA.FTZ R204, R106, R63, R102"
+        }
+      ],
+      "normalized_first_8_differences": []
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda19sgemm_tiling_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_tiling",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 1264,
+      "second_static_instructions": 1264,
+      "raw_different_positions": 1024,
+      "normalized_different_positions": 0,
+      "raw_equal": false,
+      "normalized_equal": true,
+      "raw_first_8_differences": [
+        {
+          "position": 134,
+          "first": "FFMA R104, R72, R76.reuse, R24",
+          "second": "FFMA.FTZ R104, R72, R76.reuse, R24"
+        },
+        {
+          "position": 135,
+          "first": "FFMA R105, R73, R76.reuse, R25",
+          "second": "FFMA.FTZ R105, R73, R76.reuse, R25"
+        },
+        {
+          "position": 136,
+          "first": "FFMA R106, R74, R76.reuse, R26",
+          "second": "FFMA.FTZ R106, R74, R76.reuse, R26"
+        },
+        {
+          "position": 137,
+          "first": "FFMA R107, R75, R76.reuse, R27",
+          "second": "FFMA.FTZ R107, R75, R76.reuse, R27"
+        },
+        {
+          "position": 138,
+          "first": "FFMA R108, R80, R76.reuse, R28",
+          "second": "FFMA.FTZ R108, R80, R76.reuse, R28"
+        },
+        {
+          "position": 139,
+          "first": "FFMA R109, R81, R76.reuse, R29",
+          "second": "FFMA.FTZ R109, R81, R76.reuse, R29"
+        },
+        {
+          "position": 140,
+          "first": "FFMA R110, R82, R76.reuse, R30",
+          "second": "FFMA.FTZ R110, R82, R76.reuse, R30"
+        },
+        {
+          "position": 142,
+          "first": "FFMA R76, R83, R76, R31",
+          "second": "FFMA.FTZ R76, R83, R76, R31"
+        }
+      ],
+      "normalized_first_8_differences": []
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda22sgemm_at_tiling_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_tiling",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 1264,
+      "second_static_instructions": 1264,
+      "raw_different_positions": 1024,
+      "normalized_different_positions": 0,
+      "raw_equal": false,
+      "normalized_equal": true,
+      "raw_first_8_differences": [
+        {
+          "position": 136,
+          "first": "FFMA R73, R86, R88.reuse, R56",
+          "second": "FFMA.FTZ R73, R86, R88.reuse, R56"
+        },
+        {
+          "position": 137,
+          "first": "FFMA R103, R84, R88, R64",
+          "second": "FFMA.FTZ R103, R84, R88, R64"
+        },
+        {
+          "position": 138,
+          "first": "FFMA R56, R93.reuse, R89, R53",
+          "second": "FFMA.FTZ R56, R93.reuse, R89, R53"
+        },
+        {
+          "position": 139,
+          "first": "FFMA R53, R86, R90, R58",
+          "second": "FFMA.FTZ R53, R86, R90, R58"
+        },
+        {
+          "position": 140,
+          "first": "FFMA R58, R93, R91.reuse, R55",
+          "second": "FFMA.FTZ R58, R93, R91.reuse, R55"
+        },
+        {
+          "position": 141,
+          "first": "FFMA R72, R95.reuse, R91, R27",
+          "second": "FFMA.FTZ R72, R95.reuse, R91, R27"
+        },
+        {
+          "position": 142,
+          "first": "FFMA R27, R84, R68.reuse, R36",
+          "second": "FFMA.FTZ R27, R84, R68.reuse, R36"
+        },
+        {
+          "position": 143,
+          "first": "FFMA R55, R86, R68, R32",
+          "second": "FFMA.FTZ R55, R86, R68, R32"
+        }
+      ],
+      "normalized_first_8_differences": []
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda29sgemm_at_bcf_swizzling_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_bcf_swizzling",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 1280,
+      "second_static_instructions": 1280,
+      "raw_different_positions": 1024,
+      "normalized_different_positions": 0,
+      "raw_equal": false,
+      "normalized_equal": true,
+      "raw_first_8_differences": [
+        {
+          "position": 150,
+          "first": "FFMA R111, R92, R96.reuse, R28",
+          "second": "FFMA.FTZ R111, R92, R96.reuse, R28"
+        },
+        {
+          "position": 151,
+          "first": "FFMA R80, R93, R96.reuse, R16",
+          "second": "FFMA.FTZ R80, R93, R96.reuse, R16"
+        },
+        {
+          "position": 152,
+          "first": "FFMA R81, R94, R96.reuse, R12",
+          "second": "FFMA.FTZ R81, R94, R96.reuse, R12"
+        },
+        {
+          "position": 153,
+          "first": "FFMA R72, R95, R96.reuse, R72",
+          "second": "FFMA.FTZ R72, R95, R96.reuse, R72"
+        },
+        {
+          "position": 154,
+          "first": "FFMA R83, R100, R96.reuse, R56",
+          "second": "FFMA.FTZ R83, R100, R96.reuse, R56"
+        },
+        {
+          "position": 155,
+          "first": "FFMA R60, R101, R96.reuse, R60",
+          "second": "FFMA.FTZ R60, R101, R96.reuse, R60"
+        },
+        {
+          "position": 156,
+          "first": "FFMA R85, R102, R96.reuse, R64",
+          "second": "FFMA.FTZ R85, R102, R96.reuse, R64"
+        },
+        {
+          "position": 157,
+          "first": "FFMA R68, R103, R96, R68",
+          "second": "FFMA.FTZ R68, R103, R96, R68"
+        }
+      ],
+      "normalized_first_8_differences": []
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda32sgemm_at_bcf_swizzling_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_bcf_swizzling_rw",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 1272,
+      "second_static_instructions": 1272,
+      "raw_different_positions": 1024,
+      "normalized_different_positions": 0,
+      "raw_equal": false,
+      "normalized_equal": true,
+      "raw_first_8_differences": [
+        {
+          "position": 142,
+          "first": "FFMA R111, R92, R96.reuse, R28",
+          "second": "FFMA.FTZ R111, R92, R96.reuse, R28"
+        },
+        {
+          "position": 143,
+          "first": "FFMA R80, R93, R96.reuse, R16",
+          "second": "FFMA.FTZ R80, R93, R96.reuse, R16"
+        },
+        {
+          "position": 144,
+          "first": "FFMA R81, R94, R96.reuse, R12",
+          "second": "FFMA.FTZ R81, R94, R96.reuse, R12"
+        },
+        {
+          "position": 145,
+          "first": "FFMA R72, R95, R96.reuse, R72",
+          "second": "FFMA.FTZ R72, R95, R96.reuse, R72"
+        },
+        {
+          "position": 146,
+          "first": "FFMA R83, R100, R96.reuse, R56",
+          "second": "FFMA.FTZ R83, R100, R96.reuse, R56"
+        },
+        {
+          "position": 147,
+          "first": "FFMA R60, R101, R96.reuse, R60",
+          "second": "FFMA.FTZ R60, R101, R96.reuse, R60"
+        },
+        {
+          "position": 148,
+          "first": "FFMA R85, R102, R96.reuse, R64",
+          "second": "FFMA.FTZ R85, R102, R96.reuse, R64"
+        },
+        {
+          "position": 149,
+          "first": "FFMA R68, R103, R96, R68",
+          "second": "FFMA.FTZ R68, R103, R96, R68"
+        }
+      ],
+      "normalized_first_8_differences": []
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_bcf_swizzling_dbf_rw",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 2448,
+      "second_static_instructions": 2448,
+      "raw_different_positions": 2048,
+      "normalized_different_positions": 0,
+      "raw_equal": false,
+      "normalized_equal": true,
+      "raw_first_8_differences": [
+        {
+          "position": 182,
+          "first": "FFMA R122, R38, R51, R108",
+          "second": "FFMA.FTZ R122, R38, R51, R108"
+        },
+        {
+          "position": 183,
+          "first": "FFMA R79, R36.reuse, R48, R79",
+          "second": "FFMA.FTZ R79, R36.reuse, R48, R79"
+        },
+        {
+          "position": 184,
+          "first": "FFMA R90, R36.reuse, R49, R90",
+          "second": "FFMA.FTZ R90, R36.reuse, R49, R90"
+        },
+        {
+          "position": 185,
+          "first": "FFMA R91, R36, R50, R91",
+          "second": "FFMA.FTZ R91, R36, R50, R91"
+        },
+        {
+          "position": 186,
+          "first": "FFMA R124, R38.reuse, R25, R118",
+          "second": "FFMA.FTZ R124, R38.reuse, R25, R118"
+        },
+        {
+          "position": 187,
+          "first": "FFMA R109, R38, R26, R107",
+          "second": "FFMA.FTZ R109, R38, R26, R107"
+        },
+        {
+          "position": 188,
+          "first": "FFMA R104, R36.reuse, R51, R104",
+          "second": "FFMA.FTZ R104, R36.reuse, R51, R104"
+        },
+        {
+          "position": 189,
+          "first": "FFMA R97, R36.reuse, R24, R97",
+          "second": "FFMA.FTZ R97, R36.reuse, R24, R97"
+        }
+      ],
+      "normalized_first_8_differences": []
+    }
+  ]
+}

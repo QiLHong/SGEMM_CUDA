@@ -17,6 +17,8 @@
 #include <ctime>
 #include <fstream>
 #include <iostream>
+#include <string>
+#include <limits>
 #include <runner.cuh>
 #include <vector>
 
@@ -287,7 +289,7 @@ int main(int argc, char **argv) {
         for (long i = 0; i < m * n; ++i) {
           const double diff = std::fabs(static_cast<double>(C_ref[i]) - C[i]);
           if (!std::isfinite(diff)) {
-            maxAbsDiff = INFINITY;
+            maxAbsDiff = std::numeric_limits<double>::infinity();
             ++overThreshold;
           } else {
             maxAbsDiff = std::max(maxAbsDiff, diff);
@@ -340,7 +342,8 @@ int main(int argc, char **argv) {
     }
 
     // 按 GEMM 主体的乘+加计数：约 2*M*N*K FLOPs；不是字节数。
-    long flops = 2 * m * n * k;
+    // Windows LLP64 的 long 只有 32 位；1024³ 起即溢出，必须先提升乘法。
+    const double flops = 2.0 * m * n * k;
     printf(
         "Average elapsed time: (%7.6f) s, performance: (%7.1f) GFLOPS. size: "
         "(%ld).\n",

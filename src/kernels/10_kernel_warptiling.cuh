@@ -19,6 +19,11 @@
 #include <cublas_v2.h>
 #include <cuda_runtime.h>
 
+#ifdef _WIN32
+// Linux 系统头间接提供的 uint 不是标准 C++ 类型；MSVC 显式补同义类型。
+using uint = unsigned int;
+#endif
+
 #define CEIL_DIV(M, N) (((M) + (N)-1) / (N))
 const int WARPSIZE = 32; // 内建 warpSize 不是 constexpr，这里供编译期公式使用。
 

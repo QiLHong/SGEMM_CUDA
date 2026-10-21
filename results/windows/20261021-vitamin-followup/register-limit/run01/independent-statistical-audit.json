@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "formal_events_recomputed": 1260,
+  "invocations": 44,
+  "formal_rounds": 42,
+  "sidecar_check_rows": 132,
+  "input_hashes_consistent": true,
+  "alternating_order_checked": true,
+  "all_event_fields_checked": true,
+  "round_means_summary_and_paired_medians_recomputed": true,
+  "paired": [
+    {
+      "n": 1024,
+      "median_speedup_pct": -7.39895297527664,
+      "positive_pairs": 0,
+      "all_pairs_pct": [
+        -7.153830853959531,
+        -7.687551139305382,
+        -7.944889741593297,
+        -7.274012036821653,
+        -7.39895297527664,
+        -7.113959370689127,
+        -7.741914662258975
+      ]
+    },
+    {
+      "n": 2048,
+      "median_speedup_pct": -2.4977199444487175,
+      "positive_pairs": 0,
+      "all_pairs_pct": [
+        -2.265700439318441,
+        -2.5245388030996296,
+        -2.198362639483109,
+        -2.52474774176239,
+        -2.503401436232633,
+        -2.4977199444487175,
+        -0.8706336600223352
+      ]
+    },
+    {
+      "n": 4096,
+      "median_speedup_pct": 2.610080181020491,
+      "positive_pairs": 6,
+      "all_pairs_pct": [
+        5.614121532528049,
+        0.22548477124557653,
+        2.610080181020491,
+        -0.7323942755677049,
+        2.9963206897331673,
+        3.103650601265251,
+        0.6488385729269908
+      ]
+    }
+  ],
+  "note": "Independent calculation from raw events; no deletion of slow samples.",
+  "sidecar_phases_error_fields_and_coverage_checked": true,
+  "max_abs_error": 0.00341796875,
+  "audit_note": "Initial auditor expected phase name round; corrected to actual schema timed_round, without changing raw records."
+}

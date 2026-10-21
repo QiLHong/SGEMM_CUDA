@@ -1,0 +1,136 @@
+[
+  {
+    "attempt": "original_load",
+    "source": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+    "default_main_executed": false,
+    "upstream_load_arguments": {
+      "name": "gemm_lib",
+      "sources": [
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm.cu",
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\cublas.cu",
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm_tf32.cu"
+      ],
+      "extra_cuda_cflags": [
+        "-O3",
+        "-std=c++17",
+        "-U__CUDA_NO_HALF_OPERATORS__",
+        "-U__CUDA_NO_HALF_CONVERSIONS__",
+        "-U__CUDA_NO_HALF2_OPERATORS__",
+        "-U__CUDA_NO_BFLOAT16_CONVERSIONS__",
+        "--expt-relaxed-constexpr",
+        "--expt-extended-lambda",
+        "--use_fast_math",
+        "-Xptxas -v"
+      ],
+      "extra_cflags": [
+        "-O3",
+        "-std=c++17"
+      ],
+      "verbose": true
+    },
+    "effective_load_arguments": {
+      "name": "gemm_lib",
+      "sources": [
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm.cu",
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\cublas.cu",
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm_tf32.cu"
+      ],
+      "extra_cuda_cflags": [
+        "-O3",
+        "-std=c++17",
+        "-U__CUDA_NO_HALF_OPERATORS__",
+        "-U__CUDA_NO_HALF_CONVERSIONS__",
+        "-U__CUDA_NO_HALF2_OPERATORS__",
+        "-U__CUDA_NO_BFLOAT16_CONVERSIONS__",
+        "--expt-relaxed-constexpr",
+        "--expt-extended-lambda",
+        "--use_fast_math",
+        "-Xptxas -v"
+      ],
+      "extra_cflags": [
+        "-O3",
+        "-std=c++17"
+      ],
+      "verbose": true
+    },
+    "status": "FAIL",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\torch\\utils\\cpp_extension.py\", line 2104, in _run_ninja_build\n    subprocess.run(\n  File \"D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['ninja', '-v', '-j', '2']' returned non-zero exit status 1.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_python_probe.py\", line 94, in load_upstream\n    spec.loader.exec_module(module)\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py\", line 14, in <module>\n    lib = load(\n          ^^^^^\n  File \"D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_python_probe.py\", line 84, in observed_load\n    return original_load(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\torch\\utils\\cpp_extension.py\", line 1314, in load\n    return _jit_compile(\n           ^^^^^^^^^^^^^\n  File \"D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\torch\\utils\\cpp_extension.py\", line 1721, in _jit_compile\n    _write_ninja_file_and_build_library(\n  File \"D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\torch\\utils\\cpp_extension.py\", line 1833, in _write_ninja_file_and_build_library\n    _run_ninja_build(\n  File \"D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\torch\\utils\\cpp_extension.py\", line 2120, in _run_ninja_build\n    raise RuntimeError(message) from e\nRuntimeError: Error building extension 'gemm_lib'\n"
+  },
+  {
+    "attempt": "windows_host_link_adapter",
+    "source": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+    "default_main_executed": false,
+    "upstream_load_arguments": {
+      "name": "gemm_lib",
+      "sources": [
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm.cu",
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\cublas.cu",
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm_tf32.cu"
+      ],
+      "extra_cuda_cflags": [
+        "-O3",
+        "-std=c++17",
+        "-U__CUDA_NO_HALF_OPERATORS__",
+        "-U__CUDA_NO_HALF_CONVERSIONS__",
+        "-U__CUDA_NO_HALF2_OPERATORS__",
+        "-U__CUDA_NO_BFLOAT16_CONVERSIONS__",
+        "--expt-relaxed-constexpr",
+        "--expt-extended-lambda",
+        "--use_fast_math",
+        "-Xptxas -v"
+      ],
+      "extra_cflags": [
+        "-O3",
+        "-std=c++17"
+      ],
+      "verbose": true
+    },
+    "adaptations": [
+      "New extension cache name preserves failed original build artifacts.",
+      "Host -O3/-std=c++17 replaced by /O2 and /std:c++17.",
+      "Explicit existing Windows CUDA cublas.lib link dependency.",
+      "Equivalent -Xptxas=-v spelling avoids Windows quoting the upstream two-word string as one unknown option.",
+      "Original CUDA optimization/math flags (including --use_fast_math) and all three CU sources retained."
+    ],
+    "effective_load_arguments": {
+      "name": "vitamin_windows_probe",
+      "sources": [
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm.cu",
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\cublas.cu",
+        "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm_tf32.cu"
+      ],
+      "extra_cuda_cflags": [
+        "-O3",
+        "-std=c++17",
+        "-U__CUDA_NO_HALF_OPERATORS__",
+        "-U__CUDA_NO_HALF_CONVERSIONS__",
+        "-U__CUDA_NO_HALF2_OPERATORS__",
+        "-U__CUDA_NO_BFLOAT16_CONVERSIONS__",
+        "--expt-relaxed-constexpr",
+        "--expt-extended-lambda",
+        "--use_fast_math",
+        "-Xptxas=-v"
+      ],
+      "extra_cflags": [
+        "/O2",
+        "/std:c++17"
+      ],
+      "verbose": true,
+      "extra_ldflags": [
+        "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\lib\\x64\\cublas.lib",
+        "c10.lib",
+        "c10_cuda.lib",
+        "torch_cpu.lib",
+        "torch_cuda.lib",
+        "-INCLUDE:?warp_size@cuda@at@@YAHXZ",
+        "torch.lib",
+        "/LIBPATH:D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\torch\\lib",
+        "torch_python.lib",
+        "/LIBPATH:D:\\Anaconda\\Anaconda\\envs\\pytorch\\libs",
+        "/LIBPATH:C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\lib\\x64",
+        "cudart.lib"
+      ]
+    },
+    "status": "PASS"
+  }
+]

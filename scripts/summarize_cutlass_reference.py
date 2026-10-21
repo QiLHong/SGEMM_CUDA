@@ -31,6 +31,13 @@ p.add_argument("--cutlass-dir",type=Path,default=Path("/tmp/sgemm-cutlass-v3.5.1
 args = p.parse_args()
 args.output.mkdir(parents=True, exist_ok=True)
 
+# 新构建记录实际 -arch；无元数据时只保留旧脚本默认值，并明确标为历史推定。
+architecture_file = args.directory / "cuda-architecture.txt"
+cuda_arch = architecture_file.read_text().strip() if architecture_file.exists() else "sm_86"
+architecture_source = "cuda-architecture.txt" if architecture_file.exists() else "legacy default (metadata missing)"
+if not re.fullmatch(r"sm_[0-9]+[a-z]?", cuda_arch):
+    raise ValueError(f"Invalid CUDA architecture metadata: {cuda_arch!r}")
+
 # 把派生结果写入新文件或按本函数规则核对旧内容，保存历史证据；不要手工改 CSV 数字来凑结论。
 def write(name, rows):
     buffer = io.StringIO(newline="")
@@ -154,7 +161,8 @@ if not (args.output/"environment.txt").exists():
                 ["nvidia-smi","--query-gpu=name,uuid,driver_version","--format=csv"]]:
         result = subprocess.run(cmd, text=True, capture_output=True)
         out.write(" ".join(cmd)+"\n"+result.stdout+result.stderr+"\n")
-    out.write("nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
+    out.write(f"nvcc -O3 -DNDEBUG -std=c++17 -arch={cuda_arch} -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
+    out.write(f"architecture_source={architecture_source}\n")
     out.write("seed=20261013 alpha=0.5 beta=3 reset-C-before-each-call; timed repeat=50 warmup=10\n")
     with (args.output/"environment.txt").open("x") as f: f.write(out.getvalue())
 for row in summary: print(row)

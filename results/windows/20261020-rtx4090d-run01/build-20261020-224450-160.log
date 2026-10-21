@@ -1,0 +1,206 @@
+-- Configuring done (4.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-sm89
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2 cuda_smoke
+ninja: no work to do.
+
+GPU=NVIDIA GeForce RTX 4090 D compute=8.9 VRAM_MiB=24563
+CUDA_SMOKE PASS (257 integer outputs)
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2
+[1/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\sgemm.dir\sgemm.cu.obj -MF CMakeFiles\sgemm.dir\sgemm.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\sgemm.cu -o CMakeFiles\sgemm.dir\sgemm.cu.obj -Xcompiler=-FdCMakeFiles\sgemm.dir\,-FS
+sgemm.cu
+
+tmpxft_00005078_00000000-10_sgemm.cudafe1.cpp
+
+[2/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -lineinfo -Xptxas=-v -MD -MT CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj -MF CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\k30_audit.cu -o CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj -Xcompiler=-FdCMakeFiles\k30_audit.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/30_kernel_mini_simt.cuh(193): warning #177-D: variable "StageSize" was declared but never referenced
+    constexpr int StageSize=ASize+k30::SharedLayoutB<S>::Size;
+                  ^
+          detected during:
+            instantiation of "void sgemmK30<S,STAGES>(int, int, int, float, const float *, const float *, float, float *) [with S=Small, STAGES=1]" at line 42 of D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\k30_audit.cu
+            instantiation of "void configureK30<S,Stages>() [with S=Small, Stages=1]" at line 67 of D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\k30_audit.cu
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi256ELi128ELi16ELi64ELi64ELi4ELi4ELi256EEELi4EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi256ELi128ELi16ELi64ELi64ELi4ELi4ELi256EEELi4EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 225 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi4EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi4EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 233 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 235 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 199 registers, 400 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf' for 'sm_89'
+ptxas info    : Function properties for _Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf
+
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+
+ptxas info    : Used 184 registers, 16640 bytes smem, 400 bytes cmem[0]
+
+k30_audit.cu
+
+tmpxft_00000288_00000000-10_k30_audit.cudafe1.cpp
+
+[3/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\sgemm.dir\src\runner.cu.obj -MF CMakeFiles\sgemm.dir\src\runner.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu -o CMakeFiles\sgemm.dir\src\runner.cu.obj -Xcompiler=-FdCMakeFiles\sgemm.dir\,-FS
+FAILED: CMakeFiles/sgemm.dir/src/runner.cu.obj 
+"C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\sgemm.dir\src\runner.cu.obj -MF CMakeFiles\sgemm.dir\src\runner.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu -o CMakeFiles\sgemm.dir\src\runner.cu.obj -Xcompiler=-FdCMakeFiles\sgemm.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(278): error: expected a ")"
+    if (M >= 128 and N >= 128) {
+                 ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(302): error: expected a ")"
+    if (M >= 128 and N >= 128) {
+                 ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(326): error: expected a ")"
+    if (M >= 128 and N >= 128) {
+                 ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(350): error: expected a ")"
+    if (M >= 128 and N >= 128) {
+                 ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(478): error: expected a ","
+    static_assert((K10_BN % K10_WN == 0) and (K10_BM % K10_WM == 0));
+                                         ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(478): error: expected a string literal
+    static_assert((K10_BN % K10_WN == 0) and (K10_BM % K10_WM == 0));
+                                                                   ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(487): error: expected a ","
+    static_assert((K10_WM % K10_WMITER == 0) and (K10_WN % K10_WNITER == 0));
+                                             ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(487): error: expected a string literal
+    static_assert((K10_WM % K10_WMITER == 0) and (K10_WN % K10_WNITER == 0));
+                                                                           ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(536): error: expected a ","
+    static_assert((BN % WN == 0) and (BM % WM == 0));
+                                 ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(536): error: expected a string literal
+    static_assert((BN % WN == 0) and (BM % WM == 0));
+                                                   ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(541): error: expected a ","
+    static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+                                     ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(541): error: expected a string literal
+    static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+                                                           ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(580): error: expected a ","
+    static_assert((BN % WN == 0) and (BM % WM == 0));
+                                 ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(580): error: expected a string literal
+    static_assert((BN % WN == 0) and (BM % WM == 0));
+                                                   ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(585): error: expected a ","
+    static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+                                     ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(585): error: expected a string literal
+    static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+                                                           ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(620): error: expected a ","
+    static_assert((BN % WN == 0) and (BM % WM == 0));
+                                 ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(620): error: expected a string literal
+    static_assert((BN % WN == 0) and (BM % WM == 0));
+                                                   ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(625): error: expected a ","
+    static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+                                     ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(625): error: expected a string literal
+    static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+                                                           ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(912): error: expected a ","
+    static_assert((K11_BN % K11_WN == 0) and (K11_BM % K11_WM == 0));
+                                         ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(912): error: expected a string literal
+    static_assert((K11_BN % K11_WN == 0) and (K11_BM % K11_WM == 0));
+                                                                   ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(921): error: expected a ","
+    static_assert((K11_WM % K11_WMITER == 0) and (K11_WN % K11_WNITER == 0));
+                                             ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(921): error: expected a string literal
+    static_assert((K11_WM % K11_WMITER == 0) and (K11_WN % K11_WNITER == 0));
+                                                                           ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(964): error: expected a ","
+    static_assert((K12_BN % K12_WN == 0) and (K12_BM % K12_WM == 0));
+                                         ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(964): error: expected a string literal
+    static_assert((K12_BN % K12_WN == 0) and (K12_BM % K12_WM == 0));
+                                                                   ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(973): error: expected a ","
+    static_assert((K12_WM % K12_WMITER == 0) and (K12_WN % K12_WNITER == 0));
+                                             ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src\runner.cu(973): error: expected a string literal
+
+    static_assert((K12_WM % K12_WMITER == 0) and (K12_WN % K12_WNITER == 0));
+
+                                                                           ^
+
+
+
+28 errors detected in the compilation of "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/src/runner.cu".
+
+runner.cu
+
+[4/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\cuBLAS_sgemm.dir\cuBLAS_sgemm.cu.obj -MF CMakeFiles\cuBLAS_sgemm.dir\cuBLAS_sgemm.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\cuBLAS_sgemm.cu -o CMakeFiles\cuBLAS_sgemm.dir\cuBLAS_sgemm.cu.obj -Xcompiler=-FdCMakeFiles\cuBLAS_sgemm.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\cuBLAS_sgemm.cu(25): warning #177-D: variable "cudaStat" was declared but never referenced
+
+    cudaError_t cudaStat;  
+
+                ^
+
+
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\cuBLAS_sgemm.cu(26): warning #550-D: variable "stat" was set but never used
+
+    cublasStatus_t stat;   
+
+                   ^
+
+
+
+cuBLAS_sgemm.cu
+
+tmpxft_000068a8_00000000-10_cuBLAS_sgemm.cudafe1.cpp
+
+ninja: build stopped: subcommand failed.
+

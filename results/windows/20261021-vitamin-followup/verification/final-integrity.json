@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-20T18:15:41.699625+00:00",
+  "sgemm_head": "545fb01a576ae38d84d00df6359e084eb14c94c2",
+  "vitamin_head": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "vitamin_clean": true,
+  "old_stage3_files_verified": 357,
+  "old_stage3_manifest_unchanged": true,
+  "previous_source_files_byte_identical": 351,
+  "previous_source_files_additive_edits": 3,
+  "new_source_files": 10,
+  "source_snapshot_files": 364,
+  "source_snapshot_sha256": "7f209dd5df1021abe696ae26a0f228f5f93c860258bb532de62339e5a2258bf2",
+  "chapter_local_links_verified": 31,
+  "new_python_scripts_syntax_pass": 3,
+  "new_powershell_scripts_syntax_pass": 4,
+  "author_source_batches": 7,
+  "author_source_rows": 49,
+  "register_formal_events": 1260,
+  "register_formal_rounds": 42,
+  "register_correctness_rows": 132,
+  "register_ncu_samples": 8,
+  "git_diff_check": "PASS",
+  "git_commit_push_merge_performed": false,
+  "sanitizer": "not verified",
+  "notes": [
+    "Original author fixed-order wallclock and native paired events remain separate.",
+    "NCU timing is excluded from performance statistics.",
+    "Current successful CPU summary includes only telemetry numeric-token parsing fix; initial failure retained.",
+    "No GPU work during final packaging."
+  ]
+}

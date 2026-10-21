@@ -1,0 +1,37 @@
+{
+  "executable": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\python.exe",
+  "arguments": [
+    "-B",
+    "-u",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_python_probe.py",
+    "--vitamin",
+    "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda",
+    "--output-dir",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\python01",
+    "--sizes",
+    "1024",
+    "2048",
+    "4096"
+  ],
+  "process_environment": {
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "TORCH_EXTENSIONS_DIR": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-python",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "MAX_JOBS": "2",
+    "DISTUTILS_USE_SDK": "1",
+    "NVIDIA_TF32_OVERRIDE": "0"
+  },
+  "original_process_environment": {
+    "TORCH_EXTENSIONS_DIR": null,
+    "TORCH_CUDA_ARCH_LIST": null,
+    "PYTHONDONTWRITEBYTECODE": null,
+    "NVIDIA_TF32_OVERRIDE": null,
+    "DISTUTILS_USE_SDK": null,
+    "MAX_JOBS": null
+  },
+  "cl": "D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe",
+  "nvcc": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe",
+  "ninja": "D:\\VS\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja\\ninja.exe",
+  "script_sha256": "95FD8FDE8E741011FE5C9F7AEBEEA4C878CF389412BBEA8FEFF56C879E5605FC",
+  "scope": "Optional upstream single-batch wallclock protocol; never merge with native event samples."
+}

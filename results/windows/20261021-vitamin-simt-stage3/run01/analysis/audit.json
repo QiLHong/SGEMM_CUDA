@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "raw_events": 10080,
+  "rounds": 336,
+  "correctness_rows": 492,
+  "allclose_failed_checks": 0,
+  "absolute_or_nonfinite_failed_checks": 0,
+  "max_abs_error": 0.00341796875,
+  "max_rel_error": 2.125,
+  "max_cpu_implementation_abs_error": 0.0018326517129025888,
+  "input_fingerprints": {
+    "1024": [
+      "13516797206394986137",
+      "16156175791465964020",
+      "1488143871368926687"
+    ],
+    "2048": [
+      "3031333732612512712",
+      "6373949068176804471",
+      "1360301629677676758"
+    ],
+    "4096": [
+      "12851211713998132973",
+      "4523944563651176609",
+      "15375572585081931327"
+    ],
+    "128": [
+      "12350557075175389799",
+      "18164722883612022857",
+      "12782700796385326220"
+    ],
+    "256": [
+      "470815371941295652",
+      "8685906150660230495",
+      "11266788275463928338"
+    ],
+    "512": [
+      "12275386947047665050",
+      "5793751590765184589",
+      "6406734303292954227"
+    ]
+  },
+  "all_inputs_identical_across_configs": true,
+  "negative_shapes_rejected": 12,
+  "telemetry_raw_points": 214,
+  "round_windows_with_telemetry": 132,
+  "slow_samples_removed": 0,
+  "scope": "Audit success; allclose decisions remain independent. Seven rounds from one WDDM session are not independent sessions."
+}

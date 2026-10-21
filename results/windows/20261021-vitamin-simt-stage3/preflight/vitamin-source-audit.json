@@ -1,0 +1,58 @@
+{
+  "repository": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda",
+  "branch": "zh-cn-beginner",
+  "commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "file_sha256": {
+    "kernels/sgemm/test.py": "cd634a3671e41166b388cf65cde71d98845d419a26a2d9aa783436ea31ff595d",
+    "kernels/sgemm/cublas.cu": "016dfaa173e4f712a531c544c6068c1487cfc81e5e61b70fb44ec1c42d6fd6e8",
+    "kernels/sgemm/sgemm.cu": "21d3ef04b49469755c7e904a4ecc9ce869581f9b0859c757d981c819992369d2"
+  },
+  "test_py_syntax": "PASS: compile() under Python3.12 only; module not imported/executed",
+  "python_runtime_blocker": "D:\\Anaconda\\Anaconda\\python.exe has no torch; torchvision also absent but not imported or needed by this SGEMM test. No installation attempted.",
+  "build": {
+    "common_flags": [
+      "-O3",
+      "-std=c++17"
+    ],
+    "cuda_fast_math": true,
+    "explicit_cuda_architecture": null,
+    "sources": [
+      "sgemm.cu",
+      "cublas.cu",
+      "sgemm_tf32.cu"
+    ],
+    "build_at_import": true,
+    "windows_note": "Original common_flags are GCC-style and passed to both CUDA and host compilers; MSVC host flags need native mapping. This is source review, not an observed extension compile failure."
+  },
+  "math": {
+    "original_semantics": "C=A*B; alpha=1,beta=0",
+    "ordinary_cublas_compute": "CUBLAS_COMPUTE_32F",
+    "ordinary_cublas_algo": "CUBLAS_GEMM_DEFAULT",
+    "handle": "ATen current CUDA cuBLAS handle",
+    "explicit_math_mode": false,
+    "pedantic_compute": false,
+    "torch_tf32_flag_explicit": false,
+    "tf32_branch": "CUBLAS_COMPUTE_32F_FAST_TF32 with CUBLAS_GEMM_DEFAULT_TENSOR_OP",
+    "fast_math_effect": "CUDA12.4 --use_fast_math implies --ftz=true --prec-div=false --prec-sqrt=false --fmad=true. It does not alone turn SIMT FFMA into TF32.",
+    "interpretation": "Ordinary cuBLAS source is not an explicit PEDANTIC control. Do not infer actual TF32 execution from this review; installed PyTorch flags and captured kernels were unavailable."
+  },
+  "measurement": {
+    "timer": "time.perf_counter around CPU dispatch loop and final CUDA synchronize",
+    "warmup": 10,
+    "repetitions": 200,
+    "cuda_events": false,
+    "independent_rounds": 1,
+    "aggregation": "single batch mean",
+    "baseline": "torch.matmul with out=c",
+    "seed": "42 only in test_all; test_4096 and default test_tf32_4096 do not set seed",
+    "default_main": "test_tf32_4096(); test_all() and test_4096() commented out",
+    "correctness": "torch.allclose atol=rtol=1e-3 normally; 0.1 when prefix includes tf32; no separate explicit NaN/Inf counter",
+    "c_reuse": "beta=0 means original kernels overwrite C; no accumulating beta*C dependency"
+  },
+  "references": [
+    "https://github.com/QiLHong/vitamin-cuda/tree/zh-cn-beginner",
+    "https://docs.nvidia.com/cuda/archive/12.4.1/cuda-compiler-driver-nvcc/index.html",
+    "https://docs.nvidia.com/cuda/archive/12.4.1/cublas/index.html"
+  ],
+  "scope": "CPU/source audit only; no original Python execution, extension build, GPU benchmark, profiling, package installation, or persistent configuration change."
+}

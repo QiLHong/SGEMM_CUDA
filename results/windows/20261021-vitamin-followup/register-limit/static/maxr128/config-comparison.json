@@ -1,0 +1,114 @@
+{
+  "first": {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01\\maxr128\\binary.sass",
+    "sha256": "060bb29de93f0e8a8c72332a8cf8e3ceb68336f3fb66d091a2b84ed9fe4a3a36"
+  },
+  "second": {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01\\default\\binary.sass",
+    "sha256": "62904eb356fcc532c619a5cced6ff6e9a5258527f35049cd5112293e58c16aad"
+  },
+  "scope": "All parsed SASS instructions in every matched architecture/function; not only main loops.",
+  "normalization": "Remove .FTZ from the opcode token only; retain instruction order, predicates and operands.",
+  "excluded": "cuobjdump headers, source-line comments, instruction PC labels and binary encodings.",
+  "meaning": "Textual normalized equality does not make FTZ arithmetic semantically identical.",
+  "all_functions_normalized_equal": false,
+  "functions": [
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_bcf_swizzling_dbf_rw",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 2432,
+      "second_static_instructions": 2448,
+      "raw_different_positions": 2436,
+      "normalized_different_positions": 2436,
+      "raw_equal": false,
+      "normalized_equal": false,
+      "raw_first_8_differences": [
+        {
+          "position": 3,
+          "first": "ULDC UR11, c[0x0][0x17c]",
+          "second": "MOV R40, c[0x0][0x180]"
+        },
+        {
+          "position": 4,
+          "first": "MOV R36, c[0x0][0x180]",
+          "second": "ULDC.64 UR8, c[0x0][0x118]"
+        },
+        {
+          "position": 6,
+          "first": "USHF.L.U32 UR8, UR11, 0x3, URZ",
+          "second": "MOV R39, c[0x0][0x17c]"
+        },
+        {
+          "position": 7,
+          "first": "ULDC.64 UR12, c[0x0][0x118]",
+          "second": "SHF.L.U32 R27, R40, 0x6, RZ"
+        },
+        {
+          "position": 13,
+          "first": "SHF.R.S32.HI R7, RZ, 0x2, R4",
+          "second": "SHF.R.S32.HI R5, RZ, 0x2, R4"
+        },
+        {
+          "position": 14,
+          "first": "LOP3.LUT R3, R2, 0xffffffe0, RZ, 0xc0, !PT",
+          "second": "LOP3.LUT R4, R4, 0xfffffffc, RZ, 0xc0, !PT"
+        },
+        {
+          "position": 15,
+          "first": "SHF.R.S32.HI R13, RZ, 0x5, R2",
+          "second": "LEA R7, R0, R5, 0x7"
+        },
+        {
+          "position": 16,
+          "first": "LOP3.LUT R4, R4, 0xfffffffc, RZ, 0xc0, !PT",
+          "second": "LOP3.LUT R3, R2, 0xffffffe0, RZ, 0xc0, !PT"
+        }
+      ],
+      "normalized_first_8_differences": [
+        {
+          "position": 3,
+          "first": "ULDC UR11, c[0x0][0x17c]",
+          "second": "MOV R40, c[0x0][0x180]"
+        },
+        {
+          "position": 4,
+          "first": "MOV R36, c[0x0][0x180]",
+          "second": "ULDC.64 UR8, c[0x0][0x118]"
+        },
+        {
+          "position": 6,
+          "first": "USHF.L.U32 UR8, UR11, 0x3, URZ",
+          "second": "MOV R39, c[0x0][0x17c]"
+        },
+        {
+          "position": 7,
+          "first": "ULDC.64 UR12, c[0x0][0x118]",
+          "second": "SHF.L.U32 R27, R40, 0x6, RZ"
+        },
+        {
+          "position": 13,
+          "first": "SHF.R.S32.HI R7, RZ, 0x2, R4",
+          "second": "SHF.R.S32.HI R5, RZ, 0x2, R4"
+        },
+        {
+          "position": 14,
+          "first": "LOP3.LUT R3, R2, 0xffffffe0, RZ, 0xc0, !PT",
+          "second": "LOP3.LUT R4, R4, 0xfffffffc, RZ, 0xc0, !PT"
+        },
+        {
+          "position": 15,
+          "first": "SHF.R.S32.HI R13, RZ, 0x5, R2",
+          "second": "LEA R7, R0, R5, 0x7"
+        },
+        {
+          "position": 16,
+          "first": "LOP3.LUT R4, R4, 0xfffffffc, RZ, 0xc0, !PT",
+          "second": "LOP3.LUT R3, R2, 0xffffffe0, RZ, 0xc0, !PT"
+        }
+      ]
+    }
+  ]
+}

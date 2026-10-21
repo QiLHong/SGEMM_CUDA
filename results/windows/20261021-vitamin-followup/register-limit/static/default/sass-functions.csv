@@ -1,0 +1,2 @@
+build,function_id,mode,arch,function,static_instructions,FFMA,FADD,FMUL,LDG,LDS,STS,STG,LDL,STL,LDGSTS,BAR,DEPBAR,WARPSYNC,BRA,IMAD,IADD3,MOV,HMMA,MMA,tensor_instructions,ftz_instructions
+default,0,sgemm_at_bcf_swizzling_dbf_rw,sm_89,_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,2448,2048,0,0,8,128,20,16,0,0,0,2,0,0,4,15,26,33,0,0,0,0

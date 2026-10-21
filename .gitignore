@@ -1,4 +1,5 @@
 build/
+build-windows*/
 build-tune/
 build-audit*/
 build-swizzle-*/

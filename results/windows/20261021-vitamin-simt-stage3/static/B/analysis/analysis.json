@@ -1,0 +1,45 @@
+{
+  "build": "B",
+  "inputs": {
+    "sass": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\B\\binary.sass",
+      "sha256": "48ec843c64cffd04a6fdfc819b00566296bc560bea7f21592ecbb99dd856dfa3"
+    },
+    "ptx": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\B\\binary.ptx",
+      "sha256": "f5ef67f6628367f3b5fdd70ef639c847462c8753edf29c7a69635fcccada78c1"
+    },
+    "script": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\analyze_vitamin_evidence.py",
+      "sha256": "0c340664fe79cd23fde5a61d538b7ecd83c092e6b50a2fbddeeeea483076256d"
+    },
+    "sass_reader": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\analyze_windows_k30_sass.py",
+      "sha256": "0a2e64915535dd1ebb647c39d74c5d299bba3a5d45f771d3b924c1d09f50a742"
+    },
+    "binary": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-sm89-B\\windows_vitamin_benchmark.exe",
+      "sha256": "07571199fce69603576f1cdf4c34edca8370b1d9114a0287145a99c6f68e0334"
+    }
+  },
+  "required_modes": [
+    "sgemm_tiling",
+    "sgemm_at_tiling",
+    "sgemm_at_bcf_swizzling",
+    "sgemm_at_bcf_swizzling_rw",
+    "sgemm_at_bcf_swizzling_dbf_rw"
+  ],
+  "loop_selection": "Backward branch interval with maximum static FMA count; shortest tie flagged.",
+  "warnings": [
+    "PTX k10: ambiguous_maximum_static_fma_shortest_interval_selected; inspect candidates manually."
+  ],
+  "limitations": [
+    "Static instruction counts are not dynamic execution counts, cycles, or latency.",
+    "PTX is virtual ISA. Source/PTX prefetch order does not establish final SASS order.",
+    "Load positions and instruction distances alone cannot prove overlap or latency hiding.",
+    "Backward branch selection is a structural heuristic, not a complete control-flow analysis.",
+    "SASS loop counts exclude @!PT; other predicates are not dynamically evaluated.",
+    "Executable dumps do not establish dynamically linked cuBLAS instructions.",
+    "NCU ranges describe observed samples, not confidence intervals or normal benchmark timing."
+  ]
+}

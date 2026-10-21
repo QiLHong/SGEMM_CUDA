@@ -1,0 +1,43 @@
+{
+  "build": "default",
+  "inputs": {
+    "sass": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01\\default\\binary.sass",
+      "sha256": "62904eb356fcc532c619a5cced6ff6e9a5258527f35049cd5112293e58c16aad"
+    },
+    "ptx": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01\\default\\binary.ptx",
+      "sha256": "e48fbddffc2ddda0430af48be1768925a901db30e2da2e6b1b8949b6402dda5d"
+    },
+    "script": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\analyze_vitamin_evidence.py",
+      "sha256": "a8ff7eb9914adc1b478a5334bd4e53ca2f24711f9d3dfaaf514bf303e2b54a18"
+    },
+    "sass_reader": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\analyze_windows_k30_sass.py",
+      "sha256": "0a2e64915535dd1ebb647c39d74c5d299bba3a5d45f771d3b924c1d09f50a742"
+    },
+    "binary": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01\\default\\windows_dbf_default_benchmark.exe",
+      "sha256": "493f1f31e796aaea1195693fae5cbe97c0cad915572deb74d8febf84fa74f62d"
+    },
+    "compare_sass": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\B\\binary.sass",
+      "sha256": "48ec843c64cffd04a6fdfc819b00566296bc560bea7f21592ecbb99dd856dfa3"
+    }
+  },
+  "required_modes": [
+    "sgemm_at_bcf_swizzling_dbf_rw"
+  ],
+  "loop_selection": "Backward branch interval with maximum static FMA count; shortest tie flagged.",
+  "warnings": [],
+  "limitations": [
+    "Static instruction counts are not dynamic execution counts, cycles, or latency.",
+    "PTX is virtual ISA. Source/PTX prefetch order does not establish final SASS order.",
+    "Load positions and instruction distances alone cannot prove overlap or latency hiding.",
+    "Backward branch selection is a structural heuristic, not a complete control-flow analysis.",
+    "SASS loop counts exclude @!PT; other predicates are not dynamically evaluated.",
+    "Executable dumps do not establish dynamically linked cuBLAS instructions.",
+    "NCU ranges describe observed samples, not confidence intervals or normal benchmark timing."
+  ]
+}

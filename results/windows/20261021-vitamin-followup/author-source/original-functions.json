@@ -1,0 +1,17 @@
+{
+  "test_4096": {
+    "source_sha256": "21b853a63361a40cb2779286f400a96d7012d144f590feed8e4496ab28fdfd03",
+    "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+    "first_line": 119
+  },
+  "benchmark": {
+    "source_sha256": "53404f466481afabaa6d4cb945fea60eb105b4bd10e013c2dd781398cd3131c3",
+    "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+    "first_line": 35
+  },
+  "diff_check": {
+    "source_sha256": "9f7d13d978fcab3682666b7e2c650885474c1d49e64d496d15a1015ed3e7b909",
+    "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+    "first_line": 69
+  }
+}

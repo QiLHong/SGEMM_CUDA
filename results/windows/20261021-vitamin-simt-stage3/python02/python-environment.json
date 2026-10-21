@@ -1,0 +1,44 @@
+{
+  "python": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\python.exe",
+  "python_version": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+  "torch_version": "2.5.1",
+  "torch_cuda_build": "12.4",
+  "device": "NVIDIA GeForce RTX 4090 D",
+  "capability": [
+    8,
+    9
+  ],
+  "matmul_allow_tf32": false,
+  "cudnn_allow_tf32": false,
+  "float32_matmul_precision": "highest",
+  "environment": {
+    "CUDA_PATH": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "TORCH_EXTENSIONS_DIR": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-python",
+    "NVIDIA_TF32_OVERRIDE": "0",
+    "MAX_JOBS": "2",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1",
+    "PYTHONIOENCODING": "utf-8",
+    "DISTUTILS_USE_SDK": "1"
+  },
+  "source_sha256": {
+    "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py": "cd634a3671e41166b388cf65cde71d98845d419a26a2d9aa783436ea31ff595d",
+    "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm.cu": "21d3ef04b49469755c7e904a4ecc9ce869581f9b0859c757d981c819992369d2",
+    "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm_tf32.cu": "b4a56eb331f5fd2e49f6a8a6690f309549e5ec5602a61ee44fc147ba35d9f6c2",
+    "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\cublas.cu": "016dfaa173e4f712a531c544c6068c1487cfc81e5e61b70fb44ec1c42d6fd6e8"
+  },
+  "protocol": "Unmodified upstream benchmark/diff_check function bodies; new Windows invocation wrapper.",
+  "timer": "Upstream time.perf_counter around 200 CPU-dispatched operations plus final synchronize.",
+  "warmup": 10,
+  "repetitions": 200,
+  "independent_batches_per_implementation": 1,
+  "seed": 42,
+  "seed_policy": "Reset torch.manual_seed(42) before each size.",
+  "input": "Upstream-style CPU torch.randn float32 transferred to CUDA; zero C; differs from native xorshift input.",
+  "alpha": 1,
+  "beta": 0,
+  "correctness_direction": "Original diff_check(reference, candidate); torch.allclose uses candidate magnitude for rtol.",
+  "precision": "Original custom-kernel --use_fast_math retained; TF32 disabled in process; ordinary CUBLAS_COMPUTE_32F.",
+  "limitation": "Single wallclock batch and rounded printed means; not comparable to native event median tables."
+}

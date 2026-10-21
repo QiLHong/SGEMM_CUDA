@@ -1,0 +1,2 @@
+build,function_id,mode,arch,function,start,end,static_instructions,static_fma,selected,selection_rule
+maxr128,0,sgemm_at_bcf_swizzling_dbf_rw,sm_89,_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,0x9f0,0x5090,1131,1024,True,unique_maximum_static_fma

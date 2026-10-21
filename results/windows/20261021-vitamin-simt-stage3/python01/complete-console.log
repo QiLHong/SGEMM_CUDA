@@ -1,0 +1,68 @@
+BUILD_ATTEMPT_BEGIN original_load
+Using D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python as PyTorch extensions root...
+Creating extension directory D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python\gemm_lib...
+Traceback (most recent call last):
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 87, in load_upstream
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\test.py", line 14, in <module>
+    lib = load(
+          ^^^^^
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 77, in observed_load
+    return original_load(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1314, in load
+    return _jit_compile(
+           ^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1680, in _jit_compile
+    version = JIT_EXTENSION_VERSIONER.bump_version_if_changed(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\_cpp_extension_versioner.py", line 46, in bump_version_if_changed
+    hash_value = hash_source_files(hash_value, source_files)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\_cpp_extension_versioner.py", line 17, in hash_source_files
+    hash_value = update_hash(hash_value, file.read())
+                                         ^^^^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x92 in position 1265: illegal multibyte sequence
+
+BUILD_ATTEMPT_FAIL original_load
+BUILD_ATTEMPT_BEGIN windows_host_link_adapter
+Using D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python as PyTorch extensions root...
+Creating extension directory D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python\vitamin_windows_probe...
+Traceback (most recent call last):
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 87, in load_upstream
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\test.py", line 14, in <module>
+    lib = load(
+          ^^^^^
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 77, in observed_load
+    return original_load(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1314, in load
+    return _jit_compile(
+           ^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1680, in _jit_compile
+    version = JIT_EXTENSION_VERSIONER.bump_version_if_changed(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\_cpp_extension_versioner.py", line 46, in bump_version_if_changed
+    hash_value = hash_source_files(hash_value, source_files)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\_cpp_extension_versioner.py", line 17, in hash_source_files
+    hash_value = update_hash(hash_value, file.read())
+                                         ^^^^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x92 in position 1265: illegal multibyte sequence
+
+BUILD_ATTEMPT_FAIL windows_host_link_adapter
+Traceback (most recent call last):
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 239, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 151, in main
+    module, build_method = load_upstream(source_dir / "test.py", output, extension)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 102, in load_upstream
+    raise RuntimeError("Original load and bounded Windows host/link adapter both failed; no installation attempted.")
+RuntimeError: Original load and bounded Windows host/link adapter both failed; no installation attempted.

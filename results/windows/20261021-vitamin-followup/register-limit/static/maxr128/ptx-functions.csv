@@ -1,0 +1,2 @@
+build,function_id,mode,function,static_instructions,fma_f32,ftz_instructions,cp_async_instructions,tensor_instructions
+maxr128,0,sgemm_at_bcf_swizzling_dbf_rw,_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,2547,2048,0,0,0

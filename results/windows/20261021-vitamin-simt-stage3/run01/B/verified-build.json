@@ -1,0 +1,7 @@
+{
+  "configuration": "B",
+  "architecture": "sm_89",
+  "use_fast_math": false,
+  "compile_command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -DVITAMIN_ORIGINAL_CONFIG=0 -D_CRT_SECURE_NO_WARNINGS -ID:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -Xcompiler=/utf-8 -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_vitamin_benchmark.cu -o CMakeFiles\\windows_vitamin_benchmark.dir\\scripts\\windows_vitamin_benchmark.cu.obj -Xcompiler=-FdCMakeFiles\\windows_vitamin_benchmark.dir\\,-FS",
+  "binary_sha256": "07571199FCE69603576F1CDF4C34EDCA8370B1D9114A0287145A99C6F68E0334"
+}

@@ -1,0 +1,19 @@
+{
+  "time_china": "2026-10-20T22:57:20.3931973",
+  "ncu_path": "C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2024.1.1\\target\\windows-desktop-win7-x64\\ncu.exe",
+  "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-sm89\\windows_benchmark.exe",
+  "executable_sha256": "471E38D58577FC297560F545EDF64801BB7F280C6D8196FB239AB9C5A9E6A948",
+  "NVIDIA_TF32_OVERRIDE": "0",
+  "original_NVIDIA_TF32_OVERRIDE": null,
+  "CUDA_VISIBLE_DEVICES": null,
+  "size": 4096,
+  "beta": 3,
+  "rounds": 1,
+  "repeats": 1,
+  "warmup": 10,
+  "launch_skip": 11,
+  "launch_count": 1,
+  "clock_control": "none",
+  "cache_control": "none",
+  "note": "One profiled launch per mode. Profiler-instrumented CUDA-event times are not benchmark results."
+}

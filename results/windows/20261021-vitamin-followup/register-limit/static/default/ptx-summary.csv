@@ -1,0 +1,2 @@
+build,function_id,mode,function,selection_rule,start_entry_line,end_entry_line,static_fma,ld_global,bar_sync,ldg_min_fma_after,ldg_max_fma_after
+default,0,sgemm_at_bcf_swizzling_dbf_rw,_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,unique_maximum_static_fma,519,3011,1024,4,1,0,1024

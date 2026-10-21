@@ -1,0 +1,28 @@
+{
+  "utc_start": "2026-10-20T17:15:09.6061328+00:00",
+  "time_zone": "China Standard Time",
+  "host_utc_offset_minutes": 480.0,
+  "alpha": 1,
+  "beta": 0,
+  "seed": 20261020,
+  "rounds": 7,
+  "repeats": 30,
+  "warmup": 10,
+  "semantic": "C=AB; exact same generated A/B/C0 bytes for all implementations and configs",
+  "reset": "cudaMemcpyAsync D2D C0 -> C before every invocation, same stream, outside CUDA events",
+  "reset_cache_caveat": "Identical protocol, but C0 copy changes caches/traffic; timings describe this protocol",
+  "configurations": {
+    "B": "no fast_math; normal FP32 FMA; PEDANTIC math and COMPUTE_32F_PEDANTIC",
+    "A": "upstream fast_math; ordinary COMPUTE_32F / DEFAULT fresh cuBLAS handle"
+  },
+  "validation": "Full output vs independent strict cuBLAS; original allclose (candidate as second operand) and abs<=.01 separate; CPU double full128 or256fixedsamples",
+  "python_entry": "Not run: torch absent; native configuration reproduction only, not Python wallclock reproduction",
+  "NVIDIA_TF32_OVERRIDE": "0",
+  "original_NVIDIA_TF32_OVERRIDE": null,
+  "CUDA_VISIBLE_DEVICES": null,
+  "CUDA_MODULE_LOADING": null,
+  "sgmm_commit": "545fb01a576ae38d84d00df6359e084eb14c94c2",
+  "vitamin_commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "GPU": "See nvidia-smi-before/after and periodic telemetry; clocks not locked",
+  "sanitizer": "Not completed; unverified"
+}

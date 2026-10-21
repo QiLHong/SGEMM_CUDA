@@ -1,0 +1,80 @@
+{
+  "first": {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01\\default\\binary.sass",
+    "sha256": "62904eb356fcc532c619a5cced6ff6e9a5258527f35049cd5112293e58c16aad"
+  },
+  "second": {
+    "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\B\\binary.sass",
+    "sha256": "48ec843c64cffd04a6fdfc819b00566296bc560bea7f21592ecbb99dd856dfa3"
+  },
+  "scope": "All parsed SASS instructions in every matched architecture/function; not only main loops.",
+  "normalization": "Remove .FTZ from the opcode token only; retain instruction order, predicates and operands.",
+  "excluded": "cuobjdump headers, source-line comments, instruction PC labels and binary encodings.",
+  "meaning": "Textual normalized equality does not make FTZ arithmetic semantically identical.",
+  "all_functions_normalized_equal": false,
+  "functions": [
+    {
+      "arch": "sm_89",
+      "function": "_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf",
+      "mode": "k10",
+      "present_first": false,
+      "present_second": true,
+      "normalized_equal": false
+    },
+    {
+      "arch": "sm_89",
+      "function": "_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf",
+      "mode": "k30_v2",
+      "present_first": false,
+      "present_second": true,
+      "normalized_equal": false
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda19sgemm_tiling_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_tiling",
+      "present_first": false,
+      "present_second": true,
+      "normalized_equal": false
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda22sgemm_at_tiling_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_tiling",
+      "present_first": false,
+      "present_second": true,
+      "normalized_equal": false
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda29sgemm_at_bcf_swizzling_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_bcf_swizzling",
+      "present_first": false,
+      "present_second": true,
+      "normalized_equal": false
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda32sgemm_at_bcf_swizzling_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_bcf_swizzling_rw",
+      "present_first": false,
+      "present_second": true,
+      "normalized_equal": false
+    },
+    {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_bcf_swizzling_dbf_rw",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 2448,
+      "second_static_instructions": 2448,
+      "raw_different_positions": 0,
+      "normalized_different_positions": 0,
+      "raw_equal": true,
+      "normalized_equal": true,
+      "raw_first_8_differences": [],
+      "normalized_first_8_differences": []
+    }
+  ]
+}

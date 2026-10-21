@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "explanation": "These five existing root files were not included in the 332-file preflight zip; they are included in delivery-source.zip and are not new stage3 changes.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "b0ac9b4d12026e9734423bab3609d8e2b60bfe57c3c56ab2bdbd442bc044dc1e",
+      "verification": "Current Git binary diff exactly matches preflight diff; file is tracked and HEAD unchanged",
+      "had_preexisting_changes": false
+    },
+    {
+      "path": "README.en.md",
+      "sha256": "892283112b68e2a77d5ca87a326f110764c1c666be3632d5380226f729652aae",
+      "verification": "Current Git binary diff exactly matches preflight diff; file is tracked and HEAD unchanged",
+      "had_preexisting_changes": false
+    },
+    {
+      "path": "cuBLAS_sgemm.cu",
+      "sha256": "0e0b640c9ae9e6ac82313903f6455b479acb7859d83369aa867de4260200662d",
+      "verification": "Current Git binary diff exactly matches preflight diff; file is tracked and HEAD unchanged",
+      "had_preexisting_changes": false
+    },
+    {
+      "path": "sgemm.cu",
+      "sha256": "d40285c0cad71f3c79749cb51dd63057844d118910f95b92e0d6a35552ef06f5",
+      "verification": "Current Git binary diff exactly matches preflight diff; file is tracked and HEAD unchanged",
+      "had_preexisting_changes": true
+    },
+    {
+      "path": "simplest_kernel.cu",
+      "sha256": "a6a732528add83394792db9d6b97276529cd0f7da56c944f0201d4fe3dd6205e",
+      "verification": "Current Git binary diff exactly matches preflight diff; file is tracked and HEAD unchanged",
+      "had_preexisting_changes": true
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "event_count": 1260,
+  "small_events": 2,
+  "rounds": 42,
+  "correctness_rows": 132,
+  "max_abs_error": 0.00341796875,
+  "max_cpu_abs_error": 0.0018326517129025888,
+  "allclose_failed_checks": 0,
+  "slow_samples_removed": 0,
+  "input_fingerprints": {
+    "128": [
+      "12350557075175389799",
+      "18164722883612022857",
+      "12782700796385326220"
+    ],
+    "1024": [
+      "13516797206394986137",
+      "16156175791465964020",
+      "1488143871368926687"
+    ],
+    "2048": [
+      "3031333732612512712",
+      "6373949068176804471",
+      "1360301629677676758"
+    ],
+    "4096": [
+      "12851211713998132973",
+      "4523944563651176609",
+      "15375572585081931327"
+    ]
+  },
+  "telemetry_raw_points": 138,
+  "covered_windows": 17,
+  "paired_summary": [
+    {
+      "n": 1024,
+      "pairs": 7,
+      "median_speedup_pct": -7.39895297527664,
+      "min_speedup_pct": -7.944889741593297,
+      "max_speedup_pct": -7.113959370689127,
+      "positive_pairs": 0
+    },
+    {
+      "n": 2048,
+      "pairs": 7,
+      "median_speedup_pct": -2.4977199444487175,
+      "min_speedup_pct": -2.52474774176239,
+      "max_speedup_pct": -0.8706336600223352,
+      "positive_pairs": 0
+    },
+    {
+      "n": 4096,
+      "pairs": 7,
+      "median_speedup_pct": 2.610080181020491,
+      "min_speedup_pct": -0.7323942755677049,
+      "max_speedup_pct": 5.614121532528049,
+      "positive_pairs": 6
+    }
+  ],
+  "limitations": [
+    "Separate process per paired member; clocks unlocked, one WDDM session.",
+    "Pair ratios descriptive; no cross-session confidence interval.",
+    "Only final timed output checked; CPU double full128, fixed256points elsewhere.",
+    "Per-round UTC windows include warmup and validation; missing telemetry remains missing.",
+    "Register cap may change scheduling; performance cannot be assigned solely to occupancy."
+  ]
+}

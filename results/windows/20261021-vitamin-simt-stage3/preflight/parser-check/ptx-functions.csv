@@ -1,0 +1,5 @@
+build,function_id,mode,function,static_instructions,fma_f32,ftz_instructions,cp_async_instructions,tensor_instructions
+stage2-parser-check,0,k10,_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf,905,256,0,0,0
+stage2-parser-check,1,k10_pad8,_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi8EEviiifPKfS1_fPf,905,256,0,0,0
+stage2-parser-check,2,k30_v2,_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf,3446,2304,0,0,0
+stage2-parser-check,3,k30_v1,_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi1EEviiifPKfS4_fPf,3565,2304,0,0,0

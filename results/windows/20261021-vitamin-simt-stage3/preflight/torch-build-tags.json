@@ -1,0 +1,54 @@
+[
+  {
+    "environment": "D:\\Anaconda\\Anaconda\\envs\\ame",
+    "python_version": "3.10.15 | packaged by Anaconda, Inc. | (main, Oct  3 2024, 07:22:19) [MSC v.1929 64 bit (AMD64)]",
+    "version_file": "D:\\Anaconda\\Anaconda\\envs\\ame\\lib\\site-packages\\torch\\version.py",
+    "static_version_values": {
+      "__version__": "2.3.1",
+      "debug": false,
+      "cuda": null,
+      "git_version": "Unknown",
+      "hip": null
+    },
+    "interpretation": "Static installed package build tags only; no torch import, CUDA capability query, extension compilation, or GPU execution."
+  },
+  {
+    "environment": "D:\\Anaconda\\Anaconda\\envs\\gate",
+    "python_version": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 12:58:53) [MSC v.1929 64 bit (AMD64)]",
+    "version_file": "D:\\Anaconda\\Anaconda\\envs\\gate\\Lib\\site-packages\\torch\\version.py",
+    "static_version_values": {
+      "__version__": "2.7.1+cpu",
+      "debug": false,
+      "cuda": null,
+      "git_version": "e2d141dbde55c2a4370fac5165b0561b6af4798b",
+      "hip": null
+    },
+    "interpretation": "Static installed package build tags only; no torch import, CUDA capability query, extension compilation, or GPU execution."
+  },
+  {
+    "environment": "D:\\Anaconda\\Anaconda\\envs\\pytorch",
+    "python_version": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+    "version_file": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\torch\\version.py",
+    "static_version_values": {
+      "__version__": "2.5.1",
+      "debug": false,
+      "cuda": "12.4",
+      "git_version": "a8d6afb511a69687bbb2b7e88a3cf67917e1697e",
+      "hip": null
+    },
+    "interpretation": "Static installed package build tags only; no torch import, CUDA capability query, extension compilation, or GPU execution."
+  },
+  {
+    "environment": "D:\\Anaconda\\Anaconda\\envs\\theseus_env",
+    "python_version": "3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]",
+    "version_file": "D:\\Anaconda\\Anaconda\\envs\\theseus_env\\lib\\site-packages\\torch\\version.py",
+    "static_version_values": {
+      "__version__": "2.11.0+cu130",
+      "debug": false,
+      "cuda": "13.0",
+      "git_version": "70d99e998b4955e0049d13a98d77ae1b14db1f45",
+      "hip": null
+    },
+    "interpretation": "Static installed package build tags only; no torch import, CUDA capability query, extension compilation, or GPU execution."
+  }
+]

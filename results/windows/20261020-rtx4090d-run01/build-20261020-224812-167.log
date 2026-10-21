@@ -1,0 +1,15 @@
+-- Configuring done (3.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-sm89
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2 cuda_smoke
+ninja: no work to do.
+
+GPU=NVIDIA GeForce RTX 4090 D compute=8.9 VRAM_MiB=24563
+CUDA_SMOKE PASS (257 integer outputs)
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2
+ninja: no work to do.
+

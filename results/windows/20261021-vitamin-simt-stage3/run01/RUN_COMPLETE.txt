@@ -1,0 +1,1 @@
+COMPLETE: raw events retained. Separate allclose and absolute-error decisions in correctness sidecars.

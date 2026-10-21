@@ -1,0 +1,398 @@
+[
+  {
+    "batch": 1,
+    "seed": 42,
+    "size": 4096,
+    "input_hashes": {
+      "a_sha256": "d98b97d87dcbc89ec0ad19c524b56b1efacffd9fedacab46f008f1cff4dda7a2",
+      "b_sha256": "392061458b4c63deb1859596367cbe0e2369bdf6f4d2f5435e9de1e6f29ec3c4",
+      "initial_c_sha256": "3b6a07d0d404fab4e23b6d34bc6696a6a312dd92821332385e5af7c01c421351"
+    },
+    "initial_c_hash_method": "Derived from unchanged test_4096 torch.zeros allocation; initial C has been overwritten in recovered locals.",
+    "observed_output_hashes": {
+      "c_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_cublas_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_my_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b"
+    },
+    "completed_original_diff_checks_inferred": 6,
+    "stopped_before_tf32": true,
+    "traceback_boundary": [
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "main",
+        "line": 246
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "test_4096",
+        "line": 148
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "benchmark",
+        "line": 39
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "stop_before_tf32",
+        "line": 69
+      }
+    ],
+    "post_batch_validation": {
+      "c_cublas": {
+        "implementation": "sgemm_cublas",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      },
+      "c_my": {
+        "implementation": "sgemm_at_bcf_swizzling_dbf_rw",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      }
+    }
+  },
+  {
+    "batch": 2,
+    "seed": 42,
+    "size": 4096,
+    "input_hashes": {
+      "a_sha256": "d98b97d87dcbc89ec0ad19c524b56b1efacffd9fedacab46f008f1cff4dda7a2",
+      "b_sha256": "392061458b4c63deb1859596367cbe0e2369bdf6f4d2f5435e9de1e6f29ec3c4",
+      "initial_c_sha256": "3b6a07d0d404fab4e23b6d34bc6696a6a312dd92821332385e5af7c01c421351"
+    },
+    "initial_c_hash_method": "Derived from unchanged test_4096 torch.zeros allocation; initial C has been overwritten in recovered locals.",
+    "observed_output_hashes": {
+      "c_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_cublas_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_my_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b"
+    },
+    "completed_original_diff_checks_inferred": 6,
+    "stopped_before_tf32": true,
+    "traceback_boundary": [
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "main",
+        "line": 246
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "test_4096",
+        "line": 148
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "benchmark",
+        "line": 39
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "stop_before_tf32",
+        "line": 69
+      }
+    ],
+    "post_batch_validation": {
+      "c_cublas": {
+        "implementation": "sgemm_cublas",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      },
+      "c_my": {
+        "implementation": "sgemm_at_bcf_swizzling_dbf_rw",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      }
+    }
+  },
+  {
+    "batch": 3,
+    "seed": 42,
+    "size": 4096,
+    "input_hashes": {
+      "a_sha256": "d98b97d87dcbc89ec0ad19c524b56b1efacffd9fedacab46f008f1cff4dda7a2",
+      "b_sha256": "392061458b4c63deb1859596367cbe0e2369bdf6f4d2f5435e9de1e6f29ec3c4",
+      "initial_c_sha256": "3b6a07d0d404fab4e23b6d34bc6696a6a312dd92821332385e5af7c01c421351"
+    },
+    "initial_c_hash_method": "Derived from unchanged test_4096 torch.zeros allocation; initial C has been overwritten in recovered locals.",
+    "observed_output_hashes": {
+      "c_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_cublas_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_my_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b"
+    },
+    "completed_original_diff_checks_inferred": 6,
+    "stopped_before_tf32": true,
+    "traceback_boundary": [
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "main",
+        "line": 246
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "test_4096",
+        "line": 148
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "benchmark",
+        "line": 39
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "stop_before_tf32",
+        "line": 69
+      }
+    ],
+    "post_batch_validation": {
+      "c_cublas": {
+        "implementation": "sgemm_cublas",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      },
+      "c_my": {
+        "implementation": "sgemm_at_bcf_swizzling_dbf_rw",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      }
+    }
+  },
+  {
+    "batch": 4,
+    "seed": 42,
+    "size": 4096,
+    "input_hashes": {
+      "a_sha256": "d98b97d87dcbc89ec0ad19c524b56b1efacffd9fedacab46f008f1cff4dda7a2",
+      "b_sha256": "392061458b4c63deb1859596367cbe0e2369bdf6f4d2f5435e9de1e6f29ec3c4",
+      "initial_c_sha256": "3b6a07d0d404fab4e23b6d34bc6696a6a312dd92821332385e5af7c01c421351"
+    },
+    "initial_c_hash_method": "Derived from unchanged test_4096 torch.zeros allocation; initial C has been overwritten in recovered locals.",
+    "observed_output_hashes": {
+      "c_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_cublas_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_my_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b"
+    },
+    "completed_original_diff_checks_inferred": 6,
+    "stopped_before_tf32": true,
+    "traceback_boundary": [
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "main",
+        "line": 246
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "test_4096",
+        "line": 148
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "benchmark",
+        "line": 39
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "stop_before_tf32",
+        "line": 69
+      }
+    ],
+    "post_batch_validation": {
+      "c_cublas": {
+        "implementation": "sgemm_cublas",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      },
+      "c_my": {
+        "implementation": "sgemm_at_bcf_swizzling_dbf_rw",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      }
+    }
+  },
+  {
+    "batch": 5,
+    "seed": 42,
+    "size": 4096,
+    "input_hashes": {
+      "a_sha256": "d98b97d87dcbc89ec0ad19c524b56b1efacffd9fedacab46f008f1cff4dda7a2",
+      "b_sha256": "392061458b4c63deb1859596367cbe0e2369bdf6f4d2f5435e9de1e6f29ec3c4",
+      "initial_c_sha256": "3b6a07d0d404fab4e23b6d34bc6696a6a312dd92821332385e5af7c01c421351"
+    },
+    "initial_c_hash_method": "Derived from unchanged test_4096 torch.zeros allocation; initial C has been overwritten in recovered locals.",
+    "observed_output_hashes": {
+      "c_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_cublas_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_my_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b"
+    },
+    "completed_original_diff_checks_inferred": 6,
+    "stopped_before_tf32": true,
+    "traceback_boundary": [
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "main",
+        "line": 246
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "test_4096",
+        "line": 148
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "benchmark",
+        "line": 39
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "stop_before_tf32",
+        "line": 69
+      }
+    ],
+    "post_batch_validation": {
+      "c_cublas": {
+        "implementation": "sgemm_cublas",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      },
+      "c_my": {
+        "implementation": "sgemm_at_bcf_swizzling_dbf_rw",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      }
+    }
+  },
+  {
+    "batch": 6,
+    "seed": 42,
+    "size": 4096,
+    "input_hashes": {
+      "a_sha256": "d98b97d87dcbc89ec0ad19c524b56b1efacffd9fedacab46f008f1cff4dda7a2",
+      "b_sha256": "392061458b4c63deb1859596367cbe0e2369bdf6f4d2f5435e9de1e6f29ec3c4",
+      "initial_c_sha256": "3b6a07d0d404fab4e23b6d34bc6696a6a312dd92821332385e5af7c01c421351"
+    },
+    "initial_c_hash_method": "Derived from unchanged test_4096 torch.zeros allocation; initial C has been overwritten in recovered locals.",
+    "observed_output_hashes": {
+      "c_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_cublas_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_my_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b"
+    },
+    "completed_original_diff_checks_inferred": 6,
+    "stopped_before_tf32": true,
+    "traceback_boundary": [
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "main",
+        "line": 246
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "test_4096",
+        "line": 148
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "benchmark",
+        "line": 39
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "stop_before_tf32",
+        "line": 69
+      }
+    ],
+    "post_batch_validation": {
+      "c_cublas": {
+        "implementation": "sgemm_cublas",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      },
+      "c_my": {
+        "implementation": "sgemm_at_bcf_swizzling_dbf_rw",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      }
+    }
+  },
+  {
+    "batch": 7,
+    "seed": 42,
+    "size": 4096,
+    "input_hashes": {
+      "a_sha256": "d98b97d87dcbc89ec0ad19c524b56b1efacffd9fedacab46f008f1cff4dda7a2",
+      "b_sha256": "392061458b4c63deb1859596367cbe0e2369bdf6f4d2f5435e9de1e6f29ec3c4",
+      "initial_c_sha256": "3b6a07d0d404fab4e23b6d34bc6696a6a312dd92821332385e5af7c01c421351"
+    },
+    "initial_c_hash_method": "Derived from unchanged test_4096 torch.zeros allocation; initial C has been overwritten in recovered locals.",
+    "observed_output_hashes": {
+      "c_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_cublas_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b",
+      "c_my_sha256": "0d030a4d60aed0e20638820296e74848171717379c31b678a3aac6cb91f1979b"
+    },
+    "completed_original_diff_checks_inferred": 6,
+    "stopped_before_tf32": true,
+    "traceback_boundary": [
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "main",
+        "line": 246
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "test_4096",
+        "line": 148
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+        "function": "benchmark",
+        "line": 39
+      },
+      {
+        "file": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+        "function": "stop_before_tf32",
+        "line": 69
+      }
+    ],
+    "post_batch_validation": {
+      "c_cublas": {
+        "implementation": "sgemm_cublas",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      },
+      "c_my": {
+        "implementation": "sgemm_at_bcf_swizzling_dbf_rw",
+        "max_abs_error": 0.0,
+        "abs_0p01_failure_count": 0,
+        "candidate_nonfinite": 0,
+        "reference_nonfinite": 0
+      }
+    },
+    "last_output_artifact": {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\last-batch-dbf-output.npy",
+      "sha256": "fb2ba4fe4f7d241a95e2fe3375fd82a2ed8458b97b9b2df2b077fa8876b63f0e"
+    }
+  }
+]

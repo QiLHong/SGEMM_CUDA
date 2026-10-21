@@ -1,0 +1,1 @@
+PASS: original test_4096 SIMT portion completed in all requested batches; TF32 boundary intercepted.

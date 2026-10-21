@@ -1,0 +1,9 @@
+{
+  "command": "ncu.exe --query-metrics --query-metrics-mode all --chip ad102",
+  "original_bytes": 78068458,
+  "original_sha256": "8EB298175C084A54A9CFB44BE3D822A0ACCCDFCCB80CA6795103B12BD4545E46",
+  "compressed_file": "ncu-metrics-query.txt.gz",
+  "compressed_bytes": 1523581,
+  "lossless_decompression_sha256_verified": true,
+  "note": "Hardware metric query does not list launch metadata. launch__shared_mem_config_size is defined by installed LaunchStatistics.section and was successfully collected in all eight profile01 samples."
+}

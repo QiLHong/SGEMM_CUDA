@@ -1,0 +1,46 @@
+M .gitignore
+ M CMakeLists.txt
+ M README.md
+ M docs/zh/00-阅读路线.md
+ M docs/zh/23-代码与脚本使用索引.md
+ M scripts/README.md
+ M scripts/build_cutlass_reference.sh
+ M scripts/build_k30_audit.sh
+ M scripts/build_k31_audit.sh
+ M scripts/build_k32_audit.sh
+ M scripts/k30_audit.cu
+ M scripts/k31_audit.cu
+ M scripts/k32_audit.cu
+ M scripts/summarize_cutlass_reference.py
+ M scripts/summarize_k30_audit.py
+ M scripts/summarize_k31_audit.py
+ M scripts/summarize_k32_audit.py
+ M sgemm.cu
+ M simplest_kernel.cu
+ M src/kernels/10_kernel_warptiling.cuh
+ M src/runner.cu
+ M src/runner.cuh
+?? docs/zh/24-Windows原生构建与4090D实验.md
+?? docs/zh/25-K30同步机制与4090D性能分析.md
+?? docs/zh/26-vitamin-SIMT复现与K30公平对照.md
+?? results/windows/20261020-rtx4090d-profile-script/
+?? results/windows/20261020-rtx4090d-run01/
+?? results/windows/20261021-vitamin-simt-stage3/
+?? results/windows/README.md
+?? results/windows/delivery-sha256.csv
+?? results/windows/delivery-source.zip
+?? scripts/analyze_vitamin_evidence.py
+?? scripts/analyze_vitamin_mapping.py
+?? scripts/analyze_windows_k30_evidence.py
+?? scripts/analyze_windows_k30_mapping.py
+?? scripts/analyze_windows_k30_sass.py
+?? scripts/cuda_smoke.cu
+?? scripts/extract_vitamin_simt.py
+?? scripts/nvtx_compat.h
+?? scripts/summarize_vitamin_results.py
+?? scripts/verify_vitamin_results.py
+?? scripts/vitamin_python_probe.py
+?? scripts/windows/
+?? scripts/windows_benchmark.cu
+?? scripts/windows_vitamin_benchmark.cu
+?? src/kernels/vendor/

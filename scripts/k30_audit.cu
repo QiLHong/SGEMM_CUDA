@@ -14,7 +14,7 @@
 // K30 isolated audit: strict FP32 cuBLAS / unchanged K10 / mini SIMT. No CUTLASS dependency.
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
-#include <nvToolsExt.h>
+#include "nvtx_compat.h"
 #include <algorithm>
 #include <cmath>
 #include <cstdio>

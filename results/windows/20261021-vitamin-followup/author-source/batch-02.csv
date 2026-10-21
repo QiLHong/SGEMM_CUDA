@@ -1,0 +1,8 @@
+batch,size,implementation,printed_mean_ms,printed_tflops,warmup,repetitions,seed,original_diff_check
+2,4096,torch,2.863082,48.0,10,200,42,REFERENCE
+2,4096,sgemm_cublas,2.951185,46.57,10,200,42,PASS_inferred_from_reaching_stop_after_all_six_checks
+2,4096,sgemm_tiling,4.000728,34.35,10,200,42,PASS_inferred_from_reaching_stop_after_all_six_checks
+2,4096,sgemm_at_tiling,3.333393,41.23,10,200,42,PASS_inferred_from_reaching_stop_after_all_six_checks
+2,4096,sgemm_at_bcf_swizzling,3.17826,43.24,10,200,42,PASS_inferred_from_reaching_stop_after_all_six_checks
+2,4096,sgemm_at_bcf_swizzling_rw,3.191256,43.07,10,200,42,PASS_inferred_from_reaching_stop_after_all_six_checks
+2,4096,sgemm_at_bcf_swizzling_dbf_rw,3.220918,42.67,10,200,42,PASS_inferred_from_reaching_stop_after_all_six_checks

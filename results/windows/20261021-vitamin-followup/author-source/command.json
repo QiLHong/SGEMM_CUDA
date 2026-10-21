@@ -1,0 +1,62 @@
+{
+  "executable": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\python.exe",
+  "arguments": [
+    "-B",
+    "-u",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+    "--vitamin",
+    "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda",
+    "--output-dir",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source",
+    "--batches",
+    "7"
+  ],
+  "process_environment": {
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "TORCH_EXTENSIONS_DIR": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-python",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1",
+    "PYTHONIOENCODING": "utf-8",
+    "VSLANG": "1033",
+    "MAX_JOBS": "2",
+    "DISTUTILS_USE_SDK": "1",
+    "NVIDIA_TF32_OVERRIDE": "0"
+  },
+  "original_process_environment": {
+    "PYTHONIOENCODING": null,
+    "TORCH_EXTENSIONS_DIR": null,
+    "PYTHONDONTWRITEBYTECODE": null,
+    "NVIDIA_TF32_OVERRIDE": null,
+    "VSLANG": null,
+    "DISTUTILS_USE_SDK": null,
+    "MAX_JOBS": null,
+    "TORCH_CUDA_ARCH_LIST": null,
+    "PYTHONUTF8": null
+  },
+  "sources": [
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_author_source.py",
+      "snapshot": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\source-as-run\\vitamin_author_source.py",
+      "sha256": "E33A292BC56665B2573EC646F987A3FA23CF992300C54F17187F1B688080B791"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\vitamin_python_probe.py",
+      "snapshot": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\source-as-run\\vitamin_python_probe.py",
+      "sha256": "BFFEC16E6E410A83FA6208ACA4C48955DC58025874F747BCC76405C9FBBFE8FC"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Run-VitaminAuthorSource.ps1",
+      "snapshot": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\source-as-run\\Run-VitaminAuthorSource.ps1",
+      "sha256": "8DA0AB99980AE0543E4C023EC55D98C7B75D45BDE39BD35A04583D34EDEB3CE4"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Initialize-Toolchain.ps1",
+      "snapshot": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\source-as-run\\Initialize-Toolchain.ps1",
+      "sha256": "25F14D925DDB904D1B3BD7BC2566C9F7451AB5A10FD61D7F1087AC620DDF0428"
+    }
+  ],
+  "cl": "D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe",
+  "nvcc": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe",
+  "ninja": "D:\\VS\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja\\ninja.exe",
+  "scope": "Original test_4096 SIMT portion, stopped before TF32. Seven original wallclock batches; fixed order."
+}

@@ -1,0 +1,4 @@
+COMMAND_JSON: ["D:\\Anaconda\\Anaconda\\python.exe", "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\analyze_k30_mapping.py", "--output", "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\mapping-k30\\legacy-k30-warp0.csv"]
+EXIT_CODE: 0
+CTA 128x128 threads=128: exact coverage, no overlaps, layout in bounds
+CTA 256x128 threads=256: exact coverage, no overlaps, layout in bounds

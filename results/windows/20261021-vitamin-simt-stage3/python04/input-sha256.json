@@ -1,0 +1,29 @@
+[
+  {
+    "size": 1024,
+    "dtype": "float32",
+    "storage": "C-order row major",
+    "seed": 42,
+    "a_sha256": "686b5c0df9391fb24f8da148ddfa5969b0efc95e5377133f9f23cdf7a8d09d6f",
+    "b_sha256": "b0bc76c4715ead114d94e17e8aa7e9adcbd3b1d86a21fbfdb9782d8633c797bf",
+    "initial_c_sha256": "bb9f8df61474d25e71fa00722318cd387396ca1736605e1248821cc0de3d3af8"
+  },
+  {
+    "size": 2048,
+    "dtype": "float32",
+    "storage": "C-order row major",
+    "seed": 42,
+    "a_sha256": "12364e9c0d9a89ac05eb67061ea6ae04193dc3f7f47b1a7895407d7651c943df",
+    "b_sha256": "ab8c2179e6b18f2f2a2fffc3c7000cc1ed970c2e456b91525c48345190f56c0d",
+    "initial_c_sha256": "080acf35a507ac9849cfcba47dc2ad83e01b75663a516279c8b9d243b719643e"
+  },
+  {
+    "size": 4096,
+    "dtype": "float32",
+    "storage": "C-order row major",
+    "seed": 42,
+    "a_sha256": "d98b97d87dcbc89ec0ad19c524b56b1efacffd9fedacab46f008f1cff4dda7a2",
+    "b_sha256": "392061458b4c63deb1859596367cbe0e2369bdf6f4d2f5435e9de1e6f29ec3c4",
+    "initial_c_sha256": "3b6a07d0d404fab4e23b6d34bc6696a6a312dd92821332385e5af7c01c421351"
+  }
+]

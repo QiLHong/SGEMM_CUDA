@@ -1,0 +1,2 @@
+build,function_id,mode,arch,function,selection_rule,start,end,static_fma,FFMA,FADD,FMUL,LDG,LDS,STS,STG,LDL,STL,LDGSTS,BAR,DEPBAR,WARPSYNC,BRA,IMAD,IADD3,MOV,HMMA,MMA,ldg_min_ffma_after,ldg_max_ffma_after
+maxr128,0,sgemm_at_bcf_swizzling_dbf_rw,sm_89,_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,unique_maximum_static_fma,0x9f0,0x5090,1024,1024,0,0,4,64,10,0,0,0,0,1,0,0,1,0,9,7,0,0,206,221

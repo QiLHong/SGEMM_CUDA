@@ -1,0 +1,250 @@
+{
+  "default": {
+    "matched_dbf_comparison": {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_bcf_swizzling_dbf_rw",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 2448,
+      "second_static_instructions": 2448,
+      "raw_different_positions": 0,
+      "normalized_different_positions": 0,
+      "raw_equal": true,
+      "normalized_equal": true,
+      "raw_first_8_differences": [],
+      "normalized_first_8_differences": []
+    },
+    "loop": [
+      {
+        "build": "default",
+        "function_id": "0",
+        "mode": "sgemm_at_bcf_swizzling_dbf_rw",
+        "arch": "sm_89",
+        "function": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+        "selection_rule": "unique_maximum_static_fma",
+        "start": "0xaf0",
+        "end": "0x51a0",
+        "static_fma": "1024",
+        "FFMA": "1024",
+        "FADD": "0",
+        "FMUL": "0",
+        "LDG": "4",
+        "LDS": "64",
+        "STS": "10",
+        "STG": "0",
+        "LDL": "0",
+        "STL": "0",
+        "LDGSTS": "0",
+        "BAR": "1",
+        "DEPBAR": "0",
+        "WARPSYNC": "0",
+        "BRA": "1",
+        "IMAD": "2",
+        "IADD3": "8",
+        "MOV": "10",
+        "HMMA": "0",
+        "MMA": "0",
+        "ldg_min_ffma_after": "192",
+        "ldg_max_ffma_after": "210"
+      }
+    ],
+    "whole_function": [
+      {
+        "build": "default",
+        "function_id": "0",
+        "mode": "sgemm_at_bcf_swizzling_dbf_rw",
+        "arch": "sm_89",
+        "function": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+        "static_instructions": "2448",
+        "FFMA": "2048",
+        "FADD": "0",
+        "FMUL": "0",
+        "LDG": "8",
+        "LDS": "128",
+        "STS": "20",
+        "STG": "16",
+        "LDL": "0",
+        "STL": "0",
+        "LDGSTS": "0",
+        "BAR": "2",
+        "DEPBAR": "0",
+        "WARPSYNC": "0",
+        "BRA": "4",
+        "IMAD": "15",
+        "IADD3": "26",
+        "MOV": "33",
+        "HMMA": "0",
+        "MMA": "0",
+        "tensor_instructions": "0",
+        "ftz_instructions": "0"
+      }
+    ]
+  },
+  "maxr128": {
+    "matched_dbf_comparison": {
+      "arch": "sm_89",
+      "function": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+      "mode": "sgemm_at_bcf_swizzling_dbf_rw",
+      "present_first": true,
+      "present_second": true,
+      "first_static_instructions": 2432,
+      "second_static_instructions": 2448,
+      "raw_different_positions": 2436,
+      "normalized_different_positions": 2436,
+      "raw_equal": false,
+      "normalized_equal": false,
+      "raw_first_8_differences": [
+        {
+          "position": 3,
+          "first": "ULDC UR11, c[0x0][0x17c]",
+          "second": "MOV R40, c[0x0][0x180]"
+        },
+        {
+          "position": 4,
+          "first": "MOV R36, c[0x0][0x180]",
+          "second": "ULDC.64 UR8, c[0x0][0x118]"
+        },
+        {
+          "position": 6,
+          "first": "USHF.L.U32 UR8, UR11, 0x3, URZ",
+          "second": "MOV R39, c[0x0][0x17c]"
+        },
+        {
+          "position": 7,
+          "first": "ULDC.64 UR12, c[0x0][0x118]",
+          "second": "SHF.L.U32 R27, R40, 0x6, RZ"
+        },
+        {
+          "position": 13,
+          "first": "SHF.R.S32.HI R7, RZ, 0x2, R4",
+          "second": "SHF.R.S32.HI R5, RZ, 0x2, R4"
+        },
+        {
+          "position": 14,
+          "first": "LOP3.LUT R3, R2, 0xffffffe0, RZ, 0xc0, !PT",
+          "second": "LOP3.LUT R4, R4, 0xfffffffc, RZ, 0xc0, !PT"
+        },
+        {
+          "position": 15,
+          "first": "SHF.R.S32.HI R13, RZ, 0x5, R2",
+          "second": "LEA R7, R0, R5, 0x7"
+        },
+        {
+          "position": 16,
+          "first": "LOP3.LUT R4, R4, 0xfffffffc, RZ, 0xc0, !PT",
+          "second": "LOP3.LUT R3, R2, 0xffffffe0, RZ, 0xc0, !PT"
+        }
+      ],
+      "normalized_first_8_differences": [
+        {
+          "position": 3,
+          "first": "ULDC UR11, c[0x0][0x17c]",
+          "second": "MOV R40, c[0x0][0x180]"
+        },
+        {
+          "position": 4,
+          "first": "MOV R36, c[0x0][0x180]",
+          "second": "ULDC.64 UR8, c[0x0][0x118]"
+        },
+        {
+          "position": 6,
+          "first": "USHF.L.U32 UR8, UR11, 0x3, URZ",
+          "second": "MOV R39, c[0x0][0x17c]"
+        },
+        {
+          "position": 7,
+          "first": "ULDC.64 UR12, c[0x0][0x118]",
+          "second": "SHF.L.U32 R27, R40, 0x6, RZ"
+        },
+        {
+          "position": 13,
+          "first": "SHF.R.S32.HI R7, RZ, 0x2, R4",
+          "second": "SHF.R.S32.HI R5, RZ, 0x2, R4"
+        },
+        {
+          "position": 14,
+          "first": "LOP3.LUT R3, R2, 0xffffffe0, RZ, 0xc0, !PT",
+          "second": "LOP3.LUT R4, R4, 0xfffffffc, RZ, 0xc0, !PT"
+        },
+        {
+          "position": 15,
+          "first": "SHF.R.S32.HI R13, RZ, 0x5, R2",
+          "second": "LEA R7, R0, R5, 0x7"
+        },
+        {
+          "position": 16,
+          "first": "LOP3.LUT R4, R4, 0xfffffffc, RZ, 0xc0, !PT",
+          "second": "LOP3.LUT R3, R2, 0xffffffe0, RZ, 0xc0, !PT"
+        }
+      ]
+    },
+    "loop": [
+      {
+        "build": "maxr128",
+        "function_id": "0",
+        "mode": "sgemm_at_bcf_swizzling_dbf_rw",
+        "arch": "sm_89",
+        "function": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+        "selection_rule": "unique_maximum_static_fma",
+        "start": "0x9f0",
+        "end": "0x5090",
+        "static_fma": "1024",
+        "FFMA": "1024",
+        "FADD": "0",
+        "FMUL": "0",
+        "LDG": "4",
+        "LDS": "64",
+        "STS": "10",
+        "STG": "0",
+        "LDL": "0",
+        "STL": "0",
+        "LDGSTS": "0",
+        "BAR": "1",
+        "DEPBAR": "0",
+        "WARPSYNC": "0",
+        "BRA": "1",
+        "IMAD": "0",
+        "IADD3": "9",
+        "MOV": "7",
+        "HMMA": "0",
+        "MMA": "0",
+        "ldg_min_ffma_after": "206",
+        "ldg_max_ffma_after": "221"
+      }
+    ],
+    "whole_function": [
+      {
+        "build": "maxr128",
+        "function_id": "0",
+        "mode": "sgemm_at_bcf_swizzling_dbf_rw",
+        "arch": "sm_89",
+        "function": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii",
+        "static_instructions": "2432",
+        "FFMA": "2048",
+        "FADD": "0",
+        "FMUL": "0",
+        "LDG": "8",
+        "LDS": "128",
+        "STS": "20",
+        "STG": "16",
+        "LDL": "0",
+        "STL": "0",
+        "LDGSTS": "0",
+        "BAR": "2",
+        "DEPBAR": "0",
+        "WARPSYNC": "0",
+        "BRA": "4",
+        "IMAD": "13",
+        "IADD3": "18",
+        "MOV": "24",
+        "HMMA": "0",
+        "MMA": "0",
+        "tensor_instructions": "0",
+        "ftz_instructions": "0"
+      }
+    ]
+  },
+  "note": "Default comparison includes six missing modes because old binary contains seven kernels; only matched DBF is compared here. Ignore summary all_functions_normalized_equal for this subset comparison. The maxr128/default pair has one matched DBF each.",
+  "status": "PASS"
+}

@@ -1,0 +1,342 @@
+{
+  "scope": "Existing registered Conda environments and immediate D:\\Anaconda\\Anaconda\\envs and user .conda\\envs directories only; not a full-disk Python inventory. Each interpreter uses importlib.metadata/find_spec only; torch itself is not imported and no GPU work is executed.",
+  "conda_exe_env_list": "Failed to start: invalid system DLL relocation. No repair/configuration/installation attempted; used existing environment registry and directories.",
+  "discovery_sources": [
+    "D:\\Anaconda\\Anaconda\\envs",
+    "C:\\Users\\Administrator\\.conda\\environments.txt",
+    "C:\\Users\\Administrator\\.conda\\envs"
+  ],
+  "probe_code": "import sys,json,importlib.util\ntry:\n import importlib.metadata as metadata\nexcept ImportError:\n import importlib_metadata as metadata\nout={\"python\":sys.executable,\"version\":sys.version,\"packages\":{}}\nfor name in [\"torch\",\"torchvision\",\"numpy\",\"ninja\",\"pybind11\"]:\n try: version=metadata.version(name)\n except metadata.PackageNotFoundError: version=None\n spec=importlib.util.find_spec(name)\n out[\"packages\"][name]={\"version\":version,\"origin\":spec.origin if spec else None}\nprint(json.dumps(out))\n",
+  "environments": [
+    {
+      "environment": "C:\\Users\\Administrator\\.conda\\envs\\myenv",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"C:\\\\Users\\\\Administrator\\\\.conda\\\\envs\\\\myenv\\\\python.exe\", \"version\": \"3.8.0 (default, Nov  6 2019, 16:00:02) [MSC v.1916 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": null, \"origin\": null}, \"torchvision\": {\"version\": null, \"origin\": null}, \"numpy\": {\"version\": \"1.19.5\", \"origin\": \"C:\\\\Users\\\\Administrator\\\\.conda\\\\envs\\\\myenv\\\\lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "C:\\Users\\Administrator\\.conda\\envs\\myenv\\python.exe",
+        "version": "3.8.0 (default, Nov  6 2019, 16:00:02) [MSC v.1916 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": null,
+            "origin": null
+          },
+          "torchvision": {
+            "version": null,
+            "origin": null
+          },
+          "numpy": {
+            "version": "1.19.5",
+            "origin": "C:\\Users\\Administrator\\.conda\\envs\\myenv\\lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    },
+    {
+      "environment": "D:\\Anaconda\\Anaconda",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"D:\\\\Anaconda\\\\Anaconda\\\\python.exe\", \"version\": \"3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": null, \"origin\": null}, \"torchvision\": {\"version\": null, \"origin\": null}, \"numpy\": {\"version\": \"1.26.4\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\Lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "D:\\Anaconda\\Anaconda\\python.exe",
+        "version": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": null,
+            "origin": null
+          },
+          "torchvision": {
+            "version": null,
+            "origin": null
+          },
+          "numpy": {
+            "version": "1.26.4",
+            "origin": "D:\\Anaconda\\Anaconda\\Lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    },
+    {
+      "environment": "D:\\Anaconda\\Anaconda\\envs\\ame",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\ame\\\\python.exe\", \"version\": \"3.10.15 | packaged by Anaconda, Inc. | (main, Oct  3 2024, 07:22:19) [MSC v.1929 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": \"2.3.1\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\ame\\\\lib\\\\site-packages\\\\torch\\\\__init__.py\"}, \"torchvision\": {\"version\": null, \"origin\": null}, \"numpy\": {\"version\": \"1.26.4\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\ame\\\\lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "D:\\Anaconda\\Anaconda\\envs\\ame\\python.exe",
+        "version": "3.10.15 | packaged by Anaconda, Inc. | (main, Oct  3 2024, 07:22:19) [MSC v.1929 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": "2.3.1",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\ame\\lib\\site-packages\\torch\\__init__.py"
+          },
+          "torchvision": {
+            "version": null,
+            "origin": null
+          },
+          "numpy": {
+            "version": "1.26.4",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\ame\\lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    },
+    {
+      "environment": "d:\\Anaconda\\Anaconda\\envs\\CT",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"d:\\\\Anaconda\\\\Anaconda\\\\envs\\\\CT\\\\python.exe\", \"version\": \"3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": null, \"origin\": null}, \"torchvision\": {\"version\": null, \"origin\": null}, \"numpy\": {\"version\": \"2.1.3\", \"origin\": \"d:\\\\Anaconda\\\\Anaconda\\\\envs\\\\CT\\\\Lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "d:\\Anaconda\\Anaconda\\envs\\CT\\python.exe",
+        "version": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": null,
+            "origin": null
+          },
+          "torchvision": {
+            "version": null,
+            "origin": null
+          },
+          "numpy": {
+            "version": "2.1.3",
+            "origin": "d:\\Anaconda\\Anaconda\\envs\\CT\\Lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    },
+    {
+      "environment": "D:\\Anaconda\\Anaconda\\envs\\gate",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\gate\\\\python.exe\", \"version\": \"3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 12:58:53) [MSC v.1929 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": \"2.7.1\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\gate\\\\Lib\\\\site-packages\\\\torch\\\\__init__.py\"}, \"torchvision\": {\"version\": null, \"origin\": null}, \"numpy\": {\"version\": \"1.26.4\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\gate\\\\Lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "D:\\Anaconda\\Anaconda\\envs\\gate\\python.exe",
+        "version": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 12:58:53) [MSC v.1929 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": "2.7.1",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\gate\\Lib\\site-packages\\torch\\__init__.py"
+          },
+          "torchvision": {
+            "version": null,
+            "origin": null
+          },
+          "numpy": {
+            "version": "1.26.4",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\gate\\Lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    },
+    {
+      "environment": "D:\\Anaconda\\Anaconda\\envs\\LCD_CT",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\LCD_CT\\\\python.exe\", \"version\": \"3.14.3 | packaged by conda-forge | (main, Feb  9 2026, 21:56:48) [MSC v.1944 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": null, \"origin\": null}, \"torchvision\": {\"version\": null, \"origin\": null}, \"numpy\": {\"version\": \"2.4.2\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\LCD_CT\\\\Lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "D:\\Anaconda\\Anaconda\\envs\\LCD_CT\\python.exe",
+        "version": "3.14.3 | packaged by conda-forge | (main, Feb  9 2026, 21:56:48) [MSC v.1944 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": null,
+            "origin": null
+          },
+          "torchvision": {
+            "version": null,
+            "origin": null
+          },
+          "numpy": {
+            "version": "2.4.2",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\LCD_CT\\Lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    },
+    {
+      "environment": "D:\\Anaconda\\Anaconda\\envs\\nuc_physics",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\nuc_physics\\\\python.exe\", \"version\": \"3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:16:45) [MSC v.1942 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": null, \"origin\": null}, \"torchvision\": {\"version\": null, \"origin\": null}, \"numpy\": {\"version\": \"2.4.3\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\nuc_physics\\\\Lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "D:\\Anaconda\\Anaconda\\envs\\nuc_physics\\python.exe",
+        "version": "3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:16:45) [MSC v.1942 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": null,
+            "origin": null
+          },
+          "torchvision": {
+            "version": null,
+            "origin": null
+          },
+          "numpy": {
+            "version": "2.4.3",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\nuc_physics\\Lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    },
+    {
+      "environment": "D:\\Anaconda\\Anaconda\\envs\\pyMC",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\pyMC\\\\python.exe\", \"version\": \"3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:05:38) [MSC v.1929 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": null, \"origin\": null}, \"torchvision\": {\"version\": null, \"origin\": null}, \"numpy\": {\"version\": \"2.4.2\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\pyMC\\\\Lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "D:\\Anaconda\\Anaconda\\envs\\pyMC\\python.exe",
+        "version": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:05:38) [MSC v.1929 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": null,
+            "origin": null
+          },
+          "torchvision": {
+            "version": null,
+            "origin": null
+          },
+          "numpy": {
+            "version": "2.4.2",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\pyMC\\Lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    },
+    {
+      "environment": "D:\\Anaconda\\Anaconda\\envs\\pytorch",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\pytorch\\\\python.exe\", \"version\": \"3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": \"2.5.1\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\pytorch\\\\Lib\\\\site-packages\\\\torch\\\\__init__.py\"}, \"torchvision\": {\"version\": \"0.20.1\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\pytorch\\\\Lib\\\\site-packages\\\\torchvision\\\\__init__.py\"}, \"numpy\": {\"version\": \"2.0.1\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\pytorch\\\\Lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\python.exe",
+        "version": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": "2.5.1",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\torch\\__init__.py"
+          },
+          "torchvision": {
+            "version": "0.20.1",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\torchvision\\__init__.py"
+          },
+          "numpy": {
+            "version": "2.0.1",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\Lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    },
+    {
+      "environment": "D:\\Anaconda\\Anaconda\\envs\\theseus_env",
+      "python_exists": true,
+      "exit_code": 0,
+      "stdout": "{\"python\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\theseus_env\\\\python.exe\", \"version\": \"3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]\", \"packages\": {\"torch\": {\"version\": \"2.11.0+cu130\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\theseus_env\\\\lib\\\\site-packages\\\\torch\\\\__init__.py\"}, \"torchvision\": {\"version\": \"0.26.0+cu130\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\theseus_env\\\\lib\\\\site-packages\\\\torchvision\\\\__init__.py\"}, \"numpy\": {\"version\": \"2.2.6\", \"origin\": \"D:\\\\Anaconda\\\\Anaconda\\\\envs\\\\theseus_env\\\\lib\\\\site-packages\\\\numpy\\\\__init__.py\"}, \"ninja\": {\"version\": null, \"origin\": null}, \"pybind11\": {\"version\": null, \"origin\": null}}}\n",
+      "stderr": "",
+      "metadata": {
+        "python": "D:\\Anaconda\\Anaconda\\envs\\theseus_env\\python.exe",
+        "version": "3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]",
+        "packages": {
+          "torch": {
+            "version": "2.11.0+cu130",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\theseus_env\\lib\\site-packages\\torch\\__init__.py"
+          },
+          "torchvision": {
+            "version": "0.26.0+cu130",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\theseus_env\\lib\\site-packages\\torchvision\\__init__.py"
+          },
+          "numpy": {
+            "version": "2.2.6",
+            "origin": "D:\\Anaconda\\Anaconda\\envs\\theseus_env\\lib\\site-packages\\numpy\\__init__.py"
+          },
+          "ninja": {
+            "version": null,
+            "origin": null
+          },
+          "pybind11": {
+            "version": null,
+            "origin": null
+          }
+        }
+      }
+    }
+  ]
+}

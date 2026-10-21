@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "rows": 21,
+  "sizes": [
+    1024,
+    2048,
+    4096
+  ],
+  "build_method": "windows_host_link_adapter",
+  "original_test_default_main_executed": false,
+  "tf32_kernels_executed": false,
+  "description": "Upstream wallclock/validation functions reused through a Windows wrapper; not an unchanged full test.py reproduction."
+}

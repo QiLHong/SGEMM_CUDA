@@ -1,0 +1,1 @@
+Initial CPU summary stopped while parsing nvidia-smi clock text (2520 MHz); all GPU invocations completed and raw files were retained. Parser now reads the numeric token. CPU-only retry saved in analysis02; no GPU rerun.

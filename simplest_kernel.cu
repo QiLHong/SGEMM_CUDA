@@ -10,6 +10,8 @@
 #include <iostream>
 #include <vector>
 
+using uint = unsigned int;
+
 // 【学习补充】阅读 GEMM 前的索引练习：16 个一维线程铺成 4×4 输出。
 // x=tid/4 是行号，y=tid%4 是列号；row 参数在地址公式中实际充当行跨度。
 // 这个例子硬编码了 4，不能只改 SIZE 就当成任意尺寸版本。

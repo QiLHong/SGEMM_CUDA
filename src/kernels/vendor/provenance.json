@@ -1,0 +1,26 @@
+{
+  "reference_commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "repository": "https://github.com/QiLHong/vitamin-cuda",
+  "source_path": "kernels/sgemm/sgemm.cu",
+  "functions": [
+    "sgemm_tiling",
+    "sgemm_at_tiling",
+    "sgemm_at_bcf_swizzling",
+    "sgemm_at_bcf_swizzling_rw",
+    "sgemm_at_bcf_swizzling_dbf_rw"
+  ],
+  "source_start_line": 31,
+  "source_end_line": 470,
+  "source_normalized_sha256": "35fbc5105b2e505e4ddfeb516914044855886eae9ca2a94a25023122369873c7",
+  "device_region_sha256": "2b859400bed4a2e709a70ea867456b9ba761bdd3e1e54a6a88610a642c7da17c",
+  "header_normalized_sha256": "12599b00536355e2c49120073f86df72de854ef083459312a25b1e034ae0daa2",
+  "device_code_equal": true,
+  "exceptions": [
+    "LF normalization for byte comparison; no device-body edits",
+    "Remove unrelated naive kernel and all torch binding functions/includes",
+    "Replace pack.cuh by exactly its FLOAT4 macro and WARP_SIZE declaration",
+    "Keep SWIZZLE_A macro; add vitamin_cuda namespace; undef local macros",
+    "CUDA runtime include only; original license copied alongside",
+    "Native launch wrappers enforce safe square shapes; no kernel algorithm edits"
+  ]
+}

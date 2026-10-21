@@ -9,48 +9,64 @@
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
 cmake_minimum_required(VERSION 3.19)
+# 所有 target 共用一个架构参数；Linux 默认仍为 86，Windows 本次传入 89。
+# 在 project() 前设置，供后续所有项目 target 初始化其架构属性。
+if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
+  set(CMAKE_CUDA_ARCHITECTURES 86 CACHE STRING "CUDA target architectures")
+endif()
+
 project(NVIDIA_SGEMM_PRACTICE LANGUAGES CXX CUDA)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+find_package(CUDAToolkit REQUIRED)
+set(CMAKE_CUDA_STANDARD 17)
+set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+if(MSVC)
+  # 中文源码使用 UTF-8；避免 Windows SDK 的 min/max 宏污染 C++ 标准库。
+  add_compile_options("$<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler=/utf-8>"
+                      "$<$<COMPILE_LANGUAGE:CXX>:/utf-8>")
+  add_compile_definitions(NOMINMAX _CRT_SECURE_NO_WARNINGS)
+endif()
 # 独立实验入口，不进入 sgemm dispatcher，也不替换默认 K10。
 option(SGEMM_BUILD_K30_AUDIT "Build isolated K30 mini-SIMT experiment" OFF)
 option(SGEMM_BUILD_K31_AUDIT "Build isolated K31 resource/lifetime experiments" OFF)
 option(SGEMM_BUILD_K32_AUDIT "Build isolated K32 producer/consumer experiment" OFF)
+if(TARGET CUDA::nvtx3)
+  set(SGEMM_NVTX_TARGET CUDA::nvtx3)
+else()
+  set(SGEMM_NVTX_TARGET CUDA::nvToolsExt)
+endif()
 if(SGEMM_BUILD_K32_AUDIT)
   find_package(CUDAToolkit REQUIRED)
   add_executable(k32_audit scripts/k32_audit.cu)
-  set_target_properties(k32_audit PROPERTIES CUDA_ARCHITECTURES 86 CUDA_STANDARD 17)
+  set_target_properties(k32_audit PROPERTIES CUDA_STANDARD 17)
   target_compile_definitions(k32_audit PRIVATE SGEMM_K10_MIN_BLOCKS=2)
   target_compile_options(k32_audit PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo;-Xptxas=-v>)
-  target_link_libraries(k32_audit PRIVATE CUDA::cublas CUDA::nvToolsExt)
+  target_link_libraries(k32_audit PRIVATE CUDA::cublas ${SGEMM_NVTX_TARGET})
 endif()
 if(SGEMM_BUILD_K31_AUDIT)
   find_package(CUDAToolkit 12.4 REQUIRED)
   add_executable(k31_audit scripts/k31_audit.cu)
-  set_target_properties(k31_audit PROPERTIES CUDA_ARCHITECTURES 86 CUDA_STANDARD 17)
+  set_target_properties(k31_audit PROPERTIES CUDA_STANDARD 17)
   target_compile_definitions(k31_audit PRIVATE SGEMM_K10_MIN_BLOCKS=2)
   target_compile_options(k31_audit PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo;-Xptxas=-v>)
-  target_link_libraries(k31_audit PRIVATE CUDA::cublas CUDA::nvToolsExt)
+  target_link_libraries(k31_audit PRIVATE CUDA::cublas ${SGEMM_NVTX_TARGET})
 endif()
 if(SGEMM_BUILD_K30_AUDIT)
   find_package(CUDAToolkit REQUIRED)
   add_executable(k30_audit scripts/k30_audit.cu)
-  set_target_properties(k30_audit PROPERTIES CUDA_ARCHITECTURES 86 CUDA_STANDARD 17)
+  set_target_properties(k30_audit PROPERTIES CUDA_STANDARD 17)
   target_compile_definitions(k30_audit PRIVATE SGEMM_K10_MIN_BLOCKS=2)
   target_compile_options(k30_audit PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo;-Xptxas=-v>)
-  target_link_libraries(k30_audit PRIVATE CUDA::cublas CUDA::nvToolsExt)
+  target_link_libraries(k30_audit PRIVATE CUDA::cublas ${SGEMM_NVTX_TARGET})
 endif()
-# 为编辑器/clangd 导出实际编译命令，不影响矩阵乘算法。
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-find_package(CUDA REQUIRED)
+# 编译命令导出已在创建任何 target 之前启用，包含各独立 audit。
 
 # 确认 CUDA 编译语言可用。
 include(CheckLanguage)
 check_language(CUDA)
 
 set(CMAKE_CXX_STANDARD 20)
-# 当前上游值是 86，对应本次学习用 RTX 3080 的目标架构。
-# 换 GPU 时先查 compute capability，不要把驱动显示的 CUDA 版本填在这里。
-set(CUDA_COMPUTE_CAPABILITY 86)
+# CMAKE_CUDA_ARCHITECTURES 是唯一架构开关，例如 -DCMAKE_CUDA_ARCHITECTURES=89。
 
 # Debug 模式为设备代码添加调试信息。
 # -G 会关闭大部分设备优化，严重影响性能；测吞吐率应使用 Release。
@@ -59,15 +75,14 @@ add_compile_options("$<$<AND:$<CONFIG:Debug>,$<COMPILE_LANGUAGE:CUDA>>:-G;-src-i
 # add_compile_options("--ptxas-options=-v")
 
 # 配置头文件搜索路径。
-include_directories(${CUDA_INCLUDE_DIRS})
+include_directories(${CUDAToolkit_INCLUDE_DIRS})
 include_directories(${PROJECT_SOURCE_DIR}/src)
 # 收集 src 中待编译的源文件。
 aux_source_directory(${PROJECT_SOURCE_DIR}/src SRC)
 
 # 主 benchmark 可执行文件，链接 CUDA runtime 与 cuBLAS。
 add_executable(sgemm sgemm.cu ${SRC})
-set_target_properties(sgemm PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
-target_link_libraries(sgemm ${CUDA_LIBRARIES} ${CUDA_CUBLAS_LIBRARIES})
+target_link_libraries(sgemm CUDA::cudart CUDA::cublas)
 
 # Kernel 10 调优参数。仅把显式传给 CMake 的值转成交给 nvcc 的编译期定义；
 # 默认构建不设置这些 cache 变量，因此使用 runner/header 中记录的 RTX 3080 默认值。
@@ -137,10 +152,39 @@ endif()
 # 独立 cuBLAS 演示。
 # 上游这里误把架构属性再次设置给 sgemm；实验分支改为正确的目标。
 add_executable(cuBLAS_sgemm cuBLAS_sgemm.cu )
-set_target_properties(cuBLAS_sgemm PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
-target_link_libraries(cuBLAS_sgemm ${CUDA_LIBRARIES} ${CUDA_CUBLAS_LIBRARIES})
+target_link_libraries(cuBLAS_sgemm CUDA::cudart CUDA::cublas)
 
 # 最简单的线程索引演示；架构属性应设置给它自身。
 add_executable(simplest_kernel simplest_kernel.cu)
-set_target_properties(simplest_kernel PROPERTIES CUDA_ARCHITECTURES ${CUDA_COMPUTE_CAPABILITY})
-target_link_libraries(simplest_kernel ${CUDA_LIBRARIES})
+target_link_libraries(simplest_kernel CUDA::cudart)
+
+# 独立、带退出码的最小 CUDA 自检；先确认工具链和设备，再运行 GEMM。
+add_executable(cuda_smoke scripts/cuda_smoke.cu)
+target_link_libraries(cuda_smoke PRIVATE CUDA::cudart)
+enable_testing()
+add_test(NAME cuda_smoke COMMAND cuda_smoke)
+
+option(SGEMM_BUILD_WINDOWS_BENCHMARK "Build portable controlled FP32 experiment" OFF)
+if(SGEMM_BUILD_WINDOWS_BENCHMARK)
+  add_executable(windows_benchmark scripts/windows_benchmark.cu)
+  target_compile_definitions(windows_benchmark PRIVATE SGEMM_K10_MIN_BLOCKS=2)
+  target_compile_options(windows_benchmark PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo;-Xptxas=-v>)
+  target_link_libraries(windows_benchmark PRIVATE CUDA::cublas)
+endif()
+
+# 第三阶段独立跨库复现；不替换原编号分发或第一、二阶段 benchmark。
+option(SGEMM_BUILD_VITAMIN_BENCHMARK "Build five original vitamin SIMT kernels" OFF)
+option(SGEMM_VITAMIN_ORIGINAL_CONFIG "Use upstream fast-math and ordinary cuBLAS" OFF)
+if(SGEMM_BUILD_VITAMIN_BENCHMARK)
+  add_executable(windows_vitamin_benchmark scripts/windows_vitamin_benchmark.cu)
+  target_compile_definitions(windows_vitamin_benchmark PRIVATE
+    SGEMM_K10_MIN_BLOCKS=2 VITAMIN_ORIGINAL_CONFIG=$<BOOL:${SGEMM_VITAMIN_ORIGINAL_CONFIG}>)
+  target_compile_options(windows_vitamin_benchmark PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-O3;-lineinfo;-Xptxas=-v;--expt-relaxed-constexpr;--expt-extended-lambda>)
+  if(SGEMM_VITAMIN_ORIGINAL_CONFIG)
+    target_compile_options(windows_vitamin_benchmark PRIVATE
+      $<$<COMPILE_LANGUAGE:CUDA>:--use_fast_math;-U__CUDA_NO_HALF_OPERATORS__;-U__CUDA_NO_HALF_CONVERSIONS__;-U__CUDA_NO_HALF2_OPERATORS__;-U__CUDA_NO_BFLOAT16_CONVERSIONS__>)
+  endif()
+  target_link_libraries(windows_vitamin_benchmark PRIVATE CUDA::cublas)
+endif()

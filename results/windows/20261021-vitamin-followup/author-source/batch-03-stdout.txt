@@ -1,0 +1,9 @@
+####################################################################################################
+n: 4096, m: 4096, k: 4096
+torch                                    mean time: 2.869524 ms, 47.90 tflops
+sgemm_cublas                             mean time: 2.960243 ms, speedup: 0.97, tflops: 46.43
+sgemm_tiling                             mean time: 4.010606 ms, speedup: 0.72, tflops: 34.27
+sgemm_at_tiling                          mean time: 3.340091 ms, speedup: 0.86, tflops: 41.15
+sgemm_at_bcf_swizzling                   mean time: 3.185239 ms, speedup: 0.90, tflops: 43.15
+sgemm_at_bcf_swizzling_rw                mean time: 3.196809 ms, speedup: 0.90, tflops: 42.99
+sgemm_at_bcf_swizzling_dbf_rw            mean time: 3.228645 ms, speedup: 0.89, tflops: 42.57

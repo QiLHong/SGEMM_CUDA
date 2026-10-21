@@ -1,0 +1,343 @@
+CUDA: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe
+MSVC: D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe
+Windows SDK: D:\Windows Kits\10\ 10.0.26100.0\
+NVIDIA (R) Nsight Compute Command Line Profiler
+Copyright (c) 2018-2024 NVIDIA Corporation
+Version 2024.1.1.0 (build 33998838) (public-release)
+Profiling 2048-sgemm_tiling-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_tiling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_tiling,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_tiling,n=2048,round=1,order=1,mean_ms=175.262908936,median_sample_ms=175.262908936,gflops=98.023,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_tiling,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=175.262908936,min_round_ms=175.262908936,max_round_ms=175.262908936,range_over_median_pct=0.0000,median_gflops=98.023,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-sgemm_at_tiling-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_tiling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_tiling,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_tiling,n=2048,round=1,order=1,mean_ms=172.804260254,median_sample_ms=172.804260254,gflops=99.418,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_tiling,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=172.804260254,min_round_ms=172.804260254,max_round_ms=172.804260254,range_over_median_pct=0.0000,median_gflops=99.418,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-sgemm_at_bcf_swizzling-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling,n=2048,round=1,order=1,mean_ms=181.801177979,median_sample_ms=181.801177979,gflops=94.498,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=181.801177979,min_round_ms=181.801177979,max_round_ms=181.801177979,range_over_median_pct=0.0000,median_gflops=94.498,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-sgemm_at_bcf_swizzling_rw-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling_rw
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_rw,n=2048,round=1,order=1,mean_ms=170.786437988,median_sample_ms=170.786437988,gflops=100.593,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_rw,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=170.786437988,min_round_ms=170.786437988,max_round_ms=170.786437988,range_over_median_pct=0.0000,median_gflops=100.593,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-sgemm_at_bcf_swizzling_dbf_rw-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling_dbf_rw
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=176.737670898,median_sample_ms=176.737670898,gflops=97.205,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=176.737670898,min_round_ms=176.737670898,max_round_ms=176.737670898,range_over_median_pct=0.0000,median_gflops=97.205,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-k30_v2-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=k30_v2
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,k30_v2,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,k30_v2,n=2048,round=1,order=1,mean_ms=164.917724609,median_sample_ms=164.917724609,gflops=104.172,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,k30_v2,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=164.917724609,min_round_ms=164.917724609,max_round_ms=164.917724609,range_over_median_pct=0.0000,median_gflops=104.172,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-k30_v2-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=k30_v2
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,k30_v2,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,k30_v2,n=2048,round=1,order=1,mean_ms=198.829574585,median_sample_ms=198.829574585,gflops=86.405,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,k30_v2,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=198.829574585,min_round_ms=198.829574585,max_round_ms=198.829574585,range_over_median_pct=0.0000,median_gflops=86.405,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-sgemm_at_bcf_swizzling_dbf_rw-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling_dbf_rw
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=167.866241455,median_sample_ms=167.866241455,gflops=102.343,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=167.866241455,min_round_ms=167.866241455,max_round_ms=167.866241455,range_over_median_pct=0.0000,median_gflops=102.343,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-sgemm_at_bcf_swizzling_rw-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling_rw
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_rw,n=2048,round=1,order=1,mean_ms=167.848358154,median_sample_ms=167.848358154,gflops=102.354,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_rw,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=167.848358154,min_round_ms=167.848358154,max_round_ms=167.848358154,range_over_median_pct=0.0000,median_gflops=102.354,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-sgemm_at_bcf_swizzling-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling,n=2048,round=1,order=1,mean_ms=180.388793945,median_sample_ms=180.388793945,gflops=95.238,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=180.388793945,min_round_ms=180.388793945,max_round_ms=180.388793945,range_over_median_pct=0.0000,median_gflops=95.238,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-sgemm_at_tiling-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_tiling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_tiling,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_tiling,n=2048,round=1,order=1,mean_ms=174.285308838,median_sample_ms=174.285308838,gflops=98.573,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_tiling,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=174.285308838,min_round_ms=174.285308838,max_round_ms=174.285308838,range_over_median_pct=0.0000,median_gflops=98.573,abs_status=PASS,upstream_allclose=PASS
+Profiling 2048-sgemm_tiling-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_tiling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_tiling,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_tiling,n=2048,round=1,order=1,mean_ms=179.743743896,median_sample_ms=179.743743896,gflops=95.580,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_tiling,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=179.743743896,min_round_ms=179.743743896,max_round_ms=179.743743896,range_over_median_pct=0.0000,median_gflops=95.580,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_tiling-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_tiling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_tiling,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_tiling,n=4096,round=1,order=1,mean_ms=206.295745850,median_sample_ms=206.295745850,gflops=666.223,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_tiling,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=206.295745850,min_round_ms=206.295745850,max_round_ms=206.295745850,range_over_median_pct=0.0000,median_gflops=666.223,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_at_tiling-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_tiling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_tiling,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_tiling,n=4096,round=1,order=1,mean_ms=207.042877197,median_sample_ms=207.042877197,gflops=663.819,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_tiling,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=207.042877197,min_round_ms=207.042877197,max_round_ms=207.042877197,range_over_median_pct=0.0000,median_gflops=663.819,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_at_bcf_swizzling-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling,n=4096,round=1,order=1,mean_ms=202.402328491,median_sample_ms=202.402328491,gflops=679.038,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=202.402328491,min_round_ms=202.402328491,max_round_ms=202.402328491,range_over_median_pct=0.0000,median_gflops=679.038,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_at_bcf_swizzling_rw-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling_rw
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_rw,n=4096,round=1,order=1,mean_ms=220.280960083,median_sample_ms=220.280960083,gflops=623.926,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_rw,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=220.280960083,min_round_ms=220.280960083,max_round_ms=220.280960083,range_over_median_pct=0.0000,median_gflops=623.926,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_at_bcf_swizzling_dbf_rw-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling_dbf_rw
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=213.888290405,median_sample_ms=213.888290405,gflops=642.574,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=213.888290405,min_round_ms=213.888290405,max_round_ms=213.888290405,range_over_median_pct=0.0000,median_gflops=642.574,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-k30_v2-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=k30_v2
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,k30_v2,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,k30_v2,n=4096,round=1,order=1,mean_ms=200.580383301,median_sample_ms=200.580383301,gflops=685.206,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,k30_v2,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=200.580383301,min_round_ms=200.580383301,max_round_ms=200.580383301,range_over_median_pct=0.0000,median_gflops=685.206,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-k30_v2-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=k30_v2
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,k30_v2,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,k30_v2,n=4096,round=1,order=1,mean_ms=254.832382202,median_sample_ms=254.832382202,gflops=539.331,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,k30_v2,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=254.832382202,min_round_ms=254.832382202,max_round_ms=254.832382202,range_over_median_pct=0.0000,median_gflops=539.331,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_at_bcf_swizzling_dbf_rw-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling_dbf_rw
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=202.842941284,median_sample_ms=202.842941284,gflops=677.563,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=202.842941284,min_round_ms=202.842941284,max_round_ms=202.842941284,range_over_median_pct=0.0000,median_gflops=677.563,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_at_bcf_swizzling_rw-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling_rw
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_rw,n=4096,round=1,order=1,mean_ms=214.937637329,median_sample_ms=214.937637329,gflops=639.436,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_rw,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=214.937637329,min_round_ms=214.937637329,max_round_ms=214.937637329,range_over_median_pct=0.0000,median_gflops=639.436,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_at_bcf_swizzling-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_bcf_swizzling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling,n=4096,round=1,order=1,mean_ms=213.091873169,median_sample_ms=213.091873169,gflops=644.975,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=213.091873169,min_round_ms=213.091873169,max_round_ms=213.091873169,range_over_median_pct=0.0000,median_gflops=644.975,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_at_tiling-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_at_tiling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_tiling,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_tiling,n=4096,round=1,order=1,mean_ms=207.127105713,median_sample_ms=207.127105713,gflops=663.549,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_tiling,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=207.127105713,min_round_ms=207.127105713,max_round_ms=207.127105713,range_over_median_pct=0.0000,median_gflops=663.549,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-sgemm_tiling-r2 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=sgemm_tiling
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_tiling,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_tiling,n=4096,round=1,order=1,mean_ms=218.551559448,median_sample_ms=218.551559448,gflops=628.863,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_tiling,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=218.551559448,min_round_ms=218.551559448,max_round_ms=218.551559448,range_over_median_pct=0.0000,median_gflops=628.863,abs_status=PASS,upstream_allclose=PASS
+Profile results: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-simt-stage3\profile01

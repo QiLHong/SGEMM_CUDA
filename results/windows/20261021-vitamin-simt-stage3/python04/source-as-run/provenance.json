@@ -1,0 +1,10 @@
+{
+  "expected_command_sha256": "1b540d4aaea0b96dee1e57b6ba3d98ef5b65361dd6a57a5183eb33094ccf208c",
+  "reconstructed_source_sha256": "1b540d4aaea0b96dee1e57b6ba3d98ef5b65361dd6a57a5183eb33094ccf208c",
+  "exact_match": true,
+  "current_probe_sha256": "bffec16e6e410a83fa6208aca4c48955dc58025874f747bcc76405c9fbbfe8fc",
+  "reconstruction": "Removed only post-run import shutil and extension artifact-copy block; byte SHA256 exactly matches python04 command.json.",
+  "post_run_change": "Current probe additionally copies the loaded .pyd and build.ninja and hashes them before measurement. This pure archive addition was syntax-checked, not GPU rerun.",
+  "artifacts_saved_after_run": "python04 extension-artifacts.json and extension-* files were copied after successful execution from unchanged successful build cache.",
+  "wrapper_note": "Run-VitaminPython.ps1 has not changed since python04 execution; snapshot included for context. command.json records the probe hash, not a wrapper hash."
+}

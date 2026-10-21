@@ -1,0 +1,82 @@
+阶段三 CPU 静态证据与已采集 NCU 数据复核
+
+范围
+- 本审计未运行 GPU benchmark/profile；A/B cuobjdump 与 Python 分析均在 CPU。
+- 主要 NCU 输入 profile01/ncu-summary.csv：6实现 × 2尺寸 × 2次 = 24行。
+- 额外严格 cuBLAS 输入 profile-cublas-B/ncu-summary.csv：2尺寸 × 1次 = 2行，单独计数。
+- profile-analysis/profile-ranges.csv 保存前者336条指标范围；
+  cublas-profile-analysis/profile-ranges.csv 保存后者56条范围。
+- NCU 的时间不能替代无 profiler CUDA events 性能表。两次观测范围不是置信区间。
+
+编译配置 A/B
+- static/config-comparison.json 比较所有7个已提取函数的全部解析SASS指令，
+  不仅比较主循环。比较包括顺序、谓词和操作数，排除地址标签、注释和编码字节。
+- 不归一化时，每个函数有1024至2449处指令文本差异；仅去除 opcode 的 .FTZ
+  修饰后，7个函数逐条一致。FTZ 语义仍然不同，不能把它称为相同精度设置。
+- A、B 自定义函数均没有 HMMA/IMMA/DMMA/MMA/HGMMA；这里只覆盖可执行文件中的
+  自定义device代码，不借此推论动态链接cuBLAS库中的指令。
+- 原作者dbf源码注释声称保持在128寄存器以下；本次sm89实际为143，不沿用该结论。
+- 各vitamin寄存器：tiling126，AT123，SW127，RW127，DBF143；
+  用户静态shared分别16384、16384、16384、16384、32768字节。
+  STACK/LOCAL均为0，NCU local-load/store sectors也均为0。
+
+静态主循环
+- 五vitamin实现：1024 FFMA、4 LDG、64 LDS；tiling4 STS，其余10 STS。
+- 前四步每循环2 BAR，DBF每循环1 BAR。
+- RW的4 LDG在1024条FFMA之前。
+- DBF源码将4次下一tile读取放在计算前，但PTX有2次在FMA前、2次在1024条FMA后；
+  最终SASS中4个LDG分别位于还剩210、192、192、192条FFMA的位置。
+- K30V2主循环2048 FFMA、8 LDG、96 LDS、20 STS、1 BAR；
+  其8个LDG在最终SASS中均只剩2条FFMA。这些是静态顺序，不能直接当作隐藏延迟量。
+- 五个vitamin实现的整个函数都含16条STG.E.128。SW→RW不能解释为本次才获得
+  128bit写回或减少STG条数；应解释地址/线程输出映射变化。未专采global-store
+  sectors/request，现有证据不足以独立量化写合并效率。
+- K10 PTX存在多个最大FMA回边候选；分析器明确标为ambiguous并保存候选。
+  不将其自动选择的PTX内层循环当成完整tile循环。K10 SASS主循环没有此歧义。
+
+NCU支持的五步变化（以下为B；范围详见CSV）
+- 4096 tiling shared-load bank conflicts=402653184；AT/SW/RW/DBF均为0。
+- AT shared-store bank conflicts=50331648；SW/RW/DBF均为0。
+- 每1024 thread FFMA对应shared-load wavefront：tiling12，AT/SW/RW/DBF6，
+  K30V2约3。这比只比较冲突计数更能体现不同fragment复用带来的服务工作量。
+- 这里的0只是本次所选kernel和指标的观测，不是所有尺寸、架构上的普遍保证。
+
+DBF与RW的尺寸反转
+- RW127寄存器→DBF143寄存器，NCU register-limited blocks/SM从2降至1；
+  256线程的143寄存器需求本身已使两个CTA超过64K寄存器预算。
+- NCU同时报告shared-limited blocks/SM从3变1，但没有采集
+  launch__shared_mem_config_size；实际shared carveout未知。
+  不把32KB shared翻倍单独定为降occupancy原因。
+- 4096：RW occupancy31.80%，DBF16.66%；active warps/SMSP active cycle
+  中位数3.825→2；eligible 2.275→1.275。
+- 4096：long-scoreboard .38→.18、barrier .35→.085，等待计数降低；
+  但issue-active 73.365%→71.765%，FMA-pipe-active 67.575%→65.49%。
+  因而“同步次数更少”不能推出更快。
+- 2048：issue-active 72.465%→74.48%，FMA-pipe-active 65.64%→67.235%；
+  DBF两次issue为72.39%与76.57%，范围比RW更宽，应保留波动。
+- 4096：DBF DRAM read约634.57MB，RW约381.83MB；L2 sector hit
+  85.47%与91.225%。这支持进一步检查访存复用/调度的假设。
+  cache-control=none、kernel replay和有限重复会影响缓存观测，不能直接当成
+  无profiler计时差异的唯一原因。2048 DBF一次DRAM write为0，也不表示没有写C。
+
+与K30、cuBLAS的差距
+- K30V2 4096并非无bank conflict：load中位数24154、store约18.075M；
+  但shared-load wavefront/FFMA约为vitamin的一半，short-scoreboard .05，
+  issue78.515%、FMA-pipe73.21%。不能用“谁冲突少”独立给性能排序。
+- B严格cuBLAS额外两次捕获的实际函数均为
+  cutlass::Kernel2<cutlass_80_simt_sgemm_256x128_8x4_nn_align1>。
+  registers202，shared total50176字节，local sectors0。
+  4096 issue84.27%、FMA-pipe75.88%、long-scoreboard .04、
+  short-scoreboard .03。cuBLAS样本只有每尺寸一次，不形成重复波动估计。
+- stalled/active/eligible warp指标是每SMSP active cycle的平均warp数，
+  不是时间占比；不同stall数不能相加后解释为执行时间分解。
+
+复跑分析（只读取已有文件；输出目录必须不存在）
+PowerShell，工作目录为SGEMM_CUDA：
+& 'D:\Anaconda\Anaconda\python.exe' -B .\scripts\analyze_vitamin_evidence.py `
+  --sass .\results\windows\20261021-vitamin-simt-stage3\static\B\binary.sass `
+  --ptx .\results\windows\20261021-vitamin-simt-stage3\static\B\binary.ptx `
+  --label B --binary .\build-windows-vitamin-sm89-B\windows_vitamin_benchmark.exe `
+  --profile .\results\windows\20261021-vitamin-simt-stage3\profile01\ncu-summary.csv `
+  --compare-sass .\results\windows\20261021-vitamin-simt-stage3\static\A\binary.sass `
+  --output-dir .\results\windows\vitamin-evidence-replay-new

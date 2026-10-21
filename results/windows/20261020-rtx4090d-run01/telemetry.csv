@@ -1,0 +1,6 @@
+timestamp, name, driver_version, pstate, temperature.gpu, clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W], utilization.gpu [%], memory.used [MiB]
+2026/10/20 22:48:42.765, NVIDIA GeForce RTX 4090 D, 610.60, P0, 44, 2520 MHz, 10501 MHz, 77.05 W, 4 %, 1407 MiB
+timestamp, name, driver_version, pstate, temperature.gpu, clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W], utilization.gpu [%], memory.used [MiB]
+2026/10/20 22:48:43.357, NVIDIA GeForce RTX 4090 D, 610.60, P2, 50, 2715 MHz, 10251 MHz, 93.04 W, 60 %, 1407 MiB
+timestamp, name, driver_version, pstate, temperature.gpu, clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W], utilization.gpu [%], memory.used [MiB]
+2026/10/20 22:48:44.873, NVIDIA GeForce RTX 4090 D, 610.60, P2, 49, 2700 MHz, 10251 MHz, 234.56 W, 68 %, 1407 MiB

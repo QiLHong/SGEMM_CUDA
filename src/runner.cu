@@ -16,6 +16,7 @@
 #include <cstdio>
 #include <fstream>
 #include <iomanip>
+#include <chrono>
 
 // 【学习补充】本文件是“主机调用”和“GPU kernel”之间的桥梁。
 // 阅读顺序：末尾 run_kernel 的编号分发 → 对应 runSgemm... → 目标 kernel。
@@ -24,9 +25,16 @@
 
 // 返回微秒量级的主机时间；不要因函数名含 sec 就直接按秒使用。
 float get_current_sec() {
+#ifdef _WIN32
+  // 仅供 CPU helper 使用，保留微秒单位；GEMM 仍使用 CUDA events。
+  static const auto origin = std::chrono::steady_clock::now();
+  return std::chrono::duration<float, std::micro>(
+             std::chrono::steady_clock::now() - origin).count();
+#else
   struct timeval time;
   gettimeofday(&time, NULL);
   return (1e6 * time.tv_sec + time.tv_usec);
+#endif
 }
 
 float cpu_elapsed_time(float &beg, float &end) { return 1.0e-6 * (end - beg); }
@@ -106,9 +114,15 @@ void randomize_matrix(float *mat, int N) {
     }
     srand(static_cast<unsigned>(seed) + 0x9e3779b9U * callIndex++);
   } else {
+#ifdef _WIN32
+    const auto ticks = std::chrono::system_clock::now().time_since_epoch();
+    srand(static_cast<unsigned>(
+        std::chrono::duration_cast<std::chrono::microseconds>(ticks).count()));
+#else
     struct timeval time {};
     gettimeofday(&time, nullptr);
     srand(time.tv_usec);
+#endif
   }
   for (int i = 0; i < N; i++) {
     float tmp = (float)(rand() % 5) + 0.01 * (rand() % 5);
@@ -261,7 +275,7 @@ void runSgemm2DBlocktiling(int M, int N, int K, float alpha, float *A, float *B,
   const uint BK = 8;
   const uint TM = 8;
   const uint TN = 8;
-  if (M >= 128 and N >= 128) {
+  if (M >= 128 && N >= 128) {
     const uint BM = 128;
     const uint BN = 128;
     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
@@ -285,7 +299,7 @@ void runSgemmVectorize(int M, int N, int K, float alpha, float *A, float *B,
   const uint BK = 8;
   const uint TM = 8;
   const uint TN = 8;
-  if (M >= 128 and N >= 128) {
+  if (M >= 128 && N >= 128) {
     const uint BM = 128;
     const uint BN = 128;
     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
@@ -309,7 +323,7 @@ void runSgemmResolveBankConflicts(int M, int N, int K, float alpha, float *A,
   const uint BK = 8;
   const uint TM = 8;
   const uint TN = 8;
-  if (M >= 128 and N >= 128) {
+  if (M >= 128 && N >= 128) {
     const uint BM = 128;
     const uint BN = 128;
     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
@@ -333,7 +347,7 @@ void runSgemmResolveBankExtraCol(int M, int N, int K, float alpha, float *A,
   const uint BK = 8;
   const uint TM = 8;
   const uint TN = 8;
-  if (M >= 128 and N >= 128) {
+  if (M >= 128 && N >= 128) {
     const uint BM = 128;
     const uint BN = 128;
     dim3 gridDim(CEIL_DIV(N, BN), CEIL_DIV(M, BM));
@@ -461,7 +475,7 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
   constexpr uint NUM_WARPS = K10_NUM_THREADS / 32;
 
   // warp tile 必须恰好铺满 block tile；这里 4 个 warp 覆盖 2×2 个区域。
-  static_assert((K10_BN % K10_WN == 0) and (K10_BM % K10_WM == 0));
+  static_assert((K10_BN % K10_WN == 0) && (K10_BM % K10_WM == 0));
   static_assert((K10_BN / K10_WN) * (K10_BM / K10_WM) == NUM_WARPS);
 
   // warp 子块中的线程覆盖关系。
@@ -470,7 +484,7 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
   constexpr uint K10_WMITER =
       (K10_WM * K10_WN) / (32 * K10_TM * K10_TN * K10_WNITER);
   // 子块必须整除 warp tile；当前参数推导 WMITER=1。
-  static_assert((K10_WM % K10_WMITER == 0) and (K10_WN % K10_WNITER == 0));
+  static_assert((K10_WM % K10_WMITER == 0) && (K10_WN % K10_WNITER == 0));
 
   // 搬运与向量化的整除约束；原字符串中的 K9/256 文案未更名。
   static_assert((K10_NUM_THREADS * 4) % K10_BK == 0,
@@ -519,12 +533,12 @@ void runSgemmWarptilingGrouped(int M, int N, int K, float alpha, float *A,
   static_assert(GROUP_M > 0);
   constexpr uint NUM_WARPS = NUM_THREADS / WARPSIZE;
   static_assert(NUM_THREADS % WARPSIZE == 0);
-  static_assert((BN % WN == 0) and (BM % WM == 0));
+  static_assert((BN % WN == 0) && (BM % WM == 0));
   static_assert((BN / WN) * (BM / WM) == NUM_WARPS);
   static_assert((WM * WN) % (WARPSIZE * TM * TN * WNITER) == 0);
   constexpr uint WMITER =
       (WM * WN) / (WARPSIZE * TM * TN * WNITER);
-  static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+  static_assert((WM % WMITER == 0) && (WN % WNITER == 0));
   static_assert((NUM_THREADS * 4) % BK == 0);
   static_assert((NUM_THREADS * 4) % BN == 0);
   static_assert(BN % (16 * TN) == 0);
@@ -563,12 +577,12 @@ void runSgemmWarptilingASwizzle(int M, int N, int K, float alpha, float *A,
         "float4-aligned N/K");
   }
   static_assert(NUM_THREADS % WARPSIZE == 0);
-  static_assert((BN % WN == 0) and (BM % WM == 0));
+  static_assert((BN % WN == 0) && (BM % WM == 0));
   static_assert((BN / WN) * (BM / WM) == NUM_THREADS / WARPSIZE);
   static_assert((WM * WN) % (WARPSIZE * TM * TN * WNITER) == 0);
   constexpr uint WMITER =
       (WM * WN) / (WARPSIZE * TM * TN * WNITER);
-  static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+  static_assert((WM % WMITER == 0) && (WN % WNITER == 0));
   static_assert((NUM_THREADS * 4) % BK == 0);
   static_assert((NUM_THREADS * 4) % BN == 0);
   static_assert(BN % (16 * TN) == 0);
@@ -603,12 +617,12 @@ void runSgemmWarptilingBAsync(int M, int N, int K, float alpha, float *A,
         "float4-aligned N/K");
   }
   static_assert(NUM_THREADS % WARPSIZE == 0);
-  static_assert((BN % WN == 0) and (BM % WM == 0));
+  static_assert((BN % WN == 0) && (BM % WM == 0));
   static_assert((BN / WN) * (BM / WM) == NUM_THREADS / WARPSIZE);
   static_assert((WM * WN) % (WARPSIZE * TM * TN * WNITER) == 0);
   constexpr uint WMITER =
       (WM * WN) / (WARPSIZE * TM * TN * WNITER);
-  static_assert((WM % WMITER == 0) and (WN % WNITER == 0));
+  static_assert((WM % WMITER == 0) && (WN % WNITER == 0));
   static_assert((NUM_THREADS * 4) % BK == 0);
   static_assert((NUM_THREADS * 4) % BN == 0);
   static_assert(BN % (16 * TN) == 0);
@@ -895,7 +909,7 @@ void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
   constexpr uint NUM_WARPS = K11_NUM_THREADS / 32;
 
   // warp tile 在 block tile 内的完整覆盖。
-  static_assert((K11_BN % K11_WN == 0) and (K11_BM % K11_WM == 0));
+  static_assert((K11_BN % K11_WN == 0) && (K11_BM % K11_WM == 0));
   static_assert((K11_BN / K11_WN) * (K11_BM / K11_WM) == NUM_WARPS);
 
   // warp 子块的线程覆盖关系。
@@ -904,7 +918,7 @@ void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
   constexpr uint K11_WMITER =
       (K11_WM * K11_WN) / (32 * K11_TM * K11_TN * K11_WNITER);
   // warp 子块必须整除 warp tile。
-  static_assert((K11_WM % K11_WMITER == 0) and (K11_WN % K11_WNITER == 0));
+  static_assert((K11_WM % K11_WMITER == 0) && (K11_WN % K11_WNITER == 0));
 
   // Kernel 11 用半个 block 合作加载，所以搬运约束中的线程数也除以 2。
   static_assert((K11_NUM_THREADS / 2 * 4) % K11_BK == 0,
@@ -947,7 +961,7 @@ void runSgemmDoubleBuffering2(int M, int N, int K, float alpha, float *A,
   constexpr uint NUM_WARPS = K12_NUM_THREADS / 32;
 
   // warp tile 恰好铺满 block tile。
-  static_assert((K12_BN % K12_WN == 0) and (K12_BM % K12_WM == 0));
+  static_assert((K12_BN % K12_WN == 0) && (K12_BM % K12_WM == 0));
   static_assert((K12_BN / K12_WN) * (K12_BM / K12_WM) == NUM_WARPS);
 
   // 线程、warp 子块、warp tile 三层覆盖关系。
@@ -956,7 +970,7 @@ void runSgemmDoubleBuffering2(int M, int N, int K, float alpha, float *A,
   constexpr uint K12_WMITER =
       (K12_WM * K12_WN) / (32 * K12_TM * K12_TN * K12_WNITER);
   // 子块必须整除整个 warp tile。
-  static_assert((K12_WM % K12_WMITER == 0) and (K12_WN % K12_WNITER == 0));
+  static_assert((K12_WM % K12_WMITER == 0) && (K12_WN % K12_WNITER == 0));
 
   // 全 block 向量搬运的覆盖条件；这些编译期断言不替代运行时矩阵边界检查。
   static_assert((K12_NUM_THREADS * 4) % K12_BK == 0,

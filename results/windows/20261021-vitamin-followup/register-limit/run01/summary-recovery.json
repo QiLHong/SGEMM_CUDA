@@ -1,0 +1,18 @@
+{
+  "failure": "ValueError: could not convert string to float: 2520 MHz",
+  "stage": "CPU summary only, after all 44 GPU invocations and RUN_COMPLETE marker",
+  "initial_output": "analysis/INCOMPLETE.txt",
+  "successful_output": "analysis02",
+  "gpu_rerun": false,
+  "corrective_change": "Only telemetry numeric token parsing and its explanatory comment changed",
+  "corrected_script_sha256": "5c260f651817d6af0f2bf1d3c6d3cf3bc5845acf08532d7ac60f4381b8f3f871",
+  "successful_command": [
+    "D:/Anaconda/Anaconda/python.exe",
+    "scripts/summarize_dbf_register_results.py",
+    "--result-dir",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01",
+    "--output-dir",
+    "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\run01\\analysis02"
+  ],
+  "successful_exit_code": 0
+}

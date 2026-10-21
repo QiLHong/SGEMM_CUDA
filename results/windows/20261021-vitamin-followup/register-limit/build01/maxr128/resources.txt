@@ -1,0 +1,24 @@
+
+Fatbin ptx code:
+================
+arch = sm_89
+code version = [8,4]
+host = windows
+compile_size = 64bit
+compressed
+identifier = D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/scripts/windows_dbf_register_benchmark.cu
+ptxasOptions = -v -maxrregcount=128 --generate-line-info 
+
+Fatbin elf code:
+================
+arch = sm_89
+code version = [1,7]
+host = windows
+compile_size = 64bit
+identifier = D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/scripts/windows_dbf_register_benchmark.cu
+
+Resource usage:
+ Common:
+  GLOBAL:0
+ Function _ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii:
+  REG:128 STACK:0 SHARED:32768 LOCAL:0 CONSTANT[0]:388 TEXTURE:0 SURFACE:0 SAMPLER:0

@@ -1,0 +1,137 @@
+BUILD_ATTEMPT_BEGIN original_load
+Using D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python as PyTorch extensions root...
+D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py:382: UserWarning: Error checking compiler version for cl: 'cp1' codec can't decode bytes in position 0--1: No mapping for the Unicode character exists in the target code page.
+  warnings.warn(f'Error checking compiler version for {compiler}: {error}')
+Detected CUDA files, patching ldflags
+Emitting ninja build file D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python\gemm_lib\build.ninja...
+Building extension module gemm_lib...
+Using envvar MAX_JOBS (2) as the number of workers...
+[1/4] C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output sgemm.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=gemm_lib -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math "-Xptxas -v" -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\sgemm.cu -o sgemm.cuda.o 
+FAILED: sgemm.cuda.o 
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output sgemm.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=gemm_lib -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math "-Xptxas -v" -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\sgemm.cu -o sgemm.cuda.o 
+nvcc fatal   : Unknown option '-Xptxas -v'
+
+[2/4] C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output cublas.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=gemm_lib -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math "-Xptxas -v" -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\cublas.cu -o cublas.cuda.o 
+FAILED: cublas.cuda.o 
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output cublas.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=gemm_lib -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math "-Xptxas -v" -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\cublas.cu -o cublas.cuda.o 
+nvcc fatal   : Unknown option '-Xptxas -v'
+
+ninja: build stopped: subcommand failed.
+Traceback (most recent call last):
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 2104, in _run_ninja_build
+    subprocess.run(
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['ninja', '-v', '-j', '2']' returned non-zero exit status 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 95, in load_upstream
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\test.py", line 14, in <module>
+    lib = load(
+          ^^^^^
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 85, in observed_load
+    return original_load(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1314, in load
+    return _jit_compile(
+           ^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1721, in _jit_compile
+    _write_ninja_file_and_build_library(
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1833, in _write_ninja_file_and_build_library
+    _run_ninja_build(
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 2120, in _run_ninja_build
+    raise RuntimeError(message) from e
+RuntimeError: Error building extension 'gemm_lib'
+
+BUILD_ATTEMPT_FAIL original_load
+BUILD_ATTEMPT_BEGIN windows_host_link_adapter
+Using D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python\vitamin_windows_probe\build.ninja...
+Building extension module vitamin_windows_probe...
+Using envvar MAX_JOBS (2) as the number of workers...
+ninja: no work to do.
+Loading extension module vitamin_windows_probe...
+BUILD_ATTEMPT_PASS windows_host_link_adapter
+AUTHOR_BATCH_BEGIN 1/7
+####################################################################################################
+n: 4096, m: 4096, k: 4096
+torch                                    mean time: 2.850184 ms, 48.22 tflops
+sgemm_cublas                             mean time: 2.931173 ms, speedup: 0.97, tflops: 46.89
+sgemm_tiling                             mean time: 3.961907 ms, speedup: 0.72, tflops: 34.69
+sgemm_at_tiling                          mean time: 3.328029 ms, speedup: 0.86, tflops: 41.30
+sgemm_at_bcf_swizzling                   mean time: 3.178152 ms, speedup: 0.90, tflops: 43.24
+sgemm_at_bcf_swizzling_rw                mean time: 3.187579 ms, speedup: 0.89, tflops: 43.12
+sgemm_at_bcf_swizzling_dbf_rw            mean time: 3.221315 ms, speedup: 0.88, tflops: 42.67
+AUTHOR_BATCH_PASS batch=1 original_diff_checks=6 TF32_executed=false
+AUTHOR_BATCH_BEGIN 2/7
+####################################################################################################
+n: 4096, m: 4096, k: 4096
+torch                                    mean time: 2.863082 ms, 48.00 tflops
+sgemm_cublas                             mean time: 2.951185 ms, speedup: 0.97, tflops: 46.57
+sgemm_tiling                             mean time: 4.000728 ms, speedup: 0.72, tflops: 34.35
+sgemm_at_tiling                          mean time: 3.333393 ms, speedup: 0.86, tflops: 41.23
+sgemm_at_bcf_swizzling                   mean time: 3.178260 ms, speedup: 0.90, tflops: 43.24
+sgemm_at_bcf_swizzling_rw                mean time: 3.191256 ms, speedup: 0.90, tflops: 43.07
+sgemm_at_bcf_swizzling_dbf_rw            mean time: 3.220918 ms, speedup: 0.89, tflops: 42.67
+AUTHOR_BATCH_PASS batch=2 original_diff_checks=6 TF32_executed=false
+AUTHOR_BATCH_BEGIN 3/7
+####################################################################################################
+n: 4096, m: 4096, k: 4096
+torch                                    mean time: 2.869524 ms, 47.90 tflops
+sgemm_cublas                             mean time: 2.960243 ms, speedup: 0.97, tflops: 46.43
+sgemm_tiling                             mean time: 4.010606 ms, speedup: 0.72, tflops: 34.27
+sgemm_at_tiling                          mean time: 3.340091 ms, speedup: 0.86, tflops: 41.15
+sgemm_at_bcf_swizzling                   mean time: 3.185239 ms, speedup: 0.90, tflops: 43.15
+sgemm_at_bcf_swizzling_rw                mean time: 3.196809 ms, speedup: 0.90, tflops: 42.99
+sgemm_at_bcf_swizzling_dbf_rw            mean time: 3.228645 ms, speedup: 0.89, tflops: 42.57
+AUTHOR_BATCH_PASS batch=3 original_diff_checks=6 TF32_executed=false
+AUTHOR_BATCH_BEGIN 4/7
+####################################################################################################
+n: 4096, m: 4096, k: 4096
+torch                                    mean time: 2.882498 ms, 47.68 tflops
+sgemm_cublas                             mean time: 2.975850 ms, speedup: 0.97, tflops: 46.18
+sgemm_tiling                             mean time: 4.017488 ms, speedup: 0.72, tflops: 34.21
+sgemm_at_tiling                          mean time: 3.338419 ms, speedup: 0.86, tflops: 41.17
+sgemm_at_bcf_swizzling                   mean time: 3.185724 ms, speedup: 0.90, tflops: 43.14
+sgemm_at_bcf_swizzling_rw                mean time: 3.196536 ms, speedup: 0.90, tflops: 43.00
+sgemm_at_bcf_swizzling_dbf_rw            mean time: 3.229833 ms, speedup: 0.89, tflops: 42.55
+AUTHOR_BATCH_PASS batch=4 original_diff_checks=6 TF32_executed=false
+AUTHOR_BATCH_BEGIN 5/7
+####################################################################################################
+n: 4096, m: 4096, k: 4096
+torch                                    mean time: 2.880712 ms, 47.71 tflops
+sgemm_cublas                             mean time: 2.982208 ms, speedup: 0.97, tflops: 46.09
+sgemm_tiling                             mean time: 4.026611 ms, speedup: 0.72, tflops: 34.13
+sgemm_at_tiling                          mean time: 3.339826 ms, speedup: 0.86, tflops: 41.15
+sgemm_at_bcf_swizzling                   mean time: 3.245126 ms, speedup: 0.89, tflops: 42.35
+sgemm_at_bcf_swizzling_rw                mean time: 3.261531 ms, speedup: 0.88, tflops: 42.14
+sgemm_at_bcf_swizzling_dbf_rw            mean time: 3.252432 ms, speedup: 0.89, tflops: 42.26
+AUTHOR_BATCH_PASS batch=5 original_diff_checks=6 TF32_executed=false
+AUTHOR_BATCH_BEGIN 6/7
+####################################################################################################
+n: 4096, m: 4096, k: 4096
+torch                                    mean time: 2.940111 ms, 46.75 tflops
+sgemm_cublas                             mean time: 3.113700 ms, speedup: 0.94, tflops: 44.14
+sgemm_tiling                             mean time: 4.153841 ms, speedup: 0.71, tflops: 33.09
+sgemm_at_tiling                          mean time: 3.492745 ms, speedup: 0.84, tflops: 39.35
+sgemm_at_bcf_swizzling                   mean time: 3.343273 ms, speedup: 0.88, tflops: 41.11
+sgemm_at_bcf_swizzling_rw                mean time: 3.331775 ms, speedup: 0.88, tflops: 41.25
+sgemm_at_bcf_swizzling_dbf_rw            mean time: 3.280160 ms, speedup: 0.90, tflops: 41.90
+AUTHOR_BATCH_PASS batch=6 original_diff_checks=6 TF32_executed=false
+AUTHOR_BATCH_BEGIN 7/7
+####################################################################################################
+n: 4096, m: 4096, k: 4096
+torch                                    mean time: 2.916188 ms, 47.13 tflops
+sgemm_cublas                             mean time: 3.012363 ms, speedup: 0.97, tflops: 45.62
+sgemm_tiling                             mean time: 4.203855 ms, speedup: 0.69, tflops: 32.69
+sgemm_at_tiling                          mean time: 3.511154 ms, speedup: 0.83, tflops: 39.14
+sgemm_at_bcf_swizzling                   mean time: 3.268562 ms, speedup: 0.89, tflops: 42.05
+sgemm_at_bcf_swizzling_rw                mean time: 3.310005 ms, speedup: 0.88, tflops: 41.52
+sgemm_at_bcf_swizzling_dbf_rw            mean time: 3.384016 ms, speedup: 0.86, tflops: 40.61
+AUTHOR_BATCH_PASS batch=7 original_diff_checks=6 TF32_executed=false

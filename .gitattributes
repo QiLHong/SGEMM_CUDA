@@ -18,3 +18,24 @@ results/windows/20261021-tensorcore-bn64/** -text
 experiments/tensorcore-bn64/** -text
 scripts/windows/*-TensorBN64*.ps1 -text
 docs/zh/31-* -text
+
+# Preserve unpublished Windows/SIMT and BN64 robustness evidence on publication.
+# Raw archives and their source snapshots must retain the recorded SHA256 bytes.
+results/windows/20261020-rtx4090d-profile-script/** -text
+results/windows/20261020-rtx4090d-run01/** -text
+results/windows/20261021-vitamin-simt-stage3/** -text
+results/windows/20261021-vitamin-followup/** -text
+results/windows/20261021-tensorcore-bn64-robustness/** -text
+results/windows/delivery-sha256.csv -text
+experiments/vitamin-dbf-register/** -text
+experiments/tensorcore-bn64-robustness/** -text
+scripts/windows/*.ps1 -text
+scripts/*vitamin* -text
+scripts/*dbf* -text
+scripts/*windows* -text
+src/kernels/vendor/** -text
+docs/zh/24-* -text
+docs/zh/25-* -text
+docs/zh/26-* -text
+docs/zh/27-* -text
+docs/zh/33-* -text

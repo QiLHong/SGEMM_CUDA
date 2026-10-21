@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "profile_launches": 8,
+  "metric_range_rows": 116,
+  "profile_source": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\profile01\\ncu-summary.csv",
+  "cautions": [
+    "Two profiled launches per variant/size are mechanism evidence, not the unprofiled event performance table.",
+    "Stalled-warp metrics count warps per SMSP active cycle; they are not elapsed-time percentages.",
+    "clock-control=none and cache-control=none preserve state, which may vary across replay passes.",
+    "Local sectors measure observed traffic; absence of spills also requires ptxas/resource/SASS evidence.",
+    "Reported shared configuration is actual sampled launch metadata; do not infer it from architectural capacity.",
+    "Register limits also change compiler scheduling, so occupancy alone cannot establish causation."
+  ]
+}

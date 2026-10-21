@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-10-20T18:02:43.3285263+00:00",
+  "architecture": "sm_89",
+  "precision": "strict_fp32_no_fast_math",
+  "only_device_factor": "--maxrregcount=128",
+  "gpu_execution_performed": false,
+  "evidence_dir": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01",
+  "source_sha256": [
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu",
+      "sha256": "F311507697BBC857A1367CD2BA9B50B3645E3642044339F1CE38C16FA984E138"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\experiments\\vitamin-dbf-register\\CMakeLists.txt",
+      "sha256": "B64804644A6183F6B78409629473FBC21331E75ADE91C45C3547991ECAA3ADD9"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\vitamin_sgemm.cuh",
+      "sha256": "12599B00536355E2C49120073F86DF72DE854EF083459312A25B1E034AE0DAA2"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\provenance.json",
+      "sha256": "EAE5A83920D55D14385863EAAE4B91C1AB46B883FD8F12EFCA34E9E08D5AE644"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\vitamin-LICENSE",
+      "sha256": "9646CCBEE1CAAEA25C5471662CAD3DD9D4E1708E9A3A14B5BE184F317192B639"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows\\Build-DbfRegister.ps1",
+      "sha256": "9540A55DF6B66C73C7F7FB77F9FB22F6F44F236BB02E709F9881CBA6A0E7D52A"
+    }
+  ],
+  "variants": [
+    {
+      "variant": "default",
+      "requested_register_limit": 0,
+      "compile_command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DDBF_MAX_REGISTERS=0 -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu -o CMakeFiles\\windows_dbf_default_benchmark.dir\\D_\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu.obj -Xcompiler=-FdCMakeFiles\\windows_dbf_default_benchmark.dir\\,-FS",
+      "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-dbf-register-sm89\\windows_dbf_default_benchmark.exe",
+      "binary_sha256": "493F1F31E796AAEA1195693FAE5CBE97C0CAD915572DEB74D8FEBF84FA74F62D",
+      "registers": 143,
+      "stack_bytes": 0,
+      "static_shared_bytes": 32768,
+      "local_bytes": 0,
+      "user_kernel_count": 1,
+      "kernel_symbol": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii"
+    },
+    {
+      "variant": "maxr128",
+      "requested_register_limit": 128,
+      "compile_command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DDBF_MAX_REGISTERS=128 -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 --maxrregcount=128 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu -o CMakeFiles\\windows_dbf_maxr128_benchmark.dir\\D_\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu.obj -Xcompiler=-FdCMakeFiles\\windows_dbf_maxr128_benchmark.dir\\,-FS",
+      "executable": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-dbf-register-sm89\\windows_dbf_maxr128_benchmark.exe",
+      "binary_sha256": "4136DBB339E2CAD59CCD4AA6C86C518D2C71932C85F1E36F152FAF5F03063F40",
+      "registers": 128,
+      "stack_bytes": 0,
+      "static_shared_bytes": 32768,
+      "local_bytes": 0,
+      "user_kernel_count": 1,
+      "kernel_symbol": "_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii"
+    }
+  ]
+}

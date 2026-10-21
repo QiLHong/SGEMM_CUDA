@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-20T18:11:39.658003+00:00",
+  "snapshots": [
+    {
+      "repository_path": "scripts/windows/Profile-DbfRegister.ps1",
+      "snapshot": "Profile-DbfRegister.ps1",
+      "sha256": "978f018d360f7e3d6205745f9936f097fbc7994c2334a114346049d8c7aab59a"
+    },
+    {
+      "repository_path": "scripts/windows/Initialize-Toolchain.ps1",
+      "snapshot": "Initialize-Toolchain.ps1",
+      "sha256": "25f14d925ddb904d1b3bd7bc2566c9f7451ab5a10fd61d7f1087ac620ddf0428"
+    }
+  ],
+  "verified_binaries": [
+    {
+      "variant": "default",
+      "sha256": "493f1f31e796aaea1195693fae5cbe97c0cad915572deb74d8febf84fa74f62d"
+    },
+    {
+      "variant": "maxr128",
+      "sha256": "4136dbb339e2cad59ccd4aa6c86c518d2c71932c85f1e36f152faf5f03063f40"
+    }
+  ],
+  "build_evidence": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01",
+  "note": "Snapshots saved after execution; listed files were unchanged since their respective successful execution. CPU summarizer is the one-line corrected version used for analysis02."
+}

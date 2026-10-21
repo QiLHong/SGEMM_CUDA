@@ -1,0 +1,25 @@
+ M .gitignore
+ M CMakeLists.txt
+ M README.md
+ M scripts/build_cutlass_reference.sh
+ M scripts/build_k30_audit.sh
+ M scripts/build_k31_audit.sh
+ M scripts/build_k32_audit.sh
+ M scripts/k30_audit.cu
+ M scripts/k31_audit.cu
+ M scripts/k32_audit.cu
+ M scripts/summarize_cutlass_reference.py
+ M scripts/summarize_k30_audit.py
+ M scripts/summarize_k31_audit.py
+ M scripts/summarize_k32_audit.py
+ M sgemm.cu
+ M simplest_kernel.cu
+ M src/kernels/10_kernel_warptiling.cuh
+ M src/runner.cu
+ M src/runner.cuh
+?? "docs/zh/24-Windows\345\216\237\347\224\237\346\236\204\345\273\272\344\270\2164090D\345\256\236\351\252\214.md"
+?? results/
+?? scripts/cuda_smoke.cu
+?? scripts/nvtx_compat.h
+?? scripts/windows/
+?? scripts/windows_benchmark.cu

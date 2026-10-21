@@ -1,0 +1,41 @@
+{
+  "argv": [
+    "scripts/analyze_dbf_register_evidence.py",
+    "--profile",
+    "results/windows/20261021-vitamin-followup/register-limit/profile01/ncu-summary.csv",
+    "--output-dir",
+    "results/windows/20261021-vitamin-followup/register-limit/profile-analysis"
+  ],
+  "files": [
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_vitamin_benchmark.cu",
+      "sha256": "69c863d7e4822dcbd6599556dbb485b04c463e185cc26576bee8d32f5ae01e4b"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu",
+      "sha256": "f311507697bbc857a1367cd2ba9b50b3645e3642044339f1ce38c16fa984e138"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-dbf-register-sm89\\compile_commands.json",
+      "sha256": "1c884ad3a3a6dc20a0a7debaa2cf650fb539824f4aaee8252631d8bc3164c966"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\src\\kernels\\vendor\\vitamin_sgemm.cuh",
+      "sha256": "12599b00536355e2c49120073f86df72de854ef083459312a25b1e034ae0daa2"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\analyze_dbf_register_evidence.py",
+      "sha256": "bca8eaf79b1735bf87f0453b43ab3f23fa4fc9ddff976b6543a67c551816921c"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\profile01\\ncu-summary.csv",
+      "sha256": "81b3147d7d503e29943dc023a260bb172ba37d33a0beee647163d28afb66feb1"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\profile01\\PROFILE_PASS.txt",
+      "sha256": "2fb4d90c15a9e9d611adba155991cbeca845355f54bbddf5a5f06b2267d38c0d"
+    }
+  ],
+  "cpu_only": true,
+  "source_audit_status": "PASS"
+}

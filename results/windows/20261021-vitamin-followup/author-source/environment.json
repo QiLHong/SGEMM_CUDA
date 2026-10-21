@@ -1,0 +1,102 @@
+{
+  "python": "D:\\Anaconda\\Anaconda\\envs\\pytorch\\python.exe",
+  "python_version": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+  "torch_version": "2.5.1",
+  "torch_cuda_build": "12.4",
+  "device": "NVIDIA GeForce RTX 4090 D",
+  "capability": [
+    8,
+    9
+  ],
+  "upstream_commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "source_files": [
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\test.py",
+      "snapshot": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\source-as-run\\upstream\\kernels\\sgemm\\test.py",
+      "sha256": "cd634a3671e41166b388cf65cde71d98845d419a26a2d9aa783436ea31ff595d"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm.cu",
+      "snapshot": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\source-as-run\\upstream\\kernels\\sgemm\\sgemm.cu",
+      "sha256": "21d3ef04b49469755c7e904a4ecc9ce869581f9b0859c757d981c819992369d2"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\cublas.cu",
+      "snapshot": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\source-as-run\\upstream\\kernels\\sgemm\\cublas.cu",
+      "sha256": "016dfaa173e4f712a531c544c6068c1487cfc81e5e61b70fb44ec1c42d6fd6e8"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\sgemm\\sgemm_tf32.cu",
+      "snapshot": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\source-as-run\\upstream\\kernels\\sgemm\\sgemm_tf32.cu",
+      "sha256": "b4a56eb331f5fd2e49f6a8a6690f309549e5ec5602a61ee44fc147ba35d9f6c2"
+    },
+    {
+      "path": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda\\kernels\\common\\pack.cuh",
+      "snapshot": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\author-source\\source-as-run\\upstream\\kernels\\common\\pack.cuh",
+      "sha256": "d39ce985b39eac0be2ab90d5c3a9e19fb7e23e69d006f2e7f86218af0dd18fec"
+    }
+  ],
+  "batches": 7,
+  "seed": 42,
+  "seed_policy": "torch.manual_seed(42) immediately before each unchanged test_4096 call.",
+  "timer": "Unmodified upstream benchmark time.perf_counter single-batch mean.",
+  "warmup": 10,
+  "repetitions": 200,
+  "order": [
+    "torch",
+    "sgemm_cublas",
+    "sgemm_tiling",
+    "sgemm_at_tiling",
+    "sgemm_at_bcf_swizzling",
+    "sgemm_at_bcf_swizzling_rw",
+    "sgemm_at_bcf_swizzling_dbf_rw"
+  ],
+  "original_diff_checks_per_completed_batch": [
+    {
+      "prefix": "sgemm_cublas",
+      "source_line": 132
+    },
+    {
+      "prefix": "sgemm_tiling",
+      "source_line": 137
+    },
+    {
+      "prefix": "sgemm_at_tiling",
+      "source_line": 139
+    },
+    {
+      "prefix": "sgemm_at_bcf_swizzling",
+      "source_line": 141
+    },
+    {
+      "prefix": "sgemm_at_bcf_swizzling_rw",
+      "source_line": 143
+    },
+    {
+      "prefix": "sgemm_at_bcf_swizzling_dbf_rw",
+      "source_line": 145
+    }
+  ],
+  "check_count_method": "Inferred from unchanged sequential control flow reaching stop after all six original assertions; no diff_check hook.",
+  "scope": "test_4096 SIMT portion only; stopped on first TF32 warmup call. Not a default-main reproduction.",
+  "matmul_allow_tf32": false,
+  "cudnn_allow_tf32": false,
+  "float32_matmul_precision": "highest",
+  "environment": {
+    "CUDA_PATH": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4",
+    "TORCH_CUDA_ARCH_LIST": "8.9",
+    "TORCH_EXTENSIONS_DIR": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-python",
+    "NVIDIA_TF32_OVERRIDE": "0",
+    "MAX_JOBS": "2",
+    "PYTHONUTF8": "1",
+    "PYTHONIOENCODING": "utf-8",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "DISTUTILS_USE_SDK": "1"
+  },
+  "limits": [
+    "Seven repetitions retain the original fixed implementation order; order/thermal bias remains.",
+    "Printed means have six decimal places in milliseconds; no new timing calls are inserted.",
+    "Post-batch hashes/validation occur only after the original SIMT test has finished.",
+    "Earlier intermediate outputs are overwritten by the original function; additional error metrics cover only the final DBF output and cuBLAS output."
+  ]
+}

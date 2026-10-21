@@ -1,0 +1,9 @@
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,n=4096,alpha=0.5,beta=3,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,precision=strict_fp32,selection=k10_pad8
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,version=120405,math=PEDANTIC,compute=32F_PEDANTIC,atomics=NOT_ALLOWED
+CPU_REFERENCE,count=256,max_abs=0.000887715627,max_rel=0.000317576273,failures=0,nonfinite=0
+CHECK,k10_pad8,n=4096,beta=3,max_abs=7.62939453e-06,max_rel=0.00121212121,failures=0,nonfinite=0,PASS
+ROUND,k10_pad8,n=4096,beta=3,round=1,order=1,mean_ms=155.746566772,median_sample_ms=155.746566772,gflops=882.453,max_abs=7.62939453e-06,failures=0,nonfinite=0,PASS
+SUMMARY,k10_pad8,n=4096,beta=3,rounds=1,median_round_ms=155.746566772,min_round_ms=155.746566772,max_round_ms=155.746566772,range_over_median_pct=0.0000,median_gflops=882.453,PASS

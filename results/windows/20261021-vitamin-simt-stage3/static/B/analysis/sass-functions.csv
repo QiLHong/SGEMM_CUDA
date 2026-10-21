@@ -1,0 +1,8 @@
+build,function_id,mode,arch,function,static_instructions,FFMA,FADD,FMUL,LDG,LDS,STS,STG,LDL,STL,LDGSTS,BAR,DEPBAR,WARPSYNC,BRA,IMAD,IADD3,MOV,HMMA,MMA,tensor_instructions,ftz_instructions
+B,0,sgemm_at_bcf_swizzling_dbf_rw,sm_89,_ZN12vitamin_cuda36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,2448,2048,0,0,8,128,20,16,0,0,0,2,0,0,4,15,26,33,0,0,0,0
+B,1,sgemm_at_bcf_swizzling_rw,sm_89,_ZN12vitamin_cuda32sgemm_at_bcf_swizzling_rw_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,1272,1024,0,0,4,64,10,16,0,0,0,2,0,0,4,15,8,7,0,0,0,0
+B,2,sgemm_at_bcf_swizzling,sm_89,_ZN12vitamin_cuda29sgemm_at_bcf_swizzling_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,1280,1024,0,0,4,64,10,16,0,0,0,2,0,0,4,15,9,7,0,0,0,0
+B,3,sgemm_at_tiling,sm_89,_ZN12vitamin_cuda22sgemm_at_tiling_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,1264,1024,0,0,4,64,10,16,0,0,0,2,0,0,4,15,7,7,0,0,0,0
+B,4,sgemm_tiling,sm_89,_ZN12vitamin_cuda19sgemm_tiling_kernelILi128ELi128ELi16ELi8ELi8EEEvPfS1_S1_iii,1264,1024,0,0,4,64,4,16,0,0,0,2,0,0,4,15,7,7,0,0,0,0
+B,5,k30_v2,sm_89,_Z8sgemmK30IN3k305ShapeILi128ELi128ELi16ELi64ELi64ELi4ELi4ELi128EEELi2EEviiifPKfS4_fPf,3360,2304,0,144,48,96,40,64,0,0,0,2,0,0,37,58,120,21,0,0,0,0
+B,6,k10,sm_89,_Z15sgemmWarptilingILi128ELi128ELi16ELi64ELi64ELi4ELi8ELi4ELi128ELi4EEviiifPKfS1_fPf,2768,2176,0,128,40,96,20,32,0,0,0,2,0,0,4,20,26,29,0,0,0,0

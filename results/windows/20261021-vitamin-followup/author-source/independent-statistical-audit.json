@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "rows": 49,
+  "batches": 7,
+  "modes": 7,
+  "dbf_cublas_paired_ratios": [
+    0.9099305718316898,
+    0.9162558624590877,
+    0.9168685315356752,
+    0.9213634265301023,
+    0.9169163259985142,
+    0.9492524754890006,
+    0.8901739826289238
+  ],
+  "dbf_faster_than_cublas_batches": 0,
+  "dbf_cublas_paired_speedup_median_pct": -8.313146846432485,
+  "summary_recomputed_from_printed_means": true,
+  "timing_scope": "Original upstream wallclock batches, not events; rounded to 6 decimal ms"
+}

@@ -1,0 +1,1 @@
+PASS: correctness (if enabled) and timing commands exited zero.

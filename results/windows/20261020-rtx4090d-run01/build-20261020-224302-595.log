@@ -1,0 +1,238 @@
+-- Configuring done (11.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-sm89
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2 cuda_smoke
+[1/2] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\cuda_smoke.dir\scripts\cuda_smoke.cu.obj -MF CMakeFiles\cuda_smoke.dir\scripts\cuda_smoke.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\cuda_smoke.cu -o CMakeFiles\cuda_smoke.dir\scripts\cuda_smoke.cu.obj -Xcompiler=-FdCMakeFiles\cuda_smoke.dir\,-FS
+cuda_smoke.cu
+
+tmpxft_000039d0_00000000-10_cuda_smoke.cudafe1.cpp
+
+[2/2] C:\WINDOWS\system32\cmd.exe /C "cd . && "D:\VS\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cuda_smoke.dir --rc="D:\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.26100.0\x64\mt.exe" --manifests  -- "D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\link.exe" /nologo CMakeFiles\cuda_smoke.dir\scripts\cuda_smoke.cu.obj  /out:cuda_smoke.exe /implib:cuda_smoke.lib /pdb:cuda_smoke.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cudart.lib"  cudadevrt.lib  cudart_static.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib -LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/lib/x64" && cd ."
+
+GPU=NVIDIA GeForce RTX 4090 D compute=8.9 VRAM_MiB=24563
+CUDA_SMOKE PASS (257 integer outputs)
+Change Dir: 'D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/build-windows-sm89'
+
+Run Build Command(s): "D:/VS/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe" -v -j 2
+[1/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\sgemm.dir\sgemm.cu.obj -MF CMakeFiles\sgemm.dir\sgemm.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\sgemm.cu -o CMakeFiles\sgemm.dir\sgemm.cu.obj -Xcompiler=-FdCMakeFiles\sgemm.dir\,-FS
+FAILED: CMakeFiles/sgemm.dir/sgemm.cu.obj 
+"C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -MD -MT CMakeFiles\sgemm.dir\sgemm.cu.obj -MF CMakeFiles\sgemm.dir\sgemm.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\sgemm.cu -o CMakeFiles\sgemm.dir\sgemm.cu.obj -Xcompiler=-FdCMakeFiles\sgemm.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\sgemm.cu(102): error: namespace "std" has no member "stoi"
+    int kernel_num = std::stoi(argv[1]);
+                          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\sgemm.cu(290): warning #221-D: floating-point value does not fit in required floating-point type
+
+              maxAbsDiff = ((float)(1e+300));
+
+                            ^
+
+
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+
+
+1 error detected in the compilation of "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/sgemm.cu".
+
+sgemm.cu
+
+[2/11] "C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -lineinfo -Xptxas=-v -MD -MT CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj -MF CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\k30_audit.cu -o CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj -Xcompiler=-FdCMakeFiles\k30_audit.dir\,-FS
+FAILED: CMakeFiles/k30_audit.dir/scripts/k30_audit.cu.obj 
+"C:\PROGRA~1\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe" -forward-unknown-to-host-compiler -ccbin="D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe" -DNOMINMAX -DSGEMM_K10_MIN_BLOCKS=2 -D_CRT_SECURE_NO_WARNINGS -ID:\CUDA-Lab\cuda-learning\SGEMM_CUDA\src -isystem "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -D_WINDOWS -Xcompiler=" /GR /EHsc" -Xcompiler="-O2 -Ob2" -DNDEBUG -std=c++17 "--generate-code=arch=compute_89,code=[compute_89,sm_89]" -Xcompiler=-MD -Xcompiler=/utf-8 -lineinfo -Xptxas=-v -MD -MT CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj -MF CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj.d -x cu -c D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\k30_audit.cu -o CMakeFiles\k30_audit.dir\scripts\k30_audit.cu.obj -Xcompiler=-FdCMakeFiles\k30_audit.dir\,-FS
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(33): error: identifier "uint" is undefined
+  __declspec(__device__) __forceinline constexpr uint aSmemIndex(const uint k,
+                                                 ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(33): error: identifier "uint" is undefined
+  __declspec(__device__) __forceinline constexpr uint aSmemIndex(const uint k,
+                                                                       ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(34): error: identifier "uint" is undefined
+                                                        const uint m) {
+                                                              ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(57): error: identifier "uint" is undefined
+    for (uint offset = 0; offset + rowStrideA <= BM; offset += rowStrideA) {
+         ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(75): error: identifier "uint" is undefined
+    for (uint offset = 0; offset + rowStrideB <= BK; offset += rowStrideB) {
+         ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(99): error: identifier "uint" is undefined
+                  const uint warpRow, const uint warpCol,
+                        ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(99): error: identifier "uint" is undefined
+                  const uint warpRow, const uint warpCol,
+                                            ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(100): error: identifier "uint" is undefined
+                  const uint threadRowInWarp, const uint threadColInWarp) {
+                        ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(100): error: identifier "uint" is undefined
+                  const uint threadRowInWarp, const uint threadColInWarp) {
+                                                    ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(101): error: identifier "uint" is undefined
+    for (uint dotIdx = 0; dotIdx < BK; ++dotIdx) {
+         ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(103): error: identifier "uint" is undefined
+      for (uint wSubRowIdx = 0; wSubRowIdx < WMITER; ++wSubRowIdx) {
+           ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(104): error: identifier "uint" is undefined
+        for (uint i = 0; i < TM; ++i) {
+             ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(105): error: identifier "uint" is undefined
+          const uint logicalM = warpRow * WM + wSubRowIdx * WSUBM +
+                ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(112): error: identifier "uint" is undefined
+      for (uint wSubColIdx = 0; wSubColIdx < WNITER; ++wSubColIdx) {
+           ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(113): error: identifier "uint" is undefined
+        for (uint i = 0; i < TN; ++i) {
+             ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(121): error: identifier "uint" is undefined
+      for (uint wSubRowIdx = 0; wSubRowIdx < WMITER; ++wSubRowIdx) {
+           ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(122): error: identifier "uint" is undefined
+        for (uint wSubColIdx = 0; wSubColIdx < WNITER; ++wSubColIdx) {
+             ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(124): error: identifier "uint" is undefined
+          for (uint resIdxM = 0; resIdxM < TM; ++resIdxM) {
+               ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(125): error: identifier "uint" is undefined
+            for (uint resIdxN = 0; resIdxN < TN; ++resIdxN) {
+                 ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(147): error: identifier "uint" is undefined
+                    float *__restrict C, const uint cRow, const uint cCol,
+                                               ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(147): error: identifier "uint" is undefined
+                    float *__restrict C, const uint cRow, const uint cCol,
+                                                                ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(150): error: identifier "uint" is undefined
+    const uint warpIdx = threadIdx.x / WARPSIZE;
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(151): error: identifier "uint" is undefined
+    const uint warpCol = warpIdx % (BN / WN);
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(152): error: identifier "uint" is undefined
+    const uint warpRow = warpIdx / (BN / WN);
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(154): error: identifier "uint" is undefined
+    constexpr uint WMITER = (WM * WN) / (WARPSIZE * TM * TN * WNITER);
+              ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(155): error: identifier "uint" is undefined
+    constexpr uint WSUBM = WM / WMITER;
+              ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(156): error: identifier "uint" is undefined
+    constexpr uint WSUBN = WN / WNITER;
+              ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(168): error: identifier "uint" is undefined
+    const uint threadIdxInWarp = threadIdx.x % WARPSIZE;
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(169): error: identifier "uint" is undefined
+    const uint threadColInWarp = threadIdxInWarp % (WSUBN / TN);
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(170): error: identifier "uint" is undefined
+    const uint threadRowInWarp = threadIdxInWarp / (WSUBN / TN);
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(176): error: identifier "uint" is undefined
+    const uint innerRowA = threadIdx.x / (BK / 4);
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(177): error: identifier "uint" is undefined
+    const uint innerColA = threadIdx.x % (BK / 4);
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(178): error: identifier "uint" is undefined
+    constexpr uint rowStrideA = (NUM_THREADS * 4) / BK;
+              ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(179): error: identifier "uint" is undefined
+    const uint innerRowB = threadIdx.x / (BN / 4);
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(180): error: identifier "uint" is undefined
+    const uint innerColB = threadIdx.x % (BN / 4);
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(181): error: identifier "uint" is undefined
+    constexpr uint rowStrideB = NUM_THREADS / (BN / 4);
+              ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(189): error: identifier "uint" is undefined
+    for (uint bkIdx = 0; bkIdx < K; bkIdx += BK) {
+         ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(203): error: identifier "uint" is undefined
+    for (uint wSubRowIdx = 0; wSubRowIdx < WMITER; ++wSubRowIdx) {
+         ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(204): error: identifier "uint" is undefined
+      for (uint wSubColIdx = 0; wSubColIdx < WNITER; ++wSubColIdx) {
+           ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(207): error: identifier "uint" is undefined
+        for (uint resIdxM = 0; resIdxM < TM; resIdxM += 1) {
+             ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(208): error: identifier "uint" is undefined
+          for (uint resIdxN = 0; resIdxN < TN; resIdxN += 4) {
+               ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(263): error: identifier "uint" is undefined
+    const uint cRow = blockIdx.y;
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(264): error: identifier "uint" is undefined
+    const uint cCol = blockIdx.x;
+          ^
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(266): error: identifier "uint" is undefined
+
+    constexpr uint AS_STRIDE = BM + AS_PAD;
+
+              ^
+
+
+
+D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\../src/kernels/10_kernel_warptiling.cuh(269): error: expected a declaration
+
+    wt::runWarptilingCore<BM, BN, BK, WM, WN, WNITER, TM, TN, NUM_THREADS,
+
+    ^
+
+
+
+45 errors detected in the compilation of "D:/CUDA-Lab/cuda-learning/SGEMM_CUDA/scripts/k30_audit.cu".
+
+k30_audit.cu
+
+ninja: build stopped: subcommand failed.
+

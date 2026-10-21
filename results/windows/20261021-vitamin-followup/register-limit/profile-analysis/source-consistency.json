@@ -1,0 +1,147 @@
+{
+  "status": "PASS",
+  "source_regions": [
+    {
+      "region": "seed_alpha_beta_tolerances",
+      "identical": true,
+      "baseline_sha256_lf": "b429d95ef41238d36941eead7453e6c5ca23d01d95746ab8683bc830d9db6481",
+      "candidate_sha256_lf": "b429d95ef41238d36941eead7453e6c5ca23d01d95746ab8683bc830d9db6481",
+      "baseline_lines": 3,
+      "candidate_lines": 3,
+      "diff": []
+    },
+    {
+      "region": "input_hash_cpu_reference_and_error_functions",
+      "identical": true,
+      "baseline_sha256_lf": "8f4521b54133ef66b2b30de048f691b04e9b20491954820cb5ef122afd91f25c",
+      "candidate_sha256_lf": "8f4521b54133ef66b2b30de048f691b04e9b20491954820cb5ef122afd91f25c",
+      "baseline_lines": 109,
+      "candidate_lines": 109,
+      "diff": []
+    },
+    {
+      "region": "buffers_events_blas_reference_helpers",
+      "identical": true,
+      "baseline_sha256_lf": "7c91a9295f805891c2291dfccd812b1f2c684cc65a98672e61dd6167f717c343",
+      "candidate_sha256_lf": "7c91a9295f805891c2291dfccd812b1f2c684cc65a98672e61dd6167f717c343",
+      "baseline_lines": 33,
+      "candidate_lines": 33,
+      "diff": []
+    },
+    {
+      "region": "blas_reporting_median_and_argument_helpers",
+      "identical": true,
+      "baseline_sha256_lf": "3b604d55a785c5056b498628efa673d59d22b7ea9620d1035a5049db789bc680",
+      "candidate_sha256_lf": "3b604d55a785c5056b498628efa673d59d22b7ea9620d1035a5049db789bc680",
+      "baseline_lines": 29,
+      "candidate_lines": 29,
+      "diff": []
+    },
+    {
+      "region": "allocation_and_input_upload",
+      "identical": true,
+      "baseline_sha256_lf": "b42ae318da654e98fee3431ffc0ee15ba8342f6ddaf835a00d05af34231c99d8",
+      "candidate_sha256_lf": "b42ae318da654e98fee3431ffc0ee15ba8342f6ddaf835a00d05af34231c99d8",
+      "baseline_lines": 10,
+      "candidate_lines": 10,
+      "diff": []
+    },
+    {
+      "region": "strict_reference_full_cpu_validation_reset",
+      "identical": true,
+      "baseline_sha256_lf": "087ae1c23e5093368c3c28c2fa69ea893e393bb7f3b5081a30b96b8d6435be6d",
+      "candidate_sha256_lf": "087ae1c23e5093368c3c28c2fa69ea893e393bb7f3b5081a30b96b8d6435be6d",
+      "baseline_lines": 38,
+      "candidate_lines": 38,
+      "diff": []
+    },
+    {
+      "region": "download_and_compare_lambda",
+      "identical": true,
+      "baseline_sha256_lf": "5888a8874ddd252999fbcd7d308c340ca706822357162121b0a52963d4efc539",
+      "candidate_sha256_lf": "5888a8874ddd252999fbcd7d308c340ca706822357162121b0a52963d4efc539",
+      "baseline_lines": 4,
+      "candidate_lines": 4,
+      "diff": []
+    },
+    {
+      "region": "preflight",
+      "identical": true,
+      "baseline_sha256_lf": "9449120c10ac40b970a9c0557116fbf5fd4f3f4cb3e9be2d44c2c5c66efd64f3",
+      "candidate_sha256_lf": "9449120c10ac40b970a9c0557116fbf5fd4f3f4cb3e9be2d44c2c5c66efd64f3",
+      "baseline_lines": 16,
+      "candidate_lines": 16,
+      "diff": []
+    },
+    {
+      "region": "warmup_events_final_validation_and_output",
+      "identical": true,
+      "baseline_sha256_lf": "ec87f7c8e3d647f5b45ea4deb6c626ff080803ed367df927a2870a78768a4a92",
+      "candidate_sha256_lf": "ec87f7c8e3d647f5b45ea4deb6c626ff080803ed367df927a2870a78768a4a92",
+      "baseline_lines": 52,
+      "candidate_lines": 52,
+      "diff": []
+    },
+    {
+      "region": "final_summary",
+      "identical": true,
+      "baseline_sha256_lf": "f3eab78bf2e1c4a8cd48d4314a020e1a396fa2e05b8934722bf482235bff0646",
+      "candidate_sha256_lf": "f3eab78bf2e1c4a8cd48d4314a020e1a396fa2e05b8934722bf482235bff0646",
+      "baseline_lines": 11,
+      "candidate_lines": 11,
+      "diff": []
+    }
+  ],
+  "macro_uses": [
+    {
+      "line": 4,
+      "text": "// DBF_MAX_REGISTERS 宏只为 host 日志/CSV命名；不参与 kernel 模板或函数体。"
+    },
+    {
+      "line": 28,
+      "text": "#ifndef DBF_MAX_REGISTERS"
+    },
+    {
+      "line": 29,
+      "text": "#error \"Define DBF_MAX_REGISTERS as 0 (default) or 128.\""
+    },
+    {
+      "line": 31,
+      "text": "#if DBF_MAX_REGISTERS != 0 && DBF_MAX_REGISTERS != 128"
+    },
+    {
+      "line": 32,
+      "text": "#error \"DBF_MAX_REGISTERS must be 0 or 128.\""
+    },
+    {
+      "line": 39,
+      "text": "constexpr const char* Configuration = DBF_MAX_REGISTERS == 128 ? \"dbf_maxr128\" : \"dbf_default\";"
+    },
+    {
+      "line": 289,
+      "text": "        DBF_MAX_REGISTERS,attributes.numRegs,attributes.sharedSizeBytes,"
+    }
+  ],
+  "macro_executable_uses_are_only_host_label_and_resource_printf": true,
+  "vendor_device_source_contains_cap_macro": false,
+  "compile_commands": [
+    {
+      "variant": "default",
+      "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DDBF_MAX_REGISTERS=0 -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu -o CMakeFiles\\windows_dbf_default_benchmark.dir\\D_\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu.obj -Xcompiler=-FdCMakeFiles\\windows_dbf_default_benchmark.dir\\,-FS"
+    },
+    {
+      "variant": "maxr128",
+      "command": "\"C:\\PROGRA~1\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler -ccbin=\"D:\\VS\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe\" -DDBF_MAX_REGISTERS=128 -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS -isystem \"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\include\" -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\"-O2 -Ob2\" -DNDEBUG -std=c++17 \"--generate-code=arch=compute_89,code=[compute_89,sm_89]\" -Xcompiler=-MD -O3 -lineinfo -Xptxas=-v --expt-relaxed-constexpr --expt-extended-lambda -Xcompiler=/utf-8 --maxrregcount=128 -x cu -c D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu -o CMakeFiles\\windows_dbf_maxr128_benchmark.dir\\D_\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu.obj -Xcompiler=-FdCMakeFiles\\windows_dbf_maxr128_benchmark.dir\\,-FS"
+    }
+  ],
+  "compile_commands_equal_after_removing_cap_host_label_and_target_output_names": true,
+  "normalization": "Source regions: CRLF->LF only. Commands: remove --maxrregcount=128; normalize host DBF_MAX_REGISTERS label and target output names.",
+  "scope": [
+    "Source audit checks selected unchanged host regions; the complete harness programs differ.",
+    "DBF device template remains <128,128,16,8,8> with 256 threads and n/128 by n/128 grid.",
+    "Reference cuBLAS uses a distinct PEDANTIC handle in both programs.",
+    "New harness runs only DBF; the external PowerShell script alternates binary processes.",
+    "Resource/occupancy API queries occur before timing; no device body or template is changed by the host macro.",
+    "The compiler register cap can change machine-code scheduling; this is not a pure occupancy-only experiment."
+  ]
+}

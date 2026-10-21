@@ -1,0 +1,616 @@
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 128 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\correctness-128-pair0-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=128,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12350557075175389799,b=18164722883612022857,c0=12782700796385326220
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=16384,coverage=all,max_abs=4.36428517e-05,max_rel=0.0027967805,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=128,max_abs=0.000106811523,max_rel=0.00717501407,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=16384,cpu_max_abs=0.000108852533,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=128,round=1,order=1,mean_ms=0.018432001,median_sample_ms=0.018432001,gflops=227.556,max_abs=0.000106811523,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000108852533,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=128,rounds=1,median_round_ms=0.018432001,min_round_ms=0.018432001,max_round_ms=0.018432001,range_over_median_pct=0.0000,median_gflops=227.556,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 128 1 1 1 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\correctness-128-pair0-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=128,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=1,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12350557075175389799,b=18164722883612022857,c0=12782700796385326220
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=16384,coverage=all,max_abs=4.36428517e-05,max_rel=0.0027967805,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=128,max_abs=0.000106811523,max_rel=0.00717501407,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=16384,cpu_max_abs=0.000108852533,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=128,round=1,order=1,mean_ms=0.015104000,median_sample_ms=0.015104000,gflops=277.695,max_abs=0.000106811523,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000108852533,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=128,rounds=1,median_round_ms=0.015104000,min_round_ms=0.015104000,max_round_ms=0.015104000,range_over_median_pct=0.0000,median_gflops=277.695,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair1-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.081885865,median_sample_ms=0.080895998,gflops=26225.328,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=1024,rounds=1,median_round_ms=0.081885865,min_round_ms=0.081885865,max_round_ms=0.081885865,range_over_median_pct=0.0000,median_gflops=26225.328,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair1-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.088195200,median_sample_ms=0.087983999,gflops=24349.212,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=1024,rounds=1,median_round_ms=0.088195200,min_round_ms=0.088195200,max_round_ms=0.088195200,range_over_median_pct=0.0000,median_gflops=24349.212,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair2-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.087927467,median_sample_ms=0.087040000,gflops=24423.354,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=1024,rounds=1,median_round_ms=0.087927467,min_round_ms=0.087927467,max_round_ms=0.087927467,range_over_median_pct=0.0000,median_gflops=24423.354,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair2-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.081167998,median_sample_ms=0.080895998,gflops=26457.270,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=1024,rounds=1,median_round_ms=0.081167998,min_round_ms=0.081167998,max_round_ms=0.081167998,range_over_median_pct=0.0000,median_gflops=26457.270,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair3-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.081100798,median_sample_ms=0.080895998,gflops=26479.193,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=1024,rounds=1,median_round_ms=0.081100798,min_round_ms=0.081100798,max_round_ms=0.081100798,range_over_median_pct=0.0000,median_gflops=26479.193,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair3-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.088100267,median_sample_ms=0.088016000,gflops=24375.450,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=1024,rounds=1,median_round_ms=0.088100267,min_round_ms=0.088100267,max_round_ms=0.088100267,range_over_median_pct=0.0000,median_gflops=24375.450,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair4-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.087720533,median_sample_ms=0.088064000,gflops=24480.969,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=1024,rounds=1,median_round_ms=0.087720533,min_round_ms=0.087720533,max_round_ms=0.087720533,range_over_median_pct=0.0000,median_gflops=24480.969,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair4-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.081339731,median_sample_ms=0.080895998,gflops=26401.411,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=1024,rounds=1,median_round_ms=0.081339731,min_round_ms=0.081339731,max_round_ms=0.081339731,range_over_median_pct=0.0000,median_gflops=26401.411,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair5-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.081326931,median_sample_ms=0.080895998,gflops=26405.566,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=1024,rounds=1,median_round_ms=0.081326931,min_round_ms=0.081326931,max_round_ms=0.081326931,range_over_median_pct=0.0000,median_gflops=26405.566,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair5-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.087825067,median_sample_ms=0.088064000,gflops=24451.831,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=1024,rounds=1,median_round_ms=0.087825067,min_round_ms=0.087825067,max_round_ms=0.087825067,range_over_median_pct=0.0000,median_gflops=24451.831,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair6-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.087789867,median_sample_ms=0.087040000,gflops=24461.635,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=1024,rounds=1,median_round_ms=0.087789867,min_round_ms=0.087789867,max_round_ms=0.087789867,range_over_median_pct=0.0000,median_gflops=24461.635,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair6-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.081544531,median_sample_ms=0.080895998,gflops=26335.103,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=1024,rounds=1,median_round_ms=0.081544531,min_round_ms=0.081544531,max_round_ms=0.081544531,range_over_median_pct=0.0000,median_gflops=26335.103,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair7-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.081033598,median_sample_ms=0.080895998,gflops=26501.152,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=1024,rounds=1,median_round_ms=0.081033598,min_round_ms=0.081033598,max_round_ms=0.081033598,range_over_median_pct=0.0000,median_gflops=26501.152,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 1024 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-1024-pair7-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=1024,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=13516797206394986137,b=16156175791465964020,c0=1488143871368926687
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.000152820172,max_rel=6.10164814e-05,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=1024,max_abs=0.00131225586,max_rel=0.0690038144,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=1024,round=1,order=1,mean_ms=0.087833600,median_sample_ms=0.087104000,gflops=24449.455,max_abs=0.00131225586,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000333572788,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=1024,rounds=1,median_round_ms=0.087833600,min_round_ms=0.087833600,max_round_ms=0.087833600,range_over_median_pct=0.0000,median_gflops=24449.455,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair1-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.459570137,median_sample_ms=0.458752006,gflops=37382.475,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=2048,rounds=1,median_round_ms=0.459570137,min_round_ms=0.459570137,max_round_ms=0.459570137,range_over_median_pct=0.0000,median_gflops=37382.475,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair1-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.470224004,median_sample_ms=0.470016003,gflops=36535.500,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=2048,rounds=1,median_round_ms=0.470224004,min_round_ms=0.470224004,max_round_ms=0.470224004,range_over_median_pct=0.0000,median_gflops=36535.500,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair2-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.470221870,median_sample_ms=0.470016003,gflops=36535.666,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=2048,rounds=1,median_round_ms=0.470221870,min_round_ms=0.470221870,max_round_ms=0.470221870,range_over_median_pct=0.0000,median_gflops=36535.666,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair2-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.458350937,median_sample_ms=0.458752006,gflops=37481.911,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=2048,rounds=1,median_round_ms=0.458350937,min_round_ms=0.458350937,max_round_ms=0.458350937,range_over_median_pct=0.0000,median_gflops=37481.911,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair3-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.459879472,median_sample_ms=0.458752006,gflops=37357.330,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=2048,rounds=1,median_round_ms=0.459879472,min_round_ms=0.459879472,max_round_ms=0.459879472,range_over_median_pct=0.0000,median_gflops=37357.330,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair3-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.470216537,median_sample_ms=0.470016003,gflops=36536.080,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=2048,rounds=1,median_round_ms=0.470216537,min_round_ms=0.470216537,max_round_ms=0.470216537,range_over_median_pct=0.0000,median_gflops=36536.080,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair4-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.470563205,median_sample_ms=0.470016003,gflops=36509.164,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=2048,rounds=1,median_round_ms=0.470563205,min_round_ms=0.470563205,max_round_ms=0.470563205,range_over_median_pct=0.0000,median_gflops=36509.164,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair4-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.458682671,median_sample_ms=0.458752006,gflops=37454.803,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=2048,rounds=1,median_round_ms=0.458682671,min_round_ms=0.458682671,max_round_ms=0.458682671,range_over_median_pct=0.0000,median_gflops=37454.803,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair5-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.458582405,median_sample_ms=0.458752006,gflops=37462.992,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=2048,rounds=1,median_round_ms=0.458582405,min_round_ms=0.458582405,max_round_ms=0.458582405,range_over_median_pct=0.0000,median_gflops=37462.992,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair5-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.470357338,median_sample_ms=0.470016003,gflops=36525.143,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=2048,rounds=1,median_round_ms=0.470357338,min_round_ms=0.470357338,max_round_ms=0.470357338,range_over_median_pct=0.0000,median_gflops=36525.143,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair6-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.470188803,median_sample_ms=0.470016003,gflops=36538.235,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=2048,rounds=1,median_round_ms=0.470188803,min_round_ms=0.470188803,max_round_ms=0.470188803,range_over_median_pct=0.0000,median_gflops=36538.235,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair6-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.458444804,median_sample_ms=0.458752006,gflops=37474.237,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=2048,rounds=1,median_round_ms=0.458444804,min_round_ms=0.458444804,max_round_ms=0.458444804,range_over_median_pct=0.0000,median_gflops=37474.237,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair7-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.466365871,median_sample_ms=0.458752006,gflops=36837.750,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=2048,rounds=1,median_round_ms=0.466365871,min_round_ms=0.466365871,max_round_ms=0.466365871,range_over_median_pct=0.0000,median_gflops=36837.750,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 2048 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-2048-pair7-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=2048,max_abs=0.00341796875,max_rel=2.125,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=2048,round=1,order=1,mean_ms=0.470461870,median_sample_ms=0.470016003,gflops=36517.028,max_abs=0.00341796875,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.000768354735,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=2048,rounds=1,median_round_ms=0.470461870,min_round_ms=0.470461870,max_round_ms=0.470461870,range_over_median_pct=0.0000,median_gflops=36517.028,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair1-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.137397361,median_sample_ms=3.144704103,gflops=43806.677,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=4096,rounds=1,median_round_ms=3.137397361,min_round_ms=3.137397361,max_round_ms=3.137397361,range_over_median_pct=0.0000,median_gflops=43806.677,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair1-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=2.970622977,median_sample_ms=3.077632070,gflops=46266.037,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=4096,rounds=1,median_round_ms=2.970622977,min_round_ms=2.970622977,max_round_ms=2.970622977,range_over_median_pct=0.0000,median_gflops=46266.037,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair2-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.105145605,median_sample_ms=3.160575986,gflops=44261.678,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=4096,rounds=1,median_round_ms=3.105145605,min_round_ms=3.105145605,max_round_ms=3.105145605,range_over_median_pct=0.0000,median_gflops=44261.678,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair2-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.112147236,median_sample_ms=3.200000048,gflops=44162.099,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=4096,rounds=1,median_round_ms=3.112147236,min_round_ms=3.112147236,max_round_ms=3.112147236,range_over_median_pct=0.0000,median_gflops=44162.099,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair3-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.221946677,median_sample_ms=3.254271984,gflops=42657.116,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=4096,rounds=1,median_round_ms=3.221946677,min_round_ms=3.221946677,max_round_ms=3.221946677,range_over_median_pct=0.0000,median_gflops=42657.116,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair3-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.139990409,median_sample_ms=3.161599994,gflops=43770.501,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=4096,rounds=1,median_round_ms=3.139990409,min_round_ms=3.139990409,max_round_ms=3.139990409,range_over_median_pct=0.0000,median_gflops=43770.501,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair4-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.127193578,median_sample_ms=3.158015966,gflops=43949.615,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=4096,rounds=1,median_round_ms=3.127193578,min_round_ms=3.127193578,max_round_ms=3.127193578,range_over_median_pct=0.0000,median_gflops=43949.615,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair4-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.104290191,median_sample_ms=3.199488044,gflops=44273.874,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=4096,rounds=1,median_round_ms=3.104290191,min_round_ms=3.104290191,max_round_ms=3.104290191,range_over_median_pct=0.0000,median_gflops=44273.874,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair5-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.228945088,median_sample_ms=3.236864090,gflops=42564.661,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=4096,rounds=1,median_round_ms=3.228945088,min_round_ms=3.228945088,max_round_ms=3.228945088,range_over_median_pct=0.0000,median_gflops=42564.661,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair5-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.135010131,median_sample_ms=3.162111998,gflops=43840.035,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=4096,rounds=1,median_round_ms=3.135010131,min_round_ms=3.135010131,max_round_ms=3.135010131,range_over_median_pct=0.0000,median_gflops=43840.035,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair6-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.072785076,median_sample_ms=3.099647999,gflops=44727.812,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=4096,rounds=1,median_round_ms=3.072785076,min_round_ms=3.072785076,max_round_ms=3.072785076,range_over_median_pct=0.0000,median_gflops=44727.812,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair6-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.168153588,median_sample_ms=3.177983999,gflops=43381.405,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=4096,rounds=1,median_round_ms=3.168153588,min_round_ms=3.168153588,max_round_ms=3.168153588,range_over_median_pct=0.0000,median_gflops=43381.405,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_default_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair7-default.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=0,registers=143,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=1
+CONFIG,configuration=dbf_default,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.134532293,median_sample_ms=3.072000027,gflops=43846.718,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_default,n=4096,rounds=1,median_round_ms=3.134532293,min_round_ms=3.134532293,max_round_ms=3.134532293,range_over_median_pct=0.0000,median_gflops=43846.718,abs_status=PASS,upstream_allclose=PASS
+COMMAND: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-dbf-register-sm89\windows_dbf_maxr128_benchmark.exe 4096 1 30 10 D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-followup\register-limit\run01\timings-4096-pair7-maxr128.csv all
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+KERNEL_RESOURCE,register_limit=128,registers=128,static_shared_bytes=32768,local_bytes=0,preferred_carveout=-1,occupancy_api_max_active_blocks=2
+CONFIG,configuration=dbf_maxr128,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=30,warmup=10,abs_tolerance=0.01,selection=all
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,single_kernel_process,external_script_alternates_binaries_per_pair
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,sgemm_at_bcf_swizzling_dbf_rw,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,sgemm_at_bcf_swizzling_dbf_rw,n=4096,round=1,order=1,mean_ms=3.114325349,median_sample_ms=3.131392002,gflops=44131.212,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,sgemm_at_bcf_swizzling_dbf_rw,configuration=dbf_maxr128,n=4096,rounds=1,median_round_ms=3.114325349,min_round_ms=3.114325349,max_round_ms=3.114325349,range_over_median_pct=0.0000,median_gflops=44131.212,abs_status=PASS,upstream_allclose=PASS

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "rows": 49,
+  "batches": 7,
+  "original_diff_checks_completed_control_flow": 42,
+  "input_hashes_identical": true,
+  "source_snapshot_command_hash_match": true,
+  "post_batch_finite_and_abs_checks": "PASS",
+  "scope": "Independent CPU verification of saved results only; no GPU rerun."
+}

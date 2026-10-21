@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-10-20T18:06:22.4560885+00:00",
+  "time_zone": "China Standard Time",
+  "host_utc_offset_minutes": 480.0,
+  "sizes": [
+    1024,
+    2048,
+    4096
+  ],
+  "pairs": 7,
+  "repeats": 30,
+  "warmup": 10,
+  "alpha": 1,
+  "beta": 0,
+  "seed": 20261020,
+  "precision": "strict_fp32_no_fast_math",
+  "factor": "default register allocation versus --maxrregcount=128",
+  "pairing": "Odd pairs default then maxr128; even pairs maxr128 then default",
+  "process_boundary": "Each variant/pair is a fresh process with its own strict reference and preflight; events exclude startup, allocation and validation",
+  "timing": "D2D C0 reset before every invocation; same default stream; CUDA events enclose only DBF",
+  "correctness": "Every preflight and final timed output vs strict reference and CPU double; original allclose and abs<=.01 separate",
+  "NVIDIA_TF32_OVERRIDE": "0",
+  "original_NVIDIA_TF32_OVERRIDE": null,
+  "clocks": "not locked",
+  "telemetry_period_ms": 200,
+  "compiled_evidence": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01",
+  "build_script_gpu_execution": false
+}

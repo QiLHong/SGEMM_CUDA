@@ -1,0 +1,35 @@
+{
+  "label": "A",
+  "binary": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-sm89-A\\windows_vitamin_benchmark.exe",
+  "binary_sha256": "1A9A8F2A2CA1D244FB39CC5F7FA60258D3B469C19C54E355769DE2773CC4FA8A",
+  "commands": [
+    {
+      "executable": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\cuobjdump.exe",
+      "arguments": [
+        "--dump-sass",
+        "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-sm89-A\\windows_vitamin_benchmark.exe"
+      ],
+      "output": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\A\\binary.sass",
+      "exit_code": 0
+    },
+    {
+      "executable": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\cuobjdump.exe",
+      "arguments": [
+        "--dump-ptx",
+        "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-sm89-A\\windows_vitamin_benchmark.exe"
+      ],
+      "output": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\A\\binary.ptx",
+      "exit_code": 0
+    },
+    {
+      "executable": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4\\bin\\cuobjdump.exe",
+      "arguments": [
+        "--dump-resource-usage",
+        "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\build-windows-vitamin-sm89-A\\windows_vitamin_benchmark.exe"
+      ],
+      "output": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-simt-stage3\\static\\A\\resources.txt",
+      "exit_code": 0
+    }
+  ],
+  "scope": "CPU-only cuobjdump; GPU executable was not launched."
+}

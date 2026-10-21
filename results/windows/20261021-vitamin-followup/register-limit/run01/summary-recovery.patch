@@ -1,0 +1,6 @@
+--- summarize_dbf_register_results.py (initial CPU-only attempt)
++++ summarize_dbf_register_results.py (successful analysis02 CPU retry)
+@@
+-            values = [float(p[field]) for p in points]
++            # nvidia-smi --format=csv 默认保留 "2520 MHz" 等单位。
++            values = [float(p[field].split()[0]) for p in points]

@@ -1,0 +1,27 @@
+{
+  "python_executable": "D:\\Anaconda\\Anaconda\\python.exe",
+  "python_version": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "prefix": "D:\\Anaconda\\Anaconda",
+  "base_prefix": "D:\\Anaconda\\Anaconda",
+  "packages": {
+    "torch": null,
+    "torchvision": null,
+    "numpy": "1.26.4",
+    "ninja": null,
+    "pybind11": null
+  },
+  "environment": {
+    "CUDA_PATH": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.4",
+    "CUDA_HOME": null,
+    "TORCH_CUDA_ARCH_LIST": null,
+    "NVIDIA_TF32_OVERRIDE": null,
+    "CUDA_VISIBLE_DEVICES": null
+  },
+  "scope": "Import/version/capability queries only; no tensor allocation, GEMM, profiling, installation, or flag changes.",
+  "torch_import": "FAIL",
+  "torch_error": "Traceback (most recent call last):\n  File \"<stdin>\", line 20, in <module>\nModuleNotFoundError: No module named 'torch'\n",
+  "torchvision_import": "FAIL",
+  "torchvision_error": "Traceback (most recent call last):\n  File \"<stdin>\", line 51, in <module>\nModuleNotFoundError: No module named 'torchvision'\n",
+  "warnings": []
+}

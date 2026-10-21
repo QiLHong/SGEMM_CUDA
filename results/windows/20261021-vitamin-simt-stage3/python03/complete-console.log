@@ -1,0 +1,174 @@
+BUILD_ATTEMPT_BEGIN original_load
+Using D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python as PyTorch extensions root...
+D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py:382: UserWarning: Error checking compiler version for cl: 'cp1' codec can't decode bytes in position 0--1: No mapping for the Unicode character exists in the target code page.
+  warnings.warn(f'Error checking compiler version for {compiler}: {error}')
+Detected CUDA files, patching ldflags
+Emitting ninja build file D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python\gemm_lib\build.ninja...
+Building extension module gemm_lib...
+Using envvar MAX_JOBS (2) as the number of workers...
+[1/4] C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output sgemm.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=gemm_lib -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math "-Xptxas -v" -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\sgemm.cu -o sgemm.cuda.o 
+FAILED: sgemm.cuda.o 
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output sgemm.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=gemm_lib -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math "-Xptxas -v" -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\sgemm.cu -o sgemm.cuda.o 
+nvcc fatal   : Unknown option '-Xptxas -v'
+
+[2/4] C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output cublas.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=gemm_lib -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math "-Xptxas -v" -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\cublas.cu -o cublas.cuda.o 
+FAILED: cublas.cuda.o 
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output cublas.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=gemm_lib -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math "-Xptxas -v" -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\cublas.cu -o cublas.cuda.o 
+nvcc fatal   : Unknown option '-Xptxas -v'
+
+ninja: build stopped: subcommand failed.
+Traceback (most recent call last):
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 2104, in _run_ninja_build
+    subprocess.run(
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['ninja', '-v', '-j', '2']' returned non-zero exit status 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 94, in load_upstream
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\test.py", line 14, in <module>
+    lib = load(
+          ^^^^^
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 84, in observed_load
+    return original_load(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1314, in load
+    return _jit_compile(
+           ^^^^^^^^^^^^^
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1721, in _jit_compile
+    _write_ninja_file_and_build_library(
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 1833, in _write_ninja_file_and_build_library
+    _run_ninja_build(
+  File "D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\utils\cpp_extension.py", line 2120, in _run_ninja_build
+    raise RuntimeError(message) from e
+RuntimeError: Error building extension 'gemm_lib'
+
+BUILD_ATTEMPT_FAIL original_load
+BUILD_ATTEMPT_BEGIN windows_host_link_adapter
+Using D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\build-windows-vitamin-python\vitamin_windows_probe\build.ninja...
+Building extension module vitamin_windows_probe...
+Using envvar MAX_JOBS (2) as the number of workers...
+[1/4] C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output cublas.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=vitamin_windows_probe -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math -Xptxas=-v -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\cublas.cu -o cublas.cuda.o 
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_OPERATORS__”(用“/U__CUDA_NO_HALF_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_CONVERSIONS__”(用“/U__CUDA_NO_HALF_CONVERSIONS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF2_OPERATORS__”(用“/U__CUDA_NO_HALF2_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_BFLOAT16_CONVERSIONS__”(用“/U__CUDA_NO_BFLOAT16_CONVERSIONS__”)
+cublas.cu
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_OPERATORS__”(用“/U__CUDA_NO_HALF_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_CONVERSIONS__”(用“/U__CUDA_NO_HALF_CONVERSIONS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF2_OPERATORS__”(用“/U__CUDA_NO_HALF2_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_BFLOAT16_CONVERSIONS__”(用“/U__CUDA_NO_BFLOAT16_CONVERSIONS__”)
+cublas.cu
+ptxas info    : 3 bytes gmem, 24 bytes cmem[4]
+
+cublas.cu
+
+tmpxft_00003cc8_00000000-10_cublas.cudafe1.cpp
+
+[2/4] C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output sgemm.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=vitamin_windows_probe -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math -Xptxas=-v -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\sgemm.cu -o sgemm.cuda.o 
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_OPERATORS__”(用“/U__CUDA_NO_HALF_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_CONVERSIONS__”(用“/U__CUDA_NO_HALF_CONVERSIONS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF2_OPERATORS__”(用“/U__CUDA_NO_HALF2_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_BFLOAT16_CONVERSIONS__”(用“/U__CUDA_NO_BFLOAT16_CONVERSIONS__”)
+sgemm.cu
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_OPERATORS__”(用“/U__CUDA_NO_HALF_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_CONVERSIONS__”(用“/U__CUDA_NO_HALF_CONVERSIONS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF2_OPERATORS__”(用“/U__CUDA_NO_HALF2_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_BFLOAT16_CONVERSIONS__”(用“/U__CUDA_NO_BFLOAT16_CONVERSIONS__”)
+sgemm.cu
+ptxas info    : 3 bytes gmem, 24 bytes cmem[4]
+ptxas info    : Compiling entry function '_Z36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii' for 'sm_89'
+ptxas info    : Function properties for _Z36sgemm_at_bcf_swizzling_dbf_rw_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 143 registers, 32768 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z32sgemm_at_bcf_swizzling_rw_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii' for 'sm_89'
+ptxas info    : Function properties for _Z32sgemm_at_bcf_swizzling_rw_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 127 registers, 16384 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z29sgemm_at_bcf_swizzling_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii' for 'sm_89'
+ptxas info    : Function properties for _Z29sgemm_at_bcf_swizzling_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 127 registers, 16384 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z22sgemm_at_tiling_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii' for 'sm_89'
+ptxas info    : Function properties for _Z22sgemm_at_tiling_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 123 registers, 16384 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z19sgemm_tiling_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii' for 'sm_89'
+ptxas info    : Function properties for _Z19sgemm_tiling_kernelILi128ELi128ELi16ELi8ELi8EEvPfS0_S0_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 126 registers, 16384 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z18sgemm_naive_kernelPfS_S_iii' for 'sm_89'
+ptxas info    : Function properties for _Z18sgemm_naive_kernelPfS_S_iii
+
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+
+ptxas info    : Used 40 registers, 388 bytes cmem[0]
+
+sgemm.cu
+
+tmpxft_00000440_00000000-10_sgemm.cudafe1.cpp
+
+[3/4] C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc --generate-dependencies-with-compile --dependency-output sgemm_tf32.cuda.o.d -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcompiler /EHsc -Xcompiler /wd4068 -Xcompiler /wd4067 -Xcompiler /wd4624 -Xcompiler /wd4190 -Xcompiler /wd4018 -Xcompiler /wd4275 -Xcompiler /wd4267 -Xcompiler /wd4244 -Xcompiler /wd4251 -Xcompiler /wd4819 -Xcompiler /MD -DTORCH_EXTENSION_NAME=vitamin_windows_probe -DTORCH_API_INCLUDE_EXTENSION_H -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\torch\csrc\api\include -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\TH -ID:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\include\THC "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\include" -ID:\Anaconda\Anaconda\envs\pytorch\Include -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_89,code=sm_89 -std=c++17 -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math -Xptxas=-v -c D:\CUDA-Lab\cuda-learning\vitamin-cuda\kernels\sgemm\sgemm_tf32.cu -o sgemm_tf32.cuda.o 
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_OPERATORS__”(用“/U__CUDA_NO_HALF_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_CONVERSIONS__”(用“/U__CUDA_NO_HALF_CONVERSIONS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF2_OPERATORS__”(用“/U__CUDA_NO_HALF2_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_BFLOAT16_CONVERSIONS__”(用“/U__CUDA_NO_BFLOAT16_CONVERSIONS__”)
+sgemm_tf32.cu
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_OPERATORS__”(用“/U__CUDA_NO_HALF_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF_CONVERSIONS__”(用“/U__CUDA_NO_HALF_CONVERSIONS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_HALF2_OPERATORS__”(用“/U__CUDA_NO_HALF2_OPERATORS__”)
+cl: 命令行 warning D9025 :正在重写“/D__CUDA_NO_BFLOAT16_CONVERSIONS__”(用“/U__CUDA_NO_BFLOAT16_CONVERSIONS__”)
+sgemm_tf32.cu
+ptxas info    : 3 bytes gmem, 24 bytes cmem[4]
+ptxas info    : Compiling entry function '_Z33sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEvPfS0_S0_iii' for 'sm_89'
+ptxas info    : Function properties for _Z33sgemm_tf32_swizzle_bcf_dbf_kernelILi128ELi128ELi16EEvPfS0_S0_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 127 registers, 32768 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z29sgemm_tf32_swizzle_bcf_kernelILi128ELi128ELi16EEvPfS0_S0_iii' for 'sm_89'
+ptxas info    : Function properties for _Z29sgemm_tf32_swizzle_bcf_kernelILi128ELi128ELi16EEvPfS0_S0_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 126 registers, 16384 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z32sgemm_tf32_bt_swizzle_dbf_kernelILi128ELi128ELi16EEvPfS0_S0_iii' for 'sm_89'
+ptxas info    : Function properties for _Z32sgemm_tf32_bt_swizzle_dbf_kernelILi128ELi128ELi16EEvPfS0_S0_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, 32768 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z28sgemm_tf32_bt_swizzle_kernelILi128ELi128ELi16EEvPfS0_S0_iii' for 'sm_89'
+ptxas info    : Function properties for _Z28sgemm_tf32_bt_swizzle_kernelILi128ELi128ELi16EEvPfS0_S0_iii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, 16384 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z20sgemm_tf32_bt_kernelILi128ELi128ELi16EEvPfS0_S0_iii' for 'sm_89'
+
+ptxas info    : Function properties for _Z20sgemm_tf32_bt_kernelILi128ELi128ELi16EEvPfS0_S0_iii
+
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+
+ptxas info    : Used 119 registers, 16384 bytes smem, 388 bytes cmem[0]
+
+sgemm_tf32.cu
+
+tmpxft_00003c5c_00000000-10_sgemm_tf32.cudafe1.cpp
+
+[4/4] "D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64/link.exe" sgemm.cuda.o cublas.cuda.o sgemm_tf32.cuda.o /nologo /DLL "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64\cublas.lib" c10.lib c10_cuda.lib torch_cpu.lib torch_cuda.lib -INCLUDE:?warp_size@cuda@at@@YAHXZ torch.lib /LIBPATH:D:\Anaconda\Anaconda\envs\pytorch\Lib\site-packages\torch\lib torch_python.lib /LIBPATH:D:\Anaconda\Anaconda\envs\pytorch\libs "/LIBPATH:C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\lib\x64" cudart.lib /out:vitamin_windows_probe.pyd
+  正在创建库 vitamin_windows_probe.lib 和对象 vitamin_windows_probe.exp
+
+Loading extension module vitamin_windows_probe...
+BUILD_ATTEMPT_PASS windows_host_link_adapter
+SIZE_BEGIN n=1024 alpha=1 beta=0 seed=42 warmup=10 rep=200
+torch                                    mean time: 0.070332 ms, 30.53 tflops
+CORRECTNESS {"size": 1024, "implementation": "torch", "seed": 42, "warmup": 10, "repetitions": 200, "printed_mean_ms": "0.070332", "printed_tflops": "30.53", "upstream_allclose": "REFERENCE", "upstream_failure_count": 0, "max_abs_error": 0.0, "max_rel_error_reference": 0.0, "abs_001_failure_count": 0, "candidate_nonfinite_count": 0, "reference_nonfinite_count": 0, "a_sha256": "686b5c0df9391fb24f8da148ddfa5969b0efc95e5377133f9f23cdf7a8d09d6f", "b_sha256": "b0bc76c4715ead114d94e17e8aa7e9adcbd3b1d86a21fbfdb9782d8633c797bf", "initial_c_sha256": "bb9f8df61474d25e71fa00722318cd387396ca1736605e1248821cc0de3d3af8", "build_method": "windows_host_link_adapter"}
+sgemm_cublas                             mean time: 0.072667 ms, speedup: 0.97, tflops: 29.55
+Traceback (most recent call last):
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 247, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\scripts\vitamin_python_probe.py", line 211, in main
+    raise ValueError(f"Cannot parse upstream benchmark output: {printed}")
+ValueError: Cannot parse upstream benchmark output: sgemm_cublas                             mean time: 0.072667 ms, speedup: 0.97, tflops: 29.55
+

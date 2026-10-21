@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "2026-10-20T18:00:34.934612+00:00",
+  "sgemm_head": "545fb01a576ae38d84d00df6359e084eb14c94c2",
+  "vitamin_head": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "prior_stage3_hashes_verified": 357,
+  "stage3_manifest_sha256": "35bb51caf31518bf8014157225a4bf08e58bd91b656f25294efadd226d41cf55",
+  "source_before_sha256": "e1647c97f8b9aee5291f1ff533cc527672e3baa6452b7caee84e376ea0da8395",
+  "scope": [
+    "Repeat upstream unchanged test_4096 SIMT prefix, stopping before TF32 with library proxy; seven original wallclock batches.",
+    "Independent strict DBF default versus register cap128; unchanged device code."
+  ],
+  "boundaries": [
+    "No installs, git commit/push/merge or environment configuration changes.",
+    "Old stage3 archive frozen."
+  ]
+}

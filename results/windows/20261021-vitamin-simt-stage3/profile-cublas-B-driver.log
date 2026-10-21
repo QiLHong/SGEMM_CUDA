@@ -1,0 +1,35 @@
+CUDA: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4\bin\nvcc.exe
+MSVC: D:\VS\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\cl.exe
+Windows SDK: D:\Windows Kits\10\ 10.0.26100.0\
+NVIDIA (R) Nsight Compute Command Line Profiler
+Copyright (c) 2018-2024 NVIDIA Corporation
+Version 2024.1.1.0 (build 33998838) (public-release)
+Profiling 2048-cublas-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=2048,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=cublas
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=3031333732612512712,b=6373949068176804471,c0=1360301629677676758
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00038816033,max_rel=0.000274166981,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,cublas,n=2048,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00038816033,cpu_failures=0,abs_status=PASS
+ROUND,cublas,n=2048,round=1,order=1,mean_ms=196.242721558,median_sample_ms=196.242721558,gflops=87.544,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00038816033,cpu_failures=0,abs_status=PASS
+SUMMARY,cublas,configuration=strict_fp32,n=2048,rounds=1,median_round_ms=196.242721558,min_round_ms=196.242721558,max_round_ms=196.242721558,range_over_median_pct=0.0000,median_gflops=87.544,abs_status=PASS,upstream_allclose=PASS
+Profiling 4096-cublas-r1 (one selected launch, clocks/caches unchanged)
+DEVICE,name=NVIDIA GeForce RTX 4090 D,compute=8.9,SMs=114,global_bytes=25756696576,runtime=12040,driver_api=13030
+CONFIG,configuration=strict_fp32,n=4096,alpha=1,beta=0,seed=20261020,rounds=1,repeats=1,warmup=10,abs_tolerance=0.01,selection=cublas
+UPSTREAM_RULE,abs(reference-candidate)<=0.001+0.001*abs(candidate),reference=independent_pedantic_cublas,evaluation=host_double,failure_recorded_separately_not_exit_failure
+TIMING,C0_D2D_reset_excluded,events_default_stream,allocation_H2D_D2H_validation_warmup_excluded,final_output_validated_per_round
+ROUND_WINDOW,utc_epoch_ms,boundaries=before_warmup/after_validation
+ORDER,seven_group_rotation,rw_dbf_rw_adjacent_alternating,eight_positions_not_fully_balanced_in_seven_rounds
+INPUT_HASH,a=12851211713998132973,b=4523944563651176609,c0=15375572585081931327
+CUBLAS,role=measured,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CUBLAS,role=independent_reference,version=120405,math_enum=2,compute=32F_PEDANTIC,atomics_enum=0
+CPU_REFERENCE,count=256,coverage=fixed_256_points,max_abs=0.00183265171,max_rel=0.000253345356,failures=0,nonfinite=0,reference_nonfinite=0
+CHECK,cublas,n=4096,max_abs=0,max_rel=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_count=256,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+ROUND,cublas,n=4096,round=1,order=1,mean_ms=256.689697266,median_sample_ms=256.689697266,gflops=535.428,max_abs=0,failures=0,nonfinite=0,upstream_allclose_failures=0,upstream_allclose=PASS,cpu_max_abs=0.00183265171,cpu_failures=0,abs_status=PASS
+SUMMARY,cublas,configuration=strict_fp32,n=4096,rounds=1,median_round_ms=256.689697266,min_round_ms=256.689697266,max_round_ms=256.689697266,range_over_median_pct=0.0000,median_gflops=535.428,abs_status=PASS,upstream_allclose=PASS
+Profile results: D:\CUDA-Lab\cuda-learning\SGEMM_CUDA\results\windows\20261021-vitamin-simt-stage3\profile-cublas-B

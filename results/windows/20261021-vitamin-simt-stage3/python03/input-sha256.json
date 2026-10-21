@@ -1,0 +1,11 @@
+[
+  {
+    "size": 1024,
+    "dtype": "float32",
+    "storage": "C-order row major",
+    "seed": 42,
+    "a_sha256": "686b5c0df9391fb24f8da148ddfa5969b0efc95e5377133f9f23cdf7a8d09d6f",
+    "b_sha256": "b0bc76c4715ead114d94e17e8aa7e9adcbd3b1d86a21fbfdb9782d8633c797bf",
+    "initial_c_sha256": "bb9f8df61474d25e71fa00722318cd387396ca1736605e1248821cc0de3d3af8"
+  }
+]

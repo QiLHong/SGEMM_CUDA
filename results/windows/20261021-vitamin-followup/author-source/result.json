@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "batches": 7,
+  "rows": 49,
+  "build_method": "windows_host_link_adapter",
+  "completed_original_diff_checks_inferred": 42,
+  "original_test_4096_function_body_changed": false,
+  "original_benchmark_function_body_changed": false,
+  "original_diff_check_function_body_changed": false,
+  "timing_instrumentation_added": false,
+  "original_default_main_executed": false,
+  "tf32_kernels_executed": false,
+  "input_hashes_identical_between_batches": true
+}

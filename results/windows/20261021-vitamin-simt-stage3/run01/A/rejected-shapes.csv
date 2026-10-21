@@ -1,0 +1,7 @@
+"n","exit_code","created_output","message"
+"0","1","False","FAIL: Require n in128..4096 divisible by128, rounds1..1000, repeats1..10000, warmup0..10000."
+"16","1","False","FAIL: Require n in128..4096 divisible by128, rounds1..1000, repeats1..10000, warmup0..10000."
+"127","1","False","FAIL: Require n in128..4096 divisible by128, rounds1..1000, repeats1..10000, warmup0..10000."
+"129","1","False","FAIL: Require n in128..4096 divisible by128, rounds1..1000, repeats1..10000, warmup0..10000."
+"255","1","False","FAIL: Require n in128..4096 divisible by128, rounds1..1000, repeats1..10000, warmup0..10000."
+"4100","1","False","FAIL: Require n in128..4096 divisible by128, rounds1..1000, repeats1..10000, warmup0..10000."

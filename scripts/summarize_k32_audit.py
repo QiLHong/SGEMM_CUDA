@@ -35,6 +35,13 @@ p.add_argument("--steady-modes",nargs="*",default=[],
 args=p.parse_args()
 args.output.mkdir(parents=True,exist_ok=True)
 
+# 新构建记录实际 -arch；无元数据时只保留旧脚本默认值，并明确标为历史推定。
+architecture_file = args.directory / "cuda-architecture.txt"
+cuda_arch = architecture_file.read_text().strip() if architecture_file.exists() else "sm_86"
+architecture_source = "cuda-architecture.txt" if architecture_file.exists() else "legacy default (metadata missing)"
+if not re.fullmatch(r"sm_[0-9]+[a-z]?", cuda_arch):
+    raise ValueError(f"Invalid CUDA architecture metadata: {cuda_arch!r}")
+
 # CSV 按列名读取；返回的是记录集合，后续必须再验证是否齐全，不能把成功打开文件等同完成实验。
 def read(path):
     with path.open() as f: return list(csv.DictReader(f))
@@ -219,7 +226,8 @@ if not (args.output/"environment.txt").exists():
         r=subprocess.run(command,text=True,capture_output=True)
         if r.returncode: raise RuntimeError(r.stderr)
         out.write(" ".join(command)+"\n"+r.stdout+"\n")
-    out.write("nvcc -O3 -DNDEBUG -std=c++17 -arch=sm_86 -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
+    out.write(f"nvcc -O3 -DNDEBUG -std=c++17 -arch={cuda_arch} -lineinfo -DSGEMM_K10_MIN_BLOCKS=2 -Xptxas=-v\n")
+    out.write(f"architecture_source={architecture_source}\n")
     out.write("seed=20261013 alpha=0.5 beta=3 reset-C-before-every-call warmup=10 repeat=50\n")
     out.write("cold: NVTX measure/ kernel-replay cache=all clock=base; steady: application-replay cache=none clock=none\n")
     save_text("environment.txt",out.getvalue())

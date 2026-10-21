@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-20T17:44:22.516029+00:00",
+  "sgemm_head": "545fb01a576ae38d84d00df6359e084eb14c94c2",
+  "sgemm_branch": "results/rtx4090d-k30-stage2-20261021",
+  "vitamin_head": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "vitamin_clean": true,
+  "historical_files_hashes_unchanged": 215,
+  "previous_source_files_byte_identical": 327,
+  "previous_files_changed_additively": 5,
+  "source_snapshot_files": 354,
+  "source_delta_added_files": 17,
+  "source_zip_sha256": "e1647c97f8b9aee5291f1ff533cc527672e3baa6452b7caee84e376ea0da8395",
+  "python_syntax_files_checked": 6,
+  "powershell_new_scripts_parsed": 5,
+  "chapter_local_links_checked": 46,
+  "python_executed_source_hash_matches": true,
+  "git_diff_check": "PASS",
+  "git_commit_push_merge_performed": false,
+  "notes": [
+    "No GPU reruns during final packaging.",
+    "Python source-as-run matches actual command hash; current optional artifact-copy addition only syntax-checked.",
+    "Performance, correctness and profiler evidence are preserved separately; sanitizer remains unverified.",
+    "Source snapshot includes earlier uncommitted work, not only stage3 additions."
+  ],
+  "additional_existing_root_files_preserved_by_git_diff": 5
+}

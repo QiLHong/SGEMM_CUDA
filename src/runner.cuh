@@ -12,9 +12,11 @@
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>
 #include <time.h>
+#ifndef _WIN32
+#include <sys/time.h>
 #include <unistd.h>
+#endif
 
 // 主机端辅助接口：设备错误、矩阵初始化/校验以及 kernel 编号分发。
 void cudaCheck(cudaError_t error, const char *file,

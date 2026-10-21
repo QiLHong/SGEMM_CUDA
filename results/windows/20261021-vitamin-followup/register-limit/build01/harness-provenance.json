@@ -1,0 +1,48 @@
+{
+  "protocol_source": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_vitamin_benchmark.cu",
+  "protocol_source_sha256": "69c863d7e4822dcbd6599556dbb485b04c463e185cc26576bee8d32f5ae01e4b",
+  "new_translation_unit": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\scripts\\windows_dbf_register_benchmark.cu",
+  "new_source_sha256": "f311507697bbc857a1367cd2ba9b50b3645e3642044339f1ce38c16fa984e138",
+  "exact_reused_regions": [
+    {
+      "region": "numeric_input_and_validation",
+      "identical": true,
+      "normalized_sha256": "8f4521b54133ef66b2b30de048f691b04e9b20491954820cb5ef122afd91f25c"
+    },
+    {
+      "region": "buffers_events_and_reference_gemm",
+      "identical": true,
+      "normalized_sha256": "7c91a9295f805891c2291dfccd812b1f2c684cc65a98672e61dd6167f717c343"
+    },
+    {
+      "region": "metadata_and_math_helpers",
+      "identical": true,
+      "normalized_sha256": "e12a64878025e92c1100253ea3c11beb0d28e694527956d2ff298122be6af4ac"
+    },
+    {
+      "region": "event_timing_loop",
+      "identical": true,
+      "normalized_sha256": "c77028f49f6414e00e45bbb0edb4dd2d2941bf939a533701761665e71512dae1"
+    },
+    {
+      "region": "d2h_and_validation",
+      "identical": true,
+      "normalized_sha256": "5888a8874ddd252999fbcd7d308c340ca706822357162121b0a52963d4efc539"
+    },
+    {
+      "region": "correctness_csv_writer",
+      "identical": true,
+      "normalized_sha256": "f17796fb3d15ab653a4039025ef2ca6d20021348c2f46c3c45152850537b0943"
+    }
+  ],
+  "changes": [
+    "Remove seven unused dispatches and K10/K30 includes; instantiate only original DBF template.",
+    "Both binaries always use independent pedantic cuBLAS reference; no measured cuBLAS dispatch.",
+    "DBF_MAX_REGISTERS is host metadata only; device difference is compiler --maxrregcount=128.",
+    "Print CUDA function attributes and occupancy API estimate; actual NCU counters archived separately.",
+    "External script alternates fresh-process binaries per pair; preserved host validation and event loop."
+  ],
+  "device_body_modified": false,
+  "existing_harness_modified": false,
+  "source_copy": "source-as-built"
+}

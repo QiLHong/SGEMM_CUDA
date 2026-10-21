@@ -14,7 +14,7 @@
 // K32 warp-role audit. Numerical/timing protocol copied unchanged from K30.
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
-#include <nvToolsExt.h>
+#include "nvtx_compat.h"
 #include <algorithm>
 #include <cmath>
 #include <cstdio>

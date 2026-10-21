@@ -1,0 +1,220 @@
+{
+  "status": "PASS",
+  "shape": {
+    "BM": 128,
+    "BN": 128,
+    "BK": 16,
+    "TM": 8,
+    "TN": 8,
+    "threads": 256
+  },
+  "source_commit": "520f97093a2abc239977be83d244b327d0e2e2ef",
+  "source_root": "D:\\CUDA-Lab\\cuda-learning\\vitamin-cuda",
+  "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "source_sha256": "21d3ef04b49469755c7e904a4ecc9ce869581f9b0859c757d981c819992369d2",
+  "license_sha256": "9646ccbee1caaea25c5471662cad3dd9d4e1708e9a3a14b5be184f317192b639",
+  "analyzer_sha256": "c49a9de3baef4708a2366e8fafc9ad108ce2b699f536fd351ec88d001037181f",
+  "scope": "Transcribed default-shape formulas, one K tile and slot0; dbf slot separation checked independently. No GPU execution.",
+  "bank_model": "bank=(float_offset%32); scalar full warp; float4 contiguous eight-lane 128-byte projection. Same-address reads count once. Not a measured conflict counter.",
+  "implementations": {
+    "sgemm_tiling": {
+      "outputs": {
+        "records": 16384,
+        "unique": 16384,
+        "duplicates": 0,
+        "missing": 0,
+        "out_of_bounds": 0
+      },
+      "producers": {
+        "A": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        },
+        "B": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        }
+      },
+      "consumer_checks": 65536,
+      "producer_consumer_mismatches": 0,
+      "float4_alignment_or_order_failures": 0,
+      "shared_slots": 1,
+      "user_shared_bytes": 16384,
+      "bank_projection_rows": 2176,
+      "a_scalar_store_max_addresses_per_bank": [],
+      "a_load_model_max_addresses_per_bank": [
+        8
+      ],
+      "c_sectors32B_per_source_float4_instruction": [
+        32
+      ]
+    },
+    "sgemm_at_tiling": {
+      "outputs": {
+        "records": 16384,
+        "unique": 16384,
+        "duplicates": 0,
+        "missing": 0,
+        "out_of_bounds": 0
+      },
+      "producers": {
+        "A": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        },
+        "B": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        }
+      },
+      "consumer_checks": 65536,
+      "producer_consumer_mismatches": 0,
+      "float4_alignment_or_order_failures": 0,
+      "shared_slots": 1,
+      "user_shared_bytes": 16384,
+      "bank_projection_rows": 2176,
+      "a_scalar_store_max_addresses_per_bank": [
+        4
+      ],
+      "a_load_model_max_addresses_per_bank": [
+        1
+      ],
+      "c_sectors32B_per_source_float4_instruction": [
+        32
+      ]
+    },
+    "sgemm_at_bcf_swizzling": {
+      "outputs": {
+        "records": 16384,
+        "unique": 16384,
+        "duplicates": 0,
+        "missing": 0,
+        "out_of_bounds": 0
+      },
+      "producers": {
+        "A": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        },
+        "B": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        }
+      },
+      "consumer_checks": 65536,
+      "producer_consumer_mismatches": 0,
+      "float4_alignment_or_order_failures": 0,
+      "shared_slots": 1,
+      "user_shared_bytes": 16384,
+      "bank_projection_rows": 2176,
+      "a_scalar_store_max_addresses_per_bank": [
+        1
+      ],
+      "a_load_model_max_addresses_per_bank": [
+        1
+      ],
+      "c_sectors32B_per_source_float4_instruction": [
+        32
+      ]
+    },
+    "sgemm_at_bcf_swizzling_rw": {
+      "outputs": {
+        "records": 16384,
+        "unique": 16384,
+        "duplicates": 0,
+        "missing": 0,
+        "out_of_bounds": 0
+      },
+      "producers": {
+        "A": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        },
+        "B": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        }
+      },
+      "consumer_checks": 65536,
+      "producer_consumer_mismatches": 0,
+      "float4_alignment_or_order_failures": 0,
+      "shared_slots": 1,
+      "user_shared_bytes": 16384,
+      "bank_projection_rows": 2176,
+      "a_scalar_store_max_addresses_per_bank": [
+        1
+      ],
+      "a_load_model_max_addresses_per_bank": [
+        1
+      ],
+      "c_sectors32B_per_source_float4_instruction": [
+        16
+      ]
+    },
+    "sgemm_at_bcf_swizzling_dbf_rw": {
+      "outputs": {
+        "records": 16384,
+        "unique": 16384,
+        "duplicates": 0,
+        "missing": 0,
+        "out_of_bounds": 0
+      },
+      "producers": {
+        "A": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        },
+        "B": {
+          "records": 2048,
+          "unique": 2048,
+          "duplicates": 0,
+          "missing": 0,
+          "out_of_bounds": 0
+        }
+      },
+      "consumer_checks": 65536,
+      "producer_consumer_mismatches": 0,
+      "float4_alignment_or_order_failures": 0,
+      "shared_slots": 2,
+      "user_shared_bytes": 32768,
+      "bank_projection_rows": 2176,
+      "a_scalar_store_max_addresses_per_bank": [
+        1
+      ],
+      "a_load_model_max_addresses_per_bank": [
+        1
+      ],
+      "c_sectors32B_per_source_float4_instruction": [
+        16
+      ]
+    }
+  }
+}

@@ -1,0 +1,83 @@
+寄存器上限实验：独立 CPU 证据审阅
+2026-10-21；只读取保存的源码、编译命令、SASS/资源报告和 NCU CSV，没有启动 GPU。
+
+一、harness 一致性
+source-consistency.json 对十个明确区段做 CRLF→LF 后逐字比较，全部相同：
+常量；输入/FNV 哈希/CPU double/误差函数；buffer/events/cuBLAS helper；
+统计及参数 helper；分配与输入上传；严格参考、全量/CPU 检查、C0 reset；
+下载校验 lambda；预检；预热/event/轮末验证/CSV；最终统计。
+这不是声称两个完整程序相同：新程序只保留 DBF dispatch，省去其余实现；
+旧进程内实现顺序改为外部脚本对两个独立进程交替。资源 API 查询位于计时之前。
+DBF_MAX_REGISTERS 的可执行使用仅 Configuration 标签与资源 printf；
+vendor device 源不存在该宏。真正的设备编译因素是 --maxrregcount=128。
+归一化 host 标签与 target 输出名，移除这个 cap 后，两条实际编译命令相同。
+两者 sm_89、无 --use_fast_math、同一模板 <128,128,16,8,8> / 256 threads。
+
+二、静态证据与实际资源
+build01/build.log：default/maxr128 分别 143/128 registers，均 0 stack、
+0 spill load、0 spill store；resources.txt 均 SHARED32768/LOCAL0。
+static/comparison-summary.json：default DBF 与 stage3 严格 B 的完整 SASS 文本一致。
+cap 的完整静态指令数 2448→2432，主循环 FFMA1024/LDG4/LDS64/STS10/BAR1 不变；
+LDG 后剩余 FFMA 范围 192..210→206..221，整数指令/MOV/寄存器编号与排程改变。
+两版完整函数均 LDS.128×128、STS×16、STS.128×4，没有 LDL/STL。
+这些是静态位置与数量，不能单独量化动态延迟隐藏。
+
+三、本轮 8 次 NCU 的结果
+2048/4096 × default/maxr128 × 2；profile01/PROFILE_PASS.txt 已完成。
+profile-ranges.csv 保存 116 个组/指标的 min/median/max；
+profile-comparison.csv 对照每组两次采样，不合并入正常 CUDA events 的性能表。
+
+两个尺寸都一致的资源：
+registers/thread 143→128；local load/store sectors 都为0；
+实际 shared config/SM 65536→102400 B；
+static shared/CTA 均32768 B，total shared/CTA 均33792 B，dynamic均0；
+NCU register-limited blocks/SM 1→2，shared-limited blocks/SM 1→3。
+这次实际测到了 shared config，填补了 stage3 没有采该指标的缺口；
+不能把本次 default 的64KiB配置追溯成旧次测量的已知事实。
+每CTA分配包含额外1024 B，因此两个33792 B CTA超过65536 B；
+cap 运行的实际100KiB shared config允许3个，寄存器限制仍是2个。
+这不是“共享数组由32KiB变小”：用户数组与每CTA用量完全不变。
+
+2048，以下为两次采样中位数 default→maxr128：
+achieved occupancy 16.65→29.025%；active warps/SMSP active cycle 2→3.49；
+eligible warps/SMSP active cycle 1.37→2.32；
+issue active 76.58→74.805%；FMA pipe active 67.805→67.355%；
+long scoreboard 0.04→0.01；short scoreboard 0.20→0.12；barrier 0.07→0.25。
+更多驻留/eligible 并未保证更高发射或更快正常计时，不能以occupancy数字代替性能。
+
+4096，两次采样中位数 default→maxr128：
+achieved occupancy 16.66→31.97%；active warps/SMSP active cycle 2→3.84；
+eligible warps/SMSP active cycle 1.28→2.56；
+issue active 71.93→75.91%；FMA pipe active 65.655→68.76%；
+long scoreboard 0.18→0.01；short scoreboard 0.18→0.12；barrier 0.09→0.30。
+DRAM读取中位636250752→460335744 B；L2 sector hit85.43→89.45%。
+这些与4096正常event改善的方向一致；cap同时改变排程、驻留和实际shared配置，
+且cache-control/clock-control均none，不能把全部收益单独归因于occupancy或cache。
+
+四、不能忽略的反例
+default所有采样shared load/store bank conflicts为0；
+cap并非零：2048 load10642..10911、store61520..61711；
+4096 load67600..69826、store2946257..2956507。
+2048 cap shared-load wavefronts/1024 thread-FFMA 为6.001286..6.001316；
+4096为6.001064..6.001096；default均6。
+4096 cap store wavefront中位36505814，default33554432，约多8.80%。
+源码shared布局没有改，LDS/STS静态宽度/数量也一致；现有数据不足以把新增计数
+直接归因于某一个地址布局因素。它提醒我们不能把“源码swizzle”当作运行时所有
+硬件计数恒为零的保证，也不能因出现计数就否认整体4096小幅收益。
+barrier计数在两个尺寸均上升，同样不能仅看long scoreboard下降便宣布所有等待改善。
+
+五、解释边界
+stalled-warps指标单位是每SMSP active cycle的warp数，不是时间百分比；
+active/eligible也是warp均值，NCU资源限制不是每一时刻CTA驻留的直接计数。
+每组仅2次NCU；profiler replay、有状态cache和未锁频限制因果归因。
+NCU duration另存，但正式性能必须使用run01/analysis02的未profiled events。
+cap无spill由ptxas、resources、SASS和实测local sectors共同支持。
+较早“寄存器143导致最多1CTA”的假设成立；“降到128就普遍提速”的假设不成立。
+
+CPU复跑（输出目录必须不存在）：
+& 'D:\Anaconda\Anaconda\python.exe' -B .\scripts\analyze_dbf_register_evidence.py `
+  --compile-commands results/windows/20261021-vitamin-followup/register-limit/build01/compile_commands.json `
+  --profile results/windows/20261021-vitamin-followup/register-limit/profile01/ncu-summary.csv `
+  --output-dir results/windows/dbf-evidence-recheck
+
+该脚本只读输入和写新分析目录，不启动 CUDA、NCU、二进制或 shell 子进程。

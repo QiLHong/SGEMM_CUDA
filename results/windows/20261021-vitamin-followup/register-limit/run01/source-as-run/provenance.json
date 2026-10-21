@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-10-20T18:11:39.635002+00:00",
+  "snapshots": [
+    {
+      "repository_path": "scripts/windows/Run-DbfRegister.ps1",
+      "snapshot": "Run-DbfRegister.ps1",
+      "sha256": "eaffb1312f1e5a55f5ba10bda2ca3c6b2a2d7b6432d9eac6ef78b2c38b04735b"
+    },
+    {
+      "repository_path": "scripts/windows/Initialize-Toolchain.ps1",
+      "snapshot": "Initialize-Toolchain.ps1",
+      "sha256": "25f14d925ddb904d1b3bd7bc2566c9f7451ab5a10fd61d7f1087ac620ddf0428"
+    },
+    {
+      "repository_path": "scripts/summarize_dbf_register_results.py",
+      "snapshot": "summarize_dbf_register_results.py",
+      "sha256": "5c260f651817d6af0f2bf1d3c6d3cf3bc5845acf08532d7ac60f4381b8f3f871"
+    }
+  ],
+  "verified_binaries": [
+    {
+      "variant": "default",
+      "sha256": "493f1f31e796aaea1195693fae5cbe97c0cad915572deb74d8febf84fa74f62d"
+    },
+    {
+      "variant": "maxr128",
+      "sha256": "4136dbb339e2cad59ccd4aa6c86c518d2c71932c85f1e36f152faf5f03063f40"
+    }
+  ],
+  "build_evidence": "D:\\CUDA-Lab\\cuda-learning\\SGEMM_CUDA\\results\\windows\\20261021-vitamin-followup\\register-limit\\build01",
+  "note": "Snapshots saved after execution; listed files were unchanged since their respective successful execution. CPU summarizer is the one-line corrected version used for analysis02."
+}
