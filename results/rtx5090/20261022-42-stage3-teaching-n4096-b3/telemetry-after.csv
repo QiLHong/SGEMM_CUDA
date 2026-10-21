@@ -1,0 +1,2 @@
+timestamp, name, temperature.gpu, clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W], utilization.gpu [%], memory.used [MiB]
+2026/10/22 02:27:46.945, NVIDIA GeForce RTX 5090, 50, 2887 MHz, 14001 MHz, 158.74 W, 0 %, 2 MiB

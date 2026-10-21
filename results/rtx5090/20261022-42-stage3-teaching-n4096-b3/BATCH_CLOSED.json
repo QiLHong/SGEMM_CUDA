@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "series": "teaching",
+  "n": 4096,
+  "beta": 3,
+  "groups": 91,
+  "formal_events": 2730,
+  "expected_events": 2730,
+  "inputs_equal": true,
+  "elapsed_seconds": 407.0456471443176,
+  "missing_or_failed": []
+}

@@ -1,0 +1,124 @@
+{
+  "series": {
+    "candidates": [
+      {
+        "id": "strict",
+        "build": "stock",
+        "cli": "13",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k1",
+        "build": "stock",
+        "cli": "1",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k2",
+        "build": "stock",
+        "cli": "2",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k3",
+        "build": "stock",
+        "cli": "3",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k4",
+        "build": "stock",
+        "cli": "4",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k5",
+        "build": "stock",
+        "cli": "5",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k6",
+        "build": "stock",
+        "cli": "6",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k7",
+        "build": "stock",
+        "cli": "7",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k8",
+        "build": "stock",
+        "cli": "8",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k9",
+        "build": "stock",
+        "cli": "9",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k10",
+        "build": "stock",
+        "cli": "10",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k11",
+        "build": "stock",
+        "cli": "11",
+        "min_n": 256,
+        "notes": "Default K11 BN256 requires N>=256"
+      },
+      {
+        "id": "k12",
+        "build": "stock",
+        "cli": "12",
+        "min_n": 128,
+        "notes": ""
+      }
+    ],
+    "seed": 20261010,
+    "alpha": 0.5,
+    "beta": 3,
+    "original_rounds": 3,
+    "original_repeats": 50,
+    "original_warmup": 10,
+    "event_capture_rounds": 7,
+    "event_capture_repeats": 30,
+    "event_capture_warmup": 10,
+    "sizes": [
+      128,
+      256,
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "notes": "Budget slow K1-3 explicitly; each size is a separate closed batch. K11 at 128 is an illegal shape, not a numeric failure."
+  },
+  "protocol": "events7",
+  "source_key": "8c39a48aab9603aa87590488944ed7044790c5f6ff1c04232f923bb74913d4a6",
+  "source_commit": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "timing": "Original single-call event boundaries and independent-process launches retained; host capture adds raw events. This is not same-context unified benchmarking. Each implementation uses the default stream within its own process. Actual input fingerprints are checked across processes. events7 uses 7 rounds x 30 events and 10 warmups. historical-counts only selects archived repeat counts: changed group composition, one-size input allocation, smoke order, and absence of the archived 4096 thermal prelude prevent an exact historical replay claim. Main unified comparisons need a separate harness.",
+  "timeout_seconds": 180,
+  "batch_budget_seconds": 2400,
+  "expected_groups": 91,
+  "expected_events": 2730,
+  "scope": "one series/one shape/one beta; smoke separate; all files closed before BATCH_CLOSED"
+}
