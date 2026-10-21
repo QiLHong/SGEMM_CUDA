@@ -32,3 +32,5 @@
 - [历史入口说明](../../../results/rtx5090/20261022-03-inventory/entrypoint-notes.md)
 
 - [BF16/4096作者原协议](../../../results/rtx5090/20261022-04-author-bf16-4096/original-wallclock.csv)：单批10warmup/200repeat，含host包装和descriptor准备，非纯kernel计时。全部五项作者低精度检查通过。
+
+- [阶段1：SM120 TMA、cp.async、cuBLAS实测与失败证据](stage1-results.md)：六个正式批次共7560个event；原作者墙钟结果另表。

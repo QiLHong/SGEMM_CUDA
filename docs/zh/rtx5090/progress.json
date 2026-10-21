@@ -8,7 +8,8 @@
     },
     {
       "stage": 1,
-      "status": "in_progress"
+      "status": "passed",
+      "notes": "BF16/FP16 1024/2048/4096均1260 event闭合并独立验证；BF161024默认cuBLAS数值失败保留，其余通过；optional8192未运行；NCU计数器受限"
     },
     {
       "stage": 2,

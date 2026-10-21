@@ -1,0 +1,37 @@
+dtype,N,implementation,registers_per_thread,static_shared_bytes,dynamic_shared_bytes,local_bytes_per_thread,max_threads_per_block,ptx_version,binary_version,occupancy_api_active_blocks_per_sm,SM_count,device_shared_per_SM,device_regs_per_SM,device_max_threads_per_SM,note
+bf16,1024,hgemm_bcf_dbf_rw,128,32768,0,0,512,120,120,2,170,102400,65536,1536,
+bf16,1024,hgemm_k_stages,128,49152,0,0,512,120,120,2,170,102400,65536,1536,
+bf16,1024,hgemm_tma_r_k_stages_64,124,0,98328,0,512,120,120,1,170,102400,65536,1536,
+bf16,1024,hgemm_tma_r_k_stages_32,99,0,49176,0,512,120,120,2,170,102400,65536,1536,
+bf16,1024,hgemm_cublas,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+bf16,1024,hgemm_cublas_no_reduced_reduction,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+bf16,2048,hgemm_bcf_dbf_rw,128,32768,0,0,512,120,120,2,170,102400,65536,1536,
+bf16,2048,hgemm_k_stages,128,49152,0,0,512,120,120,2,170,102400,65536,1536,
+bf16,2048,hgemm_tma_r_k_stages_64,124,0,98328,0,512,120,120,1,170,102400,65536,1536,
+bf16,2048,hgemm_tma_r_k_stages_32,99,0,49176,0,512,120,120,2,170,102400,65536,1536,
+bf16,2048,hgemm_cublas,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+bf16,2048,hgemm_cublas_no_reduced_reduction,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+bf16,4096,hgemm_bcf_dbf_rw,128,32768,0,0,512,120,120,2,170,102400,65536,1536,
+bf16,4096,hgemm_k_stages,128,49152,0,0,512,120,120,2,170,102400,65536,1536,
+bf16,4096,hgemm_tma_r_k_stages_64,124,0,98328,0,512,120,120,1,170,102400,65536,1536,
+bf16,4096,hgemm_tma_r_k_stages_32,99,0,49176,0,512,120,120,2,170,102400,65536,1536,
+bf16,4096,hgemm_cublas,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+bf16,4096,hgemm_cublas_no_reduced_reduction,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+fp16,1024,hgemm_bcf_dbf_rw,128,32768,0,0,512,120,120,2,170,102400,65536,1536,
+fp16,1024,hgemm_k_stages,128,49152,0,0,512,120,120,2,170,102400,65536,1536,
+fp16,1024,hgemm_tma_r_k_stages_64,124,0,98328,0,512,120,120,1,170,102400,65536,1536,
+fp16,1024,hgemm_tma_r_k_stages_32,99,0,49176,0,512,120,120,2,170,102400,65536,1536,
+fp16,1024,hgemm_cublas,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+fp16,1024,hgemm_cublas_no_reduced_reduction,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+fp16,2048,hgemm_bcf_dbf_rw,128,32768,0,0,512,120,120,2,170,102400,65536,1536,
+fp16,2048,hgemm_k_stages,128,49152,0,0,512,120,120,2,170,102400,65536,1536,
+fp16,2048,hgemm_tma_r_k_stages_64,124,0,98328,0,512,120,120,1,170,102400,65536,1536,
+fp16,2048,hgemm_tma_r_k_stages_32,99,0,49176,0,512,120,120,2,170,102400,65536,1536,
+fp16,2048,hgemm_cublas,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+fp16,2048,hgemm_cublas_no_reduced_reduction,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+fp16,4096,hgemm_bcf_dbf_rw,128,32768,0,0,512,120,120,2,170,102400,65536,1536,
+fp16,4096,hgemm_k_stages,128,49152,0,0,512,120,120,2,170,102400,65536,1536,
+fp16,4096,hgemm_tma_r_k_stages_64,124,0,98328,0,512,120,120,1,170,102400,65536,1536,
+fp16,4096,hgemm_tma_r_k_stages_32,99,0,49176,0,512,120,120,2,170,102400,65536,1536,
+fp16,4096,hgemm_cublas,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
+fp16,4096,hgemm_cublas_no_reduced_reduction,,,,,,,,,170,102400,65536,1536,cuBLAS runtime implementation; kernel resources not exposed by this wrapper
