@@ -1,0 +1,2 @@
+reference,scope,elements,max_abs,max_rel_denominator_ref,relative_l2,abs001_failures,nan_inf,status
+not_available,legacy_reference_only_or_failed_before_D2H,0,0,0,0,0,0,NOT_RUN
