@@ -1,0 +1,9 @@
+Running kernel 17 on device 0.
+Mode: K17 K10 + B-only cp.async pipeline
+Max size: 256
+Timing C policy: reset before every measured call
+Input seed: 20261011
+NVIDIA_TF32_OVERRIDE: unset
+dimensions(m=n=k) 256, alpha: 0.5, beta: 3
+Correctness vs strict FP32 cuBLAS: PASS
+Average elapsed time: (0.000031) s, performance: ( 1066.1) GFLOPS. size: (256).
