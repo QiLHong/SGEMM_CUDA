@@ -1,0 +1,89 @@
+{
+  "series": {
+    "candidates": [
+      {
+        "id": "strict",
+        "build": "stock",
+        "cli": "13",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k10",
+        "build": "stock",
+        "cli": "10",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k18-v0",
+        "build": "k18-v0",
+        "cli": "18",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k18-v1",
+        "build": "k18-v1",
+        "cli": "18",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k18-v2",
+        "build": "k18-v2",
+        "cli": "18",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k18-v3",
+        "build": "k18-v3",
+        "cli": "18",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k18-v4",
+        "build": "k18-v4",
+        "cli": "18",
+        "min_n": 128,
+        "notes": ""
+      },
+      {
+        "id": "k18-v5",
+        "build": "k18-v5",
+        "cli": "18",
+        "min_n": 128,
+        "notes": ""
+      }
+    ],
+    "seed": 20261011,
+    "alpha": 0.5,
+    "beta": 3,
+    "original_rounds": 3,
+    "original_repeats": 50,
+    "original_warmup": 10,
+    "event_capture_rounds": 7,
+    "event_capture_repeats": 30,
+    "event_capture_warmup": 10,
+    "sizes": [
+      128,
+      256,
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "notes": ""
+  },
+  "protocol": "events7",
+  "source_key": "8c39a48aab9603aa87590488944ed7044790c5f6ff1c04232f923bb74913d4a6",
+  "source_commit": "a2b23dabadc79440bf9cbf63f0b566f7eec429ba",
+  "timing": "Original single-call event boundaries and independent-process launches retained; host capture adds raw events. This is not same-context unified benchmarking. Each implementation uses the default stream within its own process. Actual input fingerprints are checked across processes. events7 uses 7 rounds x 30 events and 10 warmups. historical-counts only selects archived repeat counts: changed group composition, one-size input allocation, smoke order, and absence of the archived 4096 thermal prelude prevent an exact historical replay claim. Main unified comparisons need a separate harness.",
+  "timeout_seconds": 180,
+  "batch_budget_seconds": 2400,
+  "expected_groups": 56,
+  "expected_events": 1680,
+  "scope": "one series/one shape/one beta; smoke separate; all files closed before BATCH_CLOSED"
+}
