@@ -1,0 +1,50 @@
+[
+  {
+    "implementation": "strict",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.012212266763333333,
+    "mean_round_mean_ms": 0.012344381004285714,
+    "round_mean_stddev_ms": 0.0005010720320917047,
+    "tflops": 2.747600642064695,
+    "median_paired_gain_vs_strict_pct": 0.0,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k10",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.035734400273333335,
+    "mean_round_mean_ms": 0.03646704797952381,
+    "round_mean_stddev_ms": 0.001075849622410004,
+    "tflops": 0.9389952466906202,
+    "median_paired_gain_vs_strict_pct": -65.82490074012325,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k21-v1",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.03349760014,
+    "mean_round_mean_ms": 0.033745523989047614,
+    "round_mean_stddev_ms": 0.000736722608735742,
+    "tflops": 1.001696594972848,
+    "median_paired_gain_vs_strict_pct": -63.60588343982112,
+    "inputs_equal_across_group": true
+  },
+  {
+    "implementation": "k21-v2",
+    "completed_rounds": 7,
+    "expected_rounds": 7,
+    "formal_events": 210,
+    "median_round_mean_ms": 0.05250879924666667,
+    "mean_round_mean_ms": 0.05313295188857143,
+    "round_mean_stddev_ms": 0.0011235748664713773,
+    "tflops": 0.6390249345138107,
+    "median_paired_gain_vs_strict_pct": -76.8146877929627,
+    "inputs_equal_across_group": true
+  }
+]

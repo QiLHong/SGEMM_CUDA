@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "series": "k21",
+  "n": 256,
+  "beta": 3,
+  "groups": 28,
+  "formal_events": 840,
+  "expected_events": 840,
+  "inputs_equal": true,
+  "elapsed_seconds": 17.72850751876831,
+  "missing_or_failed": []
+}
