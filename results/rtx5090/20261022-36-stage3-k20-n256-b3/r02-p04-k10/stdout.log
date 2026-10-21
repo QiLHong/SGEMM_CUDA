@@ -1,0 +1,9 @@
+Running kernel 10 on device 0.
+Mode: custom CUDA kernel
+Max size: 256
+Timing C policy: reset before every measured call
+Input seed: 20261012
+NVIDIA_TF32_OVERRIDE: unset
+dimensions(m=n=k) 256, alpha: 0.5, beta: 3
+Correctness vs strict FP32 cuBLAS: PASS
+Average elapsed time: (0.000036) s, performance: (  938.2) GFLOPS. size: (256).

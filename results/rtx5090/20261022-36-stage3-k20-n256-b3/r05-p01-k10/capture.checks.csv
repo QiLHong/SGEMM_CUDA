@@ -1,0 +1,3 @@
+reference,scope,elements,max_abs,max_rel_denominator_ref,relative_l2,abs001_failures,nan_inf,status
+PEDANTIC_FP32,all_D2H_outputs_before_timing,65536,9.1552734375e-05,0.024354486431499268,2.7617508651963829e-07,0,0,PASS
+CPU_double_actual_FP32_bytes,full,65536,0.00011746430213577241,0.024526696598171485,2.7324907516860061e-07,0,0,PASS
