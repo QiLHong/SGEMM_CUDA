@@ -1,2 +1,3 @@
-752ab4a28e679e89ce314934251eda626c03a61b4c33ba7a80a5adf84759275b  /root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/stage45-case-snapshots/batch-1-timings-1024-20261020/timings.csv
-32495c92e72e2492eadc741b8e940b17f73d8c47078be5a61300798c4cba6e1d  /root/autodl-tmp/SGEMM_CUDA-rtx5090-20261022/results/rtx5090/stage45-case-snapshots/batch-1-timings-1024-20261020/timings.csv.closed.txt
+3eb3d0bee721ce089595d96798b3c7a4f4646baa9c2ab75f53c99695939094b1  results/rtx5090/stage45-case-snapshots/batch-1-timings-1024-20261020/CASE_CLOSED.json
+752ab4a28e679e89ce314934251eda626c03a61b4c33ba7a80a5adf84759275b  results/rtx5090/stage45-case-snapshots/batch-1-timings-1024-20261020/timings.csv
+32495c92e72e2492eadc741b8e940b17f73d8c47078be5a61300798c4cba6e1d  results/rtx5090/stage45-case-snapshots/batch-1-timings-1024-20261020/timings.csv.closed.txt
