@@ -7,10 +7,12 @@ mkdir -p "$case_dir"
 cp "$csv" "$case_dir/timings.csv"
 cp "$csv.closed.txt" "$case_dir/timings.csv.closed.txt"
 printf '{"closed":true,"status":"CASE_COMPLETE","source_csv":"%s"}\n' "$csv" > "$case_dir/CASE_CLOSED.json"
-(cd "$repo" && sha256sum "${case_dir#$repo/}/CASE_CLOSED.json" "${case_dir#$repo/}/timings.csv" "${case_dir#$repo/}/timings.csv.closed.txt) > "$case_dir/sha256-manifest.txt"
+rel="${case_dir#$repo/}"
+(cd "$repo" && sha256sum "$rel/CASE_CLOSED.json" "$rel/timings.csv" "$rel/timings.csv.closed.txt") > "$case_dir/sha256-manifest.txt"
 cd "$repo"
 git add "$case_dir"
-GIT_AUTHOR_NAME='Hong QiLiang' GIT_AUTHOR_EMAIL='sa24006223@mail.ustc.edu.cn' GIT_COMMITTER_NAME='Hong QiLiang' GIT_COMMITTER_EMAIL='sa24006223@mail.ustc.edu.cn' git commit -m "results(rtx5090): archive closed robustness case $(basename "$csv")"
+case_name=$(basename "$csv")
+GIT_AUTHOR_NAME='Hong QiLiang' GIT_AUTHOR_EMAIL='sa24006223@mail.ustc.edu.cn' GIT_COMMITTER_NAME='Hong QiLiang' GIT_COMMITTER_EMAIL='sa24006223@mail.ustc.edu.cn' git commit -m "results(rtx5090): archive closed robustness case $case_name"
 commit=$(git rev-parse HEAD)
 gate=/root/autodl-tmp/stage45-case-gate
 mkdir -p "$gate"
