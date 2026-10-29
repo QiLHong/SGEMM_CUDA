@@ -12,9 +12,9 @@
 #pragma once
 #include "30_kernel_mini_simt.cuh"
 
-// K31 reuses K30's shape, ownership, shared layouts, arithmetic and epilogue.
-// Each experiment changes one of: temporary lifetime, stage count, CTA size,
-// or compiler register-budget annotation. K30 itself remains the saved control.
+// K31 复用 K30 的形状、线程分工、共享内存布局、运算和结果写回过程。
+// 每个实验只改变临时变量存活期、流水阶段数、线程块大小或编译器
+// 寄存器预算标注中的一项；保留 K30 作为不变的对照组。
 namespace k31 {
 using Small = k30::Shape<128,128,16,64,64,4,4,128>;
 using Large = k30::Shape<256,128,16,64,64,4,4,256>;
@@ -32,9 +32,9 @@ template<> struct Config<5> {
   static constexpr int Stages=2, Policy=0;
 };
 
-// Policy 2: consume each float4 before loading the next vector. The physical
-// global/shared coordinates and transfer count are identical to GlobalIterator.
-// ptxas may still reschedule these operations; lexical scope is not a guarantee.
+// 策略 2：每个 float4 读入后立即写入共享内存，再读下一个向量；
+// 全局/共享内存的物理坐标和搬运次数均与 GlobalIterator 相同。
+// ptxas 仍可能重新调度这些操作，源码中的变量作用域不保证最终指令顺序。
 template<class S>
 // 一个包裹取到就放下，尝试缩短临时值从产生到最后使用的时间。
 // 坐标和搬运总量不变；编译器仍可能重排，所以 C++ 局部作用域不等于物理寄存器立即释放。
@@ -99,7 +99,7 @@ __device__ __forceinline__ void run(int M,int N,int K,float alpha,
       if(future<K/S::K) {
         float *dst=storage+(future%Stages)*StageSize;
         if constexpr(Policy==1) {
-          // Late-load control: shorten next's source-level lifetime only.
+          // 延后读取的对照版本：仅缩短 next 在源码层面的存活区间。
           typename k30::GlobalIterator<S>::Fragment next;
           global.load(next); global.advance();
           global.store(next,dst,dst+ASize);
@@ -109,7 +109,7 @@ __device__ __forceinline__ void run(int M,int N,int K,float alpha,
         }
       }
     }
-    // Same retirement/publication protocol for every variant, including 3-stage.
+    // 所有变体（包括三阶段版本）使用相同的旧阶段结束/新阶段发布协议。
     __syncthreads();
   }
   k30::epilogue<S>(M,N,blockM,blockN,alpha,beta,C,map,acc);
@@ -126,9 +126,9 @@ void sgemmK31(int M,int N,int K,float alpha,const float *__restrict__ A,
            k31::Config<Variant>::Policy>(M,N,K,alpha,A,B,beta,C,storage);
 }
 
-// __maxnreg__ and __launch_bounds__ cannot be combined. These are separate
-// annotation controls, not an assertion that ptxas will allocate exactly Limit.
-// All five budgets still permit at most two 128-thread CTAs by registers.
+// __maxnreg__ 与 __launch_bounds__ 不能同时使用；这里分别研究两种
+// 编译器标注，并不保证 ptxas 恰好分配 Limit 个寄存器。
+// 这五种预算按寄存器资源估算，都至多允许同时驻留两个 128 线程的线程块。
 // Limit 是编译器寄存器上限，不是实际使用量；限制过紧可能把数据溢出到 local memory。
 // 这一路用 __maxnreg__，不能同时加 __launch_bounds__；比较时要保留这个编译约束差别。
 template<int Limit>

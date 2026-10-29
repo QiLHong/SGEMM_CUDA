@@ -7,17 +7,16 @@
 # 结果打印终端，不生成 benchmark CSV；模型通过不等于设备 FP32、异步调度或吞吐验证。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""CPU-only microbook exercises. No CUDA execution or performance measurement.
+"""仅在 CPU 上运行的小册子配套练习，不执行 CUDA，也不测量性能。
 
-Python arithmetic checks the teaching examples, not device FP32 rounding.
-All data is in memory; no historical results are modified.
-"""
+Python 算术用于核对教学示例，不模拟设备上的 FP32 舍入行为。
+所有数据都在内存中，运行不会改写历史实验结果。"""
 import unittest
 
 
 # 在 CPU 用小整数矩阵验证点积或分块循环是否算同一件事；不是 GPU 性能模型。
 def matmul(a, b, bk=None):
-    """Row-major list model; split K while preserving its accumulation order."""
+    """以行主序列表模拟矩阵；分块遍历 K 时仍保持原来的累加顺序。"""
     m, k, n = len(a), len(a[0]), len(b[0])
     assert len(b) == k
     assert all(len(row) == k for row in a)
@@ -35,7 +34,7 @@ def matmul(a, b, bk=None):
 
 # 用 Python 重现 K10/K30 的线程到输出坐标公式；便于检查每格是否恰好分给一个线程。
 def output_coordinates(mode, tid):
-    """Only the specific K10/K30 128-thread CTA mappings used in the book."""
+    """只覆盖小册子使用的 K10/K30 特定 128 线程块映射。"""
     warp, lane = divmod(tid, 32)
     if mode == "k10":
         row = 64 * (warp // 2) + 8 * (lane // 4)
@@ -79,7 +78,7 @@ class MicrobookExamples(unittest.TestCase):
         b = [[7, 8], [9, 10], [11, 12]]
         self.assertEqual(matmul([r[:2] for r in a], b[:2]), [[25, 28], [73, 82]])
         self.assertEqual(matmul([r[2:] for r in a], b[2:]), [[33, 36], [66, 72]])
-        # Rectangular and tail cases here belong to the CPU model, not K30.
+        # 这里的矩形和尾块用例只验证 CPU 教学模型，不表示 K30 支持这些形状。
         for m, k, n in [(2, 3, 2), (3, 5, 7), (4, 4, 4)]:
             a = [[(r * k + c) % 7 - 3 for c in range(k)] for r in range(m)]
             b = [[(r * n + c) % 5 - 2 for c in range(n)] for r in range(k)]
@@ -119,13 +118,13 @@ class MicrobookExamples(unittest.TestCase):
         offsets33 = [lane * 33 for lane in range(32)]
         self.assertEqual({x % 32 for x in offsets32}, {0})
         self.assertEqual({x % 32 for x in offsets33}, set(range(32)))
-        self.assertEqual(len(set(offsets32)), 32)  # Distinct words, same bank.
-        self.assertEqual(len(set([0] * 32)), 1)   # Same word: read broadcast case.
+        self.assertEqual(len(set(offsets32)), 32)  # 不同的存储字落在同一个 bank，会形成共享内存 bank 冲突。
+        self.assertEqual(len(set([0] * 32)), 1)   # 多个线程读取同一个存储字：这是读取广播的情况。
         self.assertNotEqual((1 * 4) % 16, 0)
         self.assertEqual((4 * 4) % 16, 0)
 
     def test_k1_k2_block_trace(self):
-        # Chapter 2: block (1,2), BLOCKSIZE=32, two different lane mappings.
+        # 第 2 章：取线程块 (1,2)、BLOCKSIZE=32，对照两种 lane 映射。
         k1 = [(32 + tid % 32, 64 + tid // 32) for tid in (0, 1, 31, 32)]
         k2 = [(32 + tid // 32, 64 + tid % 32) for tid in (0, 1, 31, 32)]
         self.assertEqual(k1, [(32, 64), (33, 64), (63, 64), (32, 65)])
@@ -133,7 +132,7 @@ class MicrobookExamples(unittest.TestCase):
         self.assertEqual((4096 // 128)**2 * 128 * 128, 4096**2)
 
     def test_k3_cooperative_load_trace(self):
-        # Chapter 3: first K tile, tid=33, block (1,2), M=N=K=128.
+        # 第 3 章：取第一个 K 分块、tid=33、线程块 (1,2)，矩阵维度 M=N=K=128。
         row, col = divmod(33, 32)
         self.assertEqual((row, col), (1, 1))
         self.assertEqual(32 * 128 + row * 128 + col, 4225)  # A[33,1]
@@ -145,7 +144,7 @@ class MicrobookExamples(unittest.TestCase):
         self.assertEqual(divmod(b_producer, 32), (3, 1))
 
     def test_k5_loader_vs_output_trace(self):
-        # Chapter 4: 128x128x8 CTA; 8x8 outputs/thread; 256 threads.
+        # 第 4 章：线程块分块为 128×128×8；每线程计算 8×8 个输出，共 256 个线程。
         tid = 17
         tr, tc = divmod(tid, 128 // 8)
         self.assertEqual((tr, tc), (1, 1))
@@ -157,11 +156,11 @@ class MicrobookExamples(unittest.TestCase):
         i, j = 2, 3
         row, col = tr * 8 + i, 128 + tc * 8 + j
         self.assertEqual((i * 8 + j, row, col, row * 256 + col), (19, 10, 139, 2699))
-        self.assertEqual(8 + 5, 13)  # Second K tile, dotIdx=5.
+        self.assertEqual(8 + 5, 13)  # 查看第二个 K 分块中 dotIdx=5 对应的读取位置。
 
     def test_k30_global_to_fragment_trace(self):
-        # Chapter 5: enumerate all logical stores for one 128x128x16 tile.
-        # This tests coordinate formulas, NOT CUDA alignment or execution.
+        # 第 5 章：枚举一个 128×128×16 分块中全部逻辑写入坐标。
+        # 这里只检查坐标公式，不检查 CUDA 地址对齐或设备执行结果。
         a_stores, b_stores = {}, {}
         for tid in range(128):
             ar, ak = tid // 4, (tid % 4) * 4
@@ -185,9 +184,9 @@ class MicrobookExamples(unittest.TestCase):
                          [(17, 36), (17, 37), (17, 38), (17, 39)])
 
     def test_k30_two_slot_sequential_trace(self):
-        # Chapter 6: sequential slot contents only, not a concurrent barrier proof.
+        # 第 6 章：只检查顺序执行时各槽位的内容，不证明并发屏障协议正确。
         for tiles in (1, 2, 3, 256):
-            slots = [0, None]  # Prologue publishes tile 0.
+            slots = [0, None]  # 预备阶段先填好第 0 个分块，供主循环第一次计算使用。
             consumed = []
             for tile in range(tiles):
                 self.assertEqual(slots[tile % 2], tile)

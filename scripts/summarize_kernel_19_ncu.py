@@ -11,7 +11,7 @@
 # shared_load_wavefronts_per_second 以 duration 为毫秒的旧口径计算，使用前先确认单位。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Export selected K19 Nsight Compute reports as one compact CSV."""
+"""把选定的 K19 Nsight Compute 报告汇总为一个紧凑的 CSV 文件。"""
 
 import argparse
 import csv

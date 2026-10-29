@@ -167,7 +167,7 @@ __global__ void __launch_bounds__(NUM_THREADS)
     const bool hasNext = bkIdx + BK < K;
     if (hasNext) {
       // B(next) 的异步搬运与当前 tile 的 FFMA 重叠；不预取 A，也不增加
-      // register fragment buffer。
+      // 寄存器中的计算片段缓冲区。
       wt_b_async::loadBAsync<BN, BK, ROW_STRIDE_B>(
           N, B + BK * N, Bs[currentBuffer ^ 1], innerRowB, innerColB);
       wt_b_async::commitAsyncGroup();

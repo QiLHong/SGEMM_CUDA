@@ -23,7 +23,7 @@ template<int BM, int BN, int BK, int WM, int WN, int TM, int TN, int THREADS>
 struct Shape {
   static constexpr int M=BM, N=BN, K=BK, Threads=THREADS;
   static constexpr int WarpM=WM, WarpN=WN, ThreadM=TM, ThreadN=TN;
-  // 4x8 lane lattice, interleaved along M. Each lane owns 16 A x 8 B.
+  // 默认形状使用 4×8 的 lane 网格，沿 M 方向交错排列；每个 lane 的计算片段包含 16 个 A 元素和 8 个 B 元素。
   static constexpr int Rows=WM/4, Cols=WN/8;
   static constexpr int ALoads=BM*BK/(4*THREADS), BLoads=BK*BN/(4*THREADS);
   static_assert(BM%WM==0 && BN%WN==0 && (BM/WM)*(BN/WN)*32==THREADS);
@@ -63,8 +63,8 @@ template<class S> struct FragmentIterator {
   __device__ static int reg(int i,int j) { return i*S::Cols+j; }
 };
 
-// Float4 source coordinates are established once. advance() only moves pointers.
-// Missing M rows (128-size test with a 256-row CTA) are explicitly zero-filled.
+// float4 的源坐标只在初始化时确定一次，advance() 只推进指针。
+// 超出 M 的行显式补零，例如 M=128 的测试采用覆盖 256 行的线程块时。
 // GlobalIterator 管搬运，不管输出归谁；搬运任务与计算任务可以是两张不同的分工表。
 // 它记住全局地址与行跨度，避免在源代码中每轮从矩阵原点重新写完整公式。
 // Fragment 中的 float4 a/b 是运输途中的临时包裹，不是最终 C 的 128 个累加器。
@@ -178,8 +178,8 @@ __device__ void epilogue(int M,int N,int blockM,int blockN,float alpha,float bet
 }
 } // namespace k30
 
-// Host contract: M multiple of 128; N multiple of BN; K multiple of BK;
-// aligned row-major FP32 matrices without aliasing. Not a general tail kernel.
+// 主机端调用约定：M 是 128 的倍数，N 是 BN 的倍数，K 是 BK 的倍数；
+// 矩阵按行主序存放 FP32，地址满足对齐要求且互不重叠；这里不处理任意尾块。
 template<class S, int STAGES>
 __global__ __launch_bounds__(S::Threads, (S::Threads==128 ? 2 : 1))
 void sgemmK30(int M,int N,int K,float alpha,const float *__restrict__ A,
@@ -208,9 +208,9 @@ void sgemmK30(int M,int N,int K,float alpha,const float *__restrict__ A,
       __syncthreads();
     }
   } else {
-    // S-1 ready shared tiles + one register-staged incoming tile.
-    // Software LDG->register lookahead, NOT cp.async or guaranteed overlap.
-    // All threads participate; no producer/consumer warp specialization.
+    // 共享内存中有 S-1 个就绪分块，另一个即将到来的分块暂存在寄存器中。
+    // 这是将 LDG 提前读入寄存器的软件预取，不使用 cp.async，也不保证实际发生重叠。
+    // 所有线程都参与搬运和计算，没有专门划分生产者/消费者 warp。
 #pragma unroll
     // 多槽准备阶段：先填好 STAGES-1 份 shared 数据，留一槽给后续 tile。
     // STAGES=2 时只先填 tile 0；不要把源代码里的“预取”理解成硬件保证同时执行。
@@ -237,8 +237,8 @@ void sgemmK30(int M,int N,int K,float alpha,const float *__restrict__ A,
       }
       // 轮尾屏障有两层作用：发布刚写好的 future，同时确认 current 已被所有线程读完。
       // 即使本线程已经算完，也不能在大家越过屏障前抢着复用别人还在读取的旧槽。
-      // Publish future stage and retire current stage. No thread can reuse
-      // a previous stage before all readers have passed this block barrier.
+      // 发布未来阶段并结束当前阶段；只有所有读取者都越过这个线程块屏障后，
+      // 线程才能复用之前阶段占据的缓冲槽位。
       __syncthreads();
     }
   }

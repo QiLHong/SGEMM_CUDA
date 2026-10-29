@@ -8,11 +8,10 @@
 # 两个库核有不同尾部/分支时，总静态条数不能直接推出吞吐差异。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Count static SASS opcodes exported from K10/cuBLAS NCU reports.
+"""统计从 K10/cuBLAS 的 NCU 报告导出的静态 SASS 操作码。
 
-The cuBLAS kernel contains multiple predicated/branched paths.  These whole-function
-counts prove which instruction families exist, but are not dynamic execution counts.
-"""
+cuBLAS 内核包含多个谓词执行路径或分支。对整个函数计数只能说明存在
+哪些指令族，不能代表一次实际运行中执行了多少条指令。"""
 
 import argparse
 import csv

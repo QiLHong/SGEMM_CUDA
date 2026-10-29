@@ -11,7 +11,7 @@
 // resources 模式打印编译寄存器与最大驻留块等资源；dynamic shared=0 不等于 kernel 没有 static shared。
 // 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-// K32 warp-role audit. Numerical/timing protocol copied unchanged from K30.
+// K32 的 warp 分工实验：数值验证与计时方法保持和 K30 一致。
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
 #include <nvToolsExt.h>
@@ -160,7 +160,7 @@ int main(int argc, char** argv) {
   // 先复位，再记录 start，启动核，记录 stop，等 stop 完成后读耗时；D2D 复位不计入 GEMM 时间。
   for (int i=0; i<repeats; ++i) {
     CUDA_OK(cudaMemcpy(dc, di, bytes, cudaMemcpyDeviceToDevice));
-    // NCU filters only this launch: validation and warmup are never profiled.
+    // NCU 只筛选这次启动进行采样；正确性验证与预热启动不在采样范围内。
     nvtxRangePushA("measure");
     CUDA_OK(cudaEventRecord(start)); launch(); CUDA_OK(cudaEventRecord(stop));
     nvtxRangePop();

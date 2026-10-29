@@ -11,7 +11,7 @@
 # 静态 FFMA/LDS 数和代码哈希能说明生成了什么；不能独立证明哪个版本更快。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Record exact compiler resources and SASS; no GPU or performance inference."""
+"""记录当前二进制的编译资源和 SASS 汇编；不执行 GPU，也不推断性能。"""
 import argparse
 import collections
 import csv
@@ -94,8 +94,8 @@ def main():
                     loops.append((start,pc,body,fmas))
         assert len(loops)==(2 if mode in ("serial","overlap","single") else 1),(mode,len(loops))
         for start,end,body,fmas in loops:
-            # Linear address windows are NOT dynamic instruction distances:
-            # serial has two mutually exclusive compiler-generated compute paths.
+            # 线性地址区间不能当作动态执行时的指令间隔：
+            # 编译器为 serial 生成了两条互斥的计算路径，一次执行不会同时经过两条。
             role="producer" if fmas==0 else "consumer" if mode in ("serial","overlap","single") else "combined"
             for pos,(pc,s) in enumerate(body):
                 if not re.search(r"\b(LDG|STS|BAR|CALL)(\.|\s)",s): continue

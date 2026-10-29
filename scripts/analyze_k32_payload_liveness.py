@@ -5,15 +5,14 @@
 # 输入是 analyze_k32_binary.py 导出的汇编文本，不启动 GPU。
 # 输出 payload-liveness.csv 与 high-register-values.csv；核对 2048 FFMA、96 LDS.128 的主体结构后统计。
 # lifetime 指一个值从产生到最后使用这段区间；这里只跟踪部分数据值，不包括全部地址/控制寄存器，不能冒充总资源需求。
-# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 初学者先比较 payload_live_peak/fragment_live_peak，再用逐寄存器表中的 defining_pc/last_use_pc 追踪值的存活区间。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Trace K32's straight-line LDS/FFMA payload, not whole-kernel allocation.
+"""跟踪 K32 直线代码段中的 LDS/FFMA 数据值，不统计整个内核的寄存器分配。
 
-Input: cuobjdump text saved by analyze_k32_binary.py. No GPU is required.
-Fails closed if the expected 128 accumulator x 16 updates pattern changes.
-Distances are instruction-index differences, never measured clock cycles.
-"""
+输入为 analyze_k32_binary.py 保存的 cuobjdump 文本，不需要 GPU。
+预期结构为 128 个累加器各更新 16 次；结构改变时立即报错，避免输出误导性统计。
+这里的距离是指令索引之差，不是实际测得的时钟周期。"""
 import argparse
 from collections import Counter, defaultdict
 import csv
@@ -67,9 +66,9 @@ def analyze(path, mode):
         assert values[value][5] == 16
         uses[value].append(len(body))
 
-    # At an instruction boundary, values whose last read just completed die.
-    # Accumulators are seeded live-in and all 128 final values are live-out.
-    # Address/control registers and scoreboard-held operands are NOT counted.
+    # 在指令边界处，最后一次读取刚结束的值不再计入存活集合。
+    # 累加器在入口就视为存活，128 个最终累加值也都必须保留到出口。
+    # 这里不统计地址/控制寄存器，也不统计因未完成指令而仍需保留的操作数。
     changes, fragments, loads, high = Counter(), Counter(), defaultdict(list), []
     for value, (reg, kind, begin, pc, origin, depth) in enumerate(values):
         assert uses[value], (mode, reg, hex(pc))

@@ -12,7 +12,7 @@
 # 历史源码哈希属于原实验时点；给源码加注释后哈希会变化，不能改写旧归档让它假装对应新文件。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Publish K31 evidence as new CSVs, preserving all historical measurements."""
+"""将 K31 实验证据保存为新的 CSV 文件，保留全部历史测量结果。"""
 import argparse
 import collections
 import csv
@@ -85,7 +85,7 @@ def performance(data):
     return result
 
 data=read(args.directory/"timing/fair.csv")
-# Validate the complete experiment before publishing any immutable CSV.
+# 先验证整个实验的日志完整性，再创建任何不允许覆盖的 CSV 结果文件。
 compiled=read(args.directory/"resources.csv")
 accepted={r["mode"] for r in compiled if r["resource_gate"]=="PASS"}
 expected_modes=accepted|{"strict"}
@@ -172,7 +172,7 @@ for policy in ["cold","steady"]:
             row[name]=value
         profiles.append(row)
 save("nsight.csv",profiles)
-# Library SASS is obtained from NCU, not from the executable's cuobjdump.
+# 库内核的 SASS 来自 NCU 报告，不是对当前可执行文件运行 cuobjdump 得到的内容。
 strict_counts=collections.Counter()
 for row in csv.reader((args.directory/"profiles/sass_cold_strict.csv").open()):
     if len(row)!=2 or not row[0].startswith("0x"): continue

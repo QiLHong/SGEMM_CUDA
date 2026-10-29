@@ -5,15 +5,13 @@
 # 需要 cuobjdump/nvdisasm；默认二进制路径为历史 build-prefetch-v1/sgemm。
 # 终端输出 CSV：主循环 FFMA 链、累加器复用距离、LDS 首次使用距离及 nvdisasm 寄存器信息。
 # 这里既有源码推导常量，也有汇编统计；静态距离不能直接换算延迟，更不能单凭它断言 scoreboard 瓶颈。
-# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 初学者先对照 metric/value/unit 三列，区分指令间隔与寄存器数量，再追查指标的推导或汇编统计代码。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Static SM86 SASS and register-liveness audit for Kernel 10.
+"""静态分析 Kernel 10 的 SM86 SASS 汇编和寄存器存活情况。
 
-The accumulator and LDS distances are counts of intervening static SASS
-instructions, not latency cycles.  Nsight Compute counters are required to decide
-whether a static dependency is a runtime bottleneck.
-"""
+累加器与 LDS 的距离统计的是中间隔了多少条静态 SASS 指令，而不是延迟周期。
+要判断某个静态依赖是否成为运行时瓶颈，还需要结合 Nsight Compute 的动态计数器。"""
 
 import argparse
 import csv
@@ -73,12 +71,11 @@ def register_number(text):
 
 # 沿 FFMA 的源/目的寄存器追踪同一个部分和，不能只盯住固定寄存器号，因为编译器可能重命名。
 def accumulator_chains(instructions):
-    """Follow FFMA accumulator values even when ptxas renames the GPR.
+    """即使 ptxas 重命名了通用寄存器（GPR），也沿值的流向跟踪 FFMA 累加器。
 
-    The two BAR instructions delimit the fully unrolled BK=16 compute body.
-    Each FFMA's fourth operand is the old accumulator value and its destination
-    is the new value.  Ownership therefore follows source GPR -> destination GPR.
-    """
+    两条 BAR 指令界定了完全展开的 BK=16 计算主体。
+    每条 FFMA 的第四个操作数提供旧累加值，目标寄存器保存新累加值，
+    因此要沿“源 GPR → 目标 GPR”追踪同一条累加链，而不能只看固定寄存器名。"""
     barriers = [index for index, instruction in enumerate(instructions)
                 if instruction["opcode"].startswith("BAR.")]
     if len(barriers) != 2:

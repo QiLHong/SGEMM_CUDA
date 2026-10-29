@@ -8,7 +8,7 @@
 # 这是旧表兼容入口，注释解释其限制，不改列名或历史数据；不能直接把它与新策略采样表拼接比较。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Export the K10/strict-cuBLAS microarchitecture NCU reports as CSV."""
+"""把 K10/严格 FP32 cuBLAS 的微架构 NCU 报告导出为 CSV。"""
 
 import argparse
 import csv

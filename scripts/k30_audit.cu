@@ -11,7 +11,7 @@
 // V1/V2/V3 是 Small 的 1/2/4 stage；V4 是 Large 的 4 stage，不能把 V4 与 V2 的差异只归因于线程数。
 // 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-// K30 isolated audit: strict FP32 cuBLAS / unchanged K10 / mini SIMT. No CUTLASS dependency.
+// K30 独立验证：对照严格 FP32 cuBLAS、未修改的 K10 与精简 SIMT 实现，不依赖 CUTLASS。
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
 #include <nvToolsExt.h>
@@ -132,7 +132,7 @@ int main(int argc, char** argv) {
   // 先复位，再记录 start，启动核，记录 stop，等 stop 完成后读耗时；D2D 复位不计入 GEMM 时间。
   for (int i=0; i<repeats; ++i) {
     CUDA_OK(cudaMemcpy(dc, di, bytes, cudaMemcpyDeviceToDevice));
-    // NCU filters only this launch: validation and warmup are never profiled.
+    // NCU 只筛选这次启动进行采样；正确性验证与预热启动不在采样范围内。
     nvtxRangePushA("measure");
     CUDA_OK(cudaEventRecord(start)); launch(); CUDA_OK(cudaEventRecord(stop));
     nvtxRangePop();

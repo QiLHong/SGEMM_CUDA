@@ -11,7 +11,7 @@
 # 先确认报告 mode/tag 对应本次构建，再把资源、等待和吞吐联系起来解释。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Export K23 Nsight reports, including the unit of DRAM read measurements."""
+"""导出 K23 Nsight 报告，同时保留 DRAM 读取指标的单位。"""
 import argparse
 import csv
 import io

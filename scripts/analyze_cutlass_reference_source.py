@@ -9,7 +9,7 @@
 # 文件用排他创建保护旧结果；读者应同时看单位、采样策略和有效指令谓词，不能把静态数与动态数相加。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Aggregate NCU per-PC executed instructions; sampled stalls are not cycle counts."""
+"""按指令地址（PC）汇总 NCU 的已执行指令数；采样得到的停顿数量不是执行周期数。"""
 import argparse
 import collections
 import csv
@@ -55,7 +55,7 @@ for mode in args.modes:
         never_active = original.startswith("@!PT ")
         ins=re.sub(r"^@!?U?P(?:\d+|T)\s+","",original)
         full=ins.split()[0]; op=full.split(".")[0]
-        # Always-false predicated LDS still consumes issue slots, but loads no data.
+        # 谓词始终为假的 LDS 仍会占用指令发射槽，但不会读入数据。
         if never_active: op += "_PRED_OFF"
         for name in stats: counters[op][name]+=number(r.get(name))
         counters[op]["static_PCs"]+=1
@@ -88,7 +88,7 @@ pcs.sort(key=lambda r:(r["mode"],-r["not_issued_samples"]))
 write("pc-stalls.csv",pcs)
 write("mainloop-lds.csv",hot_lds)
 
-# Logical warp-relative coordinates from the public MmaSimtPolicy and iterators.
+# 根据公开的 MmaSimtPolicy 和迭代器，推导相对于 warp 的逻辑坐标。
 if args.skip_mapping:
     raise SystemExit(0)
 mapping=[]

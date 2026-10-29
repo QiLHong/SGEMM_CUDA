@@ -12,7 +12,7 @@
 # 需要 CUDA GPU、nvidia-smi；采样/工具动作还需 ncu 或 compute-sanitizer。日志失败不能只看 CSV 中已有行。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Run isolated K30 SIMT audit; exclusive output creation preserves past runs."""
+"""运行独立的 K30 SIMT 验证；输出文件只允许新建，避免覆盖过去的运行结果。"""
 import argparse
 import csv
 import os
@@ -66,7 +66,7 @@ if args.action in ("correctness", "fair"):
             cases = [(0,0,m,n,b,1,0) for m in MODES if m != "strict"
                      for n in [128,256,512,1024,2048,4096] for b in [0,1,3]]
         else:
-            # Bring GPU out of idle before measuring the first randomized-order round.
+            # 第一轮随机顺序计时前先预热 GPU，减少从空闲状态恢复带来的影响。
             run(bench("k10",4096,3,100,20), "thermal_warmup.log")
             # 循环移位顺序而非随机：如 A/B/C，下一轮 B/C/A。减少总是第一个跑的偏差，但仍需多轮看波动。
             cases = [(r+1,i+1,MODES[(i+r)%len(MODES)],4096,3,50,10)

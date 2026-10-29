@@ -7,7 +7,7 @@
 # 结果打印终端，不生成 benchmark CSV；模型通过不等于设备 FP32、异步调度或吞吐验证。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""CPU-only regression tests: never convert sanitizer warnings into PASS."""
+"""只在 CPU 上运行的回归测试：确保不会将 Sanitizer 警告误判为 PASS。"""
 import unittest
 from audit_log_checks import sanitizer_passed
 

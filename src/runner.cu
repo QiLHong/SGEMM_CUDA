@@ -736,7 +736,7 @@ void runSgemmSimt256x128(int M, int N, int K, float alpha, float *A,
   const dim3 blockDim(NUM_THREADS);
   const bool edgeM = M % BM != 0;
   if constexpr (VARIANT == 1) {
-    // 4x2 warp grid: each warp owns 64x64, WMITER=1, WNITER=4.
+    // 4×2 的 warp 网格：每个 warp 负责 64×64 的输出，WMITER=1、WNITER=4。
     if (edgeM) {
       sgemmSimt256x128<true, 1, BM, BN, BK, 64, 64, 4, TM, TN,
                        NUM_THREADS, AS_PAD>
@@ -747,7 +747,7 @@ void runSgemmSimt256x128(int M, int N, int K, float alpha, float *A,
           <<<gridDim, blockDim>>>(M, N, K, alpha, A, B, beta, C);
     }
   } else if constexpr (VARIANT == 2) {
-    // 2x4 warp grid: each warp owns 128x32, WMITER=2, WNITER=2.
+    // 2×4 的 warp 网格：每个 warp 负责 128×32 的输出，WMITER=2、WNITER=2。
     if (edgeM) {
       sgemmSimt256x128<true, 1, BM, BN, BK, 128, 32, 2, TM, TN,
                        NUM_THREADS, AS_PAD>

@@ -7,18 +7,17 @@
 # 回归入口：python3 scripts/test_audit_log_checks.py；本模块自身不运行 Compute Sanitizer。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Strict Compute Sanitizer log checks shared by experiment drivers/reports."""
+"""供实验驱动与报告脚本共用的严格 Compute Sanitizer 日志检查。"""
 import re
 
 
 # 不要只搜索 '0 errors' 子串，因为 '10 errors' 也包含它。
 # 同时要求正确格式的 RESULT/PASS 与工具明确的零错误摘要；缺日志不能当作检查成功。
 def sanitizer_passed(content, tool):
-    """Require a numerical PASS and exactly one tool-specific zero summary.
+    """要求数值验证为 PASS，且恰好存在一条对应工具的零错误汇总。
 
-    Substring checks for '0 errors' also match '10 errors', and race warnings
-    can coexist with zero errors. Neither is a clean sanitizer result.
-    """
+    直接搜索子串“0 errors”也会误匹配“10 errors”；零错误计数也可能同时伴随竞争警告。
+    这两种情况都不能当作通过了 Sanitizer 检查，因此这里使用完整格式匹配。"""
     if not re.search(r"^RESULT,[^\n]*,PASS\s*$", content, re.MULTILINE):
         return False
     if tool == "racecheck":

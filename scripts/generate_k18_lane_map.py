@@ -8,7 +8,7 @@
 # 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Generate and validate the six K18 lane-to-output-fragment maps."""
+"""生成并验证 K18 的六种 lane 到输出片段的映射。"""
 
 import argparse
 import csv

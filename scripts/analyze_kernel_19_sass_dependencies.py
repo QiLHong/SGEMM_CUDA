@@ -5,15 +5,13 @@
 # 读取固定 build-prefetch-v1/v2/v3/sgemm；先构建这些变体，需要 cuobjdump，不需要运行 GPU。
 # 终端输出 K10 与 K19 变体的 LDS.128→FFMA 距离分布；一条 LDS.128 按四个连续物理寄存器处理。
 # 只是沿汇编文本寻找后续使用的近似，不是完整控制流/重命名分析；配合 Nsight 动态指标看，不能当作真实等待周期。
-# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 初学者先按 mode 比较 min_distance/median_distance/max_distance，再回到汇编追踪 LDS.128 结果首次参与 FFMA 的位置。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Measure static instruction distance from each LDS.128 to its first FFMA use.
+"""统计每条 LDS.128 到其结果首次被 FFMA 使用之间的静态指令间隔。
 
-This is a SASS ordering audit, not a latency-in-cycles measurement.  LDS.128 writes
-four consecutive registers.  For each load, the script finds the first later FFMA
-whose source operands reference any of those registers.
-"""
+这是 SASS 顺序检查，不是以周期为单位的延迟测量。LDS.128 写入四个连续寄存器；
+对每次读取，脚本寻找后面第一条把其中任意寄存器作为源操作数的 FFMA。"""
 
 import csv
 import re

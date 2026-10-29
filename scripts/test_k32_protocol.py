@@ -7,7 +7,7 @@
 # 结果打印终端，不生成 benchmark CSV；模型通过不等于设备 FP32、异步调度或吞吐验证。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""CPU coverage and bounded interleaving checks; not a substitute for Sanitizer."""
+"""在 CPU 上检查坐标覆盖和有限范围内的交错执行；不能替代设备上的 Sanitizer 检查。"""
 from functools import lru_cache
 import unittest
 

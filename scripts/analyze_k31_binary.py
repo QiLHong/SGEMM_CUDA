@@ -11,7 +11,7 @@
 # 静态 FFMA/LDS 数和代码哈希能说明生成了什么；不能独立证明哪个版本更快。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Record exact compiler resources and SASS; no GPU or performance inference."""
+"""记录当前二进制的编译资源和 SASS 汇编；不执行 GPU，也不推断性能。"""
 import argparse
 import collections
 import csv

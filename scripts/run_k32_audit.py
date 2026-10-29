@@ -12,7 +12,7 @@
 # 运行会占用 GPU；它不是只读报告脚本，重复动作应使用新的输出位置。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""K32 experiment selection, resource gate, and the unchanged K30 fair harness."""
+"""选择 K32 实验并检查资源约束，沿用 K30 的公平计时框架。"""
 import argparse
 import csv
 import os

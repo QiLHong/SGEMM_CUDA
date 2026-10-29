@@ -11,9 +11,9 @@
 
 #pragma once
 
-// K18 freezes K10's block/warp tiles, global-memory loads, shared-memory
-// layout, barriers and pipeline.  The only experimental variables are the
-// lane-to-fragment mapping and the per-thread M/N fragment shape.
+// K18 保持 K10 的线程块/warp 分块、全局内存读取、共享内存布局、
+// 屏障和流水线不变。实验只改变 lane 到计算片段的映射，
+// 以及每个线程负责的 M/N 片段形状。
 namespace wt_layout {
 
 template <const int VARIANT, const int ROW_GROUPS, const int COL_GROUPS>
@@ -21,15 +21,15 @@ __device__ __forceinline__ void mapLane(const uint lane, uint &threadRow,
                                         uint &threadCol) {
   static_assert(ROW_GROUPS * COL_GROUPS == WARPSIZE);
   if constexpr (VARIANT == 1) {
-    // V1: transpose the 8x4 lane lattice. Consecutive lanes move along M.
+    // V1：转置 8×4 的 lane 网格，使连续 lane 沿 M 方向排列。
     threadRow = lane % ROW_GROUPS;
     threadCol = lane / ROW_GROUPS;
   } else {
     threadRow = lane / COL_GROUPS;
     threadCol = lane % COL_GROUPS;
     if constexpr (VARIANT == 3) {
-      // V3: permute the four N groups inside each M group. This preserves the
-      // exact per-warp output set while changing which physical lane owns it.
+      // V3：在每个 M 分组内重排四个 N 分组。每个 warp 负责的输出集合
+      // 完全不变，只改变各输出元素归哪个物理 lane 计算。
       threadCol ^= threadRow & (COL_GROUPS - 1);
     }
   }
@@ -85,7 +85,7 @@ run(int M, int N, int K, float alpha, const float *__restrict__ A,
   float regN[WNITER * TN] = {0.0f};
 
   for (uint bkIdx = 0; bkIdx < K; bkIdx += BK) {
-    // The exact K10 global->shared helper and A/B shared layouts are reused.
+    // 直接复用 K10 的全局内存到共享内存搬运函数，以及 A/B 的共享内存布局。
     wt::loadFromGmem<BM, BN, BK, AS_STRIDE, rowStrideA, rowStrideB>(
         N, K, A, B, As, Bs, innerRowA, innerColA, innerRowB, innerColB);
     __syncthreads();
@@ -142,8 +142,8 @@ __global__ void __launch_bounds__(NUM_THREADS)
   __shared__ float As[AS_STRIDE * BK];
   __shared__ float Bs[BK * BN];
   if constexpr (VARIANT == 0) {
-    // V0 deliberately calls the unchanged K10 core; this is the control used
-    // for the SASS identity check.
+    // V0 特意调用未修改的 K10 核心代码，作为检查 SASS 指令是否一致
+    // 时所使用的对照组。
     wt::runWarptilingCore<BM, BN, BK, WM, WN, WNITER, TM, TN, NUM_THREADS,
                           AS_STRIDE>(M, N, K, alpha, A, B, beta, C,
                                      blockIdx.y, blockIdx.x, As, Bs);

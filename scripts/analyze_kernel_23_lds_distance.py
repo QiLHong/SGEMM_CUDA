@@ -5,10 +5,10 @@
 # 读取固定 build-k23-v1/v2/v3/v4/sgemm；V1 的符号来自 K21 iterator，需先构建变体。
 # 终端输出每种模式的 LDS.128 到 FFMA 首次使用间隔；需要 cuobjdump，不运行计时。
 # 距离少不一定更好，距离多也可能占用更多寄存器；它用于解释 SASS，不用于单独选最快实现。
-# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 初学者先按 mode 比较各变体的 min_distance/median_distance/max_distance；距离以指令数计，不是执行周期。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Static LDS.128 to first FFMA use distance (instructions, not cycles)."""
+"""统计 LDS.128 到首次 FFMA 使用之间的静态距离，单位是指令条数而非周期。"""
 import csv
 import re
 import statistics

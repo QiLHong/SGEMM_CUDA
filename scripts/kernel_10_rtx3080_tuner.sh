@@ -14,11 +14,11 @@
 # Bash 的安全开关：-e 遇失败尽早停，-u 防止误用未定义变量，pipefail 让管道中间失败也能被发现。
 set -euo pipefail
 
-# RTX 3080 / SM86 focused Kernel 10 search. Unlike the upstream tuner, this
-# script passes compile-time definitions through CMake and never edits sources.
-# Search runs use one 4096^3 shape and fewer repeats; the winner is rebuilt and
-# rechecked with a longer run. Every run still performs the stock cuBLAS
-# correctness comparison before timing.
+# 针对 RTX 3080 / SM86 搜索 Kernel 10 参数；本脚本通过 CMake 传递
+# 编译期宏定义，搜索过程中不修改源码。
+# 搜索阶段使用 4096³ 这一种矩阵规模，并减少重复次数；筛出的最佳配置会重新编译，
+# 再用较长的计时过程复查。每次运行仍先与原有 cuBLAS 参考结果
+# 比较正确性，再开始计时。
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # 根据脚本自身位置找仓库，不是把当前 shell 所在目录随意当根目录；后续路径都由这里展开。

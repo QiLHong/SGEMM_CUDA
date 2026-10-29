@@ -8,7 +8,7 @@
 # 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""CPU proof of ownership/layout bounds, plus complete per-warp mapping CSV."""
+"""在 CPU 上枚举线程分工并检查布局边界，同时导出每个 warp 的完整映射 CSV。"""
 import argparse
 import csv
 from pathlib import Path
@@ -37,7 +37,7 @@ for bm,threads in [(128,128),(256,256)]:
                                          shared_a_k0=m,shared_b_k0=n,
                                          shared_a_k_stride=bm+4,shared_b_k_stride=128))
     assert len(outputs)==bm*128
-    # Transpose stores and fragment loads must agree at every k.
+    # 对每个 k，转置写入与片段读取必须指向同一逻辑元素。
     for k in range(16):
         for m in range(bm): assert 0<=k*(bm+4)+m<16*(bm+4)
         for n in range(128): assert 0<=k*128+n<16*128

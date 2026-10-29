@@ -13,8 +13,8 @@
 #pragma once
 #include "30_kernel_mini_simt.cuh"
 
-// K32: one producer warp + the unchanged four K30 consumer warps.
-// Two controlled protocols, not a Hopper/Tensor Core implementation.
+// K32：一个生产者 warp 搬运数据，四个消费者 warp 沿用 K30 的计算分工。
+// 用 serial、overlap、single 三种协议作对照；计算使用 SIMT 浮点乘加，不使用 Hopper 专用机制或 Tensor Core。
 namespace k32 {
 using S = k30::Shape<128,128,16,64,64,4,4,128>;
 constexpr int Threads=160;
@@ -26,8 +26,8 @@ constexpr int SharedBytes=2*StageSize*sizeof(float);
 // producer 与 consumer 在不同分支但会到达同一个屏障；memory 告诉编译器这里有内存次序约束。
 // 普通双屏障版本每轮先 1 后 2；single 只到 1。漏一方或提前 return 都可能死锁。
 template<int Id> __device__ __forceinline__ void rendezvous() {
-  // Non-.aligned PTX: different warp-uniform branches reach the same barrier.
-  // Every phase has exactly 160 arrivals, in order 1 then 2. No early exits.
+  // PTX 指令不带 .aligned：生产者与消费者从不同分支到达同一个命名屏障，每个 warp 内分支一致。
+  // 每次屏障都要凑齐 160 个线程；serial/overlap 每轮先到 1 再到 2，single 每轮只到 1，不能提前退出。
   asm volatile("barrier.sync %0, 160;" :: "n"(Id) : "memory");
 }
 
@@ -36,8 +36,8 @@ template<int Id> __device__ __forceinline__ void rendezvous() {
 // 只让一组人搬运不一定快：其他 warp 虽可算数，但总资源、同步和等待关系也变了。
 __device__ __forceinline__ void copyTile(const float *a,const float *b,
     int N,int K,int lane,float *as,float *bs) {
-  // 32 lanes cover the same float4 coordinates that K30 assigns to 128 lanes.
-  // No register-staged full tile: each source vector is stored before reuse.
+  // 32 个 lane 搬完 K30 原本分给 128 个 lane 的所有 float4 坐标。
+  // 每次读入的向量随即写入共享内存，再复用寄存器；不会先用寄存器暂存整个 tile。
 #pragma unroll
   for(int t=0;t<16;++t) {
     int m=lane/4+t*8, k=(lane%4)*4;
@@ -54,10 +54,9 @@ __device__ __forceinline__ void copyTile(const float *a,const float *b,
 }
 } // namespace k32
 
-// Overlap=false: copy(next) -> barrier 1 -> compute(current) -> barrier 2.
-// Overlap=true:  copy(next) || compute(current) -> barrier 1 -> barrier 2.
-// The intentionally redundant second barrier in Overlap=true keeps the dynamic
-// barrier count matched. This is an attribution experiment, not a best kernel.
+// Overlap=false：搬运下一块 -> 屏障 1 -> 计算当前块 -> 屏障 2。
+// Overlap=true 且 SingleBarrier=false：搬运下一块与计算当前块可重叠 -> 屏障 1 -> 屏障 2。
+// Overlap=true 且 SingleBarrier=true：同样允许搬运与计算重叠，但每轮仅保留屏障 1。
 // serial 是先搬 next、集合、再算 current、集合；overlap 是搬 next 与算 current 各自进行后集合。
 // overlap 的第二道屏障刻意保留作等次数对照；single 再单独研究删掉这道重复屏障的影响。
 // 这是一组归因实验，不是 Hopper 的专用硬件流水，也不把 producer 的寄存器免费返还给 consumer。
@@ -72,7 +71,7 @@ void sgemmK32(int M,int N,int K,float alpha,const float *__restrict__ A,
   bool producer=tid<32;
   const float *a=A+blockM*K, *b=B+blockN;
   if(producer) k32::copyTile(a,b,N,K,tid,storage,storage+k32::ASize);
-  __syncthreads(); // publish tile 0 once, using barrier 0
+  __syncthreads(); // 初始 tile 搬完后让整个线程块同步，确保所有消费者都能读取它。
   if(producer) {
 #pragma unroll 1
     for(int tile=0;tile<K/16;++tile) {

@@ -9,7 +9,7 @@
 // 库模板名称很长：把它拆成数学类型、架构、block/warp/指令分块、epilogue、stage 逐项阅读即可。
 // 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-// Independent reference experiment; does not change the production dispatcher.
+// 独立的参考实现实验，不改变主程序的 kernel 分派逻辑。
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
 #include <nvToolsExt.h>
@@ -118,7 +118,7 @@ int main(int argc, char** argv) {
   // 每次从 C0 重来，计时只包围 GEMM；beta=3 不再把上一次输出递归放大。
   for (int i=0; i<repeats; ++i) {
     CUDA_OK(cudaMemcpy(dc, di, bytes, cudaMemcpyDeviceToDevice));
-    // NCU filters only this launch: validation and warmup are never profiled.
+    // NCU 只筛选这次启动进行采样；正确性验证与预热启动不在采样范围内。
     nvtxRangePushA("measure");
     CUDA_OK(cudaEventRecord(start)); launch(); CUDA_OK(cudaEventRecord(stop));
     nvtxRangePop();

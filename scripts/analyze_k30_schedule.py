@@ -5,10 +5,10 @@
 # 需要 CUDA 的 cuobjdump，但无需在 GPU 上执行 benchmark。
 # 识别含 2048 条 FFMA 的主循环并记录 LDG/STS/BAR 在循环中的位置；二进制结构改变时识别假设须重新检查。
 # 指令距离是文本顺序上的间隔，不是时钟周期；load 出现在 FFMA 前面不等于硬件真的隐藏了等待。
-# 初学者先看生成表中 lane=0/1/16 的行列，再回到对应 kernel 的索引公式。
+# 初学者先看 pc/instruction，再用 ffma_before/ffma_after 判断搬运指令在乘加序列中的位置；这些列描述静态指令顺序。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Static mainloop LDG placement: instruction positions, not latency/cycle claims."""
+"""检查主循环中 LDG 的静态位置：报告指令顺序，不推断延迟或执行周期。"""
 import argparse
 import csv
 import re

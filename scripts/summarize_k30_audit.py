@@ -12,7 +12,7 @@
 # 历史源码哈希属于原实验时点；给源码加注释后哈希会变化，不能改写旧归档让它假装对应新文件。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Summarize K30 raw logs; units and static/dynamic counts stay explicit."""
+"""汇总 K30 原始日志，明确保留单位以及静态/动态计数的区别。"""
 import argparse
 import collections
 import csv
@@ -114,7 +114,7 @@ for policy in ["cold","steady"]:
             if name in ["shared_bytes","dram_bytes"]:
                 v *= {"byte":1,"Kbyte":1e3,"Mbyte":1e6,"Gbyte":1e9}[unit.split("/")[0]]
             row[name]=v
-        # Wavefronts are hardware work units, not bytes or warp instructions.
+        # Wavefront 是硬件处理的工作单元数，不能当作字节数或 warp 指令数。
         row["load_wavefronts_per_1024_thread_ffma"] = row["shared_load_wavefronts"]*1024/row["thread_ffma"]
         row["warp_instructions_per_32_thread_ffma"] = row["warp_instructions"]*32/row["thread_ffma"]
         profiles.append(row)
@@ -134,7 +134,7 @@ for policy in ["cold","steady"]:
                          **{op:counts[op] for op in ["FFMA","LDS","LDS_PRED_OFF","LDGSTS","LDG","STS","DEPBAR","BAR","IMAD","IADD3","LEA","MOV","HMMA","MMA"]}))
 write("nsight.csv",profiles)
 write("static-sass.csv",sass)
-# Build statistics belong to this exact binary, not to earlier CMake builds.
+# 编译资源统计只对应当前这个二进制文件，不代表更早的 CMake 构建产物。
 resources = []
 mode = None
 for line in (args.directory / "build.log").read_text().splitlines():

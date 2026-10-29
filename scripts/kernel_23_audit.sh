@@ -10,7 +10,7 @@
 # Nsight 另用 profile_kernel_23_ncu.sh；SASS 另用 audit_kernel_23_sass.sh，名称 audit 不代表已完成所有阶段。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-# Reproducible K23 correctness, fair timing, memcheck and Nsight runs.
+# 按固定流程执行 K23 正确性检查、公平计时、memcheck 与 Nsight 分析。
 # Bash 的安全开关：-e 遇失败尽早停，-u 防止误用未定义变量，pipefail 让管道中间失败也能被发现。
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

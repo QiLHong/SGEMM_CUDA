@@ -11,7 +11,7 @@
 # 先确认报告 mode/tag 对应本次构建，再把资源、等待和吞吐联系起来解释。
 # 中文总索引：docs/zh/23-代码与脚本使用索引.md；脚本命令默认在仓库根目录执行。
 
-"""Export selected K20 Nsight Compute reports as one compact CSV."""
+"""把选定的 K20 Nsight Compute 报告汇总为一个紧凑的 CSV 文件。"""
 
 import argparse
 import csv

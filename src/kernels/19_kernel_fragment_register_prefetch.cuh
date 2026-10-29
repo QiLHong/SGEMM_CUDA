@@ -12,9 +12,9 @@
 
 #pragma once
 
-// K19 freezes all K10 tiling, global-memory loading and shared-memory layout.
-// Only the order of B shared-memory loads relative to the current dot-product
-// FFMA group changes. A remains single-buffered in registers.
+// K19 保持 K10 的全部分块方式、全局内存读取和共享内存布局不变。
+// 只改变从共享内存读取 B 片段与当前点积 FFMA 指令组之间的顺序；
+// A 片段在寄存器中仍使用单缓冲。
 namespace wt_prefetch {
 
 template <const int BM, const int BK, const int AS_STRIDE, const int WM,
@@ -51,8 +51,8 @@ loadBFragment(const float *__restrict__ Bs, float *__restrict__ regN,
   }
 }
 
-// V2 only: four B fragment addresses are advanced before the current FFMA
-// group. The fixed K19 shape is asserted by the caller.
+// 仅 V2：在当前 FFMA 指令组之前，提前推进四个 B 片段的地址。
+// 调用方通过断言限制 K19 使用的固定分块形状。
 __device__ __forceinline__ void
 // 四个指针分别指向当前 k 的四组连续 B 元素，每组 float4。
 // V2 想把地址推进提前；有四个指针也可能延长地址寄存器的存活时间，所以必须同时看编译资源。
@@ -154,8 +154,8 @@ process(float *__restrict__ regM, float *__restrict__ regNEven,
     }
   // 把两个 k 步骤写在同一循环里只是软件展开；ptxas 本来就可能做相同展开，最终 SASS 可能与 V1 完全一致。
   } else if constexpr (VARIANT == 3) {
-    // Explicit two-dot software schedule: B(k+1) is loaded before compute(k),
-    // then the consumed register bank is reused for B(k+2).
+    // 显式安排两个点积步的软件调度：先读入 B(k+1)，再计算第 k 步，
+    // 随后将已消费完毕的那组寄存器复用于 B(k+2)。
     loadBFragment<BN, WN, WNITER, WSUBN, TN>(
         Bs, regNEven, 0, warpCol, threadColInWarp);
 #pragma unroll

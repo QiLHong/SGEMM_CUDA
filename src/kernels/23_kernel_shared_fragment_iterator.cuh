@@ -12,18 +12,18 @@
 
 #pragma once
 
-// K23 retains the K10 output ownership and arithmetic. V2 and V3 permute one
-// operand at a time; V4 is the preserved-history addendum that combines both.
+// K23 保持 K10 的输出分工与运算不变。V2、V3 每次只重排一个
+// 操作数；V4 是保留前面实验历史后追加的组合版本，同时应用两种重排。
 namespace k23 {
 constexpr uint BM = 128, BN = 128, BK = 16, WM = 64, WN = 64;
 constexpr uint TM = 8, TN = 4, WNITER = 4, AS_STRIDE = BM + 4;
 
-// V2: [k][n] -> [n/16][k][n%16]. Each 16-column fragment stays contiguous.
+// V2：布局由 [k][n] 改为 [n/16][k][n%16]，每个 16 列片段仍连续存放。
 __device__ __forceinline__ constexpr uint bFragmentOffset(uint k, uint n) {
   return (n / 16) * (BK * 16) + k * 16 + n % 16;
 }
 
-// V3: [k][m+pad] -> [m/64][k][m%64]. One warp row occupies one slab.
+// V3：布局由 [k][m+pad] 改为 [m/64][k][m%64]，每个 warp 行组占一个连续区域。
 __device__ __forceinline__ constexpr uint aWarpOffset(uint k, uint m) {
   return (m / WM) * (BK * WM) + k * WM + m % WM;
 }
@@ -88,8 +88,8 @@ __device__ __forceinline__ void loadTile(int N, int K,
   const uint bRow = threadIdx.x / (BN / 4);
   const uint bCol4 = threadIdx.x % (BN / 4);
 
-  // The source addresses, float4 load/store widths and per-thread ownership
-  // match K10. Only the shared destination offset differs.
+  // 源地址、float4 读写宽度和每个线程负责的元素都与 K10 一致；
+  // 只改变共享内存目标地址的偏移量。
   for (uint offset = 0; offset + ROW_STRIDE_A <= BM;
        offset += ROW_STRIDE_A) {
     const float4 value = reinterpret_cast<const float4 *>(
@@ -123,7 +123,7 @@ __device__ __forceinline__ void loadTile(int N, int K,
 }
 } // namespace k23
 
-// V1 is exactly sgemmK21Iterator, selected by the K23 host dispatcher.
+// V1 就是 sgemmK21Iterator，由 K23 的主机端分派逻辑选择。
 template <int VARIANT>
 __global__ void __launch_bounds__(128, 2)
     sgemmK23SharedFragmentIterator(int M, int N, int K, float alpha,
